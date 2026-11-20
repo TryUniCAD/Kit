@@ -127,6 +127,8 @@ kit run --root . solidworks --catalogue /path/to/FeaturePlan.json --directory /t
 
 Cloud providers default to login mode. Integrated Codex advice uses `gpt-6.2-sol` with medium reasoning. Use `--model` to override the model. The Claude CLI selects its configured model when no override is given.
 For Ollama, start the server with `OLLAMA_NO_CLOUD=1` and supply an installed model tag.
+With `--input`, a [file-level stall](../Changes/Research/Inference/FileStallExperiments.md) can use one advice call even when the catalogue has no parked worker job. The remaining call budget is available to the workers. See `FileExperiments.json` for local control replays when an applicable experiment exists.
+
 Omit `--advisor` to run deterministic research alone. Advice requires macOS or Linux.
 Use `--advice-calls N` to set the limit for the batch. The default is four calls.
 

@@ -108,6 +108,7 @@ def MainRun():
             Workers=KMaxBatchWorkers if Args.workers is None else Args.workers,
             NativeReady=Args.native_ready,
             FileScope=FileAudit,
+            FileInput=Args.input,
         )
         Output = canonical(
             {

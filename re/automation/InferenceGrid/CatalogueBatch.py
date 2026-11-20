@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from dataclasses import replace
 import sqlite3
 import subprocess
 import sys
@@ -50,6 +51,7 @@ def RunCatalogueBatch(
     Workers=KMaxBatchWorkers,
     NativeReady=False,
     FileScope=None,
+    FileInput=None,
 ):
     Workers = bounded(Workers, 1, KMaxBatchWorkers)
     CheckRevision(Revision)
@@ -57,6 +59,7 @@ def RunCatalogueBatch(
         raise ValueError("use a new run directory outside the source checkout")
     Plan = BuildRunPlan(Catalogues, Revision)
     Directory.mkdir(mode=0o700)
+    FileAdviceStatus = None
     if FileScope is not None:
         Audit, Reports = FileScope
         WriteRecord(Directory / "FileScope.json", Audit)
@@ -66,6 +69,20 @@ def RunCatalogueBatch(
                 Name = {"reader-patch": "Reader.patch", "mirrored-field-reader": "MirroredFields.patch", "pattern-count-reader": "SketchPatternCounts.patch", "design-names": "DesignNames.patch", "state-repair": "BrepTypes.patch", "timeline-names": "TimelineNames.patch"}[Layer]
                 with (Directory / Name).open("x", encoding="utf-8") as Patch:
                     Patch.write(Report["patch"])
+        from InferenceGrid.FileAdvice import advise_file, file_stall
+        Stall = file_stall(Audit, Reports)
+        if Stall is not None:
+            WriteRecord(Directory / "FileStall.json", Stall)
+            Selected = None
+            if Advice is not None:
+                FileAdviceStatus, Selected = advise_file(Directory, Stall, Advice)
+                Advice = replace(Advice, calls=Advice.calls - 1) if Advice.calls > 1 else None
+            Experiments = Stall["available_experiments"]
+            if FileInput is not None and Experiments:
+                from InferenceGrid.DepthControlReplay import replay_depth_edit
+                Ordered = ([Selected] if Selected in Experiments else []) + [name for name in Experiments if name != Selected]
+                Replays = [replay_depth_edit(SourceRoot, FileInput, Stall, name) for name in Ordered]
+                WriteRecord(Directory / "FileExperiments.json", {"advisor_selection": Selected, "results": Replays})
     WriteRecord(Directory / "CataloguePlan.json", Plan)
     Store = Directory / "Store"
     Config, _, _ = PilotConfig(Directory, SourceRoot, Workers, GroupRescans=False)
@@ -95,6 +112,12 @@ def RunCatalogueBatch(
     Results.update(ReadCatalogueJobs(Store, Submissions, PhaseJobs))
     Outcome = RunOutcome(Plan, Results, Failures)
     if FileScope is not None:
+        if Stall is not None:
+            if (Directory / "FileExperiments.json").exists():
+                Outcome["file_experiments"] = str(Directory / "FileExperiments.json")
+            Outcome["file_stall"] = str(Directory / "FileStall.json")
+        if FileAdviceStatus is not None:
+            Outcome["file_advice"] = {"status": FileAdviceStatus, "path": str(Directory / "FileAdvice/Advice.json")}
         Outcome["file_scope"] = str(Directory / "FileScope.json")
         if Outcome["status"] == "completed":
             Outcome["status"] = "coverage_incomplete"

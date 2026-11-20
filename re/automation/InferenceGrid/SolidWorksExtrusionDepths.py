@@ -91,6 +91,8 @@ def extrusion_depths(root, data, features, pin, dimensions, projected, stream, c
     intervals, scalars = extrusion_records(data, features)
     by_offset = {s.value_offset: s for s in scalars}
     results = []
+    shifted = []
+    layout_budget = 4096
     for f, start, end in intervals:
         if len(f.dimensions) != 1:
             continue
@@ -110,6 +112,36 @@ def extrusion_depths(root, data, features, pin, dimensions, projected, stream, c
             if all(m + 8 <= end and struct.unpack_from("<d", data, m)[0] == sign * s.value
                    for m, (_, sign) in zip(mirrors, rule["mirror_offsets"])):
                 predictions.append((pos, s.value, mirrors))
+        if not predictions and row["status"] == "ambiguous":
+            alternatives = set()
+            exhausted = False
+            for member, pos in row["candidate_locations"]:
+                s = by_offset.get(pos)
+                if member != stream or not start <= pos < end or s is None or s.name != dim.name or s.value <= 0:
+                    continue
+                for rule in rules:
+                    if layout_budget == 0:
+                        exhausted = True
+                        break
+                    layout_budget -= 1
+                    layout = rule["mirror_offsets"]
+                    if len(layout) < 4 or any(b[0] - a[0] < 8 for a, b in zip(layout, layout[1:])):
+                        continue
+                    first, sign = layout[0]
+                    limit = min(end, pos + 2048)
+                    word = struct.pack("<d", s.value * sign)
+                    cursor = data.find(word, pos + 8, limit)
+                    while cursor >= 0:
+                        mirrors = tuple(cursor + offset - first for offset, _ in layout)
+                        if mirrors[-1] + 8 <= limit and all(
+                            data[m:m+8] == struct.pack("<d", s.value * direction)
+                            for m, (_, direction) in zip(mirrors, layout)
+                        ):
+                            alternatives.add((pos, mirrors))
+                        cursor = data.find(word, cursor + 1, limit)
+            shifted.append({"feature_id": f.object_id, "name": dim.name,
+                            "search_complete": not exhausted,
+                            "candidate_layouts": [{"offset": pos, "copies": copies} for pos, copies in sorted(alternatives)]})
         if len(predictions) != 1:
             continue
         pos, value, mirrors = predictions[0]
@@ -120,4 +152,4 @@ def extrusion_depths(root, data, features, pin, dimensions, projected, stream, c
                  (stream, pos, 8, "dimension-scalar") for s in params[0]["provenance"]["spans"]["$tuple"])
         results.append({"feature_id": f.object_id, "name": dim.name, "stream": stream, "offset": pos, "value_m": value,
                         "mirror_offsets": mirrors, "reader_span_matches": matches})
-    return {"held_out_sha256": pin, "rules": rules, "predictions": results}
+    return {"held_out_sha256": pin, "rules": rules, "predictions": results, "shifted_layout_experiments": shifted}

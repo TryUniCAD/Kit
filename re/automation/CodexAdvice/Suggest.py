@@ -211,6 +211,8 @@ def request_advice(
         "required": list(ANSWER_FIELDS),
         "additionalProperties": False,
     }
+    if packet.get("experiments"):
+        schema["properties"]["controlled_change"]["enum"] = packet["experiments"]
     with TemporaryDirectory(prefix="kit-codex-advice-") as temporary:
         work = Path(temporary).resolve()
         write_private(work / "Schema.json", schema)
@@ -283,6 +285,8 @@ def request_advice(
                         env=None if options is None else provider_env(options),
                     )
                     suggestion = read_answer(answer)
+                if packet.get("experiments") and suggestion["controlled_change"] not in packet["experiments"]:
+                    raise ValueError("provider selected an unavailable experiment")
             except (subprocess.TimeoutExpired, TimeoutError):
                 attempts.append({"effort": effort, "status": "timeout"})
             except subprocess.CalledProcessError as error:

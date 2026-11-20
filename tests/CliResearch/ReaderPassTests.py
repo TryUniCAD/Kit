@@ -6,6 +6,7 @@ from subprocess import run as RunProcess
 from sys import executable as PythonPath
 
 from tests.CliResearch.ResearchRoot import ResearchRoot
+from tests.Research.Inference.AdviceProvider import SetProviderMut
 
 
 # a separately supplied holdout remains outside training in a sparse checkout
@@ -49,6 +50,7 @@ def CheckReservedControlReplay(TmpPath: FilePath) -> None:
         "PYTHONPATH": str(Checkout / "src") + PathSeparator + str(Checkout / "Cli"),
         "PYTHONDONTWRITEBYTECODE": "1",
     }
+    SetProviderMut(Environment, TmpPath)
     Result = RunProcess(
         [
             PythonPath,
@@ -64,6 +66,10 @@ def CheckReservedControlReplay(TmpPath: FilePath) -> None:
             str(Control),
             "--directory",
             str(Output),
+            "--advisor",
+            "codex",
+            "--advice-calls",
+            "1",
             "--workers",
             "1",
             "--reserved-memory-mib",
@@ -89,3 +95,27 @@ def CheckReservedControlReplay(TmpPath: FilePath) -> None:
     assert Passes["stop"] == "no_verified_patch"
     assert Passes["passes"] == []
     assert not (Output / "Reader.patch").exists()
+    Stall = LoadJson((Output / "FileStall.json").read_bytes())
+    assert Stall["source_sha256"] == Evidence["input_sha256"]
+    assert Stall["focus"] == "ambiguous_dimension"
+    assert Stall["signed_extrusion_layout_refuted_on_searched_fields"]
+    Request = LoadJson((Output / "FileAdvice/Request.json").read_bytes())
+    assert "no match" in Request["packet"]["discovery_summary"]
+    assert Source.name not in str(Request["packet"])
+    assert Evidence["input_sha256"] not in str(Request["packet"])
+    Answer = LoadJson((Output / "FileAdvice/Advice.json").read_bytes())
+    assert Answer["status"] == "proposal" and Answer["verified_rule"] is False
+    assert (TmpPath / "Calls").read_text().splitlines() == ["called"]
+    Experiments = LoadJson((Output / "FileExperiments.json").read_bytes())
+    assert Experiments["advisor_selection"] == "vary blind cut depth"
+    Cut, Boss = Experiments["results"]
+    assert Cut["controlled_change"] == Experiments["advisor_selection"]
+    assert Cut["status"] == Boss["status"] == "no_target_match"
+    assert (
+        Cut["comparisons"][0]["input_value"],
+        Cut["comparisons"][0]["control_value"],
+    ) == (0.004, 0.005)
+    assert (
+        Boss["comparisons"][0]["input_value"],
+        Boss["comparisons"][0]["control_value"],
+    ) == (0.01, 0.012)
