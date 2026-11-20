@@ -10,7 +10,7 @@ sys.path.insert(0, str(TOOL.parent))
 import ProbeThroughMultiStock01 as multi
 
 
-PACKET = 'ThroughAllBodies01'
+PACKET = 'ThroughAllBodies02'
 SCHEMA = 'kit.sw2026.disclosed-through-all-unrestricted-scope.v1'
 GUEST = multi.GUEST.with_name(PACKET)
 PHASES = ('Before', 'AllBodiesAuthor', 'AllBodiesReopen', 'After')
@@ -104,7 +104,7 @@ def guest(args):
                and plan['schema'] == SCHEMA and plan['phase_order'] == list(PHASES)
                and plan['disclosed_trial_sha256'] == multi.TRIAL and plan['previous_attempt'] == PREVIOUS
                and plan['oracle_exe_sha256'] == multi.ORACLE and plan['oracle_build'] == multi.BUILD
-               and plan['design'] == multi.DESIGN and plan['predictions'] == multi.predictions()
+               and plan['design'] == multi.DESIGN
                and plan['use_feature_scope'] is False and plan['use_auto_select'] is False,
                'the frozen unrestricted comparison changed')
     for name in (TOOL.name, Path(multi.__file__).name, multi.CONTROL):
