@@ -1,6 +1,6 @@
 import json
 from collections.abc import Mapping
-from math import isclose
+from math import isclose, isfinite
 from pathlib import Path
 import re
 from traceback import print_exc
@@ -161,15 +161,22 @@ def independent_shape(specification):
     return expected, measure_shape
 
 
+def same_six_figures(actual, expected, near_zero):
+    if not (isfinite(actual) and isfinite(expected)):
+        return False
+    if max(abs(actual), abs(expected)) <= near_zero:
+        return isclose(actual, expected, rel_tol=0, abs_tol=near_zero)
+    return format(actual, ".6g") == format(expected, ".6g")
+
+
 def compare_shape(reference, actual):
     require(all(reference[key] == actual[key] for key in (
         "vertices", "edges", "faces", "face_edge_incidence",
     )), "native physical incidence differs from the signed source box")
     fields = [(actual[key], reference[key], tolerance) for key, tolerance in MASS_TOLERANCES.items()]
     fields.extend((a, b, 1e-11) for a, b in zip(actual["com_m"], reference["com_m"], strict=True))
-    require(all(isclose(a, b, rel_tol=0, abs_tol=tol)
-                and (max(abs(a), abs(b)) <= tol or format(a, ".6g") == format(b, ".6g"))
-                for a, b, tol in fields), "native mass properties differ at six significant figures")
+    require(all(same_six_figures(a, b, tol) for a, b, tol in fields),
+            "native mass properties differ at six significant figures")
 
 
 def phase_receipt(result, identities):
