@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from InferenceGrid.SolidWorksExtrusionDepths import extrusion_depths
 from InferenceGrid.SolidWorksFeatureCounts import feature_counts
 from InferenceGrid.SolidWorksPatternCounts import count_matches_parameter, pattern_counts
 
@@ -14,7 +15,7 @@ from collections import Counter, defaultdict
 import math
 import struct
 
-from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames
+from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars
 from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream, ParseDisplay
 
 
@@ -169,6 +170,54 @@ def keyword_evidence(streams, discovered, document, root, pin):
                     for s in params[0].get("provenance", {}).get("spans", {}).get("$tuple", []))
         row["status"] = status
         counts[status] += 1
+    radial = [r for r in rows if r["status"] == "ambiguous" and len(r["candidate_locations"]) == 2
+              and ("<MOD-DIAM>" in r["display_text"] or r["display_text"].lstrip().startswith("R"))]
+    if radial and resolved in streams:
+        binary = streams[resolved]
+        scalars = {s.value_offset: s for s in ParseScalars(binary, ParseNames(binary))}
+        sketches = {s["attributes"].get("native_object_id"): s for s in document.get("sketches", {}).get("$tuple", [])}
+        for row in radial:
+            sketch = sketches.get(row["feature_id"])
+            params = projected.get((row["feature_id"], row["name"]), [])
+            pair = [scalars.get(off) for source, off in row["candidate_locations"] if source == resolved]
+            if not sketch or len(params) != 1 or len(pair) != 2 or not all(pair):
+                continue
+            if {s.role for s in pair} != {"driving", "display"} or pair[0].value != pair[1].value:
+                continue
+            if any(len(s.operands) != 1 for s in pair):
+                continue
+            operands = {(s.operands[0].kind_code, s.operands[0].entity_index) for s in pair}
+            if len(operands) != 1:
+                continue
+            driving = next(s for s in pair if s.role == "driving")
+            kind = "diameter" if "<MOD-DIAM>" in row["display_text"] else "radius"
+            constraints = [c for c in sketch["constraints"]["$tuple"] if c["parameter_id"] == params[0]["id"]]
+            if len(constraints) != 1 or constraints[0]["kind"] != kind or not constraints[0]["driving"]:
+                continue
+            refs = constraints[0]["references"]["$tuple"]
+            circles = [e for e in sketch["entities"]["$tuple"] if e["geometry"]["$type"] == "CircleGeometry"
+                       and math.isclose(e["geometry"]["radius"] * (2 if kind == "diameter" else 1),
+                                        driving.value * 1000, rel_tol=1e-9, abs_tol=1e-9)]
+            if len(circles) != 1 or len(refs) != 1 or refs[0]["entity_id"] != circles[0]["id"]:
+                continue
+            if circles[0]["attributes"].get("object_index") != driving.operands[0].entity_index + 1:
+                continue
+            if not any((s["stream"], s["offset"], s["length"], s["record_kind"]) ==
+                       (resolved, driving.value_offset, 8, "dimension-scalar") for s in params[0]["provenance"]["spans"]["$tuple"]):
+                continue
+            counts[row["status"]] -= 1
+            row.update(status="paired_radial_dimension", verified_location=(resolved, driving.value_offset),
+                       display_offset=next(s.value_offset for s in pair if s.role == "display"), entity_id=circles[0]["id"])
+            counts[row["status"]] += 1
     proposals = ownership_hypotheses(rows, features, streams[resolved], resolved) if resolved in streams else None
-    return {"status": "compared", "feature_pattern_evidence": feature_rule, "pattern_count_rule": rule, "pattern_counts": decoded, "ownership_hypotheses": proposals, "configuration_id": configs[0].configuration_id,
+    extrusions = extrusion_depths(root, streams[resolved], features, pin, rows, projected, resolved) if resolved in streams else None
+    for prediction in (extrusions or {}).get("predictions", []):
+        matched = keyed_rows[prediction["feature_id"], prediction["name"]]
+        if len(matched) == 1 and prediction["reader_span_matches"]:
+            row = matched[0]
+            counts[row["status"]] -= 1
+            row["status"] = "held_out_extrusion_depth"
+            row["verified_location"] = (resolved, prediction["offset"])
+            counts[row["status"]] += 1
+    return {"status": "compared", "extrusion_depth_evidence": extrusions, "feature_pattern_evidence": feature_rule, "pattern_count_rule": rule, "pattern_counts": decoded, "ownership_hypotheses": proposals, "configuration_id": configs[0].configuration_id,
             "display_unit": display.UnitName, "counts": counts, "dimensions": rows}

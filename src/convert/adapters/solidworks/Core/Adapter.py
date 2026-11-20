@@ -2751,7 +2751,7 @@ def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
         }
     )
     MarkerRefsMut(Sketch, MarkerEntities, RefMap)
-    Constraints = SketchB(Sketch, RefMap, ParamIds)
+    Constraints = SketchB(Sketch, RefMap, ParamIds, MarkerValues)
     ClosedProfiles = ClosedSketch(Sketch)
     Entries = ParamEntries(Sketch.object_id, Sketch.dimensions)
     SketchParamIds = tuple(
@@ -3131,6 +3131,7 @@ def NativeMarkerA(Marker: NativeMarker, EntityType: str | None = None) -> Native
 # this state exists because sketch rule resolution shares occurrence counters
 @DataClass(slots=True)
 class RuleContext:
+    MarkerCircles: tuple[SketchEntity, ...]
     Candidates: Mapping[float, list[tuple[str, str]]]
     DimensionsByName: Mapping[str, list[NativeDimension]]
     ParamIdsByName: Mapping[str, list[str]]
@@ -3141,7 +3142,9 @@ class RuleContext:
 
 
 # this definition exists because rule resolution needs indexed dimensions and profiles
-def RuleContextA(Sketch: NativeSketch, ParamIds: set[str]) -> RuleContext:
+def RuleContextA(
+    Sketch: NativeSketch, ParamIds: set[str], MarkerValues: Sequence[SketchEntity] = ()
+) -> RuleContext:
     Candidates: Defaultdict[float, list[tuple[str, str]]] = Defaultdict(list)
     for ProfileIndex, Profile in enumerate(Sketch.profiles):
         if Profile.kind != "rectangle":
@@ -3160,6 +3163,7 @@ def RuleContextA(Sketch: NativeSketch, ParamIds: set[str]) -> RuleContext:
         DimensionsByName[Dimension.name].append(Dimension)
         ParamIdsByName[Dimension.name].append(ParamId)
     return RuleContext(
+        tuple(Entity for Entity in MarkerValues if isinstance(Entity.geometry, CircleGeom)),
         Candidates,
         DimensionsByName,
         ParamIdsByName,
@@ -3197,8 +3201,52 @@ def RulePartsMut(
     ItemValue = ContextMut.ParamUsage[NativeName] if NativeName else 0
     Dimensions = ContextMut.DimensionsByName.get(NativeName, [])
     Dimension = Dimensions[min(ItemValue, len(Dimensions) - 1)] if Dimensions else None
+    Radial = Dimension is not None and Dimension.kind in {"diameter", "radius"}
     if (
         not References
+        and Radial
+        and Dimension is not None
+        and len(Dimensions) == 1
+        and Dimension.value_mm is not None
+        and Dimension.native_offset is not None
+        and Dimension.native_role in {"driving", "display"}
+        and len(Dimension.operands) == 1
+        and (
+            (Dimension.kind == "diameter" and "<MOD-DIAM>" in Dimension.source_text)
+            or (
+                Dimension.kind == "radius"
+                and Dimension.source_text.lstrip().startswith("R")
+            )
+        )
+    ):
+        Operand = Dimension.operands[0]
+        Factor = 2 if Dimension.kind == "diameter" else 1
+        Matches = [
+            Entity
+            for Entity in ContextMut.MarkerCircles
+            if MathValue.isclose(
+                Entity.geometry.radius * Factor,
+                Dimension.value_mm,
+                rel_tol=1e-9,
+                abs_tol=1e-9,
+            )
+        ]
+        if (
+            len(Matches) == 1
+            and Matches[0].attributes.get("object_index") == Operand.entity_index + 1
+            and sum(
+                Entity.attributes.get("object_index") == Operand.entity_index + 1
+                for Entity in ContextMut.MarkerCircles
+            )
+            == 1
+            and RuleValue.references
+            == (f"native:{Operand.kind_code:04x}:{Operand.entity_index}",)
+        ):
+            References = [RuleRef(Matches[0].id)]
+            KindValue = Dimension.kind
+    if (
+        not References
+        and not Radial
         and RuleValue.parameter is not None
         and Dimension is not None
         and Dimension.value_mm is not None
@@ -3286,9 +3334,12 @@ def ProfileRules(Sketch: NativeSketch) -> tuple[SketchRule, ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def SketchB(
-    Sketch: NativeSketch, RefMap: dict[str, str], ParamIds: set[str]
+    Sketch: NativeSketch,
+    RefMap: dict[str, str],
+    ParamIds: set[str],
+    MarkerValues: Sequence[SketchEntity] = (),
 ) -> tuple[SketchRule, ...]:
-    ContextMut = RuleContextA(Sketch, ParamIds)
+    ContextMut = RuleContextA(Sketch, ParamIds, MarkerValues)
     ExplicitRules = tuple(
         (
             BuildSketchRule(Sketch, RuleValue, RefMap, ContextMut)
