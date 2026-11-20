@@ -13,6 +13,6 @@ It also requires the current reader to register `BrepRef`.
 Fusion census failures now include the comparison output so changed outcomes can be reviewed before any baseline update.
 
 Verification: steering passed for 5,055 files, Linux Mypy passed for 5,022 files, and Pyright reported zero errors for 5,020 files.
-Runtime verification awaits the repaired queue candidate.
+Queue candidate `8723a937571bd7e4e4780b2e7adf0cf2d5a3eb52` passed CodeQL, Linux and Windows research CLI compatibility, and four of six test shards.
+The remaining two shards exposed stale Fusion diagnostic expectations, addressed in [Queue Fusion diagnostic repairs](QueueFusionDiagnosticRepairs.md).
 No local tests ran.
-The census comparison still requires remote evidence.

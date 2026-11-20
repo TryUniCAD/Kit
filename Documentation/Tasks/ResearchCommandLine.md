@@ -333,6 +333,8 @@ The generated reader and graph receipt retain the same input identity in `source
 
 ## Related information
 
+- [Queue Fusion diagnostic repairs](../Changes/Research/Inference/Validation/QueueFusionDiagnosticRepairs.md)
+- [Fusion vocabulary refusal stages](../Gotchas/Research/Readers/FusionVocabularyRefusalStage.md)
 - [General CLI](CommandLine.md)
 - [Research plan](../Reference/Research/AutomationPlan.md)
 - [Step register](../Reference/Research/AutomationSteps.md)
