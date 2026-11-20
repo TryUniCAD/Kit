@@ -27,7 +27,10 @@ def BuildGraph(Value: DocumentModel) -> NativeGraph:
             Schema = Catalog.get(Groups[0].ClassGuid.upper())
             if Schema is None:
                 if Groups[0].ClassGuid.upper() not in Auxiliary or SegmentId == 0:
-                    raise ValueError("Unknown native Fusion entity class")
+                    raise ValueError(
+                        f"Unknown native Fusion entity class {Groups[0].ClassGuid} "
+                        f"in segment {SegmentId}, object {Record.ObjectId}"
+                    )
             ClassName = (
                 Schema.NameValue if Schema is not None else "VisualAnalysesBrowserEntry"
             )

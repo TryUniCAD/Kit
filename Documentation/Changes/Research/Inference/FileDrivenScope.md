@@ -5,3 +5,5 @@
 The source file remains local. Supplying a licensed evidence worker or enabling the existing advisor uses the same settings as catalogue runs. A successful corpus assessment cannot certify a different input file.
 
 [Usage](../../../Tasks/ResearchCommandLine.md#start-research-from-a-cad-file)
+
+A local P04 Fusion through-all cut run read 30 container members and found 107 ranges without cited provenance. The partial reader recovered a blind boss and through-all cut. The supervisor dispatched P03 and P04. The existing P03 candidate was refuted and P04 requested the two-body evidence experiment.

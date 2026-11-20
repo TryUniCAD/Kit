@@ -35,9 +35,11 @@ def file_scope(path, application, scratch, root):
     command = [sys.executable, "-m", "KitCli", "decode", str(source), "--from", format_id]
     attempts = {}
     reports = {}
-    for phase, flags in (("container", ["--layer", "container"]), ("strict", []), ("partial", ["--partial"])):
+    for phase, flags in (("container", ["--layer", "container"]), ("strict", []), ("partial", ["--partial"]), ("native", ["--layer", "native"])):
         if phase == "partial" and "strict" in reports:
             break
+        if phase == "native" and application != "fusion":
+            continue
         target = scratch / (phase + ".json")
         result = subprocess.run([*command, *flags, "-o", str(target)], cwd=scratch, env=env,
                                 stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=180)
