@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
 
 
 # an inline backlink must resolve the same frame object without allocating a new body
-def ReadFrameOwner(FrameValue: ReadFrame) -> ArchiveNode:
+def ReadFrameOwnMut(FrameValue: ReadFrame) -> ArchiveNode:
     ReaderValue = FrameValue.ReaderValue
     Cursor = ReaderValue.Cursor
     TagValue, Offset = ReadTag(Cursor.BytesValue, Cursor.OffsetValue)
@@ -17,5 +17,5 @@ def ReadFrameOwner(FrameValue: ReadFrame) -> ArchiveNode:
         raise BodyUnsupported(
             "SOLIDWORKS component owner differs from its enclosing part"
         )
-    Cursor.OffsetValue = Offset
+    FrameValue.ReaderValue.Cursor.OffsetValue = Offset
     return FrameValue.NodeValue

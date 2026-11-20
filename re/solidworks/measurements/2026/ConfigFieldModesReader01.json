@@ -66,10 +66,10 @@
     "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ReferenceFields.py": "6cde58afbf62a885da03384b287fc47e83c8d588ffb08204d4ca74c6decc45b4",
     "src/convert/adapters/solidworks/Archive/Bodies/NormalizeWord.py": "1932d1ddc5ff1652dfd02744da53e398c21031d059beec7ecd7e855c0c8ec177",
     "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "a5f9b1872b0b615d7258e03a9fc1335f9a543ca3ca5a2fbe2dfb034535463a2c",
-    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadFrameOwner.py": "09cf32edce3843450986dee0a0d4e429de3dccd1ad5619cbaeb67b7902221854",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadFrameOwnMut.py": "1640aadb14b3e3d7e3192c49915a65624515121025b42e3a48b7e53e838241c6",
     "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadNormalMut.py": "198e7c95f4f84044575487b95bc728af261e0089dbdf54facea1b827c658c6ea",
     "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadRepeatMut.py": "c51d9bea960d4df0af516689bbd50726dc07ede0af1cc780e4da4ee602f158ea",
-    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadValueMut.py": "da942824b706a0efc0243b258c3135b88e8953fe6622a61c16c1df746f643349"
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadValueMut.py": "2b56fb1800445e3722d71704cda2d7cb863f5698a477a4f82c772e1bb77e6977"
   },
   "schema": "Kit.SolidworksConfigFieldModesReader.1",
   "source_manifest_encoding": "sorted compact ASCII JSON of source path to lowercase SHA-256",
@@ -83,10 +83,10 @@
     "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ReferenceFields.py": "6cde58afbf62a885da03384b287fc47e83c8d588ffb08204d4ca74c6decc45b4",
     "src/convert/adapters/solidworks/Archive/Bodies/NormalizeWord.py": "1932d1ddc5ff1652dfd02744da53e398c21031d059beec7ecd7e855c0c8ec177",
     "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "b13b657f3fa77897c16ffe741ba7c21aec592b30c34d0a3540ff305ec074d509",
-    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadFrameOwner.py": "09cf32edce3843450986dee0a0d4e429de3dccd1ad5619cbaeb67b7902221854",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadFrameOwnMut.py": "1640aadb14b3e3d7e3192c49915a65624515121025b42e3a48b7e53e838241c6",
     "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadNormalMut.py": "198e7c95f4f84044575487b95bc728af261e0089dbdf54facea1b827c658c6ea",
     "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadRepeatMut.py": "c51d9bea960d4df0af516689bbd50726dc07ede0af1cc780e4da4ee602f158ea",
-    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadValueMut.py": "da942824b706a0efc0243b258c3135b88e8953fe6622a61c16c1df746f643349"
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadValueMut.py": "2b56fb1800445e3722d71704cda2d7cb863f5698a477a4f82c772e1bb77e6977"
   },
   "tools_sha256": {
     "re/tooling/sw2026/CheckCfgFieldModes.py": "09841eb64d9667bc40e7e75568ddf258ba8f8df8fcb856a6d28203a89a1051f3",
