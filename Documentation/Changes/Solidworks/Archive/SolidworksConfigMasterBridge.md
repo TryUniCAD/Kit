@@ -5,8 +5,13 @@ reads the directly owned f1018 `moSheetMetalMaster_c` record. The owned feature
 uses its concrete virtual methods and leaves the caller’s archive map intact.
 
 Two saved master records and one absent-selector control match their exact
-intervals. Independently authored signed selectors and variable text fields
-exercise the inherited body. Tagged, linked, populated-list and malformed
-variants refuse. Complete Config-0 ownership and sheet-metal feature
-conversion remain open.
+intervals. A pinned full Config-0 walk supplies every inherited slot at
+the body boundary. The bounded queue cases verify the complete decoded
+field digests. An independently authored six-byte empty inherited list
+retains its count width and leaves the following fields intact. Tagged
+bodies, active links, populated lists and malformed variants still refuse.
+
+Populated master rows and linked masters require separately qualified
+ownership. Public part reading, complete parametric history and
+lossless conversion require their own integration and acceptance.
 [Format evidence](../../../../re/solidworks/records/ConfigMasterBridge2026.md)

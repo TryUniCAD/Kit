@@ -171,9 +171,10 @@ layouts and complete physical admission have separate exits.
 The PR #121 takeover team owns the bounded configuration master reader
 on codex/solidworks-config-direct-owner. It follows the accepted part
 header and feature layouts. Exit requires the real present and absent
-bridge intervals, inherited owner and map checks, authored contrasts,
-and current revision queue and review evidence. Populated master rows
-and complete part history retain separate exits.
+bridge intervals, the complete inherited map at the selector boundary,
+authored contrasts, and current revision queue and review evidence.
+Populated master rows, linked masters, normal SDK projection and native
+history preservation have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigMasterBridge.md)
 
 ### B04-SW2026-CONFIG-FIELD-ACTIONS

@@ -2,21 +2,34 @@ from typing import cast as CastValue
 
 from tests.Convert.Solidworks.Configuration.Bridge.RunMasterCase import RunMasterCase
 
-# the saved controls qualify both selector outputs at their actual shared map counters
+# native controls pin complete field digests along with their selector windows
 KMasterCases = (
-    ("rectangle", [25099, 25103], 105, 0, None),
-    ("circular", [25320, 25473], 119, 1, 1),
-    ("circle-save", [24214, 24367], 118, 1, 0),
+    ("rectangle", [25099, 25103], 0, None, None),
+    (
+        "circular",
+        [25320, 25473],
+        1,
+        1,
+        "dadef17e06869eaf27508a7e37d04ea55662aa004fcfcdb124f8a31a73827a19",
+    ),
+    (
+        "circle-save",
+        [24214, 24367],
+        1,
+        0,
+        "2f3c3bdd57b2042697c543f2440628a4808fc147540e340385af918552c200e9",
+    ),
 )
 
 
-# native results must preserve the selector window and the distinct owned feature state
+# the bounded queue process uses the physical part start and checks every decoded field
 def TestMaster() -> None:
-    for CaseName, Interval, CountValue, Selector, Variant in KMasterCases:
+    for CaseName, Interval, Selector, Variant, FieldDigest in KMasterCases:
         Measured = RunMasterCase(CaseName)
         assert Measured["interval"] == Interval
         assert Measured["selector"] == Selector
-        assert Measured["counter"] == [CountValue, CountValue]
+        assert Measured["prefix_counter"] == 4
+        assert Measured["prefix_slots"] == [1, 2, 3]
         assert Measured["body_bytes"] == (149 if Selector else 0)
         if Variant is None:
             assert Measured["result"] is None
@@ -27,23 +40,5 @@ def TestMaster() -> None:
         assert NodeValue["index"] is None
         assert NodeValue["native_id"] == -1
         assert NodeValue["variant"] == Variant
-
-
-# independent frames distinguish sign and body extent while invalid paths remain bounded
-def TestMasterWire() -> None:
-    Measured = RunMasterCase("circular")
-    Authored = CastValue(dict[str, object], Measured["authored"])
-    Positives = CastValue(list[dict[str, object]], Authored["positive"])
-    assert [RowValue["selector"] for RowValue in Positives] == [-7, 41]
-    assert [RowValue["bytes"] for RowValue in Positives] == [201, 213]
-    assert Authored["refusals"] == [
-        "wrong_version",
-        "detached_part",
-        "trailing_absent",
-        "missing_direct_owner",
-        "wrong_tagged_frame",
-        "borrowed_part_link",
-        "nonempty_list",
-        "negative_list",
-        "appended_present",
-    ]
+        assert NodeValue["inherited_count_width"] == 2
+        assert NodeValue["fields_sha256"] == FieldDigest

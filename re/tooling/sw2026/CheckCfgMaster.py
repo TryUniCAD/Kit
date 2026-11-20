@@ -13,7 +13,6 @@ sys.path[:0] = [str(ROOT / "src"), str(HERE.parent)]
 from CheckCfgOwners import audit_run
 from convert.adapters.solidworks.Archive.Config.Link.ReadPartStart import ReadPartStart
 from convert.adapters.solidworks.Archive.Config.SheetMetal.ReadCfgMaster import ReadCfgMaster
-from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 
@@ -47,9 +46,9 @@ def wide(name):
     return b"\xff\xfe\xff" + bytes((len(raw) // 2,)) + raw
 
 
-def authored_master(selector, name, *, count=0, owner=0):
+def authored_master(selector, name, *, count=0, owner=0, list_wire=b"\0\0", tail=0):
     raw = pack("<iHiIii", selector, owner, 2, 0x40000100, -1, -19) + wide(name)
-    raw += pack("<iHHi", 0, 0, 0, 0)
+    raw += pack("<iH", 0, 0) + list_wire + pack("<i", tail)
     raw += pack("<iiIB", 7, -41, 17, 1) + wide("frame λ")
     raw += pack("<iiiidiH", -4, 11, -9, 19000, -0.125, -83, 0)
     raw += wide("visible") + pack("<BHHBIHhf", 1, 0x1111, 3, 7, 0x01234567, 43, -2, 0.25)
@@ -66,6 +65,7 @@ def report_node(node):
     return {"class": node.ClassValue.NameValue, "schema": node.ClassValue.SchemaValue,
             "index": node.IndexValue, "native_id": fields["f08"],
             "variant": fields["f28c"], "count": fields["n370"],
+            "inherited_count_width": fields["f60"]["list"].get("n#width", 2),
             "fields_sha256": digest(json.dumps(fields, sort_keys=True, separators=(",", ":")).encode())}
 
 
@@ -91,6 +91,15 @@ def authored(mapping, part):
         result.append({"selector": selector, "bytes": len(raw), "sha256": digest(raw),
                        "node": report_node(node)})
     require(result[0]["bytes"] != result[1]["bytes"], "distinct names did not grow archive length")
+    extended = authored_master(-7, "signed λ", list_wire=pack("<HI", 0xffff, 0))
+    node = ReadCfgMaster(extended, 19000, mapping, part)
+    require(node is not None and node.FieldsValue["f60"] == {
+        "list": {"n": 0, "n#width": 6, "items": []}, "tail": 0,
+    }, "extended empty inherited count did not retain its native width")
+    compact = ReadCfgMaster(authored_master(-7, "signed λ"), 19000, mapping, part)
+    require(compact is not None and {**compact.FieldsValue, "f60": node.FieldsValue["f60"]} == node.FieldsValue
+            and len(extended) == result[0]["bytes"] + 4, "extended count shifted a following field")
+    result.append({"selector": -7, "bytes": len(extended), "sha256": digest(extended), "node": report_node(node)})
     raw = authored_master(1, "fails")
     class_name = b"moSheetMetalMaster_c"
     tagged = raw[:4] + pack("<3H", 0xFFFF, 1, len(class_name)) + class_name + raw[4:]
@@ -103,29 +112,50 @@ def authored(mapping, part):
         refuse("borrowed_part_link", authored_master(1, "fails", owner=2), mapping, part, "master links"),
         refuse("nonempty_list", authored_master(1, "fails", count=1), mapping, part, "nonempty sheet metal master body list"),
         refuse("negative_list", authored_master(1, "fails", count=-1), mapping, part, "nonempty sheet metal master body list"),
+        refuse("nonempty_inherited_list", authored_master(1, "fails", list_wire=pack("<HIH", 0xffff, 1, 0)),
+               mapping, part, "master links"),
+        refuse("nonzero_inherited_tail", authored_master(1, "fails", list_wire=pack("<HI", 0xffff, 0), tail=-11),
+               mapping, part, "master links"),
         refuse("appended_present", raw + b"\0", mapping, part, "master boundary"),
     ]
     return {"positive": result, "refusals": faults}
 
 
-def run(case):
-    name, source_hash, config_hash, header_hash, interval, field_hash, counter, selector, variant = CONTROLS[case]
-    raw = (ROOT / "re/solidworks/v2026/corpus/direct-master" / (name + ".SLDPRT")).read_bytes()
-    require(digest(raw) == source_hash, "native source hash changed")
-    for encoding in ("ascii", "utf-16-le", "latin-1", "cp1252"):
-        lookup(encoding)
-    sys.addaudithook(audit_run)
+def source_path(case):
+    return ROOT / "re/solidworks/v2026/corpus/direct-master" / (CONTROLS[case][0] + ".SLDPRT")
+
+
+def load_case(case):
+    source = source_path(case)
+    require(not source.is_symlink(), "native source must be the disclosed file")
+    raw = source.read_bytes()
+    require(digest(raw) == CONTROLS[case][1], "native source hash changed")
+    return raw
+
+
+def read_case(case, raw):
+    _, _, config_hash, header_hash, interval, field_hash, _, selector, _ = CONTROLS[case]
     archive = SldprtArchive.from_bytes(raw)
     config = archive.require("Contents/Config-0")
     require(archive.format_version == 4 and digest(config) == config_hash
             and digest(archive.require("Contents/Config-0-ModelHeader")) == header_hash,
             "native archive framing or streams changed")
-    prefix = ReadPartStart(archive)
-    require(prefix.RootValue.IndexValue == 2 and prefix.BaseValue == 4, "wrong native part prefix")
     data = config[slice(*interval)]
     require(digest(data) == field_hash and unpack_from("<i", data)[0] == selector,
             "selected model bridge interval changed")
-    seed = MapSnapshot(counter, prefix.MapValue.EntriesValue)
+    return archive, config, data
+
+
+def run(case):
+    _, source_hash, config_hash, header_hash, interval, field_hash, _, selector, variant = CONTROLS[case]
+    raw = load_case(case)
+    for encoding in ("ascii", "utf-16-le", "latin-1", "cp1252"):
+        lookup(encoding)
+    sys.addaudithook(audit_run)
+    archive, _, data = read_case(case, raw)
+    prefix = ReadPartStart(archive)
+    require(prefix.RootValue.IndexValue == 2 and prefix.BaseValue == 4, "wrong native part prefix")
+    seed = prefix.MapValue
     node = ReadCfgMaster(data, 19000, seed, prefix.RootValue)
     if selector == 0:
         require(node is None and len(data) == 4, "zero selector consumed a direct feature")
@@ -133,14 +163,14 @@ def run(case):
         require(node is not None and len(data) == 153 and node.FieldsValue["f08"] == -1
                 and node.FieldsValue["f28c"] == variant, "direct feature differs from the native record")
     result = {"case": case, "interval": interval, "base": prefix.BaseValue,
-              "counter": [counter, counter], "selector": selector, "body_bytes": len(data) - 4,
+              "prefix_counter": seed.CounterValue, "prefix_slots": [entry.IndexValue for entry in seed.EntriesValue],
+              "selector": selector, "body_bytes": len(data) - 4,
               "source_sha256": source_hash, "config_sha256": config_hash,
               "header_sha256": header_hash, "bridge_sha256": field_hash,
               "result": None if node is None else report_node(node), "runtime_external_accesses": 0}
     if case == "circular":
         result["authored"] = authored(seed, prefix.RootValue)
-    require(not prefix.RootValue.FieldsValue and all(left is right for left, right in zip(
-        seed.EntriesValue, prefix.MapValue.EntriesValue, strict=True)), "reader mutated the part or inherited owners")
+    require(not prefix.RootValue.FieldsValue, "reader mutated the inherited part owner")
     return result
 
 
