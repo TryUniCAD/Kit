@@ -16,7 +16,7 @@ The cut selection references feature 32's historical body. Consumed atom 101, un
 
 ## Verification
 
-Run the disclosed supervisor from the pinned checkout with fresh processes.
+Run the disclosed supervisor from an implementation checkout with fresh processes. It records the exact revision and production file hashes.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/throughsource/ProveStockDocument.py \
@@ -24,4 +24,4 @@ python3.14 -I -B re/tooling/sw2026/throughsource/ProveStockDocument.py \
   --unrestricted /path/to/ThroughAllBodies02/DisclosedNative/ThroughMultiStock.SLDPRT
 ```
 
-The receipt SHA-256 is `d415f032e096010054d3215af9625aa99a110a3a7ca145849840e4073b380abd`. It binds the 13 implementation files, supervisor, source hashes and baseline `f815b77a27d78a3654f9e7c084ce0921c01f692a`. Default and explicitly selected reads yield the same 30 ordered rows, live parameters and analytic topology as the active saved grouping. The real unrestricted save stays on the existing unsupported compatibility route. Copied producer identity, a crossed datum and one shared active depth each refuse positive admission at the associated owner. Disabling B-rep and requesting raw extraction retain the existing output modes. The absent configuration is rejected. All nine stdin-only worker processes observed zero external access attempts after imports. Scoped steering and Mypy passed and the Core donor scan was clean. This evidence qualifies the saved reader slice. Cache-free synthesis, unrestricted multibody semantics, rollback/delta decoding, complete source presentation, a native writer and held-out generalization are outside the measured boundary. [Exact receipt](../measurements/2026/ThroughAllMultiStockDocument01.json)
+The receipt SHA-256 is `0a96cb5c14c8fe00724ccb472bba3fe24ff7a16131ea977c2d5078d00066f34e`. It binds the 13 implementation files, supervisor, source hashes and aggregate implementation revision `e7b38261b155baf2e593e0e1c9fba2b940aa8e71`. All reported phases match the original scoped baseline run byte for byte. Default and explicitly selected reads yield the same 30 ordered rows, live parameters and analytic topology as the active saved grouping. The real unrestricted save stays on the existing unsupported compatibility route. Copied producer identity, a crossed datum and one shared active depth each refuse positive admission at the associated owner. Disabling B-rep and requesting raw extraction retain the existing output modes. The absent configuration is rejected. All nine stdin-only worker processes observed zero external access attempts after imports. Scoped steering and Mypy passed and the Core donor scan was clean. This evidence qualifies the saved reader slice. Cache-free synthesis, unrestricted multibody semantics, rollback/delta decoding, complete source presentation, a native writer and held-out generalization are outside the measured boundary. [Exact receipt](../measurements/2026/ThroughAllMultiStockDocument01.json)

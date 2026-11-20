@@ -269,7 +269,7 @@ def worker(mode):
 
 def prove(selected, unrestricted):
     head = check_output(("git", "rev-parse", "HEAD"), cwd=REPO, text=True).strip()
-    require(head == BASE, "use the exact scoped implementation baseline")
+    implementation = {path: sha256((REPO / path).read_bytes()).hexdigest() for path in IMPLEMENTATION}
     sources = {}
     for path, name, digest in (
         (selected, "ThroughMultiStock03", SELECTED), (unrestricted, "ThroughAllBodies02", UNRESTRICTED)
@@ -292,10 +292,13 @@ def prove(selected, unrestricted):
                        "external_access_attempts": phases["named"]["external_access_attempts"]}
     require(all(sha256(source.read_bytes()).hexdigest() == digest for digest, (source, _) in sources.items()),
             "a disclosed source changed")
+    require(head == check_output(("git", "rev-parse", "HEAD"), cwd=REPO, text=True).strip()
+            and all(sha256((REPO / path).read_bytes()).hexdigest() == digest for path, digest in implementation.items()),
+            "the reader changed during verification")
     return {"schema": "kit.sw2026.saved-two-stock-document.v1", "baseline_revision": BASE, "worktree_head": head,
             "selected_sha256": SELECTED, "unrestricted_sha256": UNRESTRICTED,
             "tool_sha256": sha256(HERE.read_bytes()).hexdigest(),
-            "implementation_sha256": {path: sha256((REPO / path).read_bytes()).hexdigest() for path in IMPLEMENTATION},
+            "implementation_sha256": implementation,
             "independent_processes": len(phases), "phases": phases, "native_processes_started": 0,
             "generated_native_files": 0, "heldout_read_count": 0, "public_writer_qualified": False}
 

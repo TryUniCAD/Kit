@@ -331,7 +331,7 @@
   "public_writer_qualified": false,
   "schema": "kit.sw2026.saved-two-stock-document.v1",
   "selected_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
-  "tool_sha256": "c3bdbc7d0e67bc20e2f016a4acbc20a119aacefcf490c3de2a42cd7cc533fc19",
+  "tool_sha256": "2c57330b2fb023e0dac4aa81f257f7cc9725cfa6811ea05905b5a0fe2b5dcf39",
   "unrestricted_sha256": "f87568db0dfa361ea44c42def01063c8ed07ea57c8270098cf3c60995e3e3b22",
-  "worktree_head": "f815b77a27d78a3654f9e7c084ce0921c01f692a"
+  "worktree_head": "e7b38261b155baf2e593e0e1c9fba2b940aa8e71"
 }
