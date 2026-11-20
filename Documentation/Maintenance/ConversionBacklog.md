@@ -232,6 +232,16 @@ cases, and current revision queue and review evidence. Inline bodies,
 handle modes and full configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
+### B04-SW2026-CONFIG-MASTER
+
+The PR #121 takeover team owns the bounded configuration master reader
+on codex/solidworks-config-direct-owner. It follows the accepted part
+header and feature layouts. Exit requires the real present and absent
+bridge intervals, inherited owner and map checks, authored contrasts,
+and current revision queue and review evidence. Populated master rows
+and complete part history retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMasterBridge.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent owns this active reader compatibility task.

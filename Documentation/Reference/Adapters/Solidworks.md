@@ -121,6 +121,11 @@ can reuse those exact objects. The stored unsigned atom state remains
 available alongside its runtime projection.
 [Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
+The bounded configuration master uses the part’s signed selector and the
+concrete directly owned feature body. Its empty per-body list and inherited
+fields preserve the caller’s archive map.
+[Configuration master scope](../../Changes/Solidworks/Archive/SolidworksConfigMasterBridge.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
