@@ -23,5 +23,6 @@ object identity through a fresh reader process. The
 cover the wrong reference kind, a mismatched inherited counter and an
 empty nested class name. The [depth process](../../../tests/Convert/Solidworks/ArchiveGraph/GraphDepthTests.py)
 checks terminal references at the limit and refusal of an additional
-body. Current-revision results are pending remote CI.
+body for both existing-class references and new declarations.
+Current-revision results are pending remote CI.
 [Implementation provenance and exact-build evidence](../../../re/solidworks/records/ArchiveObjectMapSlice2026.md)

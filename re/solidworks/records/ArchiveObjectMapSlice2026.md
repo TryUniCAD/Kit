@@ -9,15 +9,16 @@ matched the pinned revision across all 27 files. Their direct dependencies
 are `BinaryReader.py`, `ArchiveTag.py` and `ReadTag.py` from the
 [wire primitive parent](https://github.com/TryUniCAD/Kit/commit/fcd4852563482c5af9299edb4a3096cc8f763f42).
 
-The review revision retains 26 matching files. `ReadGraphNode.py` checks
-new-body tags before advancing the cursor. `ReadNodeBodyMut.py` tracks open
-bodies and `ReadTypeDescMut.py` owns descriptor framing and the empty-name
-check. Its legacy counterpart also rejects a zero-length descriptor name.
+The review revision retains 26 matching files. `ReadGraphNode.py` composes
+the graph callbacks. `ReadNodeTagMut.py` checks new-body tags before
+advancing the cursor, `ReadNodeBodyMut.py` tracks open bodies and
+`ReadTypeDescMut.py` owns descriptor framing and the empty-name check.
+Its legacy counterpart also rejects a zero-length descriptor name.
 
 The original 27-file manifest SHA-256 was
 `2e8b69615518fa47afe3b2321764c80a0c60232f2f85e9b3fd7b1c17d2f06fe1`.
-The revised 29-file manifest SHA-256 is
-`f07dbcc65240bf4c6bfbd91b5627534e411b645028fa4512d3ea948265fcc7e5`.
+The revised 30-file manifest SHA-256 is
+`39d61c0e529a285d1184557b92078dac227a0057bb1d9fa2209e7661ab57f66c`.
 The manifest concatenates sorted repository-relative paths, each followed
 by a NUL, the lowercase file SHA-256 and a newline.
 
@@ -38,6 +39,35 @@ record identifies the native owners, module manifest and an earlier
 remote job that compared eight linked resolved streams.
 [Native handoff and earlier compatibility evidence](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/ArchiveMapConstruction2026.md)
 
+## Linked map work
+
+The pinned ordinary version-19000 path selects one `Config-0` and its
+`ResolvedFeatures` stream. An assembly can continue to its `MatesList`.
+The model header and CMgr each start a separate map. The SDK source has
+four seeded archive constructor sites, the read and write directions of
+the two handoffs. The mate readback check re-emits from the same resolved
+snapshot. It adds a pass over that seed. Child references load their own
+document contexts by path and hash.
+[Configuration and resolved selection](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py#L14-L38)
+[Mate read and re-emission](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Core/TypedMates/ReadPublicMates.py#L34-L38)
+[Assembly generation](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Archive/Construction/Assembly/MakeAsmGraphs.py#L30-L39)
+[Native-linked census](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/LinkedGraphScalarConstruction2026.md#linked-ownership)
+
+Let `C`, `R` and `M` be the cumulative slot counts after each of those
+stages. Each snapshot collects and validates all its entries. Each seeded
+constructor visits each inherited entry once to reconstruct its lookups.
+Per read or write pass through the three stages, slot visits for these
+operations are `(C + R) + 2(C + R + M) = 3C + 3R + 2M`, at most
+`8M`. A path ending at ResolvedFeatures has at most `5R` visits. This
+is a source-level cost bound for the fixed documented handoffs. The
+synthetic test in this slice uses one handoff.
+
+An arbitrary chain of growing seeded maps would instead accumulate the
+sum of all its inherited sizes, which is quadratic when adding one entry
+per stream. The current native callers have fixed chain length per
+document. Independent branches still copy membership and retain the
+same typed entries and objects.
+
 ## Focused verification
 
 The [authored linked graphs](../../../tests/Convert/Solidworks/ArchiveGraph/ArchiveGraphTests.py)
@@ -51,11 +81,12 @@ The [malformed controls](../../../tests/Convert/Solidworks/ArchiveGraph/GraphRej
 require failure on a class slot used as an object, a different inherited
 counter or an empty nested descriptor name. The [depth boundary process](../../../tests/Convert/Solidworks/ArchiveGraph/GraphDepthTests.py)
 resolves a terminal root backreference and null at 128 open bodies and
-rejects an otherwise complete 129th body. Process verification is pending
+rejects an otherwise complete 129th body with either an existing class
+reference or a new class declaration. Process verification is pending
 remote CI.
 
 Scoped Black, Ruff, Mypy, Pyright and steering checks passed. The
-production donor scan found no recorded payloads across 3,183 files.
+production donor scan found no recorded payloads across 3,184 files.
 [Open body depth](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ArchiveDepthCountsOpenBodies.md)
 [Nonempty archive class names](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/EmptyArchiveClassNames.md)
 
