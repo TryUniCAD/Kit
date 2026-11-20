@@ -58,6 +58,7 @@ def author_frame(source):
         elif sibling is not None:
             feature.set("xmlns:ns0", "urn:kit:other")
             target = sibling
+            SubElement(root, "PlainSibling").set("state", QName("{urn:kit:keyword}" + local_name))
         target.set("state", QName("{urn:kit:keyword}" + local_name))
     if source.get("namespace_shadow"):
         feature.set("xmlns:ns0", "urn:kit:other")
