@@ -6,11 +6,18 @@ from convert.adapters.solidworks.Archive.Construction.Profile.ProfileGraph impor
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
-# the concrete extrusion class determines its native operation and additional cut flags
+# the independent second producer shares the ice class with cutters but owns a separate operation
 def BindExtrudeMut(
-    FeatureValue: ArchiveNode, ProfileValue: ProfileGraph, EndValue: ArchiveNode
+    FeatureValue: ArchiveNode,
+    ProfileValue: ProfileGraph,
+    EndValue: ArchiveNode,
+    *,
+    IndependentStock: bool = False,
 ) -> None:
-    IsCut = FeatureValue.ClassValue.NameValue == "moICE_c"
+    IsIce = FeatureValue.ClassValue.NameValue == "moICE_c"
+    if IndependentStock and not IsIce:
+        raise ValueError("independent stock mode requires an actual ICE feature")
+    IsCut = IsIce and not IndependentStock
     CutFlags = (0x2 | 0x8 | 0x80 | 0x20000) if IsCut else 0
     FeatureValue.FieldsValue.update(
         {
@@ -19,7 +26,7 @@ def BindExtrudeMut(
                 "tail": 0,
             },
             "f28": CastValue(int, FeatureValue.FieldsValue["f28"]) | 0x140 | CutFlags,
-            "f810": 1 if IsCut else -1,
+            "f810": 1 if IsCut else 0 if IndependentStock else -1,
             "f818": EndValue,
             "f838": 0.0,
         }

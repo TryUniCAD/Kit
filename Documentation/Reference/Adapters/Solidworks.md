@@ -216,6 +216,8 @@ The internal selected-stock constructor builds the actual atom, manager membersh
 
 The internal neutral entry also takes one explicit portable stock selection on the actual cut. It derives scope from the feature/body path and rejects selections with unrepresented targets or query semantics. Four selected models pass guarded builds and strict default reads. [Neutral selected-stock construction](../../Changes/Solidworks/Generation/Extrusion/ThroughAll/SolidworksNeutralSelectedThroughAll.md)
 
+The staged two-stock preparer builds two independent fixed Front and Right blind stocks with editable D1s and a free circular through cut scoped to the Front stock. It reproduces the disclosed native-tested archive, with prospective native qualification pending before public writer admission. [Two-stock SDK preparation](../../Changes/Solidworks/Generation/Extrusion/ThroughAll/SolidworksTwoStockPreparation.md)
+
 For this internal selected-stock profile, the composer emits a null inactive secondary display on the forward mid-plane stock. The strict cold reader binds the live D1, the selected stock atom and the cut before reconstructing the solid. The disclosed normal SDK output matches the native-tested archive byte for byte. [Selected-stock depth ownership](../../Changes/Solidworks/Construction/Parts/SolidworksMidPlaneStockSecondary.md)
 
 The internal ordinary revolve entry builds from one Front rectangle, the actual selected construction axis and a live radian driver. The final pathname is bound before generation. All four generated containers match the native-tested files byte for byte. [Ordinary revolve preparation](../../Changes/Solidworks/Construction/Revolve/SolidworksRevolvePreparation.md)

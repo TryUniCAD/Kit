@@ -1,8 +1,5 @@
 from math import isclose as IsClose, pi as PiValue
 
-from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
-    LocalCircle,
-)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.BuildCircularCut import (
     BuildCircleCut,
 )
@@ -20,15 +17,16 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.MakeCol
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismPlan import PrismPlan
 from convert.Geometry.Extrude.Trimmed.TrimPrism import BuildTrimPrism
+from interchange.geometry.Models.GeometryCurves import CircleGeometry
 from interchange.geometry.Models.VectorPlane import PlaneVector
 
 
 # the selected solid alone receives the exact through cut and removed section moment
 def BuildColdCut(
-    PlanValue: PrismPlan, CircleValue: LocalCircle, BodyId: str, Original: ColdSolid
+    PlanValue: PrismPlan, CircleValue: CircleGeometry, BodyId: str, Original: ColdSolid
 ) -> ColdSolid:
-    CenterValue = PlaneVector(*CircleValue.CenterValue)
-    Radius = CircleValue.RadiusValue
+    CenterValue = CircleValue.center
+    Radius = CircleValue.radius
     First, LastValue = PlanValue.LinesValue[0].start, PlanValue.LinesValue[2].start
     DepthValue = PlanValue.DepthValue
     if (

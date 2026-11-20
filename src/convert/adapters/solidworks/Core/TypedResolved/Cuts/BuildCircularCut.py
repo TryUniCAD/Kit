@@ -20,7 +20,7 @@ from interchange.Records.RecordTopology import TopologyCounts
 # clipped cylinder stations preserve exact cavity geometry independently of the presence of a driving cut distance
 def BuildCircleCut(
     PlanValue: PrismPlan,
-    CircleValue: LocalCircle,
+    CircleValue: LocalCircle | CircleGeometry,
     StockBounds: tuple[float, float],
     CutBounds: tuple[float, float],
     BodyId: str,
@@ -42,11 +42,16 @@ def BuildCircleCut(
     Stock, StockVolume, StockArea, Bounds = BuildPrism(
         BodyId, PlanValue.FrameValue, PlanValue.LinesValue, *StockBounds
     )
-    Radius = CircleValue.RadiusValue
+    Geometry = (
+        CircleGeometry(PlaneVector(*CircleValue.CenterValue), CircleValue.RadiusValue)
+        if isinstance(CircleValue, LocalCircle)
+        else CircleValue
+    )
+    Radius = Geometry.radius
     ToolValue, ToolVolume, _, _ = BuildCircular(
         f"{BodyId}-cavity",
         PlanValue.FrameValue,
-        CircleGeometry(PlaneVector(*CircleValue.CenterValue), Radius),
+        Geometry,
         *CutBounds,
         Radius,
         Radius,

@@ -29,6 +29,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ReadCol
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
+from interchange.geometry.Models.GeometryCurves import CircleGeometry
+from interchange.geometry.Models.VectorPlane import PlaneVector
 
 
 # reconstruction may cut only the validated earlier stock while leaving the independent solid intact
@@ -69,7 +71,10 @@ def BuildColdGeom(OwnersValue: ColdStockOwners) -> ColdStockPart:
     )
     CheckStockGap(Original.BoundsValue, Untouched.BoundsValue)
     ResultValue = BuildColdCut(
-        PlanValue, Circle, f"sldprt:body:{NativeNodeId(CutValue.NodeValue)}", Original
+        PlanValue,
+        CircleGeometry(PlaneVector(*Circle.CenterValue), Circle.RadiusValue),
+        f"sldprt:body:{NativeNodeId(CutValue.NodeValue)}",
+        Original,
     )
     BodyValues = (
         ColdStockBody(OtherNode, Untouched),

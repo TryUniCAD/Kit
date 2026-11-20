@@ -2,17 +2,27 @@ from convert.adapters.solidworks.Archive.Construction.BodyScope.MakeStockAtom im
     MakeStockAtom,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
+from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
+    FieldInt,
+    ReadRows,
+)
 
 
 # stock output and manager membership must share one generated atom in the independent atom identity domain
 def BindStockMut(
-    ManagerValue: dict[str, object], FeatureValue: ArchiveNode
+    ManagerValue: dict[str, object],
+    FeatureValue: ArchiveNode,
+    *,
+    AppendMember: bool = False,
 ) -> ArchiveNode:
+    PriorRows = ReadRows(ManagerValue.get("atoms")) if AppendMember else ()
+    if AppendMember and len(PriorRows) != FieldInt(ManagerValue, "n6c"):
+        raise ValueError("stock atom count differs from its ordered manager members")
     AtomValue = MakeStockAtom(FeatureValue, FieldInt(ManagerValue, "f260") + 1)
     AtomId = FieldInt(AtomValue.FieldsValue, "f140")
     MembersValue = [{"o": AtomValue}]
-    ManagerValue.update(f260=AtomId, n6c=len(MembersValue), atoms=MembersValue)
+    ManagerRows = [*PriorRows, *MembersValue]
+    ManagerValue.update(f260=AtomId, n6c=len(ManagerRows), atoms=ManagerRows)
     FeatureValue.FieldsValue.update(
         has_f528=1,
         f528={"n": len(MembersValue), "items": MembersValue.copy()},
