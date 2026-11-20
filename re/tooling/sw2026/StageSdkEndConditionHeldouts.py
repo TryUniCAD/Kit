@@ -34,7 +34,7 @@ METADATA = {
 }
 NATIVE_TOOLS = (
     "AuthorCurves.py", "Swapp.py", "InspectFresh.py", "OracleIdentity.py",
-    "InspectCircleSketch.py", "InspectSdkCircleHeldouts.py", "CompareSdkCircleHeldouts.py",
+    "InspectCircleSketch.py", "InspectSdkCircleBodyTypes.py", "CompareSdkCircleHeldouts.py",
     "SdkCircleHeldoutRules.py",
 )
 NATIVE_ENTRY = "ObserveSdkEndConditionHeldouts.py"

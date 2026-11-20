@@ -8,7 +8,7 @@
 | Inputs | Historical `H03MidPlane` and `H04TwoDirections` |
 | Dependencies | Current shared SDK circle constructor and reader, original pre-writer source locks, unchanged recursive circle observer and comparator |
 | Exit | Immutable generated predictions, strict original SDK admission, clean paired native lifecycle and exact saved-output SDK readback |
-| State | Method prepared. Generation, source attachment and native measurements await the root operator. |
+| State | Both guarded predictions and strict source attachments pass. The first native packet failed in its observer; the corrected observer must be measured. |
 
 ## Independence and source identities
 
@@ -95,7 +95,7 @@ only the resulting neutral request. Each actual driving dimension remains
 owned by its sketch or end. The SDK verifies `D1` at `f818.f18` and
 active `D2` at `f818.f20`; H03 has no active second driver.
 
-The [exact native observer](../../tooling/sw2026/InspectSdkCircleHeldouts.py)
+The [exact native observer](../../tooling/sw2026/InspectSdkCircleBodyTypes.py)
 and [paired comparator](../../tooling/sw2026/CompareSdkCircleHeldouts.py)
 check the complete ordered names, node types, parents, suppression and
 diagnostics, all configuration names and active name, fixed-centre
@@ -112,6 +112,16 @@ The observer stops at its first failure. Unreached states retain their
 unmeasured status.
 Both brackets and all paired states must pass before readback can attest
 the bounded outcome.
+
+The [initial packet receipt](../measurements/2026/SdkEndConditionObserverAttempt01.json)
+records eight successful guarded generation/read processes and two strict
+original attachments. Both native controls passed. The first original
+reference reached its 25-row recursive tree, then attempted the absent
+`IBody2.IsSolidBody` member. The three native processes opened no
+generated file. The retry uses the existing corrected body observer
+that reads `IBody2.GetType` and `GetVertexCount`. It retains the same
+comparison predicates.
+[Installed COM gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Parts/BodyTypeUsesGetType.md)
 
 Native appearance, drawing and assembly behavior and additional source
 owners require separate evidence. This protocol makes no public writer
