@@ -59,8 +59,12 @@ holdouts and disclosed trials add zero benchmark conversion credits. The
 [shared FreeCAD projection and constructor](measurements/2026/FreecadAttachedBoxSharedBuild01.json)
 reproduce six exact containers and 72 stream digests with zero runtime input
 reads. The public SDK refuses all three full FreeCAD inputs before publishing
-any bytes. The remaining transfer requirements are B-rep, native payloads,
-provenance and round-trip metadata.
+any bytes. The [intact 0.21.2 owner proof](measurements/2026/OriginalFcstdAttachedBoxOwners01.json)
+joins all three source shape payloads and full boundary incidence to the
+strict target and independently verifies the three editable drivers.
+The original archive payload and binding, provenance and round-trip
+metadata remain unsupported transfers. This disclosed source has
+unverified historical roster membership.
 
 The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
 loads two model-generated, independently measured solid payloads with
