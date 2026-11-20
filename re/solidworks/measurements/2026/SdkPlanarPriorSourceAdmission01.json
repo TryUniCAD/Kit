@@ -1,0 +1,315 @@
+{
+  "aggregate_revision": "45d8b4350c1016a1d32c8e456a805640e42f8647",
+  "cases": {
+    "A20": {
+      "authority": {
+        "author_case_json_path": "job.case",
+        "author_record_file": "Record.json",
+        "author_record_sha256": "46d29bdc6b1478935d7c53f74cab10f2d95e6483f0db81545ef0aa318b9b4db8",
+        "child_file": "CohortChild.SLDPRT",
+        "child_sha256": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115",
+        "parent_file": "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "parent_sha256": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd",
+        "relative_author_directory": "AssemblyMateSource02/A20HeldoutPlaneCoincidentDistance/author"
+      },
+      "direct_first_refusal": {
+        "error": "ValueError('assembly root contains unprojected model content')",
+        "stack": [
+          "CheckAsmShape.py:30:CheckAsmShape",
+          "ReadAsmModel.py:25:ReadAsmModel",
+          "CheckAsmRoot.py:18:CheckAsmRoot",
+          "RequireAsm.py:4:RequireAsm"
+        ]
+      },
+      "direct_public_can_write": false,
+      "exact_source_display": {
+        "height": {
+          "along_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            1.0,
+            6.123233995736766e-17,
+            0.0
+          ],
+          "away_m": 0.005000000000000001,
+          "centerline_route": true,
+          "display_class": "moDisplayDistanceDim_c",
+          "driver": "D2",
+          "driver_slot": 1,
+          "end_m": [
+            0.02,
+            0.01,
+            0.0
+          ],
+          "metres": 0.02,
+          "profile": "Sketch1",
+          "start_m": [
+            0.02,
+            -0.01,
+            0.0
+          ],
+          "text_m": [
+            0.025,
+            3.0616169978683835e-19,
+            0.0001
+          ],
+          "under_text": 64
+        },
+        "width": {
+          "along_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            6.123233995736766e-17,
+            -1.0,
+            0.0
+          ],
+          "away_m": 0.004999999999999999,
+          "centerline_route": true,
+          "display_class": "moDisplayDistanceDim_c",
+          "driver": "D1",
+          "driver_slot": 0,
+          "end_m": [
+            0.02,
+            -0.01,
+            0.0
+          ],
+          "metres": 0.04,
+          "profile": "Sketch1",
+          "start_m": [
+            -0.02,
+            -0.01,
+            0.0
+          ],
+          "text_m": [
+            3.0616169978683825e-19,
+            -0.015,
+            0.0
+          ],
+          "under_text": 64
+        }
+      },
+      "existing_internal_xy_route_input_probe": {
+        "DesignIntent": false,
+        "HeightText": [
+          0.025,
+          3.0616169978683835e-19
+        ],
+        "RouteCenter": true,
+        "SelectedLeader": 0,
+        "WidthText": [
+          3.0616169978683825e-19,
+          -0.015
+        ]
+      },
+      "existing_internal_xyz_input_refusal": {
+        "error": "TypeError('rectangle dimension text requires two planar coordinates')",
+        "stack": [
+          "<string>:8:__init__",
+          "RectDimInput.py:20:__post_init__"
+        ]
+      },
+      "guarded_scope_source_projection_passed": true,
+      "normal_public_reader": {
+        "cad_imports": [],
+        "neutral_mate_group_count": 0,
+        "pid": 15733,
+        "returncode": 0,
+        "root_diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "root_feature_rows": 25,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3a997339aca6682d5e32f5a653c475944d8ee9371e0085569af0282f0d0d657a"
+      },
+      "projected_neutral_public_can_write": true,
+      "projected_neutral_public_plan": {
+        "DesignIntent": false,
+        "HeightText": [
+          0.03,
+          0.0
+        ],
+        "RouteCenter": false,
+        "SelectedLeader": 0,
+        "WidthText": [
+          0.0,
+          -0.015
+        ]
+      }
+    },
+    "A21": {
+      "authority": {
+        "author_case_json_path": "job.case",
+        "author_record_file": "Record.json",
+        "author_record_sha256": "e8fae71fbd9403e2d4fcd9952606fda9876cdd551ce161f6afe029a104af643c",
+        "child_file": "CohortChild.SLDPRT",
+        "child_sha256": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff",
+        "parent_file": "A21HeldoutPlaneParallelDistance.SLDASM",
+        "parent_sha256": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0",
+        "relative_author_directory": "AssemblyMateSource02/A21HeldoutPlaneParallelDistance/author"
+      },
+      "direct_first_refusal": {
+        "error": "ValueError('assembly root contains unprojected model content')",
+        "stack": [
+          "CheckAsmShape.py:30:CheckAsmShape",
+          "ReadAsmModel.py:25:ReadAsmModel",
+          "CheckAsmRoot.py:18:CheckAsmRoot",
+          "RequireAsm.py:4:RequireAsm"
+        ]
+      },
+      "direct_public_can_write": false,
+      "exact_source_display": {
+        "height": {
+          "along_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            1.0,
+            6.123233995736766e-17,
+            0.0
+          ],
+          "away_m": 0.005000000000000001,
+          "centerline_route": true,
+          "display_class": "moDisplayDistanceDim_c",
+          "driver": "D2",
+          "driver_slot": 1,
+          "end_m": [
+            0.02,
+            0.01,
+            0.0
+          ],
+          "metres": 0.02,
+          "profile": "Sketch1",
+          "start_m": [
+            0.02,
+            -0.01,
+            0.0
+          ],
+          "text_m": [
+            0.025,
+            3.0616169978683835e-19,
+            0.0001
+          ],
+          "under_text": 64
+        },
+        "width": {
+          "along_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            6.123233995736766e-17,
+            -1.0,
+            0.0
+          ],
+          "away_m": 0.004999999999999999,
+          "centerline_route": true,
+          "display_class": "moDisplayDistanceDim_c",
+          "driver": "D1",
+          "driver_slot": 0,
+          "end_m": [
+            0.02,
+            -0.01,
+            0.0
+          ],
+          "metres": 0.04,
+          "profile": "Sketch1",
+          "start_m": [
+            -0.02,
+            -0.01,
+            0.0
+          ],
+          "text_m": [
+            3.0616169978683825e-19,
+            -0.015,
+            0.0
+          ],
+          "under_text": 64
+        }
+      },
+      "existing_internal_xy_route_input_probe": {
+        "DesignIntent": false,
+        "HeightText": [
+          0.025,
+          3.0616169978683835e-19
+        ],
+        "RouteCenter": true,
+        "SelectedLeader": 0,
+        "WidthText": [
+          3.0616169978683825e-19,
+          -0.015
+        ]
+      },
+      "existing_internal_xyz_input_refusal": {
+        "error": "TypeError('rectangle dimension text requires two planar coordinates')",
+        "stack": [
+          "<string>:8:__init__",
+          "RectDimInput.py:20:__post_init__"
+        ]
+      },
+      "guarded_scope_source_projection_passed": true,
+      "normal_public_reader": {
+        "cad_imports": [],
+        "neutral_mate_group_count": 0,
+        "pid": 15740,
+        "returncode": 0,
+        "root_diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "root_feature_rows": 26,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0dd2cae7c10e6a1c284b27a4d3729c9274ddd02b822644cf1ff899e4853b6e74"
+      },
+      "projected_neutral_public_can_write": true,
+      "projected_neutral_public_plan": {
+        "DesignIntent": false,
+        "HeightText": [
+          0.03,
+          0.0
+        ],
+        "RouteCenter": false,
+        "SelectedLeader": 0,
+        "WidthText": [
+          0.0,
+          -0.015
+        ]
+      }
+    }
+  },
+  "delivery_pr": 121,
+  "diagnostic_tool_sha256": {
+    "ReadSdkOrderedNative.py": "3b808a43e62c691197b386bd8e46f2631553ae746352d6748e9e7ba8906df46d",
+    "planar_registry/PlanarPriorAdmission.py": "68f4c5298b23e04fff7e49bd9b9bbefede375c4c74e23988a66b3810a493db32",
+    "planar_registry/PlanarRegistryBuild.py": "21afc289a9657bda6664b7baaf9591aa6ddbe2decbddd42f5cb018c5b63beb0b",
+    "planar_registry/RectanglePresentation.py": "de95d552038dc3069965c8a2c58d3e0810cc1b6cfe3cd1dfc75ea450dcd355f9"
+  },
+  "first_launcher_attempt": {
+    "cause": "isolated diagnostic omitted the source root before invoking the prior research projector",
+    "error": "ModuleNotFoundError(\"No module named 'tests'\")",
+    "resolved_by": "PlanarRegistryBuild.bind(root)"
+  },
+  "generated_output_count": 0,
+  "locked_original_author_specs_sha256": "642066a5493d58c09e68e5965b315c741c56be75541e53d17f66077a5d0909d8",
+  "native_processes_started": 0,
+  "native_spatial_child_evidence_sha256": "eb48b6846b301f2e0e6fdc5e893ee757ea7a9ccb16cb66619fd8d6f5e30360e4",
+  "new_heldout_credit": 0,
+  "prior_cohort_regression_credit": 0,
+  "prior_internal_native_result_receipt_sha256": "f2dcbe32919c5651a62bf6d26b900d7a09f7d56d8747f7ae541ef1c32388ffdd",
+  "prior_source_packet_lock_sha256": "92a8f99288b3193bf0b39bd7694a63d8c6475df0c158ba39778b44ae47e1b1e0",
+  "public_source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "raw_source_and_record_identities_preserved": true,
+  "schema": "kit.sw2026.planar-registry-prior-source-intent-audit.v1",
+  "task": "B04-SW2026-ASSEMBLIES-C10"
+}
