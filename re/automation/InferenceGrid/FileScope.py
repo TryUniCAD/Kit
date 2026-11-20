@@ -112,6 +112,10 @@ def file_scope(path, application, scratch, root):
         if comparison is not None:
             reports["repeat-save"] = comparison
             audit["repeat_save_status"] = comparison["status"]
+        from InferenceGrid.ResolveNames import advance_names
+        proposal = advance_names(reports["native"], attempts["strict"].get("message", ""), source, root, scratch)
+        if proposal is not None:
+            reports["design-names"] = proposal
         if trace is not None:
             reports["references"] = trace
             audit["refusal_trace"] = {"start": trace["start"], "class": trace["class"], "nodes": len(trace["nodes"]),

@@ -62,6 +62,9 @@ def RunCatalogueBatch(
         WriteRecord(Directory / "FileScope.json", Audit)
         for Layer, Report in Reports.items():
             WriteRecord(Directory / f"Input-{Layer}.json", Report)
+            if Layer == "design-names":
+                with (Directory / "DesignNames.patch").open("x", encoding="utf-8") as Patch:
+                    Patch.write(Report["patch"])
     WriteRecord(Directory / "CataloguePlan.json", Plan)
     Store = Directory / "Store"
     Config, _, _ = PilotConfig(Directory, SourceRoot, Workers, GroupRescans=False)

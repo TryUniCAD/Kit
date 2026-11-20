@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Graph.DesignNames import DesignNames
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.adapters.Fusion.Native.Graph.ReadNames import ReadNames
@@ -13,7 +14,9 @@ def BuildGraph(Value: DocumentModel) -> NativeGraph:
     Catalog = {Entry.Value.ClassGuid.upper(): Entry for Entry in ReadNames()}
     Auxiliary = {Entry.ClassGuid.upper() for Entry in KAuxiliarySchemas}
     Nodes: dict[tuple[int, int], NativeNode] = {}
+    Reflected: set[str] = set()
     for Segment in Value.Segments:
+        Names = DesignNames(Segment)
         SegmentId = Segment.Metadata.Header.SegmentId
         for Record in Segment.Records:
             if not Record.IsPrimary:
@@ -24,22 +27,28 @@ def BuildGraph(Value: DocumentModel) -> NativeGraph:
                 if ItemValue.ObjectId == Record.ObjectId
                 for Group in ItemValue.Groups
             )
-            Schema = Catalog.get(Groups[0].ClassGuid.upper())
-            if Schema is None:
-                if Groups[0].ClassGuid.upper() not in Auxiliary or SegmentId == 0:
-                    raise ValueError(
-                        f"Unknown native Fusion entity class {Groups[0].ClassGuid} "
-                        f"in segment {SegmentId}, object {Record.ObjectId}"
-                    )
-            ClassName = (
-                Schema.NameValue if Schema is not None else "VisualAnalysesBrowserEntry"
-            )
+            Guid = Groups[0].ClassGuid.upper()
+            Schema = Catalog.get(Guid)
+            if Schema is not None:
+                ClassName = Schema.NameValue
+            elif Guid in Names:
+                ClassName = Names[Guid]
+                Reflected.add(ClassName)
+            elif Guid in Auxiliary and SegmentId != 0:
+                ClassName = "VisualAnalysesBrowserEntry"
+            else:
+                raise ValueError(
+                    f"Unknown native Fusion entity class {Groups[0].ClassGuid} "
+                    f"in segment {SegmentId}, object {Record.ObjectId}"
+                )
             Nodes[(SegmentId, Record.ObjectId)] = NativeNode(
                 SegmentId, Record.ObjectId, ClassName, Groups, Record.Frame
             )
     Bases = {
         Schema.NameValue: ClassBases(Schema, Catalog) for Schema in Catalog.values()
     }
+    for ClassName in Reflected:
+        Bases.setdefault(ClassName, ())
     Bases["VisualAnalysesBrowserEntry"] = ("EntityEntry",)
     return NativeGraph(Nodes, Bases)
 
