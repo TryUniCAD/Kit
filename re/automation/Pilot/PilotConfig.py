@@ -13,7 +13,9 @@ from Pilot.PilotFiles import WriteRecord
 
 
 # an explicit deterministic registry prevents models or licensed application dispatch from entering this run
-def PilotConfig(Directory, SourceRoot, Sessions, *, GroupRescans=True):
+def PilotConfig(
+    Directory, SourceRoot, Sessions, *, GroupRescans=True, GroupMaxMembers=20
+):
     Schema = WriteRecord(Directory / "InferenceResult.json", result_schema())
     Entry = {
         "pool": "inference",
@@ -36,6 +38,8 @@ def PilotConfig(Directory, SourceRoot, Sessions, *, GroupRescans=True):
             "group_limit_bytes": 16 * 1024 * 1024,
             "group_peak_memory_mib": 256,
         }
+        if GroupMaxMembers != 20:
+            Rescan["group_max_members"] = GroupMaxMembers
     Registry = WriteRecord(
         Directory / "Registry.json",
         {"runners": {FIELD_KIND: Entry, GAP_KIND: Entry, RESCAN_KIND: Rescan}},

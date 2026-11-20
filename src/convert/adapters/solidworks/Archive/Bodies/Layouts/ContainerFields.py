@@ -14,5 +14,14 @@ KContainerFields = MappingProxyType(
                 CountValue="n",
             ),
         ),
+        "su_CStringArray": (
+            NativeField(
+                "Array",
+                "items",
+                "Count",
+                BodyValue=(NativeField("Text", "s"),),
+                CountValue="n",
+            ),
+        ),
     }
 )

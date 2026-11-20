@@ -6,10 +6,14 @@ from convert.adapters.solidworks.Archive.Strings.ReadLength import ReadLength
 # canonical body text must retain its wire identity without allocating a second payload
 def ReadBodyTextMut(Cursor: BinaryReader) -> str | tuple[str, str]:
     CountStart = Cursor.OffsetValue
-    CountValue, NextOffset = ReadLength(Cursor.BytesValue, CountStart)
+    CountValue, NextOffset = ReadLength(
+        Cursor.BytesValue, CountStart, LimitValue=Cursor.LimitValue
+    )
     if CountValue is None:
         CountStart = NextOffset
-        CountValue, NextOffset = ReadLength(Cursor.BytesValue, CountStart)
+        CountValue, NextOffset = ReadLength(
+            Cursor.BytesValue, CountStart, LimitValue=Cursor.LimitValue
+        )
     if CountValue is None:
         raise ValueError("archive string repeats the Unicode marker")
     WidthValue = 1 if CountValue < 0xFF else 3

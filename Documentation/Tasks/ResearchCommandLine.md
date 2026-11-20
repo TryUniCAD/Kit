@@ -142,6 +142,8 @@ An explicit value applies to every supervisor stage started by this batch.
 Kit still requires enough available memory for each worker's estimated demand.
 
 Kit automatically runs independent offline jobs in parallel when memory and CPU are available.
+Small compatible rescans can share one worker process in groups of up to four files.
+Each file retains its own result and receipt.
 Use `--workers N` to cap the number of offline workers.
 Set `--workers 1` for a serial offline run. Native CAD workers follow their own supervisor configuration.
 
@@ -150,10 +152,23 @@ The capture still needs its prerequisite assessment and a licensed application s
 Once the application owner has prepared its worker, use `--native-ready` to allow dispatch.
 See the [catalogue native handoff](../Changes/Research/Controller/DeterministicInference.md#run-both-complete-catalogue-inventories).
 
+Kit shows active workers, queued jobs, and waits in the terminal while it runs.
+Progress uses standard error. The final JSON remains on standard output.
 Read `CatalogueResult.json` for completed and blocked entries. Exit status 2 means coverage remains incomplete.
 Read `State/decoder-advice/<receipt>/Advice.json` for suggestions produced during the offline batch stage.
 A suggestion requires an independently checked experiment before it can become a decoder rule.
 Use `kit run --root . fusion --help` for all options.
+
+To pause a run, open another terminal and use its existing output directory.
+Let the active workers finish before you resume.
+
+```sh
+kit run --root . fusion --directory /tmp/KitFusion --pause
+kit run --root . fusion --directory /tmp/KitFusion --resume
+```
+
+Resume from the same source revision. Kit reuses the original catalogue and worker settings.
+To retry a parked native job after its owner restores the application, add `--native-ready` to `--resume`.
 
 ## Keep the interfaces distinct
 

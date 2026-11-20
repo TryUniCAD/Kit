@@ -113,6 +113,11 @@ archive version 19000.
 Complete configuration admission requires the remaining model body.
 [Configuration header link scope](../../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
+The internal configuration section action bounds native body readers to the
+declared lightweight or resolved length and keeps their shared map. Its scoped
+ordinary records include direct model-header aliases and an empty ghost manager.
+[Configuration section scope](../../Changes/Solidworks/Archive/SolidworksConfigSections.md)
+
 The bounded version-19000 part cache reader keeps zero through two mass
 slots, each slot's atom rows and attached mass properties, and the
 signed trailer when two slots are stored. The measured bounds field
@@ -156,6 +161,12 @@ The reader combines available feature, geometry, and assembly information.
 Source metadata and diagnostics qualify the decoded result.
 The cached body geometry and feature history provide different evidence.
 
+The shared body reader uses the stored comparison field and archive
+conditions for ordinary branches. A fixed repeat uses its field
+declaration for the row count. Signed normalization retains the
+original word with its runtime projection.
+[Configuration field modes](../../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
+
 For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid
 reader uses forward fin links and terminal vertices. This preserves outward
 face loops and positive signed volume in the disclosed rectangular case.
@@ -189,6 +200,11 @@ Boss and cut behavior can depend on several related records.
 A single flag change is not a general operation converter.
 
 ## Writing
+
+The shared atom manager encoder derives its row count and map allocation
+from typed rows. Its bounded emission preserves native state normalization
+under the actual archive conditions.
+[Atom manager emission](../../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
 
 Kit does not write SOLIDWORKS files.
 A conversion to a `.SLDPRT` or `.SLDASM` destination raises `AdapterNotFoundError` and creates no file.
