@@ -63,6 +63,10 @@ stream layouts define the order and meaning of those fields.
 Inherited body links require the concrete objects from the prior map.
 [Body value scope](../../Changes/Solidworks/Archive/SolidworksArchiveBodyValues.md)
 
+The KeyWords framer serializes a typed XML tree with the native
+stream marker, UTF-8 declaration and explicit empty tag style.
+[KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
+
 ## Read flow
 
 ```mermaid

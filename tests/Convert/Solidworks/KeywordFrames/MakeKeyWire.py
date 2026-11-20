@@ -1,0 +1,22 @@
+# authored attribute text includes a delimiter spelling and xml special characters
+KKeywordName = 'A /> & "mode" < \u03bb'
+
+# authored character data must survive the same compact framing
+KKeywordText = "\u03c0 /> & <"
+
+
+# the expected markup specifies entity escapes and the empty delimiter independently
+def MakeKeyWire(IsCompact: bool) -> bytes:
+    Ending = "/>" if IsCompact else " />"
+    Content = (
+        '<Keywords id="17" Name="A /&gt; &amp; &quot;mode&quot; &lt; \u03bb">'
+        + '<Configuration id="0" Name="Default" Type="ConfigurationManager" Material=""'
+        + Ending
+        + '<Feature id="7" Name="Sketch1" Type="ProfileFeature">'
+        + '<Dimension Name="D1">\u03c0 /&gt; &amp; &lt;</Dimension></Feature></Keywords>'
+    )
+    return (
+        b'\x86<?xml version="1.0" encoding="UTF-8"?>\r\n'
+        + Content.encode("utf-8")
+        + b"\r\n"
+    )
