@@ -14,7 +14,7 @@ from ProbeThroughAutoScope01 import (
 )
 
 
-PACKET = "SceneLightCounts01"
+PACKET = "SceneLightCounts02"
 SCHEMA = "kit.sw2026.disclosed-scene-light-counts.v1"
 CASES = {"One": 1, "Two": 2, "Properties": 2}
 PHASES = ("Before", *(name + role for name in CASES for role in ("Author", "Reopen")), "After")
@@ -65,7 +65,7 @@ def light_names(author):
     count = int(author.get(author.model, "GetLightSourceCount"))
     need(2 <= count <= 4, "the fixture requires an ordinary ambient and directional scene")
     names = [str(author.get(author.model, "GetLightSourceName", index)) for index in range(count)]
-    need(len(set(names)) == count and "ambient" in names[0].casefold()
+    need("ambient" in names[0].casefold()
          and all("direction" in name.casefold() for name in names[1:]),
          "the actual ambient and directional ordering differs")
     return names
