@@ -22,7 +22,7 @@ from InferenceHoldoutGate import HOLDOUT_LINEAGE, SCOPE, submit
 
 def exercise(work, store, statuses, mode, image):
     repo = work / mode
-    subprocess.run(["git", "clone", "--shared", "--no-checkout", str(ROOT), str(repo)], check=True)
+    subprocess.run(["git", "-C", str(ROOT), "worktree", "add", "--detach", "--no-checkout", str(repo), "HEAD"], check=True)
 
     def git(*args):
         return subprocess.check_output(["git", "-C", str(repo), *args], text=True).strip()
