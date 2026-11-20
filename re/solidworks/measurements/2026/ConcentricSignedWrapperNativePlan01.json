@@ -1,0 +1,425 @@
+{
+  "baseline_result_sha256": "3263e7d2019953bede2c36948b84274d915b9cd8f4de1afc0bcb1988e0397f03",
+  "baseline_trial_sha256": "5d7680db342c5c7e037313d0a2bc3e02820b1d21dfcbdad5cd77293430d32d01",
+  "cases": {
+    "Aligned": {
+      "build": {
+        "active_intervals": [
+          [
+            0.0,
+            -0.031369999999999995
+          ],
+          [
+            0.0,
+            -0.03137000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "a122caf8e619869cb85e85e2741290cc81bec13f71f4db9c766c94ad4e2abfb8",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "independent_builds": 2,
+        "kernel_node_id": 5,
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3650,
+        "mate_sha256": "5ece21190ec6ab6ab7de23e191a41967833bfec2bc132fac56928cc13d0896b5",
+        "occurrence_names": [
+          "D01SignedChild-1",
+          "D01SignedChild-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "ordered_child_lights": [
+          "Ambient",
+          "Directional1",
+          "Directional2",
+          "Directional3"
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "runtime_io_attempts": 0,
+        "signed_rim_bounds_verified": true,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.2558
+          ]
+        ]
+      },
+      "expected": {
+        "initial_bounds_m": [
+          [
+            0.0,
+            -0.03137
+          ],
+          [
+            0.0,
+            -0.03137
+          ]
+        ],
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "names": [
+          "D01SignedChild-1",
+          "D01SignedChild-2"
+        ],
+        "saved_bounds_by_carrier_sign_m": {
+          "-1": [
+            [
+              0.0,
+              0.036797010000000005
+            ],
+            [
+              0.0,
+              0.036797010000000005
+            ]
+          ],
+          "1": [
+            [
+              0.0,
+              -0.036797010000000005
+            ],
+            [
+              0.0,
+              -0.036797010000000005
+            ]
+          ]
+        },
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ]
+      },
+      "files": {
+        "child": "a122caf8e619869cb85e85e2741290cc81bec13f71f4db9c766c94ad4e2abfb8",
+        "parent": "9e9553af12433e5096465a6724139ce6c14a3ce98a8885aae8288f060b8d5723"
+      },
+      "host_verify_passed": true,
+      "recipe_sha256": "bcc2ef3c4a298133214a59ae437d45e102e78d750c4b01df6fbc54060467a1e5",
+      "trial_sha256": "8e0feb327fdacd559f9a9a56bcbb24ecf679bb4a40e9bff29f23f3cf7b03ae45"
+    },
+    "AntiLocked": {
+      "build": {
+        "active_intervals": [
+          [
+            0.0,
+            -0.014763000000000004
+          ],
+          [
+            0.0,
+            -0.014763
+          ]
+        ],
+        "alignment": 2,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "a17b4a7619173e4b06ec56db7f7fccca3a5aeef1f29ee969587de1b03cd8995d",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          false,
+          true
+        ],
+        "independent_builds": 2,
+        "kernel_node_id": 5,
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3910,
+        "mate_sha256": "4ef2a72a6162b523848812016919f8f85ac826a048435dfcd289cbadaefa5e0d",
+        "occurrence_names": [
+          "SignedTiltedChild-2",
+          "SignedTiltedChild-1"
+        ],
+        "occurrences": [
+          18,
+          17
+        ],
+        "ordered_child_lights": [
+          "Ambient",
+          "Directional1",
+          "Directional2",
+          "Directional3"
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": true,
+        "round_tripped_linked_streams": 3,
+        "runtime_io_attempts": 0,
+        "signed_rim_bounds_verified": true,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            0.18065529823420398,
+            0.5144806193887359,
+            -0.8382561395500145
+          ]
+        ],
+        "world_origins": [
+          [
+            -0.044225791065869546,
+            -0.009411588480897709,
+            0.05107639464879625
+          ],
+          [
+            -0.03452116910002634,
+            0.018225795912045796,
+            0.006046113088309022
+          ]
+        ]
+      },
+      "expected": {
+        "initial_bounds_m": [
+          [
+            0.0,
+            -0.014763
+          ],
+          [
+            0.0,
+            -0.014763
+          ]
+        ],
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "names": [
+          "SignedTiltedChild-2",
+          "SignedTiltedChild-1"
+        ],
+        "saved_bounds_by_carrier_sign_m": {
+          "-1": [
+            [
+              0.0,
+              0.01874901
+            ],
+            [
+              0.0,
+              0.01874901
+            ]
+          ],
+          "1": [
+            [
+              0.0,
+              -0.01874901
+            ],
+            [
+              0.0,
+              -0.01874901
+            ]
+          ]
+        },
+        "world_axes": [
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            0.18065529823420398,
+            0.5144806193887359,
+            -0.8382561395500145
+          ]
+        ]
+      },
+      "files": {
+        "child": "a17b4a7619173e4b06ec56db7f7fccca3a5aeef1f29ee969587de1b03cd8995d",
+        "parent": "941b113086e31f34e953c2f9d0daff9f3cb9a70b2d9cfe8e7724c7c3e4cd2b18"
+      },
+      "host_verify_passed": true,
+      "recipe_sha256": "c582ec29ee3a5069845cd72154f6aa7b4f07c90f897274b589cb41cf75d14109",
+      "trial_sha256": "3ba299ea8e9413aaf82dc3313e5cf8f570ac89f3b50ceb0079a574f5a158d199"
+    }
+  },
+  "earlier_incomplete_preparation": {
+    "cause": "optional reference number empty, canonical authored name suffix now used",
+    "eligible_for_dispatch": false,
+    "host_verified_cases": 1,
+    "native_processes_started": 0,
+    "stage": "tilted fixture occurrence names"
+  },
+  "host_postflight_self_check": {
+    "previous_live_axis_checks": 20,
+    "previous_saved": {
+      "carrier_sign": -1,
+      "endpoints": [
+        {
+          "entity": "sldasm:mate:2:0:0:entity:0",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.036797010000000005
+          ],
+          "generated_face": "sldprt:brep:face:40",
+          "generated_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.05549701000000001
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "occurrence": "sldasm:instance:4",
+          "reference_number": "1",
+          "source_axial_bounds_m": [
+            0.0,
+            -0.036797010000000005
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.05549701000000001
+          ],
+          "world_axis": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "entity": "sldasm:mate:2:0:0:entity:1",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.036797010000000005
+          ],
+          "generated_face": "sldprt:brep:face:40",
+          "generated_world_origin_m": [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.29259701000000005
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "occurrence": "sldasm:instance:7",
+          "reference_number": "2",
+          "source_axial_bounds_m": [
+            0.0,
+            -0.03679701000000002
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.29259701000000005
+          ],
+          "world_axis": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "saved_real_face": "sldprt:brep:face:40"
+    },
+    "refused_opposite_live_axis": true,
+    "refused_opposite_saved_extent": true
+  },
+  "native_processes_started": 0,
+  "preparer_sha256": "6983cc32df18ffad26e3f4d576a747fa55059eea7577786c179b9ef83c548d1b",
+  "raw_host_preparation_sha256": "ca227ec496ce5e0fd4d434baa111aec0ef724158bd5907ef69e00e3e046760d7",
+  "schema": "kit.sw2026.signed-wrapper-native-discriminator.v1",
+  "sealed_inputs_read": 0,
+  "source_closure": {
+    "paths": 6069,
+    "sha256": "e944b3341451c20fb05029886a4cada35a67bd6b1a4d814bdd61b3c3932d0843"
+  },
+  "whole_source_acceptance": false,
+  "writer_revision": "7e4f6e8d22f3181590e0ab238c0e0a6f4c756d02"
+}
