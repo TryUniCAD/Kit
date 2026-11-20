@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.ContainerFields import (
     KContainerFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Definition.Fields.AppearanceFields import (
+    KAppearanceFields,
+)
 from convert.adapters.solidworks.Archive.Definition.Fields.AssemblyDefTail import (
     KAssemblyDefTail,
 )
@@ -38,6 +41,7 @@ KModelDefLayouts = MappingProxyType(
         **KContainerFields,
         **KGeometryFields,
         **KFontFields,
+        **KAppearanceFields,
         **KDocEnvironmentFields,
         **KDocHelperFields,
         **KDocStyleFields,

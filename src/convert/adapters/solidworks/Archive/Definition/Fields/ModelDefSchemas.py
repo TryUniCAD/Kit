@@ -17,6 +17,7 @@ KModelDefSchemas = MappingProxyType(
         "uiLineFontMgr_c": (1,),
         "uiUserModelEnv_c": (1,),
         "moBomInfoMgr_c": (1,),
+        "PWMaterialProperties_c": (1,),
         "uoJournal_c": (0,),
     }
 )

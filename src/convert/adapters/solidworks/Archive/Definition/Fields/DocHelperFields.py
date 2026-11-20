@@ -1,6 +1,9 @@
 from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Definition.Fields.AppearanceFields import (
+    KAppearanceList,
+)
 from convert.adapters.solidworks.Archive.Definition.Fields.ScalarFields import (
     MakeScalarRows,
 )
@@ -67,7 +70,7 @@ KDocHelperFields = MappingProxyType(
         ),
         "PWMaterialManager_c.restore": (
             *MakeScalarRows("i32", "f08 f0c"),
-            NativeField("Embed", "list", "suObList"),
+            KAppearanceList,
         ),
         "uoModelData_c.restore": (
             NativeField("Node", "f08"),
