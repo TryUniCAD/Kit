@@ -11,6 +11,7 @@ class PersistentIds:
 
     # explicit reservations preserve the target allocator boundary without deriving identifiers from saved documents
     def __init__(self, NextValue: int = 0, Reserved: tuple[int, ...] = ()) -> None:
+        super().__init__()
         CheckIdSeed(NextValue, Reserved)
         self.CounterValue = NextValue
         self.ReservedSet = frozenset(Reserved)
@@ -35,8 +36,7 @@ class PersistentIds:
                 "persistent ids require a typed node and classified identity field"
             )
         KeyValue = (NodeValue, FieldName)
-        if KeyValue in self.Allocations:
-            NumberValue = self.Allocations[KeyValue]
+        if (NumberValue := self.Allocations.get(KeyValue)) is not None:
             if NodeValue.FieldsValue.get(FieldName) != NumberValue:
                 raise ValueError(
                     "allocated persistent id changed outside its allocator"
