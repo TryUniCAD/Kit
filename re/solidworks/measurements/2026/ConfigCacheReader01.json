@@ -34,14 +34,67 @@
   },
   "native_processes_started": 0,
   "native_reference_build": "SOLIDWORKS 2026 SP05.2 34.5.2.0604",
+  "one_slot_review_verification": {
+    "fresh_processes": 7,
+    "one_slot": {
+      "appended_selector": -23,
+      "case": "one-slot",
+      "fault_sha256": "d5512bf70f0adfb2dc010b41c95f370b21cb291a8fc604022a23146df771114a",
+      "records": {
+        "mass": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "atom_rows": [
+            {
+              "atom": 211,
+              "d": 0.625,
+              "v": -40
+            }
+          ],
+          "bytes": 305,
+          "counter": 108,
+          "decoded_selector": 0,
+          "fields_sha256": "70229093de36e8adb9f63153002a41fe64cf72c8856ec9eddf6d68ddc1d5c9ad",
+          "layouts": [
+            "mgVector_c.restore",
+            "moMassPropCache_c.Serialize",
+            "moMassProp_c"
+          ],
+          "property_count": 33,
+          "selector_present_on_wire": false,
+          "sha256": "fb3bcc95fbda1ba12171abeb6b9fc00d3da3a7a4e06f2a01f06c9e327a1626cf"
+        }
+      },
+      "reference_refusal": "cache reference has trailing data",
+      "refusals": [
+        "selector_after_one_slot"
+      ],
+      "runtime_external_accesses": 0
+    },
+    "one_slot_stdout_sha256": "6ba31b66013415773574a2cbd9c8e447a9e67c3c12e4b9db9371f97adc63e32d",
+    "original_controls_pristine": true,
+    "prepared_head": "57e2c7bbffc19d700d4fe982a92cb27b1020bc74",
+    "python_version": "3.14.7",
+    "retained_stdout_sha256": {
+      "authored": "cf28edd68dc9dc857456c68597f7de395dbd7df24045008f568b9de0295758d0",
+      "circle": "563eebcc92f4990e463baae45e0dcc333377ea8999cad33339e7411271581c2a",
+      "concave": "1649e50c3468f8374c21d28bb304ca710a3c2d978c1e8fc6d9e523bbd31f35e9",
+      "ladder": "63c572d15c16b29858dda5f0f1c31a4d685c925914c7a21f652f4f8b1d1ea75b",
+      "polygon": "f4bfc34d002d6624fbe6803e7fffac9b3946879f67b74fb77763cd714ec1927a"
+    }
+  },
   "physical_file_version": 4,
   "preparation_base": "0cd540e298655e091bcfb4a984ba50e793d67c53",
   "process_tool_sha256": {
-    "re/tooling/sw2026/CheckCfgCaches.py": "d06c17e1d6eba5c3d66487243c632759db308f8b679d796cab41a171b0f7c385",
-    "re/tooling/sw2026/ReadWirePartCaches.py": "7c3cf96a9d6ac802250ffa3d79ffa35c09c07cc577028d2d5ac03159b72e10dd"
+    "re/tooling/sw2026/CheckCfgCaches.py": "8e37c8d90ea6bcd5a14a608726d4a7a193c95ef4989932aac81c04cb2a859bc4",
+    "re/tooling/sw2026/ReadWirePartCaches.py": "2288caf633aad6089fcbdcdd238cc46c31f1cf8a6d9a870477efb2764a0425c1"
   },
   "queue_source_sha256": {
     "tests/Convert/Solidworks/Configuration/CacheNativeTests.py": "187c86c569bd4657868a7dd55c5720966ba7589267eabb0904e318668b93ed1d",
+    "tests/Convert/Solidworks/Configuration/CacheOneSlotTests.py": "567ecd4cd9cd29aff382baa81771b17d54505e7b3050566b09d28ae70f9fb7f1",
     "tests/Convert/Solidworks/Configuration/CacheWireTests.py": "ea62ab074909fab0a1179dd9ccc4926db22b9a7b4ab14487cc1f0eb5e0b5286e",
     "tests/Convert/Solidworks/Configuration/RunCacheCase.py": "70eb6040d9a66da716f77b43ce915d1193c7a1af1c421255111d4dc22aaeb4ec"
   },

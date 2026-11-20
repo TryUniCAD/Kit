@@ -69,7 +69,7 @@ def read_mass_wire(payload):
     return {"f1628": slots, "f1638": selector}
 
 
-def author_mass_wire():
+def author_populated_slot(rows):
     start = pack("<12d5id4i", *(
         [0.25 + index / 8 for index in range(12)]
         + [4, -8, 16, -32, 64]
@@ -80,5 +80,14 @@ def author_mass_wire():
     wide = "edited β".encode("utf-16-le")
     texts = pack("<B", len(ansi)) + ansi + pack("<BHB", 255, 0xFFFE, len(wide) // 2) + wide
     end = pack("<i12diH", -3, *(index / 4 for index in range(12)), -6, 7)
-    atoms = pack("<iidiid", 101, -5, 0.125, 103, 7, 0.875)
-    return pack("<iii", 2, 0, 2) + atoms + start + texts + end + pack("<i", -17)
+    atoms = b"".join(pack("<iid", *row) for row in rows)
+    return pack("<i", len(rows)) + atoms + start + texts + end
+
+
+def author_mass_wire():
+    slot = author_populated_slot(((101, -5, 0.125), (103, 7, 0.875)))
+    return pack("<ii", 2, 0) + slot + pack("<i", -17)
+
+
+def author_one_slot():
+    return pack("<i", 1) + author_populated_slot(((211, -40, 0.625),))

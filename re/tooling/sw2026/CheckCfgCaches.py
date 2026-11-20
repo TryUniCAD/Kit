@@ -21,7 +21,7 @@ from convert.adapters.solidworks.Archive.Reading.ReadTypeDescMut import ReadType
 from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from ReadWirePartCaches import author_mass_wire, read_mass_wire
+from ReadWirePartCaches import author_mass_wire, author_one_slot, read_mass_wire
 
 EMPTY_HASH = "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
 NATIVE_CASES = {
@@ -157,7 +157,7 @@ def refuse(label, payload, seed, part, kind, expected, version=19000):
     raise ValueError(f"{label} crossed the scope boundary")
 
 
-def authored():
+def authored_seed():
     native = NATIVE_CASES["ladder"]
     raw = (ROOT / native[0]).read_bytes()
     require(digest(raw) == native[1], "wrong authored context control")
@@ -166,7 +166,11 @@ def authored():
     header = archive.require("Contents/Config-0-ModelHeader")
     require((digest(config), digest(header)) == native[2:4], "wrong authored context lanes")
     part, entries = context_entries(config, header, 19000)
-    seed = MapSnapshot(native[4][2], entries)
+    return part, MapSnapshot(native[4][2], entries)
+
+
+def authored():
+    part, seed = authored_seed()
     mass = author_mass_wire()
     empty = pack("<i", 0)
     guard_runtime()
@@ -178,7 +182,7 @@ def authored():
         refuse("mass_surplus", mass + b"\0", seed, part, "mass", "trailing data"),
         refuse("bounds_owner", pack("<iiH", 1, 13, 0), seed, part, "bounds", "requires typed owners"),
         refuse("bounds_surplus", empty + b"\0", seed, part, "bounds", "trailing data"),
-        refuse("missing_part", empty, MapSnapshot(seed.CounterValue, (entries[0],)), part, "bounds", "mapped ordinary part"),
+        refuse("missing_part", empty, MapSnapshot(seed.CounterValue, (seed.EntriesValue[0],)), part, "bounds", "mapped ordinary part"),
         refuse("version", empty, seed, part, "bounds", "requires archive version 19000", 18900),
     ]
     return {"case": "authored", "runtime_external_accesses": 0, "records": {
@@ -187,14 +191,42 @@ def authored():
     }, "refusals": cases}
 
 
+def one_slot():
+    part, seed = authored_seed()
+    guard_runtime()
+    mass = author_one_slot()
+    fault = mass + pack("<i", -23)
+    record = inspect(mass, 19000, seed, part, "mass")
+    refusal = refuse("selector_after_one_slot", fault, seed, part, "mass",
+                     "SOLIDWORKS configuration cache has trailing data")
+    try:
+        read_mass_wire(fault)
+    except ValueError as error:
+        require(str(error) == "cache reference has trailing data",
+                "independent reference refused the selector at a different boundary")
+    else:
+        raise ValueError("independent reference consumed a selector after one slot")
+    return {
+        "case": "one-slot",
+        "runtime_external_accesses": 0,
+        "records": {"mass": record},
+        "refusals": [refusal],
+        "reference_refusal": "cache reference has trailing data",
+        "appended_selector": -23,
+        "fault_sha256": digest(fault),
+    }
+
+
 def main():
     parser = ArgumentParser(description="Verify bounded version-19000 part cache fields")
-    parser.add_argument("case", choices=(*NATIVE_CASES, *DISCLOSED_CASES, "authored"))
+    authored_cases = {"authored": authored, "one-slot": one_slot}
+    parser.add_argument("case", choices=(*NATIVE_CASES, *DISCLOSED_CASES, *authored_cases))
     parser.add_argument("--disclosed-root", type=Path)
     args = parser.parse_args()
     if args.case in DISCLOSED_CASES and args.disclosed_root is None:
         parser.error("the selected native control requires its disclosed root")
-    result = authored() if args.case == "authored" else read_case(
+    make_case = authored_cases.get(args.case)
+    result = make_case() if make_case is not None else read_case(
         args.case, args.disclosed_root if args.case in DISCLOSED_CASES else ROOT
     )
     print(json.dumps(result, sort_keys=True))

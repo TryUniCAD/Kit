@@ -74,9 +74,20 @@ are discoverable by the normal merge-queue test planner.
 python -I -B re/tooling/sw2026/CheckCfgCaches.py ladder
 python -I -B re/tooling/sw2026/CheckCfgCaches.py concave
 python -I -B re/tooling/sw2026/CheckCfgCaches.py authored
+python -I -B re/tooling/sw2026/CheckCfgCaches.py one-slot
 python -I -B re/tooling/sw2026/CheckCfgCaches.py circle --disclosed-root /path/to/disclosed-controls
 python -I -B re/tooling/sw2026/CheckCfgCaches.py polygon --disclosed-root /path/to/disclosed-controls
 ```
+
+The one-slot case authors a distinct atom row with atom `211`,
+integer `−40` and binary64 value `0.625`, followed by a complete
+property body. Both decoders consume 305 bytes and agree on every
+mass field. The shared map remains at counter 108. A signed selector
+of `−23` appended after the record is trailing data to both decoders.
+This queue case uses the preexisting ladder part for its map context.
+The independently disclosed CircularProperties stream keeps its original
+bytes and receipt.
+[One-slot queue case](../../../tests/Convert/Solidworks/Configuration/CacheOneSlotTests.py)
 
 ## Remaining closure
 
