@@ -123,6 +123,11 @@ def ladder_refusals(group):
     color = next(entry.IndexValue for entry in seed.EntriesValue
                  if getattr(entry.EntryValue, "ClassValue", None) == KFeatColorClass)
     offset_seed = MapSnapshot(seed.CounterValue + 3, seed.EntriesValue)
+    exploded, exploded_data, _, exploded_seed = group[1]
+    count = exploded["word_map_count"] - exploded["interval"][0]
+    require(count + 2 == len(exploded_data) and exploded_data[count:] == b"\0\0",
+            "the native exploded view map is not the final empty record")
+    exploded_map = exploded_data[:count] + pack("<HHH", 1, 23, 0)
     return [
         refuse("truncated_guid", data[:guid_end - 1], seed, role, "truncated SOLIDWORKS archive field"),
         refuse("trailing", data + b"\0", seed, role, "trailing data"),
@@ -134,6 +139,8 @@ def ladder_refusals(group):
         refuse("reused_root", pack("<H", graph.RootValue.IndexValue), graph.MapValue, role, "new root object"),
         refuse("populated_name", data[:name_flag] + b"\x01\x01X" + data[name_flag + 1:], seed, role, "populated SOLIDWORKS feature owner"),
         refuse("populated_map", data[:length] + pack("<iii", 1, 23, 0) + data[length + 4:], seed, role, "populated SOLIDWORKS sketch block maps"),
+        refuse("populated_exploded_map", exploded_map, exploded_seed, KExplViewClass,
+               "populated SOLIDWORKS exploded view owners"),
         unsupported_virtual(data, seed, role),
     ]
 

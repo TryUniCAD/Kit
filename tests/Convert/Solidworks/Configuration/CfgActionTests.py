@@ -80,6 +80,7 @@ def AssertRefusals(Refusals: list[str]) -> None:
         "reused_root",
         "populated_name",
         "populated_map",
+        "populated_exploded_map",
         "missing_virtual",
     ]
 

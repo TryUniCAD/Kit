@@ -69,7 +69,8 @@ its self backlink through its own newly allocated slot. The malformed
 cases cover a wrong counter, a null or genuine prior color-object
 backlink, a recycled root, truncation inside the fixed field, trailing
 bytes, wrong role or version, a missing virtual and unsupported
-populated field and map states.
+populated field and map states. An authored single-row exploded word
+map exercises its concrete suffix after both native record reads.
 
 ```sh
 python -I -B re/tooling/sw2026/CheckCfgOwners.py ladder

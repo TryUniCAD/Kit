@@ -25,7 +25,4 @@ def IsBranchTaken(
                 (FlagsValue.get("pe_active", 0) and FlagsValue.get("pe_helper", 0))
                 or FlagsValue.get("pe_file", 0)
             )
-        case _:
-            raise BodyUnsupported(
-                f"unsupported native branch rule {RuleValue.ModeValue}"
-            )
+    raise BodyUnsupported(f"unsupported native branch rule {RuleValue.ModeValue}")

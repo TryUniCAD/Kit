@@ -4,21 +4,13 @@ from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsup
 from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
     KSketchBlockClass,
 )
+from convert.adapters.solidworks.Archive.Config.Members.CheckBlockOwner import (
+    CheckBlockOwner,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
-# decoded map references must point to the actual newly allocated sketch manager
-def CheckBlockOwner(RootValue: ArchiveNode) -> None:
-    FieldsValue = CastValue(dict[str, object], RootValue.FieldsValue["blocks"])
-    if FieldsValue["f30"] is not RootValue:
-        raise BodyUnsupported(
-            "SOLIDWORKS sketch block map requires its owning backlink"
-        )
-    if FieldsValue["n70"] != 0 or FieldsValue["n98"] != 0:
-        raise BodyUnsupported("populated SOLIDWORKS sketch block maps are unqualified")
-
-
-# earlier mapped objects still need the same bounded ownership checks as fresh bodies
+# populated references need owners outside this bounded manager reader
 def CheckCfgOwner(RootValue: ArchiveNode) -> None:
     FieldsValue = RootValue.FieldsValue
     ResolvedValue = CastValue(dict[str, object], FieldsValue["f60"])
