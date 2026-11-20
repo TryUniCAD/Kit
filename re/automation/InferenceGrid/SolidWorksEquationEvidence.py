@@ -27,7 +27,7 @@ def measured_values(observation):
     return values
 
 
-def trials(sets, pin):
+def trials(sets, pin, eligible):
     training = []
     held_out = None
     for folder, receipt, report, files in sets:
@@ -44,7 +44,7 @@ def trials(sets, pin):
             values = measured_values(edit["edited"])
             if row["sha256"] == pin:
                 held_out = (values, edit["edited"].get("equations", []))
-            else:
+            elif row["sha256"] in eligible:
                 training.append((row["sha256"], edit["parameter"], values, measured_values(edit["restored"])))
     return training, held_out
 
@@ -53,7 +53,7 @@ def close(left, right):
     return left is not None and right is not None and math.isclose(left, right, rel_tol=1e-11, abs_tol=1e-14)
 
 
-def equation_evidence(streams, predictions, sets, pin):
+def equation_evidence(streams, predictions, sets, pin, eligible):
     equations = []
     counts = {}
     for stream, data in streams.items():
@@ -70,7 +70,7 @@ def equation_evidence(streams, predictions, sets, pin):
             equations.extend(rows)
     if not equations:
         return []
-    training, held = trials(sets, pin)
+    training, held = trials(sets, pin, eligible)
     results = []
     for eq in equations:
         local = {r["name"] + "@" + r["owner"]: r for r in predictions
@@ -132,5 +132,5 @@ def equation_evidence(streams, predictions, sets, pin):
         result["vendor_edit_matches"] = verified
         if (verified and result["saved_value_matches"] and len(set(evidence)) >= 2 and
             independent == {left, right} and candidates == {(operator, int(divisor))}):
-            result["status"] = "independently_varied_and_held_out"
+            result["status"] = "same_family_operands_varied"
     return results

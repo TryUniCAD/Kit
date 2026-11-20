@@ -11,21 +11,16 @@ import struct
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import FeatureCountFields, ParseKeywords, ParseNames
-from InferenceInputs import read_file
+from InferenceGrid.SolidWorksFieldDiscovery import control_parts
 
 
 def feature_counts(root, data, features, held_out):
     targets = FeatureCountFields(data, features, ParseNames(data))
     if not targets:
         return None
-    folder = root / "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024"
     streams_seen = {hashlib.sha256(data).hexdigest()}
     samples, candidates = [], None
-    for stem in ("CULATA_DERECHO", "RODAMIENTO DE BANDA", "CARRERA DE EMPUJE", "RUEDA DE TURBINA", "TURBINA"):
-        path = folder / (stem + ".SLDPRT")
-        if not path.exists():
-            continue
-        raw = read_file(path, 16 * 1024 * 1024)
+    for raw in control_parts(root, ()):
         digest = hashlib.sha256(raw).hexdigest()
         if digest == held_out:
             continue

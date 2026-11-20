@@ -10,22 +10,16 @@ from collections import defaultdict
 import hashlib
 import struct
 
-from InferenceInputs import read_file
+from InferenceGrid.SolidWorksFieldDiscovery import control_parts
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import ParseClasses, ParseKeywords, ParseNames, SketchPatternPairs
 
 
 def learn_count_rule(root, held_out, held_stream):
-    directory = root / "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024"
-    controls = ("CARTER", "CULATA_DERECHO", "RODAMIENTO DE BANDA", "SOPORTE DE RODAMIENTO PARA LA BANDA")
     seen = {held_out}
     stream_digests = {held_stream}
     samples, candidates = [], None
-    for control in controls:
-        path = directory / (control + ".SLDPRT")
-        if not path.exists():
-            continue
-        raw = read_file(path, 16 * 1024 * 1024)
+    for raw in control_parts(root, ()):
         digest = hashlib.sha256(raw).hexdigest()
         if digest in seen:
             continue

@@ -11,10 +11,10 @@ from collections import Counter, defaultdict
 from decimal import Decimal, ROUND_HALF_UP
 import hashlib
 import math
-import os
+from pathlib import Path
+import json
 import re
 import struct
-import subprocess
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle, SelectNamedField
@@ -147,26 +147,39 @@ def snapshot_controls(source, paths, scratch):
     return snapshots
 
 
+def discovery_inventory(root, sets):
+    corpus = json.loads(read_file(root / "re/automation/Corpus.json", 16 * 1024 * 1024))
+    excluded = {a["sha256"] for a in corpus["assets"] if a.get("split") != "discovery"}
+    paths = {a["sha256"]: root / a["path"] for a in corpus["assets"]
+             if a.get("split") == "discovery" and a["format"] == "sldprt"}
+    specs = json.loads(read_file(root / "re/automation/PairSpecs.json", 1024 * 1024))
+    recipes = {r["id"] for r in specs["recipes"] if r["split"] == "discovery"}
+    for folder, receipt, _, files in sets:
+        for name, row in files.items():
+            if receipt["recipe_id"] not in recipes:
+                excluded.add(row["sha256"])
+            elif name == Path(name).name:
+                paths[row["sha256"]] = folder / name
+    return {digest: path for digest, path in paths.items() if digest not in excluded}
+
+
 def control_parts(root, controls):
+    from InferenceGrid.SolidWorksDimensionEvidence import capture_sets
+    paths = discovery_inventory(root, capture_sets(root))
     for path in controls:
-        yield read_file(path, 16 * 1024 * 1024)
-    files = subprocess.check_output(["git", "-C", root, "ls-tree", "-rz", "--name-only", "HEAD", "--",
-                                     "re/solidworks/examples", "re/automation/PairedCaptures", "re/solidworks/v2026/corpus"])
-    budget = 64 * 1024 * 1024
-    scanned = 0
-    for item in files.split(b"\0"):
-        if not item.lower().endswith(b".sldprt") or scanned >= 128:
+        raw = read_file(path, 16 * 1024 * 1024)
+        digest = hashlib.sha256(raw).hexdigest()
+        if digest in paths:
+            paths[digest] = path
+    for digest, path in paths.items():
+        if not path.is_file():
             continue
-        p = root / os.fsdecode(item)
-        if not p.is_file() or p.stat().st_size > min(4 * 1024 * 1024, budget):
-            continue
-        raw = read_file(p, min(4 * 1024 * 1024, budget))
-        budget -= len(raw)
-        scanned += 1
-        yield raw
+        raw = read_file(path, 16 * 1024 * 1024)
+        if hashlib.sha256(raw).hexdigest() == digest:
+            yield raw
 
 
-def discover_fields(root, streams, document, pin, controls=()):
+def discover_fields(root, streams, document, pin, controls=(), compare_edits=False):
     unresolved = {f["attributes"].get("native_object_id") for f in document.get("feature_timeline", {}).get("$tuple", [])
                   if (f.get("definition") or {}).get("$type") == "NativeFeatureDefinition"}
     xml = streams.get("swXmlContents/KeyWords")
@@ -215,7 +228,7 @@ def discover_fields(root, streams, document, pin, controls=()):
         if fingerprint in seen:
             continue
         seen.add(fingerprint)
-        comparison = single_dimension_change(target, sample)
+        comparison = single_dimension_change(target, sample) if compare_edits else None
         if comparison:
             comparisons.append({**comparison, "control_sha256": digest, "control_stream_sha256": fingerprint})
         for key, owner, expected, scalar, start, end, text in training:
@@ -299,7 +312,7 @@ def discover_fields(root, streams, document, pin, controls=()):
         else:
             reason = "no_qualified_held_out_match"
         gap = {"key": key, "reason": reason, "training_observations": len(observations)}
-        if reason == "need_a_different_control_value" and key[2] in {"angle", "length"}:
+        if reason in {"need_a_different_control_value", "need_another_control_document"} and key[2] in {"angle", "length"}:
             gap["variation_targets"] = [
                 {"feature_id": owner, "field": key[1], "current_system_value": scalar.value,
                  "suggested_system_value": scalar.value / 2, "unit": "rad" if key[2] == "angle" else "m"}

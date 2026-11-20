@@ -1569,11 +1569,11 @@ def FeatureCountFields(
 
 
 # public instance count spans must have multiple independently learned copies in the same feature
-KFeatureCountCopies: tuple[int, ...] = (373, 397)
+KFeatureCountCopies: tuple[int, ...] = ()
 
 
 # each handle displacement requires replay on independent inputs
-KSketchCountOffsets: dict[str, int] = {"circular": 401, "linear": 401}
+KSketchCountOffsets: dict[str, int] = {}
 
 
 # the named integer and independent handle must agree before a dimension can lose its length unit
