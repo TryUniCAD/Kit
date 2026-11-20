@@ -242,23 +242,31 @@ def TestSuppliedThe() -> None:
         if (KRootValue / "re" / "solidworks" / "examples" / PathValue).is_file()
     }
     Accepted: set[str] = set()
+    Refusals: dict[str, str] = {}
     for Source in sorted(
         (KRootValue / "re" / "solidworks" / "examples").rglob("*.SLDPRT")
     ):
         if not Source.is_file() or Source.name.startswith("~$"):
             continue
+        Relative = Source.relative_to(
+            KRootValue / "re" / "solidworks" / "examples"
+        ).as_posix()
         DocValue = OpenDoc(Source)
         if DocValue.brep is None:
+            if Relative in Expected:
+                Refusals[Relative] = "no decoded B-rep: " + "; ".join(
+                    Issue.message for Issue in DocValue.diagnostics
+                )
             continue
         try:
             Encoded = BrepModelBrep(DocValue.brep)
-        except FreeCadBrepWriteError:
+        except FreeCadBrepWriteError as Error:
+            if Relative in Expected:
+                Refusals[Relative] = str(Error)
             continue
         assert IsStructurallyValidAscii(Encoded)
-        Accepted.add(
-            Source.relative_to(KRootValue / "re" / "solidworks" / "examples").as_posix()
-        )
-    assert Accepted == Expected
+        Accepted.add(Relative)
+    assert Accepted == Expected, Refusals
 
 
 # this definition exists because focused behavior needs one stable owner

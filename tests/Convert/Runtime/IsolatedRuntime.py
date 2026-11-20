@@ -169,9 +169,14 @@ refusals = (
     (research / "solidworks/examples/.SLDPRT/example.SLDPRT", "unqualified SOLIDWORKS sketch support references", "sldprt:sketch:40"),
     (research / "catia/examples/.CATPart/Banjo.CATPart", "native-only feature definitions", "CATPrtCont"),
     (research / "catia/examples/.CATProduct/Brake_Pedal_Assembly - Backup 2.CATProduct", "native-only feature definitions", "CATPrtCont"),
+    (
+        research / "solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/Cylinder Head Assy 1.SLDASM",
+        "unqualified SOLIDWORKS sketch support references",
+        "ARBOL DE LEVAS DE ESCAPE_DERECHO.SLDPRT: sldprt:sketch:142",
+    ),
 )
 for source, reason, feature in refusals:
-    destination = output / f"{source.stem}.FCStd"
+    destination = (output / source.stem).with_suffix(".CATProduct" if source.suffix == ".SLDASM" else ".FCStd")
     try:
         convert(source, destination)
     except ValueError as error:
@@ -183,15 +188,7 @@ for source, reason, feature in refusals:
 cases = (
     (output / "piston.json", ".FCStd"),
     (output / "conversion_0.FCStd", ".CATPart"),
-    (
-        root
-        / "re"
-        / "solidworks"
-        / "examples"
-        / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
-        / "Cylinder Head Assy 1.SLDASM",
-        ".CATProduct",
-    ),
+    (output / "assembly.json", ".CATProduct"),
 )
 for index, (source, suffix) in enumerate(cases):
     destination = output / f"conversion_{index}{suffix}"
