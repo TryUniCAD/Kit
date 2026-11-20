@@ -21,10 +21,10 @@ from tests.Research.SupervisorClient import FixtureJob
 # a separate provider process observes which credentials and research data cross the boundary
 @MarkCase.skipif(PlatformName != "posix", reason="Advice requires POSIX")
 @MarkCase.parametrize(
-    "Provider,Auth",
+    "Provider,AuthMode",
     (("codex", "login"), ("codex", "api"), ("claude", "login"), ("claude", "api")),
 )
-def CheckAuthModes(TmpPath: FilePath, Provider: str, Auth: str) -> None:
+def CheckAuthModes(TmpPath: FilePath, Provider: str, AuthMode: str) -> None:
     Harness = PrepareWorker(TmpPath)
     ExePath = TmpPath / Provider
     _ = ExePath.write_text(
@@ -78,7 +78,7 @@ else:
         "--advisor",
         Provider,
         "--auth",
-        Auth,
+        AuthMode,
         "--model",
         "custom-model",
         "--advice-calls",
@@ -99,7 +99,7 @@ else:
         Record["auth"],
         Record["status"],
         Record["verified_rule"],
-    ) == (Provider, Auth, "proposal", False)
+    ) == (Provider, AuthMode, "proposal", False)
     KeysSeen = DecodeJson((TmpPath / "AuthKeys.json").read_bytes())
     KeyName = "CODEX_API_KEY" if Provider == "codex" else "ANTHROPIC_API_KEY"
-    assert KeysSeen == ([KeyName] if Auth == "api" else [])
+    assert KeysSeen == ([KeyName] if AuthMode == "api" else [])

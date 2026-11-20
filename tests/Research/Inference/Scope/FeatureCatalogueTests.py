@@ -13,12 +13,12 @@ import sqlite3
 
 from pytest import mark
 
-from tests.Research.Inference.Scope.FeatureHandoffTests import InvokeAutomation
+from tests.Research.Inference.Scope.FeatureHandoffTests import RunAutomation
 
 
 # catalogue plans must come through the same public command the planner invokes
-def Generate(PathValue, *Arguments, Expected=0):
-    return InvokeAutomation(
+def Generate(PathValue: Path, *Arguments: str | Path, Expected: int = 0) -> str:
+    return RunAutomation(
         "InferenceGrid/FeatureDispatch.py",
         "--catalogue",
         PathValue,
@@ -28,60 +28,31 @@ def Generate(PathValue, *Arguments, Expected=0):
 
 
 # a small catalogue exercises supported and unsupported options without native dependencies
-def CatalogueFixture():
-    return {
-        "schema_version": 1,
-        "waves": [{"id": "alpha"}],
-        "families": [
-            {
-                "id": "family:extrude",
-                "parent_id": None,
-                "wave": "alpha",
-                "dependencies": [],
-                "subfeatures": [
-                    {
-                        "id": "family:extrude:cut-extrude",
-                        "dependencies": [],
-                        "options": ["through all"],
-                    },
-                    {
-                        "id": "family:extrude:boss-base-extrude",
-                        "dependencies": [],
-                        "options": ["blind"],
-                    },
-                    {
-                        "id": "family:extrude:surface-extrude",
-                        "dependencies": [],
-                        "options": ["offset", "depth"],
-                    },
-                ],
-            }
-        ],
-    }
+KCatalogue = Path(__file__).with_name("ExtrudeCatalogue.json")
 
 
 # each feature identity must remain stable across input ordering and repeated generation
-def CheckDeterministicCatalogue(TmpPath: Path):
-    Value = CatalogueFixture()
+def CheckStablePlan(TmpPath: Path) -> None:
+    Value = json.loads(KCatalogue.read_bytes())
     Catalogue = TmpPath / "Catalogue.json"
-    Catalogue.write_text(json.dumps(Value), encoding="utf-8")
-    Pin = hashlib.sha256(Catalogue.read_bytes()).hexdigest()
-    Output = Generate(Catalogue, "--catalogue-sha256", Pin, "manifest")
+    _ = Catalogue.write_text(json.dumps(Value), encoding="utf-8")
+    Digest = hashlib.sha256(Catalogue.read_bytes()).hexdigest()
+    Output = Generate(Catalogue, "--catalogue-sha256", Digest, "manifest")
     assert Generate(Catalogue, "manifest") == Output
     Initial = json.loads(Output)
-    assert Initial["catalogue_sha256"] == Pin
+    assert Initial["catalogue_sha256"] == Digest
     Features = Initial["features"]
     assert Features["family:extrude:cut-extrude"]["route"]["recipe"] == "P04"
     assert Features["family:extrude:boss-base-extrude"]["route"]["recipe"] == "P03"
 
     Value["families"][0]["subfeatures"].reverse()
     Value["families"][0]["subfeatures"][0]["options"].reverse()
-    Catalogue.write_text(json.dumps(Value), encoding="utf-8")
+    _ = Catalogue.write_text(json.dumps(Value), encoding="utf-8")
     Reordered = json.loads(Generate(Catalogue, "manifest"))
-    assert Reordered["catalogue_sha256"] != Pin
+    assert Reordered["catalogue_sha256"] != Digest
     assert Reordered["features"] == Features
     assert "SHA-256" in Generate(
-        Catalogue, "--catalogue-sha256", Pin, "manifest", Expected=1
+        Catalogue, "--catalogue-sha256", Digest, "manifest", Expected=1
     )
 
     Feature = "family:extrude:surface-extrude"
@@ -95,8 +66,8 @@ def CheckDeterministicCatalogue(TmpPath: Path):
 
 # invalid references and repeated identities must fail before producing a dispatch plan
 @mark.parametrize("Fault", ("repeat", "missing", "cycle"))
-def CheckInvalidCatalogue(TmpPath: Path, Fault: str):
-    Value = CatalogueFixture()
+def CheckBadPlan(TmpPath: Path, Fault: str) -> None:
+    Value = json.loads(KCatalogue.read_bytes())
     Family = Value["families"][0]
     if Fault == "repeat":
         Family["subfeatures"].append(Family["subfeatures"][0])
@@ -105,17 +76,17 @@ def CheckInvalidCatalogue(TmpPath: Path, Fault: str):
             "family:extrude" if Fault == "cycle" else "family:absent"
         )
     Catalogue = TmpPath / "Catalogue.json"
-    Catalogue.write_text(json.dumps(Value), encoding="utf-8")
+    _ = Catalogue.write_text(json.dumps(Value), encoding="utf-8")
     assert "catalogue feature dispatch refused" in Generate(
         Catalogue, "manifest", Expected=1
     )
 
 
 # the fusion snapshot includes timeline features and reviewed sketch methods
-def CheckFusionCatalogue(TmpPath: Path):
+def CheckFusionPlan(TmpPath: Path) -> None:
     Catalogue = TmpPath / "Catalogue.sqlite"
     Status = ("unverified",) * 4
-    Rows = [
+    Items = [
         ("api:adsk.fusion.ExtrudeFeature", "api_type", "ExtrudeFeature", *Status),
         (
             "api:adsk.fusion.SketchLines.addTwoPointRectangle",
@@ -126,51 +97,53 @@ def CheckFusionCatalogue(TmpPath: Path):
         ("api:adsk.fusion.ArrangeFeature", "api_type", "ArrangeFeature", *Status),
     ]
     with sqlite3.connect(Catalogue) as Database:
-        Database.execute(
+        _ = Database.execute(
             "CREATE TABLE items (id TEXT, kind TEXT, name TEXT, authoring_status TEXT, "
-            "decoding_status TEXT, writing_status TEXT, verification_status TEXT)"
+            + "decoding_status TEXT, writing_status TEXT, verification_status TEXT)"
         )
-        Database.executemany("INSERT INTO items VALUES (?, ?, ?, ?, ?, ?, ?)", Rows)
-        Database.execute(
+        _ = Database.executemany(
+            "INSERT INTO items VALUES (?, ?, ?, ?, ?, ?, ?)", Items
+        )
+        _ = Database.execute(
             "CREATE VIEW api_feature_types AS SELECT * FROM items WHERE kind='api_type'"
         )
     Previous = Catalogue.read_bytes()
-    Pin = hashlib.sha256(Previous).hexdigest()
-    Args = ("--fusion-catalogue", Catalogue, "--catalogue-sha256", Pin)
+    Digest = hashlib.sha256(Previous).hexdigest()
+    Arguments = ("--fusion-catalogue", Catalogue, "--catalogue-sha256", Digest)
     Command = "InferenceGrid/FeatureDispatch.py"
-    Output = InvokeAutomation(Command, *Args, "manifest")
-    assert Output == InvokeAutomation(Command, *Args, "manifest")
+    Output = RunAutomation(Command, *Arguments, "manifest")
+    assert Output == RunAutomation(Command, *Arguments, "manifest")
     assert Catalogue.read_bytes() == Previous
     Features = json.loads(Output)["features"]
-    assert Features[Rows[0][0]]["route"]["scope"] == "p03-blind-boss.fusion"
-    assert Features[Rows[1][0]]["route"]["scope"] == "p01-corner-rectangle"
-    assert Features[Rows[1][0]]["qualification"]["decoding"] == "unverified"
+    assert Features[Items[0][0]]["route"]["scope"] == "p03-blind-boss.fusion"
+    assert Features[Items[1][0]]["route"]["scope"] == "p01-corner-rectangle"
+    assert Features[Items[1][0]]["qualification"]["decoding"] == "unverified"
     Store = TmpPath / "UnopenedStore"
     Blocked = json.loads(
-        InvokeAutomation(
-            Command, *Args, "--feature", Rows[2][0], "--store", Store, "submit"
+        RunAutomation(
+            Command, *Arguments, "--feature", Items[2][0], "--store", Store, "submit"
         )
     )
     assert Blocked["status"] == "blocked" and not Store.exists()
 
 
 # the batch visits even a catalogue whose only feature has no reviewed route
-def CheckRunUnmappedCatalogue(TmpPath: Path):
+def CheckUnmapped(TmpPath: Path) -> None:
     Catalogue = TmpPath / "Catalogue.json"
-    Plan = CatalogueFixture()
-    Family = Plan["families"][0]
+    PlanValue = json.loads(KCatalogue.read_bytes())
+    Family = PlanValue["families"][0]
     Family["subfeatures"] = [Family["subfeatures"][-1]]
-    Catalogue.write_text(json.dumps(Plan), encoding="utf-8")
-    Run = TmpPath / "Run"
-    InvokeAutomation(
+    _ = Catalogue.write_text(json.dumps(PlanValue), encoding="utf-8")
+    RunPath = TmpPath / "Run"
+    _ = RunAutomation(
         "InferenceGrid/RunFeatureCatalogue.py",
         "--directory",
-        Run,
+        RunPath,
         "--solidworks-catalogue",
         Catalogue,
         Expected=2,
     )
-    Report = json.loads((Run / "CatalogueResult.json").read_bytes())
+    Report = json.loads((RunPath / "CatalogueResult.json").read_bytes())
     assert Report["status"] == "coverage_incomplete"
     assert Report["features"] == {"solidworks": {"awaiting_capture": 1}}
-    assert Report["scopes"] == {} and not (Run / "OfflineSupervisor.log").exists()
+    assert Report["scopes"] == {} and not (RunPath / "OfflineSupervisor.log").exists()

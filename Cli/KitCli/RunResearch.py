@@ -16,10 +16,9 @@ def RunResearch(Options: CliOptions) -> NoReturn:
     if Options.ResearchRoot is None:
         raise ValueError("Research requires --root pointing to a trusted PR94 checkout")
     RootPath = Options.ResearchRoot.expanduser().resolve()
-    BatchRun = Options.Command == "run"
     ScriptName = (
         "InferenceGrid/RunFeatureCatalogue.py"
-        if BatchRun
+        if Options.Command == "run"
         else KResearchScripts.get(Options.ResearchTool)
     )
     if ScriptName is None:
@@ -38,7 +37,7 @@ def RunResearch(Options: CliOptions) -> NoReturn:
     if Options.ResearchTool == "supervisor" and KPlatform == "win32":
         raise ValueError("The PR94 research supervisor requires Linux or macOS")
     Arguments = list(Options.ToolArgs)
-    if BatchRun:
+    if Options.Command == "run":
         Arguments = [*Arguments, "--batch-format", Options.ResearchTool]
     elif Options.ResearchTool in ("solidworks", "fusion", "corpus"):
         if any(
@@ -47,10 +46,10 @@ def RunResearch(Options: CliOptions) -> NoReturn:
         ):
             raise ValueError("Set research --root once, before the tool name")
         Arguments = ["--root", str(RootPath), *Arguments]
-    CommandArgs = [KPythonPath, str(ScriptPath), *Arguments]
     with ResearchSignals() as (ChildProcesses, PendingSignals):
         with StartProcess(
-            CommandArgs, start_new_session=KPlatform != "win32"
+            [KPythonPath, str(ScriptPath), *Arguments],
+            start_new_session=KPlatform != "win32",
         ) as ChildProcess:
             ChildProcesses.append(ChildProcess)
             ReturnCode = WaitResearchMut(ChildProcess, PendingSignals)
