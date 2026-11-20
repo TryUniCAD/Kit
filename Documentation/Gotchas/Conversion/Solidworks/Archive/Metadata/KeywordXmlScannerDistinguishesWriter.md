@@ -6,9 +6,9 @@ The keyword writer uses `QName` in its tag validation and calls
 `tostring` on an existing tree. Both operations run without parsing
 XML input.
 
-Use the named-tree serializer at the existing SOLIDWORKS XML
-boundary. Untrusted XML input still goes through the hardened
-reader. The fresh-process cases cover exact QName serialization and
-refusal of both sentinel tag types.
+Use the focused serializer's supported `defusedxml` entry point.
+Validate the serialized tree with the existing hardened reader.
+The fresh-process cases cover exact QName serialization and
+refusal of sentinel tags and forbidden XML characters.
 [Scan job](https://github.com/TryUniCAD/Kit/actions/runs/44710841788/job/136201809268)
 [Writer evidence](../../../../../../re/solidworks/records/KeywordFrameSlice2026.md)

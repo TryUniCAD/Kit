@@ -20,16 +20,16 @@ Its one-file manifest SHA-256 is
 The delivered framing file
 [`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
-`efa0548895dcbc356f5039cb359f5dfbaa92ae306e783c46bd10b6b4eedf8aad`.
-The named-tree serializer sits beside the existing hardened reader in
-[`Core/Native.py`](../../../src/convert/adapters/solidworks/Core/Native.py),
-SHA-256 `29adaa4f0ea993815bc15f04f13425dc70c4a623a3aeb624b26825b0a416ac9e`.
+`ee33183206b624a32638036790555ab6f7ad0c7669d0dc3cbf6e005a45639b69`.
+The focused [named-tree serializer](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/SerializeKeywordXml.py)
+has SHA-256 `01a9dd51f537fd54d1437a67509cb35a27bcce3f975be956ddc55372134113c7`.
 The two-file manifest SHA-256 is
-`90ff36ab9815aa97fee1936aadff0d577e0a86833260589151ed4af641d7e690`.
+`703935b6d88380c21834e873469774edf0bee9c30f0e600baf4ea0be434927f8`.
 Each manifest hashes the repository-relative path followed by a NUL,
-the lowercase file SHA-256 and a newline. XML serialization uses
-the Python standard library through the existing SOLIDWORKS XML
-boundary.
+the lowercase file SHA-256 and a newline. The serializer uses the
+standard-library `tostring` exposed by the repository's locked
+`defusedxml` version, now declared as a runtime dependency. The output
+must pass the existing hardened XML parser before framing.
 
 ## Framing and serialization
 
@@ -62,6 +62,9 @@ stdlib module SHA-256 is
 `9623c9e6c2f45c906fae8d4b221648a7efb8ac81bd4f6cd79c5eb2698fb015ef`.
 Comment and processing-instruction text use separate branches and
 are refused before serialization. The process cases exercise both node types in each framing mode. A separate case verifies byte identity for equivalent qualified name objects and expanded-name strings.
+The generated XML also rejects NUL, other forbidden controls and
+unpaired surrogates in attributes, text and child tails before either
+mode publishes bytes.
 [Empty tag gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordEmptyTagsFollowProfile.md)
 
 XML 1.0 normalizes literal CR and CRLF before parsing. The framer
@@ -111,8 +114,9 @@ sources. The fresh-process declarations were parsed as source.
 The first merge candidate failed strict Pyright on its runtime tag
 guard and dlint on the XML writer imports. The guard checks the
 runtime tag as an object because the element type annotation does not
-cover comments and processing instructions. The writer reuses the
-existing ElementTree boundary and introduces no scanner suppression.
+cover comments and processing instructions. The focused serializer
+uses the approved XML package interface and introduces no scanner
+suppression.
 Scoped Pyright and dlint pass on the repair.
 [Pyright run](https://github.com/TryUniCAD/Kit/actions/runs/44710841579)
 [Scan job](https://github.com/TryUniCAD/Kit/actions/runs/44710841788/job/136201809268)

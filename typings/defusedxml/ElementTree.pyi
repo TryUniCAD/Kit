@@ -2,6 +2,7 @@ from collections.abc import Iterator, Sequence
 
 from _typeshed import SupportsRead
 from xml.etree.ElementTree import Element, ParseError, TreeBuilder, XMLParser
+from xml.etree.ElementTree import tostring as tostring
 
 __all__: tuple[str, ...]
 

@@ -7,7 +7,7 @@ import math as MathValue
 import re as RegexLib
 import struct as Struct
 from types import MappingProxyType
-from typing import Mapping, Sequence, cast as CastValue
+from typing import Mapping, Sequence
 import xml.etree.ElementTree as XmlTree  # noqa: DUO107
 from interchange import (
     BooleanOperation as BoolOperation,
@@ -1881,18 +1881,6 @@ def ParseXml(DataValue: bytes) -> XmlTree.Element:
         raise SldprtFormatError(
             f"invalid XML metadata stream: {ErrorInfo}"
         ) from ErrorInfo
-
-
-# the keyword xml emitter only accepts ordinary named element content because its native framing rewrites literal delimiters
-def SerializeKeywordXml(RootValue: XmlTree.Element) -> bytes:
-    if any(
-        not isinstance(CastValue(object, NodeValue.tag), (str, XmlTree.QName))
-        for NodeValue in RootValue.iter()
-    ):
-        raise ValueError("native keyword framing requires named elements")
-    return CastValue(
-        bytes, XmlTree.tostring(RootValue, encoding="utf-8", short_empty_elements=True)
-    )
 
 
 # this definition exists because focused behavior needs one stable owner

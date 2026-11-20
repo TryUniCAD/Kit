@@ -1,7 +1,9 @@
 from typing import cast as CastValue
 from xml.etree.ElementTree import Element
 
-from convert.adapters.solidworks.Core.Native import SerializeKeywordXml
+from convert.adapters.solidworks.Archive.Construction.Metadata.SerializeKeywordXml import (
+    SerializeKeywordXml,
+)
 
 
 # part and drawing keyword owners share verified native utf eight framing while preserving their distinct empty element formatting
