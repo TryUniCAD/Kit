@@ -130,6 +130,15 @@ For Ollama, start the server with `OLLAMA_NO_CLOUD=1` and supply an installed mo
 Omit `--advisor` to run deterministic research alone. Advice requires macOS or Linux.
 Use `--advice-calls N` to set the limit for the batch. The default is four calls.
 
+Kit reserves 4096 MiB of available memory for the system during the offline stage by default.
+Use `--reserved-memory-mib 1024` to reserve 1 GiB, or `--reserved-memory-mib 0` for zero reserve.
+An explicit value applies to every supervisor stage started by this batch.
+Kit still requires enough available memory for each worker's estimated demand.
+
+Kit automatically runs independent offline jobs in parallel when memory and CPU are available.
+Use `--workers N` to cap the number of offline workers.
+Set `--workers 1` for a serial run. Native CAD workers follow their own supervisor configuration.
+
 Read `CatalogueResult.json` for completed and blocked entries. Exit status 2 means coverage remains incomplete.
 Read `State/decoder-advice/<receipt>/Advice.json` for suggestions produced during the offline batch stage.
 A suggestion requires an independently checked experiment before it can become a decoder rule.

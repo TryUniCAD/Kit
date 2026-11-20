@@ -21,10 +21,11 @@ sys.path[:0] = [
 
 from CodexAdvice.AdviceOptions import add_options, read_options
 from Corpus import git
-from InferenceGrid.CatalogueBatch import RunCatalogueBatch
+from InferenceGrid.CatalogueBatch import KMaxBatchWorkers, RunCatalogueBatch
 from InferenceGrid.FeatureCatalogue import ReadCatalogue
 from InferenceGrid.FeatureFusionCatalogue import ReadFusionCatalogue
 from Records import bounded, canonical, label
+from Supervisor import bound_memory_reserve
 
 
 # a single invocation owns catalogue planning and execution through its private controller
@@ -45,12 +46,29 @@ def MainRun():
     )
     Parser.add_argument("--fusion-sha256")
     Parser.add_argument("--max-seconds", type=int, default=1200)
+    Parser.add_argument(
+        "--workers",
+        type=int,
+        metavar="N",
+        help="Optional offline worker ceiling (default: automatic from memory and CPU)",
+    )
+    Parser.add_argument(
+        "--reserved-memory-mib",
+        type=int,
+        metavar="MIB",
+        help="Memory to keep free before launching a worker (offline default: 4096 MiB)",
+    )
     Parser.add_argument("--native-config", type=Path)
     Parser.add_argument("--native-kind")
     Parser.add_argument("--native-resource")
     add_options(Parser)
     Args = Parser.parse_args()
     try:
+        Reserve = (
+            None
+            if Args.reserved_memory_mib is None
+            else bound_memory_reserve(Args.reserved_memory_mib)
+        )
         Advice = read_options(Args)
         if Advice is not None and os.name != "posix":
             raise ValueError("decoder advice requires macOS or Linux")
@@ -66,6 +84,8 @@ def MainRun():
             bounded(Args.max_seconds, 1, 86400),
             Native,
             Advice,
+            Reserve=Reserve,
+            Workers=KMaxBatchWorkers if Args.workers is None else Args.workers,
         )
         Output = canonical(
             {

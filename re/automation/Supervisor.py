@@ -36,6 +36,14 @@ class Busy(Exception):
     pass
 
 
+# explicit memory limits use the same range in configuration and at launch
+def bound_memory_reserve(value):
+    try:
+        return bounded(value, 0, 1048576)
+    except ValueError:
+        raise ValueError("reserved memory must be set from 0 to 1048576 MiB") from None
+
+
 def read_config(path):
     if sys.platform == "win32" and (sys.version_info < (3, 14) or sys.getwindowsversion().major < 10):
         raise ValueError("Windows supervision requires Windows 10 or newer and Python 3.14 or newer")
@@ -79,7 +87,7 @@ def read_config(path):
         "grace": float(grace), "poll": float(poll),
         "max_log_bytes": bounded(config.get("max_log_bytes", 1048576), 1024, 67108864),
         "reserved_cpus": bounded(config.get("reserved_cpus", 2), 0, 65536),
-        "reserved_memory_mib": bounded(config.get("reserved_memory_mib", 4096), 0, 1048576),
+        "reserved_memory_mib": bound_memory_reserve(config.get("reserved_memory_mib", 4096)),
         "adaptive_limits": adaptive,
     }
 
@@ -728,6 +736,7 @@ def main():
     running = commands.add_parser("run")
     running.add_argument("--idle-seconds", type=float)
     running.add_argument("--max-seconds", type=float)
+    running.add_argument("--reserved-memory-mib", type=int, metavar="MIB")
     running.add_argument(
         "--codex-on-stall", nargs="?", type=int, const=16, metavar="MAX_CALLS"
     )
@@ -753,6 +762,10 @@ def main():
     try:
         config = read_config(args.config)
         if args.command == "run":
+            if args.reserved_memory_mib is not None:
+                config["reserved_memory_mib"] = bound_memory_reserve(
+                    args.reserved_memory_mib
+                )
             supervisor = Supervisor(config, True)
             options = read_options(args)
             if args.codex_on_stall is not None and options is not None:

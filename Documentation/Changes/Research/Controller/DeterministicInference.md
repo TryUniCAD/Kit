@@ -106,9 +106,11 @@ The inventory's original qualification states stay visible.
 ### Run both complete catalogue inventories
 
 From a clean checkout, use one command to prepare every catalogue entry,
-submit all mapped scopes and run their decoder jobs in series. Use a new
-directory outside the source checkout. Either catalogue can be supplied
-independently.
+submit all mapped scopes and run independent decoder jobs in parallel.
+The supervisor chooses concurrency from available memory and CPU.
+Use `--workers 1` for a serial run or a higher value as a ceiling.
+Use a new output directory outside the source checkout.
+You can supply either catalogue independently.
 
 ```shell
 python re/automation/InferenceGrid/RunFeatureCatalogue.py \

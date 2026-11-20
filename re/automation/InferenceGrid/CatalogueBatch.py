@@ -16,7 +16,12 @@ from InferenceGrid.Provision import CheckRevision
 from Ledger import Ledger
 from Pilot.PilotConfig import PilotConfig
 from Pilot.PilotFiles import WriteRecord
+from Records import bounded
 from Supervisor import read_config
+
+# the shared supervisor and ledger can admit at most this many workers
+KMaxBatchWorkers = 64
+
 
 # independent routes keep running when another route lacks local prerequisites
 ScopeErrors = (
@@ -32,8 +37,18 @@ ScopeErrors = (
 
 # a private worker store keeps batch results separate from active research work
 def RunCatalogueBatch(
-    Directory, SourceRoot, Revision, Catalogues, MaxSeconds, Native, Advice=None
+    Directory,
+    SourceRoot,
+    Revision,
+    Catalogues,
+    MaxSeconds,
+    Native,
+    Advice=None,
+    *,
+    Reserve=None,
+    Workers=KMaxBatchWorkers,
 ):
+    Workers = bounded(Workers, 1, KMaxBatchWorkers)
     CheckRevision(Revision)
     if Directory.is_relative_to(SourceRoot):
         raise ValueError("use a new run directory outside the source checkout")
@@ -41,8 +56,8 @@ def RunCatalogueBatch(
     Directory.mkdir(mode=0o700)
     WriteRecord(Directory / "CataloguePlan.json", Plan)
     Store = Directory / "Store"
-    Config, _, _ = PilotConfig(Directory, SourceRoot, 1)
-    with Ledger(Store, create=True, max_running=1):
+    Config, _, _ = PilotConfig(Directory, SourceRoot, Workers, GroupRescans=False)
+    with Ledger(Store, create=True, max_running=Workers):
         pass
     if Native is not None:
         NativeConfig, _, _ = Native
@@ -54,7 +69,13 @@ def RunCatalogueBatch(
     PhaseJobs = {}
     if Submissions:
         Failure = RunSupervisor(
-            Directory, SourceRoot, Config, MaxSeconds, "Offline", Advice
+            Directory,
+            SourceRoot,
+            Config,
+            MaxSeconds,
+            "Offline",
+            Advice,
+            Reserve=Reserve,
         )
         if Failure:
             Failures.append(Failure)
@@ -63,7 +84,12 @@ def RunCatalogueBatch(
                 PhaseJobs = AdvanceCatalogue(Plan, Store, Submissions, Native)
                 if PhaseJobs:
                     Failure = RunSupervisor(
-                        Directory, SourceRoot, Native[0], MaxSeconds, "Native"
+                        Directory,
+                        SourceRoot,
+                        Native[0],
+                        MaxSeconds,
+                        "Native",
+                        Reserve=Reserve,
                     )
                     if Failure:
                         Failures.append(Failure)
@@ -122,8 +148,11 @@ def AdvanceCatalogue(Plan, Store, Submissions, Native):
 
 
 # the established supervisor executes each claim and retains its own durable receipts
-def RunSupervisor(Directory, SourceRoot, Config, MaxSeconds, Stage, Advice=None):
+def RunSupervisor(
+    Directory, SourceRoot, Config, MaxSeconds, Stage, Advice=None, *, Reserve=None
+):
     AdviceArgs = Advice.arguments() if Advice else []
+    MemoryArgs = [] if Reserve is None else ["--reserved-memory-mib", str(Reserve)]
     AdviceSeconds = 90 * Advice.calls if Advice else 0
     try:
         with (Directory / f"{Stage}Supervisor.log").open("xb") as Log:
@@ -140,6 +169,7 @@ def RunSupervisor(Directory, SourceRoot, Config, MaxSeconds, Stage, Advice=None)
                     "--max-seconds",
                     str(MaxSeconds),
                     *AdviceArgs,
+                    *MemoryArgs,
                 ],
                 cwd=SourceRoot,
                 stdout=Log,
