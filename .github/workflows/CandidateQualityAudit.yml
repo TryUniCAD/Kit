@@ -220,6 +220,8 @@ jobs:
           version: "0.12.5"
       - run: uv sync --frozen --no-default-groups --extra dev --python 3.14
       - run: uv run --no-sync python re/automation/CaptureHistory.py fetch
+      - name: Verify native sketch child ownership at the archive boundary
+        run: uv run --no-sync python -m pytest -q tests/Convert/Api/Fusion/SketchRosterTests.py
       - name: Measure sketch membership agreement
         run: |
           uv run --no-sync python - <<'PYTHON'
