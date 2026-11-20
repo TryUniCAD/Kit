@@ -9,11 +9,19 @@ and `Archive/Scalars`. The cursor and three scalar, text and count readers in
 [existing exact-build record](Solidworks2026ArchiveCompatibility.md) for
 SOLIDWORKS 2026 SP05.2 build `34.5.2.0604`.
 
-All 20 production files match the aggregate revision byte for byte. The
-source manifest SHA-256 is
-`ed2bf7a57252ba3e2a72643634bfc8100238491c5fec29700b20abd7fe0b6cdd`.
-The manifest concatenates repository-relative paths in sorted order, each
-followed by a NUL, the lowercase file SHA-256 and a newline.
+The [initial extraction](https://github.com/TryUniCAD/Kit/commit/94fbd6044a63ec314e5466a38b8fee1d67ced1bc)
+matched the aggregate across all 20 production files, with source manifest
+SHA-256 `ed2bf7a57252ba3e2a72643634bfc8100238491c5fec29700b20abd7fe0b6cdd`.
+Eighteen files still match byte for byte. The two review fixes are
+`Archive/Scalars/ReadScalar.py`, which rejects negative offsets with the
+existing `struct.error` exception type, and `Archive/Reading/ReadNativeCount.py`,
+which validates capacity before advancing the cursor. Valid frames retain
+their bytes and decoded positions. The revised source manifest SHA-256 is
+`17db25ccab94d02d2387ef8d343868359756cc05c3a8821b95bc652fbe758330`.
+The manifest concatenates sorted repository-relative paths, each followed
+by a NUL, the lowercase file SHA-256 and a newline.
+[Absolute scalar positions](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ScalarOffsetsAreAbsolute.md)
+[Count cursor validation](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/CountValidationPrecedesCursorAdvance.md)
 
 ## Wire ownership
 
@@ -40,7 +48,13 @@ uses the same separate-interpreter write and read pattern on authored
 synthetic data. Its independent byte expectation covers both count
 dialects, short and escaped references, Unicode unit and length boundaries,
 and neighboring signed and floating fields. Remote CI will exercise the
-new process cases on the delivery revision.
+new process cases on the delivery revision. The signed position in the
+synthetic header exercises the absolute scalar reader. A count that
+exceeds remaining capacity must report the original count offset. The
+long Unicode record uses 65,534 UTF-16 units with a final surrogate pair.
+The separate [ANSI source case](../../../tests/Convert/Solidworks/Archive/AnsiWireTests.py)
+decodes independently authored bytes, replays them byte for byte and
+checks that fresh output rejects the ANSI label.
 
 Scoped Black, Ruff, Mypy, Pyright and steering checks passed. The production
 donor scan found no recorded payloads across 3,154 files.

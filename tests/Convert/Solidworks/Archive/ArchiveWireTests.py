@@ -1,34 +1,10 @@
 from json import dumps as DumpJson, loads as LoadJson
 from pathlib import Path as FilePath
-from subprocess import CompletedProcess, run as RunProcess
-from sys import executable as PythonExec
 
-from tests.Convert.Solidworks.Archive.ArchiveWireCases import (
-    AuthoredRecord,
-    BrokenRecords,
-    CanonicalWire,
-)
-
-# fresh interpreters must resolve the same repository even from temporary directories
-KRepoRoot = FilePath(__file__).resolve().parents[4]
-
-
-# a dedicated command exposes only synthetic records to the process integration
-KWireScript = KRepoRoot / "re/tooling/sw2026/ArchiveWireProcess.py"
-
-
-# a process boundary keeps the reader independent from the writer cursor and objects
-def RunWire(
-    ModeName: str, InputPath: FilePath, OutputPath: FilePath
-) -> CompletedProcess[str]:
-    return RunProcess(
-        [PythonExec, "-B", str(KWireScript), ModeName, str(InputPath), str(OutputPath)],
-        cwd=InputPath.parent,
-        capture_output=True,
-        text=True,
-        check=False,
-        timeout=60,
-    )
+from tests.Convert.Solidworks.Archive.ArchiveWireCases import AuthoredRecord
+from tests.Convert.Solidworks.Archive.BrokenWire import BrokenRecords
+from tests.Convert.Solidworks.Archive.CanonicalWire import CanonicalWire
+from tests.Convert.Solidworks.Archive.RunWire import RunWire
 
 
 # neighboring wire fields reveal wrong widths even when individual values round trip
