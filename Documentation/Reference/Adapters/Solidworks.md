@@ -40,6 +40,11 @@ The implemented container uses encoded stream names and compressed data.
 A valid stream directory does not prove valid native feature records.
 A valid feature record does not establish a successful vendor rebuild.
 
+Internal archive primitives encode and decode collection counts, structural
+tags, CString frames and fixed-width scalars in memory. Stream owners select
+the count dialect and supply the context for object references.
+[Wire primitives and verification](../../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
+
 ## Read flow
 
 ```mermaid
