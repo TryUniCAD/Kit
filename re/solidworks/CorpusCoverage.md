@@ -75,6 +75,12 @@ pass native open, rebuild, save and fresh read-only reopen with 304
 candidate measurements and six healthy controls. This adds zero
 original FCStd benchmark conversions.
 
+The [sealed periodic source lock](measurements/2026/SealedPeriodicImportedSourceLock01.json)
+keeps two independently authored oblique cylinder parts private in
+Windows before implementation of the typed neutral B-rep constructor.
+All eight periodic source observations and both controls pass in six
+fresh processes. These originals contribute zero generated outputs.
+
 Two [sealed native imports](measurements/2026/SealedImportedLocalGeometryNative01.json)
 also pass geometry projection, generation and the full native lifecycle.
 The receipt records the omitted source domains. [Supplemental SDK readback](measurements/2026/SealedImportedLocalGeometryReadback01.json)
