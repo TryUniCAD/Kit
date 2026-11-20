@@ -51,6 +51,11 @@ def file_scope(path, application, scratch, root):
         else:
             reports[phase] = json.loads(read_file(target, 128 * 1024 * 1024))
             attempts[phase] = {"status": "decoded"}
+    if attempts.get("native", {}).get("message") == "Unsupported Fusion semantic-state value":
+        from InferenceGrid.RepairState import repair_state
+        repaired = repair_state(root, source, scratch, env)
+        if repaired:
+            reports["native"], reports["state-repair"] = repaired
     document = reports.get("strict", reports.get("partial", {})).get("document", {})
     if document and document.get("source", {}).get("sha256") != pin:
         raise ValueError("neutral decode refers to a different source")

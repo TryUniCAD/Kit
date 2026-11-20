@@ -21,3 +21,5 @@ Three additional files from the thin extrusion operation study were decoded at `
 Local runs on CombineKeep, SplitXY and BodyRectPattern identified ten native bodies by matching their volume, surface area and centroid against the digest-pinned vendor captures. The rectangular pattern contained six bodies with equal volumes and distinct centers. All ten stored an empty user name. The capture supplies their displayed names. These controls alone cannot distinguish numbering by creation index from numbering by collection order.
 
 The runner now compares two default-name rules against the independently identified bodies and selects a two-body removal experiment when both fit. The dedicated capture script requires a configured Fusion oracle. Its output has not yet been measured on that worker.
+
+Five local feature controls exposed typed native records missing from the semantic-state registry. The file-driven runner can now identify field-only frozen journal records in the parsed model and propose explicit registry patches after isolated replay and model equality checks.
