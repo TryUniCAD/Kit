@@ -1886,7 +1886,7 @@ def ParseXml(DataValue: bytes) -> XmlTree.Element:
         ) from ErrorInfo
 
 
-# xml encoding only serializes the caller supplied element tree with ordinary empty elements
+# keyword framing needs one element encoder so compact and spaced markup use identical text escaping
 def EncodeNativeXml(RootValue: XmlTree.Element) -> bytes:
     PayloadValue: bytes = XmlTree.tostring(
         RootValue, encoding="utf-8", short_empty_elements=True
@@ -1894,7 +1894,7 @@ def EncodeNativeXml(RootValue: XmlTree.Element) -> bytes:
     return PayloadValue
 
 
-# the namespace event parser checks decoded xml before consuming its element and declaration events
+# qualified keyword values need namespace events because parsed elements omit their prefix declarations
 def ReadXmlEvents(TextValue: str) -> Iterator[tuple[str, object]]:
     CheckXmlDoctype(TextValue)
     return XmlTree.iterparse(StringIO(TextValue), events=("start-ns", "start"))
