@@ -204,3 +204,50 @@ jobs:
           tests/CliResearch/ReaderRejectTests.py
           tests/CliResearch/InterruptTests.py
           tests/CliResearch/LeaseFlowTests.py -q
+
+  rectangle-evidence:
+    name: Compare rectangle reports and inspect partition selection
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
+        with:
+          version: "0.12.5"
+      - run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+      - run: uv run --no-sync python re/automation/CaptureHistory.py fetch
+      - name: Inspect the partition inputs for missing solids
+        run: |
+          uv run --no-sync python - <<'PY'
+          from pathlib import Path
+          from convert import open_document
+          from convert.Geometry.Parasolid import ReadBrepResult
+          from convert.adapters.freecad.Brep import BrepModelBrep
+          folder = Path('re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024')
+          for name in ('10MM x 20MM x 13MM head 316 Stainless Steel Socket Head Screw.SLDPRT', '8MM x 15mm - 12 point screw.SLDPRT', 'CUIETA DE ENTRADA DE GASES.SLDPRT'):
+              doc = open_document(folder / name)
+              print(name, [(cfg.name,cfg.active) for cfg in doc.configurations], 'has_brep', doc.brep is not None)
+              for payload in doc.brep_payloads:
+                  if payload.kind in ('partition', 'delta') and payload.data:
+                      model, why = ReadBrepResult(payload.data)
+                      print(payload.source_stream, payload.kind, len(payload.data), model is not None, why)
+              if doc.brep:
+                  try:
+                      BrepModelBrep(doc.brep)
+                  except ValueError as error:
+                      print(str(error))
+          PY
+      - name: Identify changed fields against the original archived reporter
+        run: |
+          set -eu
+          revision=92fd0da165cf3eed3e50331459cf2ea3e983f2be
+          git fetch --no-tags --depth=1 origin "$revision"
+          reference="$RUNNER_TEMP/rectangle-reference"
+          git worktree add --detach --no-checkout "$reference" "$revision"
+          git -C "$reference" restore --source=HEAD --staged --worktree -- src re/automation re/solidworks/archive
+          .venv/bin/python "$reference/re/automation/RectanglePairEvidence.py" > "$RUNNER_TEMP/reference.json"
+          .venv/bin/python re/automation/RectanglePairEvidence.py > "$RUNNER_TEMP/current.json"
+          sha256sum "$RUNNER_TEMP/reference.json" "$RUNNER_TEMP/current.json"
+          diff -u "$RUNNER_TEMP/reference.json" "$RUNNER_TEMP/current.json" | head -240 || true
