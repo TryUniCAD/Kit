@@ -4,6 +4,7 @@
   "boundary": "complete bounded unit-table object and caller-owned map snapshot",
   "complete_unit_tables_per_pass": 3,
   "fresh_processes": 4,
+  "independent_wire_projection_sha256": "646f03bbdbe12576fdd7f068b0ba880923e482a3c6bf83e7c09cec18e44840c3",
   "independently_reproduced_controls": 2,
   "native_processes_started": 0,
   "native_reference_build": "34.5.2.0604",
@@ -23,12 +24,13 @@
         "wrong_length_owner"
       ],
       "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
-      "stdout_sha256": "ad2a58ec26ab42905f33c880bca7510f5598f3ef6f95da7771025ca5ae681fb1",
+      "stdout_sha256": "a37a027deb3ea817698a9ebdb4a71d82d70da015037fa81e5315adcc725ce1bb",
       "tables": [
         {
           "angle": 0,
           "bytes": 1487,
           "density_override": 0,
+          "field_projection_sha256": "73fa20249382f9c982e542c3acbe6967ced9da3db9b0bf44dd99c536c21f30f9",
           "length": [
             2,
             0.1,
@@ -59,12 +61,13 @@
         "wrong_seed_kind"
       ],
       "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
-      "stdout_sha256": "f443b1ea9425ded2f716644ce4063942f5c3261c88662469ad60464164afd861",
+      "stdout_sha256": "0e98ecf2c41b515b9ad3850b1506bb478cb11f9302945d3024b6cdfdbc9fde55",
       "tables": [
         {
           "angle": 0,
           "bytes": 1421,
           "density_override": 0,
+          "field_projection_sha256": "ab799cfcfca7e7ace2357626eb892ec213a90c5f63fae7546503ac1d31c618a4",
           "length": [
             4,
             0.01,
@@ -82,6 +85,7 @@
           "angle": 3,
           "bytes": 1055,
           "density_override": 0,
+          "field_projection_sha256": "04cd2b5acb9309198132b624b484b9ddd694dcb7e8e033c421d4340edef543ea",
           "length": [
             4,
             0.01,
@@ -98,14 +102,21 @@
       ]
     }
   ],
-  "proof_tool_sha256": "f8446e9d06460db111cbe7a4bd2fe7b01d73551b387412dba08bf774502d66e5",
+  "proof_tool_sha256": "bbcdaecdeeff93de3b257c331bf4fbd73cdffdc9c29dea0b6c6f0ffdb5f38146",
   "python_version": "3.14.7",
-  "queue_case_sha256": "47039eb27412f9b4d39a18e41c4efef60a0056b99712d42916694869d7a2d924",
+  "queue_case_sha256": "01eaaf4400825a632ad87ad741a7cd84e706ea87533a3b69bc6b3edb8cd53e49",
+  "queue_source_sha256": {
+    "tests/Convert/Solidworks/Configuration/ReadUnitCase.py": "b489a61e156f4e9868fd63670f5f3a71684a6b9c6e8d8b9df2f121470c7f7d55",
+    "tests/Convert/Solidworks/Configuration/UnitCaseRefusals.py": "7a7407e64874e21b7de8f08aa654a0b70947d857922b8ebd0fe0babe8aff92b4",
+    "tests/Convert/Solidworks/Configuration/UnitTableLinkTests.py": "3b44bb54d38ddf07ce1822c20602bddc4aa59bbb3174eb42041dd93f3a150794",
+    "tests/Convert/Solidworks/Configuration/UnitTableTests.py": "01eaaf4400825a632ad87ad741a7cd84e706ea87533a3b69bc6b3edb8cd53e49"
+  },
   "refusals_per_pass": 16,
+  "reviewed_head": "1e2a77b27759b3336fc04e965bf45a4098e71e84",
   "schema": "kit.sw2026.ordinary-unit-table-reader.v1",
-  "source_manifest_sha256": "f58e85aa7d536f0811d3071778d523d3e32b952750ec9ce5c6c8830e758444f6",
+  "source_manifest_sha256": "801f7884403b5ba36109ee0ffa16d84d3e815796bddaf2723fd80de6cf829e80",
   "source_sha256": {
-    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/UnitFields.py": "7a9765b4e3587468104707800916eecd12de906e6745a5b97a78afaabca7e682",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/UnitFields.py": "91ccd89b4a0c620b0b3b854bd20709ce56b0496f6df8ee5b0fdcbed11ddd1a03",
     "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ContainerFields.py": "db7108f61e923094891428965ac277b64c9316876e4aa7cf897eb79c52daf6a4",
     "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "c9a28cb5727ed3b9a840f5032f895bb6daabd27a2b3ea4087a394fd996eb0413",
     "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadNestedMut.py": "71b73fc7177db3194dcf889a455bfaed4203f7ccd46f00105b2fcb1546c3e6fe",

@@ -7,13 +7,16 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from convert.adapters.solidworks.Archive.Config.Units.ReadUnitTable import ReadUnitTable
 from convert.adapters.solidworks.Archive.Maps.MapEntry import MapEntry
 from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from ReadWireUnitFields import read_wire_units
 
 CASES = {
     "ladder": (
@@ -58,7 +61,45 @@ def unit_rows(graph):
     return tuple(row["o"] for row in graph.RootValue.FieldsValue["items"])
 
 
-def inspect(graph, seed):
+def unit_projection(value):
+    if isinstance(value, ArchiveNode):
+        return (
+            value.ClassValue.NameValue,
+            value.ClassValue.SchemaValue,
+            value.IndexValue,
+            value.StartOffset,
+            value.EndOffset,
+            unit_projection(value.FieldsValue),
+        )
+    if isinstance(value, dict):
+        return {name: unit_projection(field) for name, field in value.items()}
+    if isinstance(value, list):
+        return [unit_projection(field) for field in value]
+    return value
+
+
+def compare_wire(data, seed, graph, classes):
+    reference, counter, wire_classes = read_wire_units(data, seed.CounterValue, classes)
+    observed = unit_projection(graph.RootValue)
+    canonical = json.dumps(reference, sort_keys=True, allow_nan=False, separators=(",", ":"))
+    require(
+        json.dumps(observed, sort_keys=True, allow_nan=False, separators=(",", ":"))
+        == canonical,
+        "typed unit values differ from the independent native field projection",
+    )
+    require(graph.MapValue.CounterValue == counter, "unit reference counter differs")
+    require(
+        {
+            entry.IndexValue: (entry.EntryValue.NameValue, entry.EntryValue.SchemaValue)
+            for entry in graph.MapValue.EntriesValue
+            if isinstance(entry.EntryValue, RuntimeClass)
+        } == wire_classes,
+        "unit reference class identities differ",
+    )
+    return digest(canonical.encode()), wire_classes
+
+
+def inspect(graph, seed, fields_hash):
     units = unit_rows(graph)
     length = units[0]
     override = length.FieldsValue["fb8"]
@@ -78,6 +119,7 @@ def inspect(graph, seed):
         "next_index": graph.MapValue.CounterValue,
         "shared_classes": len(seed.EntriesValue),
         "schema_count": len(graph.ReportValue["used_schemas"]),
+        "field_projection_sha256": fields_hash,
         "length": (
             length.FieldsValue["f0c"],
             length.FieldsValue["f18"],
@@ -176,7 +218,8 @@ def observe(case_name):
     require(digest(data) == table_hash, "unexpected first unit table")
     seed = MapSnapshot(base, ())
     first = ReadUnitTable(data, version, seed)
-    seen = [inspect(first, seed)]
+    fields_hash, classes = compare_wire(data, seed, first, {})
+    seen = [inspect(first, seed, fields_hash)]
     refused = list(first_refusals(data, seed, first))
     if len(tables) == 1:
         override = unit_rows(first)[0].FieldsValue["fb8"]
@@ -200,7 +243,8 @@ def observe(case_name):
         require(digest(data) == table_hash, "unexpected linked unit table")
         seed = linked_seed(first, base)
         second = ReadUnitTable(data, version, seed)
-        seen.append(inspect(second, seed))
+        fields_hash, _ = compare_wire(data, seed, second, classes)
+        seen.append(inspect(second, seed, fields_hash))
         refused.extend(later_refusals(data, seed, first))
     require(digest(path.read_bytes()) == source_hash, "native input changed")
     return {

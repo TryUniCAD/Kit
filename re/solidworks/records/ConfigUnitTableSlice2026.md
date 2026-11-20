@@ -61,6 +61,14 @@ descriptors from the first table at their actual slots. Each decode
 executes 19 layouts and the existing `Array`, `Node`, `Scalar` operations
 plus the new `Base` and `Present` handlers.
 
+An [independent fixed-width projection](../../tooling/sw2026/ReadWireUnitFields.py)
+reads all 13 inherited scalar fields on every unit row, each concrete
+suffix and every field of the nested length override from the native
+bytes. It walks the tags and class slots with its own counter and checks
+the concrete body offsets and full cursor. Each queue case pins the
+complete projection's SHA-256. The ladder and linked concave
+observations have their own process cases and share one process runner.
+
 The process rejects truncation, trailing data, the wrong archive
 version, a density override, an earlier root alias, a null row, the
 wrong first-table counter, a wrong length owner, a missing class seed,
@@ -73,7 +81,8 @@ python -I -B re/tooling/sw2026/CheckUnitTables.py concave
 ```
 
 [Exact host receipt and source manifest](../measurements/2026/ConfigUnitTableReader01.json)
-· [Queue process cases](../../../tests/Convert/Solidworks/Configuration/UnitTableTests.py)
+· [Ladder queue case](../../../tests/Convert/Solidworks/Configuration/UnitTableTests.py)
+· [Linked queue case](../../../tests/Convert/Solidworks/Configuration/UnitTableLinkTests.py)
 
 ## Remaining Config-0 work
 
