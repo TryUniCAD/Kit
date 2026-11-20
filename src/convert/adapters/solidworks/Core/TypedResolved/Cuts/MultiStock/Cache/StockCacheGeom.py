@@ -6,6 +6,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cache.StockC
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockCutLineage import (
     StockCutLineage,
 )
+from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from interchange.brep.Topology.BrepModel import BrepModel
 
 
@@ -16,3 +17,4 @@ class StockCacheGeom:
     LineageValue: StockCutLineage
     BodyValues: tuple[StockCacheBody, StockCacheBody]
     StreamName: str
+    LinkValue: NativeLink

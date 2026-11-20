@@ -4,6 +4,7 @@ from dataclasses import replace as ReplaceValue
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
+from interchange.Features.FeatureStep import FeatureStep
 from interchange.geometry.Models.Selection import Selection, SelectPathElem
 
 
@@ -33,6 +34,13 @@ def BindCutStock(DocumentValue: CadDocument) -> CadDocument:
         or DocumentValue.bodies[0].final_feature_id != CutStep.id
     ):
         return DocumentValue
+    return BindCutPick(DocumentValue, Stock, CutStep)
+
+
+# one stable selection explicitly refers to the historical body before a cut consumes it
+def BindCutPick(
+    DocumentValue: CadDocument, Stock: FeatureStep, CutStep: FeatureStep
+) -> CadDocument:
     Reference = Selection(
         CutStep.id + ":stock-body",
         Stock.name + " body",

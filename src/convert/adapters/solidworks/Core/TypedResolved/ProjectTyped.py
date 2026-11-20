@@ -16,6 +16,15 @@ from convert.adapters.solidworks.Core.TypedResolved.BindFeature import BindFeatu
 from convert.adapters.solidworks.Core.TypedResolved.Circles.BindLocalCirc import (
     BindLocalCirc,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.CheckStockProfs import (
+    CheckStockProfs,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockCutLineage import (
+    StockCutLineage,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockOpsMap import (
+    StockOpsMap,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadCutHistory import (
     ReadCutHistory,
 )
@@ -65,7 +74,12 @@ def BindSketchMut(
 
 
 # the public model must consume complete typed facts atomically while preserving unrelated legacy behavior
-def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
+def ProjectTyped(
+    Model: NativeModel,
+    LinkValue: NativeLink,
+    *,
+    StockValue: StockCutLineage | None = None,
+) -> NativeModel:
     NodesValue = IndexFeatures(LinkValue)
     Features = {
         Feature.object_id: (
@@ -75,21 +89,26 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
         )
         for Feature in Model.features
     }
-    OwnersValue = {
-        NativeId: ReadExtrude(LinkValue, NodeValue, NodesValue)
-        for NativeId, NodeValue in NodesValue.items()
-        if NativeId in Features and NodeValue.ClassValue.NameValue == "moExtrusion_c"
-    }
     SketchIds = {Sketch.object_id for Sketch in Model.sketches}
     OperationIds = {Operation.object_id for Operation in Model.operations}
     BodyEvidence = None
     CutProfileId = None
-    if OwnersValue and len(Model.operations) != 1:
-        CutValue, BodyEvidence = ReadCutHistory(
-            Model, LinkValue, NodesValue, OwnersValue
-        )
-        OwnersValue[NativeNodeId(CutValue.NodeValue)] = CutValue
-        CutProfileId = NativeNodeId(CutValue.ProfileValue)
+    if StockValue is not None:
+        OwnersValue, BodyEvidence = StockOpsMap(Model, NodesValue, StockValue)
+        CutProfileId = NativeNodeId(StockValue.CutValue.ProfileValue)
+    else:
+        OwnersValue = {
+            NativeId: ReadExtrude(LinkValue, NodeValue, NodesValue)
+            for NativeId, NodeValue in NodesValue.items()
+            if NativeId in Features
+            and NodeValue.ClassValue.NameValue == "moExtrusion_c"
+        }
+        if OwnersValue and len(Model.operations) != 1:
+            CutValue, BodyEvidence = ReadCutHistory(
+                Model, LinkValue, NodesValue, OwnersValue
+            )
+            OwnersValue[NativeNodeId(CutValue.NodeValue)] = CutValue
+            CutProfileId = NativeNodeId(CutValue.ProfileValue)
     if any(
         NativeId not in OperationIds
         or NativeNodeId(OwnerValue.ProfileValue) not in SketchIds
@@ -116,7 +135,16 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
     Circles, Lines = BindSketchMut(
         Model.sketches, NodesValue, Features, LinkValue, CutProfileId
     )
-    TreeValue = ProjectTree(Model, LinkValue, NodesValue, Features)
+    if StockValue is not None:
+        CheckStockProfs(Model, LinkValue, StockValue, Features, Lines, Circles)
+    TreeValue = ProjectTree(
+        Model, LinkValue, NodesValue, Features, TwoStocks=StockValue is not None
+    )
+    if (
+        StockValue is not None
+        and TreeValue.EvidenceValue.get("status") == "unqualified"
+    ):
+        raise ValueError(str(TreeValue.EvidenceValue["diagnostic"]))
     return ReplaceValue(
         Model,
         features=TreeValue.FeaturesValue,

@@ -143,6 +143,15 @@ from convert.adapters.solidworks.Container.Format import (
 from convert.adapters.solidworks.Core.FeatureKindByNative import KFeatureKindByNative
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.Core.BuildRevolve import BuildRevolve as BuildRevolve
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.BindStockDoc import (
+    BindStockDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockDesigns import (
+    StockDesigns,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.TryStockPart import (
+    TryStockPart,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.WithCutSelection import (
     BindCutStock,
 )
@@ -376,7 +385,9 @@ def ReadNativePart(
     Label: str,
     Settings: ReadOptions,
 ) -> CadDoc:
-    Model = NativePartModel(Archive, Settings.configuration)
+    Model, StockValue = TryStockPart(
+        Archive, NativePartModel(Archive, Settings.configuration), Settings
+    )
     ConfigValues = Configurations(Model, Settings.configuration)
     ParamValues = Parameters(Model)
     ParamIds = {Param.id for Param in ParamValues}
@@ -385,56 +396,64 @@ def ReadNativePart(
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
     DerivedValue = (
-        ReadNoCache(Archive, Model, KPartBodyId) if Settings.include_brep else None
+        ReadNoCache(Archive, Model, KPartBodyId)
+        if StockValue is None and Settings.include_brep
+        else None
     )
-    LocalOwner: NativeFeature | None = None
-    if DerivedValue is None:
-        Payloads, PayloadDiags, BrepValue, LocalOwner = ReadPartSolid(
-            Archive, Model, Settings, len(ConfigValues)
-        )
+    Payloads, PayloadDiags, BrepValue, LocalOwner = ReadPartSolid(
+        Archive,
+        Model,
+        Settings,
+        len(ConfigValues),
+        DerivedValue,
+        StockValue.BrepValue if StockValue is not None else None,
+    )
+    if StockValue is not None:
+        Bodies = StockDesigns(StockValue, TimeValues, Payloads)
     else:
-        Payloads, PayloadDiags, BrepValue = ReadGeomParts(DerivedValue)
-    SolidOpIds = frozenset(
-        (
-            FeatureId(Operation.object_id)
-            for Operation in Model.operations
-            if Operation.kind != "surface"
+        SolidOpIds = frozenset(
+            (
+                FeatureId(Operation.object_id)
+                for Operation in Model.operations
+                if Operation.kind != "surface"
+            )
         )
-    )
-    FinalFeature = (
-        FeatureId(LocalOwner.object_id)
-        if LocalOwner is not None
-        else FinalBodyId(TimeValues, SolidOpIds)
-    )
-    BodyFeature = LocalOwner or SolidBody(Model.features)
-    TopologyValue = (
-        DerivedValue.TopologyValue
-        if DerivedValue is not None
-        else TopologySummary(
-            solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
+        FinalFeature = (
+            FeatureId(LocalOwner.object_id)
+            if LocalOwner is not None
+            else FinalBodyId(TimeValues, SolidOpIds)
         )
-    )
-    if LocalOwner is not None and BrepValue is not None:
-        BrepValue, TopologyValue = LinkLocalBody(BrepValue, KPartBodyId, TopologyValue)
-    Bodies = (
-        BodyValue(
-            id=KPartBodyId,
-            name=BodyFeature.name if BodyFeature is not None else "Body 1",
-            final_feature_id=FinalFeature,
-            topology=TopologyValue,
-            provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
-            attributes=FrozenMapping(
-                {
-                    "native_object_id": (
-                        BodyFeature.object_id if BodyFeature is not None else None
-                    ),
-                    "parasolid_payload_ids": tuple(
-                        (Payload.id for Payload in Payloads)
-                    ),
-                }
+        BodyFeature = LocalOwner or SolidBody(Model.features)
+        TopologyValue = (
+            DerivedValue.TopologyValue
+            if DerivedValue is not None
+            else TopologySummary(
+                solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
+            )
+        )
+        if LocalOwner is not None and BrepValue is not None:
+            BrepValue, TopologyValue = LinkLocalBody(
+                BrepValue, KPartBodyId, TopologyValue
+            )
+        Bodies = (
+            BodyValue(
+                id=KPartBodyId,
+                name=BodyFeature.name if BodyFeature is not None else "Body 1",
+                final_feature_id=FinalFeature,
+                topology=TopologyValue,
+                provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
+                attributes=FrozenMapping(
+                    {
+                        "native_object_id": (
+                            BodyFeature.object_id if BodyFeature is not None else None
+                        ),
+                        "parasolid_payload_ids": tuple(
+                            (Payload.id for Payload in Payloads)
+                        ),
+                    }
+                ),
             ),
-        ),
-    )
+        )
     Diagnostics = (
         tuple(
             (
@@ -486,7 +505,11 @@ def ReadNativePart(
         units=UnitSystem.MILLIMETER,
     )
     return FinishPartDoc(
-        DocValue,
+        (
+            BindStockDoc(DocValue, StockValue.LineageValue)
+            if StockValue is not None
+            else DocValue
+        ),
         Archive,
         Model.active_configuration_id,
         DerivedValue,
@@ -3875,13 +3898,19 @@ def ReadPartSolid(
     Model: NativeModel,
     Settings: ReadOptions,
     ConfigCount: int,
+    DerivedValue: PartGeometry | None = None,
+    StockBrep: BrepModel | None = None,
 ) -> tuple[
     tuple[BrepPayload, ...],
     tuple[DiagValue, ...],
     BrepModel | None,
     NativeFeature | None,
 ]:
+    if DerivedValue is not None:
+        return (*ReadGeomParts(DerivedValue), None)
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
+    if StockBrep is not None:
+        return Payloads, PayloadDiags, StockBrep, None
     Candidate = (
         FindLocalOwner(Model, Archive)
         if Settings.include_brep

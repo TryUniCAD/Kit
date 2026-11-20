@@ -1,4 +1,5 @@
 from collections.abc import Mapping
+from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.Native import NativeFeature, NativeModel
@@ -36,10 +37,12 @@ def ProjectTree(
     LinkValue: NativeLink,
     NodesValue: Mapping[int, ArchiveNode],
     Features: Mapping[int, NativeFeature],
+    *,
+    TwoStocks: bool = False,
 ) -> TreeProjection:
     Original = tuple(Features[Feature.object_id] for Feature in Model.features)
     try:
-        RootsValue = ReadRootOrder(LinkValue, NodesValue)
+        RootsValue = ReadRootOrder(LinkValue, NodesValue, TwoStocks=TwoStocks)
         RowsValue: list[Mapping[str, object]] = []
         MembersValue: tuple[ArchiveNode, ...] = ()
         for NodeValue in RootsValue:
@@ -51,7 +54,7 @@ def ProjectTree(
         HelpersValue = ReadConfigHelp(LinkValue)
         CheckExtras(Model, RootsValue, MembersValue, HelpersValue)
         if RootsValue[-1].ClassValue.NameValue == "moICE_c":
-            return ProjectThruTree(
+            ThroughTree = ProjectThruTree(
                 Model,
                 LinkValue,
                 Features,
@@ -60,6 +63,16 @@ def ProjectTree(
                 MembersValue,
                 HelpersValue,
             )
+            if TwoStocks:
+                return ReplaceValue(
+                    ThroughTree,
+                    EvidenceValue={
+                        **ThroughTree.EvidenceValue,
+                        "status": "ordinary_selected_two_stock_profile",
+                        "parametric_timeline_stable": True,
+                    },
+                )
+            return ThroughTree
     except (ValueError, TypeError, KeyError) as ErrorValue:
         return TreeProjection(
             Original,

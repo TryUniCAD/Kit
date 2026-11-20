@@ -55,6 +55,8 @@ For the measured single selected stock, the normal reader also exposes the stock
 
 The saved selected-stock through-all profile also exposes the exact resolved, cabinet, environment and configuration-helper owners while retaining all 28 source timeline rows. [Through-all presentation ownership](../../Changes/Solidworks/Reading/Parts/SolidworksThroughAllPresentationOwners.md)
 
+With B-rep enabled, the ordinary saved two-stock selected through-all profile retains both independent blind bosses, the exact prior stock selection, two live D1 drivers and two distinct final solids. The active saved partition provides the geometry and its actual body owners. [Saved two-stock through-all reading](../../Changes/Solidworks/Reading/Parts/SolidworksSavedTwoStockRead.md)
+
 With geometry disabled, the body summary accounts for both halves of a typed mid-plane stock extrusion. [Mid-plane stock bounds](../../Changes/Solidworks/Reading/Parts/SolidworksMidPlaneStockBounds.md)
 
 The shared archive codec preserves an ordinary version-19000 revolve's actual axis, end specification, angular display and live parameter. A full turn and both measured partial directions re-emit the six linked streams exactly. [Typed ordinary revolve archive](../../Changes/Solidworks/Archive/SolidworksOrdinaryRevolveArchive.md)

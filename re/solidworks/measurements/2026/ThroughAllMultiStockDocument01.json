@@ -1,0 +1,337 @@
+{
+  "baseline_revision": "f815b77a27d78a3654f9e7c084ce0921c01f692a",
+  "generated_native_files": 0,
+  "heldout_read_count": 0,
+  "implementation_sha256": {
+    "src/convert/adapters/solidworks/Core/Adapter.py": "83c7a0cd1855b1fcdb420bd8de57a09eb925d4ae886e87d81507acb0444d4010",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/BindStockDoc.py": "2ba1b66dd90770ea06f7f0caba265ef88a10af502ff2e330c0c7088b33fb403c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/ReadStockCache.py": "92358a7a247823f278c7c52f8de62653919e047a8a8c33ccef9b6f5620e88c92",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/StockCacheGeom.py": "0f45966340eef794458c1b9c8c86b87aa6d89b30a22e010f22fc0c7880d3dc31",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/CheckStockProfs.py": "5cc26965786746745813c08c42e18454c46979951131eb748671c5c573767b84",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/StockDesigns.py": "13a5b1614679d9bbc539007d6ec24c6087220b96c66652a976add05cc9716c08",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/StockOpsMap.py": "cc717b546f5fda7edaf8bcca3fc9619eded2d62f9b5da13745d8d2b8d9dac49c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/StockTopCount.py": "26f837878698b45201a730c5b7980dea84d994d204d53d0f486c641a888ac734",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/TryStockPart.py": "fbc6518a754579c9ac8a31777d4a247ec0fea4d305812ad18bf51de0ce56cdff",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/WithCutSelection.py": "95c39b3a013a9c04ad13fbf7d68c2bb2d1a5209d9b7b29013ed8b8286fa5815a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectTree.py": "f5963995b03fe9ce119f9b8d6c5fc1995397887121e050a2753a8e5ad868f2e8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/RootOrder.py": "d580a0b67c1e930f44790070dc49c0f423de1db6ddd48bee9db716ade9b8c79e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ProjectTyped.py": "13b4cf04bd6088a4c49b2029256a5d9304bbe5588e5c80adef910f40c6b7ce96"
+  },
+  "independent_processes": 9,
+  "native_processes_started": 0,
+  "phases": {
+    "cross-datum": {
+      "altered_owner_refusals": [
+        "selected two stock profile has alternate support or dimensions"
+      ],
+      "brep_body_count": 1,
+      "compatibility_diagnostic": "multiple operation histories are outside typed blind topology",
+      "design_body_count": 1,
+      "external_access_attempts": 0,
+      "payload_kinds": [
+        "partition",
+        "deltas"
+      ]
+    },
+    "cross-depth": {
+      "altered_owner_refusals": [
+        "independent stocks share an actual driving depth owner"
+      ],
+      "brep_body_count": 1,
+      "compatibility_diagnostic": "multiple operation histories are outside typed blind topology",
+      "design_body_count": 1,
+      "external_access_attempts": 0,
+      "payload_kinds": [
+        "partition",
+        "deltas"
+      ]
+    },
+    "detached-producer": {
+      "altered_owner_refusals": [
+        "selected two stock timeline differs from its linked producers"
+      ],
+      "brep_body_count": 1,
+      "compatibility_diagnostic": "multiple operation histories are outside typed blind topology",
+      "design_body_count": 1,
+      "external_access_attempts": 0,
+      "payload_kinds": [
+        "partition",
+        "deltas"
+      ]
+    },
+    "named": {
+      "configuration": "Default",
+      "external_access_attempts": 0,
+      "include_tessellation": false,
+      "matches_selected": true
+    },
+    "no-brep": {
+      "altered_owner_refusals": [],
+      "brep_body_count": 0,
+      "compatibility_diagnostic": "multiple operation histories are outside typed blind topology",
+      "design_body_count": 1,
+      "external_access_attempts": 0,
+      "payload_kinds": []
+    },
+    "raw": {
+      "altered_owner_refusals": [],
+      "brep_body_count": 1,
+      "compatibility_diagnostic": "multiple operation histories are outside typed blind topology",
+      "design_body_count": 1,
+      "external_access_attempts": 0,
+      "payload_kinds": [
+        "partition",
+        "deltas"
+      ]
+    },
+    "selected": {
+      "active_geometry_equal": true,
+      "circle_mm": [
+        21.0,
+        0.0,
+        8.0
+      ],
+      "configuration_helper_count": 1,
+      "configurations": [
+        [
+          "sldprt:configuration:0",
+          "Default",
+          true
+        ]
+      ],
+      "external_access_attempts": 0,
+      "native_drivers": [
+        [
+          "sldprt:parameter:32:D1",
+          "D1",
+          "sldprt:feature:32",
+          12.0,
+          "mm",
+          "driving",
+          27,
+          273,
+          271,
+          "f818.f18"
+        ],
+        [
+          "sldprt:parameter:40:D1",
+          "D1",
+          "sldprt:feature:40",
+          10.0,
+          "mm",
+          "driving",
+          34,
+          345,
+          344,
+          "f818.f18"
+        ]
+      ],
+      "native_member_count": 6,
+      "native_root_count": 23,
+      "operations": [
+        [
+          "sldprt:feature:32",
+          "SteadyStock",
+          "create",
+          [
+            "sldprt:feature:26"
+          ],
+          "blind",
+          false,
+          12.0,
+          [
+            "sldprt:parameter:32:D1"
+          ]
+        ],
+        [
+          "sldprt:feature:40",
+          "MovingStock",
+          "create",
+          [
+            "sldprt:feature:33"
+          ],
+          "blind",
+          false,
+          10.0,
+          [
+            "sldprt:parameter:40:D1"
+          ]
+        ],
+        [
+          "sldprt:feature:47",
+          "ThroughFeature",
+          "cut",
+          [
+            "sldprt:feature:32",
+            "sldprt:feature:41"
+          ],
+          "through_all",
+          true,
+          null,
+          []
+        ]
+      ],
+      "payloads": [
+        [
+          "sldprt:brep:0",
+          "partition",
+          "Contents/Config-0-Partition"
+        ],
+        [
+          "sldprt:brep:1",
+          "deltas",
+          "Contents/Config-0-Partition"
+        ]
+      ],
+      "per_solid_counts": [
+        [
+          "sldprt:body:atom:102",
+          "MovingStock",
+          "sldprt:feature:40",
+          "sldprt:brep:body:atom:102",
+          2,
+          [
+            1,
+            1,
+            6,
+            12,
+            8
+          ]
+        ],
+        [
+          "sldprt:body:atom:103",
+          "ThroughFeature",
+          "sldprt:feature:47",
+          "sldprt:brep:body:atom:103",
+          6,
+          [
+            1,
+            1,
+            8,
+            18,
+            12
+          ]
+        ]
+      ],
+      "profile_supports": [
+        "sldprt:plane:2",
+        "sldprt:plane:4",
+        "sldprt:plane:2"
+      ],
+      "rectangles_mm": [
+        [
+          "sldprt:sketch:26",
+          [
+            [
+              12.0,
+              -12.0
+            ],
+            [
+              12.0,
+              -4.0
+            ],
+            [
+              30.0,
+              -12.0
+            ],
+            [
+              30.0,
+              -4.0
+            ]
+          ]
+        ],
+        [
+          "sldprt:sketch:33",
+          [
+            [
+              -16.0,
+              4.0
+            ],
+            [
+              -16.0,
+              12.0
+            ],
+            [
+              -2.0,
+              4.0
+            ],
+            [
+              -2.0,
+              12.0
+            ]
+          ]
+        ]
+      ],
+      "retained_public_rows": [
+        8,
+        23,
+        24,
+        25,
+        22,
+        7,
+        1,
+        17,
+        18,
+        10,
+        9,
+        21,
+        16,
+        11,
+        2,
+        3,
+        4,
+        5,
+        6,
+        12,
+        13,
+        14,
+        15,
+        19,
+        26,
+        32,
+        33,
+        40,
+        41,
+        47
+      ],
+      "scope": {
+        "binding": "saved_two_stock_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 47,
+        "feature_scope_code": 1,
+        "producer_feature_id": 32,
+        "result_atom_id": 103,
+        "untouched_atom_id": 102,
+        "untouched_producer_feature_id": 40
+      },
+      "selection": [
+        [
+          "feature",
+          "sldprt:feature:32",
+          "body"
+        ]
+      ]
+    },
+    "unknown-config": {
+      "external_access_attempts": 0,
+      "refusal": "configuration 'Absent' is unavailable; choices are ['Default']"
+    },
+    "unrestricted": {
+      "altered_owner_refusals": [],
+      "brep_body_count": 1,
+      "compatibility_diagnostic": "multiple operation histories are outside typed blind topology",
+      "design_body_count": 1,
+      "external_access_attempts": 0,
+      "payload_kinds": [
+        "partition",
+        "deltas"
+      ]
+    }
+  },
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.saved-two-stock-document.v1",
+  "selected_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+  "tool_sha256": "c3bdbc7d0e67bc20e2f016a4acbc20a119aacefcf490c3de2a42cd7cc533fc19",
+  "unrestricted_sha256": "f87568db0dfa361ea44c42def01063c8ed07ea57c8270098cf3c60995e3e3b22",
+  "worktree_head": "f815b77a27d78a3654f9e7c084ce0921c01f692a"
+}

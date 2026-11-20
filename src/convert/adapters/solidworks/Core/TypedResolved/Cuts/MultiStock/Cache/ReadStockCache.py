@@ -25,4 +25,4 @@ def ReadStockCache(Archive: SldprtArchive, ConfigId: int = 0) -> StockCacheGeom:
     NodesValue, ModelValue = ReadStockData(Archive, StreamName)
     BodyValues = ReadCacheBodies(NodesValue, Lineage)
     BrepValue = MapStockBrep(NodesValue, ModelValue, BodyValues)
-    return StockCacheGeom(BrepValue, Lineage, BodyValues, StreamName)
+    return StockCacheGeom(BrepValue, Lineage, BodyValues, StreamName, LinkValue)

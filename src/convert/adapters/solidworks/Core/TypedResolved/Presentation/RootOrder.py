@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckThruRoots 
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckRevRoots import (
     CheckRevRoots,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckTreeAlias import (
+    CheckTreeAlias,
+)
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 
 # presentation normalization is restricted to the measured ordinary single profile part ownership sequence
@@ -35,7 +38,10 @@ KOrdinaryRoots = (
 
 # the native cabinet insertion policy must not reorder an unrelated authored feature layout
 def ReadRootOrder(
-    LinkValue: NativeLink, NodesValue: Mapping[int, ArchiveNode]
+    LinkValue: NativeLink,
+    NodesValue: Mapping[int, ArchiveNode],
+    *,
+    TwoStocks: bool = False,
 ) -> tuple[ArchiveNode, ...]:
     ModelValue = RequireNative(LinkValue.ConfigValue.RootValue, "moPart_c")
     RootsValue = tuple(NodesValue.values())
@@ -47,10 +53,20 @@ def ReadRootOrder(
     Ordinary = tuple(NodeValue for NodeValue in RootsValue if NodeValue not in Cabinets)
     if len(Cabinets) != 1:
         raise ValueError("part presentation has an unqualified root layout")
-    if (
-        tuple(NodeValue.ClassValue.NameValue for NodeValue in Ordinary)
-        != KOrdinaryRoots
-    ):
+    RootKinds = tuple(NodeValue.ClassValue.NameValue for NodeValue in Ordinary)
+    if TwoStocks:
+        if RootKinds != (
+            *KOrdinaryRoots,
+            "moProfileFeature_c",
+            "moICE_c",
+            "moProfileFeature_c",
+            "moICE_c",
+        ):
+            raise ValueError(
+                "selected two stock presentation has an alternate root layout"
+            )
+        CheckTreeAlias(LinkValue, RootsValue)
+    elif RootKinds != KOrdinaryRoots:
         if Ordinary and Ordinary[-1].ClassValue.NameValue == "moRevolution_c":
             CheckRevRoots(LinkValue, Ordinary, KOrdinaryRoots)
         else:
