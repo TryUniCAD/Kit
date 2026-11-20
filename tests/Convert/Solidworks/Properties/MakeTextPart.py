@@ -15,13 +15,16 @@ from tests.Convert.Solidworks.Research.Construction.Part.MakePolygonCase import 
     MakePolygonCase,
 )
 
+# default fixture requests omit empty xml scopes until a test adds them explicitly
+KNoEmptyScopes: frozenset[str] = frozenset()
+
 
 # public geometry construction and shared property generation provide independently authored complete native reader inputs
 def MakeTextPart(
     TargetPath: FilePath,
     IsProperties: bool = True,
     *,
-    EmptyScopes: frozenset[str] = frozenset(),
+    EmptyScopes: frozenset[str] = KNoEmptyScopes,
     HasEmptyFileOwner: bool = False,
 ) -> FilePath:
     RequestValue = MakePolygonCase(

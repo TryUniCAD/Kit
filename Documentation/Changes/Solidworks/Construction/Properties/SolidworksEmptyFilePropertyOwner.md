@@ -2,7 +2,7 @@
 
 The internal part property model accepts an explicit empty native file owner.
 The shared version-19000 archive serializer constructs the property manager,
-its configuration-zero entry and the empty file container. The owner has no
+its key-zero entry and the empty file container. The owner has no
 cut-list container. Its binary stream is independent of summary, document
 and configuration XML scopes.
 
