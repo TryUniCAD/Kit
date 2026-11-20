@@ -137,6 +137,11 @@ def file_scope(path, application, scratch, root, control_paths=()):
         if "strict" in reports:
             from InferenceGrid.ReaderPass import reader_passes
             reports.update(reader_passes(root, source, scratch, env, document, reports["dimension-evidence"], controls))
+        from InferenceGrid.RawScalarRule import part_scalars
+        measured, scalar_patch = part_scalars(root, source, pin, scratch, controls)
+        reports["scalar-streams"] = measured
+        if scalar_patch:
+            reports["scalar-stream-reader"] = scalar_patch
     if "native" in reports:
         from InferenceGrid.BodyCorrespondence import capture_names
         reports["body-correspondence"] = capture_names(root, pin, source.stat().st_size, reports["native"])

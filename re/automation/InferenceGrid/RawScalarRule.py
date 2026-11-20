@@ -62,11 +62,13 @@ def trials(root, excluded, target_pin):
             if hashlib.sha256(raw).hexdigest() != row["sha256"]:
                 continue
             streams = SldprtArchive.FromBytes(raw).Streams
-            target_members = [
-                n
+            config_hashes = {
+                n: hashlib.sha256(b).hexdigest()
                 for n, b in streams.items()
                 if n.startswith("Contents/Config-")
-                and hashlib.sha256(b).hexdigest() == target_pin
+            }
+            target_members = [
+                n for n, digest in config_hashes.items() if digest == target_pin
             ]
             if target_members:
                 target_observations.append(
@@ -85,7 +87,10 @@ def trials(root, excluded, target_pin):
                 windows.append((digest, end, stream[end : end + 104]))
             if not (
                 recipe["split"] == "discovery"
-                and any(h in excluded for h, _, _ in windows)
+                and (
+                    row["sha256"] in excluded
+                    or not excluded.isdisjoint(config_hashes.values())
+                )
             ):
                 samples.append(
                     (
@@ -105,11 +110,11 @@ def trials(root, excluded, target_pin):
 
 
 def generated_source(fmt, offset, fixed):
-    return f"""import json
+    return f"""import argparse
+import json
 import math
 from pathlib import Path
 import struct
-import sys
 
 from InferenceInputs import read_file
 
@@ -143,14 +148,26 @@ def read(data):
 
 
 if __name__ == "__main__":
-    print(json.dumps(read(read_file(Path(sys.argv[1]), 128*1024*1024)), allow_nan=False))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("source", type=Path)
+    parser.add_argument("--member")
+    args = parser.parse_args()
+    data = read_file(args.source, 128*1024*1024)
+    if args.member is not None:
+        from convert.adapters.solidworks.Container.Container import SldprtArchive
+        data = SldprtArchive.FromBytes(data).Require(args.member)
+    print(json.dumps(read(data), allow_nan=False))
 """
 
 
-def raw_scalars(root, data, pin, scratch, controls):
+def raw_scalars(root, data, pin, scratch, controls, exclude_archives=()):
     if KSerializedStringMarker not in data:
         return None, None
-    excluded = {pin, *(hashlib.sha256(blob).hexdigest() for blob in controls)}
+    excluded = {
+        pin,
+        *exclude_archives,
+        *(hashlib.sha256(blob).hexdigest() for blob in controls),
+    }
     samples, blobs, target_observations = trials(root, excluded, pin)
     training = [
         (row, windows) for row, windows in samples if row["split"] == "discovery"
@@ -231,13 +248,19 @@ def raw_scalars(root, data, pin, scratch, controls):
             raise ValueError("raw scalar reader replay failed")
         return json.loads(result.stdout)
 
-    records = replay(data)
+    try:
+        records = replay(data)
+    except (subprocess.TimeoutExpired, ValueError):
+        return {"status": "candidate_reader_refused_input"}, None
     if not records:
         return None, None
-    comparisons = [
-        {"sha256": hashlib.sha256(b).hexdigest(), "records": replay(b)}
-        for b in controls
-    ]
+    comparisons = []
+    for blob in controls:
+        try:
+            comparison = {"records": replay(blob)}
+        except (subprocess.TimeoutExpired, ValueError):
+            comparison = {"status": "candidate_reader_refused_control"}
+        comparisons.append({"sha256": hashlib.sha256(blob).hexdigest(), **comparison})
     report = {
         "status": "candidate_named_scalars",
         "encoding": fmt,
@@ -312,3 +335,91 @@ def raw_scalars(root, data, pin, scratch, controls):
             ["git", "-C", root, "rev-parse", "HEAD"], text=True
         ).strip(),
     }
+
+
+def part_scalars(root, source, pin, scratch, controls):
+    import re
+
+    archive = SldprtArchive.FromBytes(read_file(source, 128 * 1024 * 1024))
+    sections = sorted(
+        (r.name, r.data)
+        for r in archive.records
+        if re.fullmatch(r"Contents/Config-[0-9]+(?:-ResolvedFeatures)?", r.name)
+    )
+    selected = []
+    budget = 32 * 1024 * 1024
+    deferred = []
+    for name, blob in sorted(
+        sections, key=lambda e: (not e[0].endswith("-ResolvedFeatures"), e[0])
+    ):
+        if KSerializedStringMarker not in blob:
+            continue
+        if len(selected) >= 8 or len(blob) > budget:
+            deferred.append(name)
+            continue
+        selected.append((name, blob))
+        budget -= len(blob)
+    result = {"input_sha256": pin, "members": {}, "deferred_members": deferred}
+    if not selected:
+        return result, None
+    private = scratch / "part-scalars"
+    private.mkdir()
+    excluded = {pin, *(path.stem for path in controls)}
+    for i, (name, blob) in enumerate(selected):
+        others = [(k, b) for j, (k, b) in enumerate(selected) if i != j]
+        rule, patch = raw_scalars(
+            root,
+            blob,
+            hashlib.sha256(blob).hexdigest(),
+            private,
+            [b for _, b in others],
+            excluded,
+        )
+        if not rule or "records" not in rule:
+            result["members"][name] = {
+                "status": rule["status"] if rule else "no_matching_records"
+            }
+            continue
+        result["experiment"] = {
+            k: v for k, v in rule.items() if k not in {"records", "control_replays"}
+        }
+        result["fitting_target"] = name
+        result["members"][name] = {
+            "records": rule["records"],
+            "sha256": hashlib.sha256(blob).hexdigest(),
+        }
+        for (other, _), replay in zip(others, rule["control_replays"]):
+            result["members"][other] = replay
+        if patch and any("records" not in row for row in result["members"].values()):
+            return result, None
+        if patch:
+            for member, row in result["members"].items():
+                process = subprocess.run(
+                    [
+                        sys.executable,
+                        str(private / "NamedScalarReader.py"),
+                        str(source),
+                        "--member",
+                        member,
+                    ],
+                    cwd=private,
+                    env={
+                        **os.environ,
+                        "PYTHONDONTWRITEBYTECODE": "1",
+                        "PYTHONPATH": os.pathsep.join(
+                            map(str, (root / "src", root / "re/automation"))
+                        ),
+                    },
+                    capture_output=True,
+                    timeout=60,
+                )
+                if process.returncode or json.loads(process.stdout) != row["records"]:
+                    result["status"] = "native_entry_replay_failed"
+                    return result, None
+            patch = {
+                **patch,
+                "input_sha256": pin,
+                "verified_members": list(result["members"]),
+            }
+        return result, patch
+    return result, None

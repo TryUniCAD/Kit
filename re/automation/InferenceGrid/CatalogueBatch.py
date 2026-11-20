@@ -65,8 +65,8 @@ def RunCatalogueBatch(
         WriteRecord(Directory / "FileScope.json", Audit)
         for Layer, Report in Reports.items():
             WriteRecord(Directory / f"Input-{Layer}.json", Report)
-            if Layer in ("reader-patch", "design-names", "state-repair", "timeline-names", "pattern-count-reader", "mirrored-field-reader"):
-                Name = {"reader-patch": "Reader.patch", "mirrored-field-reader": "MirroredFields.patch", "pattern-count-reader": "SketchPatternCounts.patch", "design-names": "DesignNames.patch", "state-repair": "BrepTypes.patch", "timeline-names": "TimelineNames.patch"}[Layer]
+            if Layer in ("scalar-stream-reader", "reader-patch", "design-names", "state-repair", "timeline-names", "pattern-count-reader", "mirrored-field-reader"):
+                Name = {"scalar-stream-reader": "NamedScalarReader.patch", "reader-patch": "Reader.patch", "mirrored-field-reader": "MirroredFields.patch", "pattern-count-reader": "SketchPatternCounts.patch", "design-names": "DesignNames.patch", "state-repair": "BrepTypes.patch", "timeline-names": "TimelineNames.patch"}[Layer]
                 with (Directory / Name).open("x", encoding="utf-8") as Patch:
                     Patch.write(Report["patch"])
         from InferenceGrid.FileAdvice import advise_file, file_stall
@@ -118,6 +118,8 @@ def RunCatalogueBatch(
             Outcome["file_stall"] = str(Directory / "FileStall.json")
         if FileAdviceStatus is not None:
             Outcome["file_advice"] = {"status": FileAdviceStatus, "path": str(Directory / "FileAdvice/Advice.json")}
+        if "scalar-stream-reader" in Reports:
+            Outcome["scalar_reader_patch"] = str(Directory / "NamedScalarReader.patch")
         if "reader-patch" in Reports:
             Outcome["reader_patch"] = str(Directory / "Reader.patch")
         Outcome["file_scope"] = str(Directory / "FileScope.json")

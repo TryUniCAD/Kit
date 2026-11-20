@@ -52,10 +52,15 @@ def CheckCutFields(TmpPath: FilePath) -> None:
     assert Records["cut_height_mm"][0]["system_value"] == 0.01
     assert Records["cut_depth_mm"][0]["stream"] == "Contents/Config-0-ResolvedFeatures"
     DepthEvidence = Evidence["keyword_evidence"]["extrusion_depth_evidence"]
-    assert {Row["boundary"] for Row in DepthEvidence["rules"]} == {"stream_end", "next_feature"}
-    assert {(Row["name"], Row["offset"]) for Row in DepthEvidence["predictions"] if Row["reader_span_matches"]} == {
-        ("depth_mm", 8478), ("cut_depth_mm", 15331)
+    assert {Row["boundary"] for Row in DepthEvidence["rules"]} == {
+        "stream_end",
+        "next_feature",
     }
+    assert {
+        (Row["name"], Row["offset"])
+        for Row in DepthEvidence["predictions"]
+        if Row["reader_span_matches"]
+    } == {("depth_mm", 8478), ("cut_depth_mm", 15331)}
     Equations = {Row["target"]: Row for Row in Evidence["equations"]}
     Left = Equations["cut_left_mm@CutSketch"]
     Bottom = Equations["cut_bottom_mm@CutSketch"]
@@ -93,7 +98,8 @@ def CheckFeatureCountCopies(TmpPath: FilePath) -> None:
     Dimensions = Evidence["keyword_evidence"]["dimensions"]
     Depths = [Row for Row in Dimensions if Row["display_text"] == "3.5"]
     assert {(Row["feature_id"], Row["status"]) for Row in Depths} == {
-        (89, "ambiguous"), (96, "ambiguous")
+        (89, "ambiguous"),
+        (96, "ambiguous"),
     }
     Radial = [Row for Row in Dimensions if Row["status"] == "paired_radial_dimension"]
     assert len(Radial) == 1
@@ -175,7 +181,29 @@ def CheckSingleDimensionControl(TmpPath: FilePath) -> None:
     Pairs = Evidence["discovered_feature_fields"]["single_dimension_comparisons"]
     assert Evidence["input_eligible_for_discovery"]
     assert {
-        (Pair["key"][1], Pair["input_value"], Pair["control_value"])
-        for Pair in Pairs
+        (Pair["key"][1], Pair["input_value"], Pair["control_value"]) for Pair in Pairs
     } == {("width_mm", 0.04, 0.041), ("height_mm", 0.02, 0.023)}
-    assert all(Pair["input_reopen"]["matches"] and Pair["control_reopen"]["matches"] for Pair in Pairs)
+    assert all(
+        Pair["input_reopen"]["matches"] and Pair["control_reopen"]["matches"]
+        for Pair in Pairs
+    )
+
+
+# a complete part should produce the same reader without needing a manually extracted native stream
+def CheckNativePartScalarReader(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Part = next(
+        (Root / "re/automation/PairedCaptures/P05").glob(
+            "solidworks-*/*edit-angle_deg-90.SLDPRT"
+        )
+    )
+    Run = TmpPath / "run"
+    ReadDimensionEvidence(Root, Part, Run)
+    Evidence = LoadJson((Run / "Input-scalar-streams.json").read_bytes())
+    Records = Evidence["members"]["Contents/Config-0-ResolvedFeatures"]["records"]
+    Angle = next(Row for Row in Records if Row["name"] == "angle_deg")
+    assert abs(Angle["value"] - 1.5707963267948966) < 1e-14
+    Patch = LoadJson((Run / "Input-scalar-stream-reader.json").read_bytes())
+    assert Patch["input_sha256"] == Evidence["input_sha256"]
+    assert set(Patch["verified_members"]) == set(Evidence["members"])
+    assert (Run / "NamedScalarReader.patch").is_file()
