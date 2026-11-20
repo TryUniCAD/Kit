@@ -27,8 +27,9 @@ def TestBodyInputs(
     Archive = KStudyPath / Sample
     Document = OpenDocument(Archive, StrictMode=False)
     StepValue = next(
-        Value for Value in Document.feature_timeline if Value.kind == KindValue
+        (Value for Value in Document.feature_timeline if Value.kind == KindValue), None
     )
+    assert StepValue is not None, [Issue.message for Issue in Document.diagnostics]
     assert StepValue.operation == Operation
     assert StepValue.attributes.get("fusion.combine.keep_tool_bodies") is KeepTools
     assert Capability.KSelections in Document.capabilities
@@ -103,7 +104,7 @@ def TestWrongBody() -> None:
         Issue.entity_id == StepValue.id
         and "context selects a different entity" in Issue.message
         for Issue in Document.diagnostics
-    )
+    ), [Issue.message for Issue in Document.diagnostics]
 
 
 # face and occurrence operands cannot silently turn into local historical whole bodies
