@@ -1,14 +1,14 @@
 from __future__ import annotations as Annotations
 
 from dataclasses import replace as Replace
-from typing import TYPE_CHECKING as TypeChecking, Mapping
+from typing import Mapping
 
 from convert.adapters.solidworks.Core.InchDecimal import InchDecimal
 from convert.adapters.solidworks.Core.InchScalar import IsRoundedInch
 from interchange.Features.DistanceParam import KLengthFactors
 
-if TypeChecking:
-    from convert.adapters.solidworks.Core.Native import NativeDimension, NativeScalar
+from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
+from convert.adapters.solidworks.Core.NativeScalar import NativeScalar
 
 # unbound display dimensions need a persistent refusal marker at export boundaries
 KUnresolvedInchDimension = "unresolved_inch_dimension"

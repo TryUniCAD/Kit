@@ -1,4 +1,8 @@
 from __future__ import annotations as Annotations
+from convert.adapters.solidworks.Core.NativeOperand import NativeOperand as NativeOperand
+from convert.adapters.solidworks.Core.NativeScalar import NativeScalar as NativeScalar
+from convert.adapters.solidworks.Core.NativeDimension import NativeDimension as NativeDimension
+from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.Core.BindInch import BindInch
 from convert.adapters.solidworks.Core.IndexInch import IndexInch
@@ -963,41 +967,6 @@ def DecodeTreeMut(StateData: DecodeState, Author: Sequence[NativeFeature]) -> No
 
 # this definition exists because focused behavior needs one stable owner
 @Dataclass(frozen=True, slots=True)
-class NativeOperand:
-    offset: int
-    kind_code: int
-    entity_index: int
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeScalar:
-    name: str
-    name_offset: int
-    value_offset: int
-    value: float
-    object_id: int | None
-    role: str
-    operands: tuple[NativeOperand, ...]
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeDimension:
-    name: str
-    value_mm: float | None
-    kind: str
-    source_text: str
-    native_value: float | None = None
-    native_offset: int | None = None
-    native_role: str | None = None
-    operands: tuple[NativeOperand, ...] = ()
-    inch_display_value: float | None = None
-    native_stream: str | None = None
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
 class NativeName:
     offset: int
     text_end: int
@@ -1011,26 +980,6 @@ class NativeName:
 class NativeClass:
     offset: int
     name: str
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeMarker:
-    offset: int
-    length: int
-    prefix: str
-    native_kind: int
-    locus: str
-    profile_role: int
-    state: float | None
-    object_index: int | None
-    local_id: int | None
-    coordinates_mm: tuple[float, float] | None
-    endpoint_indices: tuple[int, int] | None
-    construction: bool
-    semantic: str
-    data: bytes = b""
-    coordinates_metres: tuple[float, float] | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
