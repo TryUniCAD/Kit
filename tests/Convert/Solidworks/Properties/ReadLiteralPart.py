@@ -6,14 +6,15 @@ from sys import argv as Arguments
 
 from convert import convert as ConvertDoc
 from convert import open_document as OpenDocument
+from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 
 
 # the strict conversion refusal must leave the destination stream intact
-def RefusePartText(SourcePath: FilePath) -> str:
+def RefusePartText(SourceData: FilePath | bytes) -> str:
     TargetValue = BytesIO(b"unchanged")
     try:
         _ = ConvertDoc(
-            SourcePath,
+            SourceData,
             TargetValue,
             source_format="solidworks.sldprt",
             destination_format="interchange.json",
@@ -75,11 +76,45 @@ def ReadLiteralPart(SourcePath: FilePath, CheckConvert: bool) -> dict[str, objec
     return ReportValue
 
 
-if __name__ == "__main__":
+# the wheel control must cross the strict conversion boundary only after verifying text absence
+def ReadLegacyText(SourcePath: FilePath) -> dict[str, object]:
+    SourceData = SourcePath.read_bytes()
+    TargetValue = BytesIO()
+    Converted = ConvertDoc(
+        SourcePath,
+        TargetValue,
+        source_format="solidworks.sldprt",
+        destination_format="interchange.json",
+        strict=True,
+    )
+    StreamsValue = SldprtArchive.from_bytes(SourceData).streams
+    CoreValue = StreamsValue["docProps/core.xml"]
+    ClosingTag = b"</cp:coreProperties>"
+    if CoreValue.count(ClosingTag) != 1:
+        raise ValueError("missing native legacy summary root")
+    StreamsValue["docProps/core.xml"] = CoreValue.replace(
+        ClosingTag, b"<dc:title>Authored legacy text</dc:title>" + ClosingTag
+    )
+    Unsupported = BuildSldprt(StreamsValue, Template=SourceData)
+    return {
+        "source_sha256": HashBytes(SourceData).hexdigest(),
+        "output_bytes": len(TargetValue.getvalue()),
+        "status": Converted.document.metadata.get("solidworks.part_text_properties"),
+        "unsupported": RefusePartText(Unsupported),
+    }
+
+
+# the subprocess modes share the same native input locator
+def RunLiteralText() -> None:
+    SourcePath = FilePath(Arguments[1])
     print(
         DumpJson(
-            ReadLiteralPart(
-                FilePath(Arguments[1]), "--convert-refusal" in Arguments[2:]
-            )
+            ReadLegacyText(SourcePath)
+            if "--legacy-empty" in Arguments[2:]
+            else ReadLiteralPart(SourcePath, "--convert-refusal" in Arguments[2:])
         )
     )
+
+
+if __name__ == "__main__":
+    RunLiteralText()

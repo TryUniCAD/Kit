@@ -16,6 +16,12 @@ diagnostic. The ordinary model read remains available. A strict SDK
 conversion to a different format refuses this diagnostic result before
 publishing output.
 
+The version-18000 compatibility path verifies absence of authored text
+through the complete supported binary property owner and all recognized
+text scopes. Empty scopes allow strict conversion without adding text
+metadata. Authored text or an unsupported owner still produces the
+strict conversion refusal.
+
 Check `metadata["solidworks.part_text_properties"]["status"]` for
 `complete` before relying on the text. The reader leaves files without
 these property streams on their previous path. It preserves separate
@@ -29,3 +35,4 @@ separate typed property checks.
 
 [SDK evidence](../../../../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
 · [Saved directory ownership](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/SavedDirectoryOwnsPartText.md)
+· [Legacy empty manager](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/LegacyEmptyTextManagers.md)

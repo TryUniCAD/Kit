@@ -92,8 +92,8 @@ embedded executable, installer or packaged attachment signatures.
 | --- | --- |
 | [Native CAD fixture](../v2026/corpus/part-properties/CircularProperties.SLDPRT), 66,367 bytes | `1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23` |
 | [Native advanced-manager control](../v2026/corpus/ladder/L1_boss.SLDPRT), 56,249 bytes | `55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6` |
-| [Public SDK worker](../../../tests/Convert/Solidworks/Properties/ReadLiteralPart.py) | `228f771c7bc91385002e5ca7853037b9f7ad426a4ea086c9048fe415e6fe3793` |
-| [Queue test](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py) | `e957d31e9f005a3beee14dc8d00a8e30b72c93d743634c23d978e487696dfc85` |
+| [Public SDK worker](../../../tests/Convert/Solidworks/Properties/ReadLiteralPart.py) | `c6c63c2b646292e5b35c5314007e32a52a4aaa3ce5609c8be7dac45c686d4871` |
+| [Queue test](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py) | `3890b86f7f843c4dcbfcd9f3eb5ff1689921495413761d872f4b9e5c363b642f` |
 
 The positive test starts a fresh interpreter through the existing
 integration suite. It checks all eight values, active configuration ID 0
@@ -117,6 +117,32 @@ preserved all eight text values through a strict JSON conversion and
 readback. The six original property verification subprocesses reproduced
 the prior output SHA-256
 `a82e966679a5c4b3471bc89993f14535fc9b300355bfd6889b45b978720694d7`.
+
+## Legacy empty text compatibility
+
+The [isolated wheel smoke](../../../tests/Convert/Runtime/IsolatedRuntime.py)
+first converts the [legacy native control](../examples/.SLDPRT/example.SLDPRT),
+SHA-256 `d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408`.
+Its format-4 container uses archive version 18000. The summary, document
+and configuration XML each have no authored text. Its complete manager
+is the same 138-byte schema-one owner observed in the unrelated
+version-19000 ladder control. Its digest is
+`9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036`.
+The independently observed shared body grammar supports the root,
+keyed property container, file owner and cut-list owner. Every
+legacy proof consumes the actual object bytes and validates the
+empty owner graph and XML scopes. The rule requires the full wire
+structure and does not depend on sample paths, lengths or hashes.
+
+The scoped legacy path preserves a strict SDK open with one solid,
+one configuration and no optional text report. Older files with
+authored text or unknown managers fail the optional projection.
+The queue process uses the existing wheel source for a strict JSON
+conversion and injects one title into a separate input. The latter
+must refuse before changing the destination stream. The original wheel
+cross-format conversion stays in its existing CI scope. Modern literal
+value projection still depends on complete physical configuration
+validation.
 
 ## Physical configuration validation remains open
 

@@ -18,7 +18,8 @@ def WithPartProps(Document: CadDocument, Archive: SldprtArchive) -> CadDocument:
     ):
         return Document
     try:
-        return ApplyPartText(Document, ReadPartText(Document, Archive))
+        PropsValue = ReadPartText(Document, Archive)
+        return Document if PropsValue is None else ApplyPartText(Document, PropsValue)
     except (TypeError, ValueError, KeyError, SyntaxError) as ErrorInfo:
         Metadata = dict(Document.metadata)
         Metadata["solidworks.part_text_properties"] = {

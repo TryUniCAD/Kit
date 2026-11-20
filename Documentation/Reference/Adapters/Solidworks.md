@@ -88,6 +88,8 @@ literal native summary, document custom text and active configuration
 text. Configuration text is bound to the saved configuration directory
 and its physical streams. Unsupported property variants leave the
 ordinary geometry and feature result available with a diagnostic.
+Strict cross-format conversion requires qualified text or a verified
+empty legacy scope.
 [Literal part properties](../../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
 
 For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid

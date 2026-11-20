@@ -13,6 +13,9 @@ KFixture = (
 # the authored ladder boss retains a solid and uses the unqualified advanced property manager
 KRefusal = KFixture.parents[1] / "ladder/L1_boss.SLDPRT"
 
+# the isolated wheel uses the older native example as its first conversion
+KLegacyFixture = KFixture.parents[3] / "examples/.SLDPRT/example.SLDPRT"
+
 # scope values come from the native author observation including the repeated custom name
 KNativeText = [
     {
@@ -78,5 +81,21 @@ def TestTextRefusal() -> None:
     assert ReportValue["configuration"] == ["Default", True, 0]
     assert ReportValue["body"] == ["sldprt:body:1", 1, 1, 1]
     assert ReportValue["conversion"] == (
+        "SOLIDWORKS part text properties are unavailable for strict cross-format conversion"
+    )
+
+
+# the strict path must preserve the legacy wheel route and refuse an actual authored legacy value
+def TestEmptyLegacyText() -> None:
+    Outcome = StartTextRead(KLegacyFixture, "--legacy-empty")
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    ReportValue = LoadJson(Outcome.stdout)
+    assert (
+        ReportValue["source_sha256"]
+        == "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408"
+    )
+    assert ReportValue["output_bytes"] > 0
+    assert ReportValue["status"] is None
+    assert ReportValue["unsupported"] == (
         "SOLIDWORKS part text properties are unavailable for strict cross-format conversion"
     )
