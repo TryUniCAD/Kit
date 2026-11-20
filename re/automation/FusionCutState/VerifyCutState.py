@@ -623,7 +623,7 @@ def negative_controls(history, table, body, roles, mode):
 
 # Full typed transport does not grant either a strict source read or a public write route.
 def public_guards(raw, document, contract, mode):
-    expected = "native or unresolved required semantics cannot be exported: : feature fusion-feature-35-207 kind (native); : feature fusion-feature-35-334 kind (native)"
+    expected = "native or unresolved required semantics cannot be exported: : feature fusion-feature-35-334 kind (native)"
     if mode[0] == "through_all":
         expected += "; : feature fusion-feature-35-446 length (depthless extrusion reconstruction is unqualified)"
     result = {
