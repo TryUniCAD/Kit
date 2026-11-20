@@ -154,6 +154,8 @@ jobs:
           uv run --no-sync --python 3.14 python -m pytest
           tests/CliResearch/BridgeRejectTests.py
           tests/CliResearch/SwReaderTests.py
+          tests/CliResearch/EncodedReaderTests.py
+          tests/CliResearch/LegacyReaderTests.py
           tests/CliResearch/FusionReaderTests.py
           tests/CliResearch/ReaderRejectTests.py
           tests/CliResearch/InterruptTests.py

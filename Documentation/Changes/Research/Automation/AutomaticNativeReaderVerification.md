@@ -62,6 +62,8 @@ An unavailable API returns setup instructions and leaves verification incomplete
 Direct research scripts retain offline decoding unless passed `--native-verify`.
 The launcher inspects the selected reader's declared parser options before forwarding that option.
 This bounded source inspection does not spawn a capability process or depend on terminal encoding.
+It recognizes literal `add_argument` declarations in the entry script.
+Dynamic or imported declarations conservatively select the explicitly unverified compatibility path.
 Older checkouts still decode their pinned inputs.
 They return status `4` after successful decoding and explicitly report that verification was not performed.
 Their existing artifacts and Fusion partial-result status remain intact.
@@ -96,6 +98,7 @@ Timeouts leave native sessions available for owner recovery instead of closing u
 
 Source inspection covered controller dependencies, CLI forwarding, API detection, batch invalidation, and artifact publication.
 CLI compatibility coverage now checks missing-API reports and nonzero verification outcomes at the installed process boundary.
+The Windows compatibility job also selects the encoding and legacy-checkout process cases explicitly.
 Catalogue process coverage inspects the persisted predecessor dependencies and native availability report.
 No local tests or licensed application acceptance were executed during implementation.
 Remote CI and live licensed SOLIDWORKS and Fusion measurements remain required.
