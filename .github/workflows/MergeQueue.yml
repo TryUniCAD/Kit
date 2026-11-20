@@ -2,7 +2,7 @@ name: Merge queue
 
 on:
   push:
-    branches: [codex/rationale-merged-audit]
+    branches: [fix/pr158-full-ci-audit-20261120]
   pull_request:
   merge_group:
     types: [checks_requested]
@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 env:
-  AuditSha: ${{ github.sha }}
+  AuditSha: 2963da01242ba25e896af21256b7fe1fe4655fde
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.merge_group.head_sha || github.ref }}
