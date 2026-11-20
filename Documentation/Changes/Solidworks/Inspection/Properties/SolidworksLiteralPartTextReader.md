@@ -6,12 +6,15 @@ The normal `open_document` part reader exposes authored summary text in
 active configuration's `attributes["custom_properties"]`.
 
 This profile covers ordinary version-19000 parts. The configuration
-property stream must identify the actual active, unparented configuration
-in the saved directory and its physical part streams. The supported
-binary property manager is absent or empty. Name dictionaries, raw and
+property stream must identify the active, unparented configuration in the
+saved directory. The reader checks for its corresponding physical part
+streams. Full validation of the physical configuration body remains open.
+The supported binary property manager is absent or empty. Name dictionaries, raw and
 evaluated text and reserved section fields must agree. Unsupported or
 malformed scopes withhold all property bags and provide an information
-diagnostic. The ordinary model read remains available.
+diagnostic. The ordinary model read remains available. A strict SDK
+conversion to a different format refuses this diagnostic result before
+publishing output.
 
 Check `metadata["solidworks.part_text_properties"]["status"]` for
 `complete` before relying on the text. The reader leaves files without

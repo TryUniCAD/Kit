@@ -18,8 +18,8 @@ independent text observations come from SOLIDWORKS 2026 SP05.2 build
 The native save routine writes the actual configuration ID and name to
 `dmConfigHeader_c.f30` and `f10`. The reader requires one such row, active
 `f08=1` and no parent `f34=-1`. It matches the neutral configuration ID
-and name and requires the corresponding physical configuration and
-resolved-feature streams. The valid directory is a prerequisite for
+and name and requires nonempty physical configuration and resolved-feature
+streams. The valid directory is a prerequisite for
 configuration XML. The separate full configuration manager and its
 embedded value cache are outside this reader's property path.
 
@@ -91,10 +91,71 @@ embedded executable, installer or packaged attachment signatures.
 | Queue input | SHA-256 |
 | --- | --- |
 | [Native CAD fixture](../v2026/corpus/part-properties/CircularProperties.SLDPRT), 66,367 bytes | `1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23` |
-| [Public SDK worker](../../../tests/Convert/Solidworks/Properties/ReadLiteralPart.py) | `854612c1c1d40b036675448f11a9191018332c2e62f8df47098d30c46d1c5fca` |
-| [Queue test](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py) | `05d4b13b8b43930a2d3df1d1e81301e770fab28f03d51338af7fc278bf77248c` |
+| [Native advanced-manager control](../v2026/corpus/ladder/L1_boss.SLDPRT), 56,249 bytes | `55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6` |
+| [Public SDK worker](../../../tests/Convert/Solidworks/Properties/ReadLiteralPart.py) | `228f771c7bc91385002e5ca7853037b9f7ad426a4ea086c9048fe415e6fe3793` |
+| [Queue test](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py) | `e957d31e9f005a3beee14dc8d00a8e30b72c93d743634c23d978e487696dfc85` |
 
-The test starts a fresh interpreter through the existing integration
-suite. It checks all eight values, active configuration ID 0 and the
-single solid through the normal strict SDK read. Execution awaits the
-merge queue.
+The positive test starts a fresh interpreter through the existing
+integration suite. It checks all eight values, active configuration ID 0
+and the single solid through the normal strict SDK read. The negative
+test opens the ladder boss through the same boundary. Its 138-byte
+`Contents/CusProps` has SHA-256
+`9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036`.
+It requires the original active `Default` configuration and solid B-rep,
+the property diagnostic, and absence of all three text bags. The same
+child calls strict SDK conversion to JSON and asserts that the refused
+destination retains its original bytes and position. Queue execution
+remains pending.
+
+A host process checked strict conversion through the public and
+compatibility entrypoints and implicit `.json` path selection. The
+diagnostic reader retained the solid. Both explicit conversions left the
+destination bytes and position intact. The implicit conversion created no
+destination. The non-strict native conversion and a strict neutral JSON
+conversion retained the diagnostic. The qualified circular control
+preserved all eight text values through a strict JSON conversion and
+readback. The six original property verification subprocesses reproduced
+the prior output SHA-256
+`a82e966679a5c4b3471bc89993f14535fc9b300355bfd6889b45b978720694d7`.
+
+## Physical configuration validation remains open
+
+A saved directory match and a nonempty `Contents/Config-0` establish
+presence. A one-byte replacement can satisfy that presence check. The
+complete version-19000 codec on revision
+`8302c824a15830b837c72db75f79cabe5693d200` admits the two saved edits and
+authored circular control by reading their actual ModelHeader and
+consuming their entire Config-0. It writes identical Config-0 bytes on the
+three source graphs. It refuses both a one-byte input and a valid prefix
+missing the final byte for each source.
+
+| Native input | Config-0 bytes | Config-0 SHA-256 |
+| --- | ---: | --- |
+| `PolygonSaved` | 26,085 | `0c18e5880e64c1ff1fef5560cd16e2b57c94a2545ad8ee73371ac79cc0bec631` |
+| `CircleSaved` | 26,083 | `94e7079c568be9d3b6adf5b16215cf23d668f5f8dafe86462df218da86f9a8b4` |
+| `CircleAuthored` | 26,055 | `5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7` |
+
+`Archive/Config/ReadConfigMut.py` and `MakeConfigCtx.py` use the
+existing `Archive/Header/ReadNativeHeader.py` and `HeaderRefNodes.py`.
+The three walks enter `moPart_c` schema one, allocate the same header
+`moExtObject_c` alias at slot 3 and reach map base 4 and final counter 122.
+Each walk needs 38 concrete runtime class/schema pairs, 142 layout
+entries in 24 rule modules, and 21 field operations. `moFeatColorTab_c`
+uses schema zero. The concrete classes include part model data, atom,
+mark record, relation and sketch block managers, views, units, lights,
+material, visualization and exploded-view manager. Embedded owners add
+annotation definitions, tables, transforms, and separate mass and
+bounding-box caches. `Archive/Bodies/Layouts/Config/ModelFields.py` walks
+both `moPart_c` sub-sections and uses contextual header references. An
+outer byte count can detect a short stream while a complete decode also
+checks the classes, field rules, backlinks and exact cursor exhaustion.
+
+The direct aggregate read and ModelHeader imports span 170 SOLIDWORKS
+modules. Main lacks 99 of them and their 11,089 lines. Excluding the
+optional `Archive/Config/UsePartRelationsMut.py` mode and its resolved
+sketch dependencies leaves 150 modules, 79 missing paths and 5,652 missing
+lines. That narrower profile still needs the observed 142 layouts and
+updates to main's `Archive/Bodies/Reading/ReadActions.py`,
+`ReadNestedMut.py` and `ReadValueMut.py`. The physical configuration
+finding remains open until the genuine codec can qualify this profile.
+[Complete typed field and map evidence](https://github.com/TryUniCAD/Kit/blob/8302c824a15830b837c72db75f79cabe5693d200/re/solidworks/records/ConfigBodyGrammar2026.md)

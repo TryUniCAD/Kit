@@ -1,5 +1,6 @@
 from json import loads as LoadJson
 from pathlib import Path as FilePath
+from subprocess import CompletedProcess
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
 
@@ -8,6 +9,9 @@ KFixture = (
     FilePath(__file__).resolve().parents[4]
     / "re/solidworks/v2026/corpus/part-properties/CircularProperties.SLDPRT"
 )
+
+# the authored ladder boss retains a solid and uses the unqualified advanced property manager
+KRefusal = KFixture.parents[1] / "ladder/L1_boss.SLDPRT"
 
 # scope values come from the native author observation including the repeated custom name
 KNativeText = [
@@ -28,17 +32,22 @@ KNativeText = [
 ]
 
 
-# the queue checks all three native text scopes through the ordinary sdk process
-def TestLiteralText() -> None:
+# the installed sdk is exercised in a fresh process for each disclosed native source
+def StartTextRead(FixturePath: FilePath, *Options: str) -> CompletedProcess[str]:
     WorkerPath = FilePath(__file__).with_name("ReadLiteralPart.py")
-    Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(WorkerPath), str(KFixture)),
+    return RunProcess(
+        (PythonExec, "-I", "-B", str(WorkerPath), str(FixturePath), *Options),
         capture_output=True,
         text=True,
         encoding="utf-8",
         check=False,
         timeout=60,
     )
+
+
+# the queue checks all three native text scopes through the ordinary sdk process
+def TestLiteralText() -> None:
+    Outcome = StartTextRead(KFixture)
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
     ReportValue = LoadJson(Outcome.stdout)
     assert (
@@ -48,5 +57,26 @@ def TestLiteralText() -> None:
     assert ReportValue["status"]["status"] == "complete"
     assert ReportValue["status"]["configuration_ids"] == [0]
     assert ReportValue["text"] == KNativeText
+    assert ReportValue["text_scopes"] == [True, True, True]
     assert ReportValue["configuration"] == ["modeled default", True, 0]
     assert ReportValue["body"] == ["sldprt:body:1", 1, 1, 1]
+
+
+# strict open keeps the solid and strict conversion refuses to omit the unsupported text scopes
+def TestTextRefusal() -> None:
+    Outcome = StartTextRead(KRefusal, "--convert-refusal")
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    ReportValue = LoadJson(Outcome.stdout)
+    assert (
+        ReportValue["source_sha256"]
+        == "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    )
+    assert ReportValue["status"]["status"] == "unsupported"
+    assert ReportValue["diagnostics"] == ["solidworks.part_text_properties_unavailable"]
+    assert ReportValue["text"] == [None, None, None]
+    assert ReportValue["text_scopes"] == [False, False, False]
+    assert ReportValue["configuration"] == ["Default", True, 0]
+    assert ReportValue["body"] == ["sldprt:body:1", 1, 1, 1]
+    assert ReportValue["conversion"] == (
+        "SOLIDWORKS part text properties are unavailable for strict cross-format conversion"
+    )

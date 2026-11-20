@@ -89,14 +89,16 @@ and restore earlier originals after a later backup fails.
 ### B04-SW2026-PARTPROPS
 
 The scoped literal text reader follows PR #178's typed configuration
-directory. The takeover workstream owns the main-target delivery.
+directory. The takeover workstream owns [PR #183](https://github.com/TryUniCAD/Kit/pull/183).
 The branch binds one saved active configuration, its physical streams
 and the compatible literal property managers. Three strict public
 source reads recover 23 values with their geometry intact. Two further
 saved property sets retain their earlier geometry refusals. The
 advanced baseline and 12 malformed variants keep the prior modeled
-document. Exit requires the disclosed fresh-process fixture, current
-review and native queue acceptance.
+document. Strict conversion refuses the unsupported native property
+state before publication. Complete physical `Config-0` validation
+remains a prerequisite. Exit requires the disclosed fresh-process
+fixtures, current review and native queue acceptance.
 [Slice record](../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
 [Change entry](../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
 

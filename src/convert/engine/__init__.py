@@ -12,6 +12,7 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.registry import AdapterRegistry
 from convert.engine.EngineResult import ConversionResult
+from convert.Formats.CheckSourceText import CheckSourceText
 from convert.Formats.SourceFormat import ResolveFormat
 
 
@@ -94,6 +95,11 @@ class ConversionEngine(PairProtocol):
             FormatId=source_format,
             ReadOpts=read_options,
         )
+        SourceName = ResolveFormat(document, reader)
+        if read_options is None or read_options.StrictMode:
+            CheckSourceText(
+                document, SourceName, destination, destination_format, self.registry
+            )
         output = self.registry.WriteDocument(
             document,
             destination,
@@ -103,7 +109,7 @@ class ConversionEngine(PairProtocol):
         return ConversionResult(
             document,
             output,
-            ResolveFormat(document, reader),
+            SourceName,
             output.AdapterName,
         )
 

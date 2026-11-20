@@ -6,8 +6,12 @@ header stores that ID in `f30`. Its `f08` field is the active flag.
 The keyword index and the physical configuration streams are separate
 records.
 
-Verify the concrete saved directory row, its active flag and name and its
-physical part streams before attaching text to a neutral configuration.
+The concrete saved directory row supplies the active flag and name. A
+physical `Config-0` stream can be nonempty and still end partway through
+the model. Physical admission requires the ordinary typed configuration
+codec and the same decoded ModelHeader objects used by the configuration.
+That validation remains open on the main-target property branch.
+
 Read the live value from its configuration XML. After a native edit and
 save, the separate configuration property cache can still contain the
 previous text.
