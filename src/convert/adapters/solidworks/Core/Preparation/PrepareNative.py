@@ -16,9 +16,16 @@ from convert.adapters.solidworks.Core.Preparation.Equations.PrepareEqPart import
 from convert.adapters.solidworks.Core.Preparation.Imports.PrepareImport import (
     PrepareImport,
 )
+from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.RunPartPrep import RunPartPrep
+from convert.adapters.solidworks.Core.Preparation.TwoStock.PrepareStockPart import (
+    PrepareStockPart,
+)
+from convert.adapters.solidworks.Core.Preparation.TwoStock.StockCandidate import (
+    StockCandidate,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -28,13 +35,15 @@ def PrepareNative(
     TargetValue: KTargetType,
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
-) -> PartCandidate | ImportCandidate:
+) -> PartCandidate | ImportCandidate | StockCandidate:
     if DocumentValue.brep is not None:
         return PrepareImport(
             DocumentValue, TargetValue, WrittenAt, CheckPartOpts(OptionsValue)
         )
     if any(Parameter.expression is not None for Parameter in DocumentValue.parameters):
         return PrepareEqPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
+    if IsStockChain(DocumentValue):
+        return PrepareStockPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
     try:
         PlanValue = PlanPartWrite(DocumentValue)

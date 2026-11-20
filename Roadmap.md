@@ -42,6 +42,7 @@ It adds typed readback for a solved perpendicular mate, native part properties w
 The scoped native part reader also binds one cache-backed solid to its actual name and design-body identity. [Native body read](Documentation/Changes/Solidworks/Reading/Names/SolidworksNativeBodyNames.md)
 The scoped saved two-stock reader retains two independent blind bosses and their live D1s, one explicitly selected through-all cut, and two atom-linked final solids. [Saved two-stock read](Documentation/Changes/Solidworks/Reading/Parts/SolidworksSavedTwoStockRead.md)
 The cache-free reader reconstructs the corresponding two solids for the proven Front and Right rectangular profile and explicit circular through cut. [Cache-free two-stock read](Documentation/Changes/Solidworks/Reading/Parts/SolidworksColdTwoStockRead.md)
+The writer generates that bounded neutral two-stock profile with both editable depths and the explicit Front-stock selection. Two pre-writer locked native comparisons passed, and ordinary path and stream outputs reproduce the frozen preparer. [Selected two-stock writer](Documentation/Changes/Solidworks/Generation/Extrusion/ThroughAll/SolidworksSelectedTwoStockWriter.md)
 
 FreeCAD sketch visibility and verified legacy-carrier replay reached main at `533970231`. [FreeCAD sketch changes](Documentation/Changes/Freecad/FreecadHiddenSketchesStayActive.md)
 

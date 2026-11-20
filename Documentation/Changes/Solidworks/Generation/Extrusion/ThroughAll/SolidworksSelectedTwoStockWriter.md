@@ -1,0 +1,9 @@
+# Write a selected through cut across two independent stocks
+
+The ordinary SOLIDWORKS writer accepts a neutral millimetre part with one active Default configuration, two disjoint rectangular blind bosses on the fixed Front and Right planes, and one depthless circular through cut explicitly scoped to the Front stock. It preserves both editable D1s, the actual stock selection and the two separate final solids. The admitted circle forms an enclosed tunnel or a proper exterior notch on one side.
+
+Use `write_document` with an `.SLDPRT` path whose basename matches the neutral part name. For binary output, specify `destination_format="solidworks.sldprt"` and provide `values={"final_destination": final_part_path}`. The frozen preparer derives the archive from neutral intent. Other through-cut modes, automatic scope and unrepresented source state still fail closed.
+
+The corrected native comparison passed the same two sources locked before writer implementation. The evaluator recovered the original datum labels without changing the writer. All six complete 29-row tree comparisons and 144 numeric checks passed. Both parts opened, accepted dimension edits, saved and reopened in SOLIDWORKS 2026 SP05.2 between healthy controls. This result adds no FCStd corpus qualification. [Native receipt](../../../../../../re/solidworks/measurements/2026/TwoStockWriterHoldoutNative02.json)
+
+Eleven guarded host processes recorded zero runtime input reads. The measured disclosed archive matched all ten streams through the direct adapter, registry path and binary stream routes. Controls for four existing writer profiles kept their exact bytes. Cross-format refusals and failed staged writes preserved their previous destinations. [Registration receipt](../../../../../../re/solidworks/measurements/2026/SdkTwoStockQualifiedRegistration01.json)

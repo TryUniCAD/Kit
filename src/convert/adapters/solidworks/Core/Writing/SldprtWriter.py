@@ -1,7 +1,5 @@
-from pathlib import Path as FilePath
-
 from convert.adapters.base.AdapterInfo import AdapterInfo
-from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
+from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
@@ -10,7 +8,6 @@ from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.NativeWrite import CheckNative
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
-from convert.adapters.solidworks.Container.Format import KPartSuffix
 from convert.adapters.solidworks.Core.AssemblyWriting.CanWriteAsm import CanWriteAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.EmitAsmMut import EmitAsmMut
 from convert.adapters.solidworks.Core.DrawingWriting.CanWriteBlankDrawing import (
@@ -24,12 +21,14 @@ from convert.adapters.solidworks.Core.Preparation.Imports.PlanImportPart import 
 )
 from convert.adapters.solidworks.Core.Preparation.PlanNativePart import PlanNativePart
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
+from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
+from convert.adapters.solidworks.Core.Writing.StockEndWriter import StockEndWriter
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # the canonical writer admits the modeled part owned assembly and authored blank drawing profiles
-class SldprtWriter(PairProtocol):
+class SldprtWriter(StockEndWriter, PairProtocol):
     __slots__ = ()
 
     KTypedDrawings = True
@@ -52,13 +51,7 @@ class SldprtWriter(PairProtocol):
             PlanValue = PlanNativePart(DocValue)
         except (TypeError, ValueError):
             return False
-        if isinstance(Target, (str, FilePath)):
-            PathValue = FilePath(Target)
-            return (
-                PathValue.suffix.casefold() == KPartSuffix
-                and PathValue.stem == PlanValue.NameValue
-            )
-        return IsBinaryTarget(Target)
+        return IsPartTarget(PlanValue.NameValue, Target)
 
     # the public structural writer protocol uses these keyword names across plugins and conversion
     def write(
@@ -71,7 +64,7 @@ class SldprtWriter(PairProtocol):
         CheckInchWrite(document)
         CheckEquations(document)
         CheckSupports(document)
-        CheckNative(document)
+        CheckNative(document, self, destination)
         if document.DrawingValue is not None:
             return EmitBlankMut(document, destination, options)
         if document.assembly is not None:

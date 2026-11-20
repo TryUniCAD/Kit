@@ -122,7 +122,7 @@ class WriteApi(WriteLookup):
         CheckInchWrite(DocumentData)
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
-        CheckNative(DocumentData)
+        CheckNative(DocumentData, AdapterData, TargetData)
         CheckDrawWrites(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
