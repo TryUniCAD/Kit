@@ -53,6 +53,14 @@ native acceptance or decoded feature semantics. Native verification, unresolved
 decoding, and qualified conversion remain separate results. Neutral artifacts
 require portable qualification.
 
+The current local prototype has 103 passing process cases across focused runs,
+but zero accepted native observations for the nine new bindings. At `6ca573b5`,
+the offset-start baseline had the expected geometry; SOLIDWORKS did not exit
+after `ExitApp`, requiring cleanup of the owned process. The fresh second phase
+and downstream decoder did not run. A batch-only finalizer drain did not resolve
+shutdown. The other eight builders remain unverified. This is a known prototype
+limitation, not a completed unattended creation/verification/decoding run.
+
 A08i is owned by Codex on `codex/reusable-feature-builders` and depends on
 [PR #207](https://github.com/TryUniCAD/Kit/pull/207). Delivery and acceptance are
 maintained in the

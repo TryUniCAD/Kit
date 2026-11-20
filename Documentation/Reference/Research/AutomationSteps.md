@@ -54,6 +54,9 @@ This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
 requirements.
 
 A08i uses branch `codex/reusable-feature-builders`. Its delivery PR is pending.
+All nine new bindings remain native-unverified: the bounded offset-start trial
+created correct baseline geometry, but owned SOLIDWORKS shutdown failed before
+fresh reopen and downstream decoding. The focused process checks passed 103 cases.
 See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for the nine bindings, parameter grid, retained attempts, and execution limits.
 
