@@ -126,7 +126,6 @@ from convert.adapters.solidworks.Container.Format import (
     DISPLAY_LISTS_STREAM as DisplayListsStream,
     FORMAT_ID_BY_SUFFIX as FormatIdBySuffix,
     INFO as InfoValue,
-    KLocalBodyStream,
     KEYWORDS_STREAM as KeywordsStream,
     KIT_DOCUMENT_STREAM as KitDocStream,
     KIT_RESOLVED_STREAM as KitResolvedStream,
@@ -3877,7 +3876,10 @@ def ReadPartSolid(
     Settings: ReadOptions,
     ConfigCount: int,
 ) -> tuple[
-    tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None, NativeFeature | None
+    tuple[BrepPayload, ...],
+    tuple[DiagValue, ...],
+    BrepModel | None,
+    NativeFeature | None,
 ]:
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
     Candidate = (
@@ -3891,8 +3893,8 @@ def ReadPartSolid(
     )
     BrepValue, LocalOwner, LocalDiag = TypedBrep(
         Payloads,
+        Archive=Archive,
         LocalOwner=Candidate,
-        GroupData=Archive.get(KLocalBodyStream) if Candidate is not None else None,
         Strict=Settings.strict,
     )
     Diagnostics = PayloadDiags + ((LocalDiag,) if LocalDiag is not None else ())
@@ -3903,9 +3905,9 @@ def ReadPartSolid(
 def TypedBrep(
     Payloads: Sequence[BrepPayload],
     *,
+    Archive: SldprtArchive,
     Strict: bool,
     LocalOwner: NativeFeature | None = None,
-    GroupData: bytes | None = None,
 ) -> tuple[BrepModel | None, NativeFeature | None, DiagValue | None]:
     Groups: dict[str, list[BrepPayload]] = {}
     for Index, Payload in enumerate(Payloads):
@@ -3927,9 +3929,9 @@ def TypedBrep(
             Models.append(Decoded[0])
         elif len(Decoded) > 1:
             HasAmbiguous = True
-    if Models or HasAmbiguous or LocalOwner is None or GroupData is None:
+    if Models or HasAmbiguous or LocalOwner is None:
         return (Models[0] if len(Models) == 1 else None), None, None
-    return ReadLocalImport(Payloads, GroupData, LocalOwner, Strict=Strict)
+    return ReadLocalImport(Payloads, Archive, LocalOwner, Strict=Strict)
 
 
 # this definition exists because focused behavior needs one stable owner

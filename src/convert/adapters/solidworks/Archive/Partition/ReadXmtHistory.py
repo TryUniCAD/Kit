@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 
 
 # selected active state must agree with the retained native marks and rollback ownership
-def ReadXmtHistory(DataValue: bytes, NodesValue: Mapping[int, XmtNode]) -> None:
+def ReadXmtHistory(DataValue: bytes, NodesValue: Mapping[int, XmtNode]) -> int:
     HeaderValue = ParaHeaderData(DataValue)
     if (
         HeaderValue is None
@@ -37,3 +37,6 @@ def ReadXmtHistory(DataValue: bytes, NodesValue: Mapping[int, XmtNode]) -> None:
             DeletedSets[MarkValue.IndexValue] = ReadRollbackMut(CursorValue, NodesValue)
     CursorValue.FinishRead()
     CheckXmtMarks(NodesValue, RootValue, MarksValue, DeletedSets)
+    Current = MarksValue[RootValue.Integer("current_pmark")]
+    PriorMark = MarksValue.get(Current.Integer("preceding"))
+    return PriorMark.Integer("id") if PriorMark is not None else 0

@@ -21,7 +21,7 @@ Five linked streams replay byte for byte from their decoded typed owners. The pa
 | TranslatedZ.SLDPRT | 8995 | `ffb0d3f587387500ebd774c18272cfb5abff377b278ba42c54b63df9b4e4bda1` | 820 | `62590bc987b5c78a2f536cf0f9a8db136a6e5e24960777119479bf6a256e9af7` |
 | ReverseY.SLDPRT | 8992 | `ff0054be16d0b08d888ea6299f209f59cdc286b894cdb48c0a83203b38b6272d` | 824 | `b33f8eb1cad6d36fd84b3e8df7e1ce49cb94871e02807360d3a06158b7494006` |
 
-The existing strict metadata read returns the actual imported feature and active configuration. The SDK's raw intake selects the exact 1414-byte LocalBodies kernel, 307-byte active partition and 520-byte history in each case. The ordinary geometry decoder returns no model for those payloads. The public strict geometry read then reaches the planar local classifier and refuses with `SLDPRT local geometry rejected: local body has an unqualified node inventory`. The typed curved projection used in this host probe remains research-only. Separate in-memory controls refuse missing rollback history and a changed local group key with the precise owning diagnostics.
+At the recorded host revision, the strict metadata read returns the actual imported feature and active configuration. The SDK's raw intake selects the exact 1414-byte LocalBodies kernel, 307-byte active partition and 520-byte history in each case. The ordinary geometry decoder returns no model for those payloads. The strict geometry read then reaches the planar local classifier and refuses with `SLDPRT local geometry rejected: local body has an unqualified node inventory`. The host probe uses a separate curved research projection. Separate in-memory controls refuse missing rollback history and a changed local group key with the precise owning diagnostics.
 
 Two fresh processes at aggregate base `8cb3fa1d522029f7188804804a1de53a29cb1f8c` produced identical 13,938-byte stdout, SHA-256 `0eadab712f6e01deedb106716b27b675ca83788aecaec1fd39fbc998132218fc`. The builder SHA-256 is `e908fdc2f999ed43cf1da7b3b749dfb38ad39a21c2b4e0265ea23fed86e7aa96`. The optional artifact run wrote both file hashes above. The guard observed zero construction and verification reads after explicit module and codec initialization. The host record covers zero embedded native processes and zero held-out cases.
 
@@ -51,6 +51,17 @@ Both parts open and save with zero diagnostics, retain feature 18 in
 zero native vertices. The four candidate phases pass 304 measurements.
 All six controls pass. The saved copies and initial candidates retain
 their recorded hashes. The tested receipts cover two disclosed
-completed part archives. Held-out evaluation and strict public
-periodic readback remain open.
+completed part archives. Held-out evaluation remains open.
 [Native receipt](../measurements/2026/GeneratedLocalCylinderPartNative01.json)
+
+## Strict SDK geometry
+
+The scoped periodic parser admits both exact cold candidates through
+the normal reader. It binds the managed atom, actual feature wire span,
+active mark and typed predecessor before reconstructing a named solid.
+Both produce the expected design body with three faces, two circular
+edges and two neutral seam vertices. The independent proof reproduces
+both generated archives, matches the native volume, area, centroid and
+bounds, exercises two planar and four marked controls and checks eleven
+refusals. It uses zero guarded runtime file reads.
+[Strict geometry proof](../measurements/2026/SdkBareCylinderGeometry01.json)

@@ -277,6 +277,12 @@ This is source-backed inspection of the native import. Conversion
 acceptance follows the [CAD success criteria](../Operations/CadSuccessCriteria.md).
 [Local body readback](../../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
 
+The strict local geometry route also admits the measured bare periodic
+cylinder with a managed import feature and linked rollback predecessor.
+Its neutral B-rep includes two synthesized seam vertices for the
+original vertex-free circular edges.
+[Periodic local body readback](../../Changes/Solidworks/Inspection/Parts/Geometry/SolidworksBareCylinderGeometry.md)
+
 ### Drawing layout inspection
 
 Use the ordinary strict reader for the canonical SDK-generated blank ANSI A

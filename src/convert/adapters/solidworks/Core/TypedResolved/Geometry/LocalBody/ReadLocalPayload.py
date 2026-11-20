@@ -14,9 +14,9 @@ from interchange.Payloads.PayloadRecord import BrepPayload
 
 
 # both readback paths need the same exact configuration payload selection
-def ReadLocalPay(
+def ReadLocalState(
     Payloads: Sequence[BrepPayload], PartitionData: bytes | None = None
-) -> tuple[bytes, int]:
+) -> tuple[bytes, int, int]:
     StreamsValue = {
         (Payload.source_stream, Payload.kind): Payload.data for Payload in Payloads
     }
@@ -44,5 +44,13 @@ def ReadLocalPay(
     CheckXmtGraph(ActiveNodes)
     if len(ActiveNodes) != 1 or ActiveNodes[1].Integer("body"):
         raise ValueError("local body requires an empty active partition")
-    ReadXmtHistory(HistoryData, ActiveNodes)
-    return LocalData, ActiveNodes[1].Integer("current_id")
+    PriorMark = ReadXmtHistory(HistoryData, ActiveNodes)
+    return LocalData, ActiveNodes[1].Integer("current_id"), PriorMark
+
+
+# callers without activation ownership keep the selected body and mark interface
+def ReadLocalPay(
+    Payloads: Sequence[BrepPayload], PartitionData: bytes | None = None
+) -> tuple[bytes, int]:
+    LocalData, MarkValue, _ = ReadLocalState(Payloads, PartitionData)
+    return LocalData, MarkValue
