@@ -12,4 +12,10 @@ replays. Both trials use the same modeled locator. The typed audit
 compares the resulting VisualStates owners and physical-material
 owners after the independent native controls pass.
 
+The colour trials measure the creator, published wrapper and an
+independent reacquisition. The reacquired material keeps its actual
+IDs and roughness while returning the installed asset colour. Both
+trials stop before save with healthy controls.
+
 [Source protocol and field ownership](../../../../../re/solidworks/records/ConcentricChildAppearanceContrast2026.md)
+· [Colour boundary result](../../../../../re/solidworks/measurements/2026/ConcentricChildAppearanceColourReacquisition01.json)

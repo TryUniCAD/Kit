@@ -1,0 +1,85 @@
+{
+  "schema": "kit.sw2026.appearance-colour-reacquisition.v1",
+  "source_evidence_only": true,
+  "heldout_credit": 0,
+  "native_save_acceptance": 0,
+  "cases": {
+    "01": {
+      "full_native_result_sha256": "ab900c7fac8dc57436b67d5f21e978bad9c53e982f2d6bfbb440c88a3505a6cf",
+      "author_record_sha256": "b9f542e927c230dbe1c9b27ea9a055f608683670eeb988d7b3d9860fc9e44863",
+      "trial_sha256": "c47d3f04f64367e79feef71dc38cc337936901c6d72b83bbecb5e4025cbc58f0",
+      "working_unchanged_sha256": "54330e9d1957828bc7f708d33a29294d5f1447f6b6f31891686539d51324ba20",
+      "controls_healthy": true,
+      "distinct_native_processes": 3,
+      "open_errors_and_warnings": [
+        0,
+        0
+      ],
+      "observed_colourrefs": [
+        13863221,
+        15066597
+      ],
+      "observed_roughness": [
+        0.3125,
+        0.3125
+      ],
+      "native_saves": 0,
+      "first_failure": {
+        "error": "ValueError('native readback differs from authored colour or roughness')",
+        "pending_capability": false,
+        "stage": "Roughness",
+        "type": "ValueError"
+      },
+      "oracle_identity": {
+        "oracle_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      }
+    },
+    "02": {
+      "full_native_result_sha256": "6dbe9870120f6618a4e879711aa3fe5041c15116130108c9f52be79cc8b9b5c1",
+      "author_record_sha256": "102647e3ea68bac81ca9070f98a270a72c1ec514abf5b174a7891f408540a856",
+      "trial_sha256": "fcac15da3ff6897d0e2c7256906b3350bb96a46331a6eab456ff0e9e01c8382d",
+      "working_unchanged_sha256": "0641c584f5dab8a5d03276976b8a6082d2556313d6463ec2e11137cfdbf8108b",
+      "controls_healthy": true,
+      "distinct_native_processes": 3,
+      "open_errors_and_warnings": [
+        0,
+        0
+      ],
+      "observed_colourrefs": [
+        13863221,
+        13863221,
+        13863221,
+        13863221,
+        15066597,
+        13863221,
+        15066597
+      ],
+      "observed_roughness": [
+        0.3125,
+        0.3125,
+        0.3125,
+        0.3125,
+        0.3125,
+        0.3125,
+        0.3125
+      ],
+      "native_saves": 0,
+      "first_failure": {
+        "error": "ValueError('reacquired_after_set did not retain the bound colour and roughness: 15066597, 0.3125')",
+        "pending_capability": false,
+        "stage": "GetMaterialIds",
+        "type": "ValueError"
+      },
+      "oracle_identity": {
+        "oracle_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "same_live_material_ids": [
+        4,
+        0
+      ],
+      "reacquisition_same_wrapper": false
+    }
+  }
+}
