@@ -6,15 +6,8 @@ from sys import executable as PythonPath
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
-# a held out cut must recover both configuration streams before claiming its measured dimensions
-def CheckCutFields(TmpPath: FilePath) -> None:
-    Root = ResearchRoot()
-    Source = next(
-        (Root / "re/automation/PairedCaptures/P04").glob(
-            "solidworks-*/*edit-cut_height_mm-10.SLDPRT"
-        )
-    )
-    Run = TmpPath / "run"
+# file-driven integration checks require receipts from a complete CLI process
+def ReadDimensionEvidence(Root: FilePath, Source: FilePath, Run: FilePath) -> dict:
     Result = RunProcess(
         [
             PythonPath,
@@ -38,7 +31,18 @@ def CheckCutFields(TmpPath: FilePath) -> None:
         timeout=300,
     )
     assert Result.returncode == 2, Result.stderr
-    Evidence = LoadJson((Run / "Input-dimension-evidence.json").read_bytes())
+    return LoadJson((Run / "Input-dimension-evidence.json").read_bytes())
+
+
+# a held out cut must recover both configuration streams before claiming its measured dimensions
+def CheckCutFields(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Source = next(
+        (Root / "re/automation/PairedCaptures/P04").glob(
+            "solidworks-*/*edit-cut_height_mm-10.SLDPRT"
+        )
+    )
+    Evidence = ReadDimensionEvidence(Root, Source, TmpPath / "run")
     assert Evidence["status"] == "held_out_dimensions_match"
     assert Evidence["held_out_recipes"] == ["P04"]
     assert all(Row["recipe"] != "P04" for Row in Evidence["training"])
@@ -59,3 +63,18 @@ def CheckCutFields(TmpPath: FilePath) -> None:
     assert Bottom["candidate_operations"] == [["-", 2]]
     assert Bottom["manager_count"] == Bottom["scanned_count"] == 2
     assert Evidence["input_sha256"] not in Bottom["training_sha256"]
+
+
+# repeated sketch dimensions require separate native count handles for the two pattern families
+def CheckPatternCounts(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Source = next((Root / "re/solidworks/examples").glob("*/BLOQUE V8.SLDPRT"))
+    Evidence = ReadDimensionEvidence(Root, Source, TmpPath / "run")
+    Counts = Evidence["keyword_evidence"]["pattern_counts"]
+    assert sorted((Row["pattern"], Row["count"]) for Row in Counts) == [
+        ("circular", 6),
+        ("linear", 6),
+    ]
+    assert all(Row["keyword_count_matches"] for Row in Counts)
+    assert all(Row["possible_integer_widths"] == [1, 2, 4] for Row in Counts)
+    assert len({Row["handle_value_offset"] for Row in Counts}) == 2
