@@ -115,7 +115,10 @@ def AssertRevZip(
     Constraints = RootValue.find(
         f"{SketchProps}/Property[@name='Constraints']/ConstraintList"
     )
-    assert Constraints is not None and int(Constraints.attrib["count"]) == 8
+    assert Constraints is not None and int(Constraints.attrib["count"]) == 9
+    assert sorted(RowValue.get("Type", "") for RowValue in Constraints) == ["1"] * 8 + [
+        "17"
+    ]
     Angle = RootValue.find(f"{Props}/Property[@name='Angle']")
     assert Angle is not None and Angle.attrib["type"] == "App::PropertyFloatConstraint"
     AngleValue = Angle.find("Float")
@@ -167,7 +170,7 @@ def AssertRevExpr(
         assert Expressions == {"Angle": f"Parameters.{Along}"}
 
 
-# a broken neutral edge identity can retain geometry without claiming live history
+# a missing historical edge must reject export before producing a file
 @KRequiresCodec
 def TestEdgeCache(TmpPath: FilePath) -> None:
     DocValue = OpenDocument(
@@ -184,14 +187,10 @@ def TestEdgeCache(TmpPath: FilePath) -> None:
         ),
     )
     Output = TmpPath / "brep_edge.FCStd"
-    Result = WriteDocument(DocValue, Output)
     assert len(DocValue.bodies) == 2
-    assert Result.application_usable and Capability.BREP in Result.native_capabilities
-    assert Capability.PARAMETRIC_HISTORY not in Result.native_capabilities
-    with ZipFile(Output) as Archive:
-        RootValue = ParseXml(Archive.read("Document.xml"))
-        assert not RootValue.findall("./Objects/Object[@type='Part::Revolution']")
-    assert OpenDocument(Output) == DocValue
+    with Pytest.raises(ValueError, match="cannot emit editable required features"):
+        _ = WriteDocument(DocValue, Output)
+    assert not Output.exists()
 
 
 # the reader must reject a cached angle that disagrees with its driving spreadsheet
