@@ -4,24 +4,25 @@
 | --- | --- |
 | Task | `B03-SW2026-BODY-VALUES` |
 | Owner | PR #121 takeover team |
-| Delivery | Separate main-target PR from `codex/solidworks-archive-body-values` |
+| Delivery | [PR #177](https://github.com/TryUniCAD/Kit/pull/177) from `codex/solidworks-archive-body-values` |
 | Prerequisite | [Counted body rows](CountedBodyRowSlice2026.md) at [PR #176's queue revision](https://github.com/TryUniCAD/Kit/commit/002c4f6d5967788bd1734220148adb1526a465fa) |
 | Exit | Independent wire bytes, field values and alias identity in fresh read and write processes, malformed-case refusals, current-revision CI and review |
 
 ## Source closure
 
 Six production files come from [PR #121's pinned aggregate](https://github.com/TryUniCAD/Kit/commit/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f).
-`ReadRuleValue`, `EncodeBodyText`, `WriteTagMut` and `WriteValueMut`
-match the pin. `ReadValueMut` adds a canonical text check through the
-new `ReadBodyTextMut` operation. `WriteNodeMut` checks the object map
-at the depth limit and tracks depth in its body callback. The existing
-`RuntimeClass` constructor enforces a nonempty name before a descriptor
-can reach graph allocation or serialization.
+`ReadRuleValue`, `EncodeBodyText` and `WriteValueMut` match the pin.
+`ReadValueMut` adds a canonical text check through the new
+`ReadBodyTextMut` operation. The tag and descriptor callbacks keep their
+pinned bodies and live in separate modules. `WriteNodeMut` checks the
+object map before opening a body and restores depth around the store.
+The existing `RuntimeClass` constructor enforces a nonempty name before
+a descriptor can reach graph allocation or serialization.
 
 The six pinned source files have manifest SHA-256
 `d6e30ea69562b65f1301052db80c4b66cc2e2a871cbf469c5765aa62dfdcb7cb`.
-The eight delivered production files have manifest SHA-256
-`4c6f2ef19c4446f801ec7a9ab6c28199d716444ebefa074cc2b2d9c5fe2bafd1`.
+The nine delivered production files have manifest SHA-256
+`6c0be2c7ad2d4482a37a47cf4c1c0722af17e35c9330598fbf324cedf46f92ad`.
 Each manifest hashes the concatenation of sorted repository-relative
 paths, each followed by a NUL, the lowercase file SHA-256 and a newline.
 
@@ -77,14 +78,44 @@ consumption.
 
 The [depth and descriptor cases](../../../tests/Convert/Solidworks/ArchiveValues/ValueDepthTests.py)
 compare the 128-body output, including the terminal null and
-root-reference tags, to independently framed wire bytes. The 129th
-body is refused for both a reused class and a new class. An empty
-descriptor leaves the new output and archive map untouched. The
+root-reference tags, to independently framed wire bytes. A
+[second depth case](../../../tests/Convert/Solidworks/ArchiveValues/CountDepthTests.py)
+puts both links in real counted rows at every level and checks all
+128 successive object indices in the fresh reader. The 129th body is
+refused for both an existing class and a new class. The 129th body
+in counted rows is also refused when it would register a new class.
+An empty descriptor leaves the new output and archive map untouched. The
 [text refusal cases](../../../tests/Convert/Solidworks/ArchiveValues/ValueRejectTests.py)
 check rollback for overlong Unicode and ANSI count prefixes. These
 cases are declared for remote CI. Native document load, rebuild
 and editable behavior require separate oracle evidence.
 
+## Counted callback stack
+
+The two counted probe paths keep seven Python frames per open node
+while descending to another node.
+
+| Path | Live frames at the row's node field |
+| --- | --- |
+| Write | `WriteNodeMut`, `WriteObjectMut`, body callback, body field loop, `WriteArrayMut`, row field loop, `WriteValueMut` |
+| Read | `ReadNodeMut`, `ReadObjectMut`, `ReadNodeBodyMut`, body callback, `ReadArrayMut`, row field loop, `ReadValueMut` |
+
+At 128 bodies this is 896 live frames, plus the three outer calls in
+the standalone process. The terminal reference and null paths add
+at most six Python frames for tag and map operations. Other framing
+helpers return before descending into another body. The write wrapper
+counts only a concrete unmapped node as open, with its earlier depth
+restored after both success and failure. The read body callback enters
+its one known array directly.
+
+Adding the outer body field loop on the counted read path costs one
+frame per body. Eight frames per body require 1,024 frames at depth
+128 before transient and caller frames. The full recursive dispatcher
+therefore needs its own compatible stack strategy before it can claim
+the same depth. The probe uses the default process stack and the stated
+callbacks.
+[Counted body stack gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Graph/CountedBodiesAddStackFrames.md)
+
 Scoped Black, Ruff, Mypy, Pyright and steering checks passed. The
-archive import walk found no cycles across 52 modules. The donor scan
-found no recorded payloads across 3,268 production sources.
+archive import walk found no cycles across 53 modules. The donor scan
+found no recorded payloads across 3,269 production sources.

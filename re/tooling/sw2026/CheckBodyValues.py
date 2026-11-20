@@ -25,6 +25,9 @@ from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
 
 DEPTH_FIELDS = (NativeField("Node", "next"), NativeField("Node", "terminal"))
+DEPTH_ROWS = NativeField(
+    "Array", "links", "Count", BodyValue=(NativeField("Node", "link"),)
+)
 PROBE_FIELDS = {
     "ValueRoot": (
         NativeField("Scalar", "number#0", "i32", OtherName="number"),
@@ -34,24 +37,42 @@ PROBE_FIELDS = {
     "ValueChild": (NativeField("Text", "label"), NativeField("Node", "owner")),
     "Depth": DEPTH_FIELDS,
     "ExtraDepth": DEPTH_FIELDS,
+    "RowDepth": (DEPTH_ROWS,),
+    "ExtraRowDepth": (DEPTH_ROWS,),
 }
 
 
-def make_depth(depth, new_terminal_class):
-    root = ArchiveNode(RuntimeClass("Depth", 1), {})
+def set_depth_links(node, child, counted):
+    if counted:
+        node.FieldsValue["links"] = [{"link": child}, {"link": None}]
+    else:
+        node.FieldsValue.update(next=child, terminal=None)
+
+
+def make_depth(depth, new_terminal_class, counted):
+    class_name = "RowDepth" if counted else "Depth"
+    root = ArchiveNode(RuntimeClass(class_name, 1), {})
     node = root
     for index in range(1, depth):
-        name = "ExtraDepth" if new_terminal_class and index == depth - 1 else "Depth"
+        name = (
+            f"Extra{class_name}"
+            if new_terminal_class and index == depth - 1
+            else class_name
+        )
         child = ArchiveNode(RuntimeClass(name, 1), {})
-        node.FieldsValue.update(next=child, terminal=None)
+        set_depth_links(node, child, counted)
         node = child
-    node.FieldsValue.update(next=root, terminal=None)
+    set_depth_links(node, root, counted)
     return root
 
 
 def make_graph(source):
     if "depth" in source:
-        return make_depth(source["depth"], source.get("new_terminal_class", False))
+        return make_depth(
+            source["depth"],
+            source.get("new_terminal_class", False),
+            source.get("counted", False),
+        )
     label = source["label"]
     if isinstance(label, list):
         label = tuple(label)
@@ -130,7 +151,11 @@ def read_graph(payload):
         frame = ReadFrame(
             context, reader, FieldScope(node.FieldsValue), node, reject_schema, read_fields
         )
-        read_fields(frame, PROBE_FIELDS[node.ClassValue.NameValue])
+        class_name = node.ClassValue.NameValue
+        if class_name in ("RowDepth", "ExtraRowDepth"):
+            ReadArrayMut(frame, DEPTH_ROWS)
+        else:
+            read_fields(frame, PROBE_FIELDS[class_name])
 
     cursor = BinaryReader(payload)
     reader = GraphReader(cursor, ArchiveMaps(1), read_body)
@@ -141,10 +166,19 @@ def read_graph(payload):
 
 
 def describe_depth(root):
+    counted = root.ClassValue.NameValue == "RowDepth"
     node = root
     for depth in range(1, 129):
-        child = node.FieldsValue["next"]
-        if node.FieldsValue["terminal"] is not None:
+        fields = node.FieldsValue
+        if node.IndexValue != depth + 1:
+            raise ValueError("depth control lost an allocated object")
+        if counted:
+            if fields["links#count"] != 2:
+                raise ValueError("depth control lost an inline count")
+            child, terminal = (row["link"] for row in fields["links"])
+        else:
+            child, terminal = fields["next"], fields["terminal"]
+        if terminal is not None:
             raise ValueError("depth control lost its null terminal")
         if child is root:
             return {"depth": depth, "terminal_index": child.IndexValue}
@@ -153,7 +187,7 @@ def describe_depth(root):
 
 
 def describe_graph(root):
-    if root.ClassValue.NameValue == "Depth":
+    if root.ClassValue.NameValue in ("Depth", "RowDepth"):
         return describe_depth(root)
     fields = root.FieldsValue
     child, alias, terminal = (row["link"] for row in fields["rows"])
