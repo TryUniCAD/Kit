@@ -18,12 +18,10 @@ from tests.Research.Inference.Scope.ReadReceipts import ReadReceipts
 from tests.Research.SupervisorClient import KRepoRoot
 
 
-# completed jobs before a pause must keep their exact accepted receipts after resume
-def CheckResume(TmpPath: FilePath) -> None:
-    RunPath = TmpPath / "CatalogueRun"
-    LogPath = RunPath / "OfflineSupervisor.log"
-    ToolPath = "InferenceGrid/RunFeatureCatalogue.py"
-    SavedArgs = ("--directory", str(RunPath))
+# the live pause command must drain an active worker before returning the saved state
+def PauseActive(
+    TmpPath: FilePath, LogPath: FilePath, ToolPath: str, SavedArgs: tuple[str, str]
+) -> None:
     with (TmpPath / "Output.json").open("wb") as Output:
         with StartProcess(
             [
@@ -52,6 +50,15 @@ def CheckResume(TmpPath: FilePath) -> None:
             Reply = DecodeJson(RunAutomation(ToolPath, *SavedArgs, "--pause"))
             assert Reply["status"] == "pausing"
             assert Process.wait(timeout=45) == 0
+
+
+# completed jobs before a pause must keep their exact accepted receipts after resume
+def CheckResume(TmpPath: FilePath) -> None:
+    RunPath = TmpPath / "CatalogueRun"
+    LogPath = RunPath / "OfflineSupervisor.log"
+    ToolPath = "InferenceGrid/RunFeatureCatalogue.py"
+    SavedArgs = ("--directory", str(RunPath))
+    PauseActive(TmpPath, LogPath, ToolPath, SavedArgs)
     ReportPath = RunPath / "CatalogueResult.json"
     Before = DecodeJson(ReportPath.read_bytes())
     assert Before["status"] == "paused"
@@ -74,6 +81,14 @@ def CheckResume(TmpPath: FilePath) -> None:
     After = DecodeJson(ReportPath.read_bytes())
     assert After["scopes"]["p03-blind-boss.solidworks"]["status"] == "completed"
     FinalJobs = ReadReceipts(After)
+    assert SavedJobs.items() <= FinalJobs.items()
+    assert FinalJobs.keys() == ControlReceipts(TmpPath).keys()
+    assert not (RunPath / "CataloguePause.json").exists()
+
+
+# an uninterrupted run establishes the full set of reachable jobs for the same catalogue
+def ControlReceipts(TmpPath: FilePath) -> dict[str, tuple[str | None, int]]:
+    ToolPath = "InferenceGrid/RunFeatureCatalogue.py"
     ControlPath = TmpPath / "UninterruptedRun"
     RunAutomation(
         ToolPath,
@@ -90,9 +105,39 @@ def CheckResume(TmpPath: FilePath) -> None:
         Expected=2,
     )
     Control = DecodeJson((ControlPath / "CatalogueResult.json").read_bytes())
-    assert FinalJobs.keys() == ReadReceipts(Control).keys()
-    assert SavedJobs.items() <= FinalJobs.items()
-    assert not (RunPath / "CataloguePause.json").exists()
+    return ReadReceipts(Control)
+
+
+# a pause before first dispatch guarantees queued work that only resume can complete
+def CheckColdResume(TmpPath: FilePath) -> None:
+    RunPath = TmpPath / "ColdResume"
+    _ = RunAutomation(
+        str(FilePath(__file__).with_name("PauseAtDispatch.py")),
+        "--directory",
+        RunPath,
+        "--solidworks-catalogue",
+        KCatalogue,
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "0",
+        "--max-seconds",
+        "35",
+    )
+    ReportPath = RunPath / "CatalogueResult.json"
+    Before = DecodeJson(ReportPath.read_bytes())
+    assert Before["status"] == "paused"
+    assert not ReadReceipts(Before)
+    _ = RunAutomation(
+        "InferenceGrid/RunFeatureCatalogue.py",
+        "--directory",
+        RunPath,
+        "--resume",
+        Expected=2,
+    )
+    After = DecodeJson(ReportPath.read_bytes())
+    assert After["scopes"]["p03-blind-boss.solidworks"]["status"] == "completed"
+    assert ReadReceipts(After)
 
 
 # a deliberately high reserve exposes a capacity refusal through terminal progress
