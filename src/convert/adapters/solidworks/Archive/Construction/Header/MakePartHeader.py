@@ -26,7 +26,11 @@ def MakePartHeader(
     ModelPresent: bool,
 ) -> ArchiveNode:
     RequireRootNode(OwnerValue, "moPart_c")
-    if type(InputValue) is not HeaderInput or type(ModelPresent) is not bool:
+    if (
+        type(InputValue) is not HeaderInput
+        or type(Allocator) is not PersistentIds
+        or type(ModelPresent) is not bool
+    ):
         raise TypeError(
             "header construction requires explicit typed provenance and model presence"
         )
@@ -34,6 +38,7 @@ def MakePartHeader(
     if (
         type(Identifier) is not int
         or not 0 <= Identifier < Allocator.NextValue <= 0x7FFFFFFF
+        or Allocator.Allocations.get((OwnerValue, "f08")) != Identifier
     ):
         raise ValueError(
             "header counter must follow the actual allocated model identifier"
