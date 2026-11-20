@@ -9,14 +9,15 @@ import sys
 
 
 HERE = Path(__file__).resolve()
-PACKET = 'ThroughMultiStock02'
-SCHEMA = 'kit.sw2026.disclosed-through-all-multistock.v2'
+PACKET = 'ThroughMultiStock03'
+SCHEMA = 'kit.sw2026.disclosed-through-all-multistock.v3'
 SHARED = Path('/Users/odin/Documents/UniCAD/Oracle121Takeover')
 GUEST = PureWindowsPath(r'\\Mac\Home\Documents\UniCAD\Oracle121Takeover') / PACKET
 DISCLOSED = 'GeneratedThroughAllSelected01'
 TRIAL = '2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a'
 CONTROL = 'ProbeThroughAutoScope01.py'
-PHASES = ('Before', 'AutoAuthor', 'AutoReopen', 'ExplicitAuthor', 'ExplicitReopen', 'After')
+SCOPE_PHASES = ('AutoScopeInitial', 'AutoScopeEdited', 'ExplicitScopeInitial', 'ExplicitScopeEdited')
+PHASES = ('Before', 'AutoAuthor', 'AutoReopen', 'ExplicitAuthor', 'ExplicitReopen', *SCOPE_PHASES, 'After')
 BUILD = '34.5.2.0604'
 ORACLE = '3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe'
 STEADY, MOVING, CUT = 'SteadyStock', 'MovingStock', 'ThroughFeature'
@@ -24,10 +25,11 @@ PROFILES = ('SteadyProfile', 'MovingProfile', 'ThroughProfile')
 PART = 'ThroughMultiStock.SLDPRT'
 CUT_MARK = 1
 PREVIOUS = {
-    'packet': 'ThroughMultiStock01',
-    'freeze_sha256': 'e5dc2ec85f2cb44d22d5736b6bda3eb9002706b0e6db6b1868b5aa4a8bbb5188',
-    'explicit_author_failure_sha256': '43e921c1783cab8f30e42cd3f95c4a0fe309e5ecb208b6b10d06ba04bed11ab4',
-    'native_summary_sha256': 'edd3cc4e2b1c835bd87f7ae8db980b486f590e4117565cf876174c15d138f3b0',
+    'packet': 'ThroughMultiStock02',
+    'freeze_sha256': '78224c301b11cddd78591e9a8d30f556b2353c3fddbe2f61f599b99469345bb2',
+    'auto_author_failure_sha256': '9c63835fed0e8747b9d6bcdb6ce73e472cf1f2bbdad02cedcd6040aed4b65c8b',
+    'native_summary_sha256': '52bd6d7d9f6d1fa5dcf88cd00c44035dd9017954591b644f0e9f6741a69dbffe',
+    'direct_scope_observed': {'feature_scope': True, 'auto_select': False, 'reported_count': -1, 'body_array': None},
 }
 
 DESIGN = {
@@ -64,6 +66,14 @@ def publish(path, value):
     with path.open('xb') as output:
         output.write(data)
     return digest(data)
+
+
+def prior_freeze(release):
+    previous_root = SHARED / release['packet']
+    previous = json.loads(checked(previous_root / 'Freeze.json', release['freeze_sha256']))
+    for name, pin in previous['tool_sha256'].items():
+        checked(previous_root / name, pin)
+    return previous
 
 
 def body_prediction(box, side, notched):
@@ -111,10 +121,8 @@ def freeze():
     from ProbeThroughAutoScope01 import disclosed
 
     trial = disclosed(SHARED / DISCLOSED)
-    previous_root = SHARED / PREVIOUS['packet']
-    previous = json.loads(checked(previous_root / 'Freeze.json', PREVIOUS['freeze_sha256']))
-    for name, pin in previous['tool_sha256'].items():
-        checked(previous_root / name, pin)
+    previous = prior_freeze(PREVIOUS)
+    prior_freeze(previous['previous_attempt'])
     values = predictions()
     need(previous['design'] == DESIGN and previous['predictions'] == values
          and previous['disclosed_control_sha256'] == trial['files_sha256'][trial['control_file']],
@@ -139,7 +147,8 @@ def installed_api():
     import ThroughAllApiMetadata as api
 
     extras = {
-        'IExtrudeFeatureData2': ('FeatureScope', 'AutoSelect', 'FeatureScopeBodies', 'GetFeatureScopeBodiesCount'),
+        'IExtrudeFeatureData2': ('FeatureScope', 'AutoSelect', 'FeatureScopeBodies', 'GetFeatureScopeBodiesCount',
+                                'AccessSelections', 'ReleaseSelectionAccess'),
         'IModelDoc2': ('GetPathName', 'GetActiveConfiguration', 'GetConfigurationNames'),
         'IModelDocExtension': ('GetWhatsWrongCount', 'SelectByID2'),
         'IPartDoc': ('GetBodies2',),
@@ -158,6 +167,9 @@ def installed_api():
          == {'FeatureScope': 34, 'AutoSelect': 35}, 'registered scope getter identity differs')
     need(any(row['names'][0] == 'FeatureScopeBodies' and row['invoke_kind'] == 2 for row in getters),
          'registered selected-body property has no getter')
+    for name, argc in (('AccessSelections', 2), ('ReleaseSelectionAccess', 0)):
+        need(any(row['names'][0] == name and len(row['names']) == argc + 1 and row['invoke_kind'] == 1 for row in getters),
+             'registered scope access signature differs: ' + name)
     selector = ('selectbyid2', 'name', 'type', 'x', 'y', 'z', 'append', 'mark', 'callout', 'selectoption')
     need(any(tuple(name.casefold() for name in row['names']) == selector and row['invoke_kind'] == 1
              for row in value['interfaces']['IModelDocExtension']['members']),
@@ -228,24 +240,34 @@ def compare_body(author, label, row, prediction, cut):
             author.rec.close_number(f'{label} {key} {axis}', actual, expected, absolute=1e-10)
 
 
-def cut_scope(author, explicit):
-    cut = author.feature(CUT)
-    data = author.typed(author.get(cut, 'GetDefinition'), 'ExtrudeFeatureData2')
+def cut_definition(author):
+    return author.typed(author.get(author.feature(CUT), 'GetDefinition'), 'ExtrudeFeatureData2')
+
+
+def cut_scope(author, data, context):
     scoped = bool(author.get(data, 'FeatureScope'))
     automatic = bool(author.get(data, 'AutoSelect')) if scoped else None
-    names = None
+    result = {'context': context, 'feature_scope': scoped, 'auto_select': automatic, 'scope_owners': None,
+              'owner_status': 'automatic' if automatic else 'all_bodies',
+              'reported_count': None, 'returned_array_count': None}
     if scoped and not automatic:
         count = int(author.get(data, 'GetFeatureScopeBodiesCount'))
-        bodies = list(author.get(data, 'FeatureScopeBodies') or ())
-        need(0 <= count <= 2 and count == len(bodies), 'the direct scope count and body array disagree')
-        names = sorted(body_owners(author, body)[0] for body in bodies)
-        need(len(set(names)) == count, 'duplicate body in actual scope array')
-    result = {'feature_scope': scoped, 'auto_select': automatic, 'scope_owners': names}
+        raw = author.get(data, 'FeatureScopeBodies')
+        bodies = None if raw is None else list(raw)
+        result.update(reported_count=count, returned_array_count=None if bodies is None else len(bodies))
+        if count == -1 and bodies is None and context == 'direct':
+            result['owner_status'] = 'observed_direct_unavailability'
+        elif bodies is None:
+            result['owner_status'] = 'array_absent'
+        elif count != len(bodies):
+            result['owner_status'] = 'count_mismatch'
+        else:
+            need(0 <= count <= 2, 'scope body array exceeds the two-stock model')
+            names = sorted(body_owners(author, body)[0] for body in bodies)
+            need(len(set(names)) == count, 'duplicate body in actual scope array')
+            result.update(owner_status='available', scope_owners=names)
     author.rec.data['last_cut_scope'] = result
     author.rec.flush()
-    if explicit:
-        need(result == {'feature_scope': True, 'auto_select': False, 'scope_owners': [STEADY]},
-             'explicit scope needs one actual A owner from the direct installed getter')
     return result
 
 
@@ -287,7 +309,7 @@ def parameter(author, stock, expected):
     return dimension, {'owner': name, 'value_m': value}
 
 
-def snapshot(author, label, edited, explicit, values, rebuild=False):
+def snapshot(author, label, edited, values, rebuild=False):
     if rebuild:
         need(bool(author.get(author.model, 'ForceRebuild3', False)), 'full native rebuild failed')
     extension = author.get(author.model, 'Extension')
@@ -318,12 +340,13 @@ def snapshot(author, label, edited, explicit, values, rebuild=False):
     shapes = observe_profiles(author)
     solids = {name: body_state(author, body, owners) for name, (body, owners) in active_bodies(author).items()}
     b_cut = solids[MOVING]['cut_face']
-    need(not b_cut or edited and not explicit, 'the initial miss or explicitly excluded stock has cut-owned geometry')
+    need(not b_cut or edited, 'the initially missed stock has cut-owned geometry')
     case = ('edited_cut' if b_cut else 'edited_fixed') if edited else 'initial'
     for name, row in solids.items():
         compare_body(author, label + ' ' + name, row, values[case][name], name == STEADY or b_cut)
     return {'tree': tree, 'profiles': shapes, 'drivers': driver_rows, 'cut': cut, 'bodies': solids,
-            'cut_scope': cut_scope(author, explicit), 'moving_stock_cut': b_cut, 'analytic_case': case}
+            'cut_scope': cut_scope(author, cut_definition(author), 'direct'),
+            'moving_stock_cut': b_cut, 'analytic_case': case}
 
 
 def build(author, controller, automatic, values):
@@ -384,6 +407,33 @@ def prior_phase(folder, phase):
     return row
 
 
+def edit_stock(author):
+    initial = DESIGN['moving_initial_m'][1][0]
+    target = DESIGN['moving_edited_x_max_m']
+    dimension, _ = parameter(author, MOVING, initial)
+    need(int(author.get(dimension, 'SetSystemValue3', target, 1, author.sw.nothing())) == 0,
+         'the native upstream D1 edit failed')
+
+
+def observe_scope(author, edited, values, result):
+    initial = snapshot(author, 'scope-only initial', False, values, rebuild=True)
+    result['before_edit'] = initial
+    if edited:
+        edit_stock(author)
+    result['pre_access'] = snapshot(author, 'scope-only edited', True, values, rebuild=True) if edited else initial
+    data = cut_definition(author)
+    accessed = bool(author.get(data, 'AccessSelections', author.model, author.sw.nothing()))
+    result['access_selections'] = accessed
+    need(accessed, 'registered scope access returned false')
+    try:
+        result['accessed_scope'] = cut_scope(author, data, 'access_selections')
+    finally:
+        author.get(data, 'ReleaseSelectionAccess')
+        result['selection_access_released'] = True
+    need(int(author.get(author.get(author.model, 'Extension'), 'GetWhatsWrongCount')) == 0,
+         'scope-only access left native feature errors or warnings')
+
+
 def candidate(folder, phase, plan, api_sha):
     import Swapp
     from AuthorCurves import Recorder
@@ -393,6 +443,8 @@ def candidate(folder, phase, plan, api_sha):
 
     automatic = phase.startswith('Auto')
     authoring = phase.endswith('Author')
+    reviewing = phase in SCOPE_PHASES
+    review_edited = reviewing and phase.endswith('Edited')
     arm = 'Auto' if automatic else 'Explicit'
     stage = folder / phase
     stage.mkdir(exist_ok=False)
@@ -407,6 +459,7 @@ def candidate(folder, phase, plan, api_sha):
             if not authoring:
                 pin = prior_phase(folder, arm + 'Author')['result']['saved_sha256']
                 checked(path, pin)
+                result['opened_sha256'] = pin
             record.call('verify the serial native oracle is idle', Swapp.sweep)
             controller = record.call('start the pinned native scope observer', Swapp.Sw)
             identity = record.call('verify the native executable', application_identity, controller.app)
@@ -416,32 +469,33 @@ def candidate(folder, phase, plan, api_sha):
             observer = ThroughAllAuthor(controller.app, record, Swapp)
             if authoring:
                 build(observer, controller, automatic, values)
-                result['created'] = snapshot(observer, 'created', False, not automatic, values)
+                result['created'] = snapshot(observer, 'created', False, values)
             else:
-                model, error, warning = record.call('fresh open of the owned unedited native save', controller.open, path)
+                model, error, warning = record.call('fresh open of the owned unedited native save', controller.open, path,
+                                                     read_only=reviewing and not review_edited)
                 observer.model = model
                 result['open'] = [model is not None, error, warning]
                 need(result['open'] == [True, 0, 0] and Path(observer.get(model, 'GetPathName')).samefile(path),
                      'owned original was not reopened at its actual locator without warnings')
-                result['cold'] = snapshot(observer, 'cold', False, not automatic, values)
-            result['before_edit'] = snapshot(observer, 'before edit', False, not automatic, values, rebuild=True)
-            if authoring:
-                need(not path.exists(), 'the owned save destination already exists')
-                result['save'] = list(record.call('save only the unedited owned native part', controller.save_as, observer.model, path))
-                need(result['save'] == [True, 0, 0] and path.is_file() and Path(observer.get(observer.model, 'GetPathName')).samefile(path),
-                     'own native save warned or used another locator')
-                pin = digest(path.read_bytes())
-                result['saved_sha256'] = pin
-                result['after_save'] = snapshot(observer, 'after save', False, not automatic, values)
-            initial = DESIGN['moving_initial_m'][1][0]
-            target = DESIGN['moving_edited_x_max_m']
-            dimension, _ = parameter(observer, MOVING, initial)
-            need(int(observer.get(dimension, 'SetSystemValue3', target, 1, Swapp.nothing())) == 0,
-                 'the native upstream D1 edit failed')
-            result['after_edit'] = snapshot(observer, 'after edit', True, not automatic, values, rebuild=True)
-            need(result['before_edit']['tree'] == result['after_edit']['tree']
-                 and result['before_edit']['profiles'] == result['after_edit']['profiles'],
-                 'an upstream depth change altered the feature tree or tool/profile definitions')
+                if not reviewing:
+                    result['cold'] = snapshot(observer, 'cold', False, values)
+            if reviewing:
+                observe_scope(observer, review_edited, values, result)
+            else:
+                result['before_edit'] = snapshot(observer, 'before edit', False, values, rebuild=True)
+                if authoring:
+                    need(not path.exists(), 'the owned save destination already exists')
+                    result['save'] = list(record.call('save only the unedited owned native part', controller.save_as, observer.model, path))
+                    need(result['save'] == [True, 0, 0] and path.is_file() and Path(observer.get(observer.model, 'GetPathName')).samefile(path),
+                         'own native save warned or used another locator')
+                    pin = digest(path.read_bytes())
+                    result['saved_sha256'] = pin
+                    result['after_save'] = snapshot(observer, 'after save', False, values)
+                edit_stock(observer)
+                result['after_edit'] = snapshot(observer, 'after edit', True, values, rebuild=True)
+                need(result['before_edit']['tree'] == result['after_edit']['tree']
+                     and result['before_edit']['profiles'] == result['after_edit']['profiles'],
+                     'an upstream depth change altered the feature tree or tool/profile definitions')
             result['passed'] = True
         except Exception as error:
             record.failure(error)
@@ -463,19 +517,53 @@ def candidate(folder, phase, plan, api_sha):
     return {'phase': phase, 'passed': result['passed'], 'record_sha256': digest(record.path.read_bytes())}
 
 
-def outcome(before, after):
-    start, end = before['cut_scope'], after['cut_scope']
-    if not after['moving_stock_cut']:
+def outcome(start, end, moving_stock_cut):
+    if not moving_stock_cut:
         return 'moving stock remained intact'
     if not start['feature_scope']:
         return 'moving stock cut with initial all-body scope'
     if start['auto_select']:
         return 'moving stock cut with initial native automatic flag'
+    if start['scope_owners'] is None:
+        return 'moving stock cut with initial membership unknown'
     if MOVING in start['scope_owners']:
         return 'moving stock cut from an initially enrolled body'
-    if end['scope_owners'] is not None and MOVING in end['scope_owners']:
+    if start['scope_owners'] == [STEADY] and end['scope_owners'] == sorted((STEADY, MOVING)):
         return 'moving stock cut and observed owner list expanded'
-    return 'moving stock cut without observable owner-list expansion'
+    if end['scope_owners'] is None:
+        return 'moving stock cut with edited membership unknown'
+    return 'moving stock cut without the expected owner-list expansion'
+
+
+def same_measured_model(first, second):
+    keys = ('tree', 'profiles', 'drivers', 'cut', 'analytic_case')
+    return all(first[key] == second[key] for key in keys)
+
+
+def scope_evidence(row, before, state, source_sha):
+    if row is None:
+        return None
+    data = row['result']
+    probe = data.get('accessed_scope')
+    initial = data.get('before_edit')
+    compared = data.get('pre_access')
+    if not row['passed'] or probe is None or initial is None or compared is None:
+        return {'passed': False, 'access_selections': data.get('access_selections'), 'accessed_scope': probe}
+    direct = state['cut_scope']
+    pre_access = compared['cut_scope']
+    matching_model = (data['opened_sha256'] == source_sha and same_measured_model(initial, before)
+                      and same_measured_model(compared, state))
+    matching_flags = all(direct[key] == pre_access[key] == probe[key] for key in ('feature_scope', 'auto_select'))
+    owner_lists = {tuple(record['scope_owners']) for record in (direct, pre_access, probe)
+                   if record['scope_owners'] is not None}
+    return {'passed': matching_model and matching_flags and len(owner_lists) <= 1,
+            'matching_model': matching_model, 'matching_flags': matching_flags, 'owner_conflict': len(owner_lists) > 1,
+            'pre_access_scope': pre_access, 'accessed_scope': probe}
+
+
+def explicit_pair(first, second):
+    return all(row['feature_scope'] and row['auto_select'] is False and row['scope_owners'] == [STEADY]
+               for row in (first, second))
 
 
 def summary(folder, freeze_sha, api_sha):
@@ -483,26 +571,49 @@ def summary(folder, freeze_sha, api_sha):
     processes = [row['result']['native_identity']['process_creation_filetime']
                  for row in rows.values() if 'native_identity' in row['result']]
     serial = all(a['finished_at'] <= b['started_at'] for a, b in zip(tuple(rows.values()), tuple(rows.values())[1:]))
-    passed = len(rows) == len(PHASES) and len(set(processes)) == len(PHASES) and serial and all(row['passed'] for row in rows.values())
+    healthy = (serial and len(processes) == len(set(processes))
+               and all(phase in rows and rows[phase]['passed'] for phase in ('Before', 'After')))
     outcomes = {}
-    if passed:
-        for arm in ('Explicit', 'Auto'):
-            authored = rows[arm + 'Author']['result']
-            reopened = rows[arm + 'Reopen']['result']
-            need(authored['after_save']['tree'] == reopened['cold']['tree']
-                 and authored['after_save']['profiles'] == reopened['cold']['profiles'],
-                 'cold opens did not recover the same ordered tree and geometry owners')
+    if healthy:
+        for arm in ('Auto', 'Explicit'):
+            if not all(phase in rows and rows[phase]['passed'] for phase in (arm + 'Author', arm + 'Reopen')):
+                continue
+            authored, reopened = (rows[arm + suffix]['result'] for suffix in ('Author', 'Reopen'))
+            before, edited = reopened['before_edit'], reopened['after_edit']
+            start, end = before['cut_scope'], edited['cut_scope']
+            source_sha = authored['saved_sha256']
+            matched_save = same_measured_model(authored['after_save'], reopened['cold']) and reopened['opened_sha256'] == source_sha
+            if not matched_save:
+                outcomes[arm] = {'geometry_passed': False, 'saved_sha256': source_sha}
+                continue
+            audited = {suffix: scope_evidence(rows.get(arm + 'Scope' + suffix), before, state, source_sha)
+                       for suffix, state in (('Initial', before), ('Edited', edited))}
+            resolved = all(audit is not None and audit['passed'] for audit in audited.values())
+            scoped_start, scoped_end = ((audited[suffix]['accessed_scope'] for suffix in ('Initial', 'Edited'))
+                                        if resolved else (None, None))
+            explicit_observed = None
+            if arm == 'Explicit':
+                consistent = all(audit is None or not (audit.get('owner_conflict') or audit.get('matching_flags') is False)
+                                 for audit in audited.values())
+                explicit_observed = (consistent and not authored['after_edit']['moving_stock_cut']
+                                     and not edited['moving_stock_cut']
+                                     and (explicit_pair(start, end) or resolved and explicit_pair(scoped_start, scoped_end)))
             outcomes[arm] = {
-                'same_process': outcome(authored['after_save'], authored['after_edit']),
-                'fresh_reopen': outcome(reopened['before_edit'], reopened['after_edit']),
+                'geometry_passed': True,
+                'same_process': outcome(authored['after_save']['cut_scope'], authored['after_edit']['cut_scope'],
+                                        authored['after_edit']['moving_stock_cut']),
+                'fresh_reopen_direct': outcome(start, end, edited['moving_stock_cut']),
+                'fresh_reopen_accessed': outcome(scoped_start, scoped_end, edited['moving_stock_cut']) if resolved else None,
+                'moving_stock_reopen': edited['bodies'][MOVING],
                 'created_scope': authored['created']['cut_scope'], 'saved_scope': authored['after_save']['cut_scope'],
-                'cold_scope': reopened['cold']['cut_scope'], 'cold_rebuilt_scope': reopened['before_edit']['cut_scope'],
+                'cold_scope': reopened['cold']['cut_scope'], 'cold_rebuilt_scope': start,
                 'author_edited_scope': authored['after_edit']['cut_scope'],
-                'reopen_edited_scope': reopened['after_edit']['cut_scope'],
-                'saved_sha256': authored['saved_sha256'],
+                'reopen_edited_scope': end, 'separate_scope_observations': audited,
+                'explicit_cold_scope_confirmed': explicit_observed, 'saved_sha256': source_sha,
             }
+    passed = set(outcomes) == {'Auto', 'Explicit'} and all(arm['geometry_passed'] for arm in outcomes.values())
     result = {'schema': SCHEMA, 'passed': passed, 'freeze_sha256': freeze_sha, 'api_sha256': api_sha,
-              'distinct_processes': len(set(processes)), 'serial': serial,
+              'distinct_processes': len(set(processes)), 'serial': serial, 'healthy_bracket': healthy,
               'phase_receipts': {phase: digest((folder / phase / 'Record.json').read_bytes()) for phase in rows},
               'phase_status': {phase: row['passed'] for phase, row in rows.items()}, 'outcomes': outcomes,
               'sealed_payloads_read': 0, 'production_coverage': 0, 'heldout_coverage': 0}
@@ -558,8 +669,16 @@ def main():
             elif args.phase in ('Before', 'After'):
                 result = measure(folder, args.phase, trial_root, trial)
             else:
-                wanted = PHASES[:PHASES.index(args.phase)]
-                need(all(prior_phase(folder, phase)['passed'] for phase in wanted), 'a preceding control or candidate phase failed')
+                phase = args.phase
+                need(prior_phase(folder, 'Before')['passed'], 'the leading healthy control is absent')
+                arm = 'Auto' if phase.startswith('Auto') else 'Explicit'
+                if phase == 'ExplicitAuthor':
+                    need(prior_phase(folder, 'AutoAuthor')['result'].get('created') is not None,
+                         'automatic geometry did not pass its initial authoring checks')
+                if not phase.endswith('Author'):
+                    need(prior_phase(folder, arm + 'Author')['passed'], 'the arm has no qualified unedited save')
+                if phase in SCOPE_PHASES:
+                    need(prior_phase(folder, arm + 'Reopen')['passed'], 'the arm has no independent rollback-free geometry')
                 result = candidate(folder, args.phase, plan, api_sha)
     sys.stdout.buffer.write(wire(result))
     return int(result.get('passed') is False)
