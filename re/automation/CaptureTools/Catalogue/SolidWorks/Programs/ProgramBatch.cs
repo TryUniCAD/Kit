@@ -43,6 +43,10 @@ public sealed partial class SolidWorksCapture
             Check(Owned.GetDocumentCount()==0,"Native batch retained a previous case document");
             RunConfigured(Application,Repository,TextValue(Case,"output"),TextValue(Case,"configuration"),Phase);
             Check(Owned.GetDocumentCount()==0 && Hash(Manifest)==Pin,"Native batch changed ownership or manifest");
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
     }
 }
