@@ -33,10 +33,13 @@ from VerifyBareImportPackage import BareLabels, EXPECTED_LIGHT_STREAMS, guard_bu
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.MakeBareImport import MakeBareImport
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNodeName
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Core.Native import ParseKeywords
 from convert.adapters.solidworks.Core.Preparation.ThroughAll.Members.ReadLightInput import ReadLightInput
 from downstream.lighting.AuditStockPartLights import actual_scene
 from convert.adapters.solidworks.Core.Preparation.ThroughAll.Members.ReadNotesInput import ReadNotesInput
+from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.ReadChildren import ReadChildren
+from convert.adapters.solidworks.Core.TypedResolved.Presentation.ReadLocalExpl import ReadLocalExpl
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from interchange import CadDocument
 from interchange.Records.RecordConfig import Configuration
@@ -54,6 +57,9 @@ BOUND_OPERATORS = tuple(path.as_posix() for path in (
     *(RESEARCH / name for name in ("AuthorCurves.py", "AuthorRectangleAnchors.py", "OracleIdentity.py", "Swapp.py", "downstream/lighting/AuditStockPartLights.py")),
     *(IMPORTS / name for name in ("BindImportScene.py", "CheckBareImport.py", "MakeBareImport.py", "MakeImportKeys.py", "ReadImportScene.py")),
     *(PROPERTIES / name for name in ("MakePartProps.py", "PartTextInput.py")),
+    IMPORTS.parents[1] / "System/MakePartExplode.py",
+    IMPORTS.parents[1] / "System/InitExplodeMut.py",
+    IMPORTS.parents[2].parent / "Core/TypedResolved/Presentation/ReadLocalExpl.py",
 ))
 
 
@@ -76,7 +82,23 @@ def part_notes(raw):
     return ReadNotesInput(ReadChildren(cabinet))
 
 
-def prepared_part(source, target, preserve_empty=False, *, preserve_empty_file_owner=False, preserve_notes=False):
+def part_exploded(raw):
+    archive = SldprtArchive.from_bytes(raw)
+    link = ReadNativeLink(archive, 0)
+    node = ReadLocalExpl(link)
+    _, features = ParseKeywords(archive.require("swXmlContents/KeyWords"))
+    rows = tuple(row for row in features if row.kind == "Exploded Views")
+    if node is None:
+        require(not rows, "empty part has an unowned exploded view keyword")
+        return None
+    require(len(rows) == 1 and rows[0].object_id == NativeNodeId(node)
+            and rows[0].xml_tag == "Feature" and rows[0].name == ""
+            and rows[0].properties.get("Name") == "", "exploded view has no linked nameless keyword")
+    return {"persistent_id": NativeNodeId(node), "archive_index": node.IndexValue}
+
+
+def prepared_part(source, target, preserve_empty=False, *, preserve_empty_file_owner=False, preserve_notes=False,
+                  preserve_exploded=False):
     original = decode_import(source)
     footprint = project_import(original)
     semantics = project_import_semantics(original)
@@ -91,6 +113,9 @@ def prepared_part(source, target, preserve_empty=False, *, preserve_empty_file_o
     properties = project_part_text(original, preserve_empty=True) if preserve_empty else semantics.properties
     manager_stream = None
     notes = part_notes(source) if preserve_notes else None
+    original_exploded = part_exploded(source) if preserve_exploded else None
+    if preserve_exploded:
+        require(original_exploded is not None, "source lacks the empty resolved part manager")
     if preserve_empty_file_owner:
         require(preserve_empty, "property owner trial preserves the source XML scopes")
         manager_stream = read_empty_file_owner(source)
@@ -98,14 +123,26 @@ def prepared_part(source, target, preserve_empty=False, *, preserve_empty_file_o
     settings = recipe(labels, target, EPOCH, properties)
     property_streams = []
     note_streams = []
+    exploded_streams = []
+    generated_exploded = None
     with guard_build() as audit:
         baseline = MakeBareImport(document, settings, labels, LightValues=lights)
-        candidate = baseline if notes is None else MakeBareImport(document, settings, labels, LightValues=lights, NotesValue=notes)
+        noted = baseline if notes is None else MakeBareImport(document, settings, labels, LightValues=lights, NotesValue=notes)
+        candidate = noted
+        if preserve_exploded:
+            candidate = MakeBareImport(document, settings, labels, LightValues=lights, NotesValue=notes,
+                                       HasEmptyExplodedView=True)
+            exploded_streams = sorted(name for name in noted.StreamsValue.keys() | candidate.StreamsValue.keys()
+                                      if noted.StreamsValue.get(name) != candidate.StreamsValue.get(name))
+            generated_exploded = part_exploded(candidate.BytesValue)
+            require(set(exploded_streams) == EXPECTED_LIGHT_STREAMS | {"swXmlContents/KeyWords"}
+                    and part_exploded(noted.BytesValue) is None and generated_exploded is not None,
+                    "adding the part manager changed unrelated streams or lost its data")
         empty = MakeBareImport(document, settings, labels)
         details = verify_part(candidate.BytesValue, candidate.StreamsValue)
         if notes is not None:
-            note_streams = sorted(name for name in baseline.StreamsValue.keys() | candidate.StreamsValue.keys()
-                                  if baseline.StreamsValue.get(name) != candidate.StreamsValue.get(name))
+            note_streams = sorted(name for name in baseline.StreamsValue.keys() | noted.StreamsValue.keys()
+                                  if baseline.StreamsValue.get(name) != noted.StreamsValue.get(name))
             require(set(note_streams) == (EXPECTED_LIGHT_STREAMS - {"Contents/Config-0"}) | {"swXmlContents/KeyWords"}
                     and part_notes(candidate.BytesValue) == notes,
                     "generated note pair changed an unrelated stream or lost its actual typed input")
@@ -135,7 +172,8 @@ def prepared_part(source, target, preserve_empty=False, *, preserve_empty_file_o
             require(set(property_streams) == expected, "explicit property owners changed unrelated streams")
         if preserve_empty_file_owner:
             without_owner = replace(settings, PropertiesValue=replace(properties, HasEmptyFileOwner=False))
-            control = MakeBareImport(document, without_owner, labels, LightValues=lights, NotesValue=notes)
+            control = MakeBareImport(document, without_owner, labels, LightValues=lights, NotesValue=notes,
+                                     HasEmptyExplodedView=preserve_exploded)
             unrelated = {name: value for name, value in candidate.StreamsValue.items() if name != "Contents/CusProps"}
             require(unrelated == control.StreamsValue and read_empty_file_owner(candidate.BytesValue) == manager_stream,
                     "modeled file property owner differs from its native layout or changed other streams")
@@ -155,6 +193,9 @@ def prepared_part(source, target, preserve_empty=False, *, preserve_empty_file_o
     if notes is not None:
         result["note_pair"] = asdict(notes)
         result["note_streams"] = note_streams
+    if preserve_exploded:
+        result["exploded_view"] = {"source": original_exploded, "generated": generated_exploded,
+                                   "affected_streams": exploded_streams}
     return candidate.BytesValue, result
 
 
@@ -164,18 +205,20 @@ def read_checked(path, expected):
     return value
 
 
-def emit(packet, guest, publish, preserve_empty, preserve_notes=False):
+def emit(packet, guest, publish, preserve_empty, preserve_notes=False, preserve_exploded=False):
     require(os.name != "nt", "prepare disclosed part candidates on the host")
     for codec in ("ascii", "latin-1", "utf-8", "utf-16-le"):
         lookup(codec)
     if publish:
         (packet / "Candidates").mkdir()
+    preserve_notes = preserve_notes or preserve_exploded
     result = {}
     for name, (_, checksum) in INPUTS.items():
         path = packet / "Sources" / (name + ".SLDPRT")
         target = guest / "Generated" / path.name
         data, report = prepared_part(read_checked(path, checksum), target, preserve_empty or preserve_notes,
-                                     preserve_empty_file_owner=preserve_notes, preserve_notes=preserve_notes)
+                                     preserve_empty_file_owner=preserve_notes, preserve_notes=preserve_notes,
+                                     preserve_exploded=preserve_exploded)
         require(digest(path) == checksum, "disclosed source changed while preparing")
         if publish:
             with (packet / "Candidates" / path.name).open("xb") as output:
@@ -184,7 +227,7 @@ def emit(packet, guest, publish, preserve_empty, preserve_notes=False):
     print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
 
 
-def prepare(source_root, packet, guest, revision, preserve_empty, preserve_notes=False):
+def prepare(source_root, packet, guest, revision, preserve_empty, preserve_notes=False, preserve_exploded=False):
     require(re.fullmatch(r"[a-f0-9]{40}", revision) and len(guest.parts) == 2 and guest.drive.casefold() == "c:"
             and re.fullmatch(r"KitImportScene[0-9]{2}", guest.name), "use a committed revision and fresh guest directory")
     require(not packet.is_relative_to(ROOT), "keep the disclosed staging packet outside Kit")
@@ -202,6 +245,8 @@ def prepare(source_root, packet, guest, revision, preserve_empty, preserve_notes
         argv.append("--preserve-empty-text")
     if preserve_notes:
         argv.append("--preserve-note-pair")
+    if preserve_exploded:
+        argv.append("--preserve-empty-exploded-view")
     clean = subprocess.check_output(argv)
     repeat = subprocess.check_output([*argv, "--publish"])
     require(clean == repeat, "two frozen scene builds differ")
@@ -272,6 +317,11 @@ def measure_case(packet, guest, name, build, record, row):
                                          for result in (first, reopened))
         manager = read_empty_file_owner(read_checked(saved, first["saved_sha256"]))
         require(fingerprint(manager) == build["file_property_owner"], "native save changed the complete file property owner")
+    if "exploded_view" in build:
+        saved_exploded = part_exploded(read_checked(saved, first["saved_sha256"]))
+        require(saved_exploded is not None and saved_exploded["persistent_id"] == build["exploded_view"]["generated"]["persistent_id"],
+                "native save did not retain the linked empty part manager")
+        row["saved_exploded_view"] = saved_exploded
     row.update(binary_light_values_preserved=sum(len(asdict(light)) for light in lights), full_disclosed_lifecycle=True)
 
 
@@ -338,19 +388,23 @@ if __name__ == "__main__":
     prep.add_argument("--revision", required=True)
     prep.add_argument("--preserve-empty-text", action="store_true")
     prep.add_argument("--preserve-note-pair", action="store_true")
+    prep.add_argument("--preserve-empty-exploded-view", action="store_true")
     own = modes.add_parser("emit")
     own.add_argument("packet", type=Path)
     own.add_argument("guest", type=PureWindowsPath)
     own.add_argument("--publish", action="store_true")
     own.add_argument("--preserve-empty-text", action="store_true")
     own.add_argument("--preserve-note-pair", action="store_true")
+    own.add_argument("--preserve-empty-exploded-view", action="store_true")
     oracle = modes.add_parser("observe")
     oracle.add_argument("job", type=Path)
     oracle.add_argument("--job-sha256", required=True)
     args = parser.parse_args()
     if args.mode == "prepare":
-        prepare(args.source_root.resolve(), args.packet.resolve(), args.guest, args.revision, args.preserve_empty_text, args.preserve_note_pair)
+        prepare(args.source_root.resolve(), args.packet.resolve(), args.guest, args.revision, args.preserve_empty_text,
+                args.preserve_note_pair, args.preserve_empty_exploded_view)
     elif args.mode == "emit":
-        emit(args.packet.resolve(), args.guest, args.publish, args.preserve_empty_text, args.preserve_note_pair)
+        emit(args.packet.resolve(), args.guest, args.publish, args.preserve_empty_text, args.preserve_note_pair,
+             args.preserve_empty_exploded_view)
     else:
         raise SystemExit(observe(args.job.resolve(), args.job_sha256))

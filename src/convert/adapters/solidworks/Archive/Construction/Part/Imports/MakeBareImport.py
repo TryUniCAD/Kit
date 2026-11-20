@@ -41,6 +41,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
     PartBuildInput,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartLabels import PartLabels
+from convert.adapters.solidworks.Archive.Construction.System.MakePartExplode import (
+    MakePartExplode,
+)
 from convert.adapters.solidworks.Archive.Construction.System.Members.AttachMembers import (
     AttachMembers,
 )
@@ -85,7 +88,10 @@ def MakeBareImport(
     AmbientValue: LightInput | None = None,
     LightValues: tuple[LightInput, ...] = (),
     NotesValue: NotesInput | None = None,
+    HasEmptyExplodedView: bool = False,
 ) -> ImportCandidate:
+    if type(HasEmptyExplodedView) is not bool:
+        raise TypeError("part exploded view presence requires an explicit boolean")
     Selected = ReadImportScene(AmbientValue, LightValues)
     ModelValue = CheckBareImport(DocumentValue, InputValue, LabelsValue, Selected)
     LocalValue = EncodeLocalBody(LabelsValue.FeatureName, MakeLocalPrism(ModelValue))
@@ -109,6 +115,10 @@ def MakeBareImport(
         ).NotesValue
     elif Selected:
         BindImportScene(SystemValue, Selected, TargetValue, Allocator)
+    if HasEmptyExplodedView:
+        SystemValue.RootValue.FieldsValue["f13f8"] = MakePartExplode(
+            SystemValue.RootValue, TargetValue, Allocator
+        )
     SetCfgStampMut(SystemValue.ConfigValues[0], Allocator)
     HeadersValue = MakePartHeaders(SystemValue, InputValue, Allocator)
     _ = LogImportMut(FeatureValue, HeadersValue, InputValue.HeaderValue)

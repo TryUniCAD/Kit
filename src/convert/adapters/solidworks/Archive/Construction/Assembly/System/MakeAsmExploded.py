@@ -1,20 +1,14 @@
-from convert.adapters.solidworks.Archive.Construction.Model.EmptyRootRows import (
-    EmptyRootRows,
-)
 from convert.adapters.solidworks.Archive.Construction.Model.RequireRootNode import (
     RequireRootNode,
 )
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import (
     FeatureTarget,
 )
-from convert.adapters.solidworks.Archive.Construction.Nodes.InitFeatureMut import (
-    InitFeatureMut,
-)
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
 )
-from convert.adapters.solidworks.Archive.Construction.System.ClearSystemMut import (
-    ClearSystemMut,
+from convert.adapters.solidworks.Archive.Construction.System.InitExplodeMut import (
+    InitExplodeMut,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
@@ -31,17 +25,5 @@ def MakeAsmExploded(
     ):
         raise ValueError("assembly exploded manager requires an empty placement owner")
     NodeValue = ArchiveNode(RuntimeClass("moExplViewManager_c", 1), {})
-    InitFeatureMut(NodeValue, None, OwnerValue, TargetValue)
-    _ = Allocator.AllocateMut(NodeValue)
-    NodeValue.FieldsValue.update(
-        {
-            "f358": None,
-            "f360": None,
-            "f398": 0.0,
-            "f3a0": -1,
-            "f3a4": -1,
-            "f368": EmptyRootRows(),
-        }
-    )
-    ClearSystemMut(NodeValue)
+    InitExplodeMut(NodeValue, OwnerValue, TargetValue, Allocator)
     return NodeValue

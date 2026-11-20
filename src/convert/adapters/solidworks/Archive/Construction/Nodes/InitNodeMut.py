@@ -26,6 +26,7 @@ def InitNodeMut(
             "moRefPlane_c",
             "moConfigurationMgr_c",
             "moExplViewManager_c",
+            "moPrtExplViewManager_c",
         ):
             raise ValueError(
                 "only unregistered reference planes and configuration managers may omit a native name"

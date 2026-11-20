@@ -63,6 +63,22 @@ def MakeImportKeys(
                 for NodeValue in (NotesValue.HeadValue, NotesValue.EndValue)
             ),
         )
+    ExplodedValue = SystemValue.RootValue.FieldsValue.get("f13f8")
+    if ExplodedValue is not None:
+        ManagerValue = ArchiveNode.RequireNode(ExplodedValue)
+        FeatureValues = (
+            *FeatureValues,
+            KeywordFeature(
+                FieldInt(ManagerValue.FieldsValue, "f08"),
+                "",
+                "Exploded Views",
+                "Feature",
+                (),
+                (),
+                None,
+                None,
+            ),
+        )
     return MakeKeywords(
         ReadNodeName(SystemValue.RootValue), Timestamp, ConfigValues, FeatureValues
     )
