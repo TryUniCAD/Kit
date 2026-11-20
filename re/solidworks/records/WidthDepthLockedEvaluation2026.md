@@ -49,4 +49,14 @@ python3.14 -I -B re/tooling/sw2026/equations/EvaluateLockedWidthDepth.py \
 
 The native phases require four distinct fresh SOLIDWORKS 2026 SP05.2 `34.5.2.0604` processes. D02 is the same healthy source control before and after. The reference phase stages the immutable generated candidate at its encoded C: path, requires clean open and rebuild, edits the actual driving width, and checks the enabled equation, derived depth, full tree, origin, one solid, area, volume and centroid. The native save must return `[true,0,0]`. A fresh read-only reopen at the recorded saved derivative digest checks the same edited owners and values. A guest-local result retains private detail and emits only digests, counts and phase status. The summary rechecks all source and derivative custody before awarding a scoped pass.
 
-Native execution of packet 02 is pending. Its qualification covers this pre-writer-locked neutral-to-native equation family. The native source is an independent comparison. A full native-source projector, public adapter admission and broader construction coverage remain separate work.
+Packet 02 passes the locked neutral-to-native equation lifecycle.
+Both D02 controls and the generated edit and cold reopen pass across
+four distinct SOLIDWORKS processes, with 103 numeric checks. The
+native source lock, generated candidate, edited derivative and all
+four phase receipts remain bound by digest. The released summary
+contains no sealed source payloads or dimension values.
+
+The result qualifies one pre-writer-locked case for this constrained
+local-reference equation family. A full native-source projector,
+public adapter admission and broader construction coverage remain
+separate work. [Locked native result](../measurements/2026/WidthDepthLockedEvaluationNative01.json)

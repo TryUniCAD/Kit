@@ -94,6 +94,11 @@ passes both generated arms with healthy controls. The reference arm's
 linked depth updates after a width edit and persists through native
 save and fresh reopen. The disclosed native trial adds zero FCStd cases.
 
+One [pre-writer-locked native equation case](measurements/2026/WidthDepthLockedEvaluationNative01.json)
+also passes the generated edit, native save and fresh reopen. Both
+controls pass across four distinct processes. This qualifies the
+scoped neutral-to-native local equation and adds zero FCStd cases.
+
 Two [public SDK blank drawing cases](measurements/2026/SdkPublicBlankDrawingHeldout01.json)
 matched their pre-registration locked native sources through rebuild, scale
 edit, save and fresh reopen. The guarded builds use independently authored
