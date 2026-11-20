@@ -148,8 +148,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.FindLocal
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.LinkLocalBody import (
     LinkLocalBody,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalBodyBrep import (
-    ReadLocalBrep,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalImport import (
+    ReadLocalImport,
 )
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -334,10 +334,11 @@ def ReadNativePart(
         and not PayloadDiags
         else None
     )
-    BrepValue, LocalOwner = TypedBrep(
+    BrepValue, LocalOwner, LocalDiag = TypedBrep(
         Payloads,
         LocalOwner=Candidate,
         GroupData=Archive.get(KLocalBodyStream) if Candidate is not None else None,
+        Strict=Settings.strict,
     )
     SolidOpIds = frozenset(
         (
@@ -352,21 +353,17 @@ def ReadNativePart(
         else FinalBodyId(TimeValues, SolidOpIds)
     )
     BodyFeature = LocalOwner or SolidBody(Model.features)
-    LocalTopology = None
+    TopologyValue = TopologySummary(
+        solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
+    )
     if LocalOwner is not None and BrepValue is not None:
-        BrepValue, LocalTopology = LinkLocalBody(BrepValue, KPartBodyId)
+        BrepValue, TopologyValue = LinkLocalBody(BrepValue, KPartBodyId, TopologyValue)
     Bodies = (
         BodyValue(
             id=KPartBodyId,
             name=BodyFeature.name if BodyFeature is not None else "Body 1",
             final_feature_id=FinalFeature,
-            topology=(
-                LocalTopology
-                if LocalTopology is not None
-                else TopologySummary(
-                    solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
-                )
-            ),
+            topology=TopologyValue,
             provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
             attributes=FrozenMapping(
                 {
@@ -392,6 +389,7 @@ def ReadNativePart(
             )
         )
         + PayloadDiags
+        + ((LocalDiag,) if LocalDiag is not None else ())
     )
     DocValue = CadDoc(
         source=CadSource(
@@ -3696,9 +3694,10 @@ def BrepPayloadA(Index: int, Native: ParasolidPayload) -> BrepPayload:
 def TypedBrep(
     Payloads: Sequence[BrepPayload],
     *,
+    Strict: bool,
     LocalOwner: NativeFeature | None = None,
     GroupData: bytes | None = None,
-) -> tuple[BrepModel | None, NativeFeature | None]:
+) -> tuple[BrepModel | None, NativeFeature | None, DiagValue | None]:
     Groups: dict[str, list[BrepPayload]] = {}
     for Index, Payload in enumerate(Payloads):
         Groups.setdefault(Payload.source_stream or f"payload:{Index}", []).append(
@@ -3720,9 +3719,8 @@ def TypedBrep(
         elif len(Decoded) > 1:
             HasAmbiguous = True
     if Models or HasAmbiguous or LocalOwner is None or GroupData is None:
-        return (Models[0] if len(Models) == 1 else None), None
-    LocalModel = ReadLocalBrep(Payloads, GroupData, LocalOwner.name)
-    return LocalModel, LocalOwner if LocalModel is not None else None
+        return (Models[0] if len(Models) == 1 else None), None, None
+    return ReadLocalImport(Payloads, GroupData, LocalOwner, Strict=Strict)
 
 
 # this definition exists because focused behavior needs one stable owner

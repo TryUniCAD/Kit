@@ -11,13 +11,18 @@ is empty.
 
 The local body must have a complete current-schema topology of straight
 edges and planar faces with one loop per face. The selected partition and its
-history must agree. Use `include_brep=False` for metadata inspection.
+history must agree. A strict B-rep read raises a format error when the
+required current-profile local solid fails these checks. An explicit
+`strict=False` read retains the source payloads and reports
+`sldprt.local_geometry_rejected`. Use `include_brep=False` for metadata
+inspection.
 
 The two disclosed native inputs passed cold open, rebuild, save, and fresh
 reopen measurements on build `34.5.2.0604`. The public integration checks
 ownership, body counts, signed volume, area, centroid, and payload
 retention. Controls cover absent history, a retained history with the wrong
-mark, a different group owner, and geometry disabled.
+mark, a different group owner, and geometry disabled. The invalid
+geometry controls check strict refusal and the matching partial-read warning.
 
 The retained timeline describes the native import and its stored solid.
 Editable conversion acceptance follows the

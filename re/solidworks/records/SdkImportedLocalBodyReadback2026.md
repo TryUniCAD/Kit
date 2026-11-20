@@ -51,6 +51,8 @@ and design body ownership. The absent-history control retains the active
 partition and local payload in an in-memory input. A separate control
 keeps all three payloads and selects the actual first rollback mark, id 1,
 while the active world retains id 3. A mismatched Unicode group key tests
-the storage owner check. The metadata control sets `include_brep=False`.
-Current revision acceptance is the integration result from the repository
-merge queue.
+the storage owner check. Each control checks strict refusal of the
+required local solid and a warning with the same reason on explicit
+non-strict reads. The metadata control sets `include_brep=False`.
+Current revision acceptance is the integration result from the
+repository merge queue.

@@ -23,17 +23,14 @@ from interchange.Payloads.PayloadRecord import BrepPayload
 # an empty active partition lets the single local solid supply its own complete boundary
 def ReadLocalBrep(
     Payloads: Sequence[BrepPayload], GroupData: bytes, OwnerName: str
-) -> BrepModel | None:
-    try:
-        LocalData = ReadLocalPay(Payloads)
-        if ReadLocalWrap(GroupData, LocalData) != OwnerName:
-            return None
-        NodesValue, OffsetsValue = ReadLocalNodes(LocalData)
-        CheckLocalGraph(NodesValue)
-        TablesValue = MakeLocalTables(NodesValue, OffsetsValue)
-        ModelValue = BuildPartModel(TablesValue)
-    except (KeyError, OverflowError, ValueError):
-        return None
+) -> BrepModel:
+    LocalData = ReadLocalPay(Payloads)
+    if ReadLocalWrap(GroupData, LocalData) != OwnerName:
+        raise ValueError("local body storage key differs from its resolved import")
+    NodesValue, OffsetsValue = ReadLocalNodes(LocalData)
+    CheckLocalGraph(NodesValue)
+    TablesValue = MakeLocalTables(NodesValue, OffsetsValue)
+    ModelValue = BuildPartModel(TablesValue)
     if (
         len(ModelValue.bodies) != 1
         or len(ModelValue.regions) != 1
@@ -49,5 +46,5 @@ def ReadLocalBrep(
         or len(ModelValue.surfaces) != len(TablesValue.surfaces)
         or ModelValue.validate()
     ):
-        return None
+        raise ValueError("local body does not contain one complete closed solid")
     return ModelValue

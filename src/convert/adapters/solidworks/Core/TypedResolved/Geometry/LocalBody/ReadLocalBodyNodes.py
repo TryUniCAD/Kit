@@ -1,7 +1,9 @@
-from convert.Geometry.Parasolid import KTerminalFinSchema, ParaHeaderData
 from convert.adapters.solidworks.Archive.Partition.ReadXmtNodeMut import ReadXmtNodeMut
 from convert.adapters.solidworks.Archive.Partition.XmtCursor import XmtCursor
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalHead import (
+    ReadLocalHead,
+)
 
 # the local profile admits linear and planar topology with mapped body attributes
 KLocalNodeKinds = frozenset(
@@ -11,13 +13,8 @@ KLocalNodeKinds = frozenset(
 
 # local topology must come from complete serialized records with their actual indices
 def ReadLocalNodes(DataValue: bytes) -> tuple[dict[int, XmtNode], dict[int, int]]:
-    HeaderValue = ParaHeaderData(DataValue)
-    if (
-        HeaderValue is None
-        or HeaderValue.schema != KTerminalFinSchema
-        or HeaderValue.description
-        != ": TRANSMIT FILE created by modeller version 3701250"
-    ):
+    HeaderValue = ReadLocalHead(DataValue)
+    if HeaderValue is None:
         raise ValueError("local body transmit profile is unqualified")
     CursorValue = XmtCursor(DataValue[HeaderValue.body_offset :])
     NodesValue: dict[int, XmtNode] = {}

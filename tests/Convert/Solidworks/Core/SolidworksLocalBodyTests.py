@@ -18,7 +18,11 @@ from convert.adapters.solidworks.Archive.Partition.ReadXmtValueMut import (
 )
 from convert.adapters.solidworks.Archive.Partition.SchemaHeader import SchemaHeader
 from convert.adapters.solidworks.Archive.Partition.XmtCursor import XmtCursor
-from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
+from convert.adapters.solidworks.Container.Container import (
+    BuildSldprt,
+    SldprtArchive,
+    SldprtFormatError,
+)
 from convert.adapters.solidworks.Container.Format import (
     KLocalBodyStream,
     KPartitionStream,
@@ -28,6 +32,7 @@ from convert.adapters.solidworks.Core.Native import ReadSerialized
 from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.brep.Topology.BrepTopology import BrepLoop
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Enums.EnumDocument import Severity
 from interchange.Enums.EnumFeatures import FeatureKind
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from tests.Convert.Api.ApiTestPaths import KRootPath
@@ -165,7 +170,10 @@ def AssertLocalRead(
         (KPartitionStream, "deltas"),
     }
     ModelValue = Document.brep
-    assert ModelValue is not None and not ModelValue.validate()
+    assert ModelValue is not None
+    assert not ModelValue.validate(
+        frozenset(BodyValue.id for BodyValue in Document.bodies)
+    )
     assert len(ModelValue.bodies) == 1
     (ShellValue,) = ModelValue.shells
     assert ShellValue.closed
@@ -205,17 +213,46 @@ def TestLocalPrism() -> None:
     )
 
 
-# controlled archive mutations exercise the public input boundary without changing fixtures
-def ReadLocalProbe(Archive: SldprtArchive, Streams: dict[str, bytes]) -> CadDocument:
+# all probe phases read the controlled archive through the public sdk
+def ReadLocalProbe(
+    DataValue: bytes, *, Strict: bool, IncludeBrep: bool = True
+) -> CadDocument:
     return OpenDocument(
-        BuildSldprt(
-            Streams, FileId=Archive.file_id, FormatVersion=Archive.format_version
-        ),
+        DataValue,
         source_format="solidworks.sldprt",
-        strict=True,
-        include_brep=True,
+        strict=Strict,
+        include_brep=IncludeBrep,
         include_tessellation=False,
     )
+
+
+# strict reads reject loss and partial reads retain the source with a warning
+def AssertLocalStop(
+    Archive: SldprtArchive, Streams: dict[str, bytes], Reason: str
+) -> CadDocument:
+    DataValue = BuildSldprt(
+        Streams, FileId=Archive.file_id, FormatVersion=Archive.format_version
+    )
+    try:
+        _ = ReadLocalProbe(DataValue, Strict=True)
+    except SldprtFormatError as ErrorInfo:
+        assert "SLDPRT local geometry rejected" in str(ErrorInfo)
+        assert Reason in str(ErrorInfo)
+    else:
+        raise AssertionError("strict read accepted a rejected local solid")
+    Partial = ReadLocalProbe(DataValue, Strict=False)
+    assert Partial.brep is None
+    (Diagnostic,) = (
+        Entry
+        for Entry in Partial.diagnostics
+        if Entry.code == "sldprt.local_geometry_rejected"
+    )
+    assert Diagnostic.severity == Severity.WARNING
+    assert Diagnostic.attributes["stream"] == KLocalBodyStream
+    assert Reason in Diagnostic.message
+    Metadata = ReadLocalProbe(DataValue, Strict=True, IncludeBrep=False)
+    assert Metadata.brep is None and not Metadata.brep_payloads
+    return Partial
 
 
 # the active partition alone cannot qualify the local body when history is absent
@@ -227,7 +264,7 @@ def TestNoHistory() -> None:
     )
     assert (ActiveValue.kind, HistoryValue.kind) == ("partition", "deltas")
     Streams[KPartitionStream] = ActiveValue.data
-    Document = ReadLocalProbe(Archive, Streams)
+    Document = AssertLocalStop(Archive, Streams, "rollback history is missing")
     assert len(Document.brep_payloads) == 2
     assert {
         (Payload.source_stream, Payload.kind) for Payload in Document.brep_payloads
@@ -235,7 +272,6 @@ def TestNoHistory() -> None:
         (KLocalBodyStream, "unknown"),
         (KPartitionStream, "partition"),
     }
-    assert Document.brep is None
 
 
 # a retained history may select an earlier real mark in the same native chain
@@ -285,7 +321,9 @@ def TestWrongMarks() -> None:
     Streams[KPartitionStream] = EncodePartData(ActiveValue.data) + EncodePartData(
         HistoryData
     )
-    Document = ReadLocalProbe(Archive, Streams)
+    Document = AssertLocalStop(
+        Archive, Streams, "world and history identities disagree"
+    )
     assert {Payload.kind: Payload.sha256 for Payload in Document.brep_payloads} == {
         "unknown": next(
             Payload.sha256
@@ -294,7 +332,7 @@ def TestWrongMarks() -> None:
         "partition": ActiveValue.sha256,
         "deltas": Fingerprint(HistoryData).hexdigest(),
     }
-    assert len(Document.brep_payloads) == 3 and Document.brep is None
+    assert len(Document.brep_payloads) == 3
 
 
 # a complete local group with a different key must not attach to the import
@@ -307,8 +345,10 @@ def TestWrongOwner() -> None:
     StemBytes = OwnerName.swapcase().encode("utf-16le")
     NameStart = NameEnd - len(StemBytes)
     Streams[KLocalBodyStream] = GroupData[:NameStart] + StemBytes + GroupData[NameEnd:]
-    Document = ReadLocalProbe(Archive, Streams)
-    assert len(Document.brep_payloads) == 3 and Document.brep is None
+    Document = AssertLocalStop(
+        Archive, Streams, "storage key differs from its resolved import"
+    )
+    assert len(Document.brep_payloads) == 3
 
 
 # metadata reads keep the geometry intake and payload materialization disabled
