@@ -58,7 +58,7 @@ def CheckColdPocket(
         ModeValue=ExtrudeEnd.KMidPlane if Through else ExtrudeEnd.KBlind,
         SelectedStock=SelectedStock is not None,
     )
-    CheckPrismEnd(BossValue)
+    CheckPrismEnd(BossValue, SelectedMidPlane=Through and SelectedStock is not None)
     CheckPrismAtom(
         CutValue.NodeValue, SelectedScope="cut" if SelectedStock is not None else None
     )

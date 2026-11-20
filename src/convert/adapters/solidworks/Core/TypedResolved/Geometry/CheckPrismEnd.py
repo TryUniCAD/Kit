@@ -11,7 +11,12 @@ from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # blind scalar mode flags do not prove the absence of retained draft reference or start offset controls
-def CheckPrismEnd(OwnerValue: ExtrudeOwner, *, ReversedBlind: bool = False) -> None:
+def CheckPrismEnd(
+    OwnerValue: ExtrudeOwner,
+    *,
+    ReversedBlind: bool = False,
+    SelectedMidPlane: bool = False,
+) -> None:
     Fields = OwnerValue.EndValue.FieldsValue
     EndCode = 6 if OwnerValue.ModeValue == ExtrudeEnd.KMidPlane else 0
     if (
@@ -35,6 +40,16 @@ def CheckPrismEnd(OwnerValue: ExtrudeOwner, *, ReversedBlind: bool = False) -> N
     FromValue = RequireNative(Fields.get("f140"), "moFromEndSpec_c")
     if FromValue.FieldsValue != {"t": 0}:
         raise ValueError("cache free prism has a nonordinary start owner")
+    NullReverse = (
+        SelectedMidPlane
+        and OwnerValue.ModeValue == ExtrudeEnd.KMidPlane
+        and not OwnerValue.IsReversed
+        and not ReversedBlind
+        and OwnerValue.SecondValue is None
+        and OwnerValue.SecondModeValue is None
+        and "f20" in Fields
+        and Fields["f20"] is None
+    )
     Values = tuple(
         ReadPrismParam(Fields.get(FieldName), Angular)
         for FieldName, Angular in (
@@ -43,24 +58,37 @@ def CheckPrismEnd(OwnerValue: ExtrudeOwner, *, ReversedBlind: bool = False) -> N
             ("fc8", True),
             ("fd0", True),
         )
+        if not (NullReverse and FieldName == "f20")
     )
-    if (
-        len({Dimension for Dimension, _, _ in Values}) != 4
-        or len({Parameter for _, Parameter, _ in Values}) != 4
-    ):
+    if len({Dimension for Dimension, _, _ in Values}) != len(Values) or len(
+        {Parameter for _, Parameter, _ in Values}
+    ) != len(Values):
         raise ValueError("cache free prism end roles share live owners")
     if (
         Values[0][2] <= 0
-        or Values[1][2] != Values[0][2]
-        or Values[2][2] != 0
-        or Values[3][2] != 0
+        or (not NullReverse and Values[1][2] != Values[0][2])
+        or Values[-2][2] != 0
+        or Values[-1][2] != 0
     ):
         raise ValueError(
             "cache free prism has draft or independent inactive end controls"
         )
-    if len({Dimension.FieldsValue.get("f50") for Dimension, _, _ in Values}) != 4:
+    DimensionIds = tuple(Dimension.FieldsValue.get("f50") for Dimension, _, _ in Values)
+    if len(set(DimensionIds)) != len(Values):
         raise ValueError("cache free prism has duplicated end dimension identities")
-    if Values[0][1] is not OwnerValue.RequireDepth().Parameter:
+    if NullReverse and any(
+        type(Identity) is not int or Identity < 0 for Identity in DimensionIds
+    ):
+        raise ValueError("cache free stock end dimension lacks its persistent identity")
+    DepthValue = OwnerValue.RequireDepth()
+    if Values[0][1] is not DepthValue.Parameter or (
+        NullReverse
+        and (
+            Fields["f18"] is not DepthValue.DisplayValue
+            or Values[0][0] is not DepthValue.Dimension
+            or DepthValue.DepthValue.name != "D1"
+        )
+    ):
         raise ValueError(
             "cache free prism active depth does not alias its selected live owner"
         )

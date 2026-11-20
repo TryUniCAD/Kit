@@ -52,7 +52,11 @@ def ReadPrismPlan(
         and OwnerValue.ModeValue == ModeValue == ExtrudeEnd.KBlind
         and not SelectedStock
     )
-    CheckPrismEnd(OwnerValue, ReversedBlind=ReversedBlind)
+    CheckPrismEnd(
+        OwnerValue,
+        ReversedBlind=ReversedBlind,
+        SelectedMidPlane=SelectedStock and ModeValue == ExtrudeEnd.KMidPlane,
+    )
     Depth = OwnerValue.RequireDepth().DepthValue
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
     LoopValue = ReadPrismLoop(OwnerValue.ProfileValue, LinkValue)
