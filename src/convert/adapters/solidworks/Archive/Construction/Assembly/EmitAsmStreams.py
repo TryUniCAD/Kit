@@ -7,6 +7,12 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState imp
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyStreams import (
     AssemblyStreams,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.Displays.AsmDisplayIn import (
+    AsmDisplayIn,
+)
+from convert.adapters.solidworks.Archive.Construction.Assembly.Displays.MakeAsmVisual import (
+    MakeAsmVisual,
+)
 from convert.adapters.solidworks.Archive.Construction.Assembly.JoinAsmMut import (
     JoinAsmMut,
 )
@@ -20,6 +26,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
     PartCandidate,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.VisualStates.WriteAsmVisual import (
+    KVisualStream,
+)
 
 
 # flat and ordered callers must preserve exact bytes while recursive assemblies share the same linked binary graph and manager publication
@@ -30,8 +39,17 @@ def EmitAsmStreams(
     HeadersValue: tuple[ArchiveNode, ArchiveNode],
     References: tuple[ArchiveNode, ...],
     MateValue: ArchiveNode | tuple[ArchiveNode, ...],
+    *,
+    DisplayValues: tuple[AsmDisplayIn, ...] | None = None,
 ) -> AssemblyStreams:
     MateRoots = (MateValue,) if isinstance(MateValue, ArchiveNode) else MateValue
+    VisualBytes = (
+        None
+        if DisplayValues is None
+        else MakeAsmVisual(
+            StateValue, ChildValue, HeadersValue, References, MateRoots, DisplayValues
+        )
+    )
     GraphValue = MakeAsmGraphs(StateValue, InputValue, HeadersValue[0], MateRoots)
     StreamsValue = MakeAsmAux(
         StateValue,
@@ -42,4 +60,7 @@ def EmitAsmStreams(
         GraphValue.DefinitionValue,
         References,
     )
-    return JoinAsmMut(StateValue, GraphValue, StreamsValue)
+    Combined = JoinAsmMut(StateValue, GraphValue, StreamsValue)
+    if VisualBytes is not None:
+        Combined.StreamsValue[KVisualStream] = VisualBytes
+    return Combined
