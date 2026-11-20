@@ -30,7 +30,14 @@ if sys.argv[3] == "handled":
     for Number in (SIGINT, SIGTERM, SIGHUP, SIGQUIT, SIGUSR1, SIGUSR2):
         signal(Number, Finish)
 Path(sys.argv[1]).with_name("ChildPid").write_text(str(getpid()))
-Path(sys.argv[1]).write_text(KIdentity)
+
+# the launcher can signal the child as soon as this marker appears
+ReadyPath = Path(sys.argv[1])
+
+# keeping the incomplete payload private prevents a false readiness signal
+PendingPath = ReadyPath.with_name(ReadyPath.name + ".pending")
+PendingPath.write_text(KIdentity, encoding="utf-8")
+PendingPath.replace(ReadyPath)
 for _ in range(3000):
     time.sleep(0.01)
 raise SystemExit(38)
