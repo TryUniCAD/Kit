@@ -95,7 +95,7 @@ jobs:
         run: |
           docker pull "$QualificationImage"
           ImageId=$(docker image inspect --format '{{.Id}}' "$QualificationImage")
-          uv run --frozen --with 'numpy==2.4.6' --no-default-groups --extra dev --python 3.14 python re/automation/CodecPromotion/ProcessGate.py "$ImageId"
+          uv run --frozen --no-default-groups --group codec-promotion --extra dev --python 3.14 python re/automation/CodecPromotion/ProcessGate.py "$ImageId"
 
   research-cli:
     if: >-

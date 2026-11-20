@@ -4247,6 +4247,9 @@ dev = [
 ]
 
 [package.dev-dependencies]
+codec-promotion = [
+    { name = "numpy" },
+]
 dev = [
     { name = "bandit" },
     { name = "black" },
@@ -4280,6 +4283,7 @@ requires-dist = [
 provides-extras = ["dev"]
 
 [package.metadata.requires-dev]
+codec-promotion = [{ name = "numpy", specifier = "<2.5" }]
 dev = [
     { name = "bandit", specifier = ">=1.9.4" },
     { name = "black", specifier = "==26.10.1" },

@@ -40,17 +40,18 @@ def exercise(work, store, statuses, mode, image):
     git("-c", "user.name=Process Control", "-c", "user.email=control@example.invalid", "commit", "-qm", "Seed public CLI regression")
     cases = []
     shapes = (("circle", "CircleGeometry"), ("rectangle", "PointGeometry")) if mode == "reader" else (("rectangle", "PointGeometry"), ("cuboid", "PointGeometry"))
-    for shape, geometry in shapes:
+    for index, (shape, geometry) in enumerate(shapes):
+        height = 17.0 + index if mode == "writer" else 17.0
         sample = f"re/Fusion/LocalOracle/PublicAdapter/{shape}.authoring.json"
         if mode == "writer":
             from convert.Formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
             from convert.Formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
             sample = f"re/Fusion/LocalOracle/PublicAdapter/{shape}.control.f3d"
-            (repo / sample).write_bytes(EmitDocument(DocumentSpec(shape, "height", 17.0, ProfileKind=shape, ConstrainRectangle=True)))
+            (repo / sample).write_bytes(EmitDocument(DocumentSpec(shape, "height", height, ProfileKind=shape, ConstrainRectangle=True)))
             git("add", sample)
         cases.append({"file": sample, "sha256": hashlib.sha256((repo / sample).read_bytes()).hexdigest(),
                       "expect": {"/document/sketches/$tuple/0/entities/$tuple/0/geometry/$type": geometry,
-                                 "/document/parameters/$tuple/0/value/value": 17.0,
+                                 "/document/parameters/$tuple/0/value/value": height,
                                  "/document/feature_timeline/$tuple/0/kind/value": "reference"}})
     if mode == "writer":
         git("-c", "user.name=Process Control", "-c", "user.email=control@example.invalid", "commit", "-qm", "Pin dimension-driven native controls")

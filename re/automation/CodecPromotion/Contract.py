@@ -49,6 +49,22 @@ def validate(contract, discovery):
             if not path.startswith("/document/") or len(path) > 512 or not isinstance(value, (str, int, float, bool)) or isinstance(value, float) and not math.isfinite(value):
                 raise ValueError("expected a document pointer and a finite scalar measurement")
 
+    if contract["mode"] == "writer" and not any(
+        path in other["expect"] and distinct_measurements(value, other["expect"][path])
+        for index, case in enumerate(cases)
+        for path, value in case["expect"].items()
+        for other in cases[index + 1:]
+    ):
+        raise ValueError("writer controls require different measurements at a shared document pointer")
+
+
+def distinct_measurements(left, right):
+    if type(left) in (float, int) and type(right) in (float, int):
+        if type(left) is type(right) is int:
+            return left != right
+        return abs(left - right) > 2.1 * max(1e-9, 1e-9 * max(abs(left), abs(right)))
+    return type(left) is not type(right) or left != right
+
 
 def matches(values, expected):
     return isinstance(values, list) and len(values) == len(expected) and all(
