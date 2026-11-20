@@ -19,7 +19,6 @@ from interchange.geometry.Models.Transform import KAxisX, KAxisY, KAxisZ, KOrigi
 from interchange.geometry.Models.VectorPlane import PlaneVector
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from interchange.serialization.EncodeData import ToData
-from para.Partition import Node
 from tests.Convert.Solidworks.Research.ConstructionGuard import BuildAudit
 
 
@@ -45,10 +44,6 @@ def analytic_prism(points, levels):
     return area * depth, 2 * area + perimeter * depth, (center_x, center_y, fsum(levels) / 2)
 
 
-def node_adapter(model):
-    return tuple(Node(node.IndexValue, node.KindValue, dict(node.FieldsValue)) for node in MakeLocalPrism(model))
-
-
 def complete_part(document, destination):
     blob, streams = part_builder.make_part(document, destination, "Bare", completed=True)
     part_builder.verify_part(blob, streams)
@@ -56,20 +51,20 @@ def complete_part(document, destination):
 
 
 def compare_part(document, destination):
-    prior_factory = part_builder.make_nodes
-    require(prior_factory is make_nodes, "the comparison needs the independent research compiler as its baseline")
-    prior = complete_part(document, destination)
+    current_factory = part_builder.MakeLocalPrism
+    require(current_factory is MakeLocalPrism, "the part composer must bind the package topology compiler")
+    current = complete_part(document, destination)
     matches = []
 
-    def observe_factory(model):
+    def reference_factory(model):
         matches.append(model is document.brep)
-        return node_adapter(model)
+        return package_nodes(make_nodes(model))
 
     try:
-        part_builder.make_nodes = observe_factory
-        current = complete_part(document, destination)
+        part_builder.MakeLocalPrism = reference_factory
+        prior = complete_part(document, destination)
     finally:
-        part_builder.make_nodes = prior_factory
+        part_builder.MakeLocalPrism = current_factory
     require(matches == [True] and prior == current, "local compiler was bypassed or changed a complete generated part or logical stream")
     return {"part": fingerprint(current[0]), "streams": {key: fingerprint(value) for key, value in current[1].items()}}
 

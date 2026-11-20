@@ -33,6 +33,9 @@ The part comparison uses the research builder from
 in this change.
 [Probe and exact digests](../../../../re/solidworks/measurements/2026/LocalPrismTopology01.json)
 
-The checkpoint provides a compiler for the bare local transmit profile.
-The existing part builder call site, owned-body attributes, native
-verification and public conversion admission remain separate.
+The complete part composer now calls the package topology compiler for a
+bare local import. Two further guarded runs reproduce the same four
+offline comparisons, and four additional comparisons preserve the
+existing native-measured files at their actual logical destinations.
+Owned-body attributes and public conversion admission remain separate.
+[Integrated composer receipt](../../../../re/solidworks/measurements/2026/IntegratedLocalPrismTopology01.json)

@@ -1,0 +1,15 @@
+{
+  "bare_topology_profile_cases": 4,
+  "complete_offline_compared_streams": 48,
+  "current_composer_source_sha256": "c3ee3c787a67baaeff3110d594258e1a93d407d0470016ccebdb044cbd7cde54",
+  "exact_native_baseline_files": 4,
+  "exact_native_baseline_streams": 48,
+  "identical_guarded_host_processes": 2,
+  "native_baseline_receipt_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+  "neutral_refusals": 10,
+  "offline_comparison_baseline_sha256": "5b6c4061ba75fb58a2f0a0325b2048769b5b2c74f2e24310c0ced82aea46aab5",
+  "public_writer_qualified": false,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.integrated-local-prism.v1",
+  "standalone_native_measurement": false
+}

@@ -8,7 +8,7 @@ from pathlib import Path, PureWindowsPath
 from struct import unpack
 import sys
 
-from BuildLocalBodyKernel import CASES, make_nodes, prism_model, require_closed_unattributed, require_neutral_prism
+from BuildLocalBodyKernel import CASES, prism_model, require_neutral_prism
 from LocalBodyEnvelope import LOCAL, PARTITION, decode
 from LocalBodyKernel import BODY, _render_local, decode_local, fingerprint
 from ReplayImportedBaseBody import require
@@ -29,6 +29,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.MakePartHeaders impor
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import MakePartDef
 from convert.adapters.solidworks.Archive.Partition.ImportHistory.ImportEvent import ImportEvent
 from convert.adapters.solidworks.Archive.Partition.ImportHistory.MakeImportHist import MakeImportHist
+from convert.adapters.solidworks.Archive.Partition.LocalPrism.MakeLocalPrism import MakeLocalPrism
 from convert.adapters.solidworks.Archive.Partition.LocalWrite.EncodeLocalBody import EncodeLocalBody
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
@@ -217,10 +218,10 @@ def make_part(document, destination, mode, completed=False, *, feature_name=DEFA
         FinishImportMut(system, feature, headers, recipe)
     if mode == "Owned":
         nodes = make_owned_nodes(document.brep, body_name, feature.FieldsValue["f08"], atom_id, body_stamp)
+        typed = tuple(XmtNode(node.index, node.kind, node.fields) for node in nodes)
     else:
-        nodes = make_nodes(document.brep)
-        require_closed_unattributed(nodes)
-    local = EncodeLocalBody(labels.FeatureName, tuple(XmtNode(node.index, node.kind, node.fields) for node in nodes))
+        typed = MakeLocalPrism(document.brep)
+    local = EncodeLocalBody(labels.FeatureName, typed)
     streams = make_streams(system, feature, recipe, headers, labels, local, history.BytesValue)
     return BuildSldprt(streams, FormatVersion=4), streams
 
