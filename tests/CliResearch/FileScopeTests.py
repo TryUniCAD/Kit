@@ -59,6 +59,9 @@ def CheckFileScope(TmpPath: FilePath) -> None:
         "CutSketch",
         "ThroughAllCut",
     ]
+    Bodies = LoadJson((RunPath / "Input-body-measurements.json").read_bytes())
+    assert Bodies["count_matches"] and Bodies["unique_names_match"]
+    assert all(Bodies["bodies"]["Body1"].values())
     Changes = LoadJson((RunPath / "Input-repeat-save.json").read_bytes())
     assert Changes["status"] == "compared"
     assert len(set(Changes["controls"]) | {Audit["source_sha256"]}) == 3

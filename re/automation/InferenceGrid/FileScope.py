@@ -109,6 +109,9 @@ def file_scope(path, application, scratch, root):
         audit["native_classes"] = native_classes(reports["native"], root)
         trace = trace_refusal(reports["native"], attempts["strict"].get("message", ""), audit["native_classes"]["classes"])
         comparison = compare_capture(reports["native"], pin, root, scratch, [sys.executable, "-m", "KitCli", "decode"], env)
+        if comparison and comparison.get("oracle_geometry") and document:
+            from InferenceGrid.MeasureBodies import measure_bodies
+            reports["body-measurements"] = measure_bodies(document, comparison["oracle_geometry"])
         if comparison is not None:
             reports["repeat-save"] = comparison
             audit["repeat_save_status"] = comparison["status"]

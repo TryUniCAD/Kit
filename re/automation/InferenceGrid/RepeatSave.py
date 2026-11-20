@@ -77,10 +77,12 @@ def compare_capture(native, pin, root, scratch, command, env):
                        "control": first[key][1], "input": observed[key][1]}
                       for key in stable if first[key][0] is observed[key][0] and first[key] != observed[key]]
         exports = [row["file"] for row in rows if row["sha256"] == pin]
-        reopened = [row["reopened"]["feature_tree"] for key in ("variants", "edits")
+        reopened = [row["reopened"] for key in ("variants", "edits")
                     for row in measured["observations"].get(key, []) if row.get("export") in exports
                     and isinstance(row.get("reopened", {}).get("feature_tree"), list)]
-        return {"oracle_timeline": reopened[0] if len(reopened) == 1 else None, "status": "compared", "recipe": receipt["recipe_id"], "measurement_sha256": receipt["measurement_receipt_sha256"],
+        witness = reopened[0] if len(reopened) == 1 else {}
+        return {"oracle_timeline": witness.get("feature_tree"), "oracle_geometry":
+                {key: witness[key] for key in ("body_count", "bodies")} if "body_count" in witness and "bodies" in witness else None, "status": "compared", "recipe": receipt["recipe_id"], "measurement_sha256": receipt["measurement_receipt_sha256"],
                 "controls": [row["sha256"] for row in controls], "input": pin, "shared_scalar_fields": len(common),
                 "repeat_stable": len(stable), "changed_after_repeat_filter": candidates}
     return None
