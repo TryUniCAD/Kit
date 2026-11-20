@@ -211,6 +211,17 @@ Complete configuration admission and the property owner's physical
 link remain separate work.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
+### B04-SW2026-CONFIG-LW-MATERIAL
+
+The PR #121 takeover team owns the ordinary material and model-data
+read slice on `codex/solidworks-config-material-owners`. It uses
+the accepted part header handoff and lightweight node grammar.
+Exit requires both measured suffixes and map identities, guarded
+authored contrasts and refusals, and current revision review and queue
+evidence. Complete configuration admission and material assignment
+retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
 ### B04-SW2026-CONFIG-CACHES
 
 The PR #121 takeover team owns the bounded part cache reader on
