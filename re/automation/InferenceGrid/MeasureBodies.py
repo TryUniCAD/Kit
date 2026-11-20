@@ -23,7 +23,9 @@ def measure_bodies(document, measured):
     aligned = len(by_name) == len(bodies) == len(expected) == len(set(names)) and set(names) == set(by_name)
     result = {"count_matches": len(bodies) == measured["body_count"], "unique_names_match": aligned, "bodies": {}}
     if not aligned:
-        return result
+        if len(expected) != 1 or len(bodies) != 1:
+            return result
+        by_name = {names[0]: bodies[0]}
     for body in expected:
         top = by_name[body["name"]].get("topology") or {}
         box = top.get("bounding_box") or {}
