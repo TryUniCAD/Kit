@@ -10,7 +10,8 @@ from bisect import bisect_right
 from collections import Counter, defaultdict
 import math
 
-from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames
+from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle
+from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars
 from convert.adapters.solidworks.Core.ParseDisplay import (
     KInformationStream,
     ParseDisplay,
@@ -51,9 +52,12 @@ def associate(archive, member, records):
             declarations[dim.name].append((feature.object_id, amount, tolerance, dim.kind, dim.source_text))
     if sum(len(declarations[r["name"]]) for r in records) > 2_000_000:
         return {"status": "comparison_limit"}
+    blob = archive.Require(member)
+    names = ParseNames(blob) if records else ()
+    scalars = {s.value_offset: s for s in ParseScalars(blob, names)}
     markers = []
     if member.endswith("-ResolvedFeatures"):
-        for item in ParseNames(archive.Require(member)):
+        for item in names:
             if item.name == identities.get(item.object_id):
                 markers.append((item.offset, item.object_id))
     markers.sort()
@@ -68,7 +72,8 @@ def associate(archive, member, records):
         matches = []
         for ident, expected, tolerance, kind, display in declarations[label]:
             exact = math.isclose(expected, record["value"], rel_tol=1e-12, abs_tol=1e-14)
-            if exact or abs(expected - record["value"]) <= tolerance:
+            rounded_angle = kind == "angle" and MatchesAngle(display, math.degrees(expected), math.degrees(record["value"]))
+            if exact or rounded_angle or abs(expected - record["value"]) <= tolerance:
                 matches.append({"id": ident, "kind": kind, "display": display,
                                 "agreement": "exact" if exact else "display_precision"})
         possible = [match["id"] for match in matches]
@@ -79,10 +84,17 @@ def associate(archive, member, records):
             if occurrences[ident] == 1 and possible.count(ident) == 1:
                 local = {"id": ident, "name": identities[ident], "marker_offset": start}
                 local_counts[(ident, label)] += 1
+        scalar = scalars.get(record["offset"])
+        trailer = None
+        if scalar and scalar.name == label and scalar.value == record["value"]:
+            trailer = {"role": scalar.role, "object_id": scalar.object_id,
+                       "operands": [{"offset": operand.offset, "kind_code": operand.kind_code,
+                                     "entity_index": operand.entity_index} for operand in scalar.operands]}
         rows.append(
-            {**record, "candidate_feature_ids": possible, "declaration_matches": matches, "preceding_candidate": local}
+            {**record, "native_trailer": trailer, "candidate_feature_ids": possible, "declaration_matches": matches, "preceding_candidate": local}
         )
     counts = Counter()
+    roles = defaultdict(Counter)
     for row in rows:
         possible, local = row["candidate_feature_ids"], row["preceding_candidate"]
         rounded = any(m["agreement"] == "display_precision" for m in row["declaration_matches"])
@@ -101,10 +113,12 @@ def associate(archive, member, records):
             status = "ambiguous"
         row["ownership_status"] = status
         counts[status] += 1
+        roles[(row["native_trailer"] or {}).get("role", "unparsed")][status] += 1
     return {
         "status": "compared",
         "configuration_id": configs[0].configuration_id,
         "counts": dict(counts),
+        "role_counts": {role: dict(group) for role, group in roles.items()},
         "records": rows,
     }
 
@@ -126,6 +140,8 @@ def native_comparisons(root, pin, members):
             for member, details in members.items():
                 for row in details.get("ownership", {}).get("records", []):
                     owner = row["preceding_candidate"]
+                    if (row.get("native_trailer") or {}).get("role") == "display":
+                        continue
                     if owner is None or row["ownership_status"] not in {
                         "declaration_and_marker_agree",
                         "marker_disambiguation_hypothesis",

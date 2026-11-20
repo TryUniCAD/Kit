@@ -307,3 +307,5 @@ See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthE
 [Complementary depth discovery](../Changes/Research/Inference/ComplementaryDepthBindings.md) explains the extra controlled variations and independent replays.
 
 [SolidWorks scalar display precision](../Changes/Research/Inference/SolidWorksScalarPrecision.md) covers rounded declarations and diameter and radius dimensions.
+
+[Native scalar record roles](../Changes/Research/Inference/ScalarRecordRoles.md) distinguish driving records, display values and unclassified trailers.
