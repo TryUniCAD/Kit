@@ -73,7 +73,7 @@ jobs:
 
   codec-promotion:
     if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'pull_request')
+      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
     needs: pr-ci-reuse
     name: Qualify reader and writer patches
     runs-on: ubuntu-24.04
