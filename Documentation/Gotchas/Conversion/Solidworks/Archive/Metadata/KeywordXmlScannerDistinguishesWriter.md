@@ -6,8 +6,8 @@ The keyword writer uses `QName` in its tag validation and calls
 `tostring` on an existing tree. Both operations run without parsing
 XML input.
 
-Keep the import-level exception restricted to these two writer
-symbols. Route untrusted XML input through the existing hardened
+Use the named-tree serializer at the existing SOLIDWORKS XML
+boundary. Untrusted XML input still goes through the hardened
 reader. The fresh-process cases cover exact QName serialization and
 refusal of both sentinel tag types.
 [Scan job](https://github.com/TryUniCAD/Kit/actions/runs/44710841788/job/136201809268)

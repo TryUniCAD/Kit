@@ -1,6 +1,7 @@
 from typing import cast as CastValue
 from xml.etree.ElementTree import Element
-from xml.etree.ElementTree import QName, tostring as XmlBytes  # noqa: DUO107
+
+from convert.adapters.solidworks.Core.Native import SerializeKeywordXml
 
 
 # part and drawing keyword owners share verified native utf eight framing while preserving their distinct empty element formatting
@@ -13,15 +14,7 @@ def FrameKeywords(RootValue: Element, CompactTags: bool) -> bytes:
         raise ValueError(
             "native keyword framing requires content inside the keyword root"
         )
-    if any(
-        not isinstance(CastValue(object, NodeValue.tag), (str, QName))
-        for NodeValue in RootValue.iter()
-    ):
-        raise ValueError("native keyword framing requires named elements")
-    PayloadValue = CastValue(
-        bytes, XmlBytes(RootValue, encoding="utf-8", short_empty_elements=True)
-    )
-    PayloadValue = PayloadValue.replace(b"\r", b"&#13;")
+    PayloadValue = SerializeKeywordXml(RootValue).replace(b"\r", b"&#13;")
     if CompactTags:
         PayloadValue = PayloadValue.replace(b" />", b"/>")
     return b'\x86<?xml version="1.0" encoding="UTF-8"?>\r\n' + PayloadValue + b"\r\n"

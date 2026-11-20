@@ -17,15 +17,19 @@ byte for byte. Its source SHA-256 is
 `8a487d9c9f5a18eb09438ebc26c9bd31ef40a12e95e44e642032b94a878634f0`.
 Its one-file manifest SHA-256 is
 `0fc16240b0a5be45846576ed7681c0f979ce2e8e3bb8579f4ea1472d059e45aa`.
-The delivered single production file
+The delivered framing file
 [`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
-`8f3db0df6487060a6f6f0acadf22edb8cc25d20caf6b4a181c6dc177cbe15d7b`
-and its one-file manifest SHA-256 is
-`0a2a0c2ab9f7b955ee6e3b2caef904dbe85ad208aa164f1e4aae1e1aecb77e67`.
+`efa0548895dcbc356f5039cb359f5dfbaa92ae306e783c46bd10b6b4eedf8aad`.
+The named-tree serializer sits beside the existing hardened reader in
+[`Core/Native.py`](../../../src/convert/adapters/solidworks/Core/Native.py),
+SHA-256 `2713f3b59b8c19791fe4aaffca5da691371b40613ede314f59c33c6120a4823c`.
+The two-file manifest SHA-256 is
+`9f34e06f0ae5d7298fde4b04707853da71928992f96cf0b3a9aa54657f9f2274`.
 Each manifest hashes the repository-relative path followed by a NUL,
-the lowercase file SHA-256 and a newline. Production imports use
-the Python standard library.
+the lowercase file SHA-256 and a newline. XML serialization uses
+the Python standard library through the existing SOLIDWORKS XML
+boundary.
 
 ## Framing and serialization
 
@@ -107,9 +111,9 @@ sources. The fresh-process declarations were parsed as source.
 The first merge candidate failed strict Pyright on its runtime tag
 guard and dlint on the XML writer imports. The guard checks the
 runtime tag as an object because the element type annotation does not
-cover comments and processing instructions. The import exception
-covers only `QName` and `tostring`, which construct names and serialize
-an existing element tree. Scoped Pyright and dlint pass on the repair.
+cover comments and processing instructions. The writer reuses the
+existing ElementTree boundary and introduces no scanner suppression.
+Scoped Pyright and dlint pass on the repair.
 [Pyright run](https://github.com/TryUniCAD/Kit/actions/runs/44710841579)
 [Scan job](https://github.com/TryUniCAD/Kit/actions/runs/44710841788/job/136201809268)
 [XML serialization gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordXmlScannerDistinguishesWriter.md)
