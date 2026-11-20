@@ -295,3 +295,5 @@ For known native captures, the single-input command [selects measured controls a
 For an unrecognized ZIP package, inspect [member structure and cross-file references](../Changes/Research/Inference/UnknownArchiveMembers.md).
 
 [Native FreeCAD input](../Changes/Research/Inference/FreeCadFileResearch.md) also runs the neutral feature reader and compares matching recorded controls.
+
+See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthEdits.md) when the embedded model is stale.

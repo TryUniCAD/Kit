@@ -139,6 +139,15 @@ def file_scope(path, application, scratch, root, control_paths=()):
              "diagnostics": document.get("diagnostics", {}).get("$tuple", []),
              "whole_file_verified": False}
     if application == "freecad":
+        message = attempts.get("strict", {}).get("message", "")
+        if not document and message.startswith("FreeCAD inline native controls require unsupported edit reconciliation:"):
+            from InferenceGrid.FreeCadDepthEdits import depth_edits
+            try:
+                changes = depth_edits(read_file(source, 128 * 1024 * 1024))
+            except ValueError as error:
+                reports["native-edits"] = {"status": "unresolved", "reason": str(error)[:512]}
+            else:
+                reports["native-edits"] = {"status": "compared", "changes": changes, "source_sha256": pin}
         from runpy import run_path
         cases = run_path(str(root / "re/FreeCad/Verification/Cases.py"))["KCases"]
         for case in cases.values():
