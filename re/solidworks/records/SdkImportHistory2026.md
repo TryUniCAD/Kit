@@ -44,6 +44,12 @@ feature field `f3d0.f18` to mark 3. The SDK reads both transmits and checks
 the mark chain. Typed research readback re-emits the complete stream
 byte for byte. [Numeric receipt](../measurements/2026/SdkImportHistory01.json)
 
+The complete part research builder now uses the SDK history bytes and the
+returned marks directly. At their original measured logical destinations
+all four previously accepted imports and their 48 streams reproduce the
+same bytes with zero runtime reads.
+[Integrated part receipt](../measurements/2026/SdkImportHistoryPartBuild01.json)
+
 The constructor and shared rollback encoder refuse 14 out-of-profile
 requests. The checks include another archive version, missing or reordered
 events, a second attachment, a preceding world with an active mark or body,

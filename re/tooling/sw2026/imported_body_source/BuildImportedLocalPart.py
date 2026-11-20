@@ -28,6 +28,8 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.BindImportMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartBaseMut import MakePartBaseMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartHeaders import MakePartHeaders
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import MakePartDef
+from convert.adapters.solidworks.Archive.Partition.ImportHistory.ImportEvent import ImportEvent
+from convert.adapters.solidworks.Archive.Partition.ImportHistory.MakeImportHist import MakeImportHist
 from convert.adapters.solidworks.Archive.Partition.LocalWrite.EncodeLocalXmt import EncodeLocalXmt
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
@@ -221,9 +223,8 @@ def make_part(document, destination, mode, completed=False, *, feature_name=DEFA
     recipe = replace(recipe, OutputValue=SelfFileInput(destination, EPOCH), PropertiesValue=properties)
     allocator = PersistentIds()
     system = MakePartBaseMut(recipe, labels, allocator)
-    marks, partition = empty_local_history()
-    feature, atom_id = BindImportMut(
-        system, allocator, recipe.TargetValue, labels.FeatureName, (marks.activation.mark_id, marks.selected.mark_id))
+    history = MakeImportHist(recipe.TargetValue.FileVersion, (ImportEvent.KActivation, ImportEvent.KLocalAttach))
+    feature, atom_id = BindImportMut(system, allocator, recipe.TargetValue, labels.FeatureName, history.MarkIds)
     if "kit.sw2026.ambient" in document.metadata:
         light = AmbientInput(**document.metadata["kit.sw2026.ambient"])
         AttachAmbientMut(system.RootValue, light, recipe.TargetValue, allocator, EPOCH)
@@ -242,7 +243,7 @@ def make_part(document, destination, mode, completed=False, *, feature_name=DEFA
         nodes = make_nodes(document.brep)
         require_closed_unattributed(nodes)
     raw = EncodeLocalXmt(tuple(XmtNode(node.index, node.kind, node.fields) for node in nodes))
-    streams = make_streams(system, feature, recipe, headers, labels, LocalBody(labels.FeatureName, raw), partition)
+    streams = make_streams(system, feature, recipe, headers, labels, LocalBody(labels.FeatureName, raw), history.BytesValue)
     return BuildSldprt(streams, FormatVersion=4), streams
 
 
