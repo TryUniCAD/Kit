@@ -62,6 +62,8 @@ def file_scope(path, application, scratch, root):
     features = {}
     unresolved = []
     timeline = document.get("feature_timeline", {}).get("$tuple", [])
+    from InferenceGrid.RectangleScope import driving_rectangles
+    rectangles = driving_rectangles(document)
     for step in timeline:
         definition = step.get("definition") or {}
         operation = (step.get("operation") or {}).get("value")
@@ -72,6 +74,8 @@ def file_scope(path, application, scratch, root):
                 route = "family:extrude:cut-extrude"
             elif operation in {"create", "join"} and (definition.get("$type") == "DistanceExtrude" or termination == "blind"):
                 route = "api:adsk.fusion.ExtrudeFeature" if application == "fusion" else "family:extrude:boss-base-extrude"
+        if step.get("sketch_id") in rectangles and step["kind"]["value"] in ("reference", "sketch"):
+            route = "family:sketchdimensions:driving-dimension"
         if route:
             features[route] = {"plan_id": digest([pin, route]), "route": DescribeRecipe(FeatureRecipes[route])}
         else:
@@ -103,7 +107,7 @@ def file_scope(path, application, scratch, root):
         if cursor < size:
             gaps.append([name, cursor, size])
     audit = {"source_sha256": pin, "source_name": path.name, "format": format_id, "reader_attempts": attempts,
-             "member_count": len(members), "unattributed_stream_ranges": gaps,
+             "rectangle_driving_parameters": rectangles, "member_count": len(members), "unattributed_stream_ranges": gaps,
              "features_without_experiment": unresolved, "selected_experiments": sorted(features),
              "diagnostics": document.get("diagnostics", {}).get("$tuple", []),
              "whole_file_verified": False}

@@ -237,3 +237,5 @@ The dimension scan covers numbered configuration streams and their resolved-feat
 The SOLIDWORKS dimension report includes saved equations from numbered configuration streams. For a sum or difference of two named dimensions divided by a positive integer, it replays the expression using the recovered native values. Across sibling edit-and-restore measurements it tests both signs and divisors 1 through 16. The strongest result requires independent changes to each operand, a unique surviving operation, and agreement with a held-out export's vendor measurements and equation text.
 
 Equation replay requires the configuration's relation-manager count to agree with the recovered list and the six-byte relation trailer to match. Numeric global literals include their explicit unit when present. These checks establish saved record framing, not vendor regeneration.
+
+The file-driven run selects the existing P01 paired experiment when a sketch contains a single closed axis-aligned rectangular profile and at least two linked driving length constraints. FileScope.json records the sketch and driving parameter IDs used for dispatch.
