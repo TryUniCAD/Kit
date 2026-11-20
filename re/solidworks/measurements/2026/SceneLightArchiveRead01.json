@@ -1,0 +1,305 @@
+{
+  "cases": {
+    "One": {
+      "children": [
+        {
+          "class": "moAmbientLight_c",
+          "end_offset": 21202,
+          "index": 74,
+          "name": "Ambient",
+          "native_f08": 12,
+          "properties": {
+            "n": 0,
+            "props": []
+          },
+          "schema": 1,
+          "start_offset": 20911
+        },
+        {
+          "class": "moDirectionLight_c",
+          "end_offset": 21545,
+          "index": 77,
+          "name": "Directional1",
+          "native_f08": 13,
+          "properties": {
+            "n": 0,
+            "props": []
+          },
+          "schema": 1,
+          "start_offset": 21202
+        }
+      ],
+      "configuration_sha256": "37f4d4c35de98d6458e4947a145de43ac697ea0f61919087297d66240bde635f",
+      "replayed_streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "8cdb65891e38dcae7cfaaf1dae2ad0dbf4da5e381774071d141599396a55142e"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "ca28af72ba8b372e6ff36f7c9e10e9bcb09b97652d27fb1410cd1e120f33dbe9"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 24930,
+          "sha256": "37f4d4c35de98d6458e4947a145de43ac697ea0f61919087297d66240bde635f"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2613,
+          "sha256": "b23696b22d5506fa59e9f3393b0aa7e4edfcf0ca014b9890ffee95ce97cf5f67"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14628,
+          "sha256": "163d9f7023208a0d437a96777ee1e789e6be198dec9f2864903c27b3b2a3bb69"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2613,
+          "sha256": "b23696b22d5506fa59e9f3393b0aa7e4edfcf0ca014b9890ffee95ce97cf5f67"
+        }
+      },
+      "scene": {
+        "class": "moEnvFolder_c",
+        "end_offset": 21668,
+        "index": 71,
+        "name": "Lights and Cameras",
+        "native_f08": 6,
+        "schema": 1,
+        "start_offset": 20822
+      },
+      "source_sha256": "b2772eebfd9f11038f72c76fe3a6ace4b9cd45373425f75921be45174943edb7"
+    },
+    "Properties": {
+      "bad_kinds": [
+        {
+          "diagnostic": "unsupported SOLIDWORKS native field path user property kind",
+          "kind_word_offset": 21513
+        },
+        {
+          "diagnostic": "unsupported SOLIDWORKS native field path user property kind",
+          "kind_word_offset": 21521
+        },
+        {
+          "diagnostic": "unsupported SOLIDWORKS native field path user property kind",
+          "kind_word_offset": 21529
+        }
+      ],
+      "children": [
+        {
+          "class": "moAmbientLight_c",
+          "end_offset": 21202,
+          "index": 74,
+          "name": "Ambient",
+          "native_f08": 12,
+          "properties": {
+            "n": 0,
+            "props": []
+          },
+          "schema": 1,
+          "start_offset": 20911
+        },
+        {
+          "class": "moDirectionLight_c",
+          "end_offset": 21589,
+          "index": 77,
+          "name": "Directional1",
+          "native_f08": 13,
+          "properties": {
+            "n": 3,
+            "props": [
+              {
+                "kind": 0,
+                "v": 0.375
+              },
+              {
+                "kind": 1,
+                "v": -73
+              },
+              {
+                "kind": 2,
+                "v": "frame-\u03bb-21"
+              }
+            ]
+          },
+          "schema": 1,
+          "start_offset": 21202
+        },
+        {
+          "class": "moDirectionLight_c",
+          "end_offset": 21910,
+          "index": 79,
+          "name": "Directional2",
+          "native_f08": 14,
+          "properties": {
+            "n": 0,
+            "props": []
+          },
+          "schema": 1,
+          "start_offset": 21589
+        }
+      ],
+      "configuration_sha256": "39643d67ddeeb16733e0f198ba7c7ac79d663e213798916bd66e6dd93e6bd917",
+      "properties_wire": {
+        "rows": {
+          "n": 3,
+          "props": [
+            {
+              "kind": 0,
+              "v": 0.375
+            },
+            {
+              "kind": 1,
+              "v": -73
+            },
+            {
+              "kind": 2,
+              "v": "frame-\u03bb-21"
+            }
+          ]
+        },
+        "sha256": "21d2b9b2a930cf37417c11486aa6a9ffc131de2bc26f3049c44194d5374579a5",
+        "wide_characters": 10,
+        "window": [
+          21509,
+          21557
+        ]
+      },
+      "replayed_streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "3ac0b6dee34246aa3e571f684458cc5a4e247501615d253ab73d5dc67f569a13"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "ae7b654ce80e637de4bb7621449dbdb86ac98df64c57f89d1c68a957ec46520a"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25295,
+          "sha256": "39643d67ddeeb16733e0f198ba7c7ac79d663e213798916bd66e6dd93e6bd917"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2583,
+          "sha256": "a72b8bd80eb2d5f8dce99944efee957c5bcccb58073e987a731f3a6088b4b056"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14628,
+          "sha256": "de469c1e238d8eb3543859bded88b1c17590e03f1440bdfa6f942af9213a02d1"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2583,
+          "sha256": "a72b8bd80eb2d5f8dce99944efee957c5bcccb58073e987a731f3a6088b4b056"
+        }
+      },
+      "scene": {
+        "class": "moEnvFolder_c",
+        "end_offset": 22033,
+        "index": 71,
+        "name": "Lights and Cameras",
+        "native_f08": 6,
+        "schema": 1,
+        "start_offset": 20822
+      },
+      "source_sha256": "e9100de35950b69eb0397ae86d28b800809c2bcfdc440a7f2a54c6b80c8db1c5"
+    },
+    "Two": {
+      "children": [
+        {
+          "class": "moAmbientLight_c",
+          "end_offset": 21202,
+          "index": 74,
+          "name": "Ambient",
+          "native_f08": 12,
+          "properties": {
+            "n": 0,
+            "props": []
+          },
+          "schema": 1,
+          "start_offset": 20911
+        },
+        {
+          "class": "moDirectionLight_c",
+          "end_offset": 21545,
+          "index": 77,
+          "name": "Directional1",
+          "native_f08": 13,
+          "properties": {
+            "n": 0,
+            "props": []
+          },
+          "schema": 1,
+          "start_offset": 21202
+        },
+        {
+          "class": "moDirectionLight_c",
+          "end_offset": 21866,
+          "index": 79,
+          "name": "Directional2",
+          "native_f08": 14,
+          "properties": {
+            "n": 0,
+            "props": []
+          },
+          "schema": 1,
+          "start_offset": 21545
+        }
+      ],
+      "configuration_sha256": "c0c25d72f1085f184aefdbc6a3cd61d72a2c3ebb0bc1697463af346f981dd54b",
+      "replayed_streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "77a3fc88ba2eec2bfdc77874751388fe5d6c46d003a8b69cdee15598de636e3e"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "475e1c5f119012e1e0461c834f2e97f948394b11e719805d46306d9a35fc71d4"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25251,
+          "sha256": "c0c25d72f1085f184aefdbc6a3cd61d72a2c3ebb0bc1697463af346f981dd54b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2583,
+          "sha256": "2f515996721921cd532ea36b194417269030f5b70591407dd3b053f8ce44dded"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14628,
+          "sha256": "6c1d7b249fee07fea101bc3443a9b684e8686792f0262e8fa2a29a4e521637e1"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2583,
+          "sha256": "2f515996721921cd532ea36b194417269030f5b70591407dd3b053f8ce44dded"
+        }
+      },
+      "scene": {
+        "class": "moEnvFolder_c",
+        "end_offset": 21989,
+        "index": 71,
+        "name": "Lights and Cameras",
+        "native_f08": 6,
+        "schema": 1,
+        "start_offset": 20822
+      },
+      "source_sha256": "287f64869f8d037ebf3c92712453440e3f162beb6d1ac9226afd215d965b7dba"
+    }
+  },
+  "heldout_coverage": 0,
+  "native_files_written": 0,
+  "production_conversion_coverage": 0,
+  "sealed_payloads_read": 0
+}

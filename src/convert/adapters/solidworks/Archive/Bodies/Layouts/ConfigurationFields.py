@@ -3,6 +3,9 @@ from types import MappingProxyType
 from convert.adapters.solidworks.Archive.Bodies.Layouts.MassPropFields import (
     KMassPropFields,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.UserPropFields import (
+    KUserPropFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # native field order is shared by both archive directions without document supplied programs
@@ -714,38 +717,7 @@ KConfigurationFields = MappingProxyType(
                 OtherName="ndc8_lo",
             ),
         ),
-        "moUserProperty_c.restore": (
-            NativeField(
-                "Array",
-                "props",
-                "i32",
-                BodyValue=(
-                    NativeField("Scalar", "kind", "u32"),
-                    NativeField(
-                        "Branch",
-                        "kind",
-                        BodyValue=(NativeField("Scalar", "v", "f32"),),
-                        ModeValue="Equals",
-                    ),
-                    NativeField(
-                        "Branch",
-                        "kind",
-                        BodyValue=(NativeField("Scalar", "v", "i32"),),
-                        ModeValue="Equals",
-                        MaskValue=1,
-                    ),
-                    NativeField(
-                        "Branch",
-                        "kind",
-                        BodyValue=(NativeField("Text", "v"),),
-                        ModeValue="Equals",
-                        MaskValue=2,
-                    ),
-                ),
-                CountValue="n",
-                ModeValue="Positive",
-            ),
-        ),
+        "moUserProperty_c.restore": KUserPropFields,
         "moVisualProperties_c": (NativeField("Base", "moVisualProperties_c.restore"),),
         "moVisualProperties_c.restore": (
             NativeField("Scalar", "f0c", "u32"),
