@@ -156,6 +156,7 @@ class Supervisor:
         self.windows_claims = claiming and sys.platform == "win32" and config["controller"].get("adapter") == "a03"
         self.advice_options = None
         self.catalogue_handoffs = None
+        self.catalogue_pause_path = None
         self.codex_budget = 0
         self.codex_executor = None
         self.claim_error = None
@@ -662,6 +663,8 @@ class Supervisor:
         self.budget.refresh(self.running)
         started = time.monotonic()
         last_work = started
+        catalogue_paused = False
+        handoffs_started = False
         while True:
             now = time.time()
             self.capacity.begin_pass()
@@ -681,12 +684,26 @@ class Supervisor:
             if self.stopping or (max_seconds is not None and time.monotonic() - started >= max_seconds):
                 break
             self.queue_due_application_acks()
+            requested_pause = (
+                self.catalogue_pause_path is not None
+                and self.catalogue_pause_path.is_file()
+            )
+            if requested_pause and not catalogue_paused:
+                self.report("catalogue_paused", None, {})
+            catalogue_paused = requested_pause
+            if (
+                not catalogue_paused
+                and not handoffs_started
+                and self.catalogue_handoffs is not None
+            ):
+                self.catalogue_handoffs.Start()
+                handoffs_started = True
             native_pending = (
                 self.catalogue_handoffs is not None
                 and self.catalogue_handoffs.Poll(self.report)
             )
             if (
-                self.fill(paused)
+                (not catalogue_paused and self.fill(paused))
                 or self.running
                 or self.application_acks
                 or self.application_ack_retries
@@ -694,7 +711,10 @@ class Supervisor:
                 or native_pending
             ):
                 last_work = time.monotonic()
-            elif idle_seconds is not None and time.monotonic() - last_work >= idle_seconds:
+            elif (
+                idle_seconds is not None
+                and time.monotonic() - last_work >= idle_seconds
+            ):
                 break
             time.sleep(self.config["poll"])
         self.capacity.retire()
@@ -762,6 +782,7 @@ def main():
     running.add_argument("--idle-seconds", type=float)
     running.add_argument("--max-seconds", type=float)
     running.add_argument("--catalogue-handoffs", type=Path)
+    running.add_argument("--catalogue-pause-file", type=Path, help=argparse.SUPPRESS)
     running.add_argument("--reserved-memory-mib", type=int, metavar="MIB")
     running.add_argument(
         "--codex-on-stall", nargs="?", type=int, const=16, metavar="MAX_CALLS"
@@ -793,6 +814,7 @@ def main():
                     args.reserved_memory_mib
                 )
             supervisor = Supervisor(config, True)
+            supervisor.catalogue_pause_path = args.catalogue_pause_file
             if args.catalogue_handoffs is not None:
                 from InferenceGrid.CatalogueHandoffs import ReadHandoffs
 

@@ -21,11 +21,16 @@ sys.path[:0] = [
 
 from CodexAdvice.AdviceOptions import add_options, read_options
 from Corpus import git
-from InferenceGrid.CatalogueBatch import KMaxBatchWorkers, RunCatalogueBatch
+from InferenceGrid.CatalogueBatch import (
+    KMaxBatchWorkers,
+    ResumeCatalogue,
+    RunCatalogueBatch,
+)
+from InferenceGrid.CatalogueRuntime import PauseCatalogue
 from InferenceGrid.FeatureCatalogue import ReadCatalogue
 from InferenceGrid.FeatureFusionCatalogue import ReadFusionCatalogue
 from Records import bounded, canonical, label
-from Supervisor import bound_memory_reserve
+from Supervisor import Busy, bound_memory_reserve
 
 
 # a single invocation owns catalogue planning and execution through its private controller
@@ -35,6 +40,15 @@ def MainRun():
         allow_abbrev=False,
     )
     Parser.add_argument("--directory", required=True, type=Path)
+    Mode = Parser.add_mutually_exclusive_group()
+    Mode.add_argument(
+        "--pause",
+        action="store_true",
+        help="Let active jobs finish and stop taking new jobs",
+    )
+    Mode.add_argument(
+        "--resume", action="store_true", help="Continue a prepared catalogue directory"
+    )
     Parser.add_argument("--solidworks-catalogue", type=Path)
     Parser.add_argument("--solidworks-sha256")
     Parser.add_argument("--fusion-catalogue", type=Path)
@@ -45,7 +59,9 @@ def MainRun():
         "--batch-format", choices=("fusion", "solidworks"), help=SUPPRESS
     )
     Parser.add_argument("--fusion-sha256")
-    Parser.add_argument("--max-seconds", type=int, default=1200)
+    Parser.add_argument(
+        "--max-seconds", type=int, help="Run time limit (new run default: 1200)"
+    )
     Parser.add_argument(
         "--workers",
         type=int,
@@ -76,45 +92,43 @@ def MainRun():
         Promotion = (Args.codec_request, Args.codec_image, Args.codec_output)
         if (any(Promotion) or Args.codec_candidate) and not all(Promotion):
             raise ValueError("codec promotion requires request, image and output")
-        Reserve = (
-            None
-            if Args.reserved_memory_mib is None
-            else bound_memory_reserve(Args.reserved_memory_mib)
-        )
-        Advice = read_options(Args)
-        if Advice is not None and os.name != "posix":
-            raise ValueError("decoder advice requires macOS or Linux")
-        Catalogues = ReadRunInputs(Args)
-        Native = ReadNativeOptions(Args)
-        if Args.native_ready and Native is None:
-            raise ValueError("--native-ready requires the native worker configuration")
+        if Args.pause and Args.codec_request:
+            raise ValueError("codec promotion requires a running or resumed catalogue")
         SourceRoot = Path(__file__).resolve().parents[3]
-        Revision = git(SourceRoot, "rev-parse", "HEAD").decode("ascii").strip()
-        Outcome = RunCatalogueBatch(
-            Args.directory.resolve(),
-            SourceRoot,
-            Revision,
-            Catalogues,
-            bounded(Args.max_seconds, 1, 86400),
-            Native,
-            Advice,
-            Reserve=Reserve,
-            Workers=KMaxBatchWorkers if Args.workers is None else Args.workers,
-            NativeReady=Args.native_ready,
-        )
-        if Args.codec_request:
+        Directory = Args.directory.resolve()
+        if Args.pause or Args.resume:
+            CheckSavedArgs(Args)
+            if Args.pause:
+                sys.stdout.buffer.write(
+                    (
+                        canonical(
+                            PauseCatalogue(Directory, SourceRoot, Args.batch_format)
+                        )
+                        + "\n"
+                    ).encode("utf-8")
+                )
+                return 0
+            Outcome = ResumeCatalogue(
+                Directory,
+                SourceRoot,
+                Args.batch_format,
+                Args.max_seconds,
+                Args.native_ready,
+            )
+        else:
+            Outcome = StartNewRun(Args, SourceRoot)
+        if Args.codec_request and Outcome["status"] in {"completed", "coverage_incomplete"}:
             from CodecPatch import promote_scope
             Outcome["codec_patch"] = promote_scope(Args, Outcome)
         Output = canonical(
-            {
-                **Outcome,
-                "result": str(Args.directory.resolve() / "CatalogueResult.json"),
-            }
+            {**Outcome, "result": str(Directory / "CatalogueResult.json")}
         )
         sys.stdout.buffer.write((Output + "\n").encode("utf-8"))
-        return {"completed": 0, "coverage_incomplete": 2, "failed": 1}[
+        return {"completed": 0, "coverage_incomplete": 2, "paused": 0, "failed": 1}[
             Outcome["status"]
         ]
+    except Busy:
+        Parser.exit(1, "catalogue run is already active\n")
     except (
         OSError,
         ValueError,
@@ -125,6 +139,61 @@ def MainRun():
         subprocess.SubprocessError,
     ) as Error:
         Parser.exit(1, f"catalogue run refused: {Error}\n")
+
+
+# saved runs use the original inputs and runtime settings without making new claims
+def CheckSavedArgs(Args):
+    if any(
+        value is not None
+        for value in (
+            Args.catalogue,
+            Args.solidworks_catalogue,
+            Args.solidworks_sha256,
+            Args.fusion_catalogue,
+            Args.fusion_sha256,
+            Args.workers,
+            Args.reserved_memory_mib,
+            Args.native_config,
+            Args.native_kind,
+            Args.native_resource,
+            Args.advisor,
+            Args.auth,
+            Args.model,
+            Args.advice_calls,
+        )
+    ) or (Args.pause and (Args.native_ready or Args.max_seconds is not None)):
+        raise ValueError(
+            "use the saved run directory without new input or worker options"
+        )
+
+
+# new batches turn explicit input options into a reusable prepared run
+def StartNewRun(Args, SourceRoot):
+    Reserve = (
+        None
+        if Args.reserved_memory_mib is None
+        else bound_memory_reserve(Args.reserved_memory_mib)
+    )
+    Advice = read_options(Args)
+    if Advice is not None and os.name != "posix":
+        raise ValueError("decoder advice requires macOS or Linux")
+    Catalogues = ReadRunInputs(Args)
+    Native = ReadNativeOptions(Args)
+    if Args.native_ready and Native is None:
+        raise ValueError("--native-ready requires the native worker configuration")
+    Revision = git(SourceRoot, "rev-parse", "HEAD").decode("ascii").strip()
+    return RunCatalogueBatch(
+        Args.directory.resolve(),
+        SourceRoot,
+        Revision,
+        Catalogues,
+        bounded(1200 if Args.max_seconds is None else Args.max_seconds, 1, 86400),
+        Native,
+        Advice,
+        Reserve=Reserve,
+        Workers=KMaxBatchWorkers if Args.workers is None else Args.workers,
+        NativeReady=Args.native_ready,
+    )
 
 
 # both input formats retain their own source identities and optional pins
