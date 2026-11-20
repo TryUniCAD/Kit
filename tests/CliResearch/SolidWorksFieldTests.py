@@ -177,3 +177,20 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
     assert {Row["feature_id"] for Row in Repeated} == {109, 127}
     assert len({tuple(Row["verified_location"]) for Row in Repeated}) == 2
     assert all(abs(Row["radius_m"] * 2000 - 10.16) < 1e-9 for Row in Repeated)
+    Angles = [Row for Row in Dimensions if Row["status"] == "held_out_owner_anchor"]
+    assert {(Row["feature_id"], Row["verified_location"][1]) for Row in Angles} == {
+        (178, 163267),
+        (291, 242847),
+    }
+    assert all(Row["anchors"] == {"object_id_delta": -1} for Row in Angles)
+    (Controls,) = [
+        Group
+        for Group in Fields["owner_anchor_controls"]
+        if Group["key"] == ["Chamfer", "D2", "angle"]
+    ]
+    assert len({Row["value"] for Row in Controls["samples"]}) >= 2
+    assert len({Row["stream_sha256"] for Row in Controls["samples"]}) >= 2
+    assert all(
+        Row["stream_sha256"] != Fields["input_stream_sha256"]
+        for Row in Controls["samples"]
+    )

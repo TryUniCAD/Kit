@@ -46,7 +46,7 @@ def records(streams, wanted):
             scalars[markers[i][1], s.name].append(s)
     display = ParseDisplay(streams.get(KInformationStream, b""))
     rows = []
-    for i, (_, owner) in enumerate(markers):
+    for i, (start, owner) in enumerate(markers):
         f = owners[owner]
         if f.kind not in wanted or occurrences[owner] != 1:
             continue
@@ -64,7 +64,7 @@ def records(streams, wanted):
                 continue
             scalar = SelectNamedField(scalars[owner, d.name])
             if scalar is not None and scalar.value_offset + 8 <= end:
-                rows.append((group, owner, expected, scalar, end, d.source_text))
+                rows.append((group, owner, expected, scalar, start, end, d.source_text))
     return stream, data, rows
 
 
@@ -84,8 +84,8 @@ def discover_fields(root, streams, document, pin):
     unresolved.update(f.object_id for f in features if f.object_id not in known)
     wanted = defaultdict(set)
     for f in features:
-        if f.object_id in unresolved:
-            wanted[f.kind].update((f.kind, d.name, d.kind) for d in f.dimensions)
+        wanted[f.kind].update((f.kind, d.name, d.kind) for d in f.dimensions)
+    fallback_keys = {(f.kind, d.name, d.kind) for f in features if f.object_id in unresolved for d in f.dimensions}
     target = records(streams, wanted)
     if not target:
         return None
@@ -94,9 +94,10 @@ def discover_fields(root, streams, document, pin):
         return {"input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": 0,
                 "rules": [], "predictions": [], "unresolved_fields": [
                     {"key": key, "reason": "no_unique_named_scalar_in_input", "training_observations": 0}
-                    for key in sorted({k for keys in wanted.values() for k in keys})]}
+                    for key in sorted(fallback_keys)]}
     seen = {hashlib.sha256(data).hexdigest()}
     samples = defaultdict(list)
+    anchor_samples = defaultdict(list)
     candidates = {}
     folder = "re/solidworks/examples"
     files = subprocess.check_output(["git", "-C", root, "ls-tree", "-rz", "--name-only", "HEAD", "--", folder])
@@ -125,14 +126,17 @@ def discover_fields(root, streams, document, pin):
         if fingerprint in seen:
             continue
         seen.add(fingerprint)
-        for key, owner, expected, scalar, end, _ in training:
+        for key, owner, expected, scalar, start, end, _ in training:
+            anchor_samples[key].append({"file_sha256": digest, "stream_sha256": fingerprint, "feature_id": owner,
+                                        "value": scalar.value, "offset": scalar.value_offset, "owner_start": start,
+                                        "owner_end": end, "scalar_object_id": scalar.object_id, "expected_value": expected})
             if expected == 0 or not math.isclose(scalar.value, expected, rel_tol=1e-10, abs_tol=1e-14):
                 continue
             pos = scalar.value_offset
-            limit = min(end, pos + 2048)
             signature = set()
             for sign in (1, -1):
                 word = struct.pack("<d", sign * scalar.value)
+                limit = min(end, pos + 2048)
                 at = blob.find(word, pos + 8, limit)
                 while at != -1:
                     signature.add((at-pos, sign))
@@ -148,14 +152,14 @@ def discover_fields(root, streams, document, pin):
         if len({s["file_sha256"] for s in sample_rows}) < 2 or len({s["value"] for s in sample_rows}) < 2:
             continue
         copies = sorted(candidates[key])
-        if not copies or any(b[0]-a[0] < 8 for a,b in zip(copies,copies[1:])):
+        if key not in fallback_keys or not copies or any(b[0]-a[0] < 8 for a,b in zip(copies,copies[1:])):
             continue
         rules.append({"key": key, "copies": copies, "samples": sample_rows})
-        for group, owner, expected, scalar, end, text in rows:
+        for group, owner, expected, scalar, start, end, text in rows:
             if group != key or owner not in unresolved:
                 continue
             pos = scalar.value_offset
-            if pos+copies[-1][0]+8 > end:
+            if pos+copies[0][0] < start or pos+copies[-1][0]+8 > end:
                 continue
             mirrors = [struct.unpack_from("<d", data, pos+off)[0]*sign for off,sign in copies]
             if scalar.value == 0 or any(value != scalar.value for value in mirrors):
@@ -164,9 +168,29 @@ def discover_fields(root, streams, document, pin):
                                 "native_value": scalar.value, "copy_offsets": [pos+off for off,_ in copies],
                                 "display_text": text, "keyword_matches": (MatchesAngle(text, math.degrees(expected), math.degrees(scalar.value))
                                 if key[2] == "angle" else math.isclose(scalar.value, expected, rel_tol=1e-12, abs_tol=1e-14))})
+    anchored = []
+    for key, owner, expected, scalar, start, end, text in rows:
+        observations = anchor_samples.get(key, [])
+        if len({s["stream_sha256"] for s in observations}) < 2 or len({s["value"] for s in observations}) < 2:
+            continue
+        if any(not math.isclose(s["expected_value"], s["value"], rel_tol=1e-10, abs_tol=1e-14) for s in observations):
+            continue
+        anchors = {}
+        for boundary, offset in (("owner_start", start), ("owner_end", end)):
+            differences = {s["offset"] - s[boundary] for s in observations}
+            if differences == {scalar.value_offset - offset}:
+                anchors[boundary] = scalar.value_offset - offset
+        if scalar.object_id is not None and all(s["scalar_object_id"] is not None for s in observations):
+            shifts = {s["scalar_object_id"] - s["feature_id"] for s in observations}
+            if shifts == {scalar.object_id - owner}:
+                anchors["object_id_delta"] = scalar.object_id - owner
+        if anchors and scalar.value != 0 and math.isclose(scalar.value, expected, rel_tol=1e-12, abs_tol=1e-14):
+            anchored.append({"key": key, "feature_id": owner, "stream": stream, "scalar_offset": scalar.value_offset,
+                             "native_value": scalar.value, "anchors": anchors, "display_text": text,
+                             "sample_group": list(key)})
     accepted = {r["key"] for r in predictions if r["keyword_matches"]}
     gaps = []
-    for key in sorted({key for keys in wanted.values() for key in keys} - accepted):
+    for key in sorted(fallback_keys - accepted):
         observations = samples.get(key, [])
         if not any(group == key for group, *_ in rows):
             reason = "no_unique_named_scalar_in_input"
@@ -179,11 +203,12 @@ def discover_fields(root, streams, document, pin):
         else:
             reason = "no_qualified_held_out_match"
         gaps.append({"key": key, "reason": reason, "training_observations": len(observations)})
-    return {"unresolved_fields": gaps, "input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": scanned,
+    return {"owner_anchor_predictions": anchored, "owner_anchor_controls": [{"key": key, "samples": anchor_samples[key]}
+            for key in sorted({r["key"] for r in anchored})], "unresolved_fields": gaps, "input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": scanned,
             "rules": rules, "predictions": predictions}
 
 
-def mirrored_parameter_matches(param, prediction):
+def native_parameter_matches(param, prediction):
     angular = prediction["key"][2] == "angle"
     native = prediction["native_value"]
     value = param["value"]

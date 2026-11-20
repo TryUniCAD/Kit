@@ -8,7 +8,7 @@
 
 from InferenceGrid.SolidWorksExtrusionDepths import extrusion_depths
 from InferenceGrid.SolidWorksFeatureCounts import feature_counts
-from InferenceGrid.SolidWorksFieldDiscovery import mirrored_parameter_matches
+from InferenceGrid.SolidWorksFieldDiscovery import native_parameter_matches
 from InferenceGrid.SolidWorksProfileFields import profile_fields
 from InferenceGrid.SolidWorksPatternCounts import count_matches_parameter, pattern_counts
 
@@ -217,18 +217,32 @@ def keyword_evidence(streams, discovered, document, root, pin, fields):
             counts[row["status"]] -= 1
             row.update(status="verified_profile_radius", **geometry)
             counts[row["status"]] += 1
-    for prediction in fields["predictions"]:
+    for prediction in (fields or {}).get("predictions", []):
         key = prediction["feature_id"], prediction["key"][1]
         matches, params = keyed_rows[key], projected.get(key, [])
         if len(matches) != 1 or len(params) != 1 or not prediction["keyword_matches"]:
             continue
         row = matches[0]
         if (row["status"] not in {"no_matching_record", "ambiguous"} or row["display_text"] != prediction["display_text"]
-                or not mirrored_parameter_matches(params[0], prediction)):
+                or not native_parameter_matches(params[0], prediction)):
             continue
         counts[row["status"]] -= 1
         row.update(status="verified_mirrored_dimension", reader_span_matches=True, copy_offsets=prediction["copy_offsets"],
                    verified_location=(prediction["stream"], prediction["scalar_offset"]))
+        counts[row["status"]] += 1
+    for prediction in (fields or {}).get("owner_anchor_predictions", []):
+        key = prediction["feature_id"], prediction["key"][1]
+        matches, params = keyed_rows[key], projected.get(key, [])
+        if len(matches) != 1 or len(params) != 1:
+            continue
+        row = matches[0]
+        location = (prediction["stream"], prediction["scalar_offset"])
+        if (row["status"] != "ambiguous" or location not in row["candidate_locations"]
+                or not native_parameter_matches(params[0], prediction)):
+            continue
+        counts[row["status"]] -= 1
+        row.update(status="held_out_owner_anchor", reader_span_matches=True, verified_location=location,
+                   anchors=prediction["anchors"], sample_group=prediction["sample_group"])
         counts[row["status"]] += 1
     proposals = ownership_hypotheses(rows, features, streams[resolved], resolved) if resolved in streams else None
     extrusions = extrusion_depths(root, streams[resolved], features, pin, rows, projected, resolved) if resolved in streams else None

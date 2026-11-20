@@ -259,3 +259,5 @@ For repeated SOLIDWORKS dimensions, inspect `keyword_evidence.extrusion_depth_ev
 For unresolved SOLIDWORKS features, inspect `discovered_feature_fields` in `Input-dimension-evidence.json`. The decoder searches for mirrored scalar fields for the input's own feature types and dimensions. A successful strict reader replay can produce `MirroredFields.patch` and `Input-mirrored-field-reader.json`.
 
 For repeated SOLIDWORKS diameters, inspect the owning sketch, scalar offset, and measured center and rim in [sketch dimension evidence](../Changes/Research/Inference/SolidWorksProfileDimensionEvidence.md). Rounded angles can also report a verified mirror with its exact reader offset.
+
+For dimensions with repeated values across different features, [owner anchors](../Changes/Research/Inference/SolidWorksOwnerAnchors.md) record the independently observed relationship used to select a source span.

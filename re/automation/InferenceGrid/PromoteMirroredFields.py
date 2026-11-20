@@ -15,7 +15,7 @@ import subprocess
 import sys
 
 from convert.adapters.solidworks.Core.BindMirroredField import KMirroredFields
-from InferenceGrid.SolidWorksFieldDiscovery import mirrored_parameter_matches
+from InferenceGrid.SolidWorksFieldDiscovery import native_parameter_matches
 from InferenceInputs import read_file
 
 
@@ -61,7 +61,7 @@ def promote_fields(root, source, scratch, env, document, discovery):
                 return None
             continue
         r = targets[key]
-        if key in checked or not mirrored_parameter_matches(new, r):
+        if key in checked or not native_parameter_matches(new, r):
             return None
         checked.add(key)
     if checked != targets.keys():
