@@ -1,3 +1,12 @@
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import (
+    ParIntCur,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.SweepPaths import LawPath
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.SweepPaths import PathHead
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.SweepRecords import (
+    SweepProfile,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.SweepRecords import SweepSur
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.ConeFrame import ConeFrame
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumFrame import FrustumFrame
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumHistory import (
@@ -84,6 +93,11 @@ from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismTags import PrismTags
 
 # the boundary representation types order must stay explicit so public document claims remain grounded in native records
 KBrepTypes: tuple[type[object], ...] = (
+    ParIntCur,
+    LawPath,
+    PathHead,
+    SweepProfile,
+    SweepSur,
     CurveContext,
     ExactIntCur,
     IntcurveNode,

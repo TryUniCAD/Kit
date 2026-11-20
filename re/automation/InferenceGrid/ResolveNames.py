@@ -63,7 +63,7 @@ def advance_names(native, original_message, source, root, scratch):
         entry, identity, name = entries[0], types[0], classes[0]
         base = entry["BaseGuid"].upper()
         version = entry["SchemaVersion"]
-        if (entry["ClassSpace"] != "Fusion" or (identity["base_identifier"] or "").upper() != base
+        if (not entry["ClassSpace"] or entry["ClassSpace"] != identity["addin"] or (identity["base_identifier"] or "").upper() != base
             or identity["version"] != version or identity["name"] != name + "MetaType"
             or not re.fullmatch(r"[A-Za-z][A-Za-z0-9_]{0,127}", name)
             or sum(c["class"].split("::")[-1] == name for c in labels["classes"]) != 1):
@@ -74,7 +74,7 @@ def advance_names(native, original_message, source, root, scratch):
             break
         if not staging.exists():
             shutil.copytree(root / "src", staging / "src", ignore=shutil.ignore_patterns("__pycache__"))
-        names[guid] = [name, version, base]
+        names[guid] = [name, version, base, entry["ClassSpace"]]
         candidate = json.dumps(names, sort_keys=True, indent=2) + "\n"
         (staging / VOCABULARY).write_text(candidate, encoding="utf-8")
         env = {**os.environ, "PYTHONDONTWRITEBYTECODE": "1", "PYTHONPATH": os.pathsep.join(map(str, (staging / "src", root / "Cli")))}

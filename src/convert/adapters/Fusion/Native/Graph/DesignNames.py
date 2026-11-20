@@ -17,6 +17,10 @@ def DesignNames(Segment: ParsedSegment) -> dict[str, str]:
     for Entry in Segment.Metadata.Classes:
         Guid = Entry.ClassGuid.upper()
         Row = Names.get(Guid)
-        if Row and Row[1:] == [Entry.SchemaVersion, Entry.BaseGuid.upper()]:
+        if Row and Row[1:] == [
+            Entry.SchemaVersion,
+            Entry.BaseGuid.upper(),
+            Entry.ClassSpace,
+        ]:
             Result[Guid] = str(Row[0])
     return Result
