@@ -411,7 +411,7 @@ def prove(selected):
     from ProofModels import AUTHORED
 
     head = check_output(("git", "rev-parse", "HEAD"), cwd=REPO, text=True).strip()
-    require(head == BASE, "use the exact scoped cold shape baseline")
+    fingerprints = {name: sha256((HERE.parent / name).read_bytes()).hexdigest() for name in FILES}
     phases = {}
     requests = {**AUTHORED, **dict.fromkeys(REFUSALS, AUTHORED["disclosed-initial"])}
     for mode, values in requests.items():
@@ -455,13 +455,16 @@ def prove(selected):
     for case in AUTHORED:
         for solid in ("untouched", "selected_before_cut", "cut_result"):
             phases[case]["result"][solid].pop("points_mm")
+    require(
+        check_output(("git", "rev-parse", "HEAD"), cwd=REPO, text=True).strip() == head
+        and all(sha256((HERE.parent / name).read_bytes()).hexdigest() == digest for name, digest in fingerprints.items()),
+        "the geometry implementation changed during verification",
+    )
     return {
         "schema": "kit.sw2026.cold-two-stock-neutral-shape.v1",
-        "baseline": head,
-        "tool_sha256": {
-            name: sha256((HERE.parent / name).read_bytes()).hexdigest()
-            for name in FILES
-        },
+        "baseline": BASE,
+        "implementation_head": head,
+        "tool_sha256": fingerprints,
         "source_read_after_all_generation": True,
         "selected_comparison_sha256": DISCLOSED,
         "native_receipt_sha256": NATIVE_MEASURES,
