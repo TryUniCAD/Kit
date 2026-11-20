@@ -22,6 +22,13 @@ not current capability.
 
 ## Generative 2026 research
 
+Four disclosed [principal-plane boss revolves](measurements/2026/SdkPrincipalRevolveNative01.json)
+match their native source shapes and reported feature trees through
+open, live D1 edit, save and fresh reopen. Both controls pass
+across ten distinct processes. The guarded SDK preparation uses
+authored neutral documents and no runtime input reads. These
+native discovery cases add zero FCStd conversions.
+
 The default planar assembly trial opens the generated parent and child,
 applies a mate dimension edit,
 saves both files and opens them again in a fresh process. Four native

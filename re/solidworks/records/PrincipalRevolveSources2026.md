@@ -83,6 +83,19 @@ an unrelated axis origin and a direction perpendicular to the
 selected line.
 [Guarded builder](../../tooling/sw2026/revolve/PrincipalWriter/BuildPrincipalRevolves.py) · [Preparation receipt](../measurements/2026/SdkPrincipalRevolvePreparation01.json)
 
+All four disclosed generated parts open with one solid before
+explicit rebuild and zero opening errors or warnings. Their live
+D1 edits rebuild, save and reopen in fresh processes. All 19
+reported top-level tree rows and the selected axis match the
+corresponding native source in all three lifecycle observations.
+Body count matches exactly. All 72 mass, volume, area and
+centre-of-mass values match to six significant figures, with a
+`10^-12` metre zero threshold for centre-of-mass components.
+Both controls pass across ten distinct processes. These
+disclosed cases supply preparation evidence while the two new
+held-out sources remain sealed.
+[Native comparison](../measurements/2026/SdkPrincipalRevolveNative01.json) · [Comparison tool](../../tooling/sw2026/revolve/PrincipalWriter/ComparePrincipalRevolves.py)
+
 ## Oracle procedure
 
 The preparation helper must run in the same Windows guest as the

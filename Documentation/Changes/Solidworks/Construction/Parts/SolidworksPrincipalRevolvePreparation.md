@@ -21,3 +21,9 @@ measured streams re-emitted exactly. Strict readback recovered the
 closed solids, actual sketch support and live angle. Four unsupported
 support and axis variants refused before output.
 [Preparation receipt](../../../../../re/solidworks/measurements/2026/SdkPrincipalRevolvePreparation01.json) · [Disclosed controls and sealed inputs](../../../../../re/solidworks/records/PrincipalRevolveSources2026.md)
+
+The four disclosed generated parts also passed native open,
+rebuild, D1 edit, save and fresh reopen, with both controls
+healthy. All reported top-level features and 72 numeric values
+matched the disclosed sources at the measured precision.
+[Native lifecycle](../../../../../re/solidworks/measurements/2026/SdkPrincipalRevolveNative01.json)
