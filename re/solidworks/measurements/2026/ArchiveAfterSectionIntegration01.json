@@ -1,0 +1,200 @@
+{
+  "archive_full_receipt_sha256": "fe2b798c4f057e4812554d1a6b6bda24afefb5c98118f8129c3dd24f84eed7cb",
+  "assemblies": 8,
+  "canonical_main": "dbfbb09cbe8576b275b01487b8e195d6b00e08be",
+  "codec_revision": "b2d9000a6b008d84f9f153899f8a345d5536cdf7",
+  "complete_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 88
+  },
+  "counts_by_stream": {
+    "Contents/CMgr": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/CMgrHdr2": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-MatesList": {
+      "attempts": 8,
+      "exact_without_raw": 8,
+      "exact_without_tail": 8,
+      "proven_typed_exact": 8,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-ModelHeader": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-ResolvedFeatures": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/CusProps": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Definition": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/eModelLic": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Header2": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "ModelStamps": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "SwDocContentMgr/SwDocContentMgrInfo": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "ThirdPtyStore/VisualStates": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_DL_VERSION_19000/DLUpdateStamp": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_MO_VERSION_19000/Biography": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_MO_VERSION_19000/History": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    }
+  },
+  "heldout_inputs_read": 0,
+  "missing_schema_incidence": {},
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "parts": 80,
+  "provisional_schema_incidence": {},
+  "public_legacy_guarded_processes": 7,
+  "public_two_stock": {
+    "a": {
+      "bytes": 8641,
+      "candidate_sha256": "38ec26ec4786b85e6fa987071afc4ee37084a9136e48ea2a5db1604b82f18203",
+      "native_transfers": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "request_sha256": "dc4d3ac46202f0bdbe0b4c8acee2d84375c416e45e8ca4196f28cf7f2fba5228",
+      "routes": 2,
+      "runtime_input_file_reads": 0,
+      "streams": 10,
+      "strict_sdk_bodies": 2
+    },
+    "b": {
+      "bytes": 8647,
+      "candidate_sha256": "8e8aaa954813f77e20c408f9876ecbffd47a622c1b65494e70ecf099a3c9a5f6",
+      "native_transfers": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "request_sha256": "ce0cb7c98f1854b72679949d058ae387c279fbc36ddf995a42aa991849f70e57",
+      "routes": 2,
+      "runtime_input_file_reads": 0,
+      "streams": 10,
+      "strict_sdk_bodies": 2
+    }
+  },
+  "public_two_stock_receipt_sha256": "c48e40bca3bd78ce0a2753483a466ab462cca412b1d819ed9339115d45993a86",
+  "schema": "kit.sw2026.integrated-archive-sections.v1",
+  "script_sha256": "37ca0e6b06e93fd05ced6725f890d40700cab1f7703b032680a4aa250fc6bafa",
+  "section_and_field_runtime_external_accesses": 0,
+  "section_and_field_workers": 6,
+  "source_files": 88,
+  "source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "source_tree": "f6830bfd53fc99747c91ca4a3cd7eead3915d6ee",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1328
+  }
+}

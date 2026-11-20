@@ -32,4 +32,12 @@ python3.14 -I -B re/tooling/sw2026/planar_registry/RecoverPlanarRegistryReadback
   --packet "$PLANAR_PACKET" --output "$PLANAR_RECOVERY"
 ```
 
-The host recovery receipt hash is `e1bfbdd16ae433dddd7e454daed897cd3418b5af25e3f578c78bd6df37f6cf3c`. This is readback evidence for the disclosed default-registry fixture. Prior original inputs read, new held-out credits and generated FCStd corpus credits are zero. The exact guest SDK rerun and A20/A21 prior-cohort regression remain separate.
+The [host recovery receipt](../measurements/2026/SdkPlanarRegistryReadbackRecovery01.json)
+has SHA-256 `e1bfbdd16ae433dddd7e454daed897cd3418b5af25e3f578c78bd6df37f6cf3c`.
+The [guest recovery](../measurements/2026/SdkPlanarRegistryReadbackRecovery02.json)
+ran the same isolated reader under Windows Python 3.12.7. It reproduced the
+full semantic and presentation comparison and all 13 exact streams.
+Both processes read the unchanged saved pair and recorded zero CAD
+imports. This covers the disclosed default-registry fixture. Prior
+original inputs read, new held-out credits and FCStd corpus credits
+are zero. The A20/A21 prior-cohort comparison remains open.

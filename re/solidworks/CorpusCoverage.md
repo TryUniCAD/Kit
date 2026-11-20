@@ -22,6 +22,14 @@ not current capability.
 
 ## Generative 2026 research
 
+The default planar assembly trial opens the generated parent and child,
+applies a mate dimension edit,
+saves both files and opens them again in a fresh process. Four native
+processes pass 360 checks and both controls are healthy. Fresh macOS
+and Windows SDK processes preserve the mates and three child dimensions
+and replay 13 saved streams exactly. The disclosed neutral pair adds
+zero FCStd corpus cases. [Planar registry native trial](records/SdkPlanarRegistryReadbackRecovery2026.md)
+
 The [generated concentric persistence trial](measurements/2026/ConcentricPersistenceNative01.json)
 passes clean open, live depth editing, paired save and fresh reopen under the ordinary application
 preference. Both controls pass across four distinct processes and the generated parent retains
