@@ -305,3 +305,5 @@ See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthE
 [Derived extrusion readers](../Changes/Research/Inference/DerivedDepthGraphReader.md) capture replayed native-to-graph bindings in Reader.patch.
 
 [Complementary depth discovery](../Changes/Research/Inference/ComplementaryDepthBindings.md) explains the extra controlled variations and independent replays.
+
+[SolidWorks scalar display precision](../Changes/Research/Inference/SolidWorksScalarPrecision.md) covers rounded declarations and diameter and radius dimensions.

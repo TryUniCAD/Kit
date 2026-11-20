@@ -41,11 +41,14 @@ def associate(archive, member, records):
                 continue
             if dim.kind == "angle":
                 amount = math.radians(dim.value_mm)
-            elif dim.kind == "length" and scale is not None:
+            elif dim.kind in {"length", "diameter", "radius"} and scale is not None:
                 amount = dim.value_mm * scale
             else:
                 continue
-            declarations[dim.name].append((feature.object_id, amount))
+            tolerance = 0.0
+            if dim.kind != "angle" and type(units.Decimals) is int and 0 <= units.Decimals <= 12:
+                tolerance = 0.5 * scale * 10 ** -units.Decimals
+            declarations[dim.name].append((feature.object_id, amount, tolerance, dim.kind, dim.source_text))
     if sum(len(declarations[r["name"]]) for r in records) > 2_000_000:
         return {"status": "comparison_limit"}
     markers = []
@@ -62,11 +65,13 @@ def associate(archive, member, records):
     local_counts = Counter()
     for record in records:
         label = record["name"]
-        possible = [
-            ident
-            for ident, expected in declarations[label]
-            if math.isclose(expected, record["value"], rel_tol=1e-12, abs_tol=1e-14)
-        ]
+        matches = []
+        for ident, expected, tolerance, kind, display in declarations[label]:
+            exact = math.isclose(expected, record["value"], rel_tol=1e-12, abs_tol=1e-14)
+            if exact or abs(expected - record["value"]) <= tolerance:
+                matches.append({"id": ident, "kind": kind, "display": display,
+                                "agreement": "exact" if exact else "display_precision"})
+        possible = [match["id"] for match in matches]
         index = bisect_right(positions, record["offset"]) - 1
         local = None
         if index >= 0:
@@ -75,21 +80,23 @@ def associate(archive, member, records):
                 local = {"id": ident, "name": identities[ident], "marker_offset": start}
                 local_counts[(ident, label)] += 1
         rows.append(
-            {**record, "candidate_feature_ids": possible, "preceding_candidate": local}
+            {**record, "candidate_feature_ids": possible, "declaration_matches": matches, "preceding_candidate": local}
         )
     counts = Counter()
     for row in rows:
         possible, local = row["candidate_feature_ids"], row["preceding_candidate"]
+        rounded = any(m["agreement"] == "display_precision" for m in row["declaration_matches"])
         if local and local_counts[local["id"], row["name"]] == 1:
             status = (
-                "declaration_and_marker_agree"
+                "rounded_declaration_and_marker_agree" if rounded and len(possible) == 1
+                else "declaration_and_marker_agree"
                 if len(possible) == 1
                 else "marker_disambiguation_hypothesis"
             )
         elif not possible:
             status = "no_matching_declaration"
         elif len(possible) == 1:
-            status = "declaration_only"
+            status = "rounded_declaration_only" if rounded else "declaration_only"
         else:
             status = "ambiguous"
         row["ownership_status"] = status
@@ -122,6 +129,7 @@ def native_comparisons(root, pin, members):
                     if owner is None or row["ownership_status"] not in {
                         "declaration_and_marker_agree",
                         "marker_disambiguation_hypothesis",
+                        "rounded_declaration_and_marker_agree",
                     }:
                         continue
                     expected = observed[owner["name"], row["name"]]
