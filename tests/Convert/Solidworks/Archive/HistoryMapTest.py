@@ -1,7 +1,7 @@
 from tests.Convert.Solidworks.Archive.RunHistoryCase import RunHistoryCase
 
 
-# deleting a state moves the surviving date object to the first emitted map slot for that class
+# stale alias maps can point compiled history at a deleted state even when replay bytes match
 def TestHistoryMap() -> None:
     ReportValue = RunHistoryCase("renumbered")
     assert ReportValue["source_slots"] == [4, 5]
