@@ -34,6 +34,8 @@ def CheckSwReceipts(TmpPath: FilePath) -> None:
     assert NativeReport["action"]
     assert NativeReport["portable_complete"] is False
     assert NativeReport["conversion_qualified"] is False
+    assert NativeReport["full_semantics_verified"] is False
+    assert "constraint_operands" in NativeReport["semantic_gaps"]
     for FileName in ("document.json", "receipt.json"):
         assert (Direct / FileName).read_bytes() == (Bridged / FileName).read_bytes()
     CheckReceipt(Bridged)
