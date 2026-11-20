@@ -7,7 +7,8 @@
 # to you under it immediately and permanently.
 
 from InferenceGrid.Authoring.ReadCases import MakeCase
-from Records import canonical
+from InferenceGrid.Authoring.GridCandidates import GridCandidates
+from math import isfinite
 
 
 # parameter ladders vary one driving quantity while keeping every other native input fixed
@@ -26,14 +27,9 @@ def ExpandCaseGrid(Selected, ModeValue, GridValue):
             if NameValue != "program"
         }
         for NameValue, Original in sorted(CaseValue["parameters"].items()):
-            Accepted = {canonical(Original)}
-            Changes = (
-                [Original * Factor for Factor in (0.7, 1.3, 0.85, 1.15, 0.5, 1.5)]
-                if Original != 0
-                else [1.0, -1.0, 0.1, -0.1, 10.0, -10.0]
-            )
-            for Changed in Changes:
-                if canonical(Changed) in Accepted:
+            Accepted = {Original}
+            for Changed in GridCandidates(CaseValue, NameValue):
+                if not isfinite(Changed) or Changed in Accepted:
                     continue
                 try:
                     Candidate = MakeCase(
@@ -52,7 +48,7 @@ def ExpandCaseGrid(Selected, ModeValue, GridValue):
                 except ValueError:
                     continue
                 Expanded.append(Candidate)
-                Accepted.add(canonical(Changed))
+                Accepted.add(Changed)
                 if len(Accepted) == 3:
                     break
             if len(Accepted) != 3:
