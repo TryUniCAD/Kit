@@ -18,3 +18,9 @@ The corrected evaluator loaded the canonical datum labels from the original auth
 Both native controls passed with executable SHA-256 `3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe`. Four guarded generations and two strict SDK reads reported zero external accesses. The generated cold documents preserve both solids and the selected Front cut. Both source hashes stayed intact. This recheck qualifies the original two locks for this neutral writer profile. It adds zero new source locks and zero FCStd conversions. The first mismatch remains linked above. [Corrected native receipt](../measurements/2026/TwoStockWriterHoldoutNative02.json)
 
 Combined receipt SHA-256 is `6b39921b4959e3662f886def026c55240227f8aab37d3246206bcf02ab8cbb7a`.
+
+## Exact saved-source SDK reads
+
+The four archived native inputs also pass strict SDK reading on the same pinned source tree. Each independent original and its generated, edited, native-saved derivative recovers two editable extrusion owners, a depthless through cut and two physically bound B-rep bodies. All eight driving values match the measured COM values. The typed SDK history contains 30 rows on each original and 31 on each edited native derivative. The separate native application tree comparison retains all 29 visible rows. [Saved-source receipt](../measurements/2026/TwoStockHeldoutSavedRead01.json)
+
+The deterministic research CLI verifies Git-owned assets. For these VM-private files, the transport verified the four exact native record digests and passed the bytes only to isolated ordinary SDK read processes on stdin. The guarded reader performed zero runtime data-file reads. The readback supplies no additional native or held-out acceptance credit. [Readback procedure](../../tooling/sw2026/throughsource/twostockgraph/AuditTwoStockSavedSources01.py)
