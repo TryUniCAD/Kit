@@ -15,7 +15,7 @@ The supervisor adjusts its worker count as resource conditions change.
 It uses the memory above the configured reserve and the workers' measured and estimated needs.
 
 Use `--workers N` to set an upper bound on offline workers. Use `--workers 1` to run jobs in series.
-Both the supervisor and the controller use this ceiling.
+The supervisor uses this ceiling for the offline pool. A mixed pipeline shares the controller job capacity.
 Each active offline catalogue worker holds one job claim.
 The optional native stage uses its supplied worker configuration and CAD application ownership rules.
 

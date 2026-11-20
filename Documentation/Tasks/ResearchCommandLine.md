@@ -137,7 +137,12 @@ Kit still requires enough available memory for each worker's estimated demand.
 
 Kit automatically runs independent offline jobs in parallel when memory and CPU are available.
 Use `--workers N` to cap the number of offline workers.
-Set `--workers 1` for a serial run. Native CAD workers follow their own supervisor configuration.
+Set `--workers 1` for a serial offline run. Native CAD workers follow their own supervisor configuration.
+
+With a configured native worker, a reviewed capture can start while independent offline jobs run.
+The capture still needs its prerequisite assessment and a licensed application session.
+Once the application owner has prepared its worker, use `--native-ready` to allow dispatch.
+See the [catalogue native handoff](../Changes/Research/Controller/DeterministicInference.md#run-both-complete-catalogue-inventories).
 
 Read `CatalogueResult.json` for completed and blocked entries. Exit status 2 means coverage remains incomplete.
 Read `State/decoder-advice/<receipt>/Advice.json` for suggestions produced during the offline batch stage.

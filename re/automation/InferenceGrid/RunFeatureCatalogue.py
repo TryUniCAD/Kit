@@ -61,6 +61,11 @@ def MainRun():
     Parser.add_argument("--native-config", type=Path)
     Parser.add_argument("--native-kind")
     Parser.add_argument("--native-resource")
+    Parser.add_argument(
+        "--native-ready",
+        action="store_true",
+        help="Mark the configured application resource ready in this run's new store",
+    )
     add_options(Parser)
     Args = Parser.parse_args()
     try:
@@ -74,6 +79,8 @@ def MainRun():
             raise ValueError("decoder advice requires macOS or Linux")
         Catalogues = ReadRunInputs(Args)
         Native = ReadNativeOptions(Args)
+        if Args.native_ready and Native is None:
+            raise ValueError("--native-ready requires the native worker configuration")
         SourceRoot = Path(__file__).resolve().parents[3]
         Revision = git(SourceRoot, "rev-parse", "HEAD").decode("ascii").strip()
         Outcome = RunCatalogueBatch(
@@ -86,6 +93,7 @@ def MainRun():
             Advice,
             Reserve=Reserve,
             Workers=KMaxBatchWorkers if Args.workers is None else Args.workers,
+            NativeReady=Args.native_ready,
         )
         Output = canonical(
             {

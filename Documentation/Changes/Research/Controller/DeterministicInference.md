@@ -129,8 +129,14 @@ waiting evidence, and exit status 1 indicates a run failure.
 
 For the P04 native evidence step on a configured Fusion host, supply
 `--native-config`, `--native-kind` and `--native-resource`. That supervisor
-configuration must use this run's `Store` directory. It runs after the
-offline assessments and reuses the standard Fusion owner restart procedure.
+configuration must use this run's `Store` directory.
+The catalogue combines the offline and native pools in one local supervisor.
+When the reviewed cut assessment records that it needs evidence, Kit queues the
+native phases while independent offline jobs continue.
+Use `--native-ready` only when the application owner has prepared its worker.
+You can also set the resource available in the controller during the run.
+The phases retain the standard Fusion owner restart procedure.
+Read `PipelineSupervisor.log` and `NativeHandoffResult.json` for the handoff and worker status.
 
 ### Run one discovery scope
 

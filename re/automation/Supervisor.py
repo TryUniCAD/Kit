@@ -155,6 +155,7 @@ class Supervisor:
         self.linux_oom_observer = linux_oom_observer
         self.windows_claims = claiming and sys.platform == "win32" and config["controller"].get("adapter") == "a03"
         self.advice_options = None
+        self.catalogue_handoffs = None
         self.codex_budget = 0
         self.codex_executor = None
         self.claim_error = None
@@ -332,10 +333,21 @@ class Supervisor:
             self.queue_application_rearm(rearm_path, rearm_intent, False)
         elif stale is False and rearm_error is not None:
             self.report("application_rearm_failed", session, {"error": rearm_error})
-        if (stale is False and self.codex_executor is not None
-                and (session.spec["kind"], outcome) in {
-                    ("inference.fields", "completed"), ("inference.paired-gap", "waiting_evidence")
-                }):
+        if (
+            stale is False
+            and outcome == "waiting_evidence"
+            and self.catalogue_handoffs is not None
+        ):
+            self.catalogue_handoffs.Notify(session.spec["id"])
+        if (
+            stale is False
+            and self.codex_executor is not None
+            and (session.spec["kind"], outcome)
+            in {
+                ("inference.fields", "completed"),
+                ("inference.paired-gap", "waiting_evidence"),
+            }
+        ):
             from CodexAdvice.Suggest import decoder_packet
 
             try:
@@ -633,6 +645,8 @@ class Supervisor:
                     self.codex_executor.shutdown()
                 self.acknowledger.shutdown(cancel_futures=True)
                 self.report_application_acks()
+                if self.catalogue_handoffs is not None:
+                    self.catalogue_handoffs.Close(self.report)
 
     def run_sessions(self, idle_seconds, max_seconds):
         signal.signal(signal.SIGTERM, self.shutdown)
@@ -667,7 +681,18 @@ class Supervisor:
             if self.stopping or (max_seconds is not None and time.monotonic() - started >= max_seconds):
                 break
             self.queue_due_application_acks()
-            if self.fill(paused) or self.running or self.application_acks or self.application_ack_retries or settled:
+            native_pending = (
+                self.catalogue_handoffs is not None
+                and self.catalogue_handoffs.Poll(self.report)
+            )
+            if (
+                self.fill(paused)
+                or self.running
+                or self.application_acks
+                or self.application_ack_retries
+                or settled
+                or native_pending
+            ):
                 last_work = time.monotonic()
             elif idle_seconds is not None and time.monotonic() - last_work >= idle_seconds:
                 break
@@ -736,6 +761,7 @@ def main():
     running = commands.add_parser("run")
     running.add_argument("--idle-seconds", type=float)
     running.add_argument("--max-seconds", type=float)
+    running.add_argument("--catalogue-handoffs", type=Path)
     running.add_argument("--reserved-memory-mib", type=int, metavar="MIB")
     running.add_argument(
         "--codex-on-stall", nargs="?", type=int, const=16, metavar="MAX_CALLS"
@@ -767,6 +793,18 @@ def main():
                     args.reserved_memory_mib
                 )
             supervisor = Supervisor(config, True)
+            if args.catalogue_handoffs is not None:
+                from InferenceGrid.CatalogueHandoffs import ReadHandoffs
+
+                if config["controller"].get("adapter") != "a03":
+                    raise ValueError(
+                        "catalogue handoffs require the built-in A03 controller"
+                    )
+                supervisor.catalogue_handoffs = ReadHandoffs(
+                    args.catalogue_handoffs,
+                    args.config.resolve(),
+                    supervisor.adapter.store,
+                )
             options = read_options(args)
             if args.codex_on_stall is not None and options is not None:
                 raise ValueError("use either --codex-on-stall or --advisor")
