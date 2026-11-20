@@ -13,4 +13,4 @@ No local tests ran.
 The integration cases await remote acceptance execution.
 These changes do not establish lossless conversion or vendor acceptance.
 
-The [Black exclusion gotcha](../../../Gotchas/Tooling/BlackCoreExclusion.md) explains why Core paths were checked through standard input.
+The [Black exclusion gotcha](../../../../Gotchas/Tooling/BlackCoreExclusion.md) explains why Core paths were checked through standard input.
