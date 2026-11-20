@@ -44,7 +44,7 @@ def TestWriteReject(TmpPath: FilePath) -> None:
         (
             "CountedClass",
             {"depth": 129, "counted": True, "new_terminal_class": True},
-            "SOLIDWORKS body nesting exceeds the supported depth",
+            "SOLIDWORKS body nesting exceeds the supported depth; archive state intact",
         ),
         (
             "EmptyClass",

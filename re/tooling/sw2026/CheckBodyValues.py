@@ -91,8 +91,41 @@ def reject_schema(*args):
     raise ValueError("the synthetic body values contain no nested schemas")
 
 
+def archive_state(writer):
+    maps = writer.MapValue
+    return (
+        bytes(writer.OutputValue),
+        maps.Snapshot(),
+        dict(maps.ClassLookup),
+        dict(maps.ObjectLookup),
+        writer.NestingDepth,
+    )
+
+
+def write_counted_overflow(frame, rule, node):
+    writer = frame.WriterValue
+    if writer.NestingDepth != 128 or node.ClassValue in writer.MapValue.ClassLookup:
+        raise ValueError("counted overflow requires a new class at depth 128")
+    before = archive_state(writer)
+    try:
+        WriteValueMut(frame, rule)
+    except ValueError as error:
+        if archive_state(writer) != before:
+            raise ValueError(
+                "counted overflow changed output or archive slots"
+            ) from error
+        raise ValueError(f"{error}; archive state intact") from None
+
+
 def write_fields(frame, fields):
     for rule in fields:
+        value = frame.ScopeValue.FieldsValue.get(rule.NameValue)
+        if (
+            isinstance(value, ArchiveNode)
+            and value.ClassValue.NameValue == "ExtraRowDepth"
+        ):
+            write_counted_overflow(frame, rule, value)
+            continue
         apply_field = WriteArrayMut if rule.KindValue == "Array" else WriteValueMut
         apply_field(frame, rule)
 
