@@ -62,6 +62,7 @@ def ProjectTree(
                 tuple(RowsValue),
                 MembersValue,
                 HelpersValue,
+                TwoStocks=TwoStocks,
             )
             if TwoStocks:
                 return ReplaceValue(

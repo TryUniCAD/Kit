@@ -17,10 +17,18 @@ def CheckThruRows(
     RootsValue: tuple[ArchiveNode, ...],
     MembersValue: tuple[ArchiveNode, ...],
     HelpersValue: tuple[Mapping[str, object], ...],
+    *,
+    TwoStocks: bool = False,
 ) -> None:
-    if len(MembersValue) != 6 or tuple(Value["class"] for Value in HelpersValue) != (
-        "moPrtExplViewManager_c",
-    ):
+    FieldsValue = LinkValue.ConfigValue.RootValue.FieldsValue
+    HelperKinds: tuple[str, ...] = ("moPrtExplViewManager_c",)
+    if TwoStocks and FieldsValue.get("f1014") == 1:
+        MasterValue = RequireNative(FieldsValue.get("f1018"), "moSheetMetalMaster_c")
+        if MasterValue.IndexValue is not None:
+            raise ValueError("embedded sheet-metal master carries archive map identity")
+        HelperKinds = ("moSheetMetalMaster_c", *HelperKinds)
+    ActualKinds = tuple(Value["class"] for Value in HelpersValue)
+    if len(MembersValue) != 6 or ActualKinds != HelperKinds:
         raise ValueError(
             "through-all source requires all actual persisted system owners"
         )

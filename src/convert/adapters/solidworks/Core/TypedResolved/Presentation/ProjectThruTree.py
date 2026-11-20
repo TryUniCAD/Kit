@@ -23,8 +23,12 @@ def ProjectThruTree(
     RowsValue: tuple[Mapping[str, object], ...],
     MembersValue: tuple[ArchiveNode, ...],
     HelpersValue: tuple[Mapping[str, object], ...],
+    *,
+    TwoStocks: bool = False,
 ) -> TreeProjection:
-    CheckThruRows(Model, LinkValue, RootsValue, MembersValue, HelpersValue)
+    CheckThruRows(
+        Model, LinkValue, RootsValue, MembersValue, HelpersValue, TwoStocks=TwoStocks
+    )
     return TreeProjection(
         tuple(Features[Value.object_id] for Value in Model.features),
         ThruTreeReport(Model, RootsValue, RowsValue, MembersValue, HelpersValue),
