@@ -66,22 +66,27 @@ def file_scope(path, application, scratch, root):
     rectangles = driving_rectangles(document)
     for step in timeline:
         definition = step.get("definition") or {}
-        operation = (step.get("operation") or {}).get("value")
+        operation = step.get("operation")
+        if isinstance(operation, dict):
+            operation = operation.get("value")
+        kind = step["kind"]
+        if isinstance(kind, dict):
+            kind = kind["value"]
         termination = definition.get("end_condition")
         if isinstance(termination, dict):
             termination = termination.get("value")
         route = None
-        if step["kind"]["value"] == "extrusion":
+        if kind == "extrusion":
             if operation == "cut" and termination == "through_all":
                 route = "family:extrude:cut-extrude"
             elif operation in {"create", "join"} and (definition.get("$type") == "DistanceExtrude" or termination == "blind"):
                 route = "api:adsk.fusion.ExtrudeFeature" if application == "fusion" else "family:extrude:boss-base-extrude"
-        if step.get("sketch_id") in rectangles and step["kind"]["value"] in ("reference", "sketch"):
+        if step.get("sketch_id") in rectangles and kind in ("reference", "sketch"):
             route = "family:sketchdimensions:driving-dimension"
         if route:
             features[route] = {"plan_id": digest([pin, route]), "route": DescribeRecipe(FeatureRecipes[route])}
         else:
-            unresolved.append({"id": step["id"], "kind": step["kind"]["value"], "name": step["name"]})
+            unresolved.append({"id": step["id"], "kind": kind, "name": step["name"]})
     members = reports.get("container", {}).get("members", [])
     intervals = defaultdict(list)
     pending = [document]
