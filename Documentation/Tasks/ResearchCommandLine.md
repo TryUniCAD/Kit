@@ -70,6 +70,8 @@ An unavailable API returns status `4` with instructions for the local machine.
 Failed or invalid native verification returns status `5`.
 Fusion decoding failures retain status `3`.
 The original decoding artifacts remain available after a verification failure.
+Older trusted checkouts also retain their decoding artifacts when they lack native verification support.
+The launcher reports that verification was not performed and returns status `4` after successful legacy decoding.
 
 For SOLIDWORKS, use Windows with its licensed registered COM API and `pywin32` in Kit's Python environment.
 For Fusion, run `kit research --root /path/to/KitPr94 api enable fusion`.

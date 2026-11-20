@@ -132,7 +132,8 @@ def VerifyBatch(root, application, samples, output):
             healthy = False
             report["controls"]["after"] = {"status": "failed", "error": str(error)[:2048]}
         try:
-            stable = all(FileHash(Path(path)) == pin for path, pin in sources.items())
+            current = {str(path): FileHash(path) for base in (root / "src", root / "re/automation/NativeAcceptance") for path in base.rglob("*.py")}
+            stable = sources == current
         except (OSError, ValueError):
             stable = False
         report["status"] = "invalid_batch" if not healthy or not stable else "passed" if not report.get("error") and report["cases"] and all(item["status"] == "passed" for item in report["cases"]) else "failed"

@@ -23,6 +23,6 @@ The verifier binds each request to the newly launched process PID, a nonce, a de
 The main-thread handler returns measurements before requesting shutdown of its own empty application process.
 Missing replies, process redirection, and retained documents leave verification incomplete.
 
-See [automatic native verification](../../../Changes/Research/Automation/AutomaticNativeReaderVerification.md).
+See [automatic native verification](../../../../Changes/Research/Automation/AutomaticNativeReaderVerification.md).
 This behavior was identified through API documentation and source inspection.
 Live startup and shutdown behavior remains unverified.
