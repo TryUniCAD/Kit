@@ -24,7 +24,9 @@ def CheckWinSweep(TmpPath: FilePath) -> None:
     )
     Manifest = JsonCodec.loads(ManifestPath.read_text(encoding="utf-8"))
     OutputPath = TmpPath / "Sweep"
-    Report = RunCalibration(ManifestPath, OutputPath)
+    Report = RunCalibration(
+        ManifestPath, OutputPath, TimeoutSeconds=4 * KSerialTrialSeconds + 60
+    )
     assert Report["completed_sweep"] is True, Report
     assert Report["recommended_concurrency"] is None
     InputHash = Manifest["bindings"]["source:calibration"]["sha256"]
