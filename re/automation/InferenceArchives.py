@@ -318,12 +318,13 @@ def archive_side(snapshot, specification, recipe, application):
     )
 
 
-def archive_cases():
+# a selected application can reuse the same pinned boss archive preparation
+def archive_cases(applications=FORMATS):
     snapshot = GitSnapshot(ROOT)
     specification = capture_spec(snapshot)
     recipe = recipe_roster(specification)["P03"]
     require(recipe["split"] == "discovery", "P03 inference split differs")
-    for application in FORMATS:
+    for application in applications:
         yield archive_side(snapshot, specification, recipe, application)
 
 

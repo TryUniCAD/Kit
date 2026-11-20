@@ -24,7 +24,7 @@ def MainEntry(ResearchRunner: Callable[[CliOptions], NoReturn] | None = None) ->
         Options.Source = Options.Source.expanduser()
         if Options.Destination is not None:
             Options.Destination = Options.Destination.expanduser()
-        if Options.Command == "research":
+        if Options.Command in ("research", "run"):
             if ResearchRunner is None:
                 raise ValueError("Run research with kit or python -m KitCli")
             ResearchRunner(Options)

@@ -23,6 +23,9 @@ from tempfile import TemporaryDirectory
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from Artifacts import Artifacts
+from CodexAdvice.ClaudeCall import call_claude
+from CodexAdvice.OllamaCall import call_ollama
+from CodexAdvice.ProviderEnv import provider_env
 from InferenceInputs import checksum
 from Records import canonical, digest, label, read_record
 from Sessions import write_private
@@ -145,15 +148,23 @@ def parked_receipt(store, packet, include_fields=False):
             or receipt["result_sha256"] != row["result"]
             or result["outcome"] != outcome
             or records["execution"]["fingerprint"] != row["fingerprint"]
-            or (include_fields and (row["fingerprint"], row["attempts"]) != (packet["fingerprint"], packet["attempt"]))
+            or (
+                include_fields
+                and (row["fingerprint"], row["attempts"])
+                != (packet["fingerprint"], packet["attempt"])
+            )
             or records["kind"] != row["kind"]
-            or records["plan_sha256" if field else "report_sha256"] != packet["report_sha256"]
+            or records["plan_sha256" if field else "report_sha256"]
+            != packet["report_sha256"]
         ):
             raise ValueError(
                 "current parked evidence does not match the approved packet"
             )
         if field and records["assessment"]["status"] not in {
-            "unresolved", "ambiguous", "insufficient_discrimination", "refuted"
+            "unresolved",
+            "ambiguous",
+            "insufficient_discrimination",
+            "refuted",
         }:
             return None
         return row["receipt"]
@@ -162,10 +173,18 @@ def parked_receipt(store, packet, include_fields=False):
 def read_answer(path):
     if path.is_symlink() or not path.is_file() or path.stat().st_size > 8192:
         raise ValueError("Codex did not provide a bounded answer")
-    answer = read_small_json(path)
-    if set(answer) != set(ANSWER_FIELDS) or any(
-        not isinstance(answer[key], str) or not 1 <= len(answer[key].strip()) <= length
-        for key, length in ANSWER_FIELDS.items()
+    return validate_answer(read_small_json(path))
+
+
+def validate_answer(answer):
+    if (
+        not isinstance(answer, dict)
+        or set(answer) != set(ANSWER_FIELDS)
+        or any(
+            not isinstance(answer[key], str)
+            or not 1 <= len(answer[key].strip()) <= length
+            for key, length in ANSWER_FIELDS.items()
+        )
     ):
         raise ValueError("Codex answer did not match the required schema")
     clean = {key: value.strip() for key, value in answer.items()}
@@ -177,7 +196,9 @@ def read_answer(path):
     return clean
 
 
-def request_advice(codex, packet, attempts, seconds, destination, is_current, efforts):
+def request_advice(
+    executable, packet, attempts, seconds, destination, is_current, efforts, options
+):
     prompt = (
         "Suggest one falsifiable decoding hypothesis and one controlled experiment. "
         "Provide separate observable predictions if the hypothesis is true and false. "
@@ -200,7 +221,7 @@ def request_advice(codex, packet, attempts, seconds, destination, is_current, ef
             write_private(attempt_file, {"effort": effort, "status": "started"})
             answer = work / f"{effort}.json"
             argv = [
-                codex,
+                executable,
                 "exec",
                 "--ignore-user-config",
                 "--ignore-rules",
@@ -222,8 +243,11 @@ def request_advice(codex, packet, attempts, seconds, destination, is_current, ef
                 'web_search="disabled"',
                 "-c",
                 'approval_policy="never"',
-                "--model",
-                packet["model"],
+                *(
+                    ("--model", packet["model"])
+                    if options is None or options.model is not None
+                    else ()
+                ),
                 "-c",
                 f'model_reasoning_effort="{effort}"',
                 "--output-schema",
@@ -233,59 +257,73 @@ def request_advice(codex, packet, attempts, seconds, destination, is_current, ef
                 "--json",
                 "-",
             ]
+            request = prompt
+            if attempts:
+                request += "\nPrior attempt status: " + attempts[-1]["status"]
             try:
-                process = subprocess.run(
-                    argv,
-                    input=(
-                        prompt
-                        if not attempts
-                        else (
-                            prompt + "\nPrior attempt status: " + attempts[-1]["status"]
-                        )
-                    ),
-                    encoding="utf-8",
-                    cwd=work,
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL,
-                    timeout=seconds,
-                    check=False,
-                )
-            except subprocess.TimeoutExpired:
+                if options is not None and options.provider == "claude":
+                    proposal = call_claude(
+                        executable, options, request, schema, work, seconds
+                    )
+                    suggestion = validate_answer(proposal)
+                elif options is not None and options.provider == "ollama":
+                    suggestion = validate_answer(
+                        call_ollama(options, request, schema, seconds)
+                    )
+                else:
+                    subprocess.run(
+                        argv,
+                        input=request,
+                        encoding="utf-8",
+                        cwd=work,
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL,
+                        timeout=seconds,
+                        check=True,
+                        env=None if options is None else provider_env(options),
+                    )
+                    suggestion = read_answer(answer)
+            except (subprocess.TimeoutExpired, TimeoutError):
                 attempts.append({"effort": effort, "status": "timeout"})
-                write_private(attempt_file, attempts[-1])
-                continue
-            except OSError:
-                attempts.append({"effort": effort, "status": "launch_failed"})
-                write_private(attempt_file, attempts[-1])
-                break
-            if process.returncode != 0:
+            except subprocess.CalledProcessError as error:
                 attempts.append(
                     {
                         "effort": effort,
                         "status": "provider_failed",
-                        "exit_status": process.returncode,
+                        "exit_status": error.returncode,
                     }
                 )
-                write_private(attempt_file, attempts[-1])
-                break
-            try:
-                suggestion = read_answer(answer)
-            except (OSError, ValueError):
+            except OSError:
+                attempts.append({"effort": effort, "status": "launch_failed"})
+            except ValueError:
                 attempts.append({"effort": effort, "status": "invalid_answer"})
+            else:
+                attempts.append({"effort": effort, "status": "proposal"})
                 write_private(attempt_file, attempts[-1])
-                continue
-            attempts.append({"effort": effort, "status": "proposal"})
+                return suggestion
             write_private(attempt_file, attempts[-1])
-            return suggestion
+            if attempts[-1]["status"] in {"provider_failed", "launch_failed"}:
+                break
     return None
 
 
 def run(args):
     packet = approved_packet(args.approved_packet)
-    return advise(args.store, packet, args.output, args.wait_seconds, args.attempt_seconds)
+    return advise(
+        args.store, packet, args.output, args.wait_seconds, args.attempt_seconds
+    )
 
 
-def advise(store, packet, output, wait_seconds, attempt_seconds, *, integrated=False):
+def advise(
+    store,
+    packet,
+    output,
+    wait_seconds,
+    attempt_seconds,
+    *,
+    integrated=False,
+    options=None,
+):
     info = output.lstat()
     if (
         not stat.S_ISDIR(info.st_mode)
@@ -300,9 +338,15 @@ def advise(store, packet, output, wait_seconds, attempt_seconds, *, integrated=F
         if remaining <= 0:
             return {"status": "no_parked_assessment"}
         time.sleep(min(1, remaining))
-    codex = shutil.which("codex")
-    if codex is None:
-        raise ValueError("Codex CLI is not on PATH")
+    provider = options.provider if options else "codex"
+    executable = None
+    if provider != "ollama":
+        command = shutil.which(provider)
+        if command is None:
+            raise ValueError(f"{provider} CLI is not on PATH")
+        executable = str(Path(command).resolve())
+    if options is not None:
+        packet = {**packet, "model": options.model or "cli-default"}
     destination = output / receipt
     try:
         destination.mkdir(mode=0o700)
@@ -319,6 +363,8 @@ def advise(store, packet, output, wait_seconds, attempt_seconds, *, integrated=F
         "approved_packet_sha256": digest(packet),
         "model": packet["model"],
     }
+    if options is not None:
+        evidence.update({"provider": provider, "auth": options.auth})
     write_private(destination / "Request.json", evidence)
     attempts = []
 
@@ -329,13 +375,14 @@ def advise(store, packet, output, wait_seconds, attempt_seconds, *, integrated=F
             return False
 
     proposal = request_advice(
-        str(Path(codex).resolve()),
+        executable,
         packet,
         attempts,
         attempt_seconds,
         destination,
         is_current,
         ("medium",) if integrated else ("medium", "xhigh"),
+        options,
     )
     current = is_current()
     status = "stale" if not current else "proposal" if proposal else "no_proposal"

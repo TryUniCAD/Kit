@@ -105,6 +105,36 @@ It uses the local Codex login and writes proposals for independent verification.
 Application workers remain separate isolated research oracles.
 See [session output lifetime](../Gotchas/Research/SupervisorSessionOutputLifetime.md) before implementing a persistent decode runner.
 
+## Run a CAD catalogue with optional advice
+
+Use a clean checkout with the catalogue runner and install Kit from that revision with
+`uv tool install --python 3.14 .`. Obtain [Fusion Catalog.sqlite](https://github.com/TryUniCAD/Kit/pull/163)
+or [SOLIDWORKS FeaturePlan.json](https://github.com/TryUniCAD/Kit/pull/164).
+Choose an unused output directory outside the checkout.
+
+```sh
+kit run --root . fusion --catalogue /path/to/Catalog.sqlite --directory /tmp/KitFusionRun --advisor codex
+kit run --root . solidworks --catalogue /path/to/FeaturePlan.json --directory /tmp/KitSolidworksRun --advisor codex
+```
+
+| Options                                       | What runs                                                                        |
+| --------------------------------------------- | -------------------------------------------------------------------------------- |
+| `--advisor codex --auth login`                | Installed Codex CLI with saved sign-in. Run `codex login` first if needed.       |
+| `--advisor claude --auth login`               | Installed Claude Code CLI with saved sign-in. Sign in through Claude Code first. |
+| `--advisor codex --auth api`                  | Installed Codex CLI with `CODEX_API_KEY` or `OPENAI_API_KEY`.                    |
+| `--advisor claude --auth api`                 | Installed Claude Code CLI with `ANTHROPIC_API_KEY`.                              |
+| `--advisor ollama --auth local --model MODEL` | Ollama at `127.0.0.1:11434` with an installed local model.                       |
+
+Cloud providers default to login mode. The installed CLI selects the model unless you supply `--model`.
+For Ollama, start the server with `OLLAMA_NO_CLOUD=1` and supply an installed model tag.
+Omit `--advisor` to run deterministic research alone. Advice requires macOS or Linux.
+Use `--advice-calls N` to set the limit for the batch. The default is four calls.
+
+Read `CatalogueResult.json` for completed and blocked entries. Exit status 2 means coverage remains incomplete.
+Read `State/decoder-advice/<receipt>/Advice.json` for suggestions produced during the offline batch stage.
+A suggestion requires an independently checked experiment before it can become a decoder rule.
+Use `kit run --root . fusion --help` for all options.
+
 ## Keep the interfaces distinct
 
 | Command                                       | Contract                                                   |
