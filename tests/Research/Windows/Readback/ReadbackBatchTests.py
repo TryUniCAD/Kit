@@ -105,7 +105,7 @@ def CheckTimedBatch(TmpPath: FilePath) -> None:
     Controller = "Controller.py"
     SeedReadback(StorePath, QueueArgs, BatchTool, Controller)
     Oracle = OpenNamedMutex(r"Local\KitResearchControllerOracle")
-    assert WaitForSingleObject(Oracle, 0) in (0, 128)
+    assert WaitForSingleObject(Oracle.handle, 0) in (0, 128)
     OracleHeld = True
     Watcher = StartWatcher(StorePath, QueueArgs)
     try:
@@ -118,7 +118,7 @@ def CheckTimedBatch(TmpPath: FilePath) -> None:
             == "waiting_application"
         )
         assert RunReadback(Controller, StorePath, "status")["jobs"] == []
-        ReleaseMutex(Oracle)
+        ReleaseMutex(Oracle.handle)
         OracleHeld = False
         VerifyBatch(Watcher, StorePath, QueueArgs, BatchTool, Controller)
     finally:
@@ -126,7 +126,7 @@ def CheckTimedBatch(TmpPath: FilePath) -> None:
             Watcher.terminate()
         _ = Watcher.communicate(timeout=10)
         if OracleHeld:
-            ReleaseMutex(Oracle)
+            ReleaseMutex(Oracle.handle)
         Oracle.Close()
 
 
@@ -202,7 +202,7 @@ def CheckBacklog(TmpPath: FilePath) -> None:
     ActiveClaim = SeedEarlier(StorePath, TmpPath, ResourceName, Controller)
     Oracle = OpenNamedMutex(r"Local\KitResearchControllerOracle")
     Priority = OpenNamedMutex(r"Local\KitResearchControllerReadbackPriority")
-    assert WaitForSingleObject(Oracle, 0) in (0, 128)
+    assert WaitForSingleObject(Oracle.handle, 0) in (0, 128)
     OracleHeld = True
     _ = RunReadback(BatchTool, StorePath, *QueueArgs, "enqueue", "first", "principal")
     Watcher = StartWatcher(
@@ -212,7 +212,7 @@ def CheckBacklog(TmpPath: FilePath) -> None:
         BatchClaim = AwaitBacklog(
             Watcher, StorePath, TmpPath, QueueArgs, Priority, ActiveClaim
         )
-        ReleaseMutex(Oracle)
+        ReleaseMutex(Oracle.handle)
         OracleHeld = False
 
         # releasing the oracle returns every batch check to the queued state
@@ -226,14 +226,14 @@ def CheckBacklog(TmpPath: FilePath) -> None:
             ),
         )
         VerifyRelease(StorePath, TmpPath, BatchClaim, Controller)
-        assert WaitForSingleObject(Priority, 5000) in (0, 128)
-        ReleaseMutex(Priority)
+        assert WaitForSingleObject(Priority.handle, 5000) in (0, 128)
+        ReleaseMutex(Priority.handle)
     finally:
         if Watcher.poll() is None:
             Watcher.terminate()
         _ = Watcher.communicate(timeout=10)
         if OracleHeld:
-            ReleaseMutex(Oracle)
+            ReleaseMutex(Oracle.handle)
         Oracle.Close()
         Priority.Close()
 
@@ -258,7 +258,7 @@ def AwaitBacklog(
 
     # the watcher reserves the fixture once the queued cut becomes eligible
     AwaitBatch(Watcher, lambda: HasReservation(StorePath))
-    assert WaitForSingleObject(Priority, 0) == 258
+    assert WaitForSingleObject(Priority.handle, 0) == 258
     FinishFixture(StorePath, TmpPath, ActiveClaim)
     return VerifyClaims(StorePath, TmpPath, "Controller.py")
 
@@ -411,9 +411,11 @@ def VerifyRelease(
     )
 
 
-# pywin32 accepts null security attributes to use the process default descriptor but its stub omits that overload
+# null security attributes preserve the process default descriptor for the named mutex
 def OpenNamedMutex(NameValue: str) -> "MutexHandle":
-    from win32event import CreateMutex
+    import win32event as EventApi
 
-    Create = CastValue("Callable[[None, bool, str], MutexHandle]", CreateMutex)
+    Create = CastValue(
+        "Callable[[None, bool, str], MutexHandle]", EventApi.CreateMutex  # pyright: ignore[reportUnknownMemberType]
+    )
     return Create(None, False, NameValue)
