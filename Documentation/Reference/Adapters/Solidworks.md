@@ -243,6 +243,13 @@ The current configuration directory codec reads and constructs
 Its archive map starts at one, independently of the full `CMgr` stream.
 [Configuration directory scope](../../Changes/Solidworks/Archive/SolidworksConfigurationDirectory.md)
 
+The internal unit-table codec reads one complete ordinary version-19000
+`moUnitsTable_c` object using its caller's archive map snapshot. It keeps
+inherited unit fields, the optional length override and the class slots
+needed by subsequent records. Its scope is the bounded unit-table record.
+Reading the full `Config-0` body requires additional native owners.
+[Configuration unit-table scope](../../Changes/Solidworks/Archive/SolidworksConfigUnitTables.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
