@@ -8,7 +8,6 @@ from zipfile import ZipFile
 import pytest as Pytest
 
 from convert import open_document as OpenDocument, write_document as WriteDocument
-from tests.Convert.Freecad.FixturePolicy.CodecRebuild import CodecRebuild
 from tests.Convert.FusionRead import OpenResearch
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.Brep import BrepModelBrep
@@ -145,7 +144,7 @@ def TestProfileEdit(TmpPath: FilePath, DepthMm: float) -> None:
 def TestRingProof(TmpPath: FilePath, Stale: str, Reason: str) -> None:
     Original = OpenResearch(KSourcePath, StrictMode=False)
     Export, Target = TmpPath / "export.FCStd", TmpPath / "saved.FCStd"
-    _ = CodecRebuild(Original, Export)
+    _ = WriteDocument(Original, Export)
     WriteProfile(
         Original,
         Export,

@@ -41,7 +41,12 @@ def TestRingDepth(TmpPath: FilePath, DepthMm: float) -> None:
     _ = WriteDocument(Document, Output)
     with ZipFile(Output) as Archive:
         RootValue = ParseXml(Archive.read("Document.xml"))
-    AssertRingXml(RootValue, Feature.id, Sketch.id)
+    (OriginIndex,) = (
+        Index
+        for Index, Entity in enumerate(Sketch.entities)
+        if Entity.fixed and Entity.attributes.get("fusion.point_is_origin")
+    )
+    AssertRingXml(RootValue, Feature.id, Sketch.id, OriginIndex)
     assert OpenDocument(Output) == Document
     Model, Volume, AreaValue, Bounds = BuildEditSolid(
         Document.bodies[0].id, Plane.transform, RingValue, DepthMm
@@ -66,7 +71,9 @@ def TestRingDepth(TmpPath: FilePath, DepthMm: float) -> None:
 
 
 # the emitted sketch retains its native constraints and extrusion controls
-def AssertRingXml(RootValue: Element, FeatureId: str, SketchId: str) -> None:
+def AssertRingXml(
+    RootValue: Element, FeatureId: str, SketchId: str, OriginIndex: int
+) -> None:
     assert RootValue.find("./Objects/Object[@type='Part::Extrusion']") is not None
     for Property, Expected in (
         (KEditableBinding, FeatureId),
@@ -74,7 +81,11 @@ def AssertRingXml(RootValue: Element, FeatureId: str, SketchId: str) -> None:
     ):
         Binding = RootValue.find(f".//Property[@name='{Property}']/String")
         assert Binding is not None and Binding.get("value") == Expected
-    assert len(RootValue.findall(".//ConstraintList/Constrain")) == 8
+    RuleRows = RootValue.findall(".//ConstraintList/Constrain")
+    assert sum(Value.get("Type") == "1" for Value in RuleRows) == 8
+    (Fixed,) = (Value for Value in RuleRows if Value.get("Type") == "17")
+    assert Fixed.get("First") == str(OriginIndex) and Fixed.get("FirstPos") == "0"
+    assert len(RuleRows) == 9
 
 
 # a new depth cell alone cannot override a solid that still uses the original depth
