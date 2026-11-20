@@ -250,6 +250,12 @@ needed by subsequent records. Its scope is the bounded unit-table record.
 Reading the full `Config-0` body requires additional native owners.
 [Configuration unit-table scope](../../Changes/Solidworks/Archive/SolidworksConfigUnitTables.md)
 
+The bounded configuration member reader handles the ordinary relation
+record and empty or absent feature color ownership. Stored length words
+remain available alongside the decoded rows. The record owner supplies
+the expected descriptor and the live archive map snapshot.
+[Configuration member scope](../../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)

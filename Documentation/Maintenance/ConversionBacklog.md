@@ -349,6 +349,17 @@ configuration owners and full physical `Config-0` admission have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigUnitTables.md)
 
+### B04-SW2026-CONFIG-MEMBERS
+
+The PR #121 takeover team owns the next bounded configuration extraction
+on `codex/solidworks-config-member-fields`. It follows the shared body
+executor and unit-table work in [PR #185](https://github.com/TryUniCAD/Kit/pull/185).
+Exit requires exact relation and feature color member readback from the
+disclosed controls, independently authored repeated rows and class map
+cases, and current revision review and CI. The remaining configuration
+layouts and complete physical admission have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent delivered the current Parasolid fin traversal

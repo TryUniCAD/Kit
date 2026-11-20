@@ -16,11 +16,13 @@ def GetRepeatSize(FrameValue: ExprFrame, RuleValue: NativeField) -> int:
             int, ReadExpression(FrameValue, RuleValue.ExpressionValue)
         )
         return NormalizeCount(CountValue, "")
-    CountValue = (
+    StoredCount = (
         RuleValue.MaskValue
         if RuleValue.ModeValue == "Fixed"
-        else CastValue(int, ReadScopeValue(FrameValue.ScopeValue, RuleValue.CountValue))
+        else ReadScopeValue(FrameValue.ScopeValue, RuleValue.CountValue)
     )
+    if type(StoredCount) is not int:
+        raise ValueError("native repeat length must be a stored integer")
     return NormalizeCount(
-        CountValue, "" if RuleValue.ModeValue == "Fixed" else RuleValue.ModeValue
+        StoredCount, "" if RuleValue.ModeValue == "Fixed" else RuleValue.ModeValue
     )
