@@ -10,7 +10,10 @@ KBodyValueProbe = (
 
 # each process receives its own graph identities and only its file inputs
 def RunBodyValues(
-    ModeName: str, SourcePath: FilePath, OutputPath: FilePath
+    ModeName: str,
+    SourcePath: FilePath,
+    OutputPath: FilePath,
+    ExtraArgs: tuple[str, ...] = (),
 ) -> CompletedProcess[str]:
     return RunProcess(
         [
@@ -21,6 +24,7 @@ def RunBodyValues(
             ModeName,
             str(SourcePath),
             str(OutputPath),
+            *ExtraArgs,
         ],
         cwd=SourcePath.parent,
         capture_output=True,

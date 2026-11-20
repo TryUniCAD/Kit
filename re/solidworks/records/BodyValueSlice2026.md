@@ -31,6 +31,34 @@ The handlers call the existing scalar, string, tag, graph and map
 operations. The process supplies explicit field callbacks. Full body
 dispatch and CMgrHdr2 stream support have separate acceptance gates.
 
+## Inherited body links
+
+The body codec accepts nulls and concrete archive nodes, including
+nodes from a materialized preceding map. The pinned body writer
+requires an archive node and its graph reader rejects unresolved
+external object references. The low-level object routines retain a
+symbolic `ExternalRef` for a missing inherited slot. The research
+serializer uses those routines for sparse-prefix inspection.
+[Pinned body writer](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteNodeMut.py)
+[Pinned graph reader](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Archive/Reading/ReadGraphNode.py)
+[Research bridge](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/tooling/sw2026/serial/Core.py)
+
+Ordinary configuration loading binds actual header nodes to the
+configuration map. ResolvedFeatures and MatesList each take an actual
+preceding snapshot. Body-value support at this scope requires those
+referenced objects to be present.
+[Header bindings](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadDirectMut.py)
+[ResolvedFeatures handoff](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Archive/Resolved/ReadResolvedMut.py)
+[MatesList handoff](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Archive/Mates/ReadMatesMut.py)
+
+The [inherited-link process cases](../../../tests/Convert/Solidworks/ArchiveValues/InheritedTests.py)
+read an independently framed primary into a fresh seed in each write
+and read process. The linked record uses inherited class slot 3
+and object slot 4, and opens only slot 5. Its decoded class and link
+are the same objects as the corresponding primary entries. A sparse
+control removes slot 4 at the same base and requires read and write
+refusal before a result is published.
+
 ## Rules and native evidence
 
 The native references use SOLIDWORKS 2026 SP05.2 build `34.5.2.0604`

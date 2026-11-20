@@ -18,7 +18,9 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteArrayMut import Wri
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNodeMut import WriteNodeMut
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteValueMut import WriteValueMut
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
+from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Objects.ExternalRef import ExternalRef
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
 from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
@@ -66,7 +68,12 @@ def make_depth(depth, new_terminal_class, counted):
     return root
 
 
-def make_graph(source):
+def make_graph(source, inherited):
+    if inherited is not None:
+        return ArchiveNode(
+            RuntimeClass("ValueChild", 1),
+            {"label": source["label"], "owner": inherited},
+        )
     if "depth" in source:
         return make_depth(
             source["depth"],
@@ -137,10 +144,10 @@ def write_body(writer, node):
     write_fields(frame, PROBE_FIELDS[node.ClassValue.NameValue])
 
 
-def write_document(source):
-    writer = BodyWriter(ArchiveMaps(1), BodyContext(19000, {}, {}, {}), write_body)
+def write_document(source, maps, inherited):
+    writer = BodyWriter(maps, BodyContext(19000, {}, {}, {}), write_body)
     try:
-        WriteNodeMut(writer, make_graph(source))
+        WriteNodeMut(writer, make_graph(source, inherited))
     except ValueError as error:
         if writer.NestingDepth:
             raise ValueError("body writer depth was not restored") from error
@@ -177,7 +184,7 @@ def read_fields(frame, fields):
             ReadValueMut(frame, rule)
 
 
-def read_graph(payload):
+def read_graph(payload, maps):
     context = BodyContext(19000, {}, {}, {})
 
     def read_body(reader, node):
@@ -191,7 +198,7 @@ def read_graph(payload):
             read_fields(frame, PROBE_FIELDS[class_name])
 
     cursor = BinaryReader(payload)
-    reader = GraphReader(cursor, ArchiveMaps(1), read_body)
+    reader = GraphReader(cursor, maps, read_body)
     root = ReadNodeMut(reader)
     if root is None or cursor.GetRemaining() or reader.NestingDepth:
         raise ValueError("synthetic body values need one complete root graph")
@@ -241,18 +248,60 @@ def describe_graph(root):
     }
 
 
+def load_seed(path, sparse):
+    if path is None:
+        return ArchiveMaps(1), None
+    primary = ArchiveMaps(1)
+    root = read_graph(path.read_bytes(), primary)
+    inherited = ArchiveNode.RequireNode(root.FieldsValue["rows"][0]["link"])
+    snapshot = primary.Snapshot()
+    if sparse:
+        index = inherited.IndexValue
+        snapshot = MapSnapshot(
+            snapshot.CounterValue,
+            tuple(entry for entry in snapshot.EntriesValue if entry.IndexValue != index),
+        )
+        inherited = ExternalRef(index)
+    return ArchiveMaps(snapshot.CounterValue, snapshot), inherited
+
+
+def describe_link(root, inherited, maps):
+    if (
+        root.FieldsValue["owner"] is not inherited
+        or root.ClassValue is not inherited.ClassValue
+    ):
+        raise ValueError("linked body lost its seeded object or class identity")
+    return {
+        "label": root.FieldsValue["label"],
+        "inherited_index": inherited.IndexValue,
+        "root_index": root.IndexValue,
+        "base": maps.BaseValue,
+        "next": maps.CounterValue,
+    }
+
+
 def main():
     parser = ArgumentParser(description="Check independently authored body field graphs")
     parser.add_argument("mode", choices=("read", "write"))
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--seed-primary", type=Path)
+    parser.add_argument("--sparse-seed", action="store_true")
     options = parser.parse_args()
+    if options.sparse_seed and options.seed_primary is None:
+        parser.error("a sparse seed requires a primary stream")
+    maps, inherited = load_seed(options.seed_primary, options.sparse_seed)
     if options.mode == "write":
-        payload = write_document(loads(options.source.read_text(encoding="utf-8")))
+        source = loads(options.source.read_text(encoding="utf-8"))
+        payload = write_document(source, maps, inherited)
     else:
-        payload = dumps(describe_graph(read_graph(options.source.read_bytes()))).encode(
-            "utf-8"
+        root = read_graph(options.source.read_bytes(), maps)
+        report = (
+            describe_graph(root)
+            if inherited is None
+            else describe_link(root, inherited, maps)
         )
+        payload = dumps(report).encode("utf-8")
     with options.output.open("xb") as output:
         output.write(payload)
 
