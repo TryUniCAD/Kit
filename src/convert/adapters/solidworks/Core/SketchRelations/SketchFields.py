@@ -3,10 +3,8 @@ from struct import Struct as RecordStruct
 
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
-from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import (
-    ReadTagMut,
-    ReadTypeDescMut,
-)
+from convert.adapters.solidworks.Archive.Reading.ReadNativeTag import ReadTagMut
+from convert.adapters.solidworks.Archive.Reading.ReadTypeDescMut import ReadTypeDescMut
 from convert.adapters.solidworks.Core.LinearSketchOwner import (
     KEntityIdentity,
     KOrdinaryEntity,

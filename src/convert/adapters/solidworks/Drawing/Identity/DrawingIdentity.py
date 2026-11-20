@@ -1,8 +1,6 @@
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
-from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import (
-    ReadTagMut,
-    ReadTypeDescMut,
-)
+from convert.adapters.solidworks.Archive.Reading.ReadNativeTag import ReadTagMut
+from convert.adapters.solidworks.Archive.Reading.ReadTypeDescMut import ReadTypeDescMut
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import (

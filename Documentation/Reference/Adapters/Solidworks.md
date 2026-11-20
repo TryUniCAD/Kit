@@ -212,6 +212,12 @@ The internal part composer can generate summary, document and active-configurati
 
 The internal corner-anchored rectangle keeps the actual native origin coincidence through independent edits of both sketch lengths and the boss depth. All three native saves reopen with a fully constrained sketch and one solid, across eight processes and 255 numerical comparisons. [Native origin-anchored rectangle](../../Changes/Solidworks/Inspection/Profiles/SolidworksSdkCornerNativeEdits.md)
 
+The typed archive graph allocates class descriptors and objects in one
+map. Its stream readers validate reference kinds and retain shared object
+identity when the next stream inherits a snapshot. Body callbacks provide
+the fields for each stream and class.
+[Object maps and verification](../../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
+
 ## Read flow
 
 ```mermaid

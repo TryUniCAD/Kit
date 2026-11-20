@@ -247,8 +247,21 @@ counts, tags, scalar positions and ANSI and wide CString boundaries.
 [Merge-queue acceptance](https://github.com/TryUniCAD/Kit/actions/runs/44674053238)
 
 Class descriptors, object maps and linked streams have separate exits.
-[PR #174](https://github.com/TryUniCAD/Kit/pull/174) carries the next object and
-map slice through review.
+[PR #174](https://github.com/TryUniCAD/Kit/pull/174) delivered the object
+and map slice.
+
+### B03-SW2026-ARCHIVE-OBJECTS
+
+[PR #174](https://github.com/TryUniCAD/Kit/pull/174) delivered the typed object
+and map extraction to main at `77d2f7c4380355e40d65376a00151d82812759dc`.
+The accepted native queue passed the linked graph, identity, and open-body
+depth process checks and the Python scan after entry insertion moved to its
+actual map owner. The [wire primitive PR](https://github.com/TryUniCAD/Kit/pull/173)
+and [pinned map evidence](../../re/solidworks/records/ArchiveObjectMapSlice2026.md)
+bind the prerequisites. The [standalone header extraction](https://github.com/TryUniCAD/Kit/pull/175)
+has a separate queue exit.
+[Accepted queue](https://github.com/TryUniCAD/Kit/actions/runs/44681435441)
+[Change entry](../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
 
 ### B08-SW2026-TERMINAL-FIN
 
