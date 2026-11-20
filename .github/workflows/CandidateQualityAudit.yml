@@ -220,6 +220,20 @@ jobs:
           version: "0.12.5"
       - run: uv sync --frozen --no-default-groups --extra dev --python 3.14
       - run: uv run --no-sync python re/automation/CaptureHistory.py fetch
+      - name: Verify cut report changes against the archived digest
+        run: |
+          .venv/bin/python re/automation/FusionCutState/VerifyCutState.py > "$RUNNER_TEMP/cut-report.json"
+          python - "$RUNNER_TEMP/cut-report.json" <<'PYTHON'
+          import hashlib, sys
+          from pathlib import Path
+          data = Path(sys.argv[1]).read_bytes()
+          current = b': feature fusion-feature-35-334 kind (native)'
+          previous = b': feature fusion-feature-35-207 kind (native); ' + current
+          print("cut report", hashlib.sha256(data).hexdigest(), "changed refusal entries", data.count(current))
+          assert hashlib.sha256(data.replace(current, previous)).hexdigest() == '98fee890f42e66362571036c7b627c3d2b9ee478bbcaad5a9776125ca68c9668'
+          PYTHON
+      - name: Check public sketch and revolve fixtures and native comparison
+        run: .venv/bin/python -m pytest -q tests/Convert/Freecad/{SavedSketchTests,FusionPlaneRevReadTests}.py tests/Research/Archives/Comparison/NativeDirectionTests.py
       - name: Report export qualification on representative sketch controls
         run: |
           uv run --no-sync python - <<'PYTHON'
