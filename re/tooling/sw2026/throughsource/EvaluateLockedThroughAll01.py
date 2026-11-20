@@ -29,6 +29,9 @@ LOCK_PATH = 're/solidworks/v2026/heldout/ThroughAllSourceLock01.json'
 DISCLOSED_PACKET = '2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a'
 DISCLOSED_RESULT = 'f95b0c5e647d2312d483da7a0e95c4444d551705127ddea1978e9c6c405ceeeb'
 DISCLOSED_METADATA = '9d5509a9ac17bf54f30bfaa8abc6565a1bc7a2c52cf9823627bda8f88ae75f33'
+STOCK_PACKET = 'MidPlaneStockSecondary02'
+STOCK_FREEZE = '61365d7aee925dcf5b75e6bb5b8e342bdc0a58d69be7a888e6745acf22a79c9e'
+STOCK_NATIVE = 'a77fd9262fb9d92e31cdfa18778c3a9d7dd7e8543802795956ead2a6a8d65892'
 ORACLE = '3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe'
 BUILD = '34.5.2.0604'
 REVISION = '6803987defeb0e69e39542b05eaa3618aefb46ff'
@@ -208,6 +211,8 @@ def worker(private, action):
     from convert.adapters.solidworks.Core.Preparation.ThroughAll.PrepareThroughPart import PrepareThroughPart
     from convert.adapters.solidworks.Core.Preparation.ThroughAll.Source.ProjectThruSrc import ProjectThruSrc
     from convert.adapters.solidworks.Core.Preparation.ThroughAll.Source.RequireThruFull import RequireThruFull
+    from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
+    from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
     from interchange.document.Models.DocumentModel import CadDocument
     from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
     from interchange.Enums.EnumGeometry import GeometryKind
@@ -321,7 +326,7 @@ def worker(private, action):
             full_refused = True
         else:
             raise ValueError('complete source unexpectedly admitted')
-    elif action == 'read':
+    elif action in ('read', 'read-stock'):
         selected_stock(document, boss, cut, document.bodies[0])
         driver, = document.parameters
         require(driver.owner_id == boss.id and driver.name == 'D1' and driver.role == 'driving'
@@ -329,11 +334,24 @@ def worker(private, action):
                 and close(driver.value.value / 1000, request['depth']) and not document.materials and not document.meshes,
                 'saved candidate lost the actual stock dimension or added unsupported geometry')
         presentation_diagnostic = candidate_name_diagnostic(document)
+    stock_fields = None
+    if action == 'read-stock':
+        link = ReadNativeLink(SldprtArchive.from_bytes(data), 0)
+        stock_id = str(boss.attributes['native_object_id'])
+        stock, = (node for node in link.ResolvedValue.RootsValue if str(NativeNodeId(node)) == stock_id)
+        end = stock.FieldsValue['f818'].FieldsValue
+        require(tuple(end[key] for key in ('f08', 'f0c', 'f10', 'f8c')) == (1, 6, 0, 0)
+                and end['f20'] is None and (end['f18'] is not None),
+                'native saved derivative did not preserve the explicit null stock display and active primary owner')
+        stock_fields = {'active_depth_m': driver.value.value / 1000, 'secondary_display': None,
+                        'result_body_count': len(document.bodies)}
     require(not attempts, 'the SDK swallowed an attempted runtime external access')
     response = {'sha256': digest(data), 'binding': binding, 'runtime_external_attempts': len(attempts),
                 'complete_source_refused': full_refused, 'unresolved_presentation': presentation_diagnostic, 'streams': streams}
     if action == 'build':
         response['generated'] = b64encode(data).decode('ascii')
+    if stock_fields is not None:
+        response['physical_stock_fields'] = stock_fields
     return response
 
 
@@ -360,6 +378,36 @@ def child(private, action, request):
                          input=encode(request), capture_output=True, timeout=120)
     require(run.returncode == 0, 'isolated SDK worker refused: ' + run.stderr.decode(errors='replace').strip().split('\n')[-1])
     return json.loads(run.stdout)
+
+
+def check_disclosed_stock(root, plan):
+    packet = root.with_name(STOCK_PACKET)
+    calibration = json.loads(checked(packet / 'Freeze.json', STOCK_FREEZE))
+    native_root = Path('C:/KitSdkCandidates') / STOCK_PACKET
+    require(calibration['private'] == str(native_root) and native_root.resolve() == native_root,
+            'disclosed stock calibration path differs')
+    native = json.loads(checked(native_root / 'Result.json', STOCK_NATIVE))
+    require(native['passed'] and native['freeze_sha256'] == STOCK_FREEZE and len(native['phase_sha256']) == 6,
+            'disclosed stock comparison is not qualified')
+    saved_folder = native_root / 'Arms/Absent/Generated'
+    generated = json.loads(checked(saved_folder / 'Record.json', native['phase_sha256']['Absent/Generated']))
+    result = generated['result']
+    require(generated['passed'] and result['save'] == [True, 0, 0]
+            and result['saved']['stock']['depth_reverse_m'] == 0, 'disclosed derivative was not saved cleanly')
+    data = checked(saved_folder / 'Saved.SLDPRT', result['saved_sha256'])
+    case = json.loads(checked(packet / 'CandidateCase.json', calibration['files']['CandidateCase.json']))
+    depth = case['prediction']['edited']['stock_depth_m']
+    require(close(result['saved']['stock']['depth_forward_m'], depth), 'disclosed edited depth changed')
+    private = native_root.with_name('MidPlaneStockSecondarySdk01')
+    require(private.resolve() == private and not private.is_symlink(), 'disclosed SDK readback directory is redirected')
+    private.mkdir(exist_ok=True)
+    code(root, plan | {'private': str(private)}, extract=not (private / 'Code').exists())
+    response = child(private, 'read-stock', {'recipe': case['recipe'], 'data': b64encode(data).decode(),
+                                            'sha256': result['saved_sha256'], 'depth': depth})
+    output = {'passed': True, 'revision': plan['revision'], 'sdk_tar_sha256': plan['files']['Sdk.tar'],
+              'native_result_sha256': STOCK_NATIVE, 'saved_phase_sha256': native['phase_sha256']['Absent/Generated'],
+              'readback': response, 'sealed_payloads_read': 0, 'new_native_processes': 0}
+    return output | {'receipt_sha256': publish(private / 'Result.json', encode(output))}
 
 
 def prepare(root, plan, frozen_pin):
@@ -544,17 +592,17 @@ def main():
     freeze_cmd.add_argument('--slot', choices=SLOTS, required=True)
     freeze_cmd.add_argument('--epoch', type=int, required=True)
     freeze_cmd.add_argument('--revision', default=REVISION)
-    for mode in ('prepare', 'phase', 'summary'):
+    for mode in ('disclosed-stock', 'prepare', 'phase', 'summary'):
         cmd = commands.add_parser(mode)
         cmd.add_argument('freeze', type=Path)
         cmd.add_argument('freeze_pin')
-        if mode != 'prepare':
+        if mode in ('phase', 'summary'):
             cmd.add_argument('generation_pin')
         if mode == 'phase':
             cmd.add_argument('phase', choices=PHASES)
     child_cmd = commands.add_parser('worker')
     child_cmd.add_argument('private', type=Path)
-    child_cmd.add_argument('worker_mode', choices=('build', 'read'))
+    child_cmd.add_argument('worker_mode', choices=('build', 'read', 'read-stock'))
     args = parser.parse_args()
     if args.action == 'worker':
         require(os.name == 'nt', 'isolated replay belongs to the guest')
@@ -563,7 +611,9 @@ def main():
         result = freeze(args.name, args.slot, args.epoch, args.revision)
     else:
         root, plan, row = frozen(args.freeze, args.freeze_pin)
-        if args.action == 'prepare':
+        if args.action == 'disclosed-stock':
+            result = check_disclosed_stock(root, plan)
+        elif args.action == 'prepare':
             result = prepare(root, plan, args.freeze_pin)
         else:
             private, value, job, tree = generation(root, plan, args.freeze_pin, args.generation_pin)
