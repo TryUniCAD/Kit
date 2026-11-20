@@ -6,7 +6,7 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import write_document as WriteDocument
+from tests.Convert.Freecad.FixturePolicy.CodecRebuild import CodecRebuild
 from tests.Convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.EditSketchPlan import KSketchEditBinding
@@ -23,7 +23,7 @@ KRadiusSource = (
 def BoundSketch(TmpPath: FilePath) -> tuple[CadDocument, FilePath]:
     Document = OpenDocument(KRadiusSource, StrictMode=False)
     Output = TmpPath / "bound.FCStd"
-    _ = WriteDocument(Document, Output)
+    _ = CodecRebuild(Document, Output)
     return Document, Output
 
 
