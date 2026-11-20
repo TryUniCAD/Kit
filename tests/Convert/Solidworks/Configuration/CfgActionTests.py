@@ -47,12 +47,12 @@ def TestBlockOwner() -> None:
     assert BlockValue["guid_sha256"] == (
         "f58dbac47df9237a6204d9e6939e2a0c2943b34d1d6c0ff7f0142adcc5bd79dd"
     )
-    CheckExplRecord(ExplodedValue)
-    CheckRefusals(Refusals)
+    AssertExplSpec(ExplodedValue)
+    AssertRefusals(Refusals)
 
 
 # the separate exploded view owner selects a concrete xml target without adding a payload
-def CheckExplRecord(RecordValue: dict[str, object]) -> None:
+def AssertExplSpec(RecordValue: dict[str, object]) -> None:
     assert RecordValue["field"] == "f13f8"
     assert RecordValue["bytes"] == 195
     assert RecordValue["class_name"] == "moPrtExplViewManager_c"
@@ -68,7 +68,7 @@ def CheckExplRecord(RecordValue: dict[str, object]) -> None:
 
 
 # actual framing and semantic refusals must both run after the positive native controls
-def CheckRefusals(Refusals: list[str]) -> None:
+def AssertRefusals(Refusals: list[str]) -> None:
     assert Refusals == [
         "truncated_guid",
         "trailing",
