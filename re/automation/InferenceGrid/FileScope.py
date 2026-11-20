@@ -136,6 +136,9 @@ def file_scope(path, application, scratch, root):
                     types.get(a["native_class"]) == b["type"] and
                     all(a[k] == b[k] and type(a[k]) is type(b[k]) for k in ("index", "name", "suppressed"))
                     for a, b in zip(actual, oracle))
+            if not oracle:
+                from InferenceGrid.StudyWitness import study_witness
+                recovered["study_measurements"] = study_witness(root, pin, source.stat().st_size, components)
             reports["timeline"] = recovered
         if trace is not None:
             reports["references"] = trace
