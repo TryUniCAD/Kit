@@ -13,10 +13,15 @@ descriptor framing. Callers supply the body grammar and its schema and
 version checks. A failed body callback invalidates the stream's map and
 cursor state.
 
+Class descriptors require a nonempty ASCII name. The reader limits open
+object bodies to 128 and resolves nulls and backreferences at that depth.
+
 The [linked graph process checks](../../../tests/Convert/Solidworks/ArchiveGraph/ArchiveGraphTests.py)
 compare two authored streams with independent expected bytes and verify
 object identity through a fresh reader process. The
 [rejection cases](../../../tests/Convert/Solidworks/ArchiveGraph/GraphRejectTests.py)
-cover the wrong reference kind and a mismatched inherited counter.
-Current-revision results are pending remote CI.
+cover the wrong reference kind, a mismatched inherited counter and an
+empty nested class name. The [depth process](../../../tests/Convert/Solidworks/ArchiveGraph/GraphDepthTests.py)
+checks terminal references at the limit and refusal of an additional
+body. Current-revision results are pending remote CI.
 [Implementation provenance and exact-build evidence](../../../re/solidworks/records/ArchiveObjectMapSlice2026.md)

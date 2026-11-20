@@ -7,6 +7,8 @@ from convert.adapters.solidworks.Archive.Objects.ReadObjectMut import ReadObject
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
 from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
+from convert.adapters.solidworks.Archive.Reading.ReadNodeBodyMut import ReadNodeBodyMut
+from convert.adapters.solidworks.Archive.Reading.ReadTypeDescMut import ReadTypeDescMut
 from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
 from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
 
@@ -17,39 +19,30 @@ KMaxNestedNodes = 128
 # class and object resolution must advance through the same shared cursor
 def ReadNodeMut(ReaderValue: GraphReader) -> ArchiveNode | None:
     Cursor = ReaderValue.Cursor
-    if ReaderValue.NestingDepth >= KMaxNestedNodes:
-        raise ValueError("SOLIDWORKS archive nesting exceeds the supported depth")
     NodeReader = ObjectRead(
         ReaderValue.MapValue,
-        PartialValue(ReadTagMut, Cursor),
+        PartialValue(ReadNodeTagMut, Cursor, ReaderValue.NestingDepth),
         PartialValue(ReadTypeDescMut, Cursor),
-        PartialValue(ReaderValue.BodyReader, ReaderValue),
+        PartialValue(ReadNodeBodyMut, ReaderValue),
         MakeArchiveNode if ReaderValue.NodeFactory is None else ReaderValue.NodeFactory,
         Cursor.GetOffset,
     )
-    ReaderValue.NestingDepth += 1
-    try:
-        NodeValue = ReadObjectMut(NodeReader)
-    finally:
-        ReaderValue.NestingDepth -= 1
+    NodeValue = ReadObjectMut(NodeReader)
     if NodeValue is not None and not isinstance(NodeValue, ArchiveNode):
         raise ValueError("SOLIDWORKS stream has an unresolved external object")
     return NodeValue
 
 
-# the existing tag reader owns the wire form while the cursor owns position
-def ReadTagMut(Cursor: BinaryReader) -> ArchiveTag:
+# references must resolve at the depth limit without opening another body
+def ReadNodeTagMut(Cursor: BinaryReader, NestingDepth: int) -> ArchiveTag:
     TagValue, Offset = ReadTag(Cursor.BytesValue, Cursor.OffsetValue)
+    if (
+        TagValue.KindValue in ("NewClass", "ClassRef")
+        and NestingDepth >= KMaxNestedNodes
+    ):
+        raise ValueError("SOLIDWORKS archive nesting exceeds the supported depth")
     Cursor.OffsetValue = Offset
     return TagValue
-
-
-# native class descriptors precede object bodies and carry an independent schema
-def ReadTypeDescMut(Cursor: BinaryReader) -> RuntimeClass:
-    Schema = Cursor.ReadUnsigned(2)
-    Length = Cursor.ReadUnsigned(2)
-    ClassName = Cursor.TakeBytes(Length).decode("ascii")
-    return RuntimeClass(ClassName, Schema)
 
 
 # object identities require a separate field owner as soon as a tag allocates one

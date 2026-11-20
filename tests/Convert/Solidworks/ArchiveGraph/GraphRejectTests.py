@@ -20,6 +20,15 @@ def TestBadGraph(TmpPath: FilePath) -> None:
             b"\x07\x00\x00\x00" + LinkedValue[4:],
             "archive map seed counter differs from the stream base",
         ),
+        (
+            "EmptyClass",
+            PrimaryValue[:20] + b"\x00\x00" + PrimaryValue[26:],
+            LinkedValue[:4]
+            + b"\xff\xff\x02\x00\x04\x00Leaf"
+            + LinkedValue[6:-2]
+            + b"\x07\x00",
+            "SOLIDWORKS archive class name must not be empty",
+        ),
     ):
         InputRoot = TmpPath / LabelName
         InputRoot.mkdir()
