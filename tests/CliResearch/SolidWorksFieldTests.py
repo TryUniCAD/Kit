@@ -126,3 +126,37 @@ def CheckFeatureCountCopies(TmpPath: FilePath) -> None:
     assert Radial[0]["display_offset"] != Radial[0]["verified_location"][1]
     assert Radial[0]["display_text"] == "<MOD-DIAM>57"
     assert all(Row["status"] != "ambiguous" for Row in Dimensions)
+
+
+# the rounded wheel display needs an independent mirror and a strict reader span for its saved precision
+def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Source = next((Root / "re/solidworks/examples").glob("*/RUEDA DE TURBINA.SLDPRT"))
+    Run = TmpPath / "run"
+    Evidence = ReadDimensionEvidence(Root, Source, Run)
+    Fields = Evidence["discovered_feature_fields"]
+    (Prediction,) = [
+        Row for Row in Fields["predictions"] if Row["display_text"] == "32.73°"
+    ]
+    assert Prediction["keyword_matches"]
+    assert Prediction["key"] == ["CirPattern", "D2", "angle"]
+    assert Prediction["copy_offsets"] == [Prediction["scalar_offset"] + 537]
+    (Rule,) = [Row for Row in Fields["rules"] if Row["key"] == Prediction["key"]]
+    assert all(
+        Row["file_sha256"] != Fields["input_sha256"]
+        and Row["stream_sha256"] != Fields["input_stream_sha256"]
+        for Row in Rule["samples"]
+    )
+    Doc = LoadJson((Run / "Input-strict.json").read_bytes())["document"]
+    (Param,) = [
+        Row
+        for Row in Doc["parameters"]["$tuple"]
+        if Row["id"] == "sldprt:parameter:65:D2"
+    ]
+    assert Param["value"]["unit"] == "deg"
+    assert abs(Param["value"]["value"] - 32.72727273) < 1e-9
+    assert Param["attributes"]["native_value"] == Prediction["native_value"]
+    assert (
+        Param["provenance"]["spans"]["$tuple"][0]["offset"]
+        == Prediction["scalar_offset"]
+    )

@@ -72,19 +72,29 @@ def discover_fields(root, streams, document, pin):
     unresolved = {f["attributes"].get("native_object_id") for f in document.get("feature_timeline", {}).get("$tuple", [])
                   if (f.get("definition") or {}).get("$type") == "NativeFeatureDefinition"}
     xml = streams.get("swXmlContents/KeyWords")
-    if not xml or not unresolved:
+    if not xml:
         return None
-    configs, features = ParseKeywords(xml)
+    try:
+        configs, features = ParseKeywords(xml)
+    except ValueError:
+        return None
     if len(configs) != 1:
         return None
+    known = {f["attributes"].get("native_object_id") for f in document.get("feature_timeline", {}).get("$tuple", [])}
+    unresolved.update(f.object_id for f in features if f.object_id not in known)
     wanted = defaultdict(set)
     for f in features:
         if f.object_id in unresolved:
             wanted[f.kind].update((f.kind, d.name, d.kind) for d in f.dimensions)
     target = records(streams, wanted)
-    if not target or not target[2]:
+    if not target:
         return None
     stream, data, rows = target
+    if not rows:
+        return {"input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": 0,
+                "rules": [], "predictions": [], "unresolved_fields": [
+                    {"key": key, "reason": "no_unique_named_scalar_in_input", "training_observations": 0}
+                    for key in sorted({k for keys in wanted.values() for k in keys})]}
     seen = {hashlib.sha256(data).hexdigest()}
     samples = defaultdict(list)
     candidates = {}
@@ -154,5 +164,20 @@ def discover_fields(root, streams, document, pin):
                                 "native_value": scalar.value, "copy_offsets": [pos+off for off,_ in copies],
                                 "display_text": text, "keyword_matches": (MatchesAngle(text, math.degrees(expected), math.degrees(scalar.value))
                                 if key[2] == "angle" else math.isclose(scalar.value, expected, rel_tol=1e-12, abs_tol=1e-14))})
-    return {"input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": scanned,
+    accepted = {r["key"] for r in predictions if r["keyword_matches"]}
+    gaps = []
+    for key in sorted({key for keys in wanted.values() for key in keys} - accepted):
+        observations = samples.get(key, [])
+        if not any(group == key for group, *_ in rows):
+            reason = "no_unique_named_scalar_in_input"
+        elif len({s["file_sha256"] for s in observations}) < 2:
+            reason = "need_another_control_document"
+        elif len({s["value"] for s in observations}) < 2:
+            reason = "need_a_different_control_value"
+        elif not candidates.get(key):
+            reason = "no_shared_copy_offset"
+        else:
+            reason = "no_qualified_held_out_match"
+        gaps.append({"key": key, "reason": reason, "training_observations": len(observations)})
+    return {"unresolved_fields": gaps, "input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": scanned,
             "rules": rules, "predictions": predictions}

@@ -8,7 +8,10 @@ from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
 from convert.adapters.solidworks.Core.NativeScalar import NativeScalar
 
 # independent document replay qualifies the signed copies for each typed field
-KMirroredFields: dict[tuple[str, str, str], tuple[tuple[int, int], ...]] = {}
+KMirroredFields: dict[tuple[str, str, str], tuple[tuple[int, int], ...]] = {
+    ("CirPattern", "D2", "angle"): ((537, 1),),
+    ("LPattern", "D3", "length"): ((583, 1),),
+}
 
 
 # angular text can round a saved value to the number of printed decimal places

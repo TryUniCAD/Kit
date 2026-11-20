@@ -138,6 +138,8 @@ def dimension_evidence(root, source, pin, document):
               "input_sha256": pin, "candidates": sorted(candidates or [])}
     from InferenceGrid.SolidWorksEquationEvidence import equation_evidence
     streams = SldprtArchive.FromBytes(source.read_bytes()).Streams
+    from InferenceGrid.SolidWorksFieldDiscovery import discover_fields
+    result["discovered_feature_fields"] = discover_fields(root, streams, document, pin)
     if (len(candidates or []) != 1 or len({s["recipe"] for s in samples}) < 2 or
         len({s["system_value"] for s in samples}) < 2):
         return {**result, "equations": equation_evidence(streams, [], sets, pin), "status": "no_unique_rule"}
@@ -178,8 +180,6 @@ def dimension_evidence(root, source, pin, document):
     equations = equation_evidence(streams, predictions, sets, pin)
     from InferenceGrid.SolidWorksKeywordEvidence import keyword_evidence
     keywords = keyword_evidence(streams, discovered, document, root, pin)
-    from InferenceGrid.SolidWorksFieldDiscovery import discover_fields
-    discovered_fields = discover_fields(root, streams, document, pin)
-    return {**result, "discovered_feature_fields": discovered_fields, "keyword_evidence": keywords, "equations": equations, "status": "held_out_dimensions_match" if verified else "partial_evidence",
+    return {**result, "keyword_evidence": keywords, "equations": equations, "status": "held_out_dimensions_match" if verified else "partial_evidence",
             "measurement_stage": "edited_before_save" if checks else None, "predictions": predictions,
             "discovered_dimension_records": discovered, "measured_count": len(checks), "missing_from_reader": [list(key) for key in measured if key not in requested]}
