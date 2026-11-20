@@ -105,8 +105,13 @@ def file_scope(path, application, scratch, root):
     if "native" in reports:
         from InferenceGrid.NativeClassEvidence import native_classes
         from InferenceGrid.TraceRefusal import trace_refusal
+        from InferenceGrid.RepeatSave import compare_capture
         audit["native_classes"] = native_classes(reports["native"], root)
         trace = trace_refusal(reports["native"], attempts["strict"].get("message", ""), audit["native_classes"]["classes"])
+        comparison = compare_capture(reports["native"], pin, root, scratch, [sys.executable, "-m", "KitCli", "decode"], env)
+        if comparison is not None:
+            reports["repeat-save"] = comparison
+            audit["repeat_save_status"] = comparison["status"]
         if trace is not None:
             reports["references"] = trace
             audit["refusal_trace"] = {"start": trace["start"], "class": trace["class"], "nodes": len(trace["nodes"]),
