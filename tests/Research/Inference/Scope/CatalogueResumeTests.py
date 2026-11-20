@@ -44,9 +44,8 @@ def CheckResume(TmpPath: FilePath) -> None:
             stdout=Output,
         ) as Process:
             Deadline = Clock() + 25
-            while (
-                not LogPath.is_file()
-                or '"event":"started"' not in LogPath.read_text(encoding="utf-8")
+            while not LogPath.is_file() or '"event":"started"' not in LogPath.read_text(
+                encoding="utf-8"
             ):
                 assert Process.poll() is None and Clock() < Deadline
                 WaitFor(0.05)
