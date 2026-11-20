@@ -2,7 +2,11 @@ from dataclasses import replace as ReplaceValue
 from math import isclose as IsClose
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Core.Native import NativeRule, NativeSketch
+from convert.adapters.solidworks.Core.Native import (
+    NativeProfile,
+    NativeRule,
+    NativeSketch,
+)
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
@@ -13,6 +17,37 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadRadialDrive import (
     ReadRadialDrive,
 )
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
+
+
+# the fixed center must match one public marker and the actual native point relation
+def ReadCircCenter(
+    Sketch: NativeSketch,
+    SketchValue: ArchiveNode,
+    Profile: NativeProfile,
+    CenterIndex: int,
+) -> int | None:
+    XValue, YValue, _ = Profile.coordinates
+    Centers = [
+        Index
+        for Index, Marker in enumerate(Sketch.markers)
+        if Marker.semantic == "point"
+        and Marker.coordinates_mm is not None
+        and IsClose(Marker.coordinates_mm[0], XValue, rel_tol=0.0, abs_tol=1e-8)
+        and IsClose(Marker.coordinates_mm[1], YValue, rel_tol=0.0, abs_tol=1e-8)
+    ]
+    if len(Centers) != 1:
+        return None
+    DimFields = NativeRecord(SketchValue.FieldsValue.get("dims"))
+    Relations = NativeRows(DimFields.get("log_g1"))
+    if len(Relations) != 1 or any(
+        DimFields.get(NameValue) for NameValue in ("log_g2", "log_g3")
+    ):
+        return None
+    Relation = NativeRecord(Relations[0].get("d"))
+    Handle = RequireNative(Relation.get("h1"), "sgPointHandle")
+    if Relation.get("f80") != 17 or Handle.FieldsValue.get("idx") != CenterIndex:
+        return None
+    return Centers[0]
 
 
 # the supported circle must preserve established public ids and bind both native constraint targets
@@ -57,29 +92,15 @@ def BindCircle(
     ):
         return None
     ParameterKey = f"{Sketch.object_id}:{Dimension.name}"
-    Rules = [Rule for Rule in Sketch.constraints if Rule.parameter == ParameterKey]
+    Rules = [
+        RuleValue
+        for RuleValue in Sketch.constraints
+        if RuleValue.parameter == ParameterKey
+    ]
     if len(Sketch.constraints) != 1 or len(Rules) != 1:
         return None
-    XValue, YValue, _ = Profile.coordinates
-    Centers = [
-        Index
-        for Index, Marker in enumerate(Sketch.markers)
-        if Marker.semantic == "point"
-        and Marker.coordinates_mm is not None
-        and IsClose(Marker.coordinates_mm[0], XValue, rel_tol=0.0, abs_tol=1e-8)
-        and IsClose(Marker.coordinates_mm[1], YValue, rel_tol=0.0, abs_tol=1e-8)
-    ]
-    if len(Centers) != 1:
-        return None
-    DimFields = NativeRecord(SketchValue.FieldsValue.get("dims"))
-    Relations = NativeRows(DimFields.get("log_g1"))
-    if len(Relations) != 1 or any(
-        DimFields.get(NameValue) for NameValue in ("log_g2", "log_g3")
-    ):
-        return None
-    Relation = NativeRecord(Relations[0].get("d"))
-    Handle = RequireNative(Relation.get("h1"), "sgPointHandle")
-    if Relation.get("f80") != 17 or Handle.FieldsValue.get("idx") != CenterIndex:
+    CenterMarker = ReadCircCenter(Sketch, SketchValue, Profile, CenterIndex)
+    if CenterMarker is None:
         return None
     RadialRule = ReplaceValue(
         Rules[0],
@@ -94,7 +115,7 @@ def BindCircle(
     FixedRule = NativeRule(
         f"{Sketch.object_id}:center:fixed",
         "fixed",
-        (f"native-index:{Centers[0]}",),
+        (f"native-index:{CenterMarker}",),
         None,
         None,
         None,

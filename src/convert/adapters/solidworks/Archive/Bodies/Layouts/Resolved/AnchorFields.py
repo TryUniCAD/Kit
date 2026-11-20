@@ -30,8 +30,8 @@ KAnchorContext = (
     ),
 )
 
-# point and dimension wrappers share the reference metadata following their actual target
-KRefWrapperTailFields = (
+# point and dimension wrappers share the actual owner and optional reference transforms
+KRefWrapperTransforms = (
     NativeField("Scalar", "f68", "u16"),
     NativeField("Node", "f60", "moComponent_c"),
     NativeField("Scalar", "f6c", "i32"),
@@ -50,6 +50,11 @@ KRefWrapperTailFields = (
         BodyValue=(NativeField("Embed", "f18", "mgXform_c.restore"),),
         ModeValue="Nonzero",
     ),
+)
+
+# the native wrapper stores its reference words immediately after the transform fields
+KRefWrapperTailFields = (
+    *KRefWrapperTransforms,
     NativeField("Scalar", "f0c", "i32"),
     NativeField("Scalar", "f20", "i32"),
     NativeField("Scalar", "f74", "i32"),

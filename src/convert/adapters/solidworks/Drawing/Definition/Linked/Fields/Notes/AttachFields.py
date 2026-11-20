@@ -5,7 +5,22 @@ from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.NoteGate
     GateNote,
 )
 
-# ordinary drawing attachments preserve their wire points actual view wrapper parameters and drawing only point tail
+# parametric attachments carry their wrapper and point tail after the base attachment
+KParametricPointFields = (
+    NativeField("Base", "moAttachPoint_c"),
+    NativeField("Scalar", "f108", "f64"),
+    NativeField("Scalar", "f110", "f64"),
+    NativeField("Node", "f118", "moRefWrapper_c"),
+    NativeField("Scalar", "f124", "u16"),
+    NativeField("Scalar", "f130", "i32"),
+    NativeField("Embed", "f138", "mgPoint_c.restore"),
+    NativeField("Embed", "f150", "mgPoint_c.restore"),
+    NativeField("Embed", "f168", "mgPoint_c.restore"),
+    NativeField("Embed", "f180", "mgPoint_c.restore"),
+    NativeField("Embed", "f198", "mgPoint_c.restore"),
+)
+
+# ordinary drawing attachments use one point and view field order for each native owner
 KNoteAttachFields = MappingProxyType(
     {
         "moAttachPointData_c": GateNote(
@@ -28,20 +43,6 @@ KNoteAttachFields = MappingProxyType(
                 NativeField("Scalar", "f88", "u8"),
             )
         ),
-        "moParametricPoint_c": GateNote(
-            (
-                NativeField("Base", "moAttachPoint_c"),
-                NativeField("Scalar", "f108", "f64"),
-                NativeField("Scalar", "f110", "f64"),
-                NativeField("Node", "f118", "moRefWrapper_c"),
-                NativeField("Scalar", "f124", "u16"),
-                NativeField("Scalar", "f130", "i32"),
-                NativeField("Embed", "f138", "mgPoint_c.restore"),
-                NativeField("Embed", "f150", "mgPoint_c.restore"),
-                NativeField("Embed", "f168", "mgPoint_c.restore"),
-                NativeField("Embed", "f180", "mgPoint_c.restore"),
-                NativeField("Embed", "f198", "mgPoint_c.restore"),
-            )
-        ),
+        "moParametricPoint_c": GateNote(KParametricPointFields),
     }
 )

@@ -1,6 +1,12 @@
+from collections.abc import Mapping
 from dataclasses import replace as ReplaceValue
 
-from convert.adapters.solidworks.Core.Native import NativeModel, NativeSketch
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Core.Native import (
+    NativeFeature,
+    NativeModel,
+    NativeSketch,
+)
 from convert.adapters.solidworks.Core.TypedResolved.BindCircle import BindCircle
 from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
     BindDepth,
@@ -24,6 +30,38 @@ from convert.adapters.solidworks.Core.TypedResolved.Presentation.ProjectTree imp
 )
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
 from convert.adapters.solidworks.Core.TypedResolved.ReportTyped import ReportTyped
+
+
+# a typed sketch must publish the same dimensions on its own feature owner
+def BindSketchMut(
+    SketchValues: tuple[NativeSketch, ...],
+    NodesValue: Mapping[int, ArchiveNode],
+    Features: dict[int, NativeFeature],
+    LinkValue: NativeLink,
+    CutProfileId: int | None,
+) -> tuple[dict[int, NativeSketch], dict[int, NativeSketch]]:
+    Circles: dict[int, NativeSketch] = {}
+    Lines: dict[int, NativeSketch] = {}
+    for Sketch in SketchValues:
+        NodeValue = NodesValue.get(Sketch.object_id)
+        if NodeValue is None or NodeValue.ClassValue.NameValue != "moProfileFeature_c":
+            continue
+        LineValue = BindLineLoop(Sketch, NodeValue, LinkValue)
+        if LineValue is not None:
+            Lines[Sketch.object_id] = LineValue
+            Features[Sketch.object_id] = ReplaceValue(
+                Features[Sketch.object_id], dimensions=LineValue.dimensions
+            )
+            continue
+        Circle = BindCircle(Sketch, NodeValue, LinkValue) or BindLocalCirc(
+            Sketch, NodeValue, LinkValue, AllowFree=Sketch.object_id == CutProfileId
+        )
+        if Circle is not None:
+            Circles[Sketch.object_id] = Circle
+            Features[Sketch.object_id] = ReplaceValue(
+                Features[Sketch.object_id], dimensions=Circle.dimensions
+            )
+    return Circles, Lines
 
 
 # the public model must consume complete typed facts atomically while preserving unrelated legacy behavior
@@ -75,27 +113,9 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
         )
         for Operation in Model.operations
     )
-    Circles: dict[int, NativeSketch] = {}
-    Lines: dict[int, NativeSketch] = {}
-    for Sketch in Model.sketches:
-        NodeValue = NodesValue.get(Sketch.object_id)
-        if NodeValue is None or NodeValue.ClassValue.NameValue != "moProfileFeature_c":
-            continue
-        LineValue = BindLineLoop(Sketch, NodeValue, LinkValue)
-        if LineValue is not None:
-            Lines[Sketch.object_id] = LineValue
-            Features[Sketch.object_id] = ReplaceValue(
-                Features[Sketch.object_id], dimensions=LineValue.dimensions
-            )
-            continue
-        Circle = BindCircle(Sketch, NodeValue, LinkValue) or BindLocalCirc(
-            Sketch, NodeValue, LinkValue, AllowFree=Sketch.object_id == CutProfileId
-        )
-        if Circle is not None:
-            Circles[Sketch.object_id] = Circle
-            Features[Sketch.object_id] = ReplaceValue(
-                Features[Sketch.object_id], dimensions=Circle.dimensions
-            )
+    Circles, Lines = BindSketchMut(
+        Model.sketches, NodesValue, Features, LinkValue, CutProfileId
+    )
     TreeValue = ProjectTree(Model, LinkValue, NodesValue, Features)
     return ReplaceValue(
         Model,
@@ -118,10 +138,18 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
                 LinkValue,
                 NodesValue,
                 OwnersValue,
-                tuple(Key for Key, Value in Circles.items() if Value.dimensions),
+                tuple(
+                    SketchId
+                    for SketchId, SketchValue in Circles.items()
+                    if SketchValue.dimensions
+                ),
                 tuple(Lines),
                 BodyEvidence,
-                tuple(Key for Key, Value in Circles.items() if not Value.dimensions),
+                tuple(
+                    SketchId
+                    for SketchId, SketchValue in Circles.items()
+                    if not SketchValue.dimensions
+                ),
             ),
             "native_tree": TreeValue.EvidenceValue,
             **(

@@ -24,10 +24,8 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRe
 from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
-# body geometry and history must refer to the same native owners before a cache free document can supply a pocket solid
-def ReadPocketGeom(
-    LinkValue: NativeLink, Manager: CmgrGraph, ModelValue: NativeModel, BodyId: str
-) -> PartGeometry:
+# the pocket requires both complete manager grammar and the ordinary selected configuration
+def CheckPocketMgr(Manager: CmgrGraph) -> None:
     Report = Manager.ReportValue
     if (
         not Report.get("completed")
@@ -38,9 +36,16 @@ def ReadPocketGeom(
             "cache free pocket requires complete configuration manager grammar"
         )
     CheckPrismMgr(Manager)
+
+
+# body geometry and history must refer to the same native owners before a cache free document can supply a pocket solid
+def ReadPocketGeom(
+    LinkValue: NativeLink, Manager: CmgrGraph, ModelValue: NativeModel, BodyId: str
+) -> PartGeometry:
+    CheckPocketMgr(Manager)
     Features = IndexFeatures(LinkValue)
-    CircleValue, Cut = CheckPublicPocket(ModelValue, Features)
-    Through = Cut.extrusion_end == ExtrudeEnd.KThroughAll
+    CircleValue, CutValue = CheckPublicPocket(ModelValue, Features)
+    Through = CutValue.extrusion_end == ExtrudeEnd.KThroughAll
     Evidence = NativeRecord(ModelValue.TypedGraph.get("cut_body_dependency"))
     Stock = ReadPrismPlan(
         LinkValue,
@@ -51,9 +56,9 @@ def ReadPocketGeom(
     if Through:
         HalfDepth = Stock.DepthValue * 0.5
         StockBounds = (-HalfDepth, HalfDepth)
-        if Cut.second_extrusion_end == ExtrudeEnd.KThroughAll:
+        if CutValue.second_extrusion_end == ExtrudeEnd.KThroughAll:
             CutBounds = StockBounds
-        elif Cut.direction_code == 1:
+        elif CutValue.direction_code == 1:
             CutBounds = (0.0, HalfDepth)
         else:
             CutBounds = (-HalfDepth, 0.0)
@@ -64,13 +69,13 @@ def ReadPocketGeom(
         }
         PrefixValue = f"{BodyId}-through-all-cut"
     else:
-        if Cut.length_mm is None:
+        if CutValue.length_mm is None:
             raise ValueError("cache free blind cut requires an active length")
-        StockBounds, CutBounds = (0.0, Stock.DepthValue), (0.0, Cut.length_mm)
+        StockBounds, CutBounds = (0.0, Stock.DepthValue), (0.0, CutValue.length_mm)
         MethodValue = "typed_parametric_blind_circular_pocket"
-        CutEvidence = {"cut_depth_mm": Cut.length_mm}
+        CutEvidence = {"cut_depth_mm": CutValue.length_mm}
         PrefixValue = f"{BodyId}-blind-pocket"
-    CutNode = Features[Cut.object_id]
+    CutNode = Features[CutValue.object_id]
     PlanValue = ReplaceValue(
         Stock,
         EvidenceValue={

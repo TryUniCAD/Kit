@@ -15,9 +15,8 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Revolves.ReadRevLo
 )
 
 
-# implicit cylinder names need both actual circular trims and the complete owned solid boundary
-def ReadCylBodyTree(NodesValue: Mapping[int, XmtNode]) -> BodyTree:
-    Lateral, _, BodyValue = PickCylFace(NodesValue)
+# implicit cylinder names need the sole solid owned by the active world
+def CheckCylOwner(NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode) -> None:
     BodyIndex = BodyValue.IndexValue
     if (
         WalkXmtChain(
@@ -42,6 +41,35 @@ def ReadCylBodyTree(NodesValue: Mapping[int, XmtNode]) -> BodyTree:
         )
     ):
         raise ValueError("implicit cylinder has an unqualified body owner")
+
+
+# the two circular carriers must own the selected edges and their actual trim fins
+def ReadCylEdges(
+    NodesValue: Mapping[int, XmtNode], EdgeIds: tuple[int, ...], FinIds: set[int]
+) -> set[int]:
+    CurveIds: set[int] = set()
+    for EdgeIndex in EdgeIds:
+        EdgeValue = NodesValue[EdgeIndex]
+        CurveValue = RequireXmt(NodesValue, EdgeValue.Integer("curve"), 31)
+        FinIndex = EdgeValue.Integer("halfedge")
+        if (
+            FinIndex not in FinIds
+            or NodesValue[FinIndex].Integer("edge") != EdgeIndex
+            or CurveValue.Integer("owner") != EdgeIndex
+            or CurveValue.IndexValue in CurveIds
+        ):
+            raise ValueError(
+                "implicit cylinder has foreign edge or circular curve owners"
+            )
+        CurveIds.add(CurveValue.IndexValue)
+    return CurveIds
+
+
+# implicit cylinder names need both actual circular trims and the complete owned solid boundary
+def ReadCylBodyTree(NodesValue: Mapping[int, XmtNode]) -> BodyTree:
+    Lateral, _, BodyValue = PickCylFace(NodesValue)
+    CheckCylOwner(NodesValue, BodyValue)
+    BodyIndex = BodyValue.IndexValue
     FaceIds = ReadBodyFaces(NodesValue, BodyValue, 3)
     EdgeIds = WalkXmtChain(
         NodesValue,
@@ -61,36 +89,22 @@ def ReadCylBodyTree(NodesValue: Mapping[int, XmtNode]) -> BodyTree:
         SurfaceValue = RequireXmt(
             NodesValue, FaceValue.Integer("surface"), 51 if IsLateral else 50
         )
-        Loops, Fins = ReadRevLoops(
+        Loops, FaceFins = ReadRevLoops(
             NodesValue, FaceValue, True, FullLoopCount=2 if IsLateral else 1
         )
-        FinEdges = {NodesValue[IndexValue].Integer("edge") for IndexValue in Fins}
+        FinEdges = {NodesValue[IndexValue].Integer("edge") for IndexValue in FaceFins}
         if (
             SurfaceValue.Integer("owner") != FaceIndex
             or LoopIds.intersection(Loops)
-            or FinIds.intersection(Fins)
+            or FinIds.intersection(FaceFins)
             or not FinEdges.issubset(EdgeIds)
             or (IsLateral and FinEdges != set(EdgeIds))
         ):
             raise ValueError("implicit cylinder has foreign trimming or surface owners")
         LoopIds.update(Loops)
-        FinIds.update(Fins)
+        FinIds.update(FaceFins)
         SurfaceIds.add(SurfaceValue.IndexValue)
-    CurveIds: set[int] = set()
-    for EdgeIndex in EdgeIds:
-        EdgeValue = NodesValue[EdgeIndex]
-        CurveValue = RequireXmt(NodesValue, EdgeValue.Integer("curve"), 31)
-        FinIndex = EdgeValue.Integer("halfedge")
-        if (
-            FinIndex not in FinIds
-            or NodesValue[FinIndex].Integer("edge") != EdgeIndex
-            or CurveValue.Integer("owner") != EdgeIndex
-            or CurveValue.IndexValue in CurveIds
-        ):
-            raise ValueError(
-                "implicit cylinder has foreign edge or circular curve owners"
-            )
-        CurveIds.add(CurveValue.IndexValue)
+    CurveIds = ReadCylEdges(NodesValue, EdgeIds, FinIds)
     Inventories: tuple[tuple[tuple[int, ...], set[int]], ...] = (
         ((15,), LoopIds),
         ((16,), set(EdgeIds)),
