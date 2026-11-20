@@ -29,7 +29,7 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadMassMut import ReadM
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNestedMut import (
     ReadNestedMut,
 )
-from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNormalizeMut import (
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNormalMut import (
     ReadNormalMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadOwnedMut import ReadOwnedMut
