@@ -20,9 +20,9 @@ Its one-file manifest SHA-256 is
 The delivered single production file
 [`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
-`aabc6e76259a907fc5b266bc165c6cf1e54f30e2dec290ac81040aab0cb51adc`
+`9ecf11e86f0e101ec84bccc78e29c5351c917a61fcc31a829644eecf0bf233bd`
 and its one-file manifest SHA-256 is
-`a2946adc664ffe3a160435ae7432768c838445d9617503ce44639d869b8f0ca5`.
+`bc773705e3d734a7e3e771bbf5954044b909728ba7a73b69db34cc91aecf1cab`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. Production imports use
 the Python standard library.
@@ -57,7 +57,7 @@ uses `_escape_attrib` for ordinary attribute values and
 stdlib module SHA-256 is
 `9623c9e6c2f45c906fae8d4b221648a7efb8ac81bd4f6cd79c5eb2698fb015ef`.
 Comment and processing-instruction text use separate branches and
-are refused before serialization. The process cases exercise both node types in each framing mode.
+are refused before serialization. The process cases exercise both node types in each framing mode. A separate case verifies byte identity for equivalent qualified name objects and expanded-name strings.
 [Empty tag gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordEmptyTagsFollowProfile.md)
 
 XML 1.0 normalizes literal CR and CRLF before parsing. The framer

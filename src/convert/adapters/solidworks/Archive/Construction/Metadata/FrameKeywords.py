@@ -1,5 +1,5 @@
 from typing import cast as CastValue
-from xml.etree.ElementTree import Element, tostring as XmlBytes
+from xml.etree.ElementTree import Element, QName, tostring as XmlBytes
 
 
 # part and drawing keyword owners share verified native utf eight framing while preserving their distinct empty element formatting
@@ -12,7 +12,9 @@ def FrameKeywords(RootValue: Element, CompactTags: bool) -> bytes:
         raise ValueError(
             "native keyword framing requires content inside the keyword root"
         )
-    if any(not isinstance(NodeValue.tag, str) for NodeValue in RootValue.iter()):
+    if any(
+        not isinstance(NodeValue.tag, (str, QName)) for NodeValue in RootValue.iter()
+    ):
         raise ValueError("native keyword framing requires named elements")
     PayloadValue = CastValue(
         bytes, XmlBytes(RootValue, encoding="utf-8", short_empty_elements=True)

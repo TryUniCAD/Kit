@@ -3,7 +3,7 @@ from hashlib import sha256
 from json import dumps, loads
 from pathlib import Path
 import sys
-from xml.etree.ElementTree import Comment, Element, ProcessingInstruction, SubElement
+from xml.etree.ElementTree import Comment, Element, ProcessingInstruction, QName, SubElement
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "src"))
@@ -36,6 +36,10 @@ def author_frame(source):
         feature.append(Comment("authored\r />"))
     elif markup == "instruction":
         feature.append(ProcessingInstruction("example", "authored\r />"))
+    qualified = source.get("qualified")
+    if qualified is not None:
+        name = "{urn:kit:keyword}Native"
+        SubElement(root, QName(name) if qualified == "object" else name)
     return FrameKeywords(root, source["compact"])
 
 
