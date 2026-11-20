@@ -78,16 +78,21 @@ def ReadLocalKeys(Archive: SldprtArchive) -> tuple[bool, int | None]:
         ):
             return True, None
         IndexValue = ImportKeyInput(
-            RootValue.attrib["Name"], int(RootValue.attrib["id"]), MaterialValue
+            RootValue.attrib["Name"],
+            int(RootValue.attrib["id"]),
+            Configs[0].properties.get("Material"),
         )
         ExpectedValue = MakeKeywords(
             IndexValue.TitleValue,
             IndexValue.SavedAt,
-            (KeywordConfig(0, ReadNodeName(ConfigNode), MaterialValue),),
+            (KeywordConfig(0, ReadNodeName(ConfigNode), IndexValue.MaterialValue),),
             RowsValue,
             CompactTags=True,
         )
-        if DataValue != ExpectedValue:
+        if (
+            IndexValue.MaterialValue not in (None, MaterialValue)
+            or DataValue != ExpectedValue
+        ):
             return True, None
         (ImportId,) = (
             RowValue.IdValue

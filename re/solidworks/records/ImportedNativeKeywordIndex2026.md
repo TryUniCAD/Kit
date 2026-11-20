@@ -32,4 +32,28 @@ The [observer](../../tooling/sw2026/imported_body_source/VerifyNativeImportKeys.
 uv run --offline --no-project --python 3.13 python -B re/tooling/sw2026/imported_body_source/VerifyNativeImportKeys.py "$DISCLOSED_PACKET" | diff -u re/solidworks/measurements/2026/ImportedNativeKeywordIndex01.json -
 ```
 
-This receipt covers host stream parity and strict SDK geometry readback. Native open, rebuild and save with the independently supplied title still require a measured lifecycle.
+This receipt covers host stream parity and strict SDK geometry readback.
+
+## Native save contrast
+
+All three generated files open, rebuild, save and reopen with zero open
+errors or warnings. They retain the original ordered 24-row COM feature
+trees, the authored lights, notes, empty exploded-view managers and
+property owners. Both controls pass across eleven fresh processes.
+
+The native saves retain all 25 indexed role, name and tag rows and the
+allocated import ID. SOLIDWORKS changes the keyword root title to the
+actual generated part name and uses its modeled save timestamp. It omits
+the configuration's optional unassigned material attribute while the
+typed material folder remains unassigned. The first strict read guard
+requires the attribute and refuses all three saved indexes. Exact
+reconstruction of the same typed owners with the attribute omitted
+matches all three saved streams. [Native save contrast](../measurements/2026/ImportedNativeKeywordSaveContrast01.json)
+
+The corrected reader accepts that exact omission only for the proven
+unassigned material folder. All three saved archives now bind the same
+import ID and read a single strict B-rep body. The original generated
+files with the supplied material label and the earlier legacy files
+regenerate byte-for-byte. A model-only omission changes only the
+keyword stream, and contradictory text or nonempty physical material
+ownership fails closed. [Saved-copy replay](../measurements/2026/ImportedNativeKeywordSavedReplay01.json)

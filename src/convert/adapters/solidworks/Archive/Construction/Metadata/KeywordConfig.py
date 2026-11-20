@@ -4,12 +4,12 @@ from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText impor
 )
 
 
-# keyword configurations must refer to actual generated configuration identities and explicitly supplied names and material text
+# keyword configurations keep their actual identity and independently optional material text
 @DataClass(frozen=True, slots=True)
 class KeywordConfig:
     IdValue: int
     NameValue: str
-    MaterialValue: str
+    MaterialValue: str | None
 
     # malformed configuration identity or text must fail before an xml document can conceal a graph mismatch
     def __post_init__(self) -> None:
@@ -18,4 +18,5 @@ class KeywordConfig:
                 "keyword configuration id must be a nonnegative signed integer"
             )
         _ = ReadStyleText(self.NameValue, "keyword configuration name")
-        _ = ReadStyleText(self.MaterialValue, "keyword material text")
+        if self.MaterialValue is not None:
+            _ = ReadStyleText(self.MaterialValue, "keyword material text")

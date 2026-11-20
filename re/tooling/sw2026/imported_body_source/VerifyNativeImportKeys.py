@@ -83,6 +83,8 @@ from interchange.Records.RecordSource import CadSource
 
 BASE = "1b70d67b854814cb5066f44028439c43f2b4a632"
 BUILD = "728ab68458024189e9a6d54530a801c34e07985d53d73c5e7f2bae90f1dba1e4"
+SAVED_BUILD = "9c2625cc8a1eb59e60e3dacf835c304479bd3b3a690156ad181fc97cf3740f32"
+SAVED_NATIVE = "767e3f65aa98d85a1aa8ac2ce4eaf416a70e4b2d369662a9c2f5e243700a6249"
 SOURCES = {
     "Disclosed": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
     "OtherShape": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d",
@@ -98,6 +100,7 @@ OWNERS = tuple(
         "Archive/Construction/Part/Imports/ReadImpKeyNodes.py",
         "Core/TypedResolved/Geometry/LocalBody/FindLocalOwner.py",
         "Core/TypedResolved/Geometry/LocalBody/ReadLocalKeys.py",
+        "Archive/Construction/Metadata/KeywordConfig.py",
     )
 )
 
@@ -131,6 +134,7 @@ def project_index(archive, linked, document):
         node for node in owners if node.ClassValue.NameValue == "moPrtExplViewManager_c"
     )
     source_id = NativeNodeId(import_owner)
+    wire_material = config.properties.get("Material")
     require(
         ReadLocalKeys(archive) == (True, source_id),
         "source keyword index does not bind its actual import",
@@ -138,13 +142,13 @@ def project_index(archive, linked, document):
     require(
         not document.materials
         and root.attrib["Name"] == ReadNodeName(linked.ConfigValue.RootValue)
-        and config.properties["Material"] == material
-        and document.configurations[0].attributes["native_properties"]["Material"]
-        == material,
+        and wire_material in (None, material)
+        and document.configurations[0].attributes["native_properties"].get("Material")
+        == wire_material,
         "source title or unassigned material differs from its physical owners",
     )
     return (
-        ImportKeyInput(root.attrib["Name"], int(root.attrib["id"]), material),
+        ImportKeyInput(root.attrib["Name"], int(root.attrib["id"]), wire_material),
         roles(feature_rows),
         {
             "import_id": source_id,
@@ -264,7 +268,7 @@ def compare_case(raw, previous, destination, *, exploded=True):
     )
     require(
         root.attrib == {"Name": keyword.TitleValue, "id": str(keyword.SavedAt)}
-        and config.properties["Material"] == keyword.MaterialValue,
+        and config.properties.get("Material") == keyword.MaterialValue,
         "index-specific metadata differs from the explicit source input",
     )
     model = NativePartModel(archive, None)
@@ -353,7 +357,7 @@ def malformed_keys(raw):
         "wrong_config_id",
         "misattached_config_name",
         "wrong_material",
-        "missing_material",
+        "empty_material",
         "empty_title",
         "noncanonical_epoch",
         "omitted_native_inventory",
@@ -393,8 +397,8 @@ def malformed_keys(raw):
             config.set("Name", root.get("Name"))
         elif change == "wrong_material":
             config.set("Material", root.get("Name"))
-        elif change == "missing_material":
-            del config.attrib["Material"]
+        elif change == "empty_material":
+            config.set("Material", "")
         elif change == "empty_title":
             root.set("Name", "")
         elif change == "noncanonical_epoch":
@@ -502,11 +506,145 @@ def prior_keyword_defaults():
     return results
 
 
+def reject_nonempty_material(raw):
+    archive = SldprtArchive.from_bytes(raw)
+    link = ReadNativeLink(archive, 0)
+    (folder,) = (
+        node
+        for node in link.ResolvedValue.RootsValue
+        if node.ClassValue.NameValue == "moMaterialFolder_c"
+    )
+    folder.FieldsValue["f378"] = "Explicit Alloy"
+    resolved = link.ResolvedValue
+    data, _ = WriteResolMut(
+        resolved.RootsValue,
+        resolved.ExtraFields,
+        19000,
+        link.ConfigValue.MapValue,
+        resolved.ContextValue,
+    )
+    malformed = using_streams(archive, {link.StreamName: data})
+    typed = ReadNativeLink(malformed, 0)
+    (folder,) = (
+        node
+        for node in typed.ResolvedValue.RootsValue
+        if node.ClassValue.NameValue == "moMaterialFolder_c"
+    )
+    require(
+        folder.FieldsValue["f378"] == "Explicit Alloy"
+        and ReadLocalKeys(malformed) == (True, None)
+        and FindLocalOwner(NativePartModel(malformed, None), malformed) is None,
+        "missing material admitted an unproven physical material owner",
+    )
+
+
+def generated_omission(source, destination, present):
+    inputs, lights, notes, keyword, _, _ = prepare_inputs(source, destination)
+    omitted = render(inputs, lights, notes, replace(keyword, MaterialValue=None), True)
+    archive = SldprtArchive.from_bytes(omitted.BytesValue)
+    prior = SldprtArchive.from_bytes(present)
+    old = ParseXml(prior.require(KeywordsStream))
+    del old[0].attrib["Material"]
+    changed = sorted(
+        name
+        for name in archive.streams.keys() | prior.streams.keys()
+        if archive.get(name) != prior.get(name)
+    )
+    require(
+        changed == [KeywordsStream]
+        and archive.require(KeywordsStream) == FrameKeywords(old, True)
+        and ReadLocalKeys(archive) == (True, 18),
+        "explicit omission changed data beyond the configuration label",
+    )
+    try:
+        render(
+            inputs, lights, notes, replace(keyword, MaterialValue="Contradictory"), True
+        )
+    except ValueError as error:
+        require(
+            "material differs" in str(error),
+            "contradictory input failed outside the material guard",
+        )
+    else:
+        raise ValueError("constructor accepted a contradictory explicit material label")
+    reject_nonempty_material(omitted.BytesValue)
+    return {
+        "file_sha256": digest(omitted.BytesValue),
+        "material_present": False,
+        "changed_streams": changed,
+        "bound_import_id": 18,
+        "contradictory_input_refused": True,
+        "nonempty_material_owner_refused": True,
+    }
+
+
+def replay_saved_packet(packet, source_packet):
+    native = json.loads(checked(packet / "Native.json", SAVED_NATIVE))
+    build = json.loads(checked(packet / "Build.json", SAVED_BUILD))
+    require(
+        native["controls_healthy"] and native["distinct_native_processes"] == 11,
+        "saved packet controls or native process inventory changed",
+    )
+    reports = {}
+    for name, source_sha in SOURCES.items():
+        source = checked(source_packet / "Sources" / f"{name}.SLDPRT", source_sha)
+        saved_sha = native["observations"][name + "Generated"]["saved_sha256"]
+        raw = checked(packet / "SavedCopies" / f"{name}.SLDPRT", saved_sha)
+        archive = SldprtArchive.from_bytes(raw)
+        link = ReadNativeLink(archive, 0)
+        document = decode_import(raw)
+        index, saved_roles, owners = project_index(archive, link, document)
+        actual = FindLocalOwner(NativePartModel(archive, None), archive)
+        destination = PureWindowsPath(build[name]["native_path"])
+        present, candidate = compare_case(source, None, destination)
+        (present_config,), present_rows = ParseKeywords(
+            SldprtArchive.from_bytes(present).require(KeywordsStream)
+        )
+        require(
+            digest(present) == build[name]["file"]["sha256"]
+            and present_config.properties["Material"] == candidate["config_material"]
+            and saved_roles == roles(present_rows)
+            and len(saved_roles) == 25,
+            "saved replay changed role parity or the frozen present candidate",
+        )
+        require(
+            index.MaterialValue is None
+            and index.TitleValue == destination.stem
+            and index.SavedAt == EPOCH
+            and actual is not None
+            and actual.object_id == 18
+            and len(document.brep.bodies) == 1
+            and document.bodies[0].final_feature_id == "sldprt:feature:18",
+            "saved omission did not retain its actual import and normalized index identity",
+        )
+        reports[name] = {
+            "saved_sha256": saved_sha,
+            "present_candidate_sha256": digest(present),
+            "strict_brep_bodies": len(document.brep.bodies),
+            "bound_import_id": actual.object_id,
+            "material_present": False,
+            "keyword_title": index.TitleValue,
+            "keyword_epoch": index.SavedAt,
+            "roles_equal": True,
+            "keyword_rows": len(saved_roles),
+            "owner_ids": owners,
+        }
+        if name == "Disclosed":
+            omission = generated_omission(source, destination, present)
+    return {
+        "native_receipt_sha256": SAVED_NATIVE,
+        "build_sha256": SAVED_BUILD,
+        "cases": reports,
+        "model_only_omission": omission,
+    }
+
+
 def main():
     parser = ArgumentParser(
         description="Verify the disclosed import keyword index and model-only stream deltas"
     )
     parser.add_argument("packet", type=Path)
+    parser.add_argument("--saved-packet", type=Path)
     args = parser.parse_args()
     for codec in ("ascii", "latin-1", "utf-8", "utf-16-le"):
         lookup(codec)
@@ -537,6 +675,10 @@ def main():
         "oracle_processes": 0,
         "heldout_cases": 0,
     }
+    if args.saved_packet is not None:
+        data["saved_material_replay"] = replay_saved_packet(
+            args.saved_packet, args.packet
+        )
     print(json.dumps(data, indent=2, sort_keys=True, allow_nan=False))
 
 

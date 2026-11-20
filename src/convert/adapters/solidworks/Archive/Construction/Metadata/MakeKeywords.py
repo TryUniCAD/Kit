@@ -59,16 +59,14 @@ def MakeKeywords(
         )
     RootValue = Element("Keywords", {"id": str(Timestamp), "Name": NameValue})
     for ItemValue in ConfigValues:
-        _ = SubElement(
-            RootValue,
-            "Configuration",
-            {
-                "id": str(ItemValue.IdValue),
-                "Name": ItemValue.NameValue,
-                "Type": "ConfigurationManager",
-                "Material": ItemValue.MaterialValue,
-            },
-        )
+        AttrsValue = {
+            "id": str(ItemValue.IdValue),
+            "Name": ItemValue.NameValue,
+            "Type": "ConfigurationManager",
+        }
+        if ItemValue.MaterialValue is not None:
+            AttrsValue["Material"] = ItemValue.MaterialValue
+        _ = SubElement(RootValue, "Configuration", AttrsValue)
     HasDegrees = any(
         DimValue.UnitValue == "degree"
         for ItemValue in FeatureValues

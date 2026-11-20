@@ -50,7 +50,7 @@ def MakeImportKeys(
         _, RowsValue, MaterialValue = ReadImpKeyNodes(
             SystemValue.RootValue, (*SystemValue.FeatureValues, FeatureValue)
         )
-        if ConfigMaterial != MaterialValue:
+        if ConfigMaterial not in (None, MaterialValue):
             raise ValueError("import keyword material differs from its actual folder")
         return MakeKeywords(
             KeywordInput.TitleValue,

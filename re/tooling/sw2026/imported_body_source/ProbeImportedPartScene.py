@@ -371,11 +371,11 @@ def measure_case(packet, guest, name, build, record, row):
     if "native_index" in build:
         expected_keys = build["native_index"]["generated"]
         saved_keys = keyword_snapshot(saved_data)
+        row["saved_keyword_index"] = saved_keys
         require(compare(saved_keys["native_roles"], expected_keys["native_roles"])
                 and saved_keys["typed_owner_id"] == expected_keys["typed_owner_id"]
-                and saved_keys["configuration_material"] == expected_keys["configuration_material"],
+                and saved_keys["configuration_material"] in (None, expected_keys["configuration_material"]),
                 "native save changed index role ownership or configuration material")
-        row["saved_keyword_index"] = saved_keys
     row.update(binary_light_values_preserved=sum(len(asdict(light)) for light in lights), full_disclosed_lifecycle=True)
 
 

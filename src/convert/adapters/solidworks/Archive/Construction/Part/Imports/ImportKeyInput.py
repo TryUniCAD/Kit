@@ -10,13 +10,14 @@ from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText impor
 class ImportKeyInput:
     TitleValue: str
     SavedAt: int
-    MaterialValue: str
+    MaterialValue: str | None
 
-    # scoped native metadata requires real labels and the recovered unsigned timestamp encoding
+    # scoped native metadata requires a real title and validates any supplied material label
     def __post_init__(self) -> None:
         if (
             not ReadStyleText(self.TitleValue, "import keyword title").strip()
-            or not ReadStyleText(
+            or self.MaterialValue is not None
+            and not ReadStyleText(
                 self.MaterialValue, "import keyword material label"
             ).strip()
         ):
