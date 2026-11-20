@@ -20,16 +20,17 @@ Its one-file manifest SHA-256 is
 The delivered framing file
 [`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
-`ee33183206b624a32638036790555ab6f7ad0c7669d0dc3cbf6e005a45639b69`.
+`d9b6fb7e8dceb8d90f450a8775b95123fb95ebe908a896a089a874f3c3edd7c2`.
 The focused [named-tree serializer](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/SerializeKeywordXml.py)
-has SHA-256 `01a9dd51f537fd54d1437a67509cb35a27bcce3f975be956ddc55372134113c7`.
+has SHA-256 `0f3802936dfd1f820df9189f601fa72815700da9295a7ed55d1bc08a07d90fe8`.
 The two-file manifest SHA-256 is
-`703935b6d88380c21834e873469774edf0bee9c30f0e600baf4ea0be434927f8`.
+`e4da169c3703fe338947bd17ed1682852e92503755642a3fe25759cfa8f8eba4`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. The serializer uses the
 standard-library `tostring` exposed by the repository's locked
-`defusedxml` version, now declared as a runtime dependency. The output
-must pass the existing hardened XML parser before framing.
+`defusedxml` version, now declared as a runtime dependency. The final
+payload passes the hardened XML parser after lexical rewriting and
+retains its authored element and attribute names.
 
 ## Framing and serialization
 

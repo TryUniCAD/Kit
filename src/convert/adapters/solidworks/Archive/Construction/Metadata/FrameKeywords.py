@@ -16,7 +16,5 @@ def FrameKeywords(RootValue: Element, CompactTags: bool) -> bytes:
         raise ValueError(
             "native keyword framing requires content inside the keyword root"
         )
-    PayloadValue = SerializeKeywordXml(RootValue).replace(b"\r", b"&#13;")
-    if CompactTags:
-        PayloadValue = PayloadValue.replace(b" />", b"/>")
+    PayloadValue = SerializeKeywordXml(RootValue, CompactTags)
     return b'\x86<?xml version="1.0" encoding="UTF-8"?>\r\n' + PayloadValue + b"\r\n"

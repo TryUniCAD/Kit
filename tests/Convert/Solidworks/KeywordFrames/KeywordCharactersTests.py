@@ -21,3 +21,28 @@ def TestInvalidXmlCharacters(TmpPath: FilePath) -> None:
                 assert Outcome.returncode != 0
                 assert "requires well-formed XML" in Outcome.stderr
                 assert not Output.exists()
+
+
+# the serialized document must preserve names and remain valid after carriage return encoding
+def TestInvalidKeywordNames(TmpPath: FilePath) -> None:
+    for IndexValue, ChildTag in enumerate(("Dimension\r", "Dimension ")):
+        for CompactMode in (True, False):
+            Source = TmpPath / f"tag{IndexValue}{CompactMode}.json"
+            Output = Source.with_suffix(".bin")
+            _ = Source.write_text(
+                DumpJson(
+                    {
+                        "root": "Keywords",
+                        "compact": CompactMode,
+                        "name": "Part",
+                        "text": "child",
+                        "tail": "after",
+                        "child_tag": ChildTag,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            Outcome = RunKeywordFrame("write", Source, Output)
+            assert Outcome.returncode != 0
+            assert "requires well-formed XML" in Outcome.stderr
+            assert not Output.exists()

@@ -28,7 +28,7 @@ def author_frame(source):
     feature = SubElement(
         root, "Feature", {"id": "7", "Name": "Sketch1", "Type": "ProfileFeature"}
     )
-    dimension = SubElement(feature, "Dimension", {"Name": "D1"})
+    dimension = SubElement(feature, source.get("child_tag", "Dimension"), {"Name": "D1"})
     dimension.text = source["text"]
     dimension.tail = source["tail"]
     markup = source.get("markup")
