@@ -215,7 +215,8 @@ def keyword_evidence(streams, discovered, document, root, pin, fields):
         sketches = {s["attributes"].get("native_object_id"): s for s in document.get("sketches", {}).get("$tuple", [])}
         for row, geometry in profile_fields(streams[resolved], resolved, features, rows, projected, sketches):
             counts[row["status"]] -= 1
-            row.update(status="verified_profile_radius", **geometry)
+            row.update(status="verified_native_radius" if geometry["geometry_source"] == "native_marker_references"
+                       else "verified_profile_radius", **geometry)
             counts[row["status"]] += 1
     for prediction in (fields or {}).get("predictions", []):
         key = prediction["feature_id"], prediction["key"][1]

@@ -8,9 +8,11 @@
 
 from collections import Counter, defaultdict
 import math
+import struct
 
 from convert.adapters.solidworks.Core.Native import (
     MarkerMetres,
+    ParseMarkers,
     ParseNames,
     ParseScalars,
 )
@@ -88,6 +90,7 @@ def profile_fields(data, stream, features, rows, projected, sketches):
             circles.append(
                 (entity["id"], radius, center, rim, first["offset"], second["offset"])
             )
+        raw_markers = None
         constraints = defaultdict(list)
         for rule in sketch["constraints"]["$tuple"]:
             constraints[rule.get("parameter_id")].append(rule)
@@ -127,6 +130,30 @@ def profile_fields(data, stream, features, rows, projected, sketches):
                     c[1] * factor, scalar.value, rel_tol=1e-9, abs_tol=1e-12
                 )
             ]
+            geometry_source = "profile"
+            if not matching:
+                spans = native[0]["provenance"]["spans"]["$tuple"]
+                if len(spans) != 1 or spans[0]["stream"] != stream or spans[0]["record_kind"] != "sketch-native-marker":
+                    continue
+                if raw_markers is None:
+                    raw_markers = ParseMarkers(data, start, end)
+                record = next((m for m in raw_markers if m.offset == spans[0]["offset"]), None)
+                if (record is None or record.length != spans[0]["length"] or record.length < 86
+                        or not record.endpoint_indices or record.endpoint_indices[0] != record.endpoint_indices[1]):
+                    continue
+                center_index = struct.unpack_from("<H", data, record.offset + 84)[0]
+                rim_index = record.endpoint_indices[0]
+                if center_index == rim_index or max(center_index, rim_index) >= len(raw_markers):
+                    continue
+                first, second = raw_markers[center_index], raw_markers[rim_index]
+                center, rim = first.coordinates_metres, second.coordinates_metres
+                if center is None or rim is None:
+                    continue
+                radius = math.dist(center, rim)
+                if radius <= 0 or not math.isclose(radius * factor, scalar.value, rel_tol=1e-9, abs_tol=1e-12):
+                    continue
+                matching = [(native[0]["id"], radius, center, rim, first.offset, second.offset)]
+                geometry_source = "native_marker_references"
             rules = constraints[params[0]["id"]]
             if (
                 len(matching) != 1
@@ -160,6 +187,7 @@ def profile_fields(data, stream, features, rows, projected, sketches):
                     row,
                     {
                         "verified_location": (stream, scalar.value_offset),
+                        "geometry_source": geometry_source,
                         "entity_id": entity,
                         "native_entity_id": native[0]["id"],
                         "center_offset": center_offset,

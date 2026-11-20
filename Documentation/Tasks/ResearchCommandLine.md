@@ -265,3 +265,5 @@ For dimensions with repeated values across different features, [owner anchors](.
 When a SOLIDWORKS run generates multiple reader changes, apply the cumulative `Reader.patch` to its recorded base. The [successive reader passes](../Changes/Research/Inference/SuccessiveReaderPasses.md) report shows which parameters each pass verified.
 
 A `paired_sketch_length` result records the driving and display offsets for a [full-precision sketch length](../Changes/Research/Inference/PairedSketchLengthPrecision.md).
+
+For a `verified_native_radius` result, the [referenced circle dimension](../Changes/Research/Inference/ReferencedCircleDimension.md) entry explains how to inspect the saved center and rim.

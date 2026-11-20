@@ -238,3 +238,8 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
     assert SketchLength["attributes"]["source_text"] == "39.41"
     assert SketchLength["attributes"]["native_role"] == "driving"
     assert SketchLength["provenance"]["spans"]["$tuple"][0]["offset"] == 49223
+    (Circle,) = [Row for Row in Dimensions if Row["status"] == "verified_native_radius"]
+    assert Circle["feature_id"] == 261
+    assert (Circle["center_offset"], Circle["rim_offset"]) == (218336, 218478)
+    assert Circle["verified_location"][1] == 219738
+    assert abs(2 * Circle["radius_m"] - 0.01778) < 1e-12
