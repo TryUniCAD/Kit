@@ -267,4 +267,22 @@ jobs:
           .venv/bin/python "$reference/re/automation/RectanglePairEvidence.py" > "$RUNNER_TEMP/reference.json"
           .venv/bin/python re/automation/RectanglePairEvidence.py > "$RUNNER_TEMP/current.json"
           sha256sum "$RUNNER_TEMP/reference.json" "$RUNNER_TEMP/current.json"
-          diff -u "$RUNNER_TEMP/reference.json" "$RUNNER_TEMP/current.json" | head -240 || true
+          python - "$RUNNER_TEMP/reference.json" "$RUNNER_TEMP/current.json" <<'PY'
+          from collections import Counter
+          import json, sys
+          from pathlib import Path
+          def leaves(value, path=()):
+              if isinstance(value, dict):
+                  for key, element in value.items():
+                      yield from leaves(element, (*path, key))
+              elif isinstance(value, list):
+                  for index, element in enumerate(value):
+                      yield from leaves(element, (*path, index))
+              else:
+                  yield path, value
+          before, after = (dict(leaves(json.loads(Path(file).read_text()))) for file in sys.argv[1:])
+          assert before.keys() == after.keys()
+          changes = Counter((str(path[-2]), str(path[-1]), repr(before[path]), repr(after[path])) for path in before if before[path] != after[path])
+          for fields, count in changes.items():
+              print(count, fields)
+          PY
