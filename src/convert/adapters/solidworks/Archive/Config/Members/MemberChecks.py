@@ -6,10 +6,12 @@ from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
     KRelMgrClass,
     KSketchBlockClass,
     KThreadMgrClass,
+    KViewClass,
 )
 from convert.adapters.solidworks.Archive.Config.Members.CheckCfgOwner import (
     CheckCfgOwner,
 )
+from convert.adapters.solidworks.Archive.Config.Members.CheckCfgView import CheckCfgView
 from convert.adapters.solidworks.Archive.Config.Members.CheckRelMember import (
     CheckRelMember,
 )
@@ -30,6 +32,7 @@ KNodeChecks: MappingProxyType[RuntimeClass, Callable[[ArchiveNode], None]] = (
             KSketchBlockClass: CheckCfgOwner,
             KExplViewClass: CheckCfgOwner,
             KThreadMgrClass: CheckThreadMap,
+            KViewClass: CheckCfgView,
         }
     )
 )
