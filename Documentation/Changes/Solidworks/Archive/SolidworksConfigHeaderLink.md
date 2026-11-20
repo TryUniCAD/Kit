@@ -12,8 +12,9 @@ in fresh processes. Twelve malformed cases cover the named roles,
 container format, part descriptor and section extent. An independently
 authored format-4 pair verifies the self file and ordered directory
 aliases and checks refusal of logical archive version 18900.
-The version-order process proves that version refusal precedes
-malformed ModelHeader and Config-0 field reads.
+The version-order process counts typed decoder entries. The wrong
+version reaches neither decoder, and the matching-version contrasts
+exercise both counters.
 Queue execution and complete physical configuration admission are pending.
 [Source record and process commands](../../../../re/solidworks/records/ConfigHeaderLinkSlice2026.md)
 · [Header alias index gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/HeaderAliasesKeepSourceIndex.md)

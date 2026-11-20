@@ -2,6 +2,13 @@ from typing import cast as CastValue
 
 from tests.Convert.Solidworks.Configuration.RunHeadLink import RunHeadLink
 
+# the matching version contrasts exercise both typed entry counters
+KTypedCallCounts = [
+    {"model_header": 0, "config_root": 0},
+    {"model_header": 1, "config_root": 0},
+    {"model_header": 1, "config_root": 1},
+]
+
 
 # malformed streams must expose the version guard before either typed payload reader
 def TestHeadVersion() -> None:
@@ -10,6 +17,7 @@ def TestHeadVersion() -> None:
     Older, HeaderFault, ConfigFault = Records
     assert [Record["physical_format"] for Record in Records] == [4, 4, 4]
     assert [Record["logical_version"] for Record in Records] == [18900, 19000, 19000]
+    assert [Record["typed_entry_calls"] for Record in Records] == KTypedCallCounts
     assert [Record["stage"] for Record in Records] == [
         "wrong_version",
         "current_bad_header",

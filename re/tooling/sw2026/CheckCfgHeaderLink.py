@@ -11,12 +11,15 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path[:0] = [str(ROOT / "src"), str(Path(__file__).resolve().parent)]
 
 from MakeHeadAliasCase import DIRECTORY, PATH, SELF, authored_lanes, frame_lanes
+from convert.adapters.solidworks.Archive.Config.Link.CheckPartRoot import CheckPartRoot
 from convert.adapters.solidworks.Archive.Config.Link.ReadPartStart import ReadPartStart
 from convert.adapters.solidworks.Archive.Header.ReadFileTable import GetFileRef
+from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.FindObject import FindObject
 from convert.adapters.solidworks.Archive.Maps.ObjectIndex import ObjectIndex
+from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive, SldprtFormatError
 
@@ -141,6 +144,27 @@ def refuse(label, archive, expected, *, exact=False):
     raise ValueError(f"{label} crossed the named part start boundary")
 
 
+def observe_refusal(label, archive, expected):
+    calls = {"model_header": 0, "config_root": 0}
+
+    def observe(frame, event, _value):
+        if event != "call":
+            return
+        if frame.f_code is ReadHeaderGraph.__code__:
+            calls["model_header"] += 1
+        elif (frame.f_code is ReadNodeMut.__code__
+              and frame.f_locals["ReaderValue"].BodyReader is CheckPartRoot):
+            calls["config_root"] += 1
+
+    previous = sys.getprofile()
+    try:
+        sys.setprofile(observe)
+        stage = refuse(label, archive, expected, exact=True)
+    finally:
+        sys.setprofile(previous)
+    return stage, calls
+
+
 def authored_faults(archive, config, model, section):
     another_class = b"moAssembly_c"
     wrong_root = pack("<3H", 0xFFFF, 1, len(another_class)) + another_class + config[section:]
@@ -238,25 +262,29 @@ def version_order_case():
     paired_fault = {**config_fault, MODEL: malformed_header}
     cases = (
         ("wrong_version", 18900, paired_fault,
-         "SOLIDWORKS configuration start requires format 4 at version 19000"),
-        ("current_bad_header", 19000, paired_fault, "truncated SOLIDWORKS archive field at 2"),
-        ("current_bad_config", 19000, config_fault, "archive tag has no complete unsigned dword"),
+         "SOLIDWORKS configuration start requires format 4 at version 19000", (0, 0)),
+        ("current_bad_header", 19000, paired_fault, "truncated SOLIDWORKS archive field at 2", (1, 0)),
+        ("current_bad_config", 19000, config_fault, "archive tag has no complete unsigned dword", (1, 1)),
     )
     results = []
-    for label, version, lanes, expected in cases:
+    for label, version, lanes, expected, expected_calls in cases:
         raw = frame_lanes(lanes, version)
         archive = SldprtArchive.from_bytes(raw)
         require(archive.format_version == 4 and ContainerMo(archive.Streams) == version,
                 "version-order container has the wrong physical or logical profile")
         require(archive.Streams == {**lanes, f"_MO_VERSION_{version}": b""},
                 "version-order container changed the authored fault streams")
+        stage, calls = observe_refusal(label, archive, expected)
+        require((calls["model_header"], calls["config_root"]) == expected_calls,
+                f"{label} reached unexpected typed readers: {calls}")
         results.append({
-            "stage": refuse(label, archive, expected, exact=True),
+            "stage": stage,
             "diagnostic": expected,
             "physical_format": archive.format_version,
             "logical_version": version,
             "raw_archive_sha256": digest(raw),
             "required_lane_sha256": {name: digest(archive.require(name)) for name in (CONFIG, MODEL)},
+            "typed_entry_calls": calls,
         })
     return {
         "case": "version-order",

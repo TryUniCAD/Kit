@@ -117,6 +117,15 @@ A third 19000 envelope keeps those Config-0 bytes and supplies the
 valid authored ModelHeader. It reports the incomplete Config-0
 tag dword. The ordinary version-19000 alias probe and disclosed
 source cases run independently.
+
+The process profiles the exact `ReadHeaderGraph` entry and the
+`ReadNodeMut` entry whose body owner is `CheckPartRoot`.
+It restores the previous profile callback after each observed read.
+The 18900 envelope reaches neither typed entry. The malformed
+ModelHeader contrast reaches only the header once, and the malformed
+Config-0 contrast reaches both once. Two separate in-memory controls
+try an early typed decode, swallow its error and return the original
+version diagnostic. Both fail the entry count check.
 [Version guard process and stream hashes](../measurements/2026/ConfigHeaderLinkReader01.json)
 · [Queue case](../../../tests/Convert/Solidworks/Configuration/HeadVersionTests.py)
 
