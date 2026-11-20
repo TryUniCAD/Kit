@@ -37,11 +37,11 @@ def CheckDecode(TmpPath: FilePath) -> None:
     SampleValue = RecordsValue["samples"][0]
     assert SampleValue["status"] == "unresolved"
     assert SampleValue["deterministic"] is True
+    assert SampleValue["portable_complete"] is False
+    assert SampleValue["native_acceptance"] == "not_established"
     assert SampleValue["unresolved"]
-    Artifact = DecodeResult["output_artifacts"]["neutral.0"]
-    NeutralValue = DecodeJson(ReadAccepted(StorePath, Artifact["sha256"]))
-    assert NeutralValue["$type"] == "CadDocument"
-    assert Artifact["sha256"] == SampleValue["neutral_sha256"]
+    assert len(SampleValue["neutral_sha256"]) == 64
+    assert DecodeResult["output_artifacts"] == {}
     _ = RunPipeline(
         KSourceRoot / "re/automation/Controller.py",
         "--store",

@@ -114,7 +114,18 @@ integrating the merged catalogue prerequisites.
 Review follow-up adds the three Windows native process checks to the shared
 merge-queue platform selection and splits independent fixture helpers into
 focused modules. All ten affected process checks passed after those changes.
-The measured native authoring and decoder source files remain unchanged.
+The measured native authoring source files remain unchanged. A subsequent
+review correction prevents unresolved or unqualified neutral bytes from being
+published as translation artifacts. Research records retain the findings,
+repeatability result, and neutral hash; portable qualification is required before
+a neutral artifact can be accepted.
+All four affected controller-to-decoder process checks passed after this guard.
+Re-decoding the eight accepted SOLIDWORKS samples completed on attempt one:
+all remained deterministic with 53 findings each, and no translation artifacts
+were accepted. The replay receipt is
+`1dde593ba7ab6451d8c7b4909b3533c8ce1027703f286201ef0d46639f881884`;
+its retained evidence digest is
+`0534e9c910b5dc9c2ef098e4f3c6b668c724912eb5af05be984554233f74181b`.
 
 A separate configured SOLIDWORKS 34.4.1 run authored a 43 × 23 × 12 mm forward
 XY boss: one solid, volume 11868.000000000002 mm³, center of mass

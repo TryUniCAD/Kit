@@ -39,7 +39,11 @@ def RunDecode(SessionPath):
             Content, JobValue["options"]["application"], NameValue
         )
         RecordsValue.append(ReportValue)
-        if Neutral is not None:
+        if (
+            Neutral is not None
+            and ReportValue["status"] == "read"
+            and ReportValue.get("portable_complete") is True
+        ):
             Relative = f"Neutral{IndexValue}.json"
             RawValue = Neutral.encode("utf-8")
             (SessionPath / "work" / Relative).write_bytes(RawValue)

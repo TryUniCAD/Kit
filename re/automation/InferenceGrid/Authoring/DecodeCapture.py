@@ -54,6 +54,8 @@ def DecodeCapture(Content, Application, NameValue):
         "neutral_sha256": sha256(Neutral.encode("utf-8")).hexdigest(),
         "status": "unresolved" if Issues else "read",
         "deterministic": True,
+        "portable_complete": Evidence["portable_complete"],
+        "native_acceptance": Evidence["native_acceptance"],
         "counts": Evidence["counts"],
         "unresolved": [
             {"path": PathValue, "reason": ReasonValue}
