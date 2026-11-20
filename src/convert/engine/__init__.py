@@ -98,6 +98,7 @@ class ConversionEngine(PairProtocol):
             document,
             destination,
             reader,
+            read_options,
             FormatId=destination_format,
             WriteOpts=write_options,
         )

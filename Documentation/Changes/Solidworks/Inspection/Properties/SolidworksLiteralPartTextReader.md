@@ -17,8 +17,8 @@ diagnostic. The ordinary model read remains available. The registry
 refuses new native projections and direct writes of this diagnostic
 result before publishing output, with the original property failure
 in the error. When conversion uses the registered interchange JSON
-reader and writer, it can preserve an existing snapshot and its native
-inspection status.
+reader and writer without configuration or geometry filtering, it
+can preserve an existing snapshot and its native inspection status.
 
 The version-18000 compatibility path verifies absence of authored text
 through the complete supported binary property owner and all recognized

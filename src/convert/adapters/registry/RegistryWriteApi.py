@@ -10,6 +10,7 @@ from convert.adapters.base.AdapterProtocols import CadReaderAdapter
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.base.Materials.CheckMatWrites import CheckMatWrites
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.Staging.PathStaging import WritePathStaged
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
@@ -107,7 +108,7 @@ class WriteApi(WriteLookup):
         TargetData: KTargetType,
         **NamedValues: object,
     ) -> WriteResult:
-        return self.WriteFromRead(DocumentData, TargetData, None, **NamedValues)
+        return self.WriteFromRead(DocumentData, TargetData, None, None, **NamedValues)
 
     # selected reader identity distinguishes a neutral snapshot from a fresh native projection
     def WriteFromRead(
@@ -115,6 +116,7 @@ class WriteApi(WriteLookup):
         DocumentData: CadDocument,
         TargetData: KTargetType,
         ReaderData: CadReaderAdapter | None,
+        ReaderOpts: ReadOptions | None,
         **NamedValues: object,
     ) -> WriteResult:
         FormatId, OptionsData = GetWriteArgs(NamedValues)
@@ -127,6 +129,7 @@ class WriteApi(WriteLookup):
             DocumentData,
             None if ReaderData is None else ReaderData.info.FormatId,
             AdapterData.info.FormatId,
+            ReaderOpts,
         )
         CheckMatWrites(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()

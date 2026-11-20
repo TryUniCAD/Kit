@@ -168,9 +168,11 @@ transfer and carrier checks continue to apply to eligible documents.
 For a snapshot already read by the registered interchange JSON reader,
 the registry uses the actual input adapter for the text publication
 decision. A matching interchange JSON writer can retain the original
-document, unavailable diagnostic and source provenance. The same
-status still refuses fresh SOLIDWORKS projections and direct writes.
-The queue probes exercise both copy entry points and the complete
+document, unavailable diagnostic and source provenance when geometry
+and configuration filtering are disabled. The same status still
+refuses filtered copies, fresh SOLIDWORKS projections and direct
+writes. The CLI keeps its portable-data gate. The queue probes exercise
+both copy entry points, three filtered-copy refusals and the complete
 qualified circular-part JSON write/readback.
 [Direct write queue case](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py)
 

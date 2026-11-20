@@ -41,3 +41,7 @@ def TestTextRefusal() -> None:
     assert ReportValue["neutral_copies"] == dict.fromkeys(
         ("ordinary", "compatibility"), InfoValue
     )
+    assert ReportValue["filtered_copies_refused"] == dict.fromkeys(
+        ("geometry", "mesh", "configuration"),
+        f"SOLIDWORKS part text properties are unavailable for writing ({KPartCause})",
+    )

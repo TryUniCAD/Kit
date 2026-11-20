@@ -1,6 +1,6 @@
+from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.api.ApiContext import GetRegistry
-from convert.api.ApiOpen import OpenDocument
 from convert.api.ApiValues import BuildWriteVals
 from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
@@ -28,22 +28,18 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         if len(Writers) != 1:
             raise ValueError("Destination suffix is ambiguous; use --to FORMAT")
         DestFormat = Writers[0].info.FormatId
-    Reader = (
-        Registry.GetReader(Options.SourceFormat)
-        if Options.SourceFormat
-        else Registry.PickReader(Options.Source)
-    )
-    Document = OpenDocument(
+    ReadOpts = ReadOptions(configuration=Options.Configuration, strict=True)
+    Document, Reader = Registry.ReadAdapter(
         Options.Source,
-        SourceFormat=Reader.info.FormatId,
-        Configuration=Options.Configuration,
-        StrictMode=True,
+        FormatId=Options.SourceFormat,
+        ReadOpts=ReadOpts,
     )
     CheckPortable(Document)
     Result = Registry.WriteFromRead(
         Document,
         Options.Destination,
         Reader,
+        ReadOpts,
         FormatId=DestFormat,
         WriteOpts=WriteOptions(
             configuration=Options.Configuration,

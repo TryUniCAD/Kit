@@ -22,20 +22,28 @@ def check_neutral_copy(document, legacy):
     source = document.to_json().encode()
     first, second = BytesIO(), BytesIO()
     convert(source, first, source_format="interchange.json", destination_format="interchange.json",
-            include_tessellation=False, allow_carrier=False)
-    legacy.ConvertData(source, second, SourceFormat="interchange.json", DestFormat="interchange.json",
-                       ReadOpts=ReadOptions(include_tessellation=False))
+            allow_carrier=False)
+    legacy.ConvertData(source, second, SourceFormat="interchange.json", DestFormat="interchange.json")
     result = {}
     for mode, stream in (("ordinary", first), ("compatibility", second)):
-        restored = open_document(stream.getvalue(), source_format="interchange.json",
-                                 strict=True, include_tessellation=False)
+        restored = open_document(stream.getvalue(), source_format="interchange.json", strict=True)
         check_model(document, restored)
         observed = model_state(restored)
         if (expected != observed or document.source != restored.source
-                or document.diagnostics != restored.diagnostics or document.configurations != restored.configurations):
+                or document.diagnostics != restored.diagnostics or document.configurations != restored.configurations
+                or document.brep_payloads != restored.brep_payloads or document.meshes != restored.meshes):
             raise ValueError("neutral JSON copy changed the original native inspection state")
         result[mode] = observed["status"]
     return result
+
+
+def check_filtered_copy(document):
+    source = document.to_json().encode()
+    options = {"source_format": "interchange.json", "destination_format": "interchange.json"}
+    restrictions = {"geometry": {"include_brep": False}, "mesh": {"include_tessellation": False},
+                    "configuration": {"configuration": document.configurations[0].name}}
+    return {name: refuse_write(partial(convert, source, **options, **selected), CAUSE)
+            for name, selected in restrictions.items()}
 
 
 def inspect(source):
@@ -82,6 +90,7 @@ def inspect(source):
     state["refusals"] = refusals
     state["implicit_path_unchanged"] = True
     state["neutral_copies"] = check_neutral_copy(document, legacy)
+    state["filtered_copies_refused"] = check_filtered_copy(document)
     return state
 
 
