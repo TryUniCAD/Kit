@@ -188,6 +188,17 @@ Populated thread maps and complete configuration support have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+### B04-SW2026-CONFIG-SECTIONS
+
+The PR #121 takeover team owns this scoped reader on
+`codex/solidworks-config-section-framing`. It reuses the shared body
+executor, standalone model header and inherited maps. Exit requires the
+physical section bounds, true direct alias and empty ghost owner for both
+tracked model controls, guarded framing refusals and current revision review
+and queue evidence. Complete section bodies, broader context and public
+configuration admission retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigSections.md)
+
 ### B04-SW2026-CONFIG-HEADER-LINK
 
 The PR #121 takeover team owns the bounded part header handoff on
@@ -200,16 +211,16 @@ Complete configuration admission and the property owner's physical
 link remain separate work.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
-### B04-SW2026-CONFIG-SECTIONS
+### B04-SW2026-CONFIG-CACHES
 
-The PR #121 takeover team owns this scoped reader on
-`codex/solidworks-config-section-framing`. It reuses the shared body
-executor, standalone model header and inherited maps. Exit requires the
-physical section bounds, true direct alias and empty ghost owner for both
-tracked model controls, guarded framing refusals and current revision review
-and queue evidence. Complete section bodies, broader context and public
-configuration admission retain separate exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigSections.md)
+The PR #121 takeover team owns the bounded part cache reader on
+`codex/solidworks-config-caches` for separate main delivery. It depends
+on the shared body field, counted row and branch readers. Exit requires
+the disclosed mass and empty bounds intervals, malformed record
+refusals and current revision queue and review evidence. Populated
+bounds ownership and complete physical `Config-0` admission have
+separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
 
 ### B08-SW2026-TERMINAL-FIN
 
