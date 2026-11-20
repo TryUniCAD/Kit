@@ -1,0 +1,20 @@
+# mandatory legal text stays exact because general license prefixes must not bypass comment policy
+KRequiredNotice = (
+    "# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0",
+    "# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin",
+    "#",
+    "# This SPDX license identifier and copyright notice must not be",
+    "# removed, altered, or obscured. Doing so is a material breach of",
+    "# the PolyForm Strict License 1.0.0 and voids all licenses granted",
+    "# to you under it immediately and permanently.",
+)
+
+
+# only the complete leading notice may survive because misplaced or altered commentary remains prohibited
+def GetNoticeLines(SourceText: str) -> set[tuple[int, int]]:
+    SourceLines = SourceText.replace("\r\n", "\n").split("\n")
+    FirstLine = int(SourceLines[0].startswith("#!"))
+    AfterLine = FirstLine + len(KRequiredNotice)
+    if tuple(SourceLines[FirstLine:AfterLine]) != KRequiredNotice:
+        return set()
+    return {(LineNum, 0) for LineNum in range(FirstLine + 1, AfterLine + 1)}

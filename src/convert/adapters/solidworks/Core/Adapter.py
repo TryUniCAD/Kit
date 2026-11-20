@@ -45,7 +45,6 @@ from interchange import (
     DomeFeature,
     ExtrusionEndCondition,
     ExtrusionFeature,
-    Expression,
     EllipseGeometry as EllipseGeom,
     FeatureKind,
     FeatureStep,
@@ -111,6 +110,9 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     decode_mate_list as DecodeMateList,
     decode_native_assembly as DecodeNativeAsm,
 )
+from convert.adapters.solidworks.Config.OrdinaryMap import ReadOrdinaryMap
+from convert.adapters.solidworks.Config.RootLayout import KConfigGen
+from convert.adapters.solidworks.Container.Archive import ArchiveError, ContainerMo
 from convert.adapters.solidworks.Container.Container import (
     SldprtArchive,
     SldprtFormatError,
@@ -138,6 +140,19 @@ from convert.adapters.solidworks.Container.Format import (
 from convert.adapters.solidworks.Core.FeatureKindByNative import KFeatureKindByNative
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.Core.BuildRevolve import BuildRevolve as BuildRevolve
+from convert.adapters.solidworks.Core.EquationLinks import EquationData
+from convert.adapters.solidworks.Core.EquationTarget import (
+    KUnresolvedEqTargets,
+    ResolveTarget,
+)
+from convert.adapters.solidworks.Core.Inch.BindInch import KUnresolvedInchDimension
+from convert.adapters.solidworks.Core.BossProjection import BindBossAxis
+from convert.adapters.solidworks.Core.CircularProjection import ProjectRoundDoc
+from convert.adapters.solidworks.Core.CircleOnly.Projection import ProjectSoloDoc
+from convert.adapters.solidworks.Core.ParseDisplay import (
+    KInformationStream,
+    ParseDisplay,
+)
 from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
@@ -166,6 +181,23 @@ from convert.adapters.solidworks.Core.Native import (
     decode_native_model as DecodeNativeModel,
     operation_axis_subelement as OperationAxisSubElem,
 )
+from convert.adapters.solidworks.Core.Cut.CutDocument import ProjectCutDoc
+from convert.adapters.solidworks.Core.Cut.CutEqProjection import ReadCutArchive
+from convert.adapters.solidworks.Core.Partition.ActivePartition import ReadActivePart
+from convert.adapters.solidworks.Core.Partition.PartTopology import ActivePartMass, PartTopology
+from convert.adapters.solidworks.Core.OrdinaryRead import (
+    IsEmptyPart,
+    KArchiveSupport,
+    ReadRectSupport,
+)
+from convert.adapters.solidworks.Core.RectProjection import ProjectRect
+from convert.adapters.solidworks.Core.Scope.ScopeDocument import (
+    KScopeUnresolved,
+    ReadScopeDoc,
+)
+from convert.adapters.solidworks.Core.TwoPad.PadDocument import ProjectPadDoc
+from convert.adapters.solidworks.Resolved.ResolvedHead import OpenResolved
+from convert.adapters.solidworks.Resolved.SystemPrefix import ReadSysPrefix
 from interchange.geometry.Models.GeometryTypes import KGeometryTypes
 from convert.adapters.solidworks.Container.Parasolid import (
     ParasolidPayload,
@@ -319,10 +351,9 @@ def ReadNativePart(
 ) -> CadDoc:
     Model = NativePartModel(Archive, Settings.configuration)
     ConfigValues = Configurations(Model, Settings.configuration)
-    ParamValues = Parameters(Model)
-    ParamIds = {Param.id for Param in ParamValues}
-    PlaneValues = Planes(Model, ParamIds)
-    SketchValues = Sketches(Model, ParamIds)
+    UnresolvedTargets: list[Mapping[str, object]] = []
+    ParamValues = Parameters(Model, UnresolvedTargets)
+    PlaneValues, SketchValues = PartSketchData(Model, {Param.id for Param in ParamValues})
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
@@ -335,12 +366,25 @@ def ReadNativePart(
         and not PayloadDiags
         else None
     )
-    BrepValue, LocalOwner, LocalDiag = TypedBrep(
-        Payloads,
-        LocalOwner=Candidate,
-        GroupData=Archive.get(KLocalBodyStream) if Candidate is not None else None,
-        Strict=Settings.strict,
+    ActivePart = (
+        ReadActivePart(
+            Payloads,
+            Model.active_configuration_id,
+            TypedBodyId(Model),
+            (Record.name for Record in Archive.records),
+        )
+        if Candidate is None
+        else None
     )
+    if ActivePart is not None:
+        BrepValue, LocalOwner, LocalDiag = ActivePart.ModelValue, None, None
+    else:
+        BrepValue, LocalOwner, LocalDiag = TypedBrep(
+            Payloads,
+            LocalOwner=Candidate,
+            GroupData=Archive.get(KLocalBodyStream) if Candidate is not None else None,
+            Strict=Settings.strict,
+        )
     SolidOpIds = frozenset(
         (
             FeatureId(Operation.object_id)
@@ -354,17 +398,19 @@ def ReadNativePart(
         else FinalBodyId(TimeValues, SolidOpIds)
     )
     BodyFeature = LocalOwner or SolidBody(Model.features)
-    TopologyValue = TopologySummary(
+    SavedPart = ActivePart.ModelValue if ActivePart is not None else None
+    Fallback = TopologySummary(
         solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
     )
     if LocalOwner is not None and BrepValue is not None:
-        BrepValue, TopologyValue = LinkLocalBody(BrepValue, KPartBodyId, TopologyValue)
+        BrepValue, Fallback = LinkLocalBody(BrepValue, KPartBodyId, Fallback)
+    Summary, Measures = ActivePartMass(SavedPart, PartTopology(SavedPart, KPartBodyId, Fallback), KPartBodyId)
     Bodies = (
         BodyValue(
             id=KPartBodyId,
             name=BodyFeature.name if BodyFeature is not None else "Body 1",
             final_feature_id=FinalFeature,
-            topology=TopologyValue,
+            topology=Summary,
             provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
             attributes=FrozenMapping(
                 {
@@ -374,6 +420,11 @@ def ReadNativePart(
                     "parasolid_payload_ids": tuple(
                         (Payload.id for Payload in Payloads)
                     ),
+                    **(
+                        {"parasolid_active_payload_id": ActivePart.PayloadId}
+                        if ActivePart is not None and ActivePart.ModelValue is not None else {}
+                    ),
+                    **({"solidworks.body_centroid_mm": Measures.Centroid} if Measures is not None else {}),
                 }
             ),
         ),
@@ -408,7 +459,7 @@ def ReadNativePart(
         sketches=SketchValues,
         selections=SelectValues,
         feature_timeline=TimeValues,
-        bodies=Bodies,
+        bodies=() if IsEmptyPart(Archive, Model) else Bodies,
         brep=BrepValue,
         brep_payloads=Payloads,
         diagnostics=Diagnostics,
@@ -424,13 +475,102 @@ def ReadNativePart(
                 "native_name_record_count": len(Model.names),
                 "native_scalar_count": len(Model.scalars),
                 "stream_names": tuple((Record.name for Record in Archive.records)),
+                **(
+                    {KUnresolvedEqTargets: tuple(UnresolvedTargets)}
+                    if UnresolvedTargets
+                    else {}
+                ),
+                **(
+                    {
+                        "source_display_units": Model.linear_display.UnitName,
+                        "source_display_units_stream": KInformationStream,
+                    }
+                    if Model.linear_display is not None
+                    else {}
+                ),
             }
         ),
         units=UnitSystem.MILLIMETER,
     )
+    DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(DocValue, DataValue)
+
+
+# planes and sketches must bind to the same native parameter identities
+def PartSketchData(Model: NativeModel, ParamIds: set[str]) -> tuple[tuple[SupportPlane, ...], tuple[SketchData, ...]]:
+    return Planes(Model, ParamIds), Sketches(Model, ParamIds)
+
+
+# an active partition receives the body identity only when native records prove solid ownership
+def TypedBodyId(Model: NativeModel) -> str | None:
+    if Model.cut_source is not None:
+        return KPartBodyId
+    if len(Model.operations) == 1:
+        Operation = Model.operations[0]
+        if Operation.kind == "join" and Operation.archive_spans:
+            return KPartBodyId
+    return None
+
+
+# native refinements need a shared order because later paths use the preceding geometry
+def ProjectPartDoc(
+    DocValue: CadDoc,
+    Model: NativeModel,
+    Archive: SldprtArchive,
+    Payloads: tuple[BrepPayload, ...],
+    Settings: ReadOptions,
+) -> CadDoc:
+    DocValue = ProjectCutDoc(DocValue, Model.cut_source)
+    DocValue = ProjectScopeDoc(DocValue, Model, Archive, Payloads, Settings)
+    DocValue = ProjectPadDoc(DocValue, Archive, Model.active_configuration_id)
+    DocValue = ProjectSoloDoc(DocValue, Model, Archive)
+    return ProjectRoundDoc(DocValue, Model, Archive, Settings.include_brep)
+
+
+# recognized multibody configurations refine the fallback only after all joins succeed
+def ProjectScopeDoc(
+    DocValue: CadDoc,
+    Model: NativeModel,
+    Archive: SldprtArchive,
+    Payloads: tuple[BrepPayload, ...],
+    Settings: ReadOptions,
+) -> CadDoc:
+    ConfigIdValue = Model.active_configuration_id
+    if ConfigIdValue is None or KScopeUnresolved not in Model.diagnostics:
+        return DocValue
+    try:
+        ScopedPayloads = Payloads
+        if not Settings.include_brep:
+            PartitionName = f"Contents/Config-{ConfigIdValue}-Partition"
+            ScopedPayloads = tuple(
+                BrepPayloadA(Index, Value)
+                for Index, Value in enumerate(
+                    DecodePartitionStream(
+                        Archive.require(PartitionName), PartitionName
+                    )
+                )
+            )
+        return ReadScopeDoc(
+            DocValue,
+            Archive,
+            ConfigIdValue,
+            ScopedPayloads,
+            RetainBrep=Settings.include_brep,
+        )
+    except (KeyError, ValueError, Struct.error) as ErrorInfo:
+        return Replace(
+            DocValue,
+            diagnostics=(
+                *DocValue.diagnostics,
+                DiagValue(
+                    code="sldprt.scope_projection_unresolved",
+                    message=str(ErrorInfo),
+                    severity=Severity.INFO,
+                ),
+            ),
+        )
 
 
 # boolean option validation keeps compatibility keywords aligned with canonical options
@@ -2005,6 +2145,22 @@ def ResolvedStream(Streams: Mapping[str, bytes], LaneValue: str) -> str:
     return KitResolvedStream if KitResolvedStream in Streams else LaneValue
 
 
+# a warning needs the reached configuration map and typed resolved system prefix
+def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) -> bool:
+    if (
+        Generation != KConfigGen
+        or len(Resolved) < 6
+        or Struct.unpack_from("<H", Resolved, 4)[0] != 23
+    ):
+        return False
+    try:
+        ConfigMap, _ = ReadOrdinaryMap(ConfigData, Generation, Scoped=True)
+        _ = ReadSysPrefix(OpenResolved(Resolved, ConfigMap, 23))
+    except (ArchiveError, Struct.error):
+        return False
+    return True
+
+
 # this definition exists because focused behavior needs one stable owner
 def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
@@ -2044,13 +2200,34 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         )
     SelectedStream = ResolvedStream(Archive.streams, Lanes[SelectedId])
     ConfigStream = f"Contents/Config-{SelectedId}"
-    return DecodeNativeModel(
+    Resolved = Archive.require(SelectedStream)
+    ConfigData = Archive.get(ConfigStream) or b""
+    Model = DecodeNativeModel(
         Keywords,
-        Archive.require(SelectedStream),
-        Archive.get(ConfigStream) or b"",
+        Resolved,
+        ConfigData,
         configuration_id=SelectedId,
         resolved_stream=SelectedStream,
         configuration_stream=ConfigStream,
+        Display=ParseDisplay(Archive.get(KInformationStream) or b""),
+    )
+    if SelectedStream == KitResolvedStream:
+        return Model
+    Generation = ContainerMo(Archive.streams)
+    Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
+    Decoded = ReadCutArchive(
+        Ordinary, ConfigData, Resolved, Generation, ConfigStream, SelectedStream
+    )
+    if Decoded.cut_source is not None or not HasTwoBodyScope(
+        ConfigData, Resolved, Generation
+    ):
+        return Decoded
+    return Replace(
+        Decoded,
+        diagnostics=(
+            *Decoded.diagnostics,
+            KScopeUnresolved,
+        ),
     )
 
 
@@ -2089,15 +2266,22 @@ def Configurations(Model: NativeModel, Requested: str | None) -> tuple[Config, .
 
 
 # this definition exists because focused behavior needs one stable owner
-def Parameters(Model: NativeModel) -> tuple[Param, ...]:
+def Parameters(
+    Model: NativeModel, UnresolvedTargets: list[Mapping[str, object]] | None = None
+) -> tuple[Param, ...]:
     Parameters: list[Param] = []
     DimensionIds: dict[tuple[str, str], str] = {}
+    AmbiguousDims: set[tuple[str, str]] = set()
     for Feature in Model.features:
         for Dimension, ParamId in ParamEntries(Feature.object_id, Feature.dimensions):
             NativeValue = (
                 Dimension.native_value
                 if Dimension.native_value is not None
-                else Dimension.value_mm / 1000.0
+                else (
+                    Dimension.value_mm / 1000.0
+                    if Dimension.value_mm is not None
+                    else None
+                )
             )
             Parameters.append(
                 Param(
@@ -2116,7 +2300,7 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
                             Dimension.native_offset,
                             8,
                             "dimension-scalar",
-                            Stream=Feature.native_stream,
+                            Stream=Dimension.native_stream or Feature.native_stream,
                         )
                         if Dimension.native_offset is not None
                         else FeatureA(Feature)
@@ -2126,7 +2310,16 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
                             "source_text": Dimension.source_text,
                             "dimension_kind": Dimension.kind,
                             "native_value": NativeValue,
-                            "native_unit": "rad" if Dimension.kind == "angle" else "m",
+                            "native_unit": (
+                                None
+                                if Dimension.value_mm is None
+                                else "rad" if Dimension.kind == "angle" else "m"
+                            ),
+                            **(
+                                {KUnresolvedInchDimension: True}
+                                if Dimension.value_mm is None
+                                else {}
+                            ),
                             "native_role": Dimension.native_role or "unresolved",
                             "native_operands": tuple(
                                 (
@@ -2142,12 +2335,22 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
                     ),
                 )
             )
-            _ = DimensionIds.setdefault((Feature.name, Dimension.name), ParamId)
-    return ApplyNativeMut(Parameters, Model, DimensionIds)
+            QualifiedName = (Feature.name, Dimension.name)
+            if QualifiedName in DimensionIds:
+                AmbiguousDims.add(QualifiedName)
+            else:
+                DimensionIds[QualifiedName] = ParamId
+    return ApplyNativeMut(
+        Parameters, Model, DimensionIds, frozenset(AmbiguousDims), UnresolvedTargets
+    )
 
 
 # this definition exists because focused behavior needs one stable owner
 def DimensionParam(Dimension: NativeDimension) -> ParamValue:
+    if Dimension.value_mm is None:
+        if Dimension.inch_display_value is not None:
+            return ParamValue(Dimension.inch_display_value, ValueKind.LENGTH, "in")
+        return ParamValue(Dimension.source_text, ValueKind.STRING)
     if Dimension.kind == "angle":
         return ParamValue(Dimension.value_mm, ValueKind.ANGLE, "deg")
     return ParamValue(Dimension.value_mm, ValueKind.LENGTH, "mm")
@@ -2157,7 +2360,9 @@ def DimensionParam(Dimension: NativeDimension) -> ParamValue:
 def ApplyNativeMut(
     Parameters: list[Parameter],
     Model: NativeModel,
-    DimensionIds: dict[tuple[str, str], str],
+    DimensionIds: Mapping[tuple[str, str], str],
+    AmbiguousDims: frozenset[tuple[str, str]] | None = None,
+    UnresolvedTargets: list[Mapping[str, object]] | None = None,
 ) -> tuple[Param, ...]:
     if not Model.equations:
         return tuple(Parameters)
@@ -2168,15 +2373,13 @@ def ApplyNativeMut(
     }
     Values: dict[str, ParamValue] = {}
     ParamIndexes = {Param.id: Index for Index, Param in enumerate(Parameters)}
+    AmbiguousKeys: frozenset[tuple[str, str]] = (
+        frozenset() if AmbiguousDims is None else AmbiguousDims
+    )
     for Equation in Model.equations:
-        RefIds = tuple(
-            (
-                GlobalIds[RefValue]
-                for RefValue in Equation.references
-                if RefValue in GlobalIds
-            )
+        ExprValue, Evidence = EquationData(
+            Equation, GlobalIds, DimensionIds, AmbiguousKeys
         )
-        ExprValue = Expression(Equation.rhs, RefIds, "solidworks")
         ProvenanceValue = Provenance(
             adapter=KFormatId,
             native_id=f"equation:{Equation.native_offset}",
@@ -2187,14 +2390,20 @@ def ApplyNativeMut(
                     Equation.native_length,
                     "equation",
                 ),
+                *(
+                    ProvenanceSpan(Equation.native_stream, Offset, Length, RecordKind)
+                    for Offset, Length, RecordKind in Equation.archive_spans
+                ),
             ),
         )
         if "@" in Equation.lhs:
-            DimensionName, FeatureName = Equation.lhs.split("@", 1)
-            ParamId = DimensionIds.get((FeatureName, DimensionName))
-            if ParamId is None or ParamId not in ParamIndexes:
+            Index, TargetEvidence = ResolveTarget(
+                Equation, DimensionIds, AmbiguousKeys, ParamIndexes
+            )
+            if Index is None:
+                if UnresolvedTargets is not None and TargetEvidence is not None:
+                    UnresolvedTargets.append(TargetEvidence)
                 continue
-            Index = ParamIndexes[ParamId]
             Parameters[Index] = Replace(
                 Parameters[Index],
                 role=ParamRole.DERIVED,
@@ -2203,8 +2412,7 @@ def ApplyNativeMut(
                 attributes=FrozenMapping(
                     {
                         **dict(Parameters[Index].attributes),
-                        "equation_source": Equation.source,
-                        "equation_configuration_id": Equation.configuration_id,
+                        **Evidence,
                     }
                 ),
             )
@@ -2221,12 +2429,7 @@ def ApplyNativeMut(
             expression=ExprValue,
             owner_id=FeatureId(16),
             provenance=ProvenanceValue,
-            attributes=FrozenMapping(
-                {
-                    "equation_source": Equation.source,
-                    "equation_configuration_id": Equation.configuration_id,
-                }
-            ),
+            attributes=FrozenMapping(Evidence),
         )
         if ParamItem.id in ParamIndexes:
             Parameters[ParamIndexes[ParamItem.id]] = ParamItem
@@ -2357,6 +2560,10 @@ def ProfileSketch(
     ProfileEntities: dict[int, str] = {}
     ProfileOffsets = {
         Offset for Profile in Sketch.profiles for Offset in Profile.marker_offsets
+    } | {
+        Profile.HeaderOffset
+        for Profile in Sketch.profiles
+        if Profile.HeaderOffset is not None
     }
     for ProfileIndex, Profile in enumerate(Sketch.profiles):
         if Profile.kind == "rectangle":
@@ -2543,14 +2750,15 @@ def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
     MarkerRefsMut(Sketch, MarkerEntities, RefMap)
     Constraints = SketchB(Sketch, RefMap, ParamIds)
     ClosedProfiles = ClosedSketch(Sketch)
+    Entries = ParamEntries(Sketch.object_id, Sketch.dimensions)
     SketchParamIds = tuple(
         (
             ParamId
-            for _, ParamId in ParamEntries(Sketch.object_id, Sketch.dimensions)
+            for _, ParamId in Entries
             if ParamId in ParamIds
         )
     )
-    return SketchData(
+    Neutral = SketchData(
         id=SketchId(Sketch.object_id),
         name=Sketch.name,
         support_plane_id=PlaneId(Sketch.support_plane_id),
@@ -2569,6 +2777,10 @@ def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
                 "unframed_support_plane_native_id": Sketch.unframed_support_plane_id,
             }
         ),
+    )
+    return ProjectRect(
+        Neutral, Sketch.rectangle, Sketch.rectangle_geometry_stream or Sketch.native_stream,
+        Entries, SeedEmpty=Sketch.rectangle_geometry_stream is not None,
     )
 
 
@@ -2982,7 +3194,12 @@ def RulePartsMut(
     ItemValue = ContextMut.ParamUsage[NativeName] if NativeName else 0
     Dimensions = ContextMut.DimensionsByName.get(NativeName, [])
     Dimension = Dimensions[min(ItemValue, len(Dimensions) - 1)] if Dimensions else None
-    if not References and RuleValue.parameter is not None and Dimension is not None:
+    if (
+        not References
+        and RuleValue.parameter is not None
+        and Dimension is not None
+        and Dimension.value_mm is not None
+    ):
         KeyValue = round(Dimension.value_mm, 9)
         Available = ContextMut.Candidates.get(KeyValue, [])
         if Available:
@@ -3078,6 +3295,21 @@ def SketchB(
     return (*ExplicitRules, *ProfileRules(Sketch))
 
 
+# the occupied cut target has an exact archive span unlike the generic selection route
+def SelectSpans(
+    Operation: NativeOperation, Offsets: tuple[int, ...]
+) -> tuple[ProvenanceSpan, ...]:
+    Saved = tuple(
+        ProvenanceSpan(Operation.native_stream, Offset, Length, RecordKind)
+        for Offset, Length, RecordKind in Operation.archive_spans
+        if RecordKind == "cut-target-body" and Offset in Offsets
+    )
+    return Saved or tuple(
+        ProvenanceSpan(Operation.native_stream, Offset, 38, f"{Operation.selection_kind}-selection")
+        for Offset in Offsets
+    )
+
+
 # this definition exists because focused behavior needs one stable owner
 def Selections(Model: NativeModel) -> tuple[Selection, ...]:
     Result: list[Selection] = []
@@ -3087,6 +3319,8 @@ def Selections(Model: NativeModel) -> tuple[Selection, ...]:
         for Producer, LocalId, Offsets in OperationA(Operation):
             SelectionId = OperationId(Operation, Producer, LocalId)
             KindValue = Operation.selection_kind
+            Spans = SelectSpans(Operation, Offsets)
+            HasTarget = any(Value.record_kind == "cut-target-body" for Value in Spans)
             Result.append(
                 Selection(
                     id=SelectionId,
@@ -3102,28 +3336,22 @@ def Selections(Model: NativeModel) -> tuple[Selection, ...]:
                         {
                             "native_producer_id": Producer,
                             "native_local_id": LocalId,
-                            "native_identity": "7dc39425ad49b2547dc39425ad49b254",
-                            "topology_role": (
-                                "extrusion_terminal_profile_boundary"
-                                if Operation.kind == "fillet"
-                                else f"native_{KindValue}"
+                            **(
+                                {"topology_role": "historical_cut_target"}
+                                if HasTarget else {
+                                    "native_identity": "7dc39425ad49b2547dc39425ad49b254",
+                                    "topology_role": (
+                                        "extrusion_terminal_profile_boundary"
+                                        if Operation.kind == "fillet" else f"native_{KindValue}"
+                                    ),
+                                }
                             ),
                         }
                     ),
                     provenance=Provenance(
                         adapter=KFormatId,
                         native_id=f"{Operation.object_id}:{KindValue}:{LocalId}",
-                        spans=tuple(
-                            (
-                                ProvenanceSpan(
-                                    Operation.native_stream,
-                                    Offset,
-                                    38,
-                                    f"{KindValue}-selection",
-                                )
-                                for Offset in Offsets
-                            )
-                        ),
+                        spans=Spans,
                     ),
                 )
             )
@@ -3336,7 +3564,7 @@ def Timeline(
                 operation=OperationValue,
                 definition=BuildFeature(Feature, Operation, SketchById, PlaneById),
                 selection_ids=Selected,
-                provenance=FeatureA(Feature),
+                provenance=OpProvenance(Feature, Operation),
                 attributes=FrozenMapping(Attributes),
             )
         )
@@ -3378,6 +3606,15 @@ def FinalBodyId(
     return Timeline[-1].id if Timeline else ""
 
 
+# typed history and projected bounds need the same qualified boss direction
+def IsBossReversed(Operation: NativeOperation) -> bool:
+    return (
+        Operation.kind == "join"
+        and Operation.termination_code == 0
+        and Operation.direction_code == 1
+    )
+
+
 # this definition exists because focused behavior needs one stable owner
 def OperationAttrs(Operation: NativeOperation) -> dict[str, object]:
     Result: dict[str, object] = {
@@ -3399,7 +3636,10 @@ def OperationAttrs(Operation: NativeOperation) -> dict[str, object]:
             {
                 "length_mm": Operation.length_mm,
                 "direction_multiplier": (
-                    -1 if Operation.kind in {"cut", "revolve_cut", "hole"} else 1
+                    -1
+                    if Operation.kind in {"cut", "revolve_cut", "hole"}
+                    or IsBossReversed(Operation)
+                    else 1
                 ),
                 "end_condition": (
                     "blind"
@@ -3452,6 +3692,11 @@ def NativeFallback(
                         {
                             "name": Dimension.name,
                             "value_mm": Dimension.value_mm,
+                            **(
+                                {"display_inches": Dimension.inch_display_value}
+                                if Dimension.inch_display_value is not None
+                                else {}
+                            ),
                             "kind": Dimension.kind,
                             "source_text": Dimension.source_text,
                             "native_value": Dimension.native_value,
@@ -3480,13 +3725,23 @@ def NativeFallback(
     )
 
 
-# this definition exists because focused behavior needs one stable owner
+# extrusion projection preserves bounded solidworks termination evidence without inventing a depth
 def BuildExtrude(Operation: NativeOperation | None) -> ExtrusionFeature | None:
-    if (
-        Operation is None
-        or Operation.kind not in {"join", "cut", "surface"}
-        or Operation.length_mm is None
-    ):
+    if Operation is None or Operation.kind not in {"join", "cut", "surface"}:
+        return None
+    if Operation.length_mm is None:
+        if (
+            Operation.kind == "cut"
+            and Operation.termination_code == 1
+            and Operation.direction_code == 0
+            and Operation.second_length_mm is None
+            and Operation.profile_id is not None
+        ):
+            return ExtrusionFeature(
+                length=None,
+                end_condition=ExtrusionEndCondition.THROUGH_ALL,
+                reversed=True,
+            )
         return None
     return ExtrusionFeature(
         length=ParamValue(Operation.length_mm, ValueKind.LENGTH, "mm"),
@@ -3495,7 +3750,7 @@ def BuildExtrude(Operation: NativeOperation | None) -> ExtrusionFeature | None:
             if Operation.termination_code == 0
             else f"native:{Operation.termination_code}"
         ),
-        reversed=Operation.kind == "cut",
+        reversed=Operation.kind == "cut" or IsBossReversed(Operation),
         second_length=(
             ParamValue(Operation.second_length_mm, ValueKind.LENGTH, "mm")
             if Operation.second_length_mm is not None
@@ -3560,7 +3815,7 @@ def BuildFeature(
 ):
     Extrusion = BuildExtrude(Operation)
     if Extrusion is not None:
-        return Extrusion
+        return BindBossAxis(Extrusion, Operation, Sketches)
     Revolution = BuildRevolve(Operation, Sketches)
     if Revolution is not None:
         return Revolution
@@ -3731,10 +3986,11 @@ def BoundingBoxA(Model: NativeModel) -> BoundingBox | None:
         Plane = PlaneById.get(Sketch.support_plane_id)
         if Plane is None or Operation.length_mm is None:
             continue
+        Length = Operation.length_mm * (-1 if IsBossReversed(Operation) else 1)
         Direction = (
-            Plane.normal[0] * Operation.length_mm,
-            Plane.normal[1] * Operation.length_mm,
-            Plane.normal[2] * Operation.length_mm,
+            Plane.normal[0] * Length,
+            Plane.normal[1] * Length,
+            Plane.normal[2] * Length,
         )
         for Profile in Sketch.profiles:
             for Local in ProfileExtrema(Profile):
@@ -3790,6 +4046,20 @@ def ProfileExtrema(Profile: NativeProfile) -> tuple[tuple[float, float], ...]:
     return ()
 
 
+# authored operation fields retain the exact native spans where their type was proven
+def OpProvenance(
+    Feature: NativeFeature, Operation: NativeOperation | None
+) -> Provenance:
+    BaseValue = FeatureA(Feature)
+    if Operation is None or not Operation.archive_spans:
+        return BaseValue
+    Spans = tuple(
+        ProvenanceSpan(Operation.native_stream, Offset, Length, KindValue)
+        for Offset, Length, KindValue in Operation.archive_spans
+    )
+    return Replace(BaseValue, spans=BaseValue.spans + Spans)
+
+
 # this definition exists because focused behavior needs one stable owner
 def FeatureA(Feature: NativeFeature) -> Provenance:
     return ProvenanceA(
@@ -3808,13 +4078,18 @@ def FeatureA(Feature: NativeFeature) -> Provenance:
 
 # this definition exists because focused behavior needs one stable owner
 def FeatureSpan(Sketch: NativeSketch) -> Provenance:
-    return ProvenanceA(
+    Origin = ProvenanceA(
         str(Sketch.object_id),
         Sketch.native_offset,
         Sketch.native_end - Sketch.native_offset,
         "sketch-record",
         Stream=Sketch.native_stream,
     )
+    Reference = Sketch.support_plane
+    if Reference is None or Sketch.support_source != KArchiveSupport:
+        return Origin
+    SupportSpan = ProvenanceSpan(Sketch.native_stream, Reference.offset, 4, "sketch-support-reference")
+    return Replace(Origin, spans=Origin.spans + (SupportSpan,))
 
 
 # this definition exists because focused behavior needs one stable owner

@@ -141,8 +141,12 @@ def CheckRuleGuards(GuardName: str) -> None:
     if GuardName == "owner":
         Offset, Content = Start + Cursor.Offset, MakeReference(203)
     elif GuardName == "roles":
-        Offset = Start + Cursor.Offset + 23
-        Content = MakeReference(236) + MakeReference(230)
+        BodyValue = bytearray(BulkData[Start : Relation.EndOffset])
+        BodyValue[5:16] = MakeReference(230)
+        BodyValue[20:31] = MakeReference(240)
+        ArgStart = Cursor.Offset + 23
+        BodyValue[ArgStart : ArgStart + 22] = MakeReference(230) + MakeReference(240)
+        Offset, Content = Start, bytes(BodyValue)
     elif GuardName == "missing":
         Offset = BulkData.index(
             MakeReference(282), RootSpan.PayloadOffset + 4, RootSpan.EndOffset

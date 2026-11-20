@@ -13,6 +13,16 @@ environment, the BOM manager and the design-journal record. Kit emits it from
 crashes SOLIDWORKS on open. Before this work it was the only load-critical stream with no recorded
 grammar at all.
 
+### Generation-19000 discovery preamble
+
+The 6 P01, 8 P03 and 11 P04 receipt-pinned saves at `fa58119b` use the same five leading 32-bit words `(80, 6, 50, 1, 1)`, the Part CLSID `83a33d30-27c5-11ce-bfd4-00400513bb57` and three zero bytes before the view flag. Five P01 files have flag 0 and reach the first archive class at byte 120. The other 20 files have flag 1 and reach it at byte 192 after the optional 72-byte view block. All 25 have a 24-byte zero span after the optional block, followed by scale `1.0`, the 16-bit value `0`, four camera doubles and the trailer words `(768, 256, 512, 36090, 16294, 5129, 24576)`.
+
+The camera has five observed four-tuples across the 25 saves. Reproducing a recorded view requires its saved camera values. The class stream starts with `moBS_c` and defines `moLineStyle_c`, `uiLineFontMgr_c`, `uiLFConfig_c`, `uiUserModelEnv_c` and `moBomInfoMgr_c` in order, all with schema 1. The seventh class is schema-0 `uoJournal_c`. The [generation-19000 journal research](../WriterResearch/DefinitionJournal.md) follows the stream from that class.
+
+The typed read matched drafting state 7, all seven line styles and all forty annotation-to-font bindings against the existing field tables in every save. The line font manager ended with word 1. The user environment parsed as one user string, eight session words, three view records and the documented environment tail. The observed session words were `(1, 1, 792, 10, 1520, 10, 0, 0)`, and the environment build stamp was `90165`. The reserved spans, capacity 96, two `-1` words and final flag 0 agreed across the files. The BOM block contained count 0 and the typed fields `(1, 38284, 0, 0, 515, 0)`. The typed read reached the journal class at byte 3392 in the five short-view files and byte 3536 in the twenty full-view files.
+
+All 25 saves used the existing line-style order. The same forty line-font bindings appear in two orders. Eight saves used the order in `KLineFontBindings` and seventeen used the second order. The [research constructor](../WriterResearch/DefinitionStream.py) emits the first witnessed order for its supported profile. Exact readback of a generated stream is still pending.
+
 ## 1. Corpus
 
 673 CAD files under `re/solidworks/examples/`, `.rescratch/**`, `files/` and `tests/fixtures/solidworks/` carry

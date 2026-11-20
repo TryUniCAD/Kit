@@ -1,0 +1,232 @@
+{
+  "archive_version": 19000,
+  "build": "34.5.2.0604",
+  "config_stream": "Contents/Config-0",
+  "controls": {
+    "concave": {
+      "config_bytes": 22700,
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "counter": [46, 50],
+      "group_interval": [1942, 2085],
+      "group_sha256": "6dd092935e8908aed975df8659774e91e5be56833bdc311a9e333107b5f3b089",
+      "header_bytes": 789,
+      "header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "header_standalone_slot": 15,
+      "light_interval": [18, 2105],
+      "original_entry_count": 45,
+      "owners": [
+        {
+          "counter": [46, 48],
+          "entries": [
+            [
+              46,
+              "class",
+              "gcXhatch_c",
+              1
+            ],
+            [
+              47,
+              "object",
+              "gcXhatch_c",
+              1
+            ]
+          ],
+          "field": "f1418",
+          "interval": [1942, 2050],
+          "spans": {
+            "owner": [1942, 2050]
+          },
+          "typed_sha256": "471323ed4c1bf4f75b3e1d7e8395602ba419ff5dc6f2404b74d71282fe720ee6",
+          "wire_sha256": "05facd686fc42207ae487a47c861aa41fc7f9872da9c8f60226c0e7cb04d7376"
+        },
+        {
+          "counter": [48, 48],
+          "entries": [],
+          "field": "f1420",
+          "interval": [2050, 2052],
+          "spans": {},
+          "typed_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "wire_sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7"
+        },
+        {
+          "counter": [48, 50],
+          "entries": [
+            [
+              48,
+              "class",
+              "uoModelData_c",
+              1
+            ],
+            [
+              49,
+              "object",
+              "uoModelData_c",
+              1
+            ]
+          ],
+          "field": "f1588",
+          "interval": [2052, 2077],
+          "spans": {
+            "owner": [2052, 2077]
+          },
+          "typed_sha256": "c381c8e01a8a011f5a4b54bc6b63cabf57bc2eec1d64198940a5680299a9b8a2",
+          "wire_sha256": "6c138789c7f58a84998d12213f6b7349f1ce5f429e18d9992679a4ae5d32ace2"
+        },
+        {
+          "counter": [50, 50],
+          "entries": [],
+          "field": "f938",
+          "interval": [2077, 2085],
+          "spans": {},
+          "typed_sha256": "fc6a1278d39b15758f87d894f4ff1425281c9af7abd9da2bbe79b918aebe6d7f",
+          "wire_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+        }
+      ],
+      "part_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "typed": {
+        "density": null,
+        "density_value": null,
+        "hatch": 47,
+        "material": null,
+        "model_data": 49,
+        "model_word": 0
+      }
+    },
+    "ladder": {
+      "config_bytes": 25390,
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "counter": [49, 57],
+      "group_interval": [2814, 3032],
+      "group_sha256": "743536637ee76bf4dad369d4fd437bad1c8e25863810c3f60366a26d6dbef294",
+      "header_bytes": 2315,
+      "header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "header_standalone_slot": 69,
+      "light_interval": [18, 3052],
+      "original_entry_count": 48,
+      "owners": [
+        {
+          "counter": [49, 51],
+          "entries": [
+            [
+              49,
+              "class",
+              "gcXhatch_c",
+              1
+            ],
+            [
+              50,
+              "object",
+              "gcXhatch_c",
+              1
+            ]
+          ],
+          "field": "f1418",
+          "interval": [2814, 2922],
+          "spans": {
+            "owner": [2814, 2922]
+          },
+          "typed_sha256": "dd241c3b89683dc65485ad4041910f12c562984b4a7b811c5fb3fd763aa9f966",
+          "wire_sha256": "05facd686fc42207ae487a47c861aa41fc7f9872da9c8f60226c0e7cb04d7376"
+        },
+        {
+          "counter": [51, 55],
+          "entries": [
+            [
+              51,
+              "class",
+              "moMaterial_c",
+              1
+            ],
+            [
+              52,
+              "object",
+              "moMaterial_c",
+              1
+            ],
+            [
+              53,
+              "class",
+              "moDensityParameter_c",
+              1
+            ],
+            [
+              54,
+              "object",
+              "moDensityParameter_c",
+              1
+            ]
+          ],
+          "field": "f1420",
+          "interval": [2922, 2999],
+          "spans": {
+            "density": [2940, 2999],
+            "owner": [2922, 2999]
+          },
+          "typed_sha256": "0b0b465271a7a0cecccbcac919945ea44bdbf667779c75a95454054b57d26433",
+          "wire_sha256": "b374ed9b882980262445026060e9caecfb5f354b2e3dae9adfbe9ddde9dd4ad1"
+        },
+        {
+          "counter": [55, 57],
+          "entries": [
+            [
+              55,
+              "class",
+              "uoModelData_c",
+              1
+            ],
+            [
+              56,
+              "object",
+              "uoModelData_c",
+              1
+            ]
+          ],
+          "field": "f1588",
+          "interval": [2999, 3024],
+          "spans": {
+            "owner": [2999, 3024]
+          },
+          "typed_sha256": "ad853df1de38237bd630c4ac589e9078daedd06f3efed1f440f4cadc0a2a3a40",
+          "wire_sha256": "6c138789c7f58a84998d12213f6b7349f1ce5f429e18d9992679a4ae5d32ace2"
+        },
+        {
+          "counter": [57, 57],
+          "entries": [],
+          "field": "f938",
+          "interval": [3024, 3032],
+          "spans": {},
+          "typed_sha256": "fc6a1278d39b15758f87d894f4ff1425281c9af7abd9da2bbe79b918aebe6d7f",
+          "wire_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+        }
+      ],
+      "part_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "typed": {
+        "density": 54,
+        "density_value": 1000,
+        "hatch": 50,
+        "material": 52,
+        "model_data": 56,
+        "model_word": 0
+      }
+    }
+  },
+  "delivery_base": "2759bcdb61c76c6b00fd467354cd85ace50f86bc",
+  "header_stream": "Contents/Config-0-ModelHeader",
+  "reference_commit": "9f0ccb5389c121e750ca3b73f8e5d248b34d2e15",
+  "source_sha256": {
+    "re/solidworks/records/AssignedMaterialOwners2026.json": "1c81a505a1f8a10db0167cec525354e9ad21334af8f749b8652364504b1ae72b",
+    "re/solidworks/records/AssignedMaterialOwners2026.md": "60c9c8ee8cc076600e3c3b54221ffb156793ed1aafbcd09083e0d5274dcb88bd",
+    "re/solidworks/records/ConfigRuntimeDescriptors2026.json": "5a6f8158c835cd6e4f105c46fb3e3f22646a7d6aeb1b89f47617da4c92baaaeb",
+    "re/solidworks/records/MaterialDisplayArchive2026.md": "1b7af9670c02b9bc7d768c4e4422f38ae90003853090e82290b0593d677025cc",
+    "re/solidworks/records/ModelConstruction2026.md": "f770fc34a202836ff1fdc3fe307abcecca9f9340ffd5e654d7ad770b4a96b782",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ModelFields.py": "fb679705fcb9ae37b7de314d9c12bd2433d444dce3e928fe7d8d3469116247c7",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/FeatureFields.py": "ce84e3fc7a9ee82f9b55be4a92953986632a1185202c6802e26ef9012f547a98",
+    "src/convert/adapters/solidworks/Archive/Config/ReadConfigMut.py": "154f9b3bb35bd37a9a731ea8ef55befb5f4342b7c544d96599f6fbea0487ed48"
+  },
+  "vendor_modules": {
+    "sldmfcu.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  }
+}

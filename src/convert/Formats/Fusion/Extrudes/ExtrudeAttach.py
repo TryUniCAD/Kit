@@ -1,12 +1,9 @@
-from dataclasses import replace as Replace
 from math import isclose as IsClose
 
 from convert.Formats.Fusion.Extrudes.ExtrudeRead import ReadExtrude
 from convert.Formats.Fusion.Extrudes.ExtParamLinks import BindExtParams
-from convert.Formats.Fusion.ParamProjection import ParamOrigin
+from convert.Formats.Fusion.Extrudes.RetainExtProof import RetainExtProof
 from convert.Formats.Fusion.RecordSpan import RecordSpan
-from interchange.Core.Common import FreezeMapping
-from interchange.Enums.EnumFeatures import BooleanOp
 from interchange.Features.DistanceValues import GetDistValues
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeatureStep import FeatureStep
@@ -30,7 +27,10 @@ def AttachDistExt(
         raise ValueError("Missing verified Fusion Extrude profile and frame")
     FeatureId = int(Origin.native_id)
     Native = ReadExtrude(BulkData, Owners, FeatureId)
-    if Native.ProfileId != ProfileId:
+    ProxyId = StepValue.attributes.get("fusion.profile_selection_proxy_id")
+    if Native.ProfileId != ProfileId or (
+        ProxyId is not None and ProxyId != Native.ProxyId
+    ):
         raise ValueError("Fusion Extrude profile proxy and projected profile disagree")
     Normal = FrameValue.transform.z_axis
     Expected = Normal if Authoring is None else Authoring[0]
@@ -64,24 +64,15 @@ def AttachDistExt(
             else None
         ),
     )
-    Updated = Replace(
+    Updated = RetainExtProof(
         StepValue,
-        operation=BooleanOp.KCreate,
-        definition=Definition,
-        provenance=Replace(
-            Origin, spans=Origin.spans + ParamOrigin(Owners[Native.ProxyId]).spans
-        ),
-        attributes=(
-            StepValue.attributes
-            if Authoring is None
-            else FreezeMapping(
-                {
-                    **StepValue.attributes,
-                    "fusion.extrude.authoring_occurrences": Authoring[1],
-                    "fusion.extrude.native_direction": Native.Direction,
-                }
-            )
-        ),
+        Definition,
+        Origin,
+        Native,
+        Owners,
+        Params[Definition.AlongParameterId],
+        FrameValue.id,
+        None if Authoring is None else Authoring[1],
     )
     _ = GetDistValues(Updated, Definition, Params)
     return Updated

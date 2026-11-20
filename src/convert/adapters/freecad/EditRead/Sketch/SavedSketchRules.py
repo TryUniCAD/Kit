@@ -1,7 +1,8 @@
 from collections.abc import Mapping
 from xml.etree.ElementTree import Element
 
-from convert.adapters.freecad.Archive import SafeAction
+from convert.adapters.freecad.Archive import ConstraintsProp, ParamCatalog, SafeAction
+from interchange.serialization.EncodeData import ToData
 from convert.adapters.freecad.EditRead.Sketch.RuleGeometry import CheckGeomRule
 from convert.adapters.freecad.EditRead.Sketch.RuleMeasures import CheckDimRule
 from convert.adapters.freecad.EditRead.Sketch.RuleOperands import RuleOperands
@@ -107,3 +108,24 @@ def CheckSavedRules(
                 )
             Measurements[ParamId] = Value
     return Measurements
+
+
+# independent and depth only sketches must preserve the exact fixed solver rows emitted for source geometry
+def CheckFixedRows(Native: NativeObject, Original: Sketch) -> None:
+    SketchData = ToData(Original)
+    if not isinstance(SketchData, dict):
+        raise ValueError("FreeCAD editable sketch source is invalid")
+    Indices = {Entity.id: Index for Index, Entity in enumerate(Original.entities)}
+    Template, Expressions, Dependencies, Diagnostics = ConstraintsProp(
+        SketchData, Indices, ParamCatalog([])
+    )
+    if (
+        Expressions
+        or Dependencies
+        or Diagnostics
+        or len(Template) != 1
+        or len(Template[0]) != sum(Entity.fixed for Entity in Original.entities)
+    ):
+        raise ValueError("FreeCAD editable sketch constraints changed")
+    for RowValue in ReadRuleRows(Native, Template):
+        CheckStaticRow(RowValue)
