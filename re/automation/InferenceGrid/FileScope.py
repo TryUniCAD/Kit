@@ -37,7 +37,7 @@ def file_scope(path, application, scratch, root):
     reports = {}
     for phase, flags in (("container", ["--layer", "container"]), ("strict", []), ("partial", ["--partial"]), ("native", ["--layer", "native"])):
         if phase == "partial" and "strict" in reports:
-            break
+            continue
         if phase == "native" and application != "fusion":
             continue
         target = scratch / (phase + ".json")
@@ -103,6 +103,8 @@ def file_scope(path, application, scratch, root):
              "diagnostics": document.get("diagnostics", {}).get("$tuple", []),
              "whole_file_verified": False}
     if "native" in reports:
+        from InferenceGrid.BodyCorrespondence import capture_names
+        reports["body-correspondence"] = capture_names(root, pin, source.stat().st_size, reports["native"])
         from InferenceGrid.NativeClassEvidence import native_classes
         from InferenceGrid.TraceRefusal import trace_refusal
         from InferenceGrid.RepeatSave import compare_capture
