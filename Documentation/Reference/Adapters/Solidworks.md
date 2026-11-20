@@ -130,6 +130,11 @@ with healthy controls. Both parent snapshots reference a later update stamp
 than the paired child carries on disk.
 [Assembly display-state authoring evidence](../../../re/solidworks/records/ConcentricDisplayAuthoring2026.md)
 
+Saving the owned child with the matching update stamp clears warning 32
+while the parent bytes and paired paths stay fixed. The cold reader verifies
+both mixed visibility states through the named and active native APIs.
+[Child synchronization comparison](../../../re/solidworks/records/ConcentricDisplaySync2026.md)
+
 The public writer accepts one initially satisfied principal-plane perpendicular between two direct occurrences of one owned dimensioned rectangular part. Both pre-writer locked assembly and child pairs pass the standard registry recipe, a live child depth edit, valid reorientation, synchronized save and fresh reopen. Both retain the ordered mate references, geometry and three driver values. [Perpendicular writer qualification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
 
 The SDK construction layer builds complete aligned coincident and parallel plane-mate graphs from the actual registered assembly and child datum owners. Six independently generated parent and child pairs match the research composer byte for byte across all three principal axes. The SDK also constructs the complete positive driving distance graph with its dimension allocated before the mate, two actual reference pairs and its live length parameter. Six independent parent and child bundles match the reference composer across all principal axes. [Driving distance construction](../../Changes/Solidworks/Archive/SolidworksDrivingDistanceConstruction.md) [Fresh planar mate construction](../../Changes/Solidworks/Archive/SolidworksFreshPlanarMateConstruction.md)

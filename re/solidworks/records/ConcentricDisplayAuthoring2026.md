@@ -46,6 +46,10 @@ Use two cold processes for the same exact parent bytes and same parent/child loc
 
 Once a synchronized parent reopens cleanly, use the same parent/child locators for two independent research contrasts. Invert one named visibility vector in the XML leaf only for the first. In a separate contrast, switch the two joined visibility-object references for that outer key in VisualStates only. Keep both vectors distinct from the default and verify exact bytes of the unmodified display stream. Cold applicability and named/live readback determine precedence. Cache omission requires its own measurement. The current paired save changed both streams and has no native cold visibility observation.
 
+The subsequent fixed-parent child comparison clears warning 32 and
+recovers both mixed visibility vectors on a clean cold reopen.
+[Child synchronization result](ConcentricDisplaySync2026.md)
+
 ## Host replay
 
 ```sh
