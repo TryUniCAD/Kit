@@ -6,7 +6,7 @@ from tests.Convert.Solidworks.KeywordFrames.RunKeywordFrame import RunKeywordFra
 
 # tag names must retain their boundaries before either framing mode publishes output
 def TestTagNames(TmpPath: FilePath) -> None:
-    for IndexValue, ChildTag in enumerate(("Dimension\r", "Dimension ")):
+    for IndexValue, ChildTag in enumerate(("Dimension\r", "Dimension ", "!--", "?pi")):
         for CompactMode in (True, False):
             Source = TmpPath / f"tag{IndexValue}{CompactMode}.json"
             Output = Source.with_suffix(".bin")

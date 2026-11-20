@@ -44,6 +44,9 @@ def author_frame(source):
         root.set("xmlns:kit", "urn:kit:declared")
         feature.set("xml:lang", "en")
         feature.set("kit:role", "feature")
+    if source.get("namespace_shadow"):
+        feature.set("xmlns:ns0", "urn:kit:other")
+        SubElement(feature, QName("{urn:kit:keyword}Native"))
     return FrameKeywords(root, source["compact"])
 
 

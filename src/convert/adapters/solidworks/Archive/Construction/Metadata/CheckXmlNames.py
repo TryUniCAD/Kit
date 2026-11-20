@@ -2,7 +2,7 @@ from typing import cast as CastValue
 from xml.etree.ElementTree import Element
 
 # name tokens must remain within their own markup after serialization
-KNameDelimiters = frozenset(" \t\r\n<>&\"'=/")
+KNameDelimiters = frozenset(" \t\r\n<>&\"'=/!?")
 
 
 # name syntax belongs to the xml parser while token boundaries protect authored names

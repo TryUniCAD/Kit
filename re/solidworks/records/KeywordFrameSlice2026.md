@@ -22,19 +22,25 @@ The delivered framing file
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
 `62d04af2ee71dfa7671b01fe795b105c2d97e32e391e2bf348102fc69fa39523`.
 The focused [named-tree serializer](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/EmitKeywordXml.py)
-has SHA-256 `00053df539f603c5c2db5ddb9b797bb968c900524f5a9717e7745eb35782a1d2`.
+has SHA-256 `7ab3240dd25bb20a2dfc32f387f2b37056cb7e6831c0e9c21d42f287b7934a12`.
 The [name boundary](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckXmlNames.py)
-has SHA-256 `0cfdc45a8402a449679b4da2e179edc9edf3f5ddda4e9392017b89211918e928`.
-The path-sorted three-file manifest SHA-256 is
-`8fc72ccc3765d8ed93a4fc0d8014d15ae6a1a5378913fd88d72dd45cd2cb5e63`.
+has SHA-256 `754d19d4612a8163beaaf991d212ef94f3d1af3e1ef09d844035899882f5e3ef`.
+The [tree comparison](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckXmlTree.py)
+has SHA-256 `4c8778750c751baec87f758a4baada5e5e27dfe53d1402821e5555833853add9`.
+The [namespace expansion](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/ExpandXmlName.py)
+has SHA-256 `ffbb86416a2f1c662bcf29adabd54a5ba5608020578a37267911a25410e0adb8`.
+The path-sorted five-file manifest SHA-256 is
+`919604e565a87aeb4355cbcabd047bcc56025b3894090e27ae559e415287ddbb`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. The serializer uses the
 standard-library `tostring` exposed by the repository's locked
 `defusedxml` version, now declared as a runtime dependency. The final
 payload passes the hardened XML parser after lexical rewriting. The
-name boundary rejects delimiter characters in authored name tokens,
-and the final parser checks the native root. Literal namespace prefixes
-and declarations retain their lexical form.
+name boundary rejects delimiter characters and comment or processing
+instruction starters in authored name tokens. The final tree is checked
+against the authored tree with actual scoped namespace declarations.
+Literal namespaces retain their lexical form. A generated prefix
+collision that changes the parsed namespace fails before publication.
 
 ## Framing and serialization
 
