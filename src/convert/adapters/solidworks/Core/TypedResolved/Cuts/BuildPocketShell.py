@@ -5,7 +5,7 @@ from interchange.brep.Topology.BrepModel import BrepModel
 
 
 # the inlet becomes an inner loop on the stock cap and the remaining cylindrical faces become inward cavity walls
-def BuildPocketShell(
+def MakePocketShell(
     StockValue: BrepModel,
     ToolValue: BrepModel,
     BodyId: str,
@@ -14,35 +14,42 @@ def BuildPocketShell(
 ) -> BrepModel:
     CapFaces = ToolValue.faces[0], ToolValue.faces[-1]
     Entrances = {IndexValue: CapFaces[IndexValue] for IndexValue in OpenCaps}
-    RimLoops = {LoopId for Face in Entrances.values() for LoopId in Face.loop_ids}
-    RimFaces = {Face.id for Face in Entrances.values()}
-    RimSurfaces = {Face.surface_id for Face in Entrances.values()}
+    RimLoops = {
+        LoopId for FaceValue in Entrances.values() for LoopId in FaceValue.loop_ids
+    }
+    RimFaces = {FaceValue.id for FaceValue in Entrances.values()}
+    RimSurfaces = {FaceValue.surface_id for FaceValue in Entrances.values()}
     Faces = tuple(
         (
-            ReplaceValue(Face, loop_ids=(*Face.loop_ids, *Entrances[Index].loop_ids))
+            ReplaceValue(
+                FaceValue, loop_ids=(*FaceValue.loop_ids, *Entrances[Index].loop_ids)
+            )
             if Index in Entrances
-            else Face
+            else FaceValue
         )
-        for Index, Face in enumerate(StockValue.faces)
+        for Index, FaceValue in enumerate(StockValue.faces)
     ) + tuple(
-        ReplaceValue(Face, same_sense=not Face.same_sense)
-        for Face in ToolValue.faces
-        if Face.id not in RimFaces
+        ReplaceValue(FaceValue, same_sense=not FaceValue.same_sense)
+        for FaceValue in ToolValue.faces
+        if FaceValue.id not in RimFaces
     )
     Loops = (
         *StockValue.loops,
         *(
             ReplaceValue(
-                Loop,
-                coedge_ids=Loop.coedge_ids[::-1],
-                outer=Loop.outer and Loop.id not in RimLoops,
+                LoopValue,
+                coedge_ids=LoopValue.coedge_ids[::-1],
+                outer=LoopValue.outer and LoopValue.id not in RimLoops,
             )
-            for Loop in ToolValue.loops
+            for LoopValue in ToolValue.loops
         ),
     )
-    Uses = (
+    Coedges = (
         *StockValue.coedges,
-        *(ReplaceValue(Use, reversed=not Use.reversed) for Use in ToolValue.coedges),
+        *(
+            ReplaceValue(Coedge, reversed=not Coedge.reversed)
+            for Coedge in ToolValue.coedges
+        ),
     )
     return BuildSweepModel(
         BodyId,
@@ -60,5 +67,5 @@ def BuildPocketShell(
         (*StockValue.edges, *ToolValue.edges),
         Faces,
         Loops,
-        Uses,
+        Coedges,
     )

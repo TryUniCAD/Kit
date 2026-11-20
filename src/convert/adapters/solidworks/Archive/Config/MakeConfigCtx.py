@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ConfigVirtuals im
 )
 from convert.adapters.solidworks.Archive.Bodies.NewBodyUsage import NewBodyUsage
 from convert.adapters.solidworks.Archive.Config.UsePartRelationsMut import (
-    UsePartRelationsMut,
+    BindPartRelsMut,
 )
 from convert.adapters.solidworks.Archive.Header.HeaderRefNodes import HeaderRefNodes
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -39,5 +39,5 @@ def MakeConfigCtx(
         DirectNodes=DirectNodes,
     )
     if PartRelations:
-        UsePartRelationsMut(ContextValue)
+        BindPartRelsMut(ContextValue)
     return ContextValue

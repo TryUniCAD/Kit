@@ -18,7 +18,7 @@ def main():
     sys.path.insert(0, str(args.root / "src"))
     from convert import open_document
     from convert.adapters.solidworks.Archive.Construction.ThroughAll.ProjectThroughPart import (
-        ProjectThroughPart,
+        ProjectThruPart,
     )
     from convert.adapters.solidworks.Core.Preparation.CheckPlainScope import (
         CheckPlainScope,
@@ -40,7 +40,7 @@ def main():
             }
             for title, fn in [
                 ("plain_scope", CheckPlainScope),
-                ("through_plan", ProjectThroughPart),
+                ("through_plan", ProjectThruPart),
             ]:
                 try:
                     value = fn(document)

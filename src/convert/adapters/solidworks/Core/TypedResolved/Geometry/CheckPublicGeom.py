@@ -3,7 +3,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.FeatureKindByNative import KFeatureKindByNative
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPublicPlanes import (
-    CheckPublicPlanes,
+    CheckPlanes,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
@@ -67,4 +67,4 @@ def CheckPublicGeom(
         raise ValueError(
             "cache free prism public sketch attachment differs from its native support"
         )
-    CheckPublicPlanes(ModelValue, Features)
+    CheckPlanes(ModelValue, Features)

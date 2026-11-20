@@ -1,7 +1,7 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Definition.Construction.ReadSavePartValue import (
-    ReadSavePartValue,
+    ReadSavePref,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.SavePartSlots import (
     KSavePartSlots,
@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Archive.Definition.Construction.SavePartSlots i
 
 
 # all native assembly save preferences must be supplied by the caller before serializing
-def MakeSavePartSettings(
+def MakeSavePrefs(
     PreferenceValues: Mapping[str, bool | int | float],
 ) -> dict[str, object]:
     if PreferenceValues.keys() != KSavePartSlots.keys():
@@ -19,7 +19,7 @@ def MakeSavePartSettings(
     return {
         "f08": 0,
         **{
-            FieldName: ReadSavePartValue(SlotName, PreferenceValues[SlotName])
+            FieldName: ReadSavePref(SlotName, PreferenceValues[SlotName])
             for SlotName, FieldName in KSavePartSlots.items()
         },
     }

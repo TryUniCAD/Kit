@@ -23,10 +23,10 @@ from convert.adapters.solidworks.Archive.Construction.RectangleCenters.CenterGra
     CenterGraph,
 )
 from convert.adapters.solidworks.Archive.Construction.RectangleCenters.MakeCenterDiagonal import (
-    MakeCenterDiagonal,
+    MakeDiagonal,
 )
 from convert.adapters.solidworks.Archive.Construction.RectangleCenters.MakeCenterRelation import (
-    MakeCenterRelation,
+    MakeCenterRel,
 )
 from convert.adapters.solidworks.Archive.Construction.RectangleCenters.RequireCenter import (
     RequireCenter,
@@ -58,7 +58,7 @@ def MakeCenterMut(GraphValue: ProfileGraph, OriginValue: OriginGraph) -> CenterG
     CenterValue.FieldsValue["fe4"] = 1
     LocalPoints = (*Geometry.PointValues, CenterValue)
     Diagonals = tuple(
-        MakeCenterDiagonal(
+        MakeDiagonal(
             SketchValue,
             LocalPoints,
             Geometry.PointValues[IndexValue],
@@ -74,7 +74,7 @@ def MakeCenterMut(GraphValue: ProfileGraph, OriginValue: OriginGraph) -> CenterG
     ExternalPoint = MakeExtPoint(SketchValue, ExternalEntity, len(LocalPoints))
     PointsValue = (*LocalPoints, ExternalPoint)
     Relations = tuple(
-        MakeCenterRelation(
+        MakeCenterRel(
             SketchValue,
             MakePointRef(SketchValue, PointsValue, CenterValue),
             MakeLineHandle(
@@ -84,7 +84,7 @@ def MakeCenterMut(GraphValue: ProfileGraph, OriginValue: OriginGraph) -> CenterG
         for IndexValue, DiagonalValue in enumerate(Diagonals)
     )
     Relations += (
-        MakeCenterRelation(
+        MakeCenterRel(
             SketchValue,
             MakePointRef(SketchValue, PointsValue, ExternalPoint),
             MakePointRef(SketchValue, PointsValue, CenterValue),

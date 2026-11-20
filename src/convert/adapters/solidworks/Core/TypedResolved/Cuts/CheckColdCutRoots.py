@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
 # an empty atom manager can imply a single producer only with the complete ordinary root inventory
-def CheckColdCutRoots(Features: Mapping[int, ArchiveNode]) -> None:
+def CheckColdRoots(Features: Mapping[int, ArchiveNode]) -> None:
     Expected = dict.fromkeys(
         KSystemFolders
         | {"moDetailCabinet_c", "moOriginProfileFeature_c", "moExtrusion_c", "moICE_c"},

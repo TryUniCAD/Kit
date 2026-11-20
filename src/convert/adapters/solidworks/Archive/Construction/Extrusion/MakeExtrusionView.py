@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # ordinary feature dimensions retain their verified native text kinds and angle or distance tails instead of mate presentation defaults
-def MakeExtrusionView(
+def MakeExtrudeView(
     OwnerValue: ArchiveNode,
     HandleValue: ArchiveNode,
     IsAngular: bool,

@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMate
 from convert.adapters.solidworks.Core.TypedMates.CheckMateIds import CheckMateIds
 from convert.adapters.solidworks.Core.TypedMates.CheckPerpEpoch import CheckPerpEpoch
 from convert.adapters.solidworks.Core.TypedMates.CheckMateWrappers import (
-    CheckMateWrappers,
+    CheckMateWraps,
 )
 from convert.adapters.solidworks.Core.TypedMates.ReadMateKids import ReadMateKids
 from convert.adapters.solidworks.Core.TypedMates.ReadMateRows import ReadMateRows
@@ -57,7 +57,7 @@ def ReadPublicMates(
         ReadMateKids(EnvValue),
     )
     CheckMateIds(GraphValue.RootsValue, LinkValue)
-    CheckMateWrappers(GraphValue.RootsValue)
+    CheckMateWraps(GraphValue.RootsValue)
     CheckPerpEpoch(GraphValue.RootsValue, LinkValue.ConfigValue.HeaderValue)
     Entities, Rules = ReadMateRows(
         GraphValue.RootsValue, Context, EnvValue, LegacyRules, LegacyEntities

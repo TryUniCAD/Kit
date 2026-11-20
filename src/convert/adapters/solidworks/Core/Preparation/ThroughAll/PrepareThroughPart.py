@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Archive.Construction.ThroughAll.MakeThroughPart
     MakeThroughPart,
 )
 from convert.adapters.solidworks.Archive.Construction.ThroughAll.ProjectThroughPart import (
-    ProjectThroughPart,
+    ProjectThruPart,
 )
 from convert.adapters.solidworks.Core.Preparation.BindPartIntent import BindPartIntent
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
@@ -26,7 +26,7 @@ from interchange.Enums.EnumDocument import Capability
 
 
 # the internal through cut entry builds only from neutral feature intent the final locator and the supplied writer event
-def PrepareThroughPart(
+def BuildThruPart(
     DocumentValue: CadDocument,
     TargetValue: KTargetType,
     WrittenAt: int,
@@ -39,15 +39,21 @@ def PrepareThroughPart(
         CapabilityValues |= {Capability.KSelections}
     if not DocumentValue.capabilities <= CapabilityValues:
         raise ValueError("through-all preparation has unrepresented capabilities")
-    Plan, Scope = ProjectThroughPart(DocumentValue)
+    CutPlan, Scope = ProjectThruPart(DocumentValue)
     Config = DocumentValue.configurations[0]
     if Settings.configuration not in (None, Config.id, Config.name):
         raise ValueError("requested through-all write configuration is unavailable")
-    Stock = Plan.StockValue
+    Stock = CutPlan.StockValue
     Recipe = MakePartRecipe(Stock, WrittenAt)
     Output = FinalPartPath(TargetValue, Settings, Recipe.OutputValue, Stock.NameValue)
     Inputs = BindPartIntent(DocumentValue, Stock, Recipe, Output)
-    CheckPartInput(DocumentValue, Inputs, Stock, (Plan.SketchName, Plan.FeatureName))
+    CheckPartInput(
+        DocumentValue, Inputs, Stock, (CutPlan.SketchName, CutPlan.FeatureName)
+    )
     if Scope is None:
-        return MakeThroughPart(Plan, Inputs)
-    return MakeScopedThru(Plan, Inputs, Scope).PartValue
+        return MakeThroughPart(CutPlan, Inputs)
+    return MakeScopedThru(CutPlan, Inputs, Scope).PartValue
+
+
+# the pinned through cut worker still imports the historical preparation name
+PrepareThroughPart = BuildThruPart

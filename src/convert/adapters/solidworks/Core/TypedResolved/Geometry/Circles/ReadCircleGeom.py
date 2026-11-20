@@ -1,7 +1,7 @@
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckGeometryState import (
-    CheckGeometryState,
+    CheckGeometry,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismMgr import (
     CheckPrismMgr,
@@ -38,7 +38,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 def ReadCircleGeom(
     LinkValue: NativeLink, ManagerValue: CmgrGraph, ModelValue: NativeModel, BodyId: str
 ) -> PartGeometry:
-    CheckGeometryState(LinkValue, ManagerValue, ModelValue)
+    CheckGeometry(LinkValue, ManagerValue, ModelValue)
     NodesValue = PrismNodes(LinkValue, ManagerValue, AllowedClasses=KCircleClasses)
     Features = IndexFeatures(LinkValue)
     CheckPrismRoots(

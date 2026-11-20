@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
 # the concrete extrusion class determines its native operation and additional cut flags
-def BindExtrusionMut(
+def BindExtrudeMut(
     FeatureValue: ArchiveNode, ProfileValue: ProfileGraph, EndValue: ArchiveNode
 ) -> None:
     IsCut = FeatureValue.ClassValue.NameValue == "moICE_c"

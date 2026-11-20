@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckGeometryState import (
-    CheckGeometryState,
+    CheckGeometry,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismMgr import (
     CheckPrismMgr,
@@ -37,7 +37,7 @@ def CheckPrismScope(
     ModelValue: NativeModel,
     ColdValue: ColdOutput | None = None,
 ) -> Mapping[int, ArchiveNode]:
-    CheckGeometryState(LinkValue, ManagerValue, ModelValue)
+    CheckGeometry(LinkValue, ManagerValue, ModelValue)
     ColdAtom = None if ColdValue is None else ColdValue.AtomValue
     NodesValue = PrismNodes(LinkValue, ManagerValue, ColdAtom)
     Features = IndexFeatures(LinkValue)

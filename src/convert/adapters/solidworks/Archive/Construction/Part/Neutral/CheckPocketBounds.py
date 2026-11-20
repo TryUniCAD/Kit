@@ -4,7 +4,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PocketPlan im
 
 
 # the blind pocket must leave positive radial and end wall thickness in the single boss
-def CheckPocketBounds(PlanValue: PocketPlan) -> None:
+def CheckPocketFit(PlanValue: PocketPlan) -> None:
     XValues, YValues = zip(*PlanValue.BossValue.VerticesValue, strict=True)
     CenterX, CenterY = PlanValue.CircleValue.CenterValue
     ClearanceValue = min(

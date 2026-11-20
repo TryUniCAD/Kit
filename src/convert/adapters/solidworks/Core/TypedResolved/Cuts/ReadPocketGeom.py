@@ -3,10 +3,10 @@ from dataclasses import replace as ReplaceValue
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.BuildCircularCut import (
-    BuildCircularCut,
+    BuildCircleCut,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.CheckPublicPocket import (
-    CheckPublicPocket,
+    CheckPocket,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismMgr import (
     CheckPrismMgr,
@@ -44,7 +44,7 @@ def ReadPocketGeom(
 ) -> PartGeometry:
     CheckPocketMgr(Manager)
     Features = IndexFeatures(LinkValue)
-    CircleValue, CutValue = CheckPublicPocket(ModelValue, Features)
+    CircleValue, CutValue = CheckPocket(ModelValue, Features)
     Through = CutValue.extrusion_end == ExtrudeEnd.KThroughAll
     Evidence = NativeRecord(ModelValue.TypedGraph.get("cut_body_dependency"))
     Stock = ReadPrismPlan(
@@ -86,6 +86,6 @@ def ReadPocketGeom(
             **CutEvidence,
         },
     )
-    return BuildCircularCut(
+    return BuildCircleCut(
         PlanValue, CircleValue, StockBounds, CutBounds, BodyId, PrefixValue
     )

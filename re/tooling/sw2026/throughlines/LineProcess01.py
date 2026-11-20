@@ -20,7 +20,7 @@ from convert.adapters.solidworks.Archive.Construction.ThroughAll.SourceConfig.Ma
 from convert.adapters.solidworks.Archive.Construction.ThroughAll.SourceConfig.ThruCfgIntent import ThruCfgIntent
 from convert.adapters.solidworks.Archive.Construction.Configuration.ConfigSpec import ConfigSpec
 from convert.adapters.solidworks.Archive.Construction.Configuration.ManagerInput import ManagerInput
-from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefSettings
+from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefInput
 from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
 from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
@@ -59,7 +59,7 @@ def extra(event,arguments):
 sys.addaudithook(extra);request=json.load(sys.stdin)
 
 def intent(value):
- require(set(value)=={'ModelName','ManagerValue','DefinitionValue','DensityValue'},'unknown configuration intent');manager=dict(value['ManagerValue']);manager['ConfigValues']=tuple(ConfigSpec(**x) for x in manager['ConfigValues']);fields=dict(value['DefinitionValue']);fields['DisplayBits']=tuple(fields['DisplayBits']);fields['Tessellation']=tuple(fields['Tessellation']);return ThruCfgIntent(value['ModelName'],ManagerInput(**manager),ModelDefSettings(**fields),value['DensityValue'])
+ require(set(value)=={'ModelName','ManagerValue','DefinitionValue','DensityValue'},'unknown configuration intent');manager=dict(value['ManagerValue']);manager['ConfigValues']=tuple(ConfigSpec(**x) for x in manager['ConfigValues']);fields=dict(value['DefinitionValue']);fields['DisplayBits']=tuple(fields['DisplayBits']);fields['Tessellation']=tuple(fields['Tessellation']);return ThruCfgIntent(value['ModelName'],ManagerInput(**manager),ModelDefInput(**fields),value['DensityValue'])
 
 def members(value):
  require(set(value)=={'InputValue','NoteIds','LightIds'},'unknown member plan fields');safe_tree(value);scene=value['InputValue'];require(set(scene)=={'NotesValue','LightValues'},'unknown member input fields');notes=dict(scene['NotesValue']);notes['HeadCreated']=FeatureInstant(**notes['HeadCreated']);notes['EndCreated']=FeatureInstant(**notes['EndCreated']);lights=[]

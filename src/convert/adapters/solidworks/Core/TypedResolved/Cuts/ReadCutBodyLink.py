@@ -5,16 +5,16 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.CheckColdPocket import 
     CheckColdPocket,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.CheckSavedCutScope import (
-    CheckSavedCutScope,
+    CheckCutScope,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadColdSelectedStock import (
-    ReadColdSelectedStock,
+    ReadColdStock,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadManagedCutAtoms import (
-    ReadManagedCutAtoms,
+    ReadCutAtoms,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadSavedCutBodies import (
-    ReadSavedCutBodies,
+    ReadCutBodies,
 )
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
@@ -29,7 +29,7 @@ def ReadCutBodyLink(
     BossValue: ExtrudeOwner,
     CutValue: ExtrudeOwner,
 ) -> dict[str, object]:
-    ManagedValues = ReadManagedCutAtoms(LinkValue)
+    ManagedValues = ReadCutAtoms(LinkValue)
     BodyEvidence: dict[str, object] = {
         "producer_feature_id": NativeNodeId(BossValue.NodeValue),
         "consumer_feature_id": NativeNodeId(CutValue.NodeValue),
@@ -42,7 +42,7 @@ def ReadCutBodyLink(
             "feature_scope_code": 0,
         }
     if len(ManagedValues) == 1 and CutValue.ModeValue == ExtrudeEnd.KThroughAll:
-        StockAtom, AtomId = ReadColdSelectedStock(
+        StockAtom, AtomId = ReadColdStock(
             LinkValue, BossValue.NodeValue, CutValue.NodeValue
         )
         CheckColdPocket(LinkValue, Features, BossValue, CutValue, StockAtom)
@@ -52,10 +52,10 @@ def ReadCutBodyLink(
             "consumed_atom_id": AtomId,
             "feature_scope_code": 1,
         }
-    BossAtom, CutAtom = ReadSavedCutBodies(
+    BossAtom, CutAtom = ReadCutBodies(
         BossValue.NodeValue, CutValue.NodeValue, ManagedValues
     )
-    ScopeValue = CheckSavedCutScope(
+    ScopeValue = CheckCutScope(
         LinkValue.ConfigValue.RootValue,
         BossValue.NodeValue,
         CutValue.NodeValue,

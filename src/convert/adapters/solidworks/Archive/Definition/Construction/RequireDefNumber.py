@@ -2,7 +2,7 @@ from math import isfinite as IsFinite
 
 
 # authored doubles must be finite native values before any record is constructed
-def RequireDefNumber(Value: object) -> float:
+def RequireDefNum(Value: object) -> float:
     if isinstance(Value, bool) or not isinstance(Value, (int, float)):
         raise TypeError("SOLIDWORKS document settings require a real numeric value")
     try:

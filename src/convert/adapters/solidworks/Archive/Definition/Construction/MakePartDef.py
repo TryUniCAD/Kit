@@ -5,10 +5,10 @@ from convert.adapters.solidworks.Archive.Definition.Construction.MakeDefTail imp
     MakeDefTail,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.RequireDefNumber import (
-    RequireDefNumber,
+    RequireDefNum,
 )
 from convert.adapters.solidworks.Archive.Definition.ModelDefGraph import ModelDefGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -16,8 +16,8 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # ordinary part density is stored directly in kilograms per cubic metre at the end of the ui document
-def MakePartDef(Settings: ModelDefSettings, DensityValue: float) -> ModelDefGraph:
-    NativeDensity = RequireDefNumber(DensityValue)
+def MakePartDef(Settings: ModelDefInput, DensityValue: float) -> ModelDefGraph:
+    NativeDensity = RequireDefNum(DensityValue)
     if NativeDensity <= 0:
         raise ValueError("SOLIDWORKS part density must be positive")
     FieldValues = MakeDefHead(Settings) | MakeDefTail() | {"f1688": NativeDensity}

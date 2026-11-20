@@ -18,7 +18,7 @@ sys.addaudithook(AUDIT.InspectEvent)
 from builders.PartTextProperties import make_property_streams
 from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTextInput import PartTextInput
 from convert.adapters.solidworks.Archive.Construction.Part.MakeCirclePart import MakeCirclePart
-from convert.adapters.solidworks.Archive.Construction.Part.MakePolygonBlindPart import MakePolygonBlindPart
+from convert.adapters.solidworks.Archive.Construction.Part.MakePolygonBlindPart import MakePolygonPart
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectBlind import ProjectBlind
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectCircle import ProjectCircle
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadLineLoop import ReadLineLoop
@@ -80,7 +80,7 @@ def validate_rejections(builder, modeled, recipe, inputs):
 def main():
     modeled, inputs = extract(FromData(REQUEST["document"]))
     if REQUEST["profile"] == "polygon":
-        plan, builder = ProjectBlind(modeled, ReadLineLoop), MakePolygonBlindPart
+        plan, builder = ProjectBlind(modeled, ReadLineLoop), MakePolygonPart
     elif REQUEST["profile"] == "circle":
         plan, builder = ProjectCircle(modeled), MakeCirclePart
     else:

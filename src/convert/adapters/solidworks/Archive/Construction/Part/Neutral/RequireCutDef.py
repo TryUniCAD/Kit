@@ -1,5 +1,5 @@
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.RequireExtrusion import (
-    RequireExtrusion,
+    RequireExtrude,
 )
 from interchange.Enums.EnumFeatures import BooleanOp
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
@@ -8,7 +8,7 @@ from interchange.Features.FeatureStep import FeatureStep
 
 # a pocket consumes its actual earlier solid in the ordinary reversed blind direction
 def RequireCutDef(FeatureValue: FeatureStep, PreviousId: str) -> ExtrudeFeature:
-    Definition = RequireExtrusion(FeatureValue, BooleanOp.KCutOperation, (PreviousId,))
+    Definition = RequireExtrude(FeatureValue, BooleanOp.KCutOperation, (PreviousId,))
     if (
         Definition.end_condition != ExtrudeEnd.KBlind
         or Definition.reversed is not True

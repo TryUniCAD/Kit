@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # center constraints share the proved two handle coincidence constructor across point line and point point ownership
-def MakeCenterRelation(
+def MakeCenterRel(
     SketchValue: ArchiveNode, FirstHandle: ArchiveNode, SecondHandle: ArchiveNode
 ) -> dict[str, object]:
     if (

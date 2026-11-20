@@ -14,7 +14,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedVirtual
 )
 
 # the local part dimension owners admit the measured sketch graph in the configuration stream
-KPartRelationReferenceClasses = (
+KPartRelationRefClasses = (
     "ParallelPlaneDistanceDim_c",
     "moCompSketchEntHandle_c",
     "moDisplayDistanceDim_c",
@@ -34,7 +34,7 @@ KPartRelationReferenceClasses = (
 
 
 # configuration precedence and map ownership must survive reuse of existing dimension serializers
-def UsePartRelationsMut(ContextValue: BodyContext) -> None:
+def BindPartRelsMut(ContextValue: BodyContext) -> None:
     if ContextValue.VersionValue != 19000:
         raise BodyUnsupported("part equation archive requires SOLIDWORKS version 19000")
     ContextValue.LayoutsValue = {
@@ -47,7 +47,7 @@ def UsePartRelationsMut(ContextValue: BodyContext) -> None:
         **ContextValue.SchemasValue,
         **{
             NameValue: KResolvedSchemas[NameValue]
-            for NameValue in KPartRelationReferenceClasses
+            for NameValue in KPartRelationRefClasses
         },
         **{NameValue: (1,) for NameValue in KPartRelationFields},
     }

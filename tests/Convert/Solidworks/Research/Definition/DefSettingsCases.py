@@ -1,7 +1,7 @@
 # varied neutral requests exercise long unicode independent masks and both derived document tails
-def DefSettingsCases() -> list[dict[str, object]]:
+def DefCases() -> list[dict[str, object]]:
     Cases: list[dict[str, object]] = []
-    for Index, (Kind, Standard, NameValue) in enumerate(
+    for Index, (KindValue, Standard, NameValue) in enumerate(
         (
             ("part", "moISO_c", "Geometric β"),
             ("part", "moJIS_c", "設計 🚲 " + "K" * 262),
@@ -12,7 +12,7 @@ def DefSettingsCases() -> list[dict[str, object]]:
         Cases.append(
             {
                 "mode": "build",
-                "kind": Kind,
+                "kind": KindValue,
                 "version": 19000,
                 "presentation": {
                     "drafting_standard": Standard,

@@ -4,7 +4,7 @@ from tests.Convert.Solidworks.Research.Assembly.Combined.AddThirdMate import (
     AddThirdMate,
 )
 from tests.Convert.Solidworks.Research.Assembly.Combined.MakeCombinedCase import (
-    MakeCombinedCase,
+    MakeMateCase,
 )
 from tests.Convert.Solidworks.Research.Assembly.Combined.RunCombinedCase import (
     RunCombinedCase,
@@ -12,12 +12,12 @@ from tests.Convert.Solidworks.Research.Assembly.Combined.RunCombinedCase import 
 
 
 # native bundle streams must retain registration order and grow with actual authored mates
-def TestCombinedMates() -> None:
-    Pair = MakeCombinedCase(False)
-    Triple = MakeCombinedCase(True)
+def TestMateStack() -> None:
+    PairRequest = MakeMateCase(False)
+    Triple = MakeMateCase(True)
     AddThirdMate(Triple)
     Lengths: list[int] = []
-    for Count, Request in ((2, Pair), (3, Triple)):
+    for Count, Request in ((2, PairRequest), (3, Triple)):
         Report = RunCombinedCase(Request)
         assert Report == RunCombinedCase(Request)
         Inspection = CastValue(dict[str, object], Report["inspection"])
@@ -30,8 +30,8 @@ def TestCombinedMates() -> None:
 
 
 # conflicting authored names or fixed anchors must fail before a native bundle is published
-def TestRejectCombinedMates() -> None:
-    Request = MakeCombinedCase(False)
+def TestMateReject() -> None:
+    Request = MakeMateCase(False)
     Bundle = CastValue(dict[str, object], Request["bundle"])
     First, Second = CastValue(list[dict[str, object]], Bundle["mates"])
     OriginalName = Second["name"]

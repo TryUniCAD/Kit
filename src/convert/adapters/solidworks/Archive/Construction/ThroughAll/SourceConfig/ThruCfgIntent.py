@@ -7,10 +7,10 @@ from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText impor
     ReadStyleText,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.RequireDefNumber import (
-    RequireDefNumber,
+    RequireDefNum,
 )
 
 
@@ -19,7 +19,7 @@ from convert.adapters.solidworks.Archive.Definition.Construction.RequireDefNumbe
 class ThruCfgIntent:
     ModelName: str
     ManagerValue: ManagerInput
-    DefinitionValue: ModelDefSettings
+    DefinitionValue: ModelDefInput
     DensityValue: float
 
     # single configuration checks preserve the measured source scope without enabling incomplete part conversion
@@ -35,11 +35,11 @@ class ThruCfgIntent:
                 "through-all source intent requires one actual selected configuration"
             )
         if (
-            type(self.DefinitionValue) is not ModelDefSettings
+            type(self.DefinitionValue) is not ModelDefInput
             or self.DefinitionValue.VersionValue != 19000
         ):
             raise ValueError(
                 "through-all source intent requires typed version 19000 document settings"
             )
-        if RequireDefNumber(self.DensityValue) <= 0:
+        if RequireDefNum(self.DensityValue) <= 0:
             raise ValueError("through-all source document density must be positive")

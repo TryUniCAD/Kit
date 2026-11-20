@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Archive.Construction.Styles.MakeLineWidth impor
 
 
 # one display base constructs the actual shared native owners before a detail subtype adds its state
-def MakeDisplayFields(VersionValue: int, FlagsValue: int) -> dict[str, object]:
+def MakeViewFields(VersionValue: int, FlagsValue: int) -> dict[str, object]:
     return {
         "f50": 0,
         "f30": None,

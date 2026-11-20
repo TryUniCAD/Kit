@@ -14,11 +14,11 @@ def ReadMateRows(
     LegacyEntities: tuple[MateEntity, ...],
 ) -> tuple[tuple[MateEntity, ...], tuple[MateConstraint, ...]]:
     Existing = {Value.id: Value for Value in LegacyEntities}
-    Rows = tuple(
+    MateRows = tuple(
         ReadPublicMate(NodeValue, Context, EnvValue, LegacyValue, Existing)
         for NodeValue, LegacyValue in zip(NodesValue, LegacyRules, strict=True)
     )
     return (
-        tuple(Value for Entities, _ in Rows for Value in Entities),
-        tuple(RuleValue for _, RuleValue in Rows),
+        tuple(Value for Entities, _ in MateRows for Value in Entities),
+        tuple(RuleValue for _, RuleValue in MateRows),
     )

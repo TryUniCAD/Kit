@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.ReadLocalCirc import
     ReadLocalCirc,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.CheckColdCutRoots import (
-    CheckColdCutRoots,
+    CheckColdRoots,
 )
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismAtom import (
@@ -49,7 +49,7 @@ def CheckColdPocket(
     SelectedStock: ArchiveNode | None = None,
 ) -> None:
     RootValue = LinkValue.ConfigValue.RootValue
-    CheckColdCutRoots(Features)
+    CheckColdRoots(Features)
     CheckPrismRoot(RootValue, SelectedStock)
     CheckPrismRels(RootValue)
     Through = CutValue.ModeValue == ExtrudeEnd.KThroughAll
@@ -79,8 +79,8 @@ def CheckColdPocket(
     CircleValue, _ = Shape
     XValue, YValue = CircleValue.CenterValue
     Radius = CircleValue.RadiusValue
-    XValues = tuple(Line.start.x for Line in Lines)
-    YValues = tuple(Line.start.y for Line in Lines)
+    XValues = tuple(LineValue.start.x for LineValue in Lines)
+    YValues = tuple(LineValue.start.y for LineValue in Lines)
     if not min(XValues) < XValue - Radius < XValue + Radius < max(XValues) or not min(
         YValues
     ) < YValue - Radius < YValue + Radius < max(YValues):

@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
     LocalCircle,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPublicPlanes import (
-    CheckPublicPlanes,
+    CheckPlanes,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
@@ -14,7 +14,7 @@ from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # a pocket solid is reconstructed only when the public history exposes both complete typed profiles and their actual support
-def CheckPublicPocket(
+def CheckPocket(
     ModelValue: NativeModel, Features: Mapping[int, ArchiveNode]
 ) -> tuple[LocalCircle, NativeOperation]:
     Evidence = NativeRecord(ModelValue.TypedGraph.get("cut_body_dependency"))
@@ -29,16 +29,19 @@ def CheckPublicPocket(
         or len(ModelValue.sketches) != 2
     ):
         raise ValueError("cache free pocket lacks its full public feature inventory")
-    Boss, Cut = ModelValue.operations
+    BossOperation, CutOperation = ModelValue.operations
     Stock, Cavity = ModelValue.sketches
     if (
-        Boss.object_id != Evidence.get("producer_feature_id")
-        or Cut.object_id != Evidence.get("consumer_feature_id")
-        or Boss.profile_id != Stock.object_id
-        or Cut.profile_id != Cavity.object_id
+        BossOperation.object_id != Evidence.get("producer_feature_id")
+        or CutOperation.object_id != Evidence.get("consumer_feature_id")
+        or BossOperation.profile_id != Stock.object_id
+        or CutOperation.profile_id != Cavity.object_id
         or Stock.TypedLines is None
         or Cavity.TypedCircle is None
-        or (Cut.length_mm is None and Cut.extrusion_end != ExtrudeEnd.KThroughAll)
+        or (
+            CutOperation.length_mm is None
+            and CutOperation.extrusion_end != ExtrudeEnd.KThroughAll
+        )
     ):
         raise ValueError(
             "cache free pocket lacks its actual public contour and depth owners"
@@ -52,5 +55,5 @@ def CheckPublicPocket(
             raise ValueError(
                 "cache free pocket public support differs from its native datum"
             )
-    CheckPublicPlanes(ModelValue, Features)
-    return Cavity.TypedCircle, Cut
+    CheckPlanes(ModelValue, Features)
+    return Cavity.TypedCircle, CutOperation

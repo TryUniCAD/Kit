@@ -19,7 +19,7 @@ sys.addaudithook(AUDIT.InspectEvent)
 
 from SdkBlindPartSettings import settings
 from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import MakeBlindPart
-from convert.adapters.solidworks.Archive.Construction.Part.MakePolygonBlindPart import MakePolygonBlindPart
+from convert.adapters.solidworks.Archive.Construction.Part.MakePolygonBlindPart import MakePolygonPart
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from interchange.document.Models.DocumentModel import CadDocument
@@ -32,7 +32,7 @@ from interchange.serialization.Deserialize import FromData
 CODECS = tuple(lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
 REQUEST = json.load(sys.stdin)
 PROFILE = sys.argv[2] if len(sys.argv) == 3 else "rectangle"
-BUILD = {"rectangle": MakeBlindPart, "polygon": MakePolygonBlindPart}[PROFILE]
+BUILD = {"rectangle": MakeBlindPart, "polygon": MakePolygonPart}[PROFILE]
 AUDIT.BeginBuild()
 
 

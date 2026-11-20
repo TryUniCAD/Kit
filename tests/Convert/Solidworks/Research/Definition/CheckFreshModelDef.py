@@ -1,30 +1,30 @@
 from typing import cast as CastValue
 
 from tests.Convert.Solidworks.Research.Definition.DefSettingsCases import (
-    DefSettingsCases,
+    DefCases,
 )
 from tests.Convert.Solidworks.Research.Definition.RunModelDefProcess import (
-    RunModelDefProcess,
+    RunDefProcess,
 )
 
 
 # independently launched readers must recover the authored definitions after complete sdk emission
-def CheckFreshModelDef() -> list[dict[str, object]]:
-    Cases = DefSettingsCases()
-    Reports = [RunModelDefProcess([CaseValue])[0] for CaseValue in Cases]
+def CheckFreshDef() -> list[dict[str, object]]:
+    Cases = DefCases()
+    Reports = [RunDefProcess([CaseValue])[0] for CaseValue in Cases]
     for Index, (CaseValue, BuiltValue) in enumerate(zip(Cases, Reports, strict=True)):
         assert BuiltValue["passed"] is True and BuiltValue["runtime_input_reads"] == 0
         assert (
             BuiltValue["independent_wire_equal"] is True
             and BuiltValue["journal_schema"] == 0
         )
-        (Prepared,) = RunModelDefProcess(
+        (Prepared,) = RunDefProcess(
             [{"mode": "prepare", "version": 19000, "input": BuiltValue["output"]}]
         )
         assert {
-            Key: Value
-            for Key, Value in BuiltValue.items()
-            if Key not in ("independent_wire_equal", "output")
+            FieldName: Value
+            for FieldName, Value in BuiltValue.items()
+            if FieldName not in ("independent_wire_equal", "output")
         } == Prepared
         assert Prepared["next_map_index"] == 7 and Prepared["style_count"] == 0
         if CaseValue["kind"] == "part":

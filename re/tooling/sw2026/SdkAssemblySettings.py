@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.HistoryInput impo
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import FeatureTarget
 from convert.adapters.solidworks.Archive.Construction.Presentation.StyleInput import StyleInput
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
-from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefSettings
+from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefInput
 
 
 def assembly_settings(values):
@@ -26,7 +26,7 @@ def assembly_settings(values):
         FeatureTarget(values["target"]["date_code"], values["target"]["parasolid_version"]),
         HeaderInput(provenance["author"], provenance["company"], provenance["comment"], provenance["created_at"], provenance["modified_at"], provenance["updated_at"]),
         HistoryInput(provenance["created_at"], provenance["comment"], provenance["originating_build_code"], provenance["license_origin"], styles["language_id"], provenance["cjk_saved"]),
-        ModelDefSettings(definition["drafting_standard"], tuple(definition["detail_flags"]), tuple(definition["tessellation"]), definition["system_preference_7a"], definition["journal_name"], 19000),
+        ModelDefInput(definition["drafting_standard"], tuple(definition["detail_flags"]), tuple(definition["tessellation"]), definition["system_preference_7a"], definition["journal_name"], 19000),
         SelfFileInput(values["output"]["path_name"], values["output"]["saved_at"]), definition["save_as_part_preferences"])
 
 

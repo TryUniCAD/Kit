@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Core.Preparation.ThroughAll.Members.ReadMemberT
     ReadMemberTime,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.RequireDefNumber import (
-    RequireDefNumber,
+    RequireDefNum,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
@@ -49,25 +49,25 @@ def ReadLightInput(NodeValue: ArchiveNode) -> LightInput:
     if ClassName == "moDirectionLight_c":
         VectorValue = RequireRecord(Values.get("f3b0"))
         Direction = (
-            RequireDefNumber(VectorValue.get("x")),
-            RequireDefNumber(VectorValue.get("y")),
-            RequireDefNumber(VectorValue.get("z")),
+            RequireDefNum(VectorValue.get("x")),
+            RequireDefNum(VectorValue.get("y")),
+            RequireDefNum(VectorValue.get("z")),
         )
-        Softness = RequireDefNumber(Values.get("f498"))
+        Softness = RequireDefNum(Values.get("f498"))
     return LightInput(
         "ambient" if ClassName == "moAmbientLight_c" else "directional",
         ReadNodeName(NodeValue),
         FieldText(Values, "f4f8"),
-        RequireDefNumber(Values.get("f390")),
-        RequireDefNumber(Values.get("f398")),
-        RequireDefNumber(Values.get("f3a0")),
+        RequireDefNum(Values.get("f390")),
+        RequireDefNum(Values.get("f398")),
+        RequireDefNum(Values.get("f3a0")),
         FieldInt(Values, "f3a8"),
         bool(Switches[0]),
         bool(Switches[1]),
         bool(Switches[2]),
-        RequireDefNumber(Values.get("f478")),
+        RequireDefNum(Values.get("f478")),
         bool(Switches[3]),
-        RequireDefNumber(Values.get("f490")),
+        RequireDefNum(Values.get("f490")),
         Direction,
         Softness,
         ReadMemberTime(NodeValue),

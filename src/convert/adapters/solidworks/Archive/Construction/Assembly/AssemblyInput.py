@@ -20,7 +20,7 @@ from convert.adapters.solidworks.Archive.Construction.Presentation.StyleInput im
 )
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 
 
@@ -36,6 +36,6 @@ class AssemblyInput:
     TargetValue: FeatureTarget
     HeaderValue: HeaderInput
     HistoryValue: HistoryInput
-    DefinitionValue: ModelDefSettings
+    DefinitionValue: ModelDefInput
     OutputValue: SelfFileInput
     SavePartValues: Mapping[str, bool | int | float]

@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Archive.Construction.Styles.Ansi.SetDimensionMu
 
 
 # the native root visits all ten concrete dimension records after its scalar ansi defaults
-def SetDimensionsMut(FieldsValue: MutableMapping[str, object]) -> None:
+def SetDimStyleMut(FieldsValue: MutableMapping[str, object]) -> None:
     FieldsValue.update(
         {"f68": 0, "f20": 0.00127, "f28": 0.003175, "f38": 0.0127, "f64": 1}
     )

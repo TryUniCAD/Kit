@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CheckPartLink
     CheckPartLinks,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CheckPocketBounds import (
-    CheckPocketBounds,
+    CheckPocketFit,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.IsCircDiameter import (
     IsCircDiameter,
@@ -26,7 +26,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadLength im
     ReadLength,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPocketDrives import (
-    ReadPocketDrives,
+    ReadPocketDims,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis import (
     ReadPrincAxis,
@@ -59,7 +59,7 @@ def ProjectPocket(DocumentValue: CadDocument) -> PocketPlan:
     BossSketch, CutSketch = DocumentValue.sketches
     BossDef = RequireBossDef(BossValue)
     CutDef = RequireCutDef(CutValue, BossValue.id)
-    BossParam, CutParam, RadialParam = ReadPocketDrives(DocumentValue)
+    BossParam, CutParam, RadialParam = ReadPocketDims(DocumentValue)
     if BossDef.length != BossParam.value or CutDef.length != CutParam.value:
         raise ValueError("pocket depth parameters must match their actual extrusions")
     VerticesValue = ReadRectSketch(BossSketch, ScaleValue)
@@ -94,5 +94,5 @@ def ProjectPocket(DocumentValue: CadDocument) -> PocketPlan:
         BossEndInput(ReadLength(CutDef.length), True, 19000, "blind"),
         RadialMode,
     )
-    CheckPocketBounds(PlanValue)
+    CheckPocketFit(PlanValue)
     return PlanValue

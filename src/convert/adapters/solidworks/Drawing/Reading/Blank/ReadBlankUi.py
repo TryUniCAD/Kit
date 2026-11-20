@@ -1,5 +1,5 @@
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields import (
     NeedConceptNode as NeedNode,
@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Drawing.Reading.Blank.Require import Require
 
 
 # document preferences and standard selection must remain explicit when strict reading closes the layout gap
-def ReadBlankUi(Document: object) -> ModelDefSettings:
+def ReadBlankUi(Document: object) -> ModelDefInput:
     Value = Fields(Document)
     Flags = (Integer(Value["fad8_0"]) & 0xFFFFFFFF) | (
         (Integer(Value["fad8_1"]) & 0xFFFFFFFF) << 32
@@ -23,7 +23,7 @@ def ReadBlankUi(Document: object) -> ModelDefSettings:
         "blank UI has invalid Boolean preference state",
     )
     Journal = NeedNode(Fields(Value["ffd8"])["f18"], "uoJournal_c")
-    return ModelDefSettings(
+    return ModelDefInput(
         NeedNode(Value["fba8"]).ClassValue.NameValue,
         tuple(Index for Index in range(64) if Flags & (1 << Index)),
         (

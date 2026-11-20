@@ -6,12 +6,14 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # the configuration manager and inherited map must agree on every atom in this history
-def ReadManagedCutAtoms(LinkValue: NativeLink) -> set[ArchiveNode]:
+def ReadCutAtoms(LinkValue: NativeLink) -> set[ArchiveNode]:
     RootValue = RequireNative(LinkValue.ConfigValue.RootValue, "moPart_c")
     Manager = NativeRecord(RootValue.FieldsValue.get("fd88"))
     GhostValue = NativeRecord(RootValue.FieldsValue.get("fd90"))
     RowsValue = NativeRows(Manager.get("atoms"))
-    ManagedValues = {RequireNative(Row.get("o"), "moAtom_c") for Row in RowsValue}
+    ManagedValues = {
+        RequireNative(RowValue.get("o"), "moAtom_c") for RowValue in RowsValue
+    }
     MapValues = {
         Entry.EntryValue
         for Entry in LinkValue.ResolvedValue.MapValue.EntriesValue
@@ -29,3 +31,7 @@ def ReadManagedCutAtoms(LinkValue: NativeLink) -> set[ArchiveNode]:
             "cut body atom manager contains missing or additional ownership"
         )
     return ManagedValues
+
+
+# hash pinned through cut readers still import the original managed atom helper
+ReadManagedCutAtoms = ReadCutAtoms

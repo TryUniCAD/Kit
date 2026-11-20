@@ -18,15 +18,15 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 
 
 # a fresh through cut selects its sole managed stock without transmitting either an input mesh or a result atom
-def ReadColdSelectedStock(
+def ReadColdStock(
     LinkValue: NativeLink, BossValue: ArchiveNode, CutValue: ArchiveNode
 ) -> tuple[ArchiveNode, int]:
-    Atom = FindColdAtom(LinkValue)
-    if Atom is None or ReadColdBoss(LinkValue, Atom) is not BossValue:
+    AtomValue = FindColdAtom(LinkValue)
+    if AtomValue is None or ReadColdBoss(LinkValue, AtomValue) is not BossValue:
         raise ValueError("cold selected cut lacks its actual sole stock producer")
-    CheckColdAtom(Atom, ImplicitName=True)
-    AtomId = ReadCutAtomId(Atom, BossValue)
+    CheckColdAtom(AtomValue, ImplicitName=True)
+    AtomId = ReadCutAtomId(AtomValue, BossValue)
     CheckCutWrapper(
-        LinkValue.ConfigValue.RootValue, BossValue, CutValue, AtomId, Cold=True
+        LinkValue.ConfigValue.RootValue, BossValue, CutValue, AtomId, IsCold=True
     )
-    return Atom, AtomId
+    return AtomValue, AtomId

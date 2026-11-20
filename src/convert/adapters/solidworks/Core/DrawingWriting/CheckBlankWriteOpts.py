@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Container.Format import (
 
 
 # a blank drawing has one sheet and accepts the ordinary transactional write policy
-def CheckBlankWriteOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
+def CheckBlankOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
     Settings = WriteOptions() if OptionsValue is None else OptionsValue
     if not isinstance(CastValue(object, Settings), WriteOptions):
         raise TypeError("native blank drawing requires WriteOptions")
@@ -33,8 +33,13 @@ def CheckBlankWriteOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
         "allow_non_native",
         "portable",
     }
-    if Settings.configuration is not None or set(Settings.values) - (PolicyKeys | {"final_destination"}):
+    if Settings.configuration is not None or set(Settings.values) - (
+        PolicyKeys | {"final_destination"}
+    ):
         raise ValueError("unsupported native blank drawing write options")
-    if any(type(Settings.values[KeyValue]) is not bool for KeyValue in PolicyKeys & Settings.values.keys()):
+    if any(
+        type(Settings.values[KeyValue]) is not bool
+        for KeyValue in PolicyKeys & Settings.values.keys()
+    ):
         raise TypeError("native drawing write policy flags must be boolean")
     return Settings

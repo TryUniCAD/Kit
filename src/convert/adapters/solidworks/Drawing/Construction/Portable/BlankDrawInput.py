@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.HistoryInput impo
     HistoryInput,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Drawing.Construction.Portable.DrawDocOptions import (
     DrawDocOptions,
@@ -23,7 +23,7 @@ from interchange.document.Models.Drawing.DrawingData import DrawingData
 class BlankDrawInput:
     DrawingValue: DrawingData
     OptionsValue: DrawDocOptions
-    UiSettings: ModelDefSettings
+    UiSettings: ModelDefInput
     HeaderValue: HeaderInput
     FileValue: SelfFileInput
     HistoryValue: HistoryInput

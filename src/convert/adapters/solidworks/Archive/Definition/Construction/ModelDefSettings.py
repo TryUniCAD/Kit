@@ -4,7 +4,7 @@ from typing import cast as CastValue
 
 # fresh definitions need explicit presentation values before the native owners are constructed
 @DataClass(frozen=True, slots=True)
-class ModelDefSettings:
+class ModelDefInput:
     DraftingStandard: str
     DisplayBits: tuple[int, ...]
     Tessellation: tuple[int, int, int, bool]

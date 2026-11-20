@@ -14,7 +14,7 @@ from interchange.Records.RecordTopology import TopologyCounts
 
 
 # the actual directed sketch axis and ordered contour define the meridian without a saved kernel body
-def BuildRevBodyGeom(OwnerValue: RevolveOwner, BodyId: str) -> PartGeometry:
+def BuildRevBody(OwnerValue: RevolveOwner, BodyId: str) -> PartGeometry:
     ProfileValue = OwnerValue.ProfileGraph
     LoopValue = ProfileValue.LoopValue
     AxisValue = OwnerValue.FrameValue

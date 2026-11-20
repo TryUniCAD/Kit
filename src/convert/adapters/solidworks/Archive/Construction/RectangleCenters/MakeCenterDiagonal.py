@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 
 
 # each construction diagonal must derive its endpoint slots and new creation identity without changing contour permanence
-def MakeCenterDiagonal(
+def MakeDiagonal(
     SketchValue: ArchiveNode,
     PointValues: tuple[ArchiveNode, ...],
     FirstValue: ArchiveNode,

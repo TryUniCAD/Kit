@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Archive.Construction.Presentation.StyleInput im
 )
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Drawing.Construction.Model.DrawFolders import (
     DrawFolders,
@@ -39,7 +39,7 @@ KBlankMetadataTypes = frozenset(
         FeatureTarget,
         StyleInput,
         UnitInput,
-        ModelDefSettings,
+        ModelDefInput,
         DrawFolders,
         BlankDrawInput,
         DrawDocOptions,

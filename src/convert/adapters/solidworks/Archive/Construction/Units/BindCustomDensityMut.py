@@ -2,7 +2,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
 # the custom density owner needs its own copy of the document length format and an independent mass selection
-def BindCustomDensityMut(
+def BindDensityMut(
     DensityValue: ArchiveNode, LengthValue: ArchiveNode, MassCode: int
 ) -> None:
     LengthFields = dict(LengthValue.FieldsValue)

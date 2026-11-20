@@ -17,7 +17,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 
 # the closed polygon profile uses the shared complete part construction with its own explicit topology admission
-def MakePolygonBlindPart(
+def MakePolygonPart(
     DocumentValue: CadDocument, InputValue: PartBuildInput
 ) -> PartCandidate:
     return MakeBlindPartFromPlan(

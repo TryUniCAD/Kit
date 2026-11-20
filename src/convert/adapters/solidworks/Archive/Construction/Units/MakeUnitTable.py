@@ -1,7 +1,7 @@
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Construction.Units.BindCustomDensityMut import (
-    BindCustomDensityMut,
+    BindDensityMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Units.MakeUnitNode import (
     MakeUnitNode,
@@ -38,7 +38,7 @@ def MakeUnitTable(InputValue: UnitInput) -> ArchiveNode:
         for KindValue in KUnitClasses
     }
     if InputValue.MassUnit is not None:
-        BindCustomDensityMut(
+        BindDensityMut(
             UnitValues["density"],
             UnitValues["length"],
             KMassCodes[InputValue.MassUnit],

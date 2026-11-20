@@ -8,7 +8,7 @@ from interchange.geometry.Models.Sketch import Sketch
 
 
 # each rectangle relation must point to its actual line before the constructor allocates its canonical ordered contour
-def ReadStockRectangle(
+def ReadStockRect(
     SketchValue: Sketch, UnitScale: float
 ) -> tuple[tuple[float, float], ...]:
     Vertices = ReadRectSketch(ReplaceValue(SketchValue, constraints=()), UnitScale)
@@ -41,6 +41,11 @@ def ReadStockRectangle(
         Actual[OwnerId] = Relation.kind
     if Actual != Expected:
         raise ValueError("through-all stock axis relations must match its four lines")
-    Left, Right = sorted({Point[0] for Point in Vertices})
-    Bottom, Top = sorted({Point[1] for Point in Vertices})
-    return ((Left, Bottom), (Right, Bottom), (Right, Top), (Left, Top))
+    LeftBound, Right = sorted({Point[0] for Point in Vertices})
+    Bottom, TopBound = sorted({Point[1] for Point in Vertices})
+    return (
+        (LeftBound, Bottom),
+        (Right, Bottom),
+        (Right, TopBound),
+        (LeftBound, TopBound),
+    )

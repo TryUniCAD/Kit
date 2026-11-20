@@ -2,11 +2,11 @@ from convert.adapters.solidworks.Archive.Construction.Circles.CircleGraph import
     CircleGraph,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.BindExtrusionMut import (
-    BindExtrusionMut,
+    BindExtrudeMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import CutGraph
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionNodeMut import (
-    MakeExtrusionNodeMut,
+    MakeExtrudeMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import (
     FeatureTarget,
@@ -43,9 +43,9 @@ def MakeThruCutMut(
         or ProfileValue.ProfileValue.FieldsValue.get("owner") is not OwnerValue
     ):
         raise ValueError("through all cut requires its actual owned circular profile")
-    FeatureValue = MakeExtrusionNodeMut(
+    FeatureValue = MakeExtrudeMut(
         "moICE_c", NameValue, OwnerValue, TargetValue, Allocator
     )
     EndValue = MakeThroughEnd(InputValue)
-    BindExtrusionMut(FeatureValue, ProfileValue, EndValue)
+    BindExtrudeMut(FeatureValue, ProfileValue, EndValue)
     return CutGraph(FeatureValue, ProfileValue, EndValue, None)

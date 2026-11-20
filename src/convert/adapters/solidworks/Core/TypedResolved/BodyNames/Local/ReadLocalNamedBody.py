@@ -1,6 +1,9 @@
 from convert.Geometry.Parasolid import DecodeBrepModel
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Container.Format import KPartitionStream
+from convert.adapters.solidworks.Container.Format import (
+    KLocalBodyStream,
+    KPartitionStream,
+)
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.BodyNameGraph import (
     BodyNameGraph,
 )
@@ -26,7 +29,6 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
     ReadLocalWrap,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalPayload import (
-    KLocalBodyStream,
     ReadLocalPay,
 )
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink

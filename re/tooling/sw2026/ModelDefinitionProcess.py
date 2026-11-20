@@ -21,7 +21,7 @@ from Classes import registry
 from builders.Definition import assembly_definition, definition_stream, part_definition
 from convert.adapters.solidworks.Archive.Definition.Construction.MakeAssemblyDef import MakeAssemblyDef
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import MakePartDef
-from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefSettings
+from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefInput
 from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
 from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
 
@@ -53,7 +53,7 @@ def inspect(data, version):
 def generate(job):
     presentation = job["presentation"]
     copied = presentation | {"tessellation": tuple(presentation["tessellation"])}
-    settings = ModelDefSettings(
+    settings = ModelDefInput(
         copied["drafting_standard"], tuple(copied["detail_flags"]), copied["tessellation"],
         copied["system_preference_7a"], copied["journal_name"], job["version"],
     )

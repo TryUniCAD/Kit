@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Definition.Construction.MakeDefTail imp
     MakeDefTail,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
@@ -26,9 +26,9 @@ from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import KDrawCl
 
 # drawing ui construction must reuse shared native settings while retaining its real model and sheet sketch owners
 def MakeDrawDef(
-    Settings: ModelDefSettings, GraphValue: DrawRootGraph, *, DisplayGrid: bool = True
+    Settings: ModelDefInput, GraphValue: DrawRootGraph, *, DisplayGrid: bool = True
 ) -> BlankGraph:
-    if type(Settings) is not ModelDefSettings or type(GraphValue) is not DrawRootGraph:
+    if type(Settings) is not ModelDefInput or type(GraphValue) is not DrawRootGraph:
         raise TypeError(
             "drawing ui construction requires typed settings and an actual model graph"
         )

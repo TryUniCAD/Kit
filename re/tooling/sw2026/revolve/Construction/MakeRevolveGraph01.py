@@ -3,7 +3,7 @@ from struct import pack
 from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph import DimensionGraph
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeHandleMut import MakeHandleMut
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeAngleValue import MakeAngleValue
-from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionView import MakeExtrusionView
+from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionView import MakeExtrudeView
 from convert.adapters.solidworks.Archive.Construction.Nodes.AtomSeeds import KAtomLists, KAtomWords
 from convert.adapters.solidworks.Archive.Construction.Nodes.InitFeatureMut import InitFeatureMut
 from convert.adapters.solidworks.Archive.Construction.Nodes.InitNodeMut import InitNodeMut
@@ -78,7 +78,7 @@ def make_angle(feature, settings, plan, allocator):
     dimension = MakeAngleValue(feature, parameter)
     allocator.AllocateMut(dimension, 'f50')
     handle = MakeHandleMut(feature, dimension)
-    display = MakeExtrusionView(feature, handle, True, settings.DesignIntent, settings.SelectedLeader)
+    display = MakeExtrudeView(feature, handle, True, settings.DesignIntent, settings.SelectedLeader)
     display.FieldsValue['f5b0']['data'] = pack('<d', plan.AngleValue)
     return DimensionGraph(parameter, dimension, handle, display)
 

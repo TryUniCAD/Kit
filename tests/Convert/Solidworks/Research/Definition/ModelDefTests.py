@@ -1,12 +1,12 @@
 from tests.Convert.Solidworks.Research.Definition.CheckFreshModelDef import (
-    CheckFreshModelDef,
+    CheckFreshDef,
 )
 from tests.Convert.Solidworks.Research.Definition.CheckModelDefRejection import (
-    CheckModelDefRejection,
+    CheckDefReject,
 )
 
 
 # native definition preparation must independently consume every fresh variant and reject invalid profiles
-def TestModelDefinition() -> None:
-    Reports = CheckFreshModelDef()
-    CheckModelDefRejection(Reports[0])
+def TestModelDef() -> None:
+    Reports = CheckFreshDef()
+    CheckDefReject(Reports[0])

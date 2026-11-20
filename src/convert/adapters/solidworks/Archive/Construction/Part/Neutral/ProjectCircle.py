@@ -25,7 +25,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis
     ReadPrincAxis,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.RequireExtrusion import (
-    RequireExtrusion,
+    RequireExtrude,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.RequirePlainDoc import (
     CheckPartScope,
@@ -45,7 +45,7 @@ def ProjectCircle(DocumentValue: CadDocument) -> CirclePlan:
         DocumentValue.feature_timeline[0],
     )
     AxisValue = ReadPrincAxis(PlaneValue.transform)
-    Definition = RequireExtrusion(FeatureValue)
+    Definition = RequireExtrude(FeatureValue)
     EndValue = ReadBossEnd(Definition, AxisValue)
     RadialParam, DepthParam = ReadCircParams(DocumentValue, Definition)
     NameValue = ReadStyleText(

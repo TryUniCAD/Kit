@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Archive.Construction.Styles.Ansi.SetHeightMut i
 
 
 # annotation defaults apply actual base records after the root bend setter and retain unrelated authored state
-def SetAnnotationsMut(FieldsValue: MutableMapping[str, object]) -> None:
+def SetAnnoStyleMut(FieldsValue: MutableMapping[str, object]) -> None:
     FieldsValue.update({"f10": 0, "f14": 1, "f1c": 1, "f20": 3, "f24": 1})
     for FieldName in (
         "f40",

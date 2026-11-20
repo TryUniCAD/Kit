@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 
 
 # each guarded write uses an ordinary public call in a new interpreter and verifies actual committed bytes
-def TestPublicBlankWriter(TmpPath: FilePath) -> None:
+def TestBlankWriter(TmpPath: FilePath) -> None:
     RootPath = FilePath(__file__).resolve().parents[6]
     Runner = RootPath / "re/tooling/sw2026/blank_eval/BuildPublicBlankDrawing.py"
     OptionsPath = TmpPath / "Options.json"

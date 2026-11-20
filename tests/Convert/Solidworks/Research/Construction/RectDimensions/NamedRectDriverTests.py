@@ -9,7 +9,7 @@ from tests.Convert.Solidworks.Research.Construction.RectDimensions.RectDimReques
 
 
 # native archive and keywords must preserve the same three separately owned driving labels in a guarded process
-def TestNamedRectDrivers() -> None:
+def TestRectDrivers() -> None:
     RequestValue = RectDimRequest("sdk named rectangle", False)
     RequestValue["driver_names"] = ["PanelWidth", "PanelHeight", "SolidDepth"]
     Outcome = RunProcess(

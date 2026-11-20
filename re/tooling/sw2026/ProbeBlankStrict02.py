@@ -43,7 +43,7 @@ if read_intent is not None:
     from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
     from convert.adapters.solidworks.Archive.Construction.Header.HeaderInput import HeaderInput
     from convert.adapters.solidworks.Archive.Construction.Metadata.HistoryInput import HistoryInput
-    from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefSettings
+    from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefInput
     from convert.adapters.solidworks.Drawing.Construction.Portable.MakeBlankFile import MakeBlankFile
 for name in ('utf-16-le','utf-8','latin-1'):
     codecs.lookup(name)
@@ -97,7 +97,7 @@ try:
         assert revived.source.attributes==document.source.attributes
         assert read_intent is not None
         intent=read_intent(SldprtArchive.from_bytes(raw),raw).InputValue
-        assert type(intent.HeaderValue) is HeaderInput and type(intent.HistoryValue) is HistoryInput and type(intent.FileValue) is SelfFileInput and type(intent.UiSettings) is ModelDefSettings
+        assert type(intent.HeaderValue) is HeaderInput and type(intent.HistoryValue) is HistoryInput and type(intent.FileValue) is SelfFileInput and type(intent.UiSettings) is ModelDefInput
         assert MakeBlankFile(intent).BytesValue==raw
         assert intent.HeaderValue.CreatedAt==intent.HistoryValue.CreatedAt==intent.OptionsValue.CreatedAt
         if expected is not None:

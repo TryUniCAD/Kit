@@ -12,7 +12,7 @@ from convert.adapters.solidworks.Drawing.Construction.Sheet.IsAnsiLandscapeSize 
 
 
 # the ordinary blank profile can represent a single authored layout without dropping other document domains
-def NeedBlankDrawing(DocumentValue: CadDocument) -> DrawingData:
+def NeedBlankDraw(DocumentValue: CadDocument) -> DrawingData:
     DrawingValue = DocumentValue.DrawingValue
     if type(DrawingValue) is not DrawingData:
         raise ValueError("native blank drawing requires a typed drawing")

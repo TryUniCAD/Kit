@@ -18,12 +18,12 @@ def ReadRectEdges(
     if len(Positions) != 4:
         raise ValueError("rectangle drivers require four actual contour points")
     StartU, StartV = Positions[0]
-    EndU, EndV = Positions[2]
-    LengthU = EndU - StartU
-    LengthV = StartV - EndV if NegativeV else EndV - StartV
+    EndUValue, EndVValue = Positions[2]
+    LengthU = EndUValue - StartU
+    LengthV = StartV - EndVValue if NegativeV else EndVValue - StartV
     if (
-        Positions[1] != (EndU, StartV)
-        or Positions[3] != (StartU, EndV)
+        Positions[1] != (EndUValue, StartV)
+        or Positions[3] != (StartU, EndVValue)
         or not IsFinite(LengthU)
         or not IsFinite(LengthV)
         or min(LengthU, LengthV) <= 1e-8

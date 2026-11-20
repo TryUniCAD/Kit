@@ -44,6 +44,7 @@ def EmitAsmMut(
     CheckFreshAsm(FinalPath, ModelValue.ChildValue.name)
     Candidate = PrepareAssembly(DocumentValue, NativePath, int(ReadTime()))
     IsPerpendicular = any(
-        Mate.kind == MateKind.KPerpendicular for Mate in ModelValue.GraphValue.mates
+        MateValue.kind == MateKind.KPerpendicular
+        for MateValue in ModelValue.GraphValue.mates
     )
     return QualifyAsm(WriteAsmBundle(Candidate, OutputPath), IsPerpendicular)

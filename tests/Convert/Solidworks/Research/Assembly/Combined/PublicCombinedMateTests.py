@@ -6,28 +6,28 @@ from tests.Convert.Solidworks.Research.Assembly.Combined.AddThirdMate import (
     AddThirdMate,
 )
 from tests.Convert.Solidworks.Research.Assembly.Combined.CheckCombinedRead import (
-    CheckCombinedRead,
+    CheckMateRead,
 )
 from tests.Convert.Solidworks.Research.Assembly.Combined.MakeCombinedCase import (
-    MakeCombinedCase,
+    MakeMateCase,
 )
 from tests.Convert.Solidworks.Research.Assembly.Combined.MakeDuplicateWrapper import (
-    MakeDuplicateWrapper,
+    DuplicateWrap,
 )
 from tests.Convert.Solidworks.Research.Assembly.Combined.WriteCombinedCase import (
-    WriteCombinedCase,
+    WriteMateCase,
 )
 
 
 # normal assembly reads need the complete selected lists and a shared wrapper identity namespace
-def TestPublicCombinedMates(TmpPath: FilePath) -> None:
-    Pair = WriteCombinedCase(TmpPath / "pair", MakeCombinedCase(False))
-    CheckCombinedRead(Pair, 2)
-    Request = MakeCombinedCase(True)
+def TestPublicMates(TmpPath: FilePath) -> None:
+    PairPath = WriteMateCase(TmpPath / "pair", MakeMateCase(False))
+    CheckMateRead(PairPath, 2)
+    Request = MakeMateCase(True)
     AddThirdMate(Request)
-    Triple = WriteCombinedCase(TmpPath / "triple", Request)
-    CheckCombinedRead(Triple, 3)
-    MakeDuplicateWrapper(Triple, Triple)
+    Triple = WriteMateCase(TmpPath / "triple", Request)
+    CheckMateRead(Triple, 3)
+    DuplicateWrap(Triple, Triple)
     try:
         _ = OpenDocument(Triple, include_brep=False, include_tessellation=False)
     except SldprtFormatError as ErrorInfo:

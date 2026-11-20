@@ -1,7 +1,7 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeDisplayFields import (
-    MakeDisplayFields,
+    MakeViewFields,
 )
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakePoint import (
     MakePoint,
@@ -22,7 +22,7 @@ def MakeNoteDisplay(
 ) -> ArchiveNode:
     Points = tuple({"p": MakePoint()} for _ in range(4))
     Vectors = tuple({"v": MakePoint(YValue=1.0)} for _ in range(2))
-    FieldsValue = MakeDisplayFields(VersionValue, 0x82 | (1 << 19))
+    FieldsValue = MakeViewFields(VersionValue, 0x82 | (1 << 19))
     FieldsValue.update(MakeNoteStyle(StyleValue))
     FieldsValue.update(MakeNoteTail(StyleValue))
     FieldsValue.update(

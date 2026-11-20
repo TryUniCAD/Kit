@@ -7,13 +7,15 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 
 
 # registered wrapper identities must be unique across all mates in the selected configuration
-def CheckMateWrappers(NodesValue: tuple[ArchiveNode, ...]) -> None:
+def CheckMateWraps(NodesValue: tuple[ArchiveNode, ...]) -> None:
     WrapperIds = [
-        FieldInt(
-            RequireNode(Record.get("o"), "moPlaneRef_w").FieldsValue, "f78"
-        )
+        FieldInt(RequireNode(Record.get("o"), "moPlaneRef_w").FieldsValue, "f78")
         for NodeValue in NodesValue
         for Record in ReadRows(NodeValue.FieldsValue.get("f410"))
     ]
     if len(set(WrapperIds)) != len(WrapperIds):
         raise ValueError("typed plane wrapper identities collide across mates")
+
+
+# the frozen perpendicular readback worker still imports the original wrapper check
+CheckMateWrappers = CheckMateWraps

@@ -4,7 +4,7 @@ from math import isfinite as IsFinite
 from typing import TYPE_CHECKING as TypeChecking, cast as CastValue
 
 from convert.adapters.solidworks.Archive.Definition.Construction.RequireDefNumber import (
-    RequireDefNumber,
+    RequireDefNum,
 )
 from convert.adapters.solidworks.Archive.Construction.Chronology.FeatureInstant import (
     FeatureInstant,
@@ -77,7 +77,7 @@ def CheckLightInput(InputValue: LightInput) -> None:
             or not any(Direction)
         ):
             raise ValueError("directional light requires a finite nonzero vector")
-        Softness = RequireDefNumber(InputValue.ShadowSoftness)
+        Softness = RequireDefNum(InputValue.ShadowSoftness)
         if Softness < 0:
             raise ValueError(
                 "directional shadow softness must be finite and nonnegative"

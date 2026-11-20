@@ -25,7 +25,7 @@ def WithColdName(
         return Document
     OutputValue = GeometryValue.ColdValue
     if OutputValue is None:
-        return WithColdProducerName(Document, GeometryValue)
+        return UseProducerName(Document, GeometryValue)
     CheckColdBind(Document, GeometryValue, OutputValue.BossValue)
     ModelValue = GeometryValue.BrepValue
     ProofValue = ColdNameProof(OutputValue)
@@ -58,9 +58,7 @@ def WithColdName(
 
 
 # a derived cold cylinder label may follow only its actual typed producer and owned neutral solid
-def WithColdProducerName(
-    Document: CadDocument, GeometryValue: PartGeometry
-) -> CadDocument:
+def UseProducerName(Document: CadDocument, GeometryValue: PartGeometry) -> CadDocument:
     BossValue = GeometryValue.ProducerValue
     if BossValue is None:
         return Document

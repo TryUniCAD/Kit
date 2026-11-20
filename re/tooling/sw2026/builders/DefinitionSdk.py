@@ -3,12 +3,12 @@ from __future__ import annotations
 from Core import DOCUMENT_VERSION_2026
 from convert.adapters.solidworks.Archive.Definition.Construction.MakeAssemblyDef import MakeAssemblyDef
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import MakePartDef
-from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefSettings
+from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefInput
 from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
 
 
 def settings(*, drafting_standard, detail_flags, tessellation, system_preference_7a, journal_name):
-    return ModelDefSettings(drafting_standard, tuple(detail_flags), tessellation, system_preference_7a,
+    return ModelDefInput(drafting_standard, tuple(detail_flags), tessellation, system_preference_7a,
                             journal_name, DOCUMENT_VERSION_2026)
 
 

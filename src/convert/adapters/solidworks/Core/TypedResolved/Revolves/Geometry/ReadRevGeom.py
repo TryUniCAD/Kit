@@ -1,7 +1,7 @@
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckGeometryState import (
-    CheckGeometryState,
+    CheckGeometry,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismAtom import (
     CheckPrismAtom,
@@ -19,7 +19,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismRoots imp
     CheckPrismRoots,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPublicPlanes import (
-    CheckPublicPlanes,
+    CheckPlanes,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
     PartGeometry,
@@ -36,7 +36,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNo
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Geometry.BuildRevBodyGeom import (
-    BuildRevBodyGeom,
+    BuildRevBody,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.ReadRevOwners import (
     ReadRevOwners,
@@ -54,7 +54,7 @@ KRevolveGeomClasses = KPrismClasses - {
 def ReadRevGeom(
     LinkValue: NativeLink, ManagerValue: CmgrGraph, ModelValue: NativeModel, BodyId: str
 ) -> PartGeometry:
-    CheckGeometryState(LinkValue, ManagerValue, ModelValue)
+    CheckGeometry(LinkValue, ManagerValue, ModelValue)
     Features = IndexFeatures(LinkValue)
     Nodes = PrismNodes(LinkValue, ManagerValue, AllowedClasses=KRevolveGeomClasses)
     CheckPrismRoots(
@@ -99,5 +99,5 @@ def ReadRevGeom(
         or SketchValue.support_plane_id != PlaneId
     ):
         raise ValueError("cache free revolve public operation or support differs")
-    CheckPublicPlanes(ModelValue, Features)
-    return BuildRevBodyGeom(OwnerValue, BodyId)
+    CheckPlanes(ModelValue, Features)
+    return BuildRevBody(OwnerValue, BodyId)

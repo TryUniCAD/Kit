@@ -13,14 +13,14 @@ from convert.adapters.solidworks.Archive.Construction.Circles.CircleGraph import
     CircleGraph,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.BindExtrusionMut import (
-    BindExtrusionMut,
+    BindExtrudeMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import CutGraph
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionDimMut import (
-    MakeExtrusionDimMut,
+    MakeEndDimMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionNodeMut import (
-    MakeExtrusionNodeMut,
+    MakeExtrudeMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import (
     FeatureTarget,
@@ -58,10 +58,10 @@ def MakeBlindCutMut(
         or ProfileValue.ProfileValue.FieldsValue.get("owner") is not OwnerValue
     ):
         raise ValueError("ordinary cut requires its actual circular profile")
-    FeatureValue = MakeExtrusionNodeMut(
+    FeatureValue = MakeExtrudeMut(
         "moICE_c", NameValue, OwnerValue, TargetValue, Allocator
     )
-    DepthValue = MakeExtrusionDimMut(
+    DepthValue = MakeEndDimMut(
         FeatureValue, InputValue, 1, DesignIntent, SelectedLeader, Allocator
     )
     _ = ReadEndParam(InputValue, DepthValue.DisplayValue, 1)
@@ -69,5 +69,5 @@ def MakeBlindCutMut(
     EndValue = MakeEndSpec(
         "blind", True, DepthValue.DisplayValue, None, None, None, FromEndValue
     )
-    BindExtrusionMut(FeatureValue, ProfileValue, EndValue)
+    BindExtrudeMut(FeatureValue, ProfileValue, EndValue)
     return CutGraph(FeatureValue, ProfileValue, EndValue, DepthValue)

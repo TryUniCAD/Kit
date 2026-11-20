@@ -4,7 +4,7 @@ from tests.Convert.Solidworks.Research.Assembly.PlanarMateInput import MakeMateI
 
 
 # independent placement sets exercise two constraints on one pair and another on a third occurrence
-def MakeCombinedCase(IncludeThird: bool) -> dict[str, object]:
+def MakeMateCase(IncludeThird: bool) -> dict[str, object]:
     Request = MakeMateInput("combined")
     Bundle = CastValue(dict[str, object], Request["bundle"])
     Occurrences = CastValue(list[dict[str, object]], Bundle["occurrences"])

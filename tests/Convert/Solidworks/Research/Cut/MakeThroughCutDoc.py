@@ -24,11 +24,11 @@ from tests.Convert.Solidworks.Research.Construction.Part.MakePlainDoc import (
 
 
 # through cut regressions require independently authored portable owners before any native graph can be generated
-def MakeThroughCutDoc(AxisValue: str, Reverse: bool, Both: bool) -> CadDocument:
-    Base = MakePlainDoc("GeneratedThroughCut", 61.0, 39.0, 14.3)
+def MakeThruCutDoc(AxisValue: str, Reverse: bool, BothEnds: bool) -> CadDocument:
+    BaseModel = MakePlainDoc("GeneratedThroughCut", 61.0, 39.0, 14.3)
     Frame = PrincipalFrame(AxisValue)
     Plane = ReplaceValue(
-        Base.support_planes[0],
+        BaseModel.support_planes[0],
         name={"x": "Right Plane", "y": "Top Plane", "z": "Front Plane"}[AxisValue],
         transform=Transform(
             SpaceVector(*Frame.OriginValue),
@@ -37,7 +37,7 @@ def MakeThroughCutDoc(AxisValue: str, Reverse: bool, Both: bool) -> CadDocument:
             SpaceVector(*Frame.NormalValue),
         ),
     )
-    SketchValue = Base.sketches[0]
+    SketchValue = BaseModel.sketches[0]
     Points = ((-28.0, -18.0), (33.0, -18.0), (33.0, 21.0), (-28.0, 21.0))
     Lines = tuple(
         ReplaceValue(
@@ -51,21 +51,21 @@ def MakeThroughCutDoc(AxisValue: str, Reverse: bool, Both: bool) -> CadDocument:
     Relations = tuple(
         SketchRelation(
             "constraint/axis/" + Entity.id,
-            Kind,
+            KindValue,
             (ConstraintRef(Entity.id),),
         )
-        for Entity, Kind in zip(
+        for Entity, KindValue in zip(
             Lines, ("horizontal", "vertical", "horizontal", "vertical"), strict=True
         )
     )
     Stock = ReplaceValue(
         SketchValue, name="StockProfile", entities=Lines, constraints=Relations
     )
-    Boss = ReplaceValue(
-        Base.feature_timeline[0],
+    BossFeature = ReplaceValue(
+        BaseModel.feature_timeline[0],
         name="StockBoss",
         definition=ExtrudeFeature(
-            Base.parameters[0].value,
+            BaseModel.parameters[0].value,
             ExtrudeEnd.KMidPlane,
             symmetric=True,
         ),
@@ -82,25 +82,31 @@ def MakeThroughCutDoc(AxisValue: str, Reverse: bool, Both: bool) -> CadDocument:
         (Circle,),
         closed_profile_entity_ids=((Circle.id,),),
     )
-    Cut = FeatureStep(
+    CutFeature = FeatureStep(
         "feature/through",
         "ThroughFeature",
         FeatureKind.KExtrusion,
         1,
-        input_feature_ids=(Boss.id,),
+        input_feature_ids=(BossFeature.id,),
         sketch_id=Profile.id,
         operation=BooleanOp.KCutOperation,
         definition=ExtrudeFeature(
             end_condition=ExtrudeEnd.KThroughAll,
             reversed=Reverse,
-            second_end_condition=ExtrudeEnd.KThroughAll if Both else None,
+            second_end_condition=ExtrudeEnd.KThroughAll if BothEnds else None,
         ),
     )
     return ReplaceValue(
-        Base,
-        configurations=(ReplaceValue(Base.configurations[0], name="Default"),),
+        BaseModel,
+        configurations=(ReplaceValue(BaseModel.configurations[0], name="Default"),),
         support_planes=(Plane,),
         sketches=(Stock, Profile),
-        feature_timeline=(Boss, Cut),
-        bodies=(ReplaceValue(Base.bodies[0], name=Boss.name, final_feature_id=Cut.id),),
+        feature_timeline=(BossFeature, CutFeature),
+        bodies=(
+            ReplaceValue(
+                BaseModel.bodies[0],
+                name=BossFeature.name,
+                final_feature_id=CutFeature.id,
+            ),
+        ),
     )

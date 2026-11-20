@@ -9,13 +9,13 @@ from convert.adapters.solidworks.Archive.Construction.Extrusion.ExtrusionGraph i
     ExtrusionGraph,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.BindExtrusionMut import (
-    BindExtrusionMut,
+    BindExtrudeMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionDimMut import (
-    MakeExtrusionDimMut,
+    MakeEndDimMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionNodeMut import (
-    MakeExtrusionNodeMut,
+    MakeExtrudeMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import (
     FeatureTarget,
@@ -48,11 +48,11 @@ def MakeBlindMut(
         raise ValueError(
             "blind boss requires its actual generated profile in the owning part"
         )
-    FeatureValue = MakeExtrusionNodeMut(
+    FeatureValue = MakeExtrudeMut(
         "moExtrusion_c", NameValue, OwnerValue, TargetValue, Allocator
     )
     DimensionsValue = tuple(
-        MakeExtrusionDimMut(
+        MakeEndDimMut(
             FeatureValue,
             InputValue,
             OrdinalValue,
@@ -62,7 +62,7 @@ def MakeBlindMut(
         )
         for OrdinalValue in (1, 2, 3, 4)
     )
-    FromValue = MakeExtrusionDimMut(
+    FromValue = MakeEndDimMut(
         FeatureValue, InputValue, 19, DesignIntent, SelectedLeader, Allocator
     )
     FromEnd = ArchiveNode(
@@ -78,7 +78,7 @@ def MakeBlindMut(
             FromEnd,
         ),
     )
-    BindExtrusionMut(FeatureValue, ProfileValue, EndValue)
+    BindExtrudeMut(FeatureValue, ProfileValue, EndValue)
     return ExtrusionGraph(
         FeatureValue, ProfileValue, EndValue, DimensionsValue, FromValue
     )

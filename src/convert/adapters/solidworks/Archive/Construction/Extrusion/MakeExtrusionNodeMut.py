@@ -21,7 +21,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # each extrusion uses its concrete runtime class and the common empty atom constructor
-def MakeExtrusionNodeMut(
+def MakeExtrudeMut(
     ClassName: Literal["moExtrusion_c", "moICE_c"],
     NameValue: str,
     OwnerValue: ArchiveNode,

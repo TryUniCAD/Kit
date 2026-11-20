@@ -1,11 +1,11 @@
-from math import atan2 as Atan2, degrees as Degrees, hypot as Hypot
+from math import atan2 as ArcTangent, degrees as Degrees, hypot as Hypot
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from convert.adapters.solidworks.Core.Native import NativeProfile
 from convert.adapters.solidworks.Core.TypedResolved.CirclePointIndex import (
-    CirclePointIndex,
+    FindCirclePoint,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
@@ -29,9 +29,9 @@ def ReadCircleShape(SketchValue: ArchiveNode) -> tuple[NativeProfile, int] | Non
         or CastValue(int, ArcValue.get("f54")) & 1
     ):
         return None
-    StartValue = CirclePointIndex(ArcValue, "fc8")
-    EndValue = CirclePointIndex(ArcValue, "fcc")
-    CenterValue = CirclePointIndex(ArcValue, "fdc")
+    StartValue = FindCirclePoint(ArcValue, "fc8")
+    EndValue = FindCirclePoint(ArcValue, "fcc")
+    CenterValue = FindCirclePoint(ArcValue, "fdc")
     Points = NativeRows(FieldsValue.get("points"))
     if (
         len(Points) != 2
@@ -40,10 +40,10 @@ def ReadCircleShape(SketchValue: ArchiveNode) -> tuple[NativeProfile, int] | Non
     ):
         return None
     Center = NativeRecord(NativeRecord(Points[CenterValue].get("point")).get("pos"))
-    Seam = NativeRecord(NativeRecord(Points[StartValue].get("point")).get("pos"))
+    SeamValue = NativeRecord(NativeRecord(Points[StartValue].get("point")).get("pos"))
     XValue, YValue = RequireScalar(Center.get("x")), RequireScalar(Center.get("y"))
-    DeltaX = RequireScalar(Seam.get("x")) - XValue
-    DeltaY = RequireScalar(Seam.get("y")) - YValue
+    DeltaX = RequireScalar(SeamValue.get("x")) - XValue
+    DeltaY = RequireScalar(SeamValue.get("y")) - YValue
     Radius = Hypot(DeltaX, DeltaY)
     if Radius <= 0.0:
         return None
@@ -52,7 +52,7 @@ def ReadCircleShape(SketchValue: ArchiveNode) -> tuple[NativeProfile, int] | Non
             "circle",
             (1000.0 * XValue, 1000.0 * YValue, 1000.0 * Radius),
             (),
-            start_angle_degrees=Degrees(Atan2(DeltaY, DeltaX)),
+            start_angle_degrees=Degrees(ArcTangent(DeltaY, DeltaX)),
         ),
         CenterValue,
     )

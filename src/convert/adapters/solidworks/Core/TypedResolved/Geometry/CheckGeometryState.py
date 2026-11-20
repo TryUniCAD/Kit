@@ -4,7 +4,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 
 
 # a derived body needs complete typed model streams and an unambiguous active configuration
-def CheckGeometryState(
+def CheckGeometry(
     LinkValue: NativeLink, ManagerValue: CmgrGraph, ModelValue: NativeModel
 ) -> None:
     Reports = (

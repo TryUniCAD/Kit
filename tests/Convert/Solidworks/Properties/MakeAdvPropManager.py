@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Archive.Properties.ManagerFields import (
 
 
 # complete container tests need newly encoded keyed owners without copying any native property stream
-def MakeAdvPropManager(PolicyValue: int) -> bytes:
+def MakeAdvProps(PolicyValue: int) -> bytes:
     FileValue = ArchiveNode(
         RuntimeClass("moFilePropContainer_c", 1), {"f08": None, "f10": None}
     )
@@ -24,7 +24,7 @@ def MakeAdvPropManager(PolicyValue: int) -> bytes:
         RuntimeClass("moCusPropContainer_c", 1),
         {"f08": FileValue, "f10": CutValue, "f18": None, "f20": 0},
     )
-    Root = ArchiveNode(
+    RootValue = ArchiveNode(
         RuntimeClass("moCusPropMgr_c", 1),
         {"f0c": -1, "f08": PolicyValue, "f20": ({"key": 0, "o": Container},), "f54": 0},
     )
@@ -32,5 +32,5 @@ def MakeAdvPropManager(PolicyValue: int) -> bytes:
         19000, KManagerFields, {}, KManagerSchemas, NewBodyUsage(19000, None)
     )
     Writer = BodyWriter(ArchiveMaps(1), Context, WriteBodyMut)
-    WriteNodeMut(Writer, Root)
+    WriteNodeMut(Writer, RootValue)
     return bytes(Writer.OutputValue)

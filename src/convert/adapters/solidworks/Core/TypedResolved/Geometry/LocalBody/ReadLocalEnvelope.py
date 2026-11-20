@@ -1,9 +1,7 @@
 from convert.Geometry.Parasolid import DecodePartData
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
 from convert.adapters.solidworks.Archive.Reading.ReadNativeText import ReadCStringMut
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalPayload import (
-    KLocalBodyStream,
-)
+from convert.adapters.solidworks.Container.Format import KLocalBodyStream
 
 
 # body labels must follow the same local group that owns the decoded geometry

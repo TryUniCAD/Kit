@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRe
 
 
 # a saved body selection must agree with the consumed atom without inferring an unstored selection mode
-def CheckSavedCutScope(
+def CheckCutScope(
     RootValue: ArchiveNode, BossValue: ArchiveNode, CutValue: ArchiveNode, AtomId: int
 ) -> int:
     Fields = CutValue.FieldsValue
@@ -29,3 +29,7 @@ def CheckSavedCutScope(
     if ScopeValue:
         CheckCutWrapper(RootValue, BossValue, CutValue, AtomId)
     return ScopeValue
+
+
+# hash pinned through cut readers still import the original saved scope check
+CheckSavedCutScope = CheckCutScope

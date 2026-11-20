@@ -7,21 +7,21 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KDrawingFormatId
 from convert.adapters.solidworks.Core.DrawingWriting.CheckBlankWriteOpts import (
-    CheckBlankWriteOpts,
+    CheckBlankOpts,
 )
 from convert.adapters.solidworks.Core.DrawingWriting.PrepareBlankDrawing import (
-    PrepareBlankDrawing,
+    BuildBlankDraw as PrepareBlankDrawing,
 )
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # the registry can stage a complete generated blank drawing using its existing single file transaction
-def EmitBlankDrawingMut(
+def EmitBlankMut(
     DocumentValue: CadDocument,
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
-    Settings = CheckBlankWriteOpts(OptionsValue)
+    Settings = CheckBlankOpts(OptionsValue)
     if not isinstance(TargetValue, (str, FilePath)):
         raise TypeError("native blank drawing output requires a filesystem path")
     OutputPath = FilePath(TargetValue).expanduser().resolve()

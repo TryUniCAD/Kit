@@ -7,10 +7,10 @@ from convert.adapters.solidworks.Archive.Construction.Styles.Ansi.ReadFields imp
     ReadFields,
 )
 from convert.adapters.solidworks.Archive.Construction.Styles.Ansi.SetAnnotationsMut import (
-    SetAnnotationsMut,
+    SetAnnoStyleMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Styles.Ansi.SetDimensionsMut import (
-    SetDimensionsMut,
+    SetDimStyleMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Styles.Ansi.SetHeightMut import (
     SetHeightMut,
@@ -48,8 +48,8 @@ def MakeAnsiDetails(StyleValue: StyleInput) -> dict[str, object]:
     FieldsValue.update({"f10": 0, "f08": 0.00635, "f28": 0.00254, "f24": 2, "f34": 0})
     FieldsValue["f20"] = CastValue(int, FieldsValue["f20"]) & ~0x100000
     SetHeightMut(FieldsValue, "f90")
-    SetDimensionsMut(ReadFields(FieldsValue, "f13b0"))
-    SetAnnotationsMut(ReadFields(FieldsValue, "f1f18"))
+    SetDimStyleMut(ReadFields(FieldsValue, "f13b0"))
+    SetAnnoStyleMut(ReadFields(FieldsValue, "f1f18"))
     SetLabelsMut(ReadFields(FieldsValue, "f2750"))
     SetTablesMut(ReadFields(FieldsValue, "f2410"))
     return FieldsValue

@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     RequireNode,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Units.ReadPartUnitNodes import (
-    ReadPartUnitNodes,
+    ReadUnitNodes,
 )
 
 
@@ -19,7 +19,7 @@ def ReportPartUnits(RootValue: ArchiveNode) -> dict[str, object]:
     if RootValue.ClassValue.NameValue != "moPart_c":
         return {}
     try:
-        Units = ReadPartUnitNodes(RootValue)
+        Units = ReadUnitNodes(RootValue)
         if FieldInt(Units["unit_system"].FieldsValue, "fb0") != KSystemCodes["custom"]:
             return {}
         LengthValue = Units["length"]
@@ -40,7 +40,8 @@ def ReportPartUnits(RootValue: ArchiveNode) -> dict[str, object]:
             or FieldInt(AngleFields, "fb0") != KAngleCodes["degree"]
             or MassValue is None
             or tuple(
-                FieldInt(DensityFields, Key) for Key in ("fc0", "fc8", "fcc", "has_fb8")
+                FieldInt(DensityFields, KeyValue)
+                for KeyValue in ("fc0", "fc8", "fcc", "has_fb8")
             )
             != (3, 3, 0, 1)
         ):

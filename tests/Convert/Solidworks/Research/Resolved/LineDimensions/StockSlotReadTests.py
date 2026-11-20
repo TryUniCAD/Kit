@@ -16,7 +16,7 @@ from tests.Convert.Solidworks.Research.Resolved.RunPublicRead import RunPublicRe
 
 
 # the public sketch must preserve sparse endpoint identity and authored axes without adding retired geometry or stale drivers
-def TestStockPointSlots(TmpPath: FilePath) -> None:
+def TestStockSlots(TmpPath: FilePath) -> None:
     SourcePath = RunDimBuild(
         RectDimRequest("axis only sparse stock", True), TmpPath / "source"
     )
@@ -29,13 +29,13 @@ def TestStockPointSlots(TmpPath: FilePath) -> None:
     assert tuple(Entity.geometry for Entity in SketchValue.entities) == tuple(
         Entity.geometry for Entity in SourceSketch.entities
     )
-    assert Counter(Rule.kind for Rule in SketchValue.constraints) == {
+    assert Counter(Constraint.kind for Constraint in SketchValue.constraints) == {
         "horizontal": 2,
         "vertical": 2,
     }
-    assert {Rule.references[0].entity_id for Rule in SketchValue.constraints} == {
-        Entity.id for Entity in SketchValue.entities
-    }
+    assert {
+        Constraint.references[0].entity_id for Constraint in SketchValue.constraints
+    } == {Entity.id for Entity in SketchValue.entities}
     ActiveRows = CastValue(
         tuple[Mapping[str, object], ...], SketchValue.attributes["native_point_rows"]
     )
@@ -43,8 +43,8 @@ def TestStockPointSlots(TmpPath: FilePath) -> None:
         tuple[Mapping[str, object], ...],
         SketchValue.attributes["native_retired_point_rows"],
     )
-    assert tuple(Row["array_index"] for Row in ActiveRows) == (0, 2, 3, 4)
-    assert tuple(Row["array_index"] for Row in RetiredRows) == (1,)
+    assert tuple(PointRow["array_index"] for PointRow in ActiveRows) == (0, 2, 3, 4)
+    assert tuple(PointRow["array_index"] for PointRow in RetiredRows) == (1,)
     for ModeValue in ("stock-retired-mark", "stock-retired-endpoint"):
         (Rejected,) = RunPublicRead(MutateRectGraph(SourcePath, ModeValue)).sketches
         assert Rejected.attributes.get("typed_line_loop") is not True

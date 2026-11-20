@@ -4,7 +4,7 @@ from interchange.Features.FeatureStep import FeatureStep
 
 
 # the extrusion definition must retain its actual operation and ordered dependencies
-def RequireExtrusion(
+def RequireExtrude(
     FeatureValue: FeatureStep,
     OperationValue: BooleanOp = BooleanOp.KCreate,
     PreviousIds: tuple[str, ...] = (),

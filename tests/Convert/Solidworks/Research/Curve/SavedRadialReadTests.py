@@ -10,7 +10,7 @@ from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 
 
 # native edited circles must retain an actual closed boundary and both driving references
-def TestSavedRadialRead() -> None:
+def TestRadialRead() -> None:
     CorpusPath = KRepoRoot / "re/solidworks/v2026/corpus/circle-saves"
     for NameValue, KindValue, Multiplier in (
         ("CircleRadiusBoss", "radius", 1),

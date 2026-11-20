@@ -10,26 +10,26 @@ from tests.Interchange.Document.DistanceExtrudeTests import BuildDistExt
 
 
 # a complete portable cut history needs real geometric ends even where neither direction has a driving length
-def TestThroughAllDocumentWire() -> None:
+def TestThroughWire() -> None:
     Source = BuildDistExt()
     (Producer,) = Source.feature_timeline
     for SecondEnd in (None, ExtrudeEnd.KThroughAll):
-        End = ExtrudeFeature(
+        EndDefinition = ExtrudeFeature(
             end_condition=ExtrudeEnd.KThroughAll,
             reversed=SecondEnd is None,
             second_end_condition=SecondEnd,
         )
-        Cut = FeatureStep(
+        CutFeature = FeatureStep(
             id="through-cut",
             name="Through Cut",
             kind=FeatureKind.KExtrusion,
             order=1,
             sketch_id=Producer.sketch_id,
             operation=BooleanOp.KCutOperation,
-            definition=End,
+            definition=EndDefinition,
             input_feature_ids=(Producer.id,),
         )
-        Document = ReplaceValue(Source, feature_timeline=(Producer, Cut))
+        Document = ReplaceValue(Source, feature_timeline=(Producer, CutFeature))
         assert not Document.validate()
         Restored = CadDocument.from_json(Document.to_json())
         assert Restored == Document

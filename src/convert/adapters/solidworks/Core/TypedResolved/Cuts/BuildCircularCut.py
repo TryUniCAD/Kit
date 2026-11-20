@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
     LocalCircle,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.BuildPocketShell import (
-    BuildPocketShell,
+    MakePocketShell,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
     PartGeometry,
@@ -18,7 +18,7 @@ from interchange.Records.RecordTopology import TopologyCounts
 
 
 # clipped cylinder stations preserve exact cavity geometry independently of the presence of a driving cut distance
-def BuildCircularCut(
+def BuildCircleCut(
     PlanValue: PrismPlan,
     CircleValue: LocalCircle,
     StockBounds: tuple[float, float],
@@ -51,15 +51,15 @@ def BuildCircularCut(
         Radius,
         Radius,
     )
-    ModelValue = BuildPocketShell(Stock, ToolValue, BodyId, PrefixValue, OpenCaps)
+    ModelValue = MakePocketShell(Stock, ToolValue, BodyId, PrefixValue, OpenCaps)
     Volume = StockVolume - ToolVolume
     Height = CutBounds[1] - CutBounds[0]
-    Area = (
+    SurfaceArea = (
         StockArea
         + 2.0 * PiValue * Radius * Height
         + (2 - 2 * len(OpenCaps)) * PiValue * Radius**2
     )
-    if not (IsFinite(Volume) and Volume > 0.0 and IsFinite(Area)):
+    if not (IsFinite(Volume) and Volume > 0.0 and IsFinite(SurfaceArea)):
         raise ValueError("cache free pocket measures exceed floating range")
     Topology = TopologyCounts(
         solid_count=len(ModelValue.bodies),
@@ -68,7 +68,7 @@ def BuildCircularCut(
         edge_count=len(ModelValue.edges),
         vertex_count=len(ModelValue.vertices),
         volume=Volume,
-        surface_area=Area,
+        surface_area=SurfaceArea,
         bounding_box=Bounds,
         valid=True,
     )

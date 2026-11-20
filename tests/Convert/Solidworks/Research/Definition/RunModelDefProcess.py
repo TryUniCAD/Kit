@@ -6,7 +6,7 @@ from typing import cast as CastValue
 
 
 # isolated child processes attest to definition construction and preparation without file reads
-def RunModelDefProcess(JobsValue: list[dict[str, object]]) -> list[dict[str, object]]:
+def RunDefProcess(JobsValue: list[dict[str, object]]) -> list[dict[str, object]]:
     RootValue = FilePath(__file__).resolve().parents[5]
     Result = RunProcess(
         [

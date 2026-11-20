@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Archive.Construction.RectangleAnchors.CheckAnch
     CheckAnchorDims,
 )
 from convert.adapters.solidworks.Archive.Construction.RectangleCenters.CheckCenterContour import (
-    CheckCenterContour,
+    CheckCenterLoop,
 )
 from convert.adapters.solidworks.Archive.Construction.Sketch.RequirePolygon import (
     RequirePolygon,
@@ -37,7 +37,7 @@ def RequireCenter(GraphValue: ProfileGraph) -> MutableMapping[str, object]:
         )
     ):
         raise ValueError("center anchor requires its ordinary canonical front profile")
-    CheckCenterContour(Geometry)
+    CheckCenterLoop(Geometry)
     Dimensions = SketchValue.FieldsValue.get("dims")
     Counters = SketchValue.FieldsValue.get("f140")
     if not isinstance(Dimensions, MutableMapping) or not isinstance(

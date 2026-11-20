@@ -6,7 +6,7 @@ from interchange.Records.RecordParameter import Parameter
 
 
 # the pocket uses both feature depths and the radial value when its sketch owns one
-def ReadPocketDrives(
+def ReadPocketDims(
     DocumentValue: CadDocument,
 ) -> tuple[Parameter, Parameter, Parameter | None]:
     ParamsValue = {

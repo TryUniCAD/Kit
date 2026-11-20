@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.HistoryInput impo
     HistoryInput,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Drawing.Construction.Portable.BlankDrawInput import (
     BlankDrawInput,
@@ -24,7 +24,7 @@ def CheckBlankInput(InputValue: BlankDrawInput) -> None:
     if type(InputValue) is not BlankDrawInput or (
         type(InputValue.DrawingValue) is not DrawingData
         or type(InputValue.OptionsValue) is not DrawDocOptions
-        or type(InputValue.UiSettings) is not ModelDefSettings
+        or type(InputValue.UiSettings) is not ModelDefInput
         or type(InputValue.HeaderValue) is not HeaderInput
         or type(InputValue.FileValue) is not SelfFileInput
         or type(InputValue.HistoryValue) is not HistoryInput

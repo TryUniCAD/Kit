@@ -143,7 +143,7 @@ from convert.adapters.solidworks.Core.FeatureKindByNative import KFeatureKindByN
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.Core.BuildRevolve import BuildRevolve as BuildRevolve
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.WithCutSelection import (
-    WithCutSelection,
+    BindCutStock,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.WithRevolveDoc import (
     WithRevolveDoc,
@@ -462,7 +462,7 @@ def ReadNativePart(
     DocValue = WithColdName(DocValue, DerivedValue)
     DocValue = WithBodyNames(DocValue, Archive, Model.active_configuration_id)
     DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive), Archive)
-    DocValue = WithCutSelection(DocValue)
+    DocValue = BindCutStock(DocValue)
     DocValue = WithRevolveDoc(DocValue, Archive, Model.active_configuration_id)
     if (
         DerivedValue is not None

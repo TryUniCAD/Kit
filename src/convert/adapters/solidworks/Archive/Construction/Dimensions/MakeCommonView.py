@@ -3,7 +3,7 @@ from struct import pack as PackValues
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeDisplayFields import (
-    MakeDisplayFields,
+    MakeViewFields,
 )
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeFavorite import (
     MakeFavorite,
@@ -35,7 +35,7 @@ def MakeCommonView(
 ) -> dict[str, object]:
     OwnerValue = RequireDisplay(HandleValue, DesignIntent, SelectedLeader, TextKind)
     FieldsValue: dict[str, object] = {
-        **MakeDisplayFields(FieldInt(OwnerValue.FieldsValue, "f2b0"), 524416),
+        **MakeViewFields(FieldInt(OwnerValue.FieldsValue, "f2b0"), 524416),
         "f6a0": MakeTextFields(TextKind),
         "f870": 1,
         "f874": 1,

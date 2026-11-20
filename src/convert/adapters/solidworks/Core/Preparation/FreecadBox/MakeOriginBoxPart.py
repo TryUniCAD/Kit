@@ -29,7 +29,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 
 # translated origin stock must bind its source metadata to the same shared part graph and anchor that encode the dimension owners
-def MakeOriginBoxPart(
+def MakeOriginBox(
     DocumentValue: CadDocument,
     PathValue: str,
     CreationTime: int,
@@ -65,3 +65,7 @@ def MakeOriginBoxPart(
     return MakeAnchorNamed(
         DocumentValue, InputValue, AnchorPartInput("corner", Presentation, TopAttached)
     )
+
+
+# the pinned attached box worker still imports the historical box constructor name
+MakeOriginBoxPart = MakeOriginBox

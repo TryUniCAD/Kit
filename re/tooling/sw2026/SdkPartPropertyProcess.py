@@ -20,7 +20,7 @@ sys.addaudithook(AUDIT.InspectEvent)
 
 from builders.PartTextProperties import make_property_streams
 from convert.adapters.solidworks.Archive.Construction.Part.MakeCirclePart import MakeCirclePart
-from convert.adapters.solidworks.Archive.Construction.Part.MakePolygonBlindPart import MakePolygonBlindPart
+from convert.adapters.solidworks.Archive.Construction.Part.MakePolygonBlindPart import MakePolygonPart
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectBlind import ProjectBlind
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectCircle import ProjectCircle
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadLineLoop import ReadLineLoop
@@ -60,7 +60,7 @@ def main():
     document = FromData(REQUEST["document"])
     modeled, extra = parts(document)
     if REQUEST["profile"] == "polygon":
-        plan, build = ProjectBlind(modeled, ReadLineLoop), MakePolygonBlindPart
+        plan, build = ProjectBlind(modeled, ReadLineLoop), MakePolygonPart
     elif REQUEST["profile"] == "circle":
         plan, build = ProjectCircle(modeled), MakeCirclePart
     else:

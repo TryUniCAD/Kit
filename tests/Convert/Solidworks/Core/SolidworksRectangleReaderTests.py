@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Core.Preparation.FreecadBox.LowerBoxModel impor
     LowerBoxModel,
 )
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.MakeOriginBoxPart import (
-    MakeOriginBoxPart,
+    MakeOriginBox,
 )
 from convert.Geometry.Revolve.SweepVector import CrossVector, DotVector
 from interchange.geometry.Models.Transform import Transform
@@ -51,7 +51,9 @@ def TestRectOpen() -> None:
         Relation.parameter_id: (
             Relation.kind,
             Relation.driving,
-            tuple((Ref.entity_id, Ref.point) for Ref in Relation.references),
+            tuple(
+                (RefValue.entity_id, RefValue.point) for RefValue in Relation.references
+            ),
         )
         for Relation in Sketch.constraints
         if Relation.parameter_id
@@ -163,7 +165,7 @@ def TestPrismOpen(TmpPath: FilePath) -> None:
 
 
 # a generated reversed boss must read through public geometry and history using the signed extent on its actual datum
-def TestSignedTopBoxOpen(TmpPath: FilePath) -> None:
+def TestSignedTop(TmpPath: FilePath) -> None:
     Lengths = (15.0, 23.0, 4.0)
     Source = MakePlainDoc("TopBox", *Lengths)
     Frame = Transform(
@@ -176,7 +178,9 @@ def TestSignedTopBoxOpen(TmpPath: FilePath) -> None:
         ReplaceValue(
             Source,
             support_planes=(
-                ReplaceValue(Source.support_planes[0], name="XZ-plane", transform=Frame),
+                ReplaceValue(
+                    Source.support_planes[0], name="XZ-plane", transform=Frame
+                ),
             ),
         ),
         "TopBox",
@@ -186,7 +190,7 @@ def TestSignedTopBoxOpen(TmpPath: FilePath) -> None:
         "Box",
         TopAttached=True,
     )
-    Candidate = MakeOriginBoxPart(
+    Candidate = MakeOriginBox(
         Model,
         r"C:\Kit\TopBox.SLDPRT",
         1740000000,
@@ -198,23 +202,21 @@ def TestSignedTopBoxOpen(TmpPath: FilePath) -> None:
     Readback = OpenDocument(OutputPath, include_tessellation=False)
     assert not Readback.validate()
     assert Readback.brep is not None
-    (Body,) = Readback.bodies
-    assert Body.name == "Box"
+    (BodyValue,) = Readback.bodies
+    assert BodyValue.name == "Box"
     assert (
-        Body.topology.volume,
-        Body.topology.surface_area,
-        Body.topology.face_count,
-        Body.topology.edge_count,
-        Body.topology.vertex_count,
+        BodyValue.topology.volume,
+        BodyValue.topology.surface_area,
+        BodyValue.topology.face_count,
+        BodyValue.topology.edge_count,
+        BodyValue.topology.vertex_count,
     ) == (1380.0, 994.0, 6, 12, 8)
     assert {Driver.name: Driver.value.value for Driver in Readback.parameters} == {
         "Length": 15.0,
         "Width": 23.0,
         "Height": 4.0,
     }
-    History = OpenDocument(
-        OutputPath, include_brep=False, include_tessellation=False
-    )
+    History = OpenDocument(OutputPath, include_brep=False, include_tessellation=False)
     for Current in (Readback, History):
         Bounds = Current.bodies[0].topology.bounding_box
         assert Bounds is not None

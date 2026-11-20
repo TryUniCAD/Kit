@@ -8,7 +8,7 @@ from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 
 
 # the default reader regression starts from a newly authored neutral pocket in a guarded writer process
-def MakePocketArchive(OutputPath: FilePath) -> bytes:
+def MakePocketFile(OutputPath: FilePath) -> bytes:
     Tools = KRepoRoot / "re" / "tooling" / "sw2026"
     RunProcess(
         [

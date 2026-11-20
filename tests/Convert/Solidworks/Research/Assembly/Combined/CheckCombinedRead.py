@@ -5,7 +5,7 @@ from convert import open_document as OpenDocument
 
 
 # all native mate roots must resolve actual occurrence and child identities on the normal reader route
-def CheckCombinedRead(SourcePath: FilePath, Count: int) -> None:
+def CheckMateRead(SourcePath: FilePath, Count: int) -> None:
     Document = OpenDocument(SourcePath, include_brep=False, include_tessellation=False)
     State = CastValue(
         dict[str, object], Document.metadata["solidworks.typed_mates_semantics"]

@@ -37,7 +37,7 @@ def main():
     from tests.Convert.Solidworks.Research.Resolved.Presentation.AuthoredOrderTests import TestCustomOrder
     from tests.Convert.Solidworks.Research.Resolved.Presentation.LegacyTreeTests import TestOlderTree
     from tests.Convert.Solidworks.Core.SolidworksRectangleReaderTests import TestRectOpen, TestAnnulus, TestLegacyMixed
-    from tests.Convert.Solidworks.Research.Curve.SavedRadialReadTests import TestSavedRadialRead
+    from tests.Convert.Solidworks.Research.Curve.SavedRadialReadTests import TestRadialRead
     phases = []
     process_count = 0
 
@@ -69,7 +69,7 @@ def main():
             ("disclosed-dimensioned-rectangle", TestRectOpen),
             ("disclosed-annulus", TestAnnulus),
             ("older-mixed-circle-and-rectangles", TestLegacyMixed),
-            ("saved-radius-and-diameter", TestSavedRadialRead),
+            ("saved-radius-and-diameter", TestRadialRead),
         ):
             started = time.monotonic()
             before = process_count

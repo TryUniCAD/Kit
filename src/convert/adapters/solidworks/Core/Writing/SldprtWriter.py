@@ -12,10 +12,10 @@ from convert.adapters.solidworks.Container.Format import KPartSuffix
 from convert.adapters.solidworks.Core.AssemblyWriting.CanWriteAsm import CanWriteAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.EmitAsmMut import EmitAsmMut
 from convert.adapters.solidworks.Core.DrawingWriting.CanWriteBlankDrawing import (
-    CanWriteBlankDrawing,
+    CanWriteBlank,
 )
 from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import (
-    EmitBlankDrawingMut,
+    EmitBlankMut,
 )
 from convert.adapters.solidworks.Core.Preparation.Circle.PlanCircle import PlanCircle
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
@@ -38,7 +38,7 @@ class SldprtWriter(PairProtocol):
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         if DocValue.DrawingValue is not None:
-            return CanWriteBlankDrawing(DocValue, Target)
+            return CanWriteBlank(DocValue, Target)
         if DocValue.assembly is not None:
             return CanWriteAsm(DocValue, Target)
         try:
@@ -65,7 +65,7 @@ class SldprtWriter(PairProtocol):
         options: WriteOptions | None = None,
     ) -> WriteResult:
         if document.DrawingValue is not None:
-            return EmitBlankDrawingMut(document, destination, options)
+            return EmitBlankMut(document, destination, options)
         if document.assembly is not None:
             return EmitAsmMut(document, destination, options)
         return EmitNativeMut(document, destination, options)

@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
 )
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPublicPlanes import (
-    CheckPublicPlanes,
+    CheckPlanes,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
@@ -52,4 +52,4 @@ def CheckCircPublic(
         or Operation.extrusion_end != OwnerValue.ModeValue
     ):
         raise ValueError("cache free circle public support or direction differs")
-    CheckPublicPlanes(ModelValue, Features)
+    CheckPlanes(ModelValue, Features)

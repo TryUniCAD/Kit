@@ -1,5 +1,5 @@
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.RequireExtrusion import (
-    RequireExtrusion,
+    RequireExtrude,
 )
 from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
     PrincipalFrame,
@@ -12,7 +12,7 @@ from interchange.Features.FeatureStep import FeatureStep
 def RequireBossDef(
     FeatureValue: FeatureStep, AxisValue: str = "z", IsReversed: bool = False
 ) -> ExtrudeFeature:
-    Definition = RequireExtrusion(FeatureValue)
+    Definition = RequireExtrude(FeatureValue)
     if (
         Definition.end_condition != ExtrudeEnd.KBlind
         or Definition.reversed != IsReversed

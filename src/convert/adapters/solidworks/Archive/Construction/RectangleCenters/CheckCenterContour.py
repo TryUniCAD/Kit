@@ -12,7 +12,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 
 
 # symmetric coordinates alone cannot admit foreign point rows or a different contour ownership graph
-def CheckCenterContour(GeometryValue: PolygonGraph) -> None:
+def CheckCenterLoop(GeometryValue: PolygonGraph) -> None:
     PointsValue, LinesValue, SketchValue = (
         GeometryValue.PointValues,
         GeometryValue.LineValues,

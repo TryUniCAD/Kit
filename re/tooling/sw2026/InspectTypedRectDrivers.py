@@ -40,7 +40,7 @@ def main():
     from tests.Convert.Solidworks.Research.Resolved.Presentation.AuthoredOrderTests import TestCustomOrder
     from tests.Convert.Solidworks.Research.Resolved.Presentation.LegacyTreeTests import TestOlderTree
     from tests.Convert.Solidworks.Core.SolidworksRectangleReaderTests import TestRectOpen, TestAnnulus, TestLegacyMixed
-    from tests.Convert.Solidworks.Research.Curve.SavedRadialReadTests import TestSavedRadialRead
+    from tests.Convert.Solidworks.Research.Curve.SavedRadialReadTests import TestRadialRead
     processes = 0
 
     def audit(event, fields):
@@ -79,7 +79,7 @@ def main():
             ('disclosed-native-rectangle', TestRectOpen),
             ('disclosed-annulus', TestAnnulus),
             ('older-mixed-sketch', TestLegacyMixed),
-            ('saved-radial-drivers', TestSavedRadialRead),
+            ('saved-radial-drivers', TestRadialRead),
         ):
             started, before = time.monotonic(), processes
             action()

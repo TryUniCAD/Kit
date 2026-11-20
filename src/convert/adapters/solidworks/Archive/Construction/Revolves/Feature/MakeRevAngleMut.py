@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeAngleValue i
     MakeAngleValue,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionView import (
-    MakeExtrusionView,
+    MakeExtrudeView,
 )
 from convert.adapters.solidworks.Archive.Construction.Nodes.InitNodeMut import (
     InitNodeMut,
@@ -50,7 +50,7 @@ def MakeRevAngleMut(
     Dimension = MakeAngleValue(FeatureValue, Parameter)
     _ = Allocator.AllocateMut(Dimension, "f50")
     HandleValue = MakeHandleMut(FeatureValue, Dimension)
-    DisplayValue = MakeExtrusionView(
+    DisplayValue = MakeExtrudeView(
         FeatureValue,
         HandleValue,
         True,

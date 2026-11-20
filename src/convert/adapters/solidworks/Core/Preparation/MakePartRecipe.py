@@ -18,7 +18,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
 )
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Core.Preparation.MakePartStyle import (
     MakePartStyle,
@@ -49,7 +49,7 @@ def MakePartRecipe(PlanValue: PartLabels, WrittenAt: int) -> PartBuildInput:
             StyleValue.LanguageId,
             False,
         ),
-        ModelDefSettings(
+        ModelDefInput(
             "moISO_c",
             (),
             (TessNumber, AngularNumber, 25, True),

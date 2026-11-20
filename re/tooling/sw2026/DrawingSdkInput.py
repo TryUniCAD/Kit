@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.HistoryInput impo
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import FeatureTarget
 from convert.adapters.solidworks.Archive.Construction.Presentation.StyleInput import StyleInput
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
-from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefSettings
+from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefInput
 from convert.adapters.solidworks.Drawing.Construction.Model.DrawFolders import DrawFolders
 from convert.adapters.solidworks.Drawing.Construction.Portable.BlankDrawInput import BlankDrawInput
 from convert.adapters.solidworks.Drawing.Construction.Portable.DrawDocOptions import DrawDocOptions
@@ -66,7 +66,7 @@ def blank_input(job):
         FeatureTarget(target["date_code"], target["parasolid_version"], 19000, 5, 2),
         options["created_at"], UUID(options["block_identity"]), options["auto_dim_text_link"],
     )
-    settings = ModelDefSettings(ui["drafting_standard"], tuple(ui["detail_flags"]), tuple(ui["tessellation"]),
+    settings = ModelDefInput(ui["drafting_standard"], tuple(ui["detail_flags"]), tuple(ui["tessellation"]),
                                 ui["system_preference_7a"], ui["journal_name"], 19000)
     header = HeaderInput(provenance["author"], provenance["company"], provenance["comment"], provenance["created_at"],
                          provenance["modified_at"], provenance["updated_at"])

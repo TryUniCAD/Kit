@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Definition.Construction.MakeNotebook im
     MakeNotebook,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
@@ -16,15 +16,17 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 # authored presentation and shared ui constructor state supply the head of a fresh model definition
 def MakeDefHead(
-    Settings: ModelDefSettings, *, DisplayGrid: bool = True
+    Settings: ModelDefInput, *, DisplayGrid: bool = True
 ) -> dict[str, object]:
-    Low, High = DefDisplayWords(Settings.DisplayBits)
-    Fa58Value, Fa5cValue, Fa60Value, Fa64Value = Settings.Tessellation
+    LowWord, HighWord = DefDisplayWords(Settings.DisplayBits)
+    ShadedTessellation, AngularTessellation, WireTessellation, OptimalTessellation = (
+        Settings.Tessellation
+    )
     return {
-        "fa58": Fa58Value,
-        "fa5c": Fa5cValue,
-        "fa60": Fa60Value,
-        "fa64": int(Fa64Value),
+        "fa58": ShadedTessellation,
+        "fa5c": AngularTessellation,
+        "fa60": WireTessellation,
+        "fa64": int(OptimalTessellation),
         "fa74": 1,
         "fac0": None,
         "fac8": 0,
@@ -33,8 +35,8 @@ def MakeDefHead(
         "facc": 3,
         "fad0": 0,
         "fad4": 2 | int(DisplayGrid),
-        "fad8_0": Low,
-        "fad8_1": High,
+        "fad8_0": LowWord,
+        "fad8_1": HighWord,
         "fba8": ArchiveNode(RuntimeClass(Settings.DraftingStandard, 1), {}),
         "f878": {"styles": []},
         "f870": ArchiveNode(RuntimeClass("uiLineFontMgr_c", 1), {"f10": []}),

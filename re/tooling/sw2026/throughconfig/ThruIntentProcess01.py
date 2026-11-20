@@ -29,7 +29,7 @@ from convert.adapters.solidworks.Archive.Construction.Configuration.ManagerInput
 from convert.adapters.solidworks.Archive.Construction.Configuration.ConfigSpec import ConfigSpec
 from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
 from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
-from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefSettings
+from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefInput
 from convert.adapters.solidworks.Core.Preparation.Revolve.Source.ReadRevUi import ReadRevUi
 from convert.adapters.solidworks.Archive.Construction.ThroughAll.SourceOwners.MakeThruOwners import MakeThruOwners
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNodeName
@@ -65,7 +65,7 @@ def intent_decode(value):
  require(set(value)=={'ModelName','ManagerValue','DefinitionValue','DensityValue'},'intent transport has unknown or missing fields');safe_tree(value)
  manager=dict(value['ManagerValue']);manager['ConfigValues']=tuple(ConfigSpec(**x) for x in manager['ConfigValues']);manager=ManagerInput(**manager)
  definition=dict(value['DefinitionValue']);definition['DisplayBits']=tuple(definition['DisplayBits']);definition['Tessellation']=tuple(definition['Tessellation'])
- return ThruCfgIntent(value['ModelName'],manager,ModelDefSettings(**definition),value['DensityValue'])
+ return ThruCfgIntent(value['ModelName'],manager,ModelDefInput(**definition),value['DensityValue'])
 
 def full_refusal(plan):
  reasons=[]

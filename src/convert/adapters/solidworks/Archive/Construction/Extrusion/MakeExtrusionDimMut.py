@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeAngleValue i
     MakeAngleValue,
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionView import (
-    MakeExtrusionView,
+    MakeExtrudeView,
 )
 from convert.adapters.solidworks.Archive.Construction.Model.RequireRootNode import (
     RequireRootNode,
@@ -27,7 +27,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
 # every constructed feature dimension consumes its own real persistent identifier including the conditionally omitted from offset dimension
-def MakeExtrusionDimMut(
+def MakeEndDimMut(
     OwnerValue: ArchiveNode,
     InputValue: KEndInput,
     OrdinalValue: int,
@@ -49,7 +49,7 @@ def MakeExtrusionDimMut(
     )
     _ = Allocator.AllocateMut(Dimension, "f50")
     HandleValue = MakeHandleMut(OwnerValue, Dimension)
-    DisplayValue = MakeExtrusionView(
+    DisplayValue = MakeExtrudeView(
         OwnerValue, HandleValue, IsAngular, DesignIntent, SelectedLeader
     )
     return DimensionGraph(Parameter, Dimension, HandleValue, DisplayValue)

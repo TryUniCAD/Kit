@@ -6,7 +6,7 @@ from pathlib import Path, PureWindowsPath
 from sys import addaudithook
 from argparse import ArgumentParser
 
-from convert.adapters.solidworks.Archive.Construction.Part.MakePolygonBlindPart import MakePolygonBlindPart
+from convert.adapters.solidworks.Archive.Construction.Part.MakePolygonBlindPart import MakePolygonPart
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
@@ -61,7 +61,7 @@ def main():
     active = True
     try:
         native = settings(job["settings"])
-        candidate = MakePolygonBlindPart(document, native)
+        candidate = MakePolygonPart(document, native)
         base = dict(candidate.StreamsValue)
         epoch = max(job["settings"]["provenance"][item] for item in ("created_at","modified_at","updated_at")) + 7
         session = schedule(2383 + index * 461, 21, 1, 0, 5, 2, 0, epoch, 930116 + 2 * index)

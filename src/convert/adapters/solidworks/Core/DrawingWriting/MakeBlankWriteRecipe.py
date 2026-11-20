@@ -15,10 +15,12 @@ from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import
 )
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Core.Preparation.MakePartStyle import MakePartStyle
-from convert.adapters.solidworks.Drawing.Construction.Model.DrawFolders import DrawFolders
+from convert.adapters.solidworks.Drawing.Construction.Model.DrawFolders import (
+    DrawFolders,
+)
 from convert.adapters.solidworks.Drawing.Construction.Portable.BlankDrawInput import (
     BlankDrawInput,
 )
@@ -30,7 +32,9 @@ from interchange.document.Models.Drawing.DrawingData import DrawingData
 
 
 # the recipe fills the native presentation and save event from authored drawing intent
-def MakeBlankWriteRecipe(DrawingValue: DrawingData, FileValue: SelfFileInput, BlockValue: UuidValue) -> BlankDrawInput:
+def MakeBlankRecipe(
+    DrawingValue: DrawingData, FileValue: SelfFileInput, BlockValue: UuidValue
+) -> BlankDrawInput:
     NameValue = PureWindowsPath(FileValue.PathName).stem
     WrittenAt = FileValue.SavedAt
     Target = FeatureTarget(2026306, 370108)
@@ -40,7 +44,14 @@ def MakeBlankWriteRecipe(DrawingValue: DrawingData, FileValue: SelfFileInput, Bl
         NameValue,
         "Default",
         SheetNames("Plane1", "Sketch1", "Detail Folder1"),
-        DrawFolders("Annotations", "Design Binder", "Comments", "Blocks", "Markups", "eDrawings Markups"),
+        DrawFolders(
+            "Annotations",
+            "Design Binder",
+            "Comments",
+            "Blocks",
+            "Markups",
+            "eDrawings Markups",
+        ),
         Style,
         UnitInput("mm", "degree", "mmgs", 4),
         Target,
@@ -51,8 +62,14 @@ def MakeBlankWriteRecipe(DrawingValue: DrawingData, FileValue: SelfFileInput, Bl
     return BlankDrawInput(
         DrawingValue,
         Options,
-        ModelDefSettings("moANSI_c", (), (20, 15, 3, False), False, "Journal", Target.FileVersion),
+        ModelDefInput(
+            "moANSI_c", (), (20, 15, 3, False), False, "Journal", Target.FileVersion
+        ),
         HeaderInput("Kit", "", Comment, WrittenAt, WrittenAt, WrittenAt),
         FileValue,
         HistoryInput(WrittenAt, Comment, Target.DateCode, 0, Style.LanguageId, False),
     )
+
+
+# immutable drawing note workers still import the published blank recipe name
+MakeBlankWriteRecipe = MakeBlankRecipe

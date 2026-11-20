@@ -4,7 +4,7 @@ from tests.Convert.Solidworks.AssemblyWriting.RunPublicWrite import RunPublicWri
 
 
 # the strict registry must publish the exact same pair through both formats and refuse invalid starting geometry
-def TestPerpendicularPair(TmpPath: FilePath) -> None:
+def TestPerpPair(TmpPath: FilePath) -> None:
     Default = RunPublicWrite("perpendicular", 2, TmpPath / "Default")
     Explicit = RunPublicWrite("perpendicular-explicit", 2, TmpPath / "Explicit")
     Invalid = RunPublicWrite("perpendicular-invalid", 2, TmpPath / "Invalid")

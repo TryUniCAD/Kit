@@ -8,9 +8,7 @@ from convert.adapters.solidworks.Core.Native import NativeModel
 
 
 # analytic geometry requires that each projected datum retain the exact typed frame
-def CheckPublicPlanes(
-    ModelValue: NativeModel, Features: Mapping[int, ArchiveNode]
-) -> None:
+def CheckPlanes(ModelValue: NativeModel, Features: Mapping[int, ArchiveNode]) -> None:
     PlaneIds = {
         Identity
         for Identity, NodeValue in Features.items()

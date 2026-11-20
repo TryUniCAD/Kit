@@ -7,10 +7,10 @@ from convert.adapters.solidworks.Archive.Definition.Construction.MakeDefTail imp
     MakeDefTail,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.MakeSavePartSettings import (
-    MakeSavePartSettings,
+    MakeSavePrefs,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Archive.Definition.ModelDefGraph import ModelDefGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -19,7 +19,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 # fresh assemblies build their own inline options after the shared document state
 def MakeAssemblyDef(
-    Settings: ModelDefSettings, PreferenceValues: Mapping[str, bool | int | float]
+    Settings: ModelDefInput, PreferenceValues: Mapping[str, bool | int | float]
 ) -> ModelDefGraph:
     FieldValues = (
         MakeDefHead(Settings)
@@ -33,7 +33,7 @@ def MakeAssemblyDef(
             "f19b0": 0,
             "f19b8": 0.0127,
             "f19c0": 0,
-            "f1b48": MakeSavePartSettings(PreferenceValues),
+            "f1b48": MakeSavePrefs(PreferenceValues),
             "f1afc": 10,
         }
     )

@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadSingleNode import (
 
 
 # an ordinary saved cut consumes the actual boss output and creates a distinct solid atom
-def ReadSavedCutBodies(
+def ReadCutBodies(
     BossValue: ArchiveNode, CutValue: ArchiveNode, ManagedValues: set[ArchiveNode]
 ) -> tuple[int, int]:
     BossFields, CutFields = BossValue.FieldsValue, CutValue.FieldsValue
@@ -36,3 +36,7 @@ def ReadSavedCutBodies(
             "ordinary cut preserves distinct input and output atom identities"
         )
     return BossId, CutId
+
+
+# hash pinned through cut readers still import the original saved body helper
+ReadSavedCutBodies = ReadCutBodies

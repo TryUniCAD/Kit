@@ -28,8 +28,8 @@ def MakeBoxProfile(
         PlaneVector(0.0, LocalWidth),
     )
     Entities = tuple(
-        SketchEntity(f"edge/{Index}", GeometryKind.KLine, LineGeometry(Start, End))
-        for Index, (Start, End) in enumerate(
+        SketchEntity(f"edge/{Index}", GeometryKind.KLine, LineGeometry(Start, EndPoint))
+        for Index, (Start, EndPoint) in enumerate(
             zip(Corners, (*Corners[1:], Corners[0]), strict=True)
         )
     )
@@ -41,11 +41,17 @@ def MakeBoxProfile(
         )
         for Index, Entity in enumerate(Entities)
     )
-    LengthRefs = (ConstraintRef(Entities[0].id, "start"), ConstraintRef(Entities[0].id, "end"))
+    LengthRefs = (
+        ConstraintRef(Entities[0].id, "start"),
+        ConstraintRef(Entities[0].id, "end"),
+    )
     WidthRefs = (
         (ConstraintRef(Entities[3].id, "end"), ConstraintRef(Entities[3].id, "start"))
         if NegativeV
-        else (ConstraintRef(Entities[1].id, "start"), ConstraintRef(Entities[1].id, "end"))
+        else (
+            ConstraintRef(Entities[1].id, "start"),
+            ConstraintRef(Entities[1].id, "end"),
+        )
     )
     LengthRelations = tuple(
         SketchRelation(

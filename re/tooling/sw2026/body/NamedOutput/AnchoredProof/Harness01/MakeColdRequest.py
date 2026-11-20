@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
 from convert.adapters.solidworks.Archive.Construction.Presentation.StyleInput import StyleInput
 from convert.adapters.solidworks.Archive.Construction.System.SystemInput import SystemInput
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
-from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefSettings
+from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import ModelDefInput
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Enums.EnumGeometry import GeometryKind
@@ -74,7 +74,7 @@ def make_request(spec):
         HeaderInput('Kit independent neutral author', 'generated body-name experiment',
                     'cold atom ownership without transmitted geometry', epoch, epoch + 10, epoch + 10),
         HistoryInput(epoch, 'cold atom ownership without transmitted geometry', 2026001, 0, 1033, False),
-        ModelDefSettings('moISO_c', (), (26, 4, 25, True), False, 'authored cold name journal', 19000),
+        ModelDefInput('moISO_c', (), (26, 4, 25, True), False, 'authored cold name journal', 19000),
         SelfFileInput(spec['self_path'], epoch + 20), 'ANSI31 (Iron BrickStone)', 'Configurations',
         1000.0, False, 0)
     return document, settings

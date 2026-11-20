@@ -22,7 +22,7 @@ from convert.adapters.solidworks.Archive.Construction.System.SystemInput import 
 )
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 
 
@@ -36,7 +36,7 @@ class PartBuildInput:
     TargetValue: FeatureTarget
     HeaderValue: HeaderInput
     HistoryValue: HistoryInput
-    DefinitionValue: ModelDefSettings
+    DefinitionValue: ModelDefInput
     OutputValue: SelfFileInput
     HatchName: str
     ManagerName: str

@@ -1,8 +1,8 @@
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
-    ModelDefSettings,
+    ModelDefInput,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.RequireDefNumber import (
-    RequireDefNumber,
+    RequireDefNum,
 )
 from convert.adapters.solidworks.Archive.Definition.ModelDefGraph import ModelDefGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -41,11 +41,11 @@ def ReadRevUi(GraphValue: ModelDefGraph) -> RevSourceUi:
         raise ValueError(
             "source revolve ui switches exceed their recovered boolean domain"
         )
-    DensityValue = RequireDefNumber(FieldsValue.get("f1688"))
+    DensityValue = RequireDefNum(FieldsValue.get("f1688"))
     if DensityValue <= 0:
         raise ValueError("source revolve ui density must be positive")
     return RevSourceUi(
-        ModelDefSettings(
+        ModelDefInput(
             StandardValue.ClassValue.NameValue,
             tuple(
                 IndexValue for IndexValue in range(64) if MaskValue & (1 << IndexValue)

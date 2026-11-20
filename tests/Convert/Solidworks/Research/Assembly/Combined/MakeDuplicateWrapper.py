@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNa
 
 
 # malformed integration data must duplicate an assembly identity without changing either local endpoint ordinal
-def MakeDuplicateWrapper(SourcePath: FilePath, TargetPath: FilePath) -> None:
+def DuplicateWrap(SourcePath: FilePath, TargetPath: FilePath) -> None:
     Archive = SldprtArchive.from_bytes(SourcePath.read_bytes())
     Linked = ReadNativeLink(Archive, 0)
     Stream = "Contents/Config-0-MatesList"

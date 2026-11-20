@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 
 
 # document unit choices must come from the actual complete user table and its concrete class owners
-def ReadPartUnitNodes(RootValue: ArchiveNode) -> dict[str, ArchiveNode]:
+def ReadUnitNodes(RootValue: ArchiveNode) -> dict[str, ArchiveNode]:
     TableValue = RequireNode(RootValue.FieldsValue["f9b8"], "moUnitsTable_c")
     Entries = ReadRows(TableValue.FieldsValue["items"])
     ClassNames = tuple(KUnitClasses.values())

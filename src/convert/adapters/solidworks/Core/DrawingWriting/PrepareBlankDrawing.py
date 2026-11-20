@@ -7,10 +7,10 @@ from convert.adapters.solidworks.Core.DrawingWriting.BlankTargetName import (
     BlankTargetName,
 )
 from convert.adapters.solidworks.Core.DrawingWriting.MakeBlankWriteRecipe import (
-    MakeBlankWriteRecipe,
+    MakeBlankRecipe,
 )
 from convert.adapters.solidworks.Core.DrawingWriting.NeedBlankDrawing import (
-    NeedBlankDrawing,
+    NeedBlankDraw,
 )
 from convert.adapters.solidworks.Drawing.Construction.Portable.DrawingFile import (
     DrawingFile,
@@ -25,7 +25,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 
 # complete drawing construction resolves only typed intent and the destination identity before the writer can publish a file
-def PrepareBlankDrawing(
+def BuildBlankDraw(
     DocumentValue: CadDocument,
     TargetValue: FilePath,
     WrittenAt: int,
@@ -35,8 +35,8 @@ def PrepareBlankDrawing(
     if "solidworks.blank.profile" in DocumentValue.source.attributes:
         return PrepareRewrite(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     _ = BlankTargetName(DocumentValue, TargetValue)
-    Drawing = NeedBlankDrawing(DocumentValue)
+    Drawing = NeedBlankDraw(DocumentValue)
     FileValue = BlankSelfFile(
         TargetValue, OptionsValue.values.get("final_destination"), WrittenAt
     )
-    return MakeBlankFile(MakeBlankWriteRecipe(Drawing, FileValue, BlockValue))
+    return MakeBlankFile(MakeBlankRecipe(Drawing, FileValue, BlockValue))
