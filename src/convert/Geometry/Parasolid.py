@@ -79,6 +79,9 @@ KLengthScale = 0.001
 # this constant exists because binary encoding requires stable protocol data
 KSolidSchema = "SCH_SW_33103_11000"
 
+# this schema stores terminal fin vertices and follows forward links
+KTerminalFinSchema = "SCH_3701250_37102_13006"
+
 # this constant exists because binary encoding requires stable protocol data
 KSheetSchema = "SCH_SW_32001_11000"
 
@@ -4177,6 +4180,7 @@ class RecordTables:
     surfaces: dict[int, KParaSurface]
     entities: dict[int, EntityRecord]
     v12_partition: bool = False
+    terminal_fin_vertices: bool = False
 
 
 # this declaration exists because focused behavior needs one stable owner
@@ -4222,7 +4226,9 @@ def DecodePartModel(PayloadData: bytes, Header: ParaHeader) -> BrepModel | None:
     BodyData = PayloadData[Header.body_offset :]
     if not BodyData or len(BodyData) > 268435456:
         return None
-    Tables = ScanPartRecords(BodyData)
+    Tables = ScanPartRecords(
+        BodyData, TerminalFinVertices=Header.schema == KTerminalFinSchema
+    )
     if Tables is None or not Tables.bridges:
         return None
     UnchangedIds, AttrOrders = SolidFaceData(BodyData)
@@ -4451,11 +4457,25 @@ class ScanBudget:
 
 
 # partition scanning coordinates focused record phases and final geometry resolution
-def ScanPartRecords(BodyData: bytes) -> RecordTables | None:
+def ScanPartRecords(
+    BodyData: bytes, *, TerminalFinVertices: bool = False
+) -> RecordTables | None:
     IsVtwelve = BodyData.startswith(
         b"\x00\x00\x00\x00\x00e\x00\x02"
     ) or BodyData.startswith(b"\x00\x00\x00\x00\x00\x0c\x00\x02")
-    Tables = RecordTables({}, {}, {}, {}, {}, {}, {}, {}, {}, IsVtwelve)
+    Tables = RecordTables(
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        IsVtwelve,
+        TerminalFinVertices and not IsVtwelve,
+    )
     Records, Ambiguous, Budget = ScanRecords(), ScanAmbiguous(), ScanBudget()
     for OffsetData in range(max(0, len(BodyData) - 1)):
         if BodyData[OffsetData] != 0:
@@ -7698,11 +7718,14 @@ def GetEdgeUseMut(
     EdgeAttr: int,
     SyntheticVertices: dict[int, VectorThree],
 ) -> tuple[int, int, int]:
-    StartVertex = Coedge.references[4]
     OtherCoedge = Tables.coedges.get(Coedge.references[5])
     if OtherCoedge is None:
         raise ValueError("missing opposite coedge")
-    EndVertex = OtherCoedge.references[4]
+    StartVertex, EndVertex = (
+        (OtherCoedge.references[4], Coedge.references[4])
+        if Tables.terminal_fin_vertices
+        else (Coedge.references[4], OtherCoedge.references[4])
+    )
     if EdgeAttr <= 1:
         raise ValueError("incomplete coedge topology")
     EdgeUseData = Tables.edge_uses.get(EdgeAttr)
@@ -8137,7 +8160,8 @@ def WalkCoedgeRing(
     if FirstAttr <= 1:
         raise ValueError("empty coedge ring")
     if not Tables.v12_partition:
-        return WalkRingLinks(Tables, LoopAttr, FirstAttr, 3)
+        LinkIndex = 2 if Tables.terminal_fin_vertices else 3
+        return WalkRingLinks(Tables, LoopAttr, FirstAttr, LinkIndex)
     Candidates: list[tuple[int, ...]] = []
     for LinkValue in (2, 3):
         Candidate = WalkRingLinks(Tables, LoopAttr, FirstAttr, LinkValue)

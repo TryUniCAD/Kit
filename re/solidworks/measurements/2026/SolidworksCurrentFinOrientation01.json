@@ -1,0 +1,427 @@
+{
+  "cases": {
+    "A13SyncedSingleChild": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "3e30787e494cfad3c334746b6da9584caeeb20db6fa9ad59bb64be4e9990a628",
+      "document_fingerprint_before_sha256": "ac7ea9b0694fed5c7e3aab53e7bba9a26c29f1b4372f788bdcf228f4af1d20ff",
+      "geometry_types": {
+        "curves": {
+          "LineCurve": 12
+        },
+        "surfaces": {
+          "PlaneSurface": 6
+        }
+      },
+      "loop_winding_after": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "loop_winding_before": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "schema": [
+        "SCH_3701250_37102_13006"
+      ],
+      "sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+      "signed_volume_after_mm3": 8000.0,
+      "signed_volume_before_mm3": -8000.0,
+      "topology": {
+        "bodies": 1,
+        "coedges": 24,
+        "edges": 12,
+        "faces": 6,
+        "loops": 6,
+        "shells": 1,
+        "vertices": 8
+      }
+    },
+    "A14SyncedRepeatChild": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "e6c4013f9393211ee2a2589f1a8641b86eb2e9670b718f7227d531f3ac946e76",
+      "document_fingerprint_before_sha256": "6de39a123d150a39577f1c4ebb30684fcd68c2f7dcde51bb6cb3630ef769454d",
+      "geometry_types": {
+        "curves": {
+          "LineCurve": 12
+        },
+        "surfaces": {
+          "PlaneSurface": 6
+        }
+      },
+      "loop_winding_after": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "loop_winding_before": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "schema": [
+        "SCH_3701250_37102_13006"
+      ],
+      "sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c",
+      "signed_volume_after_mm3": 8000.0,
+      "signed_volume_before_mm3": -8000.0,
+      "topology": {
+        "bodies": 1,
+        "coedges": 24,
+        "edges": 12,
+        "faces": 6,
+        "loops": 6,
+        "shells": 1,
+        "vertices": 8
+      }
+    },
+    "C1a_control": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "377c2968a32f0b20621e6a47e7536f3e85ce741b8a26c79f1d1f77a534271825",
+      "document_fingerprint_before_sha256": "9b15e9ce44cee2522f4c38bab549b5fba9c7df0cd27d081ce35cab15a6e83ed2",
+      "geometry_types": {
+        "curves": {
+          "LineCurve": 12
+        },
+        "surfaces": {
+          "PlaneSurface": 6
+        }
+      },
+      "loop_winding_after": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "loop_winding_before": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "schema": [
+        "SCH_3701250_37102_13006"
+      ],
+      "sha256": "da3d7292dd7a7e0bfa8f4dc528a1aabf28dfc03be06ebc6759c2f44925207d21",
+      "signed_volume_after_mm3": 8000.0,
+      "signed_volume_before_mm3": -8000.0,
+      "topology": {
+        "bodies": 1,
+        "coedges": 24,
+        "edges": 12,
+        "faces": 6,
+        "loops": 6,
+        "shells": 1,
+        "vertices": 8
+      }
+    },
+    "C1b_control": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "556ec45ee8c5f87236bc141f5b0e3a958402dc4dc680567dd81d28dcb058feb0",
+      "document_fingerprint_before_sha256": "18054963bfd3051e33f265aa647dc6bc0e3c2355e17291405826731ad27519bf",
+      "geometry_types": {
+        "curves": {
+          "LineCurve": 12
+        },
+        "surfaces": {
+          "PlaneSurface": 6
+        }
+      },
+      "loop_winding_after": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "loop_winding_before": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "schema": [
+        "SCH_3701250_37102_13006"
+      ],
+      "sha256": "fb41e09ab45b3119548f0e08e39ee6eef359cd523bb1bffd551292cec55dbccb",
+      "signed_volume_after_mm3": 8000.0,
+      "signed_volume_before_mm3": -8000.0,
+      "topology": {
+        "bodies": 1,
+        "coedges": 24,
+        "edges": 12,
+        "faces": 6,
+        "loops": 6,
+        "shells": 1,
+        "vertices": 8
+      }
+    },
+    "D19Annulus": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "2d7e58ff7d40f3ea8e265a1c5069214f7ea8f9266fa4755abb7089d39e366e2f",
+      "document_fingerprint_before_sha256": "2d7e58ff7d40f3ea8e265a1c5069214f7ea8f9266fa4755abb7089d39e366e2f",
+      "geometry_types": {
+        "curves": {
+          "CircleCurve": 4
+        },
+        "surfaces": {
+          "CylinderSurface": 2,
+          "PlaneSurface": 2
+        }
+      },
+      "schema": [
+        "SCH_3701250_37102_13006"
+      ],
+      "sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439",
+      "topology": {
+        "bodies": 1,
+        "coedges": 8,
+        "edges": 4,
+        "faces": 4,
+        "loops": 8,
+        "shells": 1,
+        "vertices": 4
+      }
+    },
+    "D23TangentCapsule": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "542b366dadef2eee94d59e9ad707f5493b08076ccffeb6ea5c515b9b666dd7ff",
+      "document_fingerprint_before_sha256": "384dd3d949d10b75815f4a533e0f5a86390d6c849d1e27f96397e0f2904e75a6",
+      "geometry_types": {
+        "curves": {
+          "CircleCurve": 4,
+          "LineCurve": 8
+        },
+        "surfaces": {
+          "CylinderSurface": 2,
+          "PlaneSurface": 4
+        }
+      },
+      "schema": [
+        "SCH_3701250_37102_13006"
+      ],
+      "sha256": "f0f2f52523015ff8b7a68584cec2f1ae79e82bf0ed0a8cb7f6da982d82451bb1",
+      "topology": {
+        "bodies": 1,
+        "coedges": 24,
+        "edges": 12,
+        "faces": 6,
+        "loops": 6,
+        "shells": 1,
+        "vertices": 8
+      }
+    },
+    "GeneratedAttached": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "dacb80f834cf59042d42521919caa2cd3c18b37183388ee51adcfdd7eb5be760",
+      "document_fingerprint_before_sha256": "fd7965870120293a94c8b7957475f80cebf86e79bf6430b71ec3f2b04d1e9d76",
+      "geometry_types": {
+        "curves": {
+          "LineCurve": 12
+        },
+        "surfaces": {
+          "PlaneSurface": 6
+        }
+      },
+      "loop_winding_after": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "loop_winding_before": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "schema": [
+        "SCH_3701250_37102_13006"
+      ],
+      "sha256": "8dbf7463a15f14c9905720a47e24863b702d98cdf3d695dfca51e20b8d8deede",
+      "signed_volume_after_mm3": 2949.843749999999,
+      "signed_volume_before_mm3": -2949.843749999999,
+      "topology": {
+        "bodies": 1,
+        "coedges": 24,
+        "edges": 12,
+        "faces": 6,
+        "loops": 6,
+        "shells": 1,
+        "vertices": 8
+      }
+    },
+    "L1_boss": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "b69f130649aec3cb7866778c88097e5174dceb77d94be262aaa290e851d1a9a5",
+      "document_fingerprint_before_sha256": "abd6bd7f3c12c01607cc0201cd7ab6b1efcca50d76534f378c6872a58f8c9544",
+      "geometry_types": {
+        "curves": {
+          "LineCurve": 12
+        },
+        "surfaces": {
+          "PlaneSurface": 6
+        }
+      },
+      "loop_winding_after": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "loop_winding_before": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "schema": [
+        "SCH_3701250_37102_13006"
+      ],
+      "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "signed_volume_after_mm3": 8000.0,
+      "signed_volume_before_mm3": -8000.0,
+      "topology": {
+        "bodies": 1,
+        "coedges": 24,
+        "edges": 12,
+        "faces": 6,
+        "loops": 6,
+        "shells": 1,
+        "vertices": 8
+      }
+    },
+    "LegacyMixed": {
+      "brep_present": false,
+      "document_fingerprint_after_sha256": "ffc21b2adc41b80dd8e9ed40a86f0460de7f8e642c1b41f748e8525f87d29c05",
+      "document_fingerprint_before_sha256": "ffc21b2adc41b80dd8e9ed40a86f0460de7f8e642c1b41f748e8525f87d29c05",
+      "schema": [
+        "SCH_3201255_32001_13006"
+      ],
+      "sha256": "972be7046e00a0febb5528f2a5f21506b9230abd3ea1b9c5d22f6b709080cb9a"
+    },
+    "LegacyPrism": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "5a8c110ec030fc35864a516beba2b57a269533ede6884fbcf635b7abc67ecd70",
+      "document_fingerprint_before_sha256": "5a8c110ec030fc35864a516beba2b57a269533ede6884fbcf635b7abc67ecd70",
+      "geometry_types": {
+        "curves": {
+          "LineCurve": 12
+        },
+        "surfaces": {
+          "PlaneSurface": 6
+        }
+      },
+      "loop_winding_after": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "loop_winding_before": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schema": [
+        "SCH_1200000_12006"
+      ],
+      "sha256": "024faf5e879743a6ad002a1bc4b9d748647b5d0044446a69c9c56f102ed5dd7e",
+      "signed_volume_after_mm3": 8000.0,
+      "signed_volume_before_mm3": 8000.0,
+      "topology": {
+        "bodies": 1,
+        "coedges": 24,
+        "edges": 12,
+        "faces": 6,
+        "loops": 6,
+        "shells": 1,
+        "vertices": 8
+      }
+    },
+    "P0_plain": {
+      "brep_present": true,
+      "document_fingerprint_after_sha256": "64281a249c49e14bc27cd3087ebe5587e1a2cbc773f0abacd2683ae22953fec4",
+      "document_fingerprint_before_sha256": "3161baea238d7bd6aebd033f998d1bb410d63a4f5bf15bb6ed282ee1b26b04b1",
+      "geometry_types": {
+        "curves": {
+          "LineCurve": 12
+        },
+        "surfaces": {
+          "PlaneSurface": 6
+        }
+      },
+      "loop_winding_after": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "loop_winding_before": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "schema": [
+        "SCH_3701250_37102_13006"
+      ],
+      "sha256": "2d11caf833f3e604006ed6920c62d4ca4c592a0a2059743ff1364548522d3cf8",
+      "signed_volume_after_mm3": 8000.0,
+      "signed_volume_before_mm3": -8000.0,
+      "topology": {
+        "bodies": 1,
+        "coedges": 24,
+        "edges": 12,
+        "faces": 6,
+        "loops": 6,
+        "shells": 1,
+        "vertices": 8
+      }
+    }
+  },
+  "heldout_inputs_tested": 0,
+  "probe": "convert.open_document with tessellation disabled",
+  "qualified_parasolid_schema": "SCH_3701250_37102_13006",
+  "schema": "kit.sw2026.current-fin-orientation.v1",
+  "sdk_after_sha256": "0dbe22a69f954fabc945f46931757e99179d1f562487f7b534da3cc6e796e2d9",
+  "sdk_before_sha256": "539d7a62018e956df488b4cc49271bf4f8073ef521c702181d7979dd463a7353",
+  "writer_output_count": 0
+}
