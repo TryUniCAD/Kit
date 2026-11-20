@@ -26,4 +26,4 @@ The current automatic handoff uses the Fusion two body cut route.
 Other catalogue entries continue to use their existing decoder routes or report missing evidence.
 The pipeline uses a local controller store and workers configured for that host.
 
-See the [catalogue procedure](../Controller/DeterministicInference.md#run-both-complete-catalogue-inventories).
+See the [catalogue procedure](../../Controller/DeterministicInference.md#run-both-complete-catalogue-inventories).

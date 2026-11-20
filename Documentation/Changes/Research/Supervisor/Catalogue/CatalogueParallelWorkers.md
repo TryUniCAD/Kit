@@ -19,4 +19,4 @@ The supervisor uses this ceiling for the offline pool. A mixed pipeline shares t
 Each active offline catalogue worker holds one job claim.
 The optional native stage uses its supplied worker configuration and CAD application ownership rules.
 
-See the [research command guide](../../../Tasks/ResearchCommandLine.md#run-a-cad-catalogue-with-optional-advice).
+See the [research command guide](../../../../Tasks/ResearchCommandLine.md#run-a-cad-catalogue-with-optional-advice).

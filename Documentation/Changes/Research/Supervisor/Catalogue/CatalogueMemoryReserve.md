@@ -22,4 +22,4 @@ The override applies to each supervisor launched for the batch, including any co
 An offline run without this option reserves 4096 MiB.
 A native stage without this option reads the reserve from its supervisor configuration.
 
-See the [research command guide](../../../Tasks/ResearchCommandLine.md#run-a-cad-catalogue-with-optional-advice).
+See the [research command guide](../../../../Tasks/ResearchCommandLine.md#run-a-cad-catalogue-with-optional-advice).
