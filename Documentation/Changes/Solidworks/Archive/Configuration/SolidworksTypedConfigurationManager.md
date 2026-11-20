@@ -52,6 +52,6 @@ This does not admit the whole Config-to-Resolved-to-Mates graph or register a
 production writer. Semantic construction, native application measurements and
 held-out qualification retain their separate requirements.
 
-[Format and ownership rules](../../../../re/solidworks/records/CmgrBodyGrammar2026.md)
-· [Source and process receipt](../../../../re/solidworks/measurements/2026/SdkCmgrGraph01.json)
-· [Complete-graph boundary](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/ManagerGrammarDoesNotAdmitWholeGraphs.md)
+[Format and ownership rules](../../../../../re/solidworks/records/CmgrBodyGrammar2026.md)
+· [Source and process receipt](../../../../../re/solidworks/measurements/2026/SdkCmgrGraph01.json)
+· [Complete-graph boundary](../../../../Gotchas/Conversion/Solidworks/Archive/Configuration/ManagerGrammarDoesNotAdmitWholeGraphs.md)

@@ -13,5 +13,5 @@ contain an identifier and no optional object or points. The pinned
 2026 binary establishes the conditional object's presence rule and the
 point-array field order.
 
-The [field and evidence record](../../../../re/solidworks/records/SdkGhostBodyConfig2026.md)
+The [field and evidence record](../../../../../re/solidworks/records/SdkGhostBodyConfig2026.md)
 links the exact checks and archive scope.

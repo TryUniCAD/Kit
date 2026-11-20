@@ -36,6 +36,6 @@ boundary while the remaining SDK body grammars are promoted. Keep the inherited
 maps and actual node aliases intact. Never infer a whole graph from class-name
 scans, matching counts or an empty usage set.
 
-[Change entry](../../../../../Changes/Solidworks/Archive/SolidworksTypedConfigurationManager.md)
+[Change entry](../../../../../Changes/Solidworks/Archive/Configuration/SolidworksTypedConfigurationManager.md)
 · [Format ledger](../../../../../../re/solidworks/records/CmgrBodyGrammar2026.md)
 · [Existing mapping ownership rule](../LinkedMapViewsRetainEntryIdentity.md)

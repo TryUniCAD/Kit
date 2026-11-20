@@ -32,5 +32,5 @@ as a concrete object. Reject unsupported descriptor versions explicitly.
 Do not change every object to schema zero or infer schema from document version.
 
 The [Config grammar record](../../../../../../re/solidworks/records/ConfigBodyGrammar2026.md)
-and [change entry](../../../../../Changes/Solidworks/Archive/SolidworksTypedConfigurationGraph.md)
+and [change entry](../../../../../Changes/Solidworks/Archive/Configuration/SolidworksTypedConfigurationGraph.md)
 describe the bounded implementation and actual verification.

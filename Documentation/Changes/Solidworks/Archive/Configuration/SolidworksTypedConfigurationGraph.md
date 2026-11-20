@@ -36,7 +36,7 @@ The parent independently ran the frozen SDK overlay on twelve disclosed files:
 passed. Both directions exercised 153 body schemas; five separately loaded
 header owners complete the original 158-name Config-load dependency union.
 Subsequent bridge/integration results are recorded only when actually executed
-in the [format ledger](../../../../re/solidworks/records/ConfigBodyGrammar2026.md)
+in the [format ledger](../../../../../re/solidworks/records/ConfigBodyGrammar2026.md)
 and its bound receipt. No VM or CAD runtime was used for these source checks.
 
 The supported profile rejects other versions, unknown classes, nonordinary
@@ -45,14 +45,14 @@ zero for `moFeatColorTab_c` is bound directly to the pinned class metadata;
 abstract bases are not admitted as concrete objects. Field semantics, unexercised
 branches, C10 and full native application acceptance remain unfinished.
 
-See the [runtime-schema gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/FeatureColorTableRequiresSchemaZero.md),
-[cyclic-owner gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/OccurrenceBacklinksNeedCompletedConfiguration.md),
-and [CAD criteria](../../../Reference/Operations/CadSuccessCriteria.md).
+See the [runtime-schema gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Configuration/FeatureColorTableRequiresSchemaZero.md),
+[cyclic-owner gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Configuration/OccurrenceBacklinksNeedCompletedConfiguration.md),
+and [CAD criteria](../../../../Reference/Operations/CadSuccessCriteria.md).
 
 The final frozen bridge source also passed all twelve field/alias/position/map
 comparisons, the permanent guarded neutral-pair process regression, 36 linked
 Config/CMgr/Resolved stream checks and six exact seeded MatesList checks. The
-[receipt](../../../../re/solidworks/measurements/2026/SdkConfigGraph01.json)
+[receipt](../../../../../re/solidworks/measurements/2026/SdkConfigGraph01.json)
 retains exact source/input/report identities. A generic MatesList-plan diagnostic
 is retained as a failure separately; it is not counted among the 42 successful
 linked stream checks.

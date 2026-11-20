@@ -26,5 +26,5 @@ Reject missing or inconsistent ownership; do not synthesize a backlink or copy a
 saved record. CMgr's separate null-reference external profile remains unchanged.
 
 See the [Config grammar record](../../../../../../re/solidworks/records/ConfigBodyGrammar2026.md),
-[change entry](../../../../../Changes/Solidworks/Archive/SolidworksTypedConfigurationGraph.md)
+[change entry](../../../../../Changes/Solidworks/Archive/Configuration/SolidworksTypedConfigurationGraph.md)
 and [linked-map identity gotcha](../LinkedMapViewsRetainEntryIdentity.md).
