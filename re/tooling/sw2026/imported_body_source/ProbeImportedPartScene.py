@@ -136,7 +136,7 @@ def prepared_part(source, target, preserve_empty=False, *, preserve_empty_file_o
         from VerifyNativeImportKeys import project_index
 
         archive = SldprtArchive.from_bytes(source)
-        keyword, _ = project_index(archive, ReadNativeLink(archive, 0), original)
+        keyword = project_index(archive, ReadNativeLink(archive, 0), original)[0]
         source_keys = keyword_snapshot(source)
     if preserve_empty_file_owner:
         require(preserve_empty, "property owner trial preserves the source XML scopes")
