@@ -1,12 +1,12 @@
 # Prospective SDK comparison for a locked ordinary revolve
 
-Public ordinary revolve writing is closed. This method can compare one eligible original with a file produced by the exact internal SDK preparation path from independently supplied neutral intent. Complete source admission still refuses the source presentation and provenance owners. The method assigns no held-out credit. The oracle owner must first establish that the selected locked case was independent of the SDK rules, then adjudicate the measured result.
+Public ordinary revolve writing is closed. This method compares one eligible original with a file produced by the exact internal SDK preparation path from independently supplied neutral intent. Complete source admission still refuses the source presentation and provenance owners. The measured comparison reuses a previously released intent and assigns zero held-out credit.
 
 [Source preparation and current refusals](SdkRevolveSourcePreparation2026.md) · [Full-original acceptance plan](OrdinaryRevolveOriginalEvaluationPlan2026.json) · [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
 
 ## Custody and scope
 
-The original source lock `bf4a857b222a9ea61d5d74007fbde4090d95d1563aa8025de3b01454e1839b2f` closed at `2026-11-17T05:50:08.738304Z`. It precedes the shared constructor `acb80309a13b8002ae8251305b2cb937da1611c5` and SDK preparation `608d0e8276d1834e1c45ce24e8bedaa18c5c3f6a`. The prospective closure is `8302c824a15830b837c72db75f79cabe5693d200`. The older successful pair used the research generator `cd0cf5738f074ac9d4fe44490db2bb89cc18dfe6`. That comparator examined the source's top-level tree, volume, area, centre, signed sweep and `D1` lifecycle. The current SDK has native evidence for four disclosed shapes, with 25 recursive tree rows and 340 numeric checks. Neither result exercises the current SDK and a locked original together.
+The original source lock `bf4a857b222a9ea61d5d74007fbde4090d95d1563aa8025de3b01454e1839b2f` closed at `2026-11-17T05:50:08.738304Z`. It precedes the shared constructor `acb80309a13b8002ae8251305b2cb937da1611c5` and SDK preparation `608d0e8276d1834e1c45ce24e8bedaa18c5c3f6a`. The measured SDK closure is `8302c824a15830b837c72db75f79cabe5693d200`. The older successful pair used the research generator `cd0cf5738f074ac9d4fe44490db2bb89cc18dfe6`. That comparator examined the source's top-level tree, volume, area, centre, signed sweep and `D1` lifecycle. The SDK also has native evidence for four disclosed shapes, with 25 recursive tree rows and 340 numeric checks.
 
 [Public source lock](../v2026/heldout/OrdinaryRevolveSourceLock.json) · [Research comparison](../measurements/2026/GeneratedRevolveHeldout06.json) · [Disclosed SDK native lifecycle](../measurements/2026/SdkOrdinaryRevolveNative01.json)
 
@@ -62,4 +62,20 @@ than treating other presentation rows as competing operations. A new
 disclosed isolated Windows build initializes the SDK and then creates
 and reads the complete part with zero guarded external attempts. Its
 hash is `ddf7a719a1540222fe6d8394f3f789ed6bfea155d82b3378ac3eaabf8faf17a1`.
-The production SDK source remains pinned to the original freeze. Read-only editing and `SaveAs3` through the wrapper are part of the measurement, as are the original's recursive native tree and its actual mass and body-label equivalence. Those checks are still unmeasured. A passing scoped result leaves unsupported whole-source owner transfer and public writer registration open.
+The SDK source remained pinned to the original freeze. The second
+preparation produced the candidate from the released First slot intent
+with zero original file reads and zero guarded external attempts.
+Six distinct native processes passed. Both controls were healthy.
+The candidate and original matched at initial open, after editing the
+actual driving angle, and on fresh reopen of their separate saved
+derivatives. The comparison includes all 25 recursive feature tree
+rows, the actual body name, live angle and signed geometry, volume,
+area, mass and centre of mass. Both read-only source files retained
+their hashes. Both native saves reported zero warnings and errors.
+
+The successfully measured First slot's intent had also been used with
+the earlier research generator. The comparison does not establish
+independence from the SDK's development. Whole-source owner transfer,
+public writer registration and a separately qualified held-out input
+remain open.
+[Native comparison and phase digests](../measurements/2026/SdkLockedRevolveNativeComparison01.json)

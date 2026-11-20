@@ -2,7 +2,8 @@
 
 Status: **0 of 165 FCStd parts and 0 of five FCStd assemblies qualified**.
 PR #121's generative public writer accepts bounded line-loop, circle
-and equation profiles and a standalone geometry-only periodic cylinder.
+and equation profiles and standalone geometry-only periodic cylinders
+and axis-aligned rectangular solids.
 The four fixed-centre circle profiles cover blind, symmetric mid-plane
 and two-direction ends. Its held-out native SOLIDWORKS examples belong
 to distinct evaluations. The historical FCStd audit below used vendor
@@ -10,6 +11,7 @@ stream re-emission. That writer was removed from production.
 [Native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
 [Circle end modes](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
 [Periodic import](../../Documentation/Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
+[Rectangular import](../../Documentation/Changes/Solidworks/Construction/SolidworksBareRectangleImport.md)
 [Recorded payload removal](../../Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md)
 
 The figures below are the last audit of that removed writer. They record which source histories it
@@ -102,6 +104,17 @@ receipt lists omitted source document domains. A separate
 [normal writer native trial](measurements/2026/SdkPublicPeriodicNative01.json)
 passes 152 candidate checks with two healthy controls. These results
 add zero FCStd benchmark conversions.
+
+The [normal rectangular import trial](measurements/2026/SdkPublicRectangularNative01.json)
+passes 116 candidate checks across clean native open, rebuild, save and
+fresh reopen, with two healthy controls. Its disclosed neutral input
+adds zero FCStd benchmark conversions.
+
+The [locked revolve comparison](measurements/2026/SdkLockedRevolveNativeComparison01.json)
+matches the original and the model-only SDK candidate in all three
+observed stages with healthy controls. It reuses a previously released
+intent and leaves whole-source admission and independent coverage open.
+It adds zero FCStd benchmark conversions.
 
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,

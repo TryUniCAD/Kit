@@ -414,19 +414,21 @@ The generative writers derive each emitted structure from known format rules.
 The container, archive, configuration manager, definition and resolved-feature codecs provide the shared construction model.
 Do not present a carrier or a mode label as a completed translation.
 
-### Writing a periodic imported solid
+### Writing a geometry-only imported solid
 
 Use `write_document(document, path)` with an ordinary `.SLDPRT` path
-and a geometry-only millimetre document. The qualified profile has one
-closed periodic cylinder and one active configuration. Two outward
-caps and their full circular rims share the signed mantle axis and
-retain the canonical linked seam ownership. The destination supplies
-the part name and the active configuration retains its authored name.
+and a geometry-only millimetre document with one active configuration.
+The solid may be a closed axis-aligned rectangular prism with exact
+plane and edge ownership, or a closed periodic cylinder. The cylinder's
+two outward caps and full circular rims share the signed mantle axis
+and retain the canonical linked seam ownership. The destination
+supplies the part name and the configuration retains its authored name.
 The writer generates one native `Imported geometry` BaseBody and
 reports native B-rep and configuration transfers. Other geometry and
 requests carrying source identity or additional model content refuse
 before publication.
 [Periodic cylinder writer](../../Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
+· [Rectangular solid writer](../../Changes/Solidworks/Construction/SolidworksBareRectangleImport.md)
 
 ### Writing standalone blank drawings
 

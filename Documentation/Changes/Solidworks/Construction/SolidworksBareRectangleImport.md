@@ -1,4 +1,4 @@
-# Draft SOLIDWORKS rectangular solid import
+# SOLIDWORKS rectangular solid import
 
 The SDK write path admits one plain, axis-aligned rectangular solid from
 a geometry-only millimetre document with one active configuration. Pass
@@ -41,7 +41,16 @@ prism residual check. The exact face-plane check refuses it before output.
 The host report SHA-256 is
 `5ed595144edd9ba39bb9fc79edd9c627629b84298d00a45ccdbf0c531a2dfda6`.
 
-Fresh native acceptance of the no-options Windows route and bare
-held-out cases remain pending. The earlier locked planar lifecycles
-use attributed bodies and projected source labels.
+The no-options Windows route generated a 9,884-byte translated solid
+in its actual destination. SOLIDWORKS 2026 SP05.2 `34.5.2.0604`
+opened, rebuilt, saved and freshly reopened the output with zero
+errors or warnings. The candidate and its fresh reopen passed 116
+comparisons for one solid, six faces, twelve edges, eight vertices, volume,
+area, centre of mass and owned feature and configuration. Both
+controls passed across four distinct native processes.
+[Public native lifecycle](../../../../re/solidworks/measurements/2026/SdkPublicRectangularNative01.json)
+· [Exact rectangular face planes](../../../Gotchas/Conversion/Solidworks/Archive/Partition/LocalBodies/BoxFacesNeedExactPlaneStations.md)
+
+The earlier locked planar lifecycles use attributed bodies and
+projected source labels. Bare held-out coverage remains open.
 [Locked geometry evidence](../../../../re/solidworks/measurements/2026/SealedImportedLocalGeometryNative01.json)
