@@ -37,7 +37,7 @@ The two initial occurrence assemblies, `A0_one.SLDASM` and
 `moHistoryCompItemData_c` schema-one context before the mate stream.
 The research registry decodes both ResolvedFeatures streams exactly.
 SDK context support and subsequent MatesList acceptance remain open.
-[History component context](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/HistoryComponentReadContext.md)
+[History component context](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Assembly/HistoryComponentReadContext.md)
 
 Run from the checkout retaining the recorded codec tree:
 

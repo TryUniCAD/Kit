@@ -218,6 +218,12 @@ identity when the next stream inherits a snapshot. Body callbacks provide
 the fields for each stream and class.
 [Object maps and verification](../../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
 
+The standalone header codec uses independent maps for `Header2` and
+`Contents/Config-0-ModelHeader` in the ordinary version-19000 profile.
+Its typed records retain file references, revision logs and bounds for
+reconstruction.
+[Standalone header scope](../../Changes/Solidworks/SolidworksStandaloneHeaders.md)
+
 ## Read flow
 
 ```mermaid
@@ -523,7 +529,7 @@ remains unfinished.
 The [suppression diagnostic](../../Changes/Solidworks/Inspection/SolidworksSuppressionDiagnostic.md)
 observes a vendor intervention on copied research parts without counting the
 changed state as generated-output acceptance.
-The [configuration progress operation](../../Changes/Solidworks/SolidworksConfigurationProgress.md)
+The [configuration progress operation](../../Changes/Solidworks/Construction/Parts/SolidworksConfigurationProgress.md)
 derives the completed-history marker from the generated persistent-ID allocator.
 The first generated prism now opens and regenerates one solid without vendor
 intervention. Editing, saved-copy reopening and broader coverage remain under

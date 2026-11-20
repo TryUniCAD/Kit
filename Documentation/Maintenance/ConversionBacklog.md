@@ -258,10 +258,31 @@ The accepted native queue passed the linked graph, identity, and open-body
 depth process checks and the Python scan after entry insertion moved to its
 actual map owner. The [wire primitive PR](https://github.com/TryUniCAD/Kit/pull/173)
 and [pinned map evidence](../../re/solidworks/records/ArchiveObjectMapSlice2026.md)
-bind the prerequisites. The [standalone header extraction](https://github.com/TryUniCAD/Kit/pull/175)
-has a separate queue exit.
+bind the prerequisites.
 [Accepted queue](https://github.com/TryUniCAD/Kit/actions/runs/44681435441)
 [Change entry](../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
+
+### B03-SW2026-ARCHIVE-HEADERS
+
+[PR #175](https://github.com/TryUniCAD/Kit/pull/175) delivered the standalone
+header codec at `cee8f7a1f90f2bc2bd9ab17626980ea649f6c8d3`.
+Both stream roles replay exactly in the two tracked native part controls.
+The L1 headers match each other. The separate ConcaveOwned headers retain
+distinct stream hashes. Current-revision review and the native queue passed.
+[Pinned standalone header evidence](../../re/solidworks/records/StandaloneHeaderSlice2026.md)
+[Accepted queue](https://github.com/TryUniCAD/Kit/actions/runs/44685942761)
+Configuration binding, CMgr headers and inline Definition headers have
+separate exits.
+[Change entry](../Changes/Solidworks/SolidworksStandaloneHeaders.md)
+
+### B03-SW2026-BODY-ROWS
+
+The PR #121 takeover team owns the [counted archive row extraction](https://github.com/TryUniCAD/Kit/pull/176),
+which depends on the accepted object maps and scalar and count primitives.
+The initial slice uses modeled field scopes and computed row counts.
+Review identified stale count handling, preservation of stored count
+forms and transactional rejection as remaining requirements. The
+configuration-manager header and connected body dispatcher have separate exits.
 
 ### B08-SW2026-TERMINAL-FIN
 

@@ -10,7 +10,7 @@ The [field and evidence finding](../../../re/solidworks/records/AssemblyArchive2
 
 [Configuration child lists](../../Gotchas/Conversion/Solidworks/Archive/ConfigurationConceptChildList.md) records the constructor predicate behind a fieldless resolved dispatch. The second remote run passed 12 of 14 streams, including exact CMgr reproduction for both controls. Resolved features now reach a missing component-history record; its native node-base and pointer grammar is recovered, with a read-only archive context guard.
 
-[History component read context](../../Gotchas/Conversion/Solidworks/Archive/HistoryComponentReadContext.md) explains why the history pointer changes archive state during reading without adding a flag to the wire or mutating the writer context.
+[History component read context](../../Gotchas/Conversion/Solidworks/Archive/Assembly/HistoryComponentReadContext.md) explains why the history pointer changes archive state during reading without adding a flag to the wire or mutating the writer context.
 
 [Assembly map flags](../../Gotchas/Conversion/Solidworks/Archive/Maps/AssemblyStringMapsDependOnArchiveFlag.md) records the pinned 2026 runtime bit that can suppress both embedded lightweight string maps.
 
