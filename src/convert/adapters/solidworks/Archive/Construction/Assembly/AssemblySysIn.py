@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTime import (
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
+from convert.adapters.solidworks.Archive.Construction.System.Members.LightInput import (
+    LightInput,
+)
 
 
 # ordinary assembly system labels must be explicit while native folder allocation and principal plane order remain independently documented rules
@@ -19,6 +22,7 @@ class AssemblySysIn:
     OriginName: str
     MateGroupName: str
     CreatedAt: int
+    LightValues: tuple[LightInput, ...] = ()
 
     # incomplete or ambiguous names must reject before any native persistent feature identifier can be consumed
     def __post_init__(self) -> None:
@@ -50,4 +54,13 @@ class AssemblySysIn:
             raise ValueError(
                 "assembly system feature names must be distinct nonempty authored text"
             )
+        if type(self.LightValues) is not tuple or any(
+            type(LightValue) is not LightInput for LightValue in self.LightValues
+        ):
+            raise TypeError("assembly lighting requires ordered typed light inputs")
+        LightNames = {LightValue.NameValue for LightValue in self.LightValues}
+        if len(LightNames) != len(self.LightValues) or LightNames.intersection(
+            NamesValue
+        ):
+            raise ValueError("assembly light names must be distinct system captions")
         _ = FeatureTime(self.CreatedAt)

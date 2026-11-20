@@ -1,5 +1,8 @@
 from pathlib import PureWindowsPath
 from xml.etree.ElementTree import Element, SubElement
+from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmKeyNodes import (
+    AsmKeyNodes,
+)
 from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmXmlRoles import (
     KAsmXmlRoles,
 )
@@ -38,7 +41,7 @@ def MakeNestedKeys(TargetValue: TargetDocument) -> bytes:
     )
     EntriesValue = [
         (KAsmXmlRoles[NodeValue.ClassValue.NameValue], NodeValue)
-        for NodeValue in TargetValue.FeatureValues
+        for NodeValue in AsmKeyNodes(TargetValue.RootValue, TargetValue.FeatureValues)
     ]
     for Reference, ChildValue in zip(
         TargetValue.ReferenceValues, TargetValue.ChildTargets, strict=True

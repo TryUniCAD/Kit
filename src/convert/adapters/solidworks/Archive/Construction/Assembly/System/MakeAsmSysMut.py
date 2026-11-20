@@ -27,6 +27,9 @@ from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
 )
+from convert.adapters.solidworks.Archive.Construction.System.Members.MakeLightMut import (
+    MakeLightMut,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
@@ -49,7 +52,8 @@ def MakeAsmSysMut(
         )
         for ClassName in KAsmFolders
     }
-    OwnerValue.FieldsValue["f1e0"] = FolderValues["moEnvFolder_c"]
+    EnvironmentValue = FolderValues["moEnvFolder_c"]
+    OwnerValue.FieldsValue["f1e0"] = EnvironmentValue
     CabinetValue = MakeAsmCabinet(
         InputValue.CabinetName, OwnerValue, TargetValue, Allocator
     )
@@ -69,6 +73,21 @@ def MakeAsmSysMut(
     GroupValue.FieldsValue.update(
         {"discarded_manager_records": [], "f4e8": [], "f4f8": 0}
     )
+    if InputValue.LightValues:
+        EnvironmentValue.FieldsValue["f60"] = {
+            "list": {
+                "n": len(InputValue.LightValues),
+                "items": [
+                    {
+                        "o": MakeLightMut(
+                            EnvironmentValue, LightValue, TargetValue, Allocator
+                        )
+                    }
+                    for LightValue in InputValue.LightValues
+                ],
+            },
+            "tail": 0,
+        }
     FeatureValues = (
         *(FolderValues[ClassName] for ClassName in KAsmEarly),
         CabinetValue,

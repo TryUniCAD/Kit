@@ -3,6 +3,9 @@ from xml.etree.ElementTree import Element, SubElement
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState import (
     AssemblyState,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmKeyNodes import (
+    AsmKeyNodes,
+)
 from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmXmlRoles import (
     KAsmXmlRoles,
 )
@@ -48,7 +51,7 @@ def MakeAsmKeys(
     )
     EntriesValue = [
         (KAsmXmlRoles[NodeValue.ClassValue.NameValue], NodeValue)
-        for NodeValue in StateValue.FeatureValues
+        for NodeValue in AsmKeyNodes(StateValue.RootValue, StateValue.FeatureValues)
     ]
     EntriesValue.extend(
         (
