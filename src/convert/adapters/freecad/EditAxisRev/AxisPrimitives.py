@@ -1,3 +1,4 @@
+from convert.adapters.freecad.FixedOrigin import IsFixedOrigin
 from convert.Formats.Fusion.DesignZip import KDesignPrefix
 from convert.Formats.Fusion.Sketches.SketchPrimitive import KSketchKinds
 from interchange.brep.Topology.BrepMath import IsFinitePlane
@@ -11,7 +12,7 @@ from interchange.geometry.Models.VectorPlane import PlaneVector
 def CheckAxisEntity(Entity: SketchEntity, KindValue: GeometryKind) -> None:
     Origin = Entity.provenance
     if (
-        Entity.fixed
+        (Entity.fixed and not IsFixedOrigin(Entity))
         or Entity.kind != KindValue
         or Origin is None
         or Origin.adapter != "fusion.f3d"

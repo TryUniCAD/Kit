@@ -6,6 +6,7 @@ from convert.Formats.Fusion.MetaCursor import MetaCursor
 from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchBase
 from tests.Convert.Api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
 from tests.Convert.FusionRead import OpenResearch
+from interchange.Enums.EnumFeatures import FeatureKind
 
 
 # a repeated native child must invalidate coverage even when all primitive backlinks survive
@@ -42,7 +43,9 @@ def TestRoster() -> None:
                 ),
             )
     _ = Stream.seek(0)
-    (Partial,) = OpenResearch(Stream, StrictMode=False).sketches
+    Document = OpenResearch(Stream, StrictMode=False)
+    (Partial,) = Document.sketches
+    assert Document.feature_timeline[0].kind == FeatureKind.KNative
     assert Partial.entities == SketchValue.entities
     assert "fusion.geometry_child_ids" not in Partial.attributes
 
