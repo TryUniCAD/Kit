@@ -220,6 +220,26 @@ jobs:
           version: "0.12.5"
       - run: uv sync --frozen --no-default-groups --extra dev --python 3.14
       - run: uv run --no-sync python re/automation/CaptureHistory.py fetch
+      - name: Report export qualification on representative sketch controls
+        run: |
+          uv run --no-sync python - <<'PYTHON'
+          from pathlib import Path
+          from convert.Formats.Fusion.DocumentRead import ReadFusionDoc
+          from convert.Formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
+          from convert.Formats.Fusion.Sketches.SketchQualification import HasSketchRules, IsSketchOwner
+          base = Path("re/Fusion/Study")
+          for sample in ("extents-f0f33a9a605f/distance_positive.f3d", "models-97a5e41e2ba7/revolve_full.f3d", "sketches-0ccea2ac0f9c/radius.f3d", "bodyselections-62e42366c722/scale_two_bodies_point.f3d"):
+              path = base / sample
+              doc = ReadFusionDoc(path)
+              with OpenFusionZip(path.read_bytes(),None) as archive:
+                  bulk, spans = archive.ReadDesign()
+                  for sketch in doc.sketches:
+                      root = next(r for r in spans if r.IsPrimary and str(r.ObjectId)==sketch.provenance.native_id)
+                      frame = next(p for p in doc.support_planes if p.id == sketch.support_plane_id)
+                      print(sample.split("/")[-1], "roster", bool(sketch.attributes.get("fusion.geometry_child_ids")), "support",frame.attributes.get("fusion.native_support_resolved"), "rules",HasSketchRules(bulk,root,sketch), "projected",sum(bool(e.attributes.get("fusion.geometry_is_projected")) for e in sketch.entities), "steps",[str(s.kind) for s in doc.feature_timeline if s.sketch_id == sketch.id])
+          PYTHON
+      - name: Exercise editable profile exports and saved edit readback
+        run: uv run --no-sync python -m pytest -q --tb=line tests/Convert/Freecad/{FusionEditTests,FusionRevolveTests,FusionSketchRuleTests,EditReadTests,ProfileReadTests,RingReadTests}.py tests/Convert/Api/Fusion/SketchRosterTests.py
       - name: Verify native sketch child ownership at the archive boundary
         run: uv run --no-sync python -m pytest -q tests/Convert/Api/Fusion/SketchRosterTests.py
       - name: Measure sketch membership agreement
