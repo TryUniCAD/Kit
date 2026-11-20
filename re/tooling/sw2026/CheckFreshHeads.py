@@ -98,7 +98,7 @@ def header_observation(data, case, role):
         fields["f48"], self_node.FieldsValue["f60"],
     ]
     require(words == [
-        role, case["feature_ids"][-1] + 1, case["created"], case["modified"],
+        role, case["next_id"], case["created"], case["modified"],
         case["updated"], case["saved"],
     ], "role, persistent allocation or clock provenance changed")
     require(
@@ -174,7 +174,10 @@ def authored(case):
     aliases = direct_slot(root, model_header, top_header)
     require(state == ([dict(node.FieldsValue) for node in owners], allocator.Allocations),
             "head construction changed the supplied part or its allocator")
-    return {TOP: top, MODEL: model, MANAGER: manager_result, "direct_map": aliases}
+    following_id = allocator.AllocateMut(native_node("moProfileFeature_c", {"owner": root}))
+    require(following_id == case["next_id"], "published next ID differs from the next allocation")
+    return {TOP: top, MODEL: model, MANAGER: manager_result, "direct_map": aliases,
+            "subsequent_allocation": following_id}
 
 
 def check_refusal(name, edit, reason):

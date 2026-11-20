@@ -19,7 +19,10 @@ class PersistentIds:
     # caller publication needs the actual next identifier after every modeled allocation
     @property
     def NextValue(self) -> int:
-        return self.CounterValue
+        NumberValue = self.CounterValue
+        while NumberValue in self.ReservedSet:
+            NumberValue += 1
+        return NumberValue
 
     # repeated allocation must retain the same actual node identity and reject externally replaced ids
     def AllocateMut(self, NodeValue: ArchiveNode, FieldName: str = "f08") -> int:
@@ -39,9 +42,7 @@ class PersistentIds:
             return NumberValue
         if NodeValue.FieldsValue.get(FieldName, -1) != -1:
             raise ValueError("fresh nodes cannot supply an existing persistent id")
-        NumberValue = self.CounterValue
-        while NumberValue in self.ReservedSet:
-            NumberValue += 1
+        NumberValue = self.NextValue
         if NumberValue >= 0x7FFFFFFF:
             raise ValueError("persistent id space exhausted")
         self.CounterValue = NumberValue + 1

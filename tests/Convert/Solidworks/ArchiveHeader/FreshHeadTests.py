@@ -19,6 +19,13 @@ KFreshHeads = (
         "4be113acd148afb4e2c411de484c6f2f0601cc61eb6fc57db099aea3ed6ec689",
         "787621047929ef65f66c2763678f6e0bf8d324e5d6ddf62612ac4b0759f1ee0b",
     ),
+    (
+        "reserved-tail",
+        10,
+        "8213129218d0444c329576cb3e34226169b953a0ba90cf59f36475a6847a1e5a",
+        "332c5979b533f5209026e99351dd5d2e27da64ede122ba7118adfd1028eab926",
+        "447c66014dff6dd9e3ac55aa02e6304b10fe4fc56da5697892475fdf81c2159f",
+    ),
 )
 
 
@@ -38,6 +45,7 @@ def TestFreshHeads(TmpPath: FilePath) -> None:
         assert (
             TopValue["next_persistent_id"] == ModelValue["next_persistent_id"] == NextId
         )
+        assert Report["subsequent_allocation"] == NextId
         assert (
             TopValue["indices"]
             == ModelValue["indices"]

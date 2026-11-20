@@ -37,7 +37,7 @@ provide all byte emission.
 The three ordinary version-19000 streams each start a map at one.
 The two Headers have separate revision-list nodes and explicitly
 distinct `fec` roles in the fresh recipe. Each reads its own self
-object at standalone slot 13 in the two authored cases. The direct
+object at standalone slot 13 in the authored cases. The direct
 ModelHeader handoff can bind its actual self node after the part class
 and root at configuration slots 1 and 2. In that map the self object
 occupies slot 3 and the inherited base and counter reach 4 without
@@ -53,14 +53,17 @@ observes this direct map operation without emitting `Config-0`.
 
 The [numeric receipt](../measurements/2026/FreshPartHeaders01.json)
 binds all source and verification paths and the observed outputs.
-`straight` and `unicode` construct their own inputs after the
+`straight`, `unicode` and `reserved-tail` construct their own inputs after the
 external-access guard. An independent wire author frames the archive
 class declarations, class reuses, counts, typed text and owner words
-from the declared inputs using `struct`. All six streams match those
+from the declared inputs using `struct`. All nine streams match those
 bytes. Readback verifies both actual standalone owner lists, the
 manager's four entries, exact re-emission and untouched modeled input.
 The cases contrast reserved ID allocation, independent epochs and
 text, description fallback, signed manager state and rebuild status.
+The trailing-reservation case reserves 8 and 9 after allocating 7.
+Both Header counters store 10 and the immediately following allocation
+returns 10. The manager directory bytes remain exact.
 
 The native reference scope is SOLIDWORKS 2026 SP05.2
 `34.5.2.0604`. The two separately run control readers verify the
@@ -75,6 +78,7 @@ cases refuse before yielding a header graph.
 ```sh
 python3.14 -I -B re/tooling/sw2026/CheckFreshHeads.py straight
 python3.14 -I -B re/tooling/sw2026/CheckFreshHeads.py unicode
+python3.14 -I -B re/tooling/sw2026/CheckFreshHeads.py reserved-tail
 python3.14 -I -B re/tooling/sw2026/CheckFreshHeads.py ladder
 python3.14 -I -B re/tooling/sw2026/CheckFreshHeads.py concave
 python3.14 -I -B re/tooling/sw2026/CheckFreshHeads.py refusals

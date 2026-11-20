@@ -11,8 +11,10 @@ self-file node. The directory derives its stamps and text from the
 selected configuration and its part. Foreign owners, conflicting
 selections and unsupported configuration states raise an error.
 
-Two guarded authored cases match all six independently framed
-streams. The existing L1 and ConcaveOwned controls retain six
+Three guarded authored cases match all nine independently framed
+streams. Consecutive reservations after the last allocation advance
+both Header counters to the ID the allocator actually returns.
+The existing L1 and ConcaveOwned controls retain six
 exact streams in separate replay processes. Eleven guard cases
 exercise the construction boundary. This change supplies internal
 graph construction. Complete part emission and public writing

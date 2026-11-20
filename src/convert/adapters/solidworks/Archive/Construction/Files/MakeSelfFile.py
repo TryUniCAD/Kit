@@ -12,7 +12,7 @@ from convert.adapters.solidworks.Archive.Construction.Model.RequireRootNode impo
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
-from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
+from convert.adapters.solidworks.Archive.Construction.Model.GraphValue import (
     FieldInt,
     FieldText,
 )

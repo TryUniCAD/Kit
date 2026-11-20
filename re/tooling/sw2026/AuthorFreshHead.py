@@ -30,6 +30,7 @@ CASES = {
         "root_id": 4,
         "reserved": (5,),
         "feature_ids": (6, 7),
+        "next_id": 8,
         "config_id": 0,
         "config_stamp": 125,
         "geometry_stamp": 167,
@@ -56,6 +57,7 @@ CASES = {
         "root_id": 19,
         "reserved": (20, 21),
         "feature_ids": (22, 23),
+        "next_id": 24,
         "config_id": 3,
         "config_stamp": 4000000012,
         "geometry_stamp": 3000000000,
@@ -66,6 +68,9 @@ CASES = {
         "load_state": 7,
         "sort": -21,
     },
+}
+CASES["reserved-tail"] = {
+    **CASES["straight"], "reserved": (5, 8, 9), "next_id": 10,
 }
 
 
@@ -171,7 +176,7 @@ def header_record(case, role):
         descriptor("moHeader_c")
         + pack("<i", role)
         + header_attribution(case)
-        + pack("<IiHI", case["modified"], case["feature_ids"][-1] + 1, 0, 101)
+        + pack("<IiHI", case["modified"], case["next_id"], 0, 101)
         + self_file(case)
         + pack("<IiiIiiiH", 101, 0, 0, case["created"], 0, 0, 0, 0)
         + pack("<iIIHiiI", 0, 0, case["updated"], 0, 0, 0, 0)
