@@ -11,6 +11,7 @@ from locale import (
 )
 from os import environ as ProcessEnv
 from pathlib import Path as FilePath
+from tempfile import TemporaryDirectory as TempDirectory
 from subprocess import run as RunProcess
 import sys as System
 from typing import Callable, cast as CastValue
@@ -97,7 +98,7 @@ def ObserveGate(RootPath: FilePath) -> dict[str, object]:
 
 
 # a real isolated consumer process must preserve unicode paths under a non utf eight default decoder
-def CheckConsumer(TmpPath: FilePath) -> None:
+def CheckConsumer() -> None:
     PlatformName = System.platform.lower()
     LocaleName = "en_US.UTF-8" if PlatformName == "darwin" else "C.UTF-8"
     ChildEnv = {**ProcessEnv, "PYTHONUTF8": "0", "PYTHONIOENCODING": "ascii:strict"}
@@ -109,7 +110,6 @@ def CheckConsumer(TmpPath: FilePath) -> None:
             "-B",
             "-m",
             "tests.Research.Inference.ControllerUtfEightConsumerTests",
-            str(TmpPath),
         ],
         cwd=KRepoRoot,
         capture_output=True,
@@ -128,4 +128,5 @@ def CheckConsumer(TmpPath: FilePath) -> None:
 
 
 if __name__ == "__main__":
-    print(EncodeJson(ObserveGate(FilePath(System.argv[1])), ensure_ascii=True))
+    with TempDirectory() as Folder:
+        print(EncodeJson(ObserveGate(FilePath(Folder)), ensure_ascii=True))
