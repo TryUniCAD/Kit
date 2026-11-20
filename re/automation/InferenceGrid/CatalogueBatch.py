@@ -11,12 +11,18 @@ import subprocess
 import sys
 
 from InferenceGrid.CatalogueRunPlan import BuildRunPlan, RunOutcome
+from InferenceGrid.CatalogueWorkerConfig import BuildWorkerCfg
 from InferenceGrid.FeatureRoutes import FeatureRecipes
 from InferenceGrid.Provision import CheckRevision
 from Ledger import Ledger
 from Pilot.PilotConfig import PilotConfig
 from Pilot.PilotFiles import WriteRecord
+from Records import bounded, read_record
 from Supervisor import read_config
+
+# the shared supervisor and ledger can admit at most this many workers
+KMaxBatchWorkers = 64
+
 
 # independent routes keep running when another route lacks local prerequisites
 ScopeErrors = (
@@ -32,8 +38,19 @@ ScopeErrors = (
 
 # a private worker store keeps batch results separate from active research work
 def RunCatalogueBatch(
-    Directory, SourceRoot, Revision, Catalogues, MaxSeconds, Native, Advice=None
+    Directory,
+    SourceRoot,
+    Revision,
+    Catalogues,
+    MaxSeconds,
+    Native,
+    Advice=None,
+    *,
+    Reserve=None,
+    Workers=KMaxBatchWorkers,
+    NativeReady=False,
 ):
+    Workers = bounded(Workers, 1, KMaxBatchWorkers)
     CheckRevision(Revision)
     if Directory.is_relative_to(SourceRoot):
         raise ValueError("use a new run directory outside the source checkout")
@@ -41,8 +58,9 @@ def RunCatalogueBatch(
     Directory.mkdir(mode=0o700)
     WriteRecord(Directory / "CataloguePlan.json", Plan)
     Store = Directory / "Store"
-    Config, _, _ = PilotConfig(Directory, SourceRoot, 1)
-    with Ledger(Store, create=True, max_running=1):
+    Config, _, _ = PilotConfig(Directory, SourceRoot, Workers, GroupRescans=False)
+    ClaimLimit = Workers if Native is None else KMaxBatchWorkers
+    with Ledger(Store, create=True, max_running=ClaimLimit):
         pass
     if Native is not None:
         NativeConfig, _, _ = Native
@@ -50,27 +68,20 @@ def RunCatalogueBatch(
         if Controller != {"adapter": "a03", "store": str(Store)}:
             raise ValueError("native supervisor must use this run's private A03 store")
     Submissions, Results = SubmitCatalogue(Directory, Plan, Store, Revision)
-    Failures = []
-    PhaseJobs = {}
+    PhaseJobs, Failures = {}, []
     if Submissions:
-        Failure = RunSupervisor(
-            Directory, SourceRoot, Config, MaxSeconds, "Offline", Advice
+        PhaseJobs, Failures = RunPipeline(
+            Directory,
+            SourceRoot,
+            Plan,
+            Submissions,
+            Config,
+            Native,
+            MaxSeconds,
+            Advice,
+            Reserve,
+            NativeReady,
         )
-        if Failure:
-            Failures.append(Failure)
-        if Native is not None:
-            try:
-                PhaseJobs = AdvanceCatalogue(Plan, Store, Submissions, Native)
-                if PhaseJobs:
-                    Failure = RunSupervisor(
-                        Directory, SourceRoot, Native[0], MaxSeconds, "Native"
-                    )
-                    if Failure:
-                        Failures.append(Failure)
-            except ScopeErrors as Error:
-                Failures.append(
-                    {"stage": "native_evidence", "reason": str(Error)[:2048]}
-                )
     Results.update(ReadCatalogueJobs(Store, Submissions, PhaseJobs))
     Outcome = RunOutcome(Plan, Results, Failures)
     WriteRecord(Directory / "CatalogueResult.json", Outcome)
@@ -108,22 +119,95 @@ def SubmitCatalogue(Directory, Plan, Store, Revision):
     return Submissions, Results
 
 
-# only explicitly configured native experiments can advance a parked assessment
-def AdvanceCatalogue(Plan, Store, Submissions, Native):
-    Config, Kind, Resource = Native
-    Phases = {}
-    for Scope, Identity in Plan["scopes"].items():
-        Recipe = FeatureRecipes[Identity]
-        if Scope in Submissions and Recipe.Advance is not None:
-            Result = Recipe.Advance(Store, Config, Kind, Resource, 0)
-            if Result["status"] == "experiment_attached":
-                Phases[Scope] = Result["phase_jobs"]
-    return Phases
+# only submitted scopes with reviewed experiments may extend the native queue
+def PlanHandoffs(Directory, Plan, Submissions, Native):
+    if Native is None:
+        return None
+    _, KindName, Resource = Native
+    Assessments = {
+        Submissions[Scope]["assessment_job"]: Identity
+        for Scope, Identity in Plan["scopes"].items()
+        if Scope in Submissions and FeatureRecipes[Identity].Advance is not None
+    }
+    if not Assessments:
+        return None
+    return WriteRecord(
+        Directory / "NativeHandoffs.json",
+        {"kind": KindName, "resource": Resource, "assessments": Assessments},
+    )
+
+
+# one scheduler overlaps independent work while preserving accepted dependencies
+def RunPipeline(
+    Directory,
+    SourceRoot,
+    Plan,
+    Submissions,
+    Config,
+    Native,
+    MaxSeconds,
+    Advice,
+    Reserve,
+    NativeReady,
+):
+    Failures, Phases = [], {}
+    Handoffs = None
+    Stage = "Offline"
+    try:
+        Handoffs = PlanHandoffs(Directory, Plan, Submissions, Native)
+        if Handoffs is not None:
+            NativePath, KindName, Resource = Native
+            PipelineConfig = BuildWorkerCfg(
+                Directory, Config, NativePath, KindName, Resource
+            )
+            if NativeReady:
+                with Ledger(Directory / "Store") as State:
+                    State.resource(Resource, available=True, capacity=1)
+            Config = PipelineConfig
+            Stage = "Pipeline"
+    except ScopeErrors as Error:
+        Handoffs = None
+        Failures.append({"stage": "native_evidence", "reason": str(Error)[:2048]})
+    Failure = RunSupervisor(
+        Directory,
+        SourceRoot,
+        Config,
+        MaxSeconds,
+        Stage,
+        Advice,
+        Reserve=Reserve,
+        Handoffs=Handoffs,
+    )
+    if Failure:
+        Failures.append(Failure)
+    if Handoffs is not None:
+        HandoffResult = Directory / "NativeHandoffResult.json"
+        if HandoffResult.is_file():
+            Record = read_record(HandoffResult)
+            Phases = Record["phases"]
+            Failures.extend(Record["failures"])
+        elif not Failure:
+            Failures.append(
+                {"stage": "native_evidence", "reason": "missing handoff result"}
+            )
+    return Phases, Failures
 
 
 # the established supervisor executes each claim and retains its own durable receipts
-def RunSupervisor(Directory, SourceRoot, Config, MaxSeconds, Stage, Advice=None):
+def RunSupervisor(
+    Directory,
+    SourceRoot,
+    Config,
+    MaxSeconds,
+    Stage,
+    Advice=None,
+    *,
+    Reserve=None,
+    Handoffs=None,
+):
     AdviceArgs = Advice.arguments() if Advice else []
+    MemoryArgs = [] if Reserve is None else ["--reserved-memory-mib", str(Reserve)]
+    HandoffArgs = [] if Handoffs is None else ["--catalogue-handoffs", str(Handoffs)]
     AdviceSeconds = 90 * Advice.calls if Advice else 0
     try:
         with (Directory / f"{Stage}Supervisor.log").open("xb") as Log:
@@ -140,6 +224,8 @@ def RunSupervisor(Directory, SourceRoot, Config, MaxSeconds, Stage, Advice=None)
                     "--max-seconds",
                     str(MaxSeconds),
                     *AdviceArgs,
+                    *MemoryArgs,
+                    *HandoffArgs,
                 ],
                 cwd=SourceRoot,
                 stdout=Log,
