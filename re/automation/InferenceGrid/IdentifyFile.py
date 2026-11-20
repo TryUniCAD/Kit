@@ -34,6 +34,11 @@ def identify_file(data):
         return "asm", ".smb"
     if ProbeFusion(data).confidence == 1:
         return "fusion", ".f3d"
+    if data.startswith(b"PK\x03\x04"):
+        from convert.adapters.freecad.Native import ProbeNative
+
+        if ProbeNative(data)[0] > 0:
+            return "freecad", ".FCStd"
     try:
         archive = SldprtArchive.FromBytes(data)
     except (ValueError, SldprtFormatError):

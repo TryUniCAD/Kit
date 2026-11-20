@@ -293,3 +293,5 @@ Use a single-parameter edit to [compare generated scalar readings across two nat
 For known native captures, the single-input command [selects measured controls automatically](../Changes/Research/Inference/AutomaticScalarControls.md).
 
 For an unrecognized ZIP package, inspect [member structure and cross-file references](../Changes/Research/Inference/UnknownArchiveMembers.md).
+
+[Native FreeCAD input](../Changes/Research/Inference/FreeCadFileResearch.md) also runs the neutral feature reader and compares matching recorded controls.

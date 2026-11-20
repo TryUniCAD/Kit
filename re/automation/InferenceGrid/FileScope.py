@@ -36,9 +36,13 @@ def file_scope(path, application, scratch, root, control_paths=()):
             return raw_scope(data, path, pin, application, root, scratch, control_paths)
     source = scratch / ("input" + suffix)
     source.write_bytes(data)
+    package = None
+    if application == "freecad":
+        from InferenceGrid.IdentifyFile import inspect_zip
+        package = inspect_zip(data)
     del data
     env = {**os.environ, "PYTHONPATH": os.pathsep.join(map(str, (root / "src", root / "Cli")))}
-    format_id = "fusion.f3d" if application == "fusion" else "solidworks" + suffix
+    format_id = {"fusion": "fusion.f3d", "freecad": "freecad.fcstd"}.get(application, "solidworks" + suffix)
     controls = []
     if control_paths:
         from InferenceGrid.SolidWorksFieldDiscovery import snapshot_controls
@@ -47,6 +51,8 @@ def file_scope(path, application, scratch, root, control_paths=()):
     attempts = {}
     reports = {}
     for phase, flags in (("container", ["--layer", "container"]), ("strict", []), ("partial", ["--partial"]), ("native", ["--layer", "native"])):
+        if phase == "container" and application == "freecad":
+            continue
         if phase == "partial" and "strict" in reports:
             continue
         if phase == "native" and application != "fusion":
@@ -94,11 +100,14 @@ def file_scope(path, application, scratch, root, control_paths=()):
                 route = "api:adsk.fusion.ExtrudeFeature" if application == "fusion" else "family:extrude:boss-base-extrude"
         if step.get("sketch_id") in rectangles and kind in ("reference", "sketch"):
             route = "family:sketchdimensions:driving-dimension"
-        if route:
+        if route and application in {"fusion", "solidworks"}:
             features[route] = {"plan_id": digest([pin, route]), "route": DescribeRecipe(FeatureRecipes[route])}
         else:
             unresolved.append({"id": step["id"], "kind": kind, "name": step["name"]})
     members = reports.get("container", {}).get("members", [])
+    if package:
+        reports["raw-structure"] = {"status": "inspected_zip", "package": package}
+        members = [{"name": name, "size": row["size"]} for name, row in package.get("members", {}).items()]
     intervals = defaultdict(list)
     pending = [document]
     while pending:
@@ -129,6 +138,29 @@ def file_scope(path, application, scratch, root, control_paths=()):
              "features_without_experiment": unresolved, "selected_experiments": sorted(features),
              "diagnostics": document.get("diagnostics", {}).get("$tuple", []),
              "whole_file_verified": False}
+    if application == "freecad":
+        from runpy import run_path
+        cases = run_path(str(root / "re/FreeCad/Verification/Cases.py"))["KCases"]
+        for case in cases.values():
+            if case["sha256"] != pin:
+                continue
+            actual = defaultdict(list)
+            for parameter in document.get("parameters", {}).get("$tuple", []):
+                actual[parameter["id"]].append(parameter)
+            checks = []
+            for expected in case.get("parameters", []):
+                matches = actual[expected["id"]]
+                observed = None
+                if len(matches) == 1:
+                    value = matches[0]
+                    observed = {"id": value["id"], "owner": value["owner_id"],
+                                "value": value["value"]["value"], "unit": value["value"]["unit"]}
+                    if value.get("expression"):
+                        expr = value["expression"]
+                        observed.update(expression=expr["source"], targets=expr["parameter_ids"]["$tuple"])
+                checks.append({"expected": expected, "observed": observed, "matches": observed == expected})
+            reports["saved-control"] = {"source_sha256": pin, "expected_mode": case["mode"], "parameters": checks}
+            break
     if application == "solidworks" and suffix == ".sldprt" and reports.get("container", {}).get("members"):
         from InferenceGrid.SolidWorksDimensionEvidence import dimension_evidence
         reports["dimension-evidence"] = dimension_evidence(root, source, pin, document, controls)
