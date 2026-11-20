@@ -38,6 +38,8 @@ MEMBERS = {
 RGB = (53, 137, 211)
 ROUGHNESS = {"A": 0.3125, "B": 0.6875}
 COLOR = sum(channel << (8 * index) for index, channel in enumerate(RGB))
+PUBLISHED_STOCK_COLOR = 0xE5E5E5
+AUTHORING_PROTOCOL = "set-primary-color-on-published-row-once"
 PART_NAME = "DisclosedRadialSceneProbe.SLDPRT"
 
 
@@ -108,6 +110,7 @@ def verify(packet, expected):
             and packet.name == "Trial.json" and root == Path(job["guest_root"])
             and HERE == root / "Tools" / HERE.name
             and job["part_name"] == PART_NAME
+            and job["authoring_protocol"] == AUTHORING_PROTOCOL
             and job["rgb"] == list(RGB) and job["roughness"] == ROUGHNESS and job["heldout_inputs_read"] is False,
             "wrong disclosed appearance packet")
     for relative, wanted in job["files_sha256"].items():
@@ -157,15 +160,21 @@ def material_ids(author, material):
     return ids, None if status is None else bool(status)
 
 
-def observed_material(author, extension, model, selector, names, asset, data_root, roughness):
-    rows = tuple(author.get(extension, "GetRenderMaterials2", selector, names) or ())
-    require(len(rows) == 1, "bounded probe requires one actual current-state render material")
-    material = author.typed(rows[0], "RenderMaterial")
+def same_identity(author, first, second):
+    iid = author.sw.pythoncom.IID_IUnknown
+    return first._oleobj_.QueryInterface(iid) == second._oleobj_.QueryInterface(iid)
+
+
+def render_values(author, material):
+    return {"primary_color": int(author.get(material, "PrimaryColor")), "roughness": float(author.get(material, "Roughness"))}
+
+
+def observed_material(author, material, model, asset, data_root):
+    values = render_values(author, material)
     entities = tuple(author.get(material, "GetEntities") or ())
     require(len(entities) == 1, "render material does not have precisely one self owner")
     owner = author.typed(entities[0], "ModelDoc2")
-    iid = author.sw.pythoncom.IID_IUnknown
-    require(owner._oleobj_.QueryInterface(iid) == model._oleobj_.QueryInterface(iid)
+    require(same_identity(author, owner, model)
             and int(author.get(owner, "GetType")) == 1
             and Path(author.get(owner, "GetPathName")).samefile(author.get(model, "GetPathName")),
             "render material selected a different COM document, component or body")
@@ -173,15 +182,24 @@ def observed_material(author, extension, model, selector, names, asset, data_roo
     prefix = "<SystemTexture>"
     actual = Path(data_root) / filename[len(prefix):].lstrip("\\/") if filename.startswith(prefix) else Path(filename)
     require(actual.samefile(asset), "render material does not resolve to the pinned installed asset")
-    actual_color = int(author.get(material, "PrimaryColor"))
-    actual_roughness = float(author.get(material, "Roughness"))
-    require((actual_color, actual_roughness) == (COLOR, roughness), "native readback differs from authored colour or roughness")
     ids, status = material_ids(author, material)
     return {"ids": list(ids), "get_ids_result": status, "same_model_iunknown": True, "entity_count": 1,
-            "filename": filename, "asset_sha256": digest(asset), "primary_color": actual_color, "roughness": actual_roughness}
+            "filename": filename, "asset_sha256": digest(asset)} | values
 
 
-def appearance(author, model, asset, job, roughness, editing):
+def acquire_material(author, extension, model, selector, names, asset, data_root):
+    rows = tuple(author.get(extension, "GetRenderMaterials2", selector, names) or ())
+    require(len(rows) == 1, "bounded probe requires one actual current-state render material")
+    material = author.typed(rows[0], "RenderMaterial")
+    return material, observed_material(author, material, model, asset, data_root)
+
+
+def require_intent(evidence, color, roughness, stage):
+    require((evidence["primary_color"], evidence["roughness"]) == (color, roughness),
+            f"{stage} did not retain the bound colour and roughness: {evidence['primary_color']}, {evidence['roughness']}")
+
+
+def appearance(author, model, asset, job, roughness, editing, checkpoints, stage):
     sw = author.sw
     extension = author.typed(author.get(model, "Extension"), "ModelDocExtension")
     manager = author.typed(author.get(model, "ConfigurationManager"), "ConfigurationManager")
@@ -190,23 +208,40 @@ def appearance(author, model, asset, job, roughness, editing):
     require(int(author.get(config, "GetDisplayStatesCount")) == 1 and display, "expected one actual active display state")
     selector = job["installed"]["specified_state_selector"]
     names = sw.VARIANT(sw.pythoncom.VT_ARRAY | sw.pythoncom.VT_BSTR, [display])
+    data_root = job["installed"]["asset"]["data_root"]
+    selected = {"configuration": str(author.get(config, "Name")), "display_state": str(display)}
     if editing:
-        material = author.typed(author.get(extension, "CreateRenderMaterial", str(asset)), "RenderMaterial")
-        author.set(material, "PrimaryColor", COLOR)
-        author.set(material, "Roughness", roughness)
-        require(author.get(material, "AddEntity", model) is True, "the native render API refused its part-scope entity")
+        creator = author.typed(author.get(extension, "CreateRenderMaterial", str(asset)), "RenderMaterial")
+        author.set(creator, "PrimaryColor", COLOR)
+        author.set(creator, "Roughness", roughness)
+        checkpoints["creator_requested"] = render_values(author, creator)
+        require(author.get(creator, "AddEntity", model) is True, "the native render API refused its part-scope entity")
+        checkpoints["creator_after_attach"] = render_values(author, creator)
         first, second = (sw.byref_long() for _ in range(2))
         first.value = second.value = -1
-        require(author.get(extension, "AddDisplayStateSpecificRenderMaterial", material, selector, names, first, second) is True,
+        require(author.get(extension, "AddDisplayStateSpecificRenderMaterial", creator, selector, names, first, second) is True,
                 "the native render API did not publish its selected state material")
         published = [int(first.value), int(second.value)]
         require(published != [-1, -1], "published material lacks its explicit ID pair")
+        checkpoints["creator_after_publication"] = render_values(author, creator) | {"published_ids": published}
+        target, prior = acquire_material(author, extension, model, selector, names, asset, data_root)
+        checkpoints["published_before_set"] = prior | selected | {"same_creator_iunknown": same_identity(author, target, creator)}
+        require(prior["ids"] == published, "actual selected-state material does not own the published IDs")
+        require_intent(prior, PUBLISHED_STOCK_COLOR, roughness, "published pre-set contrast")
+        author.rec.call("set published PrimaryColor once", setattr, target, "PrimaryColor", COLOR, parameters={"value": COLOR})
+        direct = observed_material(author, target, model, asset, data_root) | selected
+        checkpoints["published_set_direct"] = direct
+        successor, observed = acquire_material(author, extension, model, selector, names, asset, data_root)
+        checkpoints[stage] = observed | selected | {"same_published_iunknown": same_identity(author, successor, target)}
+        require(direct["ids"] == published, "direct setter readback changed its actual material ID pair")
+        require_intent(direct, COLOR, roughness, "direct published setter")
     else:
         published = None
-    observed = observed_material(author, extension, model, selector, names, asset, job["installed"]["asset"]["data_root"], roughness)
+        _, observed = acquire_material(author, extension, model, selector, names, asset, data_root)
+        checkpoints[stage] = observed | selected
     require(published is None or published == observed["ids"], "the published material and selected state returned different IDs")
-    return observed | {"configuration": str(author.get(config, "Name")), "display_state": str(display),
-                       "published_ids": published}
+    require_intent(observed, COLOR, roughness, stage)
+    return observed | selected | {"published_ids": published}
 
 
 def appearance_signature(row):
@@ -271,15 +306,18 @@ def phase(packet, expected, role):
                 author.model = model
                 result["initial"] = circle.initial_state(author, job["radial"]["case"])
                 require(result["initial"]["passed"], "initial part lacks its body and requested feature owners")
-                result["geometry"] = radial.capture(author, job["radial"], 1.0)
-                result["appearance"] = appearance(author, model, asset, job, ROUGHNESS[lane], editing)
+                if editing:
+                    result["geometry"] = radial.capture(author, job["radial"], 1.0)
+                checkpoints = result["appearance_checkpoints"] = {}
+                initial_stage = "reacquired_after_set" if editing else "cold_reopen"
+                result["appearance"] = appearance(author, model, asset, job, ROUGHNESS[lane], editing, checkpoints, initial_stage)
                 result["rebuild_geometry"] = radial.capture(author, job["radial"], 1.0)
-                require(result["rebuild_geometry"]["tree"] == result["geometry"]["tree"], "appearance changed the actual feature tree")
-                refreshed = appearance(author, model, asset, job, ROUGHNESS[lane], False)
+                refreshed = appearance(author, model, asset, job, ROUGHNESS[lane], False, checkpoints, "rebuilt_reacquired")
                 result["rebuilt_appearance"] = refreshed
                 require(appearance_signature(refreshed) == appearance_signature(result["appearance"]),
                         "appearance changed on rebuild")
                 if editing:
+                    require(result["rebuild_geometry"]["tree"] == result["geometry"]["tree"], "appearance changed the actual feature tree")
                     err, warn = (Swapp.byref_long() for _ in range(2))
                     status = author.get(model, "Save3", Swapp.SAVE_SILENT, err, warn)
                     result["save_status"] = [bool(status), int(err.value), int(warn.value)]
@@ -304,6 +342,7 @@ def phase(packet, expected, role):
         verify(packet, expected)
         if not control:
             actual = digest(working)
+            result["working_sha256"] = actual
             if editing and result["save_count"] == 1:
                 require(actual != job["baseline_sha256"], "native save did not change the owned derivative")
                 snapshot = directory / working.name
@@ -311,8 +350,8 @@ def phase(packet, expected, role):
                     stream.write(working.read_bytes())
                 require(digest(snapshot) == actual, "immutable saved snapshot does not match the owned derivative")
                 result["saved_sha256"] = actual
-            elif not editing:
-                require(actual == expected_source, "read-only reopen changed the saved file")
+            else:
+                require(actual == expected_source, "phase without a clean native save changed its exact input")
     except Exception as error:
         rec.failure(error, cleanup=True)
     result.update(dialogs=monitor.log, numeric_checks=len(rec.data["checks"]), first_failure=rec.data["first_failure"])
