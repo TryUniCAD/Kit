@@ -1,0 +1,257 @@
+{
+  "aggregate_reference_sha256": {
+    "re/solidworks/measurements/2026/SdkDefaultPartNative01.json": "273b95745b147c6acaf4e51130bd521687651ad65d2edcb29f79ab50a9c3b7bc",
+    "re/solidworks/measurements/2026/SdkSavedBiography01.json": "aa77c46d66e39f218831a5323d8467f6d731a446a6c3df6ffc9456eed142fa23",
+    "re/solidworks/records/HistoryConstruction2026.md": "605c79dbef397c8ac5d979943bbc78fcc26f63f33ba87d650c11135083600ca1",
+    "re/solidworks/v2026/Manifest2026.json": "e046379b265c216a40c2dc29e9a93afb3377401e23fa5044ebb7ff44667d3909",
+    "re/solidworks/v2026/corpus/curves-discovery/PrivacyLedger.json": "386ccad9eedb0b747f264490c9ef10f4e42debec006a14efeecaf096d8141e7c",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/HistoryInput.py": "fe725f478d0b950ae352f22b7d9daf8a31a5127305d41c23e07de8fd4d2c4060",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeBiography.py": "7afe5cc7a6d86c7bf1000b23b4386da8cab607a951ef339c36066c5c364282fd",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeFreshHist.py": "eb21500b68700e08aa0b54ff429c1bfb2511f41b781a72e92884d730cc55d41e",
+    "src/convert/adapters/solidworks/Archive/History/BiographyLayouts.py": "d80d1dc2e07ff4f548fe9b774f11cafb6cea4ec112879c492d95293e6b0e8748",
+    "src/convert/adapters/solidworks/Archive/History/HistoryLayouts.py": "c5b96b15f25ab3ee5d647635531a7bf8e8975d9cb860a83c7618b0f10c3b92d3",
+    "src/convert/adapters/solidworks/Archive/History/ReadHistMut.py": "491a4c48eb859f180106bd6dc43322a468a94bf50d870fba0acbf069c0d2ffe8",
+    "src/convert/adapters/solidworks/Archive/History/WriteHistMut.py": "eed1655c8f3a08ccab6c63455ca3a80e1f27c58e6f958f2a9682a293efb3eac6"
+  },
+  "aggregate_revision": "df25ff93a08d05ddba0f64e2dd7e5eba82e8bdd2",
+  "annulus_compound_stream_count": 40,
+  "archive_version": 19000,
+  "build_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "build_executable_version": "34.5.2.0604",
+  "controls": {
+    "annulus": {
+      "bytes": 71454,
+      "original_source_sha256": "f2d1bafc081e1576bf3542076ae2d346bdc792c8585b2d20121fb09e68965294",
+      "path": "re/solidworks/v2026/corpus/curves-discovery/D19Annulus.SLDPRT",
+      "reference": "re/solidworks/v2026/corpus/curves-discovery/Manifest.json",
+      "reference_sha256": "83fdec0c415f6b2152d8df6bb12deba1b24313e8580597452505b139ec59a42e",
+      "sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439",
+      "source_role": "SOLIDWORKS authored discovery case with published privacy normalization",
+      "streams": {
+        "Biography": {
+          "bytes": 1561,
+          "counter": 3,
+          "map": [
+            [
+              1,
+              "RuntimeClass",
+              "moBiography_c"
+            ],
+            [
+              2,
+              "ArchiveNode",
+              "moBiography_c"
+            ]
+          ],
+          "n": 2,
+          "sha256": "16c51ae30278ce2f4c0d34eaa0bcdfbb78b244e0a33b1cbfbfaea37395281b26"
+        },
+        "History": {
+          "bytes": 101,
+          "counter": 5,
+          "date_counts": [
+            1
+          ],
+          "map": [
+            [
+              1,
+              "RuntimeClass",
+              "moVersionHistory_c"
+            ],
+            [
+              2,
+              "ArchiveNode",
+              "moVersionHistory_c"
+            ],
+            [
+              3,
+              "RuntimeClass",
+              "moDateCodeHistory_c"
+            ],
+            [
+              4,
+              "ArchiveNode",
+              "moDateCodeHistory_c"
+            ]
+          ],
+          "n": 1,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "version": [
+            19000
+          ]
+        }
+      }
+    },
+    "concave": {
+      "bytes": 10890,
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "reference": "re/solidworks/measurements/2026/LocalImportReadbackFixtures01.json",
+      "reference_sha256": "872ab1c859fcf3ee4752f26ebc36f3dde9c112c9460eeeef6be7e6e54ec76f8d",
+      "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "source_role": "Kit generated candidate with existing native lifecycle receipt",
+      "streams": {
+        "Biography": {
+          "bytes": 23,
+          "counter": 3,
+          "map": [
+            [
+              1,
+              "RuntimeClass",
+              "moBiography_c"
+            ],
+            [
+              2,
+              "ArchiveNode",
+              "moBiography_c"
+            ]
+          ],
+          "n": 0,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "History": {
+          "bytes": 187,
+          "counter": 5,
+          "date_counts": [
+            1
+          ],
+          "map": [
+            [
+              1,
+              "RuntimeClass",
+              "moVersionHistory_c"
+            ],
+            [
+              2,
+              "ArchiveNode",
+              "moVersionHistory_c"
+            ],
+            [
+              3,
+              "RuntimeClass",
+              "moDateCodeHistory_c"
+            ],
+            [
+              4,
+              "ArchiveNode",
+              "moDateCodeHistory_c"
+            ]
+          ],
+          "n": 1,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7",
+          "version": [
+            19000
+          ]
+        }
+      }
+    },
+    "ladder": {
+      "bytes": 56249,
+      "original_source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "reference": "re/solidworks/v2026/corpus/ladder/Manifest.json",
+      "reference_sha256": "7c84fd4ef75ecf5f8b0cf00fbc12e932aa7e7955ecb5bb414c22d309f9362e79",
+      "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "source_role": "SOLIDWORKS authored control with width preserving privacy normalization",
+      "streams": {
+        "Biography": {
+          "bytes": 1541,
+          "counter": 3,
+          "map": [
+            [
+              1,
+              "RuntimeClass",
+              "moBiography_c"
+            ],
+            [
+              2,
+              "ArchiveNode",
+              "moBiography_c"
+            ]
+          ],
+          "n": 2,
+          "sha256": "8bdb6a02f4043b6addfb3acd0ff11dbbaf28f1190fb0627b19fb372e4673ee70"
+        },
+        "History": {
+          "bytes": 101,
+          "counter": 5,
+          "date_counts": [
+            1
+          ],
+          "map": [
+            [
+              1,
+              "RuntimeClass",
+              "moVersionHistory_c"
+            ],
+            [
+              2,
+              "ArchiveNode",
+              "moVersionHistory_c"
+            ],
+            [
+              3,
+              "RuntimeClass",
+              "moDateCodeHistory_c"
+            ],
+            [
+              4,
+              "ArchiveNode",
+              "moDateCodeHistory_c"
+            ]
+          ],
+          "n": 1,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "version": [
+            19000
+          ]
+        }
+      }
+    }
+  },
+  "exact_control_streams": 6,
+  "guarded_process_reports": {
+    "annulus": {
+      "runtime_external_accesses": 0,
+      "sha256": "dc6bf4f2f40c1c9fef6410ed270a6ac841fe0f7f367b6da0668fb5e55de881a2"
+    },
+    "authored": {
+      "runtime_external_accesses": 0,
+      "sha256": "744bc09b7d5fa901a0bcbc0f236e30081be3cd12c9ce46e5fd94746abbe576a6"
+    },
+    "concave": {
+      "runtime_external_accesses": 0,
+      "sha256": "ce84871771f4ecc697daeed84a365def09c5847324deb994e29c88b1cbd32aa1"
+    },
+    "ladder": {
+      "runtime_external_accesses": 0,
+      "sha256": "c158115ceb35ab4e947e7b5f086f66ed208976c4afc6faaa631ab4f0b0608317"
+    }
+  },
+  "guarded_source_sha256": {
+    "re/tooling/sw2026/CheckHistory.py": "ea6b53791b1f4df81295dad17e782acec3af35ce2920f4ccd8d2f3f24f9b2030",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/HistoryInput.py": "fe725f478d0b950ae352f22b7d9daf8a31a5127305d41c23e07de8fd4d2c4060",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeBiography.py": "7afe5cc7a6d86c7bf1000b23b4386da8cab607a951ef339c36066c5c364282fd",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeFreshHist.py": "eb21500b68700e08aa0b54ff429c1bfb2511f41b781a72e92884d730cc55d41e",
+    "src/convert/adapters/solidworks/Archive/History/BioLayouts.py": "6003189db85c9f9719e8f7141bd88f5b83072f6c74858182c43a6b11bde90fbd",
+    "src/convert/adapters/solidworks/Archive/History/BioSpanFields.py": "58ef09ef83a9ea1a3966773a707f87669a637221885d5cc8311cda50efa708d3",
+    "src/convert/adapters/solidworks/Archive/History/CheckHistRefs.py": "6f200f2bfc377dbc0ef2283546207d31acdd4ec8f932a8de62bc194a23d66931",
+    "src/convert/adapters/solidworks/Archive/History/CheckHistRoot.py": "a6f6279c050abb0ef438afe4751ce65ed7806626df21eba004a4de7d595f7290",
+    "src/convert/adapters/solidworks/Archive/History/HistoryGraph.py": "e93c018764adb6b9d70b762bfb7b8f6ab99399ff9025adff0454b707707c41b0",
+    "src/convert/adapters/solidworks/Archive/History/HistoryLayouts.py": "10a9f6ea46353b7519cece7883acf6d5e66621bb54aad8125e2a0c0b529c4a9e",
+    "src/convert/adapters/solidworks/Archive/History/HistoryTypes.py": "a30576cb3a2bcbd686d41dbd7d676940bfb5ffc77b676abdabf25483f96fd5aa",
+    "src/convert/adapters/solidworks/Archive/History/MakeHistCtx.py": "da3fee9e7ff26d99f2f2fb7d963b3dd5d69ffd08f04cba1546bf166dd12f6bda",
+    "src/convert/adapters/solidworks/Archive/History/ReadHistBodyMut.py": "6a5b7dfeae6ec98e027c4ba99f311c6bcced71a4f533caaaac7640aed2bf3f9b",
+    "src/convert/adapters/solidworks/Archive/History/ReadHistGraph.py": "5123ccdcd00f7127b7928cb4a95ef16384367bbd0fea1c114a25e16b9d9188d1",
+    "src/convert/adapters/solidworks/Archive/History/WriteHistGraph.py": "9b33ebfeb5e8acc05baf8e104d8b6288f6489f30f89e62843a019d219704027e",
+    "tests/Convert/Solidworks/Archive/HistoryTests.py": "e03c7489240976a8cd2eba81e85bdf3908fc8917322d51e0c1a02226dba421ff",
+    "tests/Convert/Solidworks/Archive/HistoryWireTest.py": "5bf18ad4869604057fdeb2e8a5ba19c971f6f66d753dcf9522b33c878f2d25dc",
+    "tests/Convert/Solidworks/Archive/RunHistoryCase.py": "bb6bf33de2949d9d27364c100286040f774f374c60dbd12877ee0fb5c98a9304"
+  },
+  "heldout_cases": 0,
+  "independently_framed_authored_streams": 4,
+  "new_native_trials": 0,
+  "physical_format": 4,
+  "prepared_base": "6a7a542393913c09b923e4032b3329c41ec8562c",
+  "refusals": 12,
+  "schema": "kit.sw2026.bounded-history-stream-sources.v1"
+}

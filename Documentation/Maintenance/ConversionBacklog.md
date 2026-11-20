@@ -242,6 +242,17 @@ and current revision queue and review evidence. Complete configuration
 writing and native file admission have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
 
+### B04-SW2026-HISTORY-STREAMS
+
+The PR #121 takeover team owns this standalone History and Biography
+codec on `codex/solidworks-stream-history` for separate main delivery.
+It reuses the archive body fields and the branch writer in PR #199.
+Exit requires exact disclosed stream and map comparisons, independently
+authored provenance and count cases, bounded refusals, and current
+revision queue and review evidence. Complete part assembly and native
+writer registration have separate exits.
+[Change entry](../Changes/Solidworks/Archive/Metadata/SolidworksHistoryStreamCodec.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent owns this active reader compatibility task.

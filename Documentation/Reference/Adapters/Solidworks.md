@@ -126,6 +126,11 @@ from typed rows. Its bounded emission preserves native state normalization
 under the actual archive conditions.
 [Atom manager emission](../../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
 
+The internal version-19000 History and Biography codec uses an independent
+archive map for each stream. It preserves existing biography telemetry
+and supports fresh history with explicit creation and build provenance.
+[Standalone history scope](../../Changes/Solidworks/Archive/Metadata/SolidworksHistoryStreamCodec.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
