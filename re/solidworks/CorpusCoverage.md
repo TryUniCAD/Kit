@@ -112,6 +112,11 @@ refuses typed dependency publication for either crossed or missing
 owners. The generated cache-free file uses a geometry-free read for this
 proof. This adds zero FCStd corpus cases.
 
+A [strict read extension](measurements/2026/SdkColdWidthDepthGeometry01.json)
+matches the cache-free generated equation part and its plain control
+in topology, volume, area and centre of mass. Two saved controls retain
+their native payloads and nine faults refuse strict reconstruction.
+
 Two [public SDK blank drawing cases](measurements/2026/SdkPublicBlankDrawingHeldout01.json)
 matched their pre-registration locked native sources through rebuild, scale
 edit, save and fresh reopen. The guarded builds use independently authored

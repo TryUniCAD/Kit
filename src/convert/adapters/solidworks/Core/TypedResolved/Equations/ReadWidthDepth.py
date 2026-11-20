@@ -3,6 +3,7 @@ from collections import Counter
 from convert.adapters.solidworks.Archive.Construction.System.SystemClasses import (
     KSystemFolders,
 )
+from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Equations.CheckEqBoss import (
     CheckEqBoss,
@@ -33,7 +34,9 @@ from interchange.geometry.Models.Transform import KTransformIdentity
 
 
 # the scoped expression needs the actual projected sketch and live blind depth before public parameters can be bound
-def ReadWidthDepth(Model: NativeModel, LinkValue: NativeLink) -> WidthDepthLink:
+def ReadWidthDepth(
+    Model: NativeModel, LinkValue: NativeLink, SourceValue: SldprtArchive
+) -> WidthDepthLink:
     RootValue = RequireNative(LinkValue.ConfigValue.RootValue, "moPart_c")
     FeatureNodes = IndexFeatures(LinkValue)
     Expected = {
@@ -72,6 +75,7 @@ def ReadWidthDepth(Model: NativeModel, LinkValue: NativeLink) -> WidthDepthLink:
     if (
         DepthValue.DepthValue.name != "D1"
         or MetresValue is None
+        or WidthValue.ParamValue.FieldsValue.get("f58") != WidthValue.MetresValue
         or MetresValue != WidthValue.MetresValue / 2
     ):
         raise ValueError("local width-depth equation disagrees with live depth")
@@ -83,7 +87,9 @@ def ReadWidthDepth(Model: NativeModel, LinkValue: NativeLink) -> WidthDepthLink:
     ):
         raise ValueError("local width-depth equation has ambiguous dimension names")
     WidthText, DepthText = f'"D1@{WidthName}"', f'"D1@{DepthName}"'
-    Relation, DepthToken, WidthToken = ReadEqTokens(RootValue, DepthText, WidthText)
+    Relation, DepthToken, WidthToken, RelationNodes = ReadEqTokens(
+        RootValue, DepthText, WidthText
+    )
     WidthComp, WidthOwner = ReadEqRef(
         LinkValue, WidthToken, WidthValue.HandleValue, WidthValue.MetresValue
     )
@@ -94,7 +100,8 @@ def ReadWidthDepth(Model: NativeModel, LinkValue: NativeLink) -> WidthDepthLink:
         raise ValueError("local equation dimension clones share a component owner")
     RightText = f"{WidthText} / 2"
     return WidthDepthLink(
-        LinkValue.ConfigValue,
+        SourceValue,
+        LinkValue,
         f"{DepthText} = {RightText}",
         RightText,
         Sketch.object_id,
@@ -102,4 +109,5 @@ def ReadWidthDepth(Model: NativeModel, LinkValue: NativeLink) -> WidthDepthLink:
         NativeNodeSpan(LinkValue, Relation),
         WidthOwner,
         DepthOwner,
+        RelationNodes,
     )

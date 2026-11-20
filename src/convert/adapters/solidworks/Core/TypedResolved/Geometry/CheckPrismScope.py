@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPublicGeom imp
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadWidthDepth import (
+    ReadWidthDepth,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckGeometryState import (
     CheckGeometry,
 )
@@ -37,13 +40,23 @@ def CheckPrismScope(
     ModelValue: NativeModel,
     ColdValue: ColdOutput | None = None,
 ) -> Mapping[int, ArchiveNode]:
-    CheckGeometry(LinkValue, ManagerValue, ModelValue)
+    RelationValue = ModelValue.WidthDepth
+    CheckGeometry(LinkValue, ManagerValue, ModelValue, RelationValue=RelationValue)
+    ProvenNodes: frozenset[ArchiveNode] = frozenset()
+    if RelationValue is not None:
+        if (
+            ReadWidthDepth(ModelValue, LinkValue, RelationValue.SourceValue)
+            != RelationValue
+        ):
+            raise ValueError("cache free prism equation ownership or state has changed")
+        ProvenNodes = RelationValue.RelationNodes
     ColdAtom = None if ColdValue is None else ColdValue.AtomValue
-    NodesValue = PrismNodes(LinkValue, ManagerValue, ColdAtom)
+    NodesValue = PrismNodes(LinkValue, ManagerValue, ColdAtom, ProvenNodes=ProvenNodes)
     Features = IndexFeatures(LinkValue)
     CheckPrismRoots(Features, NodesValue)
     CheckPrismRoot(LinkValue.ConfigValue.RootValue, ColdAtom)
     CheckPrismMgr(ManagerValue)
-    CheckPrismRels(LinkValue.ConfigValue.RootValue)
+    if RelationValue is None:
+        CheckPrismRels(LinkValue.ConfigValue.RootValue)
     CheckPublicGeom(ModelValue, Features)
     return Features

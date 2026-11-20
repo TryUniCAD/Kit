@@ -1,0 +1,236 @@
+{
+  "compared_committed_native_receipt_sha256": "d690ca6ee1e7396fadb08b1affe037efbe70860451c64c30822ea5eb0c8434d4",
+  "faults": {
+    "cached_width": {
+      "internal_refusal": "local equation dimension has unqualified wrapper state",
+      "source_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "strict_public_error": "SLDPRT contains no readable Parasolid payload"
+    },
+    "detached_relation_node": {
+      "internal_refusal": "cache free prism has an unsupported native owner",
+      "source_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "strict_public_error": "SLDPRT contains no readable Parasolid payload"
+    },
+    "height_clone": {
+      "internal_refusal": "local equation dimension does not alias its exact live owner",
+      "source_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "strict_public_error": "SLDPRT contains no readable Parasolid payload"
+    },
+    "legacy_text_mismatch": {
+      "internal_refusal": "cache free part has unsupported configuration or equation intent",
+      "source_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "strict_public_error": "SLDPRT contains no readable Parasolid payload"
+    },
+    "live_depth": {
+      "internal_refusal": "local width-depth equation disagrees with live depth",
+      "source_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "strict_public_error": "SLDPRT contains no readable Parasolid payload"
+    },
+    "mismatched_source_object": {
+      "entered_prism_scope": false,
+      "source_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "strict_public_error": "SLDPRT contains no readable Parasolid payload",
+      "substituted_archive_sha256": "3b07ce7717313562b6ac3cc91b0d479d59f4e735d64d393d5848e438592317b9"
+    },
+    "resolved_prefix": {
+      "base_before_after": [
+        163,
+        164
+      ],
+      "internal_refusal": "resolved archive base differs from its actual configuration snapshot",
+      "source_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "strict_public_error": "SLDPRT contains no readable Parasolid payload"
+    },
+    "stale_after_proof": {
+      "internal_refusal": "local equation dimension has unqualified wrapper state",
+      "source_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "strict_public_error": "SLDPRT contains no readable Parasolid payload"
+    },
+    "wrong_expression": {
+      "internal_refusal": "native relation is outside the enabled local width-depth expression",
+      "source_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "strict_public_error": "SLDPRT contains no readable Parasolid payload"
+    }
+  },
+  "fixture_file_mutations": 0,
+  "heldout_inputs_read": false,
+  "linked_scope": {
+    "config_counter": 163,
+    "prefix_entries": 162,
+    "relation_node_inventory": [
+      [
+        53,
+        "moRelation_c"
+      ],
+      [
+        55,
+        "moRelEquationSide_c"
+      ],
+      [
+        57,
+        "moRelDimension_c"
+      ],
+      [
+        59,
+        "moDimRefWrapper_c"
+      ],
+      [
+        68,
+        "moRelEquationSide_c"
+      ],
+      [
+        70,
+        "moRelOperator_c"
+      ],
+      [
+        71,
+        "moRelDimension_c"
+      ],
+      [
+        72,
+        "moDimRefWrapper_c"
+      ],
+      [
+        126,
+        "moRelOperator_c"
+      ],
+      [
+        128,
+        "moRelValue_c"
+      ]
+    ],
+    "resolved_counter": 256
+  },
+  "reader_and_tool_sha256": {
+    "re/tooling/sw2026/equations/ProveLocalWidthDepthRead.py": "1c4a0c2c07e77b4a8f7958a721f3ccf75c86fa945ff0ea5621e3bbee2538af1e",
+    "re/tooling/sw2026/equations/ProveWidthDepthGeometry.py": "4865b59dd0d76253db5933e1fa17dcb36f281878bc4154efaec61118be39bf98",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqTokens.py": "ac1e63474152ba2ae9e691aa28b3e71633600d8aa494abfe1d87668d63ceccb3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadWidthDepth.py": "f0d7e0e1ba89e29b043f07d92bda0bf5f13cb5a2f2e6d3c91b2630aca2922da6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/TryWidthDepth.py": "49d9602067e7264316dc6fe78f71248304b845be94a0573c545584c328270949",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/WidthDepthLink.py": "615c4260756cf30162d8aeffd0d90fc2ac365cfc4f48a4b1309234f82e71f4e5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckGeometryState.py": "0a05c75bbcd01a82bebf541fde547631377002a05ced94912f432ca85b1319b2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismScope.py": "0d7ededdfede640f02a0c9aa6a93fc8f711d00893c5e56bc61657612071c5643",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/PrismNodes.py": "734a2a0287849e3354b13f9edf2c1eee047ae11f5631d14d6ae35abddd52b6b2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadNoCache.py": "458add7e00459fc8cc6e4dfafa1bacb61940078bb6ff0e3201bae774da8b8f6b"
+  },
+  "runtime_native_operations": 0,
+  "schema": "kit.sw2026.width-depth-cache-free-sdk-read.v1",
+  "strict_reads": {
+    "generated_plain": {
+      "area_mm2": 3570.15625,
+      "body_count": 1,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          39.125,
+          17.375,
+          19.5625
+        ]
+      ],
+      "centre_mm": [
+        19.5625,
+        8.6875,
+        9.78125
+      ],
+      "cold_geometry": true,
+      "edge_count": 12,
+      "face_count": 6,
+      "native_payloads": 0,
+      "related": false,
+      "sha256": "3b07ce7717313562b6ac3cc91b0d479d59f4e735d64d393d5848e438592317b9",
+      "vertex_count": 8,
+      "volume_mm3": 13298.5263671875
+    },
+    "generated_reference": {
+      "area_mm2": 3570.15625,
+      "body_count": 1,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          39.125,
+          17.375,
+          19.5625
+        ]
+      ],
+      "centre_mm": [
+        19.5625,
+        8.6875,
+        9.78125
+      ],
+      "cold_geometry": true,
+      "edge_count": 12,
+      "face_count": 6,
+      "native_payloads": 0,
+      "related": true,
+      "sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "vertex_count": 8,
+      "volume_mm3": 13298.5263671875
+    },
+    "native_saved_plain": {
+      "area_mm2": 4216.5625,
+      "body_count": 1,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          47.875,
+          17.375,
+          19.5625
+        ]
+      ],
+      "centre_mm": [
+        23.9375,
+        8.6875,
+        9.78125
+      ],
+      "cold_geometry": false,
+      "edge_count": 12,
+      "face_count": 6,
+      "native_payloads": 3,
+      "related": false,
+      "sha256": "c56057700a597bf885d8b43fad2660372c3566125a41fa7d307f3000637efc5e",
+      "vertex_count": 8,
+      "volume_mm3": 16272.6376953125
+    },
+    "native_saved_reference": {
+      "area_mm2": 4787.5,
+      "body_count": 1,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          47.875,
+          17.375,
+          23.9375
+        ]
+      ],
+      "centre_mm": [
+        23.9375,
+        8.6875,
+        11.96875
+      ],
+      "cold_geometry": false,
+      "edge_count": 12,
+      "face_count": 6,
+      "native_payloads": 3,
+      "related": true,
+      "sha256": "0c381bd6bb08b18e821a938731faca4608218959d9955c2516313550566a48af",
+      "vertex_count": 8,
+      "volume_mm3": 19911.8857421875
+    }
+  }
+}

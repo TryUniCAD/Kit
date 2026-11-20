@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 # only one enabled part equation with the fixed local division has measured owners
 def ReadEqTokens(
     RootValue: ArchiveNode, DepthText: str, WidthText: str
-) -> tuple[ArchiveNode, ArchiveNode, ArchiveNode]:
+) -> tuple[ArchiveNode, ArchiveNode, ArchiveNode, frozenset[ArchiveNode]]:
     Manager = RequireNative(RootValue.FieldsValue.get("f9d0"), "moRelMgr_c").FieldsValue
     Listing = NativeRecord(Manager.get("f58"))
     RowsValue = NativeRows(Listing.get("items"))
@@ -50,7 +50,7 @@ def ReadEqTokens(
         DepthText,
         (("moRelDimension_c", DepthText, 0, 0),),
     )
-    WidthToken = ReadEqSide(
+    RightTokens = ReadEqSide(
         Relation,
         "f60",
         RightText,
@@ -60,5 +60,17 @@ def ReadEqTokens(
             ("moRelOperator_c", "/", len(WidthText) + 3, 3),
             ("moRelValue_c", "2", len(WidthText) + 5, 2),
         ),
-    )[1]
-    return Relation, DepthToken, WidthToken
+    )
+    WidthToken = RightTokens[1]
+    RelationNodes = frozenset(
+        (
+            Relation,
+            RequireNative(FieldsValue.get("f58"), "moRelEquationSide_c"),
+            RequireNative(FieldsValue.get("f60"), "moRelEquationSide_c"),
+            DepthToken,
+            *RightTokens,
+            RequireNative(DepthToken.FieldsValue.get("f80"), "moDimRefWrapper_c"),
+            RequireNative(WidthToken.FieldsValue.get("f80"), "moDimRefWrapper_c"),
+        )
+    )
+    return Relation, DepthToken, WidthToken, RelationNodes

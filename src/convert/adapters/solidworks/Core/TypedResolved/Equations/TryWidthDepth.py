@@ -29,7 +29,7 @@ def TryWidthDepth(Model: NativeModel, Archive: SldprtArchive) -> NativeModel | N
             RelationConfig=Model.configurations[0].name,
         )
         Projected = ProjectTyped(Model, LinkValue)
-        Relation = ReadWidthDepth(Projected, LinkValue)
+        Relation = ReadWidthDepth(Projected, LinkValue, Archive)
     except (ValueError, TypeError, KeyError):
         return None
     return ReplaceValue(

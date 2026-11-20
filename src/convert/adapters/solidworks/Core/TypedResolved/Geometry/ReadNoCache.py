@@ -37,8 +37,15 @@ def ReadNoCache(
 ) -> PartGeometry | None:
     if not IsCacheAbsent(Archive):
         return None
+    RelationValue = ModelValue.WidthDepth
+    if RelationValue is not None and RelationValue.SourceValue is not Archive:
+        return None
     try:
-        LinkValue = ReadNativeLink(Archive, ModelValue.active_configuration_id)
+        LinkValue = (
+            ReadNativeLink(Archive, ModelValue.active_configuration_id)
+            if RelationValue is None
+            else RelationValue.LinkValue
+        )
         ManagerValue = ReadCmgrMut(Archive.require("Contents/CMgr"), 19000)
         if ModelValue.TypedGraph.get("cut_body_dependency") is not None:
             return ReadPocketGeom(LinkValue, ManagerValue, ModelValue, BodyId)

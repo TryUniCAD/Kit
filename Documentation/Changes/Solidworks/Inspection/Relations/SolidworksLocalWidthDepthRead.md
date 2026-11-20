@@ -14,6 +14,7 @@ and its native-edited save. Both plain controls and the legacy global
 assignment retain their existing projections. A handle crossed to the
 actual height and a missing local component both withhold the typed
 dependency. Three measured files retain their native B-rep reads.
-The generated file requires `include_brep=False` for this tranche.
-The measured native write lifecycle has its own
+The historical proof uses `include_brep=False` for the generated file.
+[Strict geometry reconstruction](SolidworksColdWidthDepthGeometry.md)
+now supports the same case. The measured native write lifecycle has its own
 [locked case](../../../../../re/solidworks/measurements/2026/WidthDepthLockedEvaluationNative01.json).
