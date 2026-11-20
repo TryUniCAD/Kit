@@ -10,16 +10,14 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.ReadXmlScopes imp
     KXmlNamespace,
     ReadXmlScopes,
 )
-from convert.adapters.solidworks.Core.Native import XmlTree
+from convert.adapters.solidworks.Core.Native import EncodeNativeXml
 
 
 # the framed payload must remain well formed after the native lexical changes
 def EmitKeywordXml(RootValue: Element, CompactTags: bool) -> bytes:
     CheckXmlNames(RootValue)
     try:
-        PayloadValue = XmlTree.tostring(
-            RootValue, encoding="utf-8", short_empty_elements=True
-        )
+        PayloadValue = EncodeNativeXml(RootValue)
         PayloadValue = PayloadValue.replace(b"\r", b"&#13;")
         if CompactTags:
             PayloadValue = PayloadValue.replace(b" />", b"/>")
