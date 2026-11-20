@@ -9,7 +9,9 @@ and cursor position for further native body reads.
 
 Six disclosed parts verify distinct header indices and section bounds
 in fresh processes. Twelve malformed cases cover the named roles,
-version, part descriptor and section extent. Queue execution and
-complete physical configuration admission are pending.
+container format, part descriptor and section extent. An independently
+authored format-4 pair verifies the self file and ordered directory
+aliases and checks refusal of logical archive version 18900.
+Queue execution and complete physical configuration admission are pending.
 [Source record and process commands](../../../../re/solidworks/records/ConfigHeaderLinkSlice2026.md)
 · [Header alias index gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/HeaderAliasesKeepSourceIndex.md)

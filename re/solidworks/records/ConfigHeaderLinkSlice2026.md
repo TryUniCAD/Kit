@@ -66,6 +66,7 @@ rest of the in-memory archive.
 python -I -B re/tooling/sw2026/CheckCfgHeaderLink.py ladder
 python -I -B re/tooling/sw2026/CheckCfgHeaderLink.py concave
 python -I -B re/tooling/sw2026/CheckCfgHeaderLink.py circle --disclosed-root /path/to/disclosed-controls
+python -I -B re/tooling/sw2026/CheckCfgHeaderLink.py authored
 ```
 
 The twelve authored refusals exercise missing or malformed streams,
@@ -74,6 +75,33 @@ section framing, and unsupported container format. The six original
 files stay unchanged. An audit hook prevents external access after
 container intake. The queue cases use the two existing tracked parts.
 [Queue cases](../../../tests/Convert/Solidworks/Configuration/HeadLinkTests.py)
+
+### Authored directory and logical version contrast
+
+The authored process builds its header fields and two physical format-4
+containers in memory. Its independent self file is `AliasSelf`. Its
+ModelHeader directory stores `ZuluRef` before `AlphaRef`. Distinct
+names, configuration names and raw `f48` values separate all three
+records. A distinct standalone header serves as the role contrast.
+The builder uses the typed header and container field rules. It
+requires zero external access and consumes no source file.
+[Authored field inputs](../../tooling/sw2026/MakeHeadAliasCase.py)
+
+The standalone indices are 12, 6 and 10 in the required configuration
+order. The original nodes resolve at configuration slots 3, 4 and 5,
+with the shared path handle intact. The base and counter both reach 6.
+The lightweight cursor remains 18. The probe checks exact standalone
+header bytes again after the handoff. A reversal, sort, copied node
+or reuse of standalone indices would change the observed result.
+
+The second physical container keeps every common stream byte
+identical and changes the logical version marker to
+`_MO_VERSION_18900`. Both containers decode as format 4. The
+production reader refuses version 18900 before interpreting the
+header or model body. These are physical container and typed start
+checks. Complete model body consumption remains a separate gate.
+[Process evidence](../measurements/2026/ConfigHeaderLinkReader01.json)
+· [Queue case](../../../tests/Convert/Solidworks/Configuration/HeadAliasTests.py)
 
 ## Remaining physical admission
 

@@ -416,14 +416,87 @@
   "preparation_base": "fda31a2679995db48aad4fd2ff54d86966fd272d",
   "pristine_originals": true,
   "proof_tool_sha256": {
-    "re/tooling/sw2026/CheckCfgHeaderLink.py": "56804a715c9c490ad05c2a479712d660950f63a9c044cca27ed1d934c3b1a65d"
+    "re/tooling/sw2026/CheckCfgHeaderLink.py": "b597942e883b2831b008d9d9c6d0ce67f93bb04d6c952322e29c359dad6fecb1",
+    "re/tooling/sw2026/MakeHeadAliasCase.py": "d3f10efe2f7506b60e16558b88014bbee68e5772e0908d2b705b6c99bfd127fd"
   },
   "python_version": "3.14.7",
   "queue_case_sha256": {
+    "tests/Convert/Solidworks/Configuration/HeadAliasTests.py": "e8a3b63807c998beed98c05b29dcc8af87fd715f23936c04800d09b1a103e609",
     "tests/Convert/Solidworks/Configuration/HeadLinkTests.py": "cffca3da0a2f253effff12b97ecfe160604d44eae1dd5e9c007f0a5f320e51b6",
     "tests/Convert/Solidworks/Configuration/RunHeadLink.py": "0539aeee45bc874a5a06793e85329be33061b2a7413bda3f767fef91f811c6bc"
   },
   "refusals_per_pass": 12,
+  "review_verification": {
+    "authored_case": {
+      "aliases": [
+        [
+          "AliasSelf",
+          "RootConfig",
+          301
+        ],
+        [
+          "ZuluRef",
+          "ZuluConfig",
+          923
+        ],
+        [
+          "AlphaRef",
+          "AlphaConfig",
+          117
+        ]
+      ],
+      "base": 6,
+      "case": "authored",
+      "common_lane_sha256": {
+        "Contents/Config-0": "8310bb70a56b1154fdf973e41d958b4329808f84615470df11e725726d2b1d2f",
+        "Contents/Config-0-ModelHeader": "8b5e9dd7648c4b69711c4ca4876781e78c00542f88a4d617e775ffb5b373a81f",
+        "Header2": "bc59ea70495ac6096e634f9e7a1364357d8b191ce715b5a3acef438a36145567"
+      },
+      "config_slots": [
+        3,
+        4,
+        5
+      ],
+      "counter": 6,
+      "lightweight_span": [
+        18,
+        26
+      ],
+      "logical_versions": [
+        19000,
+        18900
+      ],
+      "physical_archive_sha256": [
+        "acfbbb408090f98dfb47b4c063d4f000f443d98c33a254c1da6bb98166e19154",
+        "762e06f3d85231ba70556858b18330b77393fb1dcbdffab1962a9a4d219cb399"
+      ],
+      "physical_format": 4,
+      "refusals": [
+        "other_logical_version"
+      ],
+      "runtime_external_accesses": 0,
+      "source_indices": [
+        12,
+        6,
+        10
+      ]
+    },
+    "authored_processes": 2,
+    "authored_stdout_sha256": "fb7bb783c367b43f7ff3d53e487b0a7f827b4415bc83b2b3653b63b3b6118de5",
+    "fresh_processes": 8,
+    "original_exact_stdout_sha256": {
+      "circle": "6994ceebd29a6c548971ab9a724c35b605cdec681703a60319425e112786bf7b",
+      "circle_saved": "44348614d166c884632640a316579674eebdd4a206ffac9c51c0f1ef03a2b504",
+      "concave": "d6d7ad2c8c0cfae38b2b15f98602a98db0bc963748c4a533b2b73c6ef5021e6d",
+      "ladder": "15c8e1810a3ee0c26da9a7b17bcaec4eae1d23da60aa26d5ccf378740cdaa2dc",
+      "polygon_saved": "6bc7c6ed77aa01fab357ea85b47255165604c82ece5b5d505ba5367a695ee0d6",
+      "rectangle": "54d3ce1556761e793f602836d6ae739d1dc311ee6d1676835d7a5e84914404a5"
+    },
+    "originals_pristine": true,
+    "prepared_head": "854431a39ee55d3e90a877ec03986325f13e6db4",
+    "python_version": "3.14.7",
+    "reviewed_remote_head": "c6b0049df113501d92f32b6b0cf23b22566c39d7"
+  },
   "schema": "Kit.SolidworksConfigHeaderLinkReader.1",
   "scoped_cases": {
     "circle": {

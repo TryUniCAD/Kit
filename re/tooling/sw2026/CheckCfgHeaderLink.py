@@ -8,14 +8,16 @@ from struct import pack, unpack_from
 import sys
 
 ROOT = Path(__file__).resolve().parents[3]
-sys.path.insert(0, str(ROOT / "src"))
+sys.path[:0] = [str(ROOT / "src"), str(Path(__file__).resolve().parent)]
 
+from MakeHeadAliasCase import DIRECTORY, PATH, SELF, authored_lanes, frame_lanes
 from convert.adapters.solidworks.Archive.Config.Link.ReadPartStart import ReadPartStart
 from convert.adapters.solidworks.Archive.Header.ReadFileTable import GetFileRef
 from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.FindObject import FindObject
 from convert.adapters.solidworks.Archive.Maps.ObjectIndex import ObjectIndex
+from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive, SldprtFormatError
 
 CONFIG = "Contents/Config-0"
@@ -113,6 +115,12 @@ def audit_run(event, _args):
         raise PermissionError("the linked part start attempted external access")
 
 
+def guard_runtime():
+    for codec in ("ascii", "latin-1", "cp1252", "utf-16-le"):
+        lookup(codec)
+    sys.addaudithook(audit_run)
+
+
 def replace_lane(archive, name, data):
     records = tuple(
         replace(record, data=data) if record.name == name else record
@@ -150,6 +158,75 @@ def authored_faults(archive, config, model, section):
     ]
 
 
+def directory_order(archive, original_header):
+    linked = ReadPartStart(archive)
+    fields = linked.HeaderValue.FieldsValue
+    self_file, directory = fields["f38"], fields["f30"]
+    aliases = (self_file, *directory.FieldsValue["items"])
+    source_indices = [node.IndexValue for node in aliases]
+    require(source_indices == [12, 6, 10], "standalone header allocation order changed")
+    identities = []
+    for node in aliases:
+        ref = GetFileRef(node)
+        require(ref.PathValue == PATH and ref.KindValue == 2, "authored file identity changed")
+        identities.append((ref.NameValue, ref.ConfigValue, node.FieldsValue["f48"]))
+    require(identities == [SELF, *DIRECTORY], "authored header directory order changed")
+    handles = [node.FieldsValue["shared"]["h18"] for node in aliases]
+    require(all(handle is handles[0] for handle in handles), "shared path handle lost identity")
+    root = linked.RootValue
+    entries = linked.MapValue.EntriesValue
+    slots = [entry.IndexValue for entry in entries]
+    require(slots == [1, 2, 3, 4, 5] and entries[0].EntryValue is root.ClassValue
+            and entries[1].EntryValue is root and not root.FieldsValue and root.EndOffset is None,
+            "configuration root prefix allocation changed")
+    require((linked.LightOffset, linked.LightSize, linked.BaseValue, linked.MapValue.CounterValue) ==
+            (18, 8, 6, 6), "directory aliases changed the bounded cursor or map handoff")
+    maps = ArchiveMaps(linked.BaseValue, linked.MapValue)
+    for slot, node in zip(slots[2:], aliases, strict=True):
+        require(FindObject(maps, slot) is node and ObjectIndex(maps, node) == slot,
+                "configuration slot did not resolve the original ordered header node")
+    require(WriteHeadGraph(linked.HeaderValue, 19000) == original_header
+            and [node.IndexValue for node in aliases] == source_indices,
+            "linking changed standalone header bytes or object indices")
+    return {
+        "aliases": identities,
+        "source_indices": source_indices,
+        "config_slots": slots[2:],
+        "lightweight_span": [linked.LightOffset, linked.LightOffset + linked.LightSize],
+        "base": linked.BaseValue,
+        "counter": linked.MapValue.CounterValue,
+    }
+
+
+def authored_case():
+    guard_runtime()
+    lanes = authored_lanes()
+    current_raw = frame_lanes(lanes, 19000)
+    older_raw = frame_lanes(lanes, 18900)
+    current = SldprtArchive.from_bytes(current_raw)
+    older = SldprtArchive.from_bytes(older_raw)
+    require(current.format_version == older.format_version == 4 and current.file_id == older.file_id,
+            "logical version case changed the physical container profile")
+    require(ContainerMo(current.Streams) == 19000 and ContainerMo(older.Streams) == 18900,
+            "physical version lanes did not select different logical versions")
+    require(current.Streams == {**lanes, "_MO_VERSION_19000": b""}
+            and older.Streams == {**lanes, "_MO_VERSION_18900": b""},
+            "paired archive contents changed beyond the version marker")
+    outcome = directory_order(current, lanes[MODEL])
+    require(lanes[MODEL] != lanes[STANDALONE], "authored header decoy must differ")
+    refusal = refuse("other_logical_version", older, "requires format 4 at version 19000")
+    return {
+        "case": "authored",
+        **outcome,
+        "physical_format": current.format_version,
+        "logical_versions": [ContainerMo(current.Streams), ContainerMo(older.Streams)],
+        "common_lane_sha256": {name: digest(data) for name, data in lanes.items()},
+        "physical_archive_sha256": [digest(current_raw), digest(older_raw)],
+        "refusals": [refusal],
+        "runtime_external_accesses": 0,
+    }
+
+
 def read_case(case, root):
     path, file_sha, config_sha, model_sha, standalone_sha, prefix_sha, end, native_idx, name, config_name = CASES[case]
     source = (root / path).read_bytes()
@@ -160,9 +237,7 @@ def read_case(case, root):
     standalone = archive.require(STANDALONE)
     require((digest(config), digest(model), digest(standalone)) ==
             (config_sha, model_sha, standalone_sha), "wrong named stream roles")
-    for codec in ("ascii", "latin-1", "cp1252", "utf-16-le"):
-        lookup(codec)
-    sys.addaudithook(audit_run)
+    guard_runtime()
     ans = ReadPartStart(archive)
     root_node, header = ans.RootValue, ans.HeaderValue
     tag_word, schema, class_size = unpack_from("<3H", config)
@@ -215,9 +290,12 @@ def read_case(case, root):
 
 def main():
     parser = ArgumentParser(description="Verify the named ordinary part header alias handoff")
-    parser.add_argument("case", choices=CASES)
+    parser.add_argument("case", choices=(*CASES, "authored"))
     parser.add_argument("--disclosed-root", type=Path)
     args = parser.parse_args()
+    if args.case == "authored":
+        print(json.dumps(authored_case(), sort_keys=True))
+        return
     if args.case not in TRACKED and args.disclosed_root is None:
         parser.error("the selected control requires its disclosed root")
     root = ROOT if args.case in TRACKED else args.disclosed_root

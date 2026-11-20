@@ -7,6 +7,10 @@ uses standalone index 15 for its object in the same configuration slot.
 The binding consumes zero bytes and advances the configuration archive's
 base and counter to 4 in both cases.
 
+The standalone directory is parsed before the self file. The
+configuration nevertheless inserts the self file first, then the
+directory entry objects in their stored order.
+
 Use the configuration map to resolve an inherited reference. Keep the
 header object's original index and fields so the standalone header can
 still be read or serialized independently.
