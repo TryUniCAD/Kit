@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 import sys
 
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedBase import TypedBase
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.adapters.Fusion.State.DecodeState import DecodeState
 from convert.adapters.Fusion.State.EncodeState import EncodeState, KEncodeTypes
@@ -31,7 +32,7 @@ def missing_records(model, source_root):
                 source = source_root.joinpath(*module.split(".")).with_suffix(".py")
                 declarations = [node for node in ast.parse(source.read_bytes()).body
                                 if isinstance(node, ast.ClassDef) and node.name == cls.__name__]
-                if len(declarations) != 1 or declarations[0].bases or declarations[0].keywords or not all(
+                if len(declarations) != 1 or cls.__bases__ not in ((object,), (TypedBase,)) or declarations[0].keywords or not all(
                     isinstance(node, ast.AnnAssign) for node in declarations[0].body
                 ) or not cls.__dataclass_params__.frozen:
                     return []

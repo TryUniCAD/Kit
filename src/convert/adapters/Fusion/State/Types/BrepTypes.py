@@ -1,3 +1,4 @@
+from convert.Formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.ConeFrame import ConeFrame
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumFrame import FrustumFrame
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumHistory import (
@@ -58,6 +59,7 @@ from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismTags import PrismTags
 
 # the boundary representation types order must stay explicit so public document claims remain grounded in native records
 KBrepTypes: tuple[type[object], ...] = (
+    TorusNode,
     ConeFrame,
     FrustumFrame,
     FrustumHistory,

@@ -21,7 +21,8 @@ def fields(group):
 
 def cached_bodies(native):
     result = []
-    positions = {}
+    collections = {}
+    owners = {}
     for segment in native["fields"]["Segments"]["tuple"]:
         records = segment["fields"]
         sid = records["Metadata"]["fields"]["Header"]["fields"]["SegmentId"]
@@ -33,9 +34,16 @@ def cached_bodies(native):
             if groups[0]["ClassGuid"].upper() == "CD57BC48-50EC-47DC-975A-FB6DEA72F4DA":
                 children = fields(groups[0]).get("groupChildren")
                 if isinstance(children, dict):
-                    for ordinal, child in enumerate(children.get("fields", {}).get("Items", {}).get("tuple", []), 1):
-                        if isinstance(child, dict) and child.get("record") == LOCAL:
-                            positions.setdefault((sid, obj["ObjectId"], child["fields"]["ObjectId"]), []).append(ordinal)
+                    items = children.get("fields", {}).get("Items", {}).get("tuple")
+                    if isinstance(items, list) and all(isinstance(child, dict) and child.get("record") == LOCAL for child in items):
+                        ids = [child["fields"]["ObjectId"] for child in items]
+                        key = (sid, obj["ObjectId"])
+                        if len(set(ids)) == len(ids) and key not in collections:
+                            collections[key] = {child: index for index, child in enumerate(ids, 1)}
+                            for child in ids:
+                                owners.setdefault((sid, child), []).append(obj["ObjectId"])
+                        else:
+                            collections[key] = None
             if groups[0]["ClassGuid"].upper() != KBodyGuid:
                 continue
             properties = fields(groups[0])
@@ -52,8 +60,11 @@ def cached_bodies(native):
                            "collection": collection, "creation_index": properties.get("creationIndex"), "volume_cm3": values.get("volume"),
                            "area_cm2": values.get("area"), "center_cm": [center.get(axis) for axis in "xyz"]})
     for body in result:
-        slots = positions.get((body["segment"], body["collection"], body["object"]), [])
-        body["collection_ordinal"] = slots[0] if len(slots) == 1 else None
+        children = collections.get((body["segment"], body["collection"]))
+        parents = owners.get((body["segment"], body["object"]), [])
+        ordinal = children.get(body["object"]) if children is not None and parents == [body["collection"]] else None
+        body["collection_ordinal"] = ordinal
+        body["membership"] = "listed" if ordinal else "unlisted" if children is not None and not parents else "unresolved"
     return result
 
 
@@ -78,6 +89,7 @@ def default_name_rules(witnesses):
 
 def capture_names(root, pin, size, native):
     bodies = cached_bodies(native)
+    comparable = [body for body in bodies if body["membership"] != "unlisted"]
     search = subprocess.run(["git", "-C", root, "grep", "-l", "-F", "-e", pin, "HEAD", "--",
                              "re/Fusion/LocalOracle/*/Controls/Capture*.json"], capture_output=True, timeout=60)
     if search.returncode not in (0, 1):
@@ -97,7 +109,7 @@ def capture_names(root, pin, size, native):
             if not isinstance(measured, list) or not all(isinstance(row, dict) and isinstance(row.get("name"), str) for row in measured):
                 continue
             matches = []
-            for body in bodies:
+            for body in comparable:
                 candidates = []
                 for idx, value in enumerate(measured):
                     center = value.get("center_cm")
@@ -107,10 +119,10 @@ def capture_names(root, pin, size, native):
                         candidates.append(idx)
                 matches.append(candidates)
             ids = [items[0] for items in matches if len(items) == 1]
-            bijective = bool(bodies) and len(bodies) == len(measured) == len(ids) == len(set(ids))
+            bijective = bool(comparable) and all(body["membership"] == "listed" for body in comparable) and len(comparable) == len(measured) == len(ids) == len(set(ids))
             aligned = []
             if bijective:
-                for body, index in zip(bodies, ids):
+                for body, index in zip(comparable, ids):
                     aligned.append({"object": body["object"], "segment": body["segment"], "stored_name": body["stored_name"],
                                     "creation_index": body["creation_index"], "collection_ordinal": body["collection_ordinal"], "vendor_name": measured[index]["name"]})
             witnesses.append({"capture": blob, "sha256": hashlib.sha256(raw).hexdigest(), "case": case["name"],

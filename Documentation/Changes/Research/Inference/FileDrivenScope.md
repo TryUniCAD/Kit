@@ -23,3 +23,5 @@ Local runs on CombineKeep, SplitXY and BodyRectPattern identified ten native bod
 The runner now compares two default-name rules against the independently identified bodies and selects a two-body removal experiment when both fit. The dedicated capture script requires a configured Fusion oracle. Its output has not yet been measured on that worker.
 
 Five local feature controls exposed typed native records missing from the semantic-state registry. The file-driven runner can now identify field-only frozen journal records in the parsed model and propose explicit registry patches after isolated replay and model equality checks.
+
+On separate Sweep and FilletRim controls, both isolated runs at `a461dcb43` generated the same explicit TorusNode registry patch. Both passed full semantic-state model equality and public native decode. The patch was applied to the reader. The fillet body's geometry independently matched its capture. The sweep's geometry correspondence remained unresolved.
