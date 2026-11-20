@@ -9,6 +9,8 @@
 from os import environ
 from pathlib import Path
 
+from CaptureTools.Catalogue.SolidWorks.NativeSolidEnv import NativeSolidEnv
+
 
 # a dedicated job bounds native descendants without touching other application sessions
 def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName):
@@ -39,11 +41,7 @@ def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName):
         "-Phase",
         PhaseName,
     ]
-    Environment = {
-        Name: Value
-        for Name, Value in environ.items()
-        if Name.casefold() != "psmodulepath"
-    }
+    Environment = NativeSolidEnv(HostConfig)
     with (
         (OutputPath / (PhaseName + ".log")).open("xb") as Output,
         (OutputPath / (PhaseName + ".stderr.log")).open("xb") as Errors,

@@ -63,6 +63,10 @@ absolute installed `executable` and `interop_assembly` paths. Optional
 `phase_seconds` bounds each native phase. Run with Python 3.14 or newer and add
 `--native-ready` after preparing the isolated native host. The launcher refuses
 existing SOLIDWORKS sessions and never attaches to an unrelated document.
+Preparation captures an allowlisted set of standard Windows application/profile
+directories for the native phase subprocess. It retains the private worker
+temporary directory and does not pass credentials, Python module paths, or the
+native profile to decoder workers.
 
 For Fusion, supply the existing `--native-config`, `--native-kind`, and
 `--native-resource` options together with `--fusion-lifecycle Lifecycle.json`.
@@ -97,7 +101,27 @@ requires process integration coverage and measured native authoring, fresh reope
 and downstream decoder evidence on each supported host. Product conversion
 qualification remains separate.
 
-Four catalogue planning process checks passed. The Fusion preparation checks,
-SOLIDWORKS compiler/admission and receipt checks, and lifecycle process checks
-exercise the actual entry points. Native execution and final integration results
-are recorded separately; preparation or compiler success is not native acceptance.
+The focused native Windows process suite passed 36 checks at `e533d094`. It covers
+catalogue selection and parameter overrides, controller queueing and resume,
+configuration tamper rejection, Fusion preparation, SOLIDWORKS compiler/admission,
+retained receipt checks, lifecycle ownership, and real artifact-to-public-decoder
+execution. Fixture transport checks explicitly claim no native acceptance.
+
+A separate configured SOLIDWORKS 34.4.1 run authored a 43 × 23 × 12 mm forward
+XY boss: one solid, volume 11868.000000000002 mm³, center of mass
+`[21.5, 11.5, 6]` mm. All eight saved archives passed fresh-process reopen and
+rebuild, independent width/height/depth edits and restoration, and inch/YZ/reverse
+variants. Both owned processes exited normally. Both controls matched at
+881814.348203801 mm³. All 126 sealed captures, paired specifications, control,
+and measured authoring source hashes remained unchanged. Earlier failed startup
+attempts are retained separately.
+
+The retained native acceptance report SHA-256 is
+`8804559d89e79d319ef656b1cf1d270d83aa1df1c5342be3dda82ea0198c9901`.
+The identical before/after evidence-map digest is
+`fe30b3f2337f0a4e84434e1b5657b6b5bf507800a7090ec95fdb233dd328b521`.
+This measures that configured P03 case. Native Fusion and other newly configured
+recipe families retain their separate application acceptance requirements.
+
+See [owned native attachment](../../../../Gotchas/Research/Workers/SolidWorks/OwnedNativeAttachment.md)
+for the startup and lifetime corrections exposed by the native trial.

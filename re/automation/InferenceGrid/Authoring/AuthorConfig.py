@@ -10,6 +10,7 @@ from pathlib import Path
 from sys import executable
 
 from InferenceGrid.CatalogueWorkerConfig import BuildWorkerCfg
+from InferenceGrid.Authoring.NativeEnvironment import CaptureNative, ValidateNative
 from Pilot.PilotConfig import PilotConfig
 from Pilot.PilotFiles import WriteRecord
 from Records import read_record
@@ -49,7 +50,7 @@ def AuthorConfig(Directory, SourceRoot, Workers, Native, HostPath):
         HostValue = read_record(HostPath)
         if not {"interop_assembly", "executable"} <= set(HostValue) or set(
             HostValue
-        ) - {"interop_assembly", "executable", "phase_seconds"}:
+        ) - {"interop_assembly", "executable", "phase_seconds", "native_environment"}:
             raise ValueError("SOLIDWORKS host requires interop_assembly and executable")
         for NameValue in ("interop_assembly", "executable"):
             FileValue = Path(HostValue[NameValue])
@@ -57,6 +58,11 @@ def AuthorConfig(Directory, SourceRoot, Workers, Native, HostPath):
                 raise ValueError(
                     "SOLIDWORKS host paths must be absolute installed files"
                 )
+        HostValue["native_environment"] = (
+            ValidateNative(HostValue["native_environment"])
+            if "native_environment" in HostValue
+            else CaptureNative()
+        )
         HostFile = WriteRecord(Directory / "SolidWorksHost.json", HostValue)
         RegistryPath = Path(ConfigValue["registry"])
         RegistryValue = read_record(RegistryPath)

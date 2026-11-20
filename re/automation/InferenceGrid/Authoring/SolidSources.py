@@ -17,6 +17,7 @@ def CheckSolidSrc(Revision):
     Selected = [
         SourceRoot / "re/automation/InferenceGrid/Authoring/SolidWorker.py",
         SourceRoot / "re/automation/InferenceGrid/Authoring/SolidSources.py",
+        SourceRoot / "re/automation/InferenceGrid/Authoring/NativeEnvironment.py",
         SourceRoot
         / "re/automation/CaptureTools/SolidWorksAuthoring/SolidWorksCapture.cs",
         SourceRoot / "re/automation/PairSpecs.json",

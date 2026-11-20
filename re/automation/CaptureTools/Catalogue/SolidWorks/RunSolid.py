@@ -13,6 +13,7 @@ from sys import platform
 from CaptureTools.Catalogue.SolidWorks.RunSolidPhase import RunSolidPhase
 from CaptureTools.Catalogue.SolidWorks.ValidateSolid import ValidateSolid
 from CaptureTools.Catalogue.SolidWorks.VerifySolid import VerifySolid
+from InferenceGrid.Authoring.NativeEnvironment import ValidateNative
 
 
 # explicit native configuration prevents catalogue data from choosing arbitrary executables
@@ -23,9 +24,12 @@ def RunSolid(CaseValue, OutputDirectory, HostConfig):
     if (
         not isinstance(HostConfig, dict)
         or not {"interop_assembly", "executable"} <= HostConfig.keys()
-        or HostConfig.keys() - {"interop_assembly", "executable", "phase_seconds"}
+        or HostConfig.keys()
+        - {"interop_assembly", "executable", "phase_seconds", "native_environment"}
     ):
         raise ValueError("SOLIDWORKS host requires executable and interop paths")
+    if "native_environment" in HostConfig:
+        ValidateNative(HostConfig["native_environment"])
     for PathName in ("interop_assembly", "executable"):
         PathValue = Path(HostConfig[PathName])
         if not PathValue.is_absolute() or not PathValue.is_file():
