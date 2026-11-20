@@ -14,7 +14,7 @@ from ProbeThroughAutoScope01 import (
 )
 
 
-PACKET = "SceneLightCounts02"
+PACKET = "SceneLightCounts03"
 SCHEMA = "kit.sw2026.disclosed-scene-light-counts.v1"
 CASES = {"One": 1, "Two": 2, "Properties": 2}
 PHASES = ("Before", *(name + role for name in CASES for role in ("Author", "Reopen")), "After")
@@ -91,9 +91,22 @@ def read_lights(author, directionals, with_properties):
     values = [author.get(author.model, "GetLightSourceExtProperty", 1, index)
               for index in range(len(PROPERTIES))] if with_properties else []
     expected = [value for _, value in PROPERTIES] if with_properties else []
-    need(values == expected and [type(value) for value in values] == [type(value) for value in expected],
-         "native light property values or types differ")
-    return {"names": names, "directional_count": directionals, "properties": values}
+    matches = values == expected and [type(value) for value in values] == [type(value) for value in expected]
+    return {"names": names, "directional_count": directionals, "properties": values,
+            "property_getters_match": matches}
+
+
+def clip_scene_tree(case, directionals):
+    rows = case["expected_tree"]
+    available = [row for row in rows if row[1] == "DirectionLight"]
+    need([row[0] for row in available] == ["Directional1", "Directional2", "Directional3"],
+         "the oracle control has a different standard direction-light tree")
+    selected = available[:directionals]
+    return case | {"expected_tree": [row for row in rows if row[1] != "DirectionLight" or row in selected]}
+
+
+def same_scene(first, second):
+    return all(first[key] == second[key] for key in ("names", "directional_count"))
 
 
 def read_phase(folder, name):
@@ -122,6 +135,7 @@ def candidate(folder, phase, trial_root, trial, api_sha):
     path = folder / (role + "Author") / (role + "Lights.SLDPRT")
     case_name = "ControlCase.json"
     case = json.loads(checked(trial_root / case_name, trial["files_sha256"][case_name]))
+    case = clip_scene_tree(case, CASES[role])
     result = {"passed": False}
     controller = author = None
     saved_sha = None
@@ -152,15 +166,16 @@ def candidate(folder, phase, trial_root, trial, api_sha):
             baseline = snapshot(author, case, edited=False, rebuild=False)
             rebuilt = snapshot(author, case, edited=False, rebuild=True)
             result["rebuilt_scene"] = read_lights(author, CASES[role], with_properties)
-            need(ui_tree(baseline) == ui_tree(rebuilt) and result["scene"] == result["rebuilt_scene"],
+            need(ui_tree(baseline) == ui_tree(rebuilt) and same_scene(result["scene"], result["rebuilt_scene"]),
                  "rebuild changed the expected feature tree or observed lighting")
             if is_author:
                 need(not path.exists(), "the owned SaveAs destination exists")
                 result["save"] = list(record.call("save a fresh native light count source", controller.save_as, author.model, path))
                 need(result["save"] == [True, 0, 0] and path.is_file(), "native source SaveAs warned or failed")
                 saved_sha = digest(path.read_bytes())
-                need(read_lights(author, CASES[role], with_properties) == result["scene"],
-                     "native save changed its light definitions")
+                after_save = read_lights(author, CASES[role], with_properties)
+                result["saved_scene"] = after_save
+                need(same_scene(after_save, result["scene"]), "native save changed its light definitions")
             result["saved_sha256"] = saved_sha
             result["numeric_checks"] = len(record.data["checks"])
             result["passed"] = bool(result["numeric_checks"] and all(row["passed"] for row in record.data["checks"]))
@@ -199,15 +214,20 @@ def summary(folder, pin, api_sha):
             if not all(name in rows and rows[name]["passed"] for name in names):
                 continue
             author, cold = (rows[name]["result"] for name in names)
-            need(author["saved_sha256"] == cold["saved_sha256"] and author["scene"] == cold["scene"],
+            need(author["saved_sha256"] == cold["saved_sha256"] and same_scene(author["scene"], cold["scene"]),
                  "actual cold native scene differs")
+            observed = (author["scene"], author["rebuilt_scene"], author["saved_scene"],
+                        cold["scene"], cold["rebuilt_scene"])
             outcomes[role] = {"source_sha256": author["saved_sha256"], "scene": cold["scene"],
+                              "property_getters_match": all(row["property_getters_match"] for row in observed),
+                              "property_getter_snapshots": [row["properties"] for row in observed],
                               "candidate_numeric_checks": [author["numeric_checks"], cold["numeric_checks"]]}
     value = {"schema": SCHEMA, "freeze_sha256": pin, "api_sha256": api_sha, "healthy_bracket": healthy,
              "serial": serial, "distinct_processes": len(identities), "outcomes": outcomes,
              "phase_status": {name: row["passed"] for name, row in rows.items()},
              "phase_receipts": {name: digest((folder / name / "Record.json").read_bytes()) for name in rows},
-             "passed": bool(healthy and set(outcomes) == set(CASES)),
+             "passed": bool(healthy and set(outcomes) == set(CASES)
+                            and all(row["property_getters_match"] for row in outcomes.values())),
              "heldout_coverage": 0, "production_coverage": 0, "sealed_payloads_read": 0}
     return value | {"result_sha256": publish(folder / "Result.json", value)}
 
