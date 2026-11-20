@@ -10,7 +10,7 @@ import hashlib
 import math
 import re
 
-from convert.adapters.solidworks.Core.Native import ParseNative
+from convert.adapters.solidworks.Core.Native import ParseClasses, ParseNative
 from InferenceInputs import read_file
 
 
@@ -45,7 +45,7 @@ def trials(sets, pin):
             if row["sha256"] == pin:
                 held_out = (values, edit["edited"].get("equations", []))
             else:
-                training.append((row["sha256"], values, measured_values(edit["restored"])))
+                training.append((row["sha256"], edit["parameter"], values, measured_values(edit["restored"])))
     return training, held_out
 
 
@@ -55,20 +55,41 @@ def close(left, right):
 
 def equation_evidence(streams, predictions, sets, pin):
     equations = []
+    counts = {}
     for stream, data in streams.items():
         match = re.fullmatch(r"Contents/Config-([0-9]+)", stream)
         if match:
-            equations.extend(ParseNative(data, int(match[1]), stream))
+            rows = ParseNative(data, int(match[1]), stream)
+            if not rows:
+                continue
+            managers = [c for c in ParseClasses(data) if c.name == "moRelMgr_c"]
+            if len(managers) == 1:
+                offset = managers[0].offset + 6 + len(managers[0].name)
+                if offset + 2 <= len(data):
+                    counts[stream] = (int.from_bytes(data[offset:offset + 2], "little"), len(rows))
+            equations.extend(rows)
     if not equations:
         return []
     training, held = trials(sets, pin)
-    native = {r["name"] + "@" + r["owner"]: r["system_value"] for r in predictions
-              if r.get("owner") and r.get("reader_span_matches") and r.get("neutral_value_matches")}
     results = []
     for eq in equations:
+        native = {r["name"] + "@" + r["owner"]: r["system_value"] for r in predictions
+                  if r.get("owner") and r.get("reader_span_matches") and r.get("neutral_value_matches") and
+                  r["stream"] in (eq.native_stream, eq.native_stream + "-ResolvedFeatures")}
+        declared, found = counts.get(eq.native_stream, (None, None))
+        end = eq.native_offset + eq.native_length
+        trailer = streams[eq.native_stream][end:end + 6] == bytes.fromhex("000200000000")
         result = {"target": eq.lhs, "source": eq.source, "stream": eq.native_stream, "offset": eq.native_offset,
-                  "length": eq.native_length, "references": eq.references}
+                  "length": eq.native_length, "references": eq.references, "manager_count": declared,
+                  "scanned_count": found, "relation_trailer_matches": trailer}
         results.append(result)
+        if declared is None or declared != found or not trailer:
+            result["status"] = "incomplete_relation_framing"
+            continue
+        literal = re.fullmatch(r"([-+]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+))\s*(mm|deg)?", eq.rhs.strip())
+        if "@" not in eq.lhs and literal and math.isfinite(float(literal[1])):
+            result.update(status="saved_global_literal", value=float(literal[1]), explicit_unit=literal[2])
+            continue
         match = re.fullmatch(r'\s*\(\s*"([^"]+)"\s*([+-])\s*"([^"]+)"\s*\)\s*/\s*([1-9][0-9]{0,2})\s*', eq.rhs)
         if not match:
             result["status"] = "unsupported_expression"
@@ -80,12 +101,12 @@ def equation_evidence(streams, predictions, sets, pin):
         candidates = {(op, n) for op in ("+", "-") for n in range(1, 17)}
         independent = set()
         evidence = []
-        for digest, edited, restored in training:
+        for digest, parameter, edited, restored in training:
             keys = (left, right, eq.lhs)
             if any(edited.get(k) is None or restored.get(k) is None for k in keys):
                 continue
             changes = [k for k in (left, right) if not close(edited[k], restored[k])]
-            if len(changes) == 1 and not close(edited[eq.lhs], restored[eq.lhs]):
+            if len(changes) == 1 and changes[0].split("@", 1)[0] == parameter and not close(edited[eq.lhs], restored[eq.lhs]):
                 independent.add(changes[0])
             for obs in (edited, restored):
                 candidates = {(op, n) for op, n in candidates if close(
