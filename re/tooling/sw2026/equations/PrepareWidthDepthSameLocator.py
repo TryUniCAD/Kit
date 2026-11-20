@@ -66,7 +66,7 @@ def geometry(width, height, depth):
             'com_m': [width / 2, height / 2, depth / 2]}
 
 
-def prepare(name, revision):
+def prepare(name, revision, sdk_created_at=None):
     import subprocess
     import tarfile
     from tempfile import TemporaryDirectory
@@ -90,9 +90,10 @@ def prepare(name, revision):
         with tarfile.open(archive) as stream:
             stream.extractall(pin, filter='data')
         tool = pin / HERE.relative_to(REPO)
-        publish(tool, HERE.read_bytes())
-        action = 'import runpy,sys; runpy.run_path(sys.argv[1])["freeze"](sys.argv[2],sys.argv[3])'
-        return subprocess.run([sys.executable, '-I', '-B', '-c', action, str(tool), name, revision], cwd=pin).returncode
+        require(tool.is_file() and not tool.is_symlink(), 'the frozen preparer must be in the pinned tree')
+        action = 'import runpy,sys; runpy.run_path(sys.argv[1])["freeze"](sys.argv[2],sys.argv[3],*map(int,sys.argv[4:]))'
+        epoch = [str(sdk_created_at)] if sdk_created_at is not None else []
+        return subprocess.run([sys.executable, '-I', '-B', '-c', action, str(tool), name, revision, *epoch], cwd=pin).returncode
 
 
 def host_paths():
@@ -192,7 +193,7 @@ def stream_proof(files, locator, expression):
     return rows
 
 
-def freeze(name, revision):
+def freeze(name, revision, sdk_created_at=None):
     import subprocess
 
     host_paths()
@@ -209,6 +210,14 @@ def freeze(name, revision):
     source['settings']['output']['path_name'] = str(locator)
     doc = builder.FromData(source['document'])
     plan = builder.ProjectRectDims(doc)
+    sdk_source = None
+    if sdk_created_at is not None:
+        from BuildSdkWidthDepth import authored_settings
+
+        require(0 < sdk_created_at < 0xffffffff, 'the SDK recipe needs a declared creation event')
+        sdk_source = HERE.with_name('BuildSdkWidthDepth.py')
+        source['sdk_created_at'] = sdk_created_at
+        source['settings'].update(authored_settings(plan, sdk_created_at))
     sketch, = doc.sketches
     boss, = doc.feature_timeline
     width, height, depth = plan.WidthValue, plan.HeightValue, plan.DepthValue
@@ -235,6 +244,8 @@ def freeze(name, revision):
     action = 'import runpy,sys; runpy.run_path(sys.argv[1])["write_variant"](sys.argv[2])'
     for lane in edits:
         command = [sys.executable, '-I', '-B', '-c', action, str(HERE), lane]
+        if sdk_source is not None:
+            command = [sys.executable, '-I', '-B', str(sdk_source), lane]
         attempts = [subprocess.run(command, input=data, capture_output=True, cwd=REPO) for _ in range(2)]
         for item in attempts:
             if item.returncode:
@@ -261,11 +272,15 @@ def freeze(name, revision):
         inputs[f'Tools/{filename}'] = (HERE.parent.parent / filename).read_bytes() if filename != 'ObserveWidthDepthPart.py' else HERE.with_name(filename).read_bytes()
     inputs[f'Tools/{HERE.name}'] = HERE.read_bytes()
     inputs.update({f'Frozen/{lane}.SLDPRT': blob for lane, blob in bins.items()})
-    inputs['Build.json'] = canonical({'revision': revision, 'source_sha256': SOURCE_SHA,
+    host_build = {'revision': revision, 'source_sha256': SOURCE_SHA,
         'preparer_sha256': digest(HERE.read_bytes()), 'guarded_processes': 4, 'runtime_input_file_reads': 0,
         'native_processes_started': 0, 'heldout_inputs_read': 0, 'encoded_locator': str(locator),
         'equation_delta_streams': LAYOUT, 'writer_receipts': builds, 'archive': archive,
-        'initial_prediction': case['initial'], 'edited_predictions': edits})
+        'initial_prediction': case['initial'], 'edited_predictions': edits}
+    if sdk_source is not None:
+        host_build.update(sdk_created_at=sdk_created_at,
+                          sdk_worker_sha256=digest(sdk_source.read_bytes()))
+    inputs['Build.json'] = canonical(host_build)
     hashes = {relative: publish(root / relative, blob) for relative, blob in sorted(inputs.items())}
     job = {'schema': SCHEMA, 'revision': revision, 'files_sha256': hashes, 'encoded_locator': str(locator),
            'control': control, 'guest_runtime': old['guest_runtime'], 'guest_root': unc(root), 'expression': expression,
@@ -464,6 +479,7 @@ def main():
     host = sub.add_parser('prepare')
     host.add_argument('name')
     host.add_argument('revision')
+    host.add_argument('--sdk-created-at', type=int)
     for name in ('verify', 'observe', 'summary'):
         guest = sub.add_parser(name)
         if name == 'observe':
@@ -473,7 +489,7 @@ def main():
     args = parser.parse_args()
     if args.command == 'prepare':
         require(os.name == 'posix', 'prepare on the host only')
-        return prepare(args.name, args.revision)
+        return prepare(args.name, args.revision, args.sdk_created_at)
     require(os.name == 'nt', 'native trial phases belong to the root-owned Windows guest')
     root, job, exact = load_trial(args.packet, args.sha256)
     if args.command == 'verify':
