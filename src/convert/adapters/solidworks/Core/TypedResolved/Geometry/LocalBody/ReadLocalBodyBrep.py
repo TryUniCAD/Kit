@@ -13,14 +13,21 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.MakeLocal
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalBodyNodes import (
     ReadLocalNodes,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalEnvelope import (
+    ReadLocalWrap,
+)
 from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.Payloads.PayloadRecord import BrepPayload
 
 
 # an empty active partition lets the single local solid supply its own complete boundary
-def ReadLocalBrep(Payloads: Sequence[BrepPayload]) -> BrepModel | None:
+def ReadLocalBrep(
+    Payloads: Sequence[BrepPayload], GroupData: bytes, OwnerName: str
+) -> BrepModel | None:
     try:
         LocalData = ReadLocalPay(Payloads)
+        if ReadLocalWrap(GroupData, LocalData) != OwnerName:
+            return None
         NodesValue, OffsetsValue = ReadLocalNodes(LocalData)
         CheckLocalGraph(NodesValue)
         TablesValue = MakeLocalTables(NodesValue, OffsetsValue)

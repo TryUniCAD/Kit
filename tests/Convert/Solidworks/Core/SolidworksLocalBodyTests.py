@@ -1,16 +1,34 @@
 from hashlib import sha256 as Fingerprint
 from math import hypot as Hypot, isclose as IsClose
+from struct import pack as PackValue
 
 from convert import open_document as OpenDocument
+from convert.Geometry.Parasolid import EncodePartData, ParaHeaderData
 from convert.Geometry.Revolve.SweepVector import CrossVector, DotVector
+from convert.adapters.solidworks.Archive.Partition.KernelShapes import KKernelShapes
+from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import (
+    ReadActiveNodes,
+)
+from convert.adapters.solidworks.Archive.Partition.ReadRollbackMut import (
+    ReadRollbackMut,
+)
+from convert.adapters.solidworks.Archive.Partition.ReadXmtNodeMut import ReadXmtNodeMut
+from convert.adapters.solidworks.Archive.Partition.ReadXmtValueMut import (
+    ReadXmtValueMut,
+)
+from convert.adapters.solidworks.Archive.Partition.SchemaHeader import SchemaHeader
+from convert.adapters.solidworks.Archive.Partition.XmtCursor import XmtCursor
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Container.Format import (
     KLocalBodyStream,
     KPartitionStream,
 )
 from convert.adapters.solidworks.Container.Parasolid import DecodePartition
+from convert.adapters.solidworks.Core.Native import ReadSerialized
 from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.brep.Topology.BrepTopology import BrepLoop
+from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Enums.EnumFeatures import FeatureKind
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from tests.Convert.Api.ApiTestPaths import KRootPath
 
@@ -95,6 +113,33 @@ def ShellMeasures(
     return SixVolume / 6, sum(AreaValue for _, AreaValue, _ in Measures), Centroid
 
 
+# public import ownership must agree with both the native feature and solid summary
+def AssertBodyOwner(
+    Document: CadDocument, ModelValue: BrepModel, Counts: tuple[int, int, int]
+) -> None:
+    (OwnerValue,) = (
+        StepValue
+        for StepValue in Document.feature_timeline
+        if StepValue.kind == FeatureKind.IMPORTED
+    )
+    assert OwnerValue.name == "Imported geometry"
+    assert OwnerValue.attributes["native_type"] == "Imported"
+    assert OwnerValue.attributes["xml_tag"] == "Feature"
+    assert OwnerValue.attributes["native_object_id"] == 18
+    assert OwnerValue.operation is None and not OwnerValue.parameter_ids
+    (BodyValue,) = Document.bodies
+    assert BodyValue.final_feature_id == OwnerValue.id
+    assert BodyValue.attributes["native_object_id"] == 18
+    assert (
+        BodyValue.provenance is not None
+        and BodyValue.provenance == OwnerValue.provenance
+    )
+    assert ModelValue.bodies[0].design_body_id == BodyValue.id
+    Summary = BodyValue.topology
+    assert (Summary.solid_count, Summary.shell_count) == (1, 1)
+    assert (Summary.face_count, Summary.edge_count, Summary.vertex_count) == Counts
+
+
 # strict public reads qualify the measured topology and payload group together
 def AssertLocalRead(
     CaseName: str,
@@ -131,6 +176,7 @@ def AssertLocalRead(
         len(ModelValue.edges),
         len(ModelValue.vertices),
     ) == Counts
+    AssertBodyOwner(Document, ModelValue, Counts)
     ActualVolume, ActualArea, ActualCenter = ShellMeasures(ModelValue)
     assert IsClose(ActualVolume, Volume, rel_tol=2e-7)
     assert IsClose(ActualArea, AreaValue, rel_tol=2e-7)
@@ -159,6 +205,19 @@ def TestLocalPrism() -> None:
     )
 
 
+# controlled archive mutations exercise the public input boundary without changing fixtures
+def ReadLocalProbe(Archive: SldprtArchive, Streams: dict[str, bytes]) -> CadDocument:
+    return OpenDocument(
+        BuildSldprt(
+            Streams, FileId=Archive.file_id, FormatVersion=Archive.format_version
+        ),
+        source_format="solidworks.sldprt",
+        strict=True,
+        include_brep=True,
+        include_tessellation=False,
+    )
+
+
 # the active partition alone cannot qualify the local body when history is absent
 def TestNoHistory() -> None:
     Archive = SldprtArchive.from_bytes(ReadFixture("RectangularBare", KRectangle))
@@ -168,15 +227,7 @@ def TestNoHistory() -> None:
     )
     assert (ActiveValue.kind, HistoryValue.kind) == ("partition", "deltas")
     Streams[KPartitionStream] = ActiveValue.data
-    Document = OpenDocument(
-        BuildSldprt(
-            Streams, FileId=Archive.file_id, FormatVersion=Archive.format_version
-        ),
-        source_format="solidworks.sldprt",
-        strict=True,
-        include_brep=True,
-        include_tessellation=False,
-    )
+    Document = ReadLocalProbe(Archive, Streams)
     assert len(Document.brep_payloads) == 2
     assert {
         (Payload.source_stream, Payload.kind) for Payload in Document.brep_payloads
@@ -185,6 +236,79 @@ def TestNoHistory() -> None:
         (KPartitionStream, "partition"),
     }
     assert Document.brep is None
+
+
+# a retained history may select an earlier real mark in the same native chain
+def RetargetHistory(ActiveData: bytes, HistoryData: bytes) -> bytes:
+    ActiveNodes = ReadActiveNodes(ActiveData)
+    HeaderValue = ParaHeaderData(HistoryData)
+    assert HeaderValue is not None
+    Cursor = XmtCursor(HistoryData[HeaderValue.body_offset :])
+    assert Cursor.ReadKind() == 3
+    RootShape = KKernelShapes[3]
+    Cursor.ExpectBytes(SchemaHeader(RootShape))
+    PartitionId = Cursor.ReadIndex()
+    assert PartitionId and PartitionId not in ActiveNodes
+    MarkStart = HeaderValue.body_offset + Cursor.OffsetValue
+    SelectedIndex = Cursor.ReadIndex()
+    MarkEnd = HeaderValue.body_offset + Cursor.OffsetValue
+    assert MarkEnd - MarkStart == 2
+    MarkField, HighestField = RootShape.FieldsValue
+    assert MarkField.NameValue == "current_pmark"
+    assert HighestField.NameValue == "highest_id"
+    assert ReadXmtValueMut(Cursor, HighestField) == ActiveNodes[1].Integer("highest_id")
+    MarkIndices: dict[int, int] = {}
+    while (KindValue := Cursor.ReadKind()) != 1:
+        assert KindValue == 4
+        MarkValue = ReadXmtNodeMut(Cursor, KindValue)
+        MarkIndices[MarkValue.Integer("id")] = MarkValue.IndexValue
+        if MarkValue.Integer("delta_key"):
+            _ = ReadRollbackMut(Cursor, ActiveNodes)
+    Cursor.FinishRead()
+    assert MarkIndices[ActiveNodes[1].Integer("current_id")] == SelectedIndex
+    assert SelectedIndex != MarkIndices[1] and MarkIndices[1] < 32767
+    return (
+        HistoryData[:MarkStart]
+        + PackValue(">H", MarkIndices[1] + 1)
+        + HistoryData[MarkEnd:]
+    )
+
+
+# a realistic retained rollback cannot qualify an inconsistent active world
+def TestWrongMarks() -> None:
+    Archive = SldprtArchive.from_bytes(ReadFixture("RectangularBare", KRectangle))
+    Streams = Archive.streams
+    ActiveValue, HistoryValue = DecodePartition(
+        Streams[KPartitionStream], KPartitionStream
+    )
+    HistoryData = RetargetHistory(ActiveValue.data, HistoryValue.data)
+    Streams[KPartitionStream] = EncodePartData(ActiveValue.data) + EncodePartData(
+        HistoryData
+    )
+    Document = ReadLocalProbe(Archive, Streams)
+    assert {Payload.kind: Payload.sha256 for Payload in Document.brep_payloads} == {
+        "unknown": next(
+            Payload.sha256
+            for Payload in DecodePartition(Streams[KLocalBodyStream], KLocalBodyStream)
+        ),
+        "partition": ActiveValue.sha256,
+        "deltas": Fingerprint(HistoryData).hexdigest(),
+    }
+    assert len(Document.brep_payloads) == 3 and Document.brep is None
+
+
+# a complete local group with a different key must not attach to the import
+def TestWrongOwner() -> None:
+    Archive = SldprtArchive.from_bytes(ReadFixture("RectangularBare", KRectangle))
+    Streams = Archive.streams
+    GroupData = Streams[KLocalBodyStream]
+    OwnerName, NameEnd = ReadSerialized(GroupData, 4)
+    assert OwnerName == "Imported geometry"
+    StemBytes = OwnerName.swapcase().encode("utf-16le")
+    NameStart = NameEnd - len(StemBytes)
+    Streams[KLocalBodyStream] = GroupData[:NameStart] + StemBytes + GroupData[NameEnd:]
+    Document = ReadLocalProbe(Archive, Streams)
+    assert len(Document.brep_payloads) == 3 and Document.brep is None
 
 
 # metadata reads keep the geometry intake and payload materialization disabled

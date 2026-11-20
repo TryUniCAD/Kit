@@ -123,6 +123,7 @@ from convert.adapters.solidworks.Container.Format import (
     DISPLAY_LISTS_STREAM as DisplayListsStream,
     FORMAT_ID_BY_SUFFIX as FormatIdBySuffix,
     INFO as InfoValue,
+    KLocalBodyStream,
     KEYWORDS_STREAM as KeywordsStream,
     KIT_DOCUMENT_STREAM as KitDocStream,
     KIT_RESOLVED_STREAM as KitResolvedStream,
@@ -141,6 +142,12 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.FindLocalOwner import (
+    FindLocalOwner,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.LinkLocalBody import (
+    LinkLocalBody,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalBodyBrep import (
     ReadLocalBrep,
 )
@@ -203,6 +210,9 @@ KSourceKeys = frozenset(
 
 # this binding exists because shared behavior needs one stable value
 KResolvedConfigStream = RegexLib.compile("^Contents/Config-(\\d+)-ResolvedFeatures$")
+
+# native part geometry and the design body need the same public identifier
+KPartBodyId = "sldprt:body:1"
 
 
 # this binding exists because shared behavior needs one stable value
@@ -316,14 +326,18 @@ def ReadNativePart(
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
-    BrepValue = TypedBrep(
+    Candidate = (
+        FindLocalOwner(Model)
+        if Settings.include_brep
+        and Model.active_configuration_id == 0
+        and len(ConfigValues) == 1
+        and not PayloadDiags
+        else None
+    )
+    BrepValue, LocalOwner = TypedBrep(
         Payloads,
-        AllowLocal=(
-            Settings.include_brep
-            and Model.active_configuration_id == 0
-            and len(ConfigValues) == 1
-            and not PayloadDiags
-        ),
+        LocalOwner=Candidate,
+        GroupData=Archive.get(KLocalBodyStream) if Candidate is not None else None,
     )
     SolidOpIds = frozenset(
         (
@@ -332,15 +346,26 @@ def ReadNativePart(
             if Operation.kind != "surface"
         )
     )
-    FinalFeature = FinalBodyId(TimeValues, SolidOpIds)
-    BodyFeature = SolidBody(Model.features)
+    FinalFeature = (
+        FeatureId(LocalOwner.object_id)
+        if LocalOwner is not None
+        else FinalBodyId(TimeValues, SolidOpIds)
+    )
+    BodyFeature = LocalOwner or SolidBody(Model.features)
+    LocalTopology = None
+    if LocalOwner is not None and BrepValue is not None:
+        BrepValue, LocalTopology = LinkLocalBody(BrepValue, KPartBodyId)
     Bodies = (
         BodyValue(
-            id="sldprt:body:1",
+            id=KPartBodyId,
             name=BodyFeature.name if BodyFeature is not None else "Body 1",
             final_feature_id=FinalFeature,
-            topology=TopologySummary(
-                solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
+            topology=(
+                LocalTopology
+                if LocalTopology is not None
+                else TopologySummary(
+                    solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
+                )
             ),
             provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
             attributes=FrozenMapping(
@@ -3669,8 +3694,11 @@ def BrepPayloadA(Index: int, Native: ParasolidPayload) -> BrepPayload:
 
 # this definition exists because focused behavior needs one stable owner
 def TypedBrep(
-    Payloads: Sequence[BrepPayload], *, AllowLocal: bool = False
-) -> BrepModel | None:
+    Payloads: Sequence[BrepPayload],
+    *,
+    LocalOwner: NativeFeature | None = None,
+    GroupData: bytes | None = None,
+) -> tuple[BrepModel | None, NativeFeature | None]:
     Groups: dict[str, list[BrepPayload]] = {}
     for Index, Payload in enumerate(Payloads):
         Groups.setdefault(Payload.source_stream or f"payload:{Index}", []).append(
@@ -3691,9 +3719,10 @@ def TypedBrep(
             Models.append(Decoded[0])
         elif len(Decoded) > 1:
             HasAmbiguous = True
-    if Models or HasAmbiguous or not AllowLocal:
-        return Models[0] if len(Models) == 1 else None
-    return ReadLocalBrep(Payloads)
+    if Models or HasAmbiguous or LocalOwner is None or GroupData is None:
+        return (Models[0] if len(Models) == 1 else None), None
+    LocalModel = ReadLocalBrep(Payloads, GroupData, LocalOwner.name)
+    return LocalModel, LocalOwner if LocalModel is not None else None
 
 
 # this definition exists because focused behavior needs one stable owner

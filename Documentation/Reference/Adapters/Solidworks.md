@@ -62,9 +62,12 @@ face loops and positive signed volume in the disclosed rectangular case.
 
 A part read can recover a closed planar solid from the local body store
 when the sole selected configuration is zero, the active partition is
-empty, and its rollback history validates. The SDK retains the payload
-records and returns the solid as neutral B-rep. The ordinary partition
-decoder keeps priority.
+empty, and its rollback history validates. A sole resolved native
+`Imported` feature must match the local group key. The SDK retains the
+feature and payload records and returns the solid with matching design
+body counts. The ordinary partition decoder keeps priority.
+This is source-backed inspection of the native import. Conversion
+acceptance follows the [CAD success criteria](../Operations/CadSuccessCriteria.md).
 [Local body readback](../../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
 
 ## Feature history
