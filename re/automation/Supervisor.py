@@ -146,6 +146,8 @@ class Supervisor:
         self.config = config
         self.linux_oom_observer = linux_oom_observer
         self.windows_claims = claiming and sys.platform == "win32" and config["controller"].get("adapter") == "a03"
+        self.codex_budget = 0
+        self.codex_executor = None
         self.claim_error = None
         self.root = ROOT
         self.state = config["state"]
@@ -321,6 +323,22 @@ class Supervisor:
             self.queue_application_rearm(rearm_path, rearm_intent, False)
         elif stale is False and rearm_error is not None:
             self.report("application_rearm_failed", session, {"error": rearm_error})
+        if (stale is False and self.codex_executor is not None
+                and (session.spec["kind"], outcome) in {
+                    ("inference.fields", "completed"), ("inference.paired-gap", "waiting_evidence")
+                }):
+            from CodexAdvice.Suggest import decoder_packet
+
+            try:
+                packet = decoder_packet(session.spec["id"], session.claim["attempt"], payload["result"]["records"])
+            except (ValueError, KeyError, TypeError):
+                self.report("decoder_advice", session, {"status": "invalid_assessment"})
+            else:
+                if packet and self.codex_budget:
+                    self.codex_budget -= 1
+                    self.codex_executor.submit(self.check_decoder_advice, packet)
+                elif packet:
+                    self.report("decoder_advice", session, {"status": "run_budget_exhausted"})
         session.remove()
         return True
 
@@ -570,6 +588,17 @@ class Supervisor:
     def shutdown(self, number, frame):
         self.stopping = True
 
+    def check_decoder_advice(self, packet):
+        from CodexAdvice.Suggest import advise
+
+        try:
+            output = self.state / "decoder-advice"
+            output.mkdir(mode=0o700, exist_ok=True)
+            result = advise(self.adapter.store, packet, output, 0, 90, integrated=True)
+        except (OSError, ValueError, KeyError, TypeError, sqlite3.Error) as error:
+            result = {"status": "failed", "error_type": type(error).__name__}
+        self.report("decoder_advice", None, {"job": packet["job"], **result})
+
     def run(self, idle_seconds, max_seconds):
         self.acknowledger = ThreadPoolExecutor(max_workers=1)
         if self.windows_claims:
@@ -583,6 +612,8 @@ class Supervisor:
                 if self.windows_claims:
                     self.adapter.CloseClaimHelper()
             finally:
+                if self.codex_executor is not None:
+                    self.codex_executor.shutdown()
                 self.acknowledger.shutdown(cancel_futures=True)
                 self.report_application_acks()
 
@@ -593,6 +624,8 @@ class Supervisor:
         self.capacity = CapacitySnapshot(self.config, self.registry.configuration_sha256)
         self.recover()
         self.synchronize()
+        if self.codex_budget:
+            self.codex_executor = ThreadPoolExecutor(max_workers=1)
         self.recover_application_acks()
         self.recover_application_rearms()
         self.budget.refresh(self.running)
@@ -684,6 +717,7 @@ def main():
     running = commands.add_parser("run")
     running.add_argument("--idle-seconds", type=float)
     running.add_argument("--max-seconds", type=float)
+    running.add_argument("--codex-on-stall", nargs="?", type=int, const=16, metavar="MAX_CALLS")
     status_command = commands.add_parser("status")
     status_command.add_argument("--claim-occupancy", nargs=3, metavar=("RESOURCE", "FROM_UNIX", "UNTIL_UNIX"))
     pause = commands.add_parser("pause")
@@ -703,7 +737,12 @@ def main():
     try:
         config = read_config(args.config)
         if args.command == "run":
-            response = Supervisor(config, True).run(args.idle_seconds, args.max_seconds)
+            supervisor = Supervisor(config, True)
+            if args.codex_on_stall is not None:
+                if os.name != "posix" or config["controller"].get("adapter") != "a03":
+                    raise ValueError("Codex advice requires a POSIX host and the a03 controller")
+                supervisor.codex_budget = bounded(args.codex_on_stall, 1, 256)
+            response = supervisor.run(args.idle_seconds, args.max_seconds)
         elif args.command == "status":
             response = status(config)
             if args.claim_occupancy is not None:

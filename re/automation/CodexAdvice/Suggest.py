@@ -88,16 +88,47 @@ def approved_packet(path):
     return packet
 
 
-def parked_receipt(store, packet):
+def decoder_packet(job, attempt, records):
+    field = records["kind"] == "inference.fields"
+    status = records["assessment"]["status"]
+    descriptions = {
+        "insufficient_discrimination": "The discovery samples lack an independent control.",
+        "ambiguous": "Several candidate byte fields fit the measurements.",
+        "unresolved": "The search found no candidate byte field.",
+        "refuted": "The proposed byte-field encodings failed validation.",
+        "needs-distinguishing-evidence": "The paired CAD observations need a distinguishing control.",
+    }
+    if field and status == "hypothesis":
+        return None
+    summary = descriptions[status]
+    if records["scope"] == "p04-through-all-body-selection":
+        summary += " The unknown is the saved target-body selection policy for a through-all cut."
+    return {
+        "version": 1,
+        "job": job,
+        "report_sha256": records["plan_sha256" if field else "report_sha256"],
+        "attempt": attempt,
+        "fingerprint": records["execution"]["fingerprint"],
+        "model": "gpt-6.2-sol",
+        "question": "Which controlled CAD edit would best distinguish the remaining explanations?",
+        "discovery_summary": summary,
+    }
+
+
+def parked_receipt(store, packet, include_fields=False):
     with read_store((store / "ledger.sqlite3").resolve(), None, (4,)) as db:
         row = db.execute(
             "SELECT kind,state,parked,receipt,result,generation,attempts,fingerprint "
             "FROM jobs WHERE id=?",
             (packet["job"],),
         ).fetchone()
-        if row is None or row["kind"] != "inference.paired-gap":
+        if include_fields and row is None:
+            return None
+        field = include_fields and row is not None and row["kind"] == "inference.fields"
+        if row is None or (not field and row["kind"] != "inference.paired-gap"):
             raise ValueError("expected an existing paired inference job")
-        if row["state"] != "waiting_evidence" or row["parked"] != 1:
+        outcome = "completed" if field else "waiting_evidence"
+        if row["state"] != outcome or (not field and row["parked"] != 1):
             return None
         objects = Artifacts(store, create=False)
         objects.verify(row["receipt"])
@@ -110,16 +141,21 @@ def parked_receipt(store, packet):
             or receipt["generation"] != row["generation"]
             or receipt["attempt"] != row["attempts"]
             or receipt["fingerprint"] != row["fingerprint"]
-            or receipt["outcome"] != "waiting_evidence"
+            or receipt["outcome"] != outcome
             or receipt["result_sha256"] != row["result"]
-            or result["outcome"] != "waiting_evidence"
+            or result["outcome"] != outcome
             or records["execution"]["fingerprint"] != row["fingerprint"]
+            or (include_fields and (row["fingerprint"], row["attempts"]) != (packet["fingerprint"], packet["attempt"]))
             or records["kind"] != row["kind"]
-            or records["report_sha256"] != packet["report_sha256"]
+            or records["plan_sha256" if field else "report_sha256"] != packet["report_sha256"]
         ):
             raise ValueError(
                 "current parked evidence does not match the approved packet"
             )
+        if field and records["assessment"]["status"] not in {
+            "unresolved", "ambiguous", "insufficient_discrimination", "refuted"
+        }:
+            return None
         return row["receipt"]
 
 
@@ -141,7 +177,7 @@ def read_answer(path):
     return clean
 
 
-def request_advice(codex, packet, attempts, seconds, destination, is_current):
+def request_advice(codex, packet, attempts, seconds, destination, is_current, efforts):
     prompt = (
         "Suggest one falsifiable decoding hypothesis and one controlled experiment. "
         "Provide separate observable predictions if the hypothesis is true and false. "
@@ -157,7 +193,7 @@ def request_advice(codex, packet, attempts, seconds, destination, is_current):
     with TemporaryDirectory(prefix="kit-codex-advice-") as temporary:
         work = Path(temporary).resolve()
         write_private(work / "Schema.json", schema)
-        for effort in ("medium", "xhigh"):
+        for effort in efforts:
             if not is_current():
                 return None
             attempt_file = destination / f"{effort}.json"
@@ -246,17 +282,20 @@ def request_advice(codex, packet, attempts, seconds, destination, is_current):
 
 def run(args):
     packet = approved_packet(args.approved_packet)
-    output = args.output
+    return advise(args.store, packet, args.output, args.wait_seconds, args.attempt_seconds)
+
+
+def advise(store, packet, output, wait_seconds, attempt_seconds, *, integrated=False):
     info = output.lstat()
     if (
         not stat.S_ISDIR(info.st_mode)
         or info.st_uid != os.getuid()
         or info.st_mode & 0o077
-        or output.resolve().is_relative_to(args.store.resolve())
+        or output.resolve().is_relative_to(store.resolve())
     ):
         raise ValueError("use an existing owner-private output directory")
-    deadline = time.monotonic() + args.wait_seconds
-    while (receipt := parked_receipt(args.store, packet)) is None:
+    deadline = time.monotonic() + wait_seconds
+    while (receipt := parked_receipt(store, packet, integrated)) is None:
         remaining = deadline - time.monotonic()
         if remaining <= 0:
             return {"status": "no_parked_assessment"}
@@ -285,7 +324,7 @@ def run(args):
 
     def is_current():
         try:
-            return parked_receipt(args.store, packet) == receipt
+            return parked_receipt(store, packet, integrated) == receipt
         except (OSError, ValueError, TypeError, KeyError, sqlite3.Error):
             return False
 
@@ -293,9 +332,10 @@ def run(args):
         str(Path(codex).resolve()),
         packet,
         attempts,
-        args.attempt_seconds,
+        attempt_seconds,
         destination,
         is_current,
+        ("medium",) if integrated else ("medium", "xhigh"),
     )
     current = is_current()
     status = "stale" if not current else "proposal" if proposal else "no_proposal"
