@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
 from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
 from bisect import bisect_right as BisectRight
-from collections import defaultdict as DefaultDict
+from collections import Counter, defaultdict as DefaultDict
 from collections.abc import Iterator
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
 from io import StringIO
@@ -1527,6 +1527,49 @@ def SketchPatternPairs(
     return Results
 
 
+# feature instance counts require a named parameter inside a single matching owner interval
+def FeatureCountFields(
+    DataValue: bytes, Features: list[XmlFeature], Names: tuple[NativeName, ...]
+) -> list[tuple[int, str, NativeDimension, int, int]]:
+    Owners = {Feature.object_id: Feature for Feature in Features}
+    if len(Owners) != len(Features):
+        return []
+    Markers = sorted(
+        (Item.offset, Item.object_id)
+        for Item in Names
+        if Item.object_id in Owners and Owners[Item.object_id].name == Item.name
+    )
+    Occurrences = Counter(Owner for _, Owner in Markers)
+    Rows = []
+    for Index, (Start, Owner) in enumerate(Markers):
+        Feature = Owners[Owner]
+        if Occurrences[Owner] != 1 or Feature.kind.casefold() not in {
+            "cirpattern",
+            "circularpattern",
+            "lpattern",
+            "linearpattern",
+        }:
+            continue
+        End = Markers[Index + 1][0] if Index + 1 < len(Markers) else len(DataValue)
+        Dims = [Dim for Dim in Feature.dimensions if Dim.name.casefold() == "d1"]
+        if len(Dims) != 1:
+            continue
+        Name = Dims[0].name.encode("utf-16le")
+        Tag = SerializedStringMarker + bytes([len(Name) // 2]) + Name
+        Pos = DataValue.find(Tag, Start, End)
+        if Pos < Start + 2 or DataValue.find(Tag, Pos + len(Tag), End) != -1:
+            continue
+        Token = int.from_bytes(DataValue[Pos - 2 : Pos], "little")
+        Scalar = DimensionScalarValue(DataValue, Pos + len(Tag), End)
+        if 0x8000 <= Token < 0xFFFF and Scalar is not None:
+            Rows.append((Owner, Feature.kind, Dims[0], Scalar, min(End, Scalar + 512)))
+    return Rows
+
+
+# public instance count spans must have multiple independently learned copies in the same feature
+KFeatureCountCopies: tuple[int, ...] = ()
+
+
 # each admitted handle displacement comes from held-out reader replay
 KSketchCountOffsets: dict[str, int] = {"circular": 401, "linear": 401}
 
@@ -1601,6 +1644,26 @@ def BuildNativeList(
         if KSketchCountOffsets
         else {}
     )
+    if KFeatureCountCopies:
+        for Owner, _, Dim, Scalar, End in FeatureCountFields(
+            Resolved, XmlFeatures, Names
+        ):
+            if Scalar + KFeatureCountCopies[-1] + 8 > End:
+                continue
+            Values = {
+                Struct.unpack_from("<d", Resolved, Scalar + Offset)[0]
+                for Offset in KFeatureCountCopies
+            }
+            if len(Values) != 1:
+                continue
+            Value = Values.pop()
+            if not Value.is_integer() or not 0 < Value < 2**32:
+                continue
+            if any(
+                int.from_bytes(Resolved[Scalar : Scalar + Width], "little") == Value
+                for Width in (1, 2, 4, 8)
+            ):
+                Counts[Owner, Dim.name] = (int(Value), Scalar + KFeatureCountCopies[0])
     ScalarOwner = ScalarOwners(Scalars, OrderedRecords, EndsValue)
     InchByOwner = (
         {OwnerId: IndexInch(Owned) for OwnerId, Owned in ScalarOwner.items()}
@@ -1632,7 +1695,11 @@ def BuildNativeList(
                 ):
                     Dimension = Replace(
                         Dimension,
-                        kind="sketch_pattern_count",
+                        kind=(
+                            "instance_count"
+                            if Dimension.kind == "instance_count"
+                            else "sketch_pattern_count"
+                        ),
                         value_mm=None,
                         native_value=Count[0],
                         native_offset=Count[1],
@@ -4504,7 +4571,15 @@ def DimensionValue(
     Dimensions: tuple[NativeDimension, ...], Semantic: str
 ) -> float | None:
     return next(
-        (Dimension.value_mm for Dimension in Dimensions if Dimension.kind == Semantic),
+        (
+            (
+                Dimension.native_value
+                if Semantic == "instance_count" and Dimension.native_value is not None
+                else Dimension.value_mm
+            )
+            for Dimension in Dimensions
+            if Dimension.kind == Semantic
+        ),
         None,
     )
 

@@ -99,9 +99,11 @@ def count_matches_parameter(record, parameter):
     value = parameter.get("value") or {}
     attrs = parameter.get("attributes", {})
     spans = parameter.get("provenance", {}).get("spans", {}).get("$tuple", [])
+    offsets = record["copy_offsets"] if "copy_offsets" in record else [record["handle_value_offset"]]
+    kind = "instance_count" if "copy_offsets" in record else "sketch_pattern_count"
     return (value.get("kind", {}).get("value") == "integer" and type(value.get("value")) is int
             and value["value"] == record["count"] and value.get("unit") == ""
-            and attrs.get("dimension_kind") == "sketch_pattern_count" and "native_unit" in attrs
+            and attrs.get("dimension_kind") == kind and "native_unit" in attrs
             and attrs["native_unit"] is None and attrs.get("native_value") == record["count"]
-            and any((s["stream"], s["offset"], s["length"], s["record_kind"]) ==
-                    (record["stream"], record["handle_value_offset"], 8, "dimension-scalar") for s in spans))
+            and any(s["offset"] in offsets and (s["stream"], s["length"], s["record_kind"]) ==
+                    (record["stream"], 8, "dimension-scalar") for s in spans))

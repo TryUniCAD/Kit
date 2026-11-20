@@ -6,47 +6,16 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from collections import Counter
 import hashlib
 import struct
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Container.Format import DimensionScalar, KSerializedStringMarker
-from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames
+from convert.adapters.solidworks.Core.Native import FeatureCountFields, ParseKeywords, ParseNames
 from InferenceInputs import read_file
 
 
-def feature_parameters(data, features):
-    owners = {f.object_id: f for f in features}
-    if len(owners) != len(features):
-        return []
-    markers = sorted((r.offset, r.object_id) for r in ParseNames(data)
-                     if r.object_id in owners and owners[r.object_id].name == r.name)
-    counts = Counter(owner for _, owner in markers)
-    rows = []
-    for index, (start, owner) in enumerate(markers):
-        feature = owners[owner]
-        if counts[owner] != 1 or feature.kind.casefold() not in ("cirpattern", "circularpattern", "lpattern", "linearpattern"):
-            continue
-        end = markers[index + 1][0] if index + 1 < len(markers) else len(data)
-        dims = [d for d in feature.dimensions if d.name.casefold() == "d1"]
-        if len(dims) != 1:
-            continue
-        name = dims[0].name.encode("utf-16le")
-        tag = KSerializedStringMarker + bytes([len(name) // 2]) + name
-        pos = data.find(tag, start, end)
-        if pos < start + 2 or data.find(tag, pos + len(tag), end) != -1:
-            continue
-        token = int.from_bytes(data[pos-2:pos], "little")
-        scalar = DimensionScalar(data, pos + len(tag), end)
-        if not 0x8000 <= token < 0xffff or scalar is None:
-            continue
-        rows.append((owner, feature.kind, dims[0], scalar, min(end, scalar + 512)))
-    return rows
-
-
 def feature_counts(root, data, features, held_out):
-    targets = feature_parameters(data, features)
+    targets = FeatureCountFields(data, features, ParseNames(data))
     if not targets:
         return None
     folder = root / "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024"
@@ -69,7 +38,7 @@ def feature_counts(root, data, features, held_out):
         if stream_digest in streams_seen:
             continue
         streams_seen.add(stream_digest)
-        for owner, kind, dim, scalar, end in feature_parameters(stream, control_features):
+        for owner, kind, dim, scalar, end in FeatureCountFields(stream, control_features, ParseNames(stream)):
             text = dim.source_text.strip()
             if not text.isascii() or not text.isdecimal() or len(text) > 9:
                 continue

@@ -147,14 +147,8 @@ def keyword_evidence(streams, discovered, document, root, pin):
         uses.subtract(row["candidate_locations"])
         row["candidate_locations"] = [(resolved, offset) for offset in record["copy_offsets"]]
         params = projected.get(key, [])
-        record["public_reader_matches"] = False
-        if len(params) == 1:
-            param = params[0]
-            value = param["value"]
-            record["public_reader_matches"] = (value["kind"]["value"] == "integer" and type(value["value"]) is int
-                and value["value"] == record["count"] and value["unit"] == "" and param["attributes"]["native_unit"] is None
-                and any((s["stream"], s["offset"]) in row["candidate_locations"] and s["length"] == 8
-                        and s["record_kind"] == "dimension-scalar" for s in param["provenance"]["spans"]["$tuple"]))
+        record["stream"] = resolved
+        record["public_reader_matches"] = len(params) == 1 and count_matches_parameter(record, params[0])
         row["pattern_count_status"] = "verified_pattern_count" if record["public_reader_matches"] else "pattern_count_reader_mismatch"
         row["reader_span_matches"] = record["public_reader_matches"]
     counts = Counter()
