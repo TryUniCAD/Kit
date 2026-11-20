@@ -200,6 +200,17 @@ Complete configuration admission and the property owner's physical
 link remain separate work.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
+### B04-SW2026-CONFIG-LW-MATERIAL
+
+The PR #121 takeover team owns the ordinary material and model-data
+read slice on `codex/solidworks-config-material-owners`. It uses
+the accepted part header handoff and lightweight node grammar.
+Exit requires both measured suffixes and map identities, guarded
+authored contrasts and refusals, and current revision review and queue
+evidence. Complete configuration admission and material assignment
+retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
 ### B04-SW2026-CONFIG-CACHES
 
 The PR #121 takeover team owns the bounded part cache reader on
@@ -211,16 +222,15 @@ bounds ownership and complete physical `Config-0` admission have
 separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
 
-### B04-SW2026-CONFIG-LW-MATERIAL
+### B04-SW2026-CONFIG-ATOMS
 
-The PR #121 takeover team owns the ordinary material and model-data
-read slice on `codex/solidworks-config-material-owners`. It uses
-the accepted part header handoff and lightweight node grammar.
-Exit requires both measured suffixes and map identities, guarded
-authored contrasts and refusals, and current revision review and queue
-evidence. Complete configuration admission and material assignment
-retain separate exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+The PR #121 takeover team owns this bounded part atom reader on
+`codex/solidworks-config-atom-manager`. It uses the typed maps, header
+objects and accepted concept fields. Exit requires both disclosed
+manager and producer identities, guarded signed state and rejection
+cases, and current revision queue and review evidence. Inline bodies,
+handle modes and full configuration admission retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
 ### B08-SW2026-TERMINAL-FIN
 

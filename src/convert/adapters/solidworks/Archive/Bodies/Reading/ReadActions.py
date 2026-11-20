@@ -19,6 +19,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadMassMut import ReadM
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNestedMut import (
     ReadNestedMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNormalMut import (
+    ReadNormalMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import (
     ReadPresentMut,
 )
@@ -49,6 +52,7 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Boolean": ReadBooleanMut,
             "MassCaches": ReadMassMut,
             "BBoxCache": ReadBBoxMut,
+            "Normalize": ReadNormalMut,
         }
     )
 )
