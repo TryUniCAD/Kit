@@ -90,7 +90,7 @@ def CheckResume(TmpPath: FilePath) -> None:
 def ControlReceipts(TmpPath: FilePath) -> dict[str, tuple[str | None, int]]:
     ToolPath = "InferenceGrid/RunFeatureCatalogue.py"
     ControlPath = TmpPath / "UninterruptedRun"
-    RunAutomation(
+    _ = RunAutomation(
         ToolPath,
         "--directory",
         ControlPath,
