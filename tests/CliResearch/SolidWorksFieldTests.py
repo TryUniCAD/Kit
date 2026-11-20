@@ -6,7 +6,7 @@ from sys import executable as PythonPath
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
-# file-driven integration checks require receipts from a complete cli process
+# file driven integration checks require receipts from a complete cli process
 def ReadDimensionEvidence(Root: FilePath, Source: FilePath, Run: FilePath) -> dict:
     Result = RunProcess(
         [
@@ -101,3 +101,18 @@ def CheckPatternCounts(TmpPath: FilePath) -> None:
             Row["handle_value_offset"],
             8,
         )
+
+
+# the camshaft gear supplies an independent feature count absent from the training parts
+def CheckFeatureCountCopies(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Source = next(
+        (Root / "re/solidworks/examples").glob("*/ENGRANE ARBOL DE LEVAS.SLDPRT")
+    )
+    Evidence = ReadDimensionEvidence(Root, Source, TmpPath / "run")
+    Rule = Evidence["keyword_evidence"]["feature_pattern_evidence"]
+    assert Rule["candidates"] == [["<d", 373], ["<d", 397]]
+    assert all(Row["sha256"] != Evidence["input_sha256"] for Row in Rule["samples"])
+    assert [Row["count"] for Row in Rule["counts"]] == [36]
+    assert Rule["counts"][0]["keyword_count_matches"]
+    assert Rule["counts"][0]["public_reader_matches"]
