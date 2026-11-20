@@ -201,3 +201,5 @@ Use `solidworks` for a part or assembly from SOLIDWORKS. The runner snapshots up
 The run saves the successful decode layers and a `FileScope.json` report containing the input digest, reader refusals, features without mapped experiments and stream intervals without cited provenance. Intervals are zero-based and end-exclusive within each uncompressed stream. A cited range can still contain unresolved fields.
 
 Typed blind-boss and through-all cut records select the existing P03 and P04 research experiments. The experiments use their controlled corpus. Their receipts can inform the investigation of the input. File-driven runs report incomplete coverage until independent evidence establishes whole-file semantics.
+
+If strict Fusion decoding stops at an unknown class, the run locates the exact segment and object in the native report, checks its class GUID, and follows typed local and cross-segment references until no new reachable objects remain. `Input-references.json` records each field and its target, including missing targets. Cycles and repeated references preserve their edges.

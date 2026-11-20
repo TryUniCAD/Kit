@@ -104,5 +104,11 @@ def file_scope(path, application, scratch, root):
              "whole_file_verified": False}
     if "native" in reports:
         from InferenceGrid.NativeClassEvidence import native_classes
+        from InferenceGrid.TraceRefusal import trace_refusal
         audit["native_classes"] = native_classes(reports["native"], root)
+        trace = trace_refusal(reports["native"], attempts["strict"].get("message", ""), audit["native_classes"]["classes"])
+        if trace is not None:
+            reports["references"] = trace
+            audit["refusal_trace"] = {"start": trace["start"], "class": trace["class"], "nodes": len(trace["nodes"]),
+                                      "unresolved_targets": len(trace["unresolved_targets"])}
     return {application: {"catalogue_sha256": pin, "features": features}}, (audit, reports)

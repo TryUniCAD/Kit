@@ -51,6 +51,14 @@ def CheckFileScope(TmpPath: FilePath) -> None:
         "5662F619-2281-4AD9-93DC-1FCFDA1062E7"
         not in Audit["reader_attempts"]["strict"]["message"]
     )
+    Trace = LoadJson((RunPath / "Input-references.json").read_bytes())
+    First = Trace["nodes"][0]
+    assert First["id"] == Trace["start"] == [0, 346]
+    assert First["metatypes"] == ["DcSketchProjectMetaType"]
+    assert any(
+        Link["field"] == "rDcSketch" and Link["target"] == [0, 334]
+        for Link in First["links"]
+    )
     assert Audit["whole_file_verified"] is False
     Outcome = LoadJson((RunPath / "CatalogueResult.json").read_bytes())
     assert Outcome["status"] == "coverage_incomplete"
