@@ -7,7 +7,11 @@ from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 
 # full rings and partial sectors must exhaust their actual loop and reciprocal fin owners
 def ReadRevLoops(
-    NodesValue: Mapping[int, XmtNode], FaceValue: XmtNode, IsFull: bool
+    NodesValue: Mapping[int, XmtNode],
+    FaceValue: XmtNode,
+    IsFull: bool,
+    *,
+    FullLoopCount: int = 2,
 ) -> tuple[tuple[int, ...], tuple[int, ...]]:
     LoopIds = WalkXmtChain(
         NodesValue,
@@ -17,7 +21,7 @@ def ReadRevLoops(
         OwnerField="face",
         OwnerValue=FaceValue.IndexValue,
     )
-    if len(LoopIds) != (2 if IsFull else 1):
+    if len(LoopIds) != (FullLoopCount if IsFull else 1):
         raise ValueError("revolve face has unqualified trimming loops")
     FinIds: list[int] = []
     for LoopIndex in LoopIds:

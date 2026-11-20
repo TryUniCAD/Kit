@@ -1,6 +1,7 @@
 from collections.abc import Mapping
 from dataclasses import dataclass as DataClass
 
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from interchange.geometry.Models.GeometryCurves import CircleGeometry
 from interchange.geometry.Models.Transform import Transform
 
@@ -13,3 +14,4 @@ class CircleGeomPlan:
     LowerValue: float
     UpperValue: float
     EvidenceValue: Mapping[str, object]
+    BossValue: ArchiveNode

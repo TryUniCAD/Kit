@@ -11,7 +11,11 @@ from interchange.brep.Topology.BrepModel import BrepModel
 # decoded closed circles use deterministic seam vertices without pretending that native vertex records were transmitted
 def CheckRingVerts(ModelValue: BrepModel, GraphValue: BodyNameGraph) -> None:
     TreeValue = GraphValue.TreeValue
-    if TreeValue.VertexIds or TreeValue.PointIds or len(TreeValue.EdgeIds) != 4:
+    if (
+        TreeValue.VertexIds
+        or TreeValue.PointIds
+        or (len(TreeValue.FaceIds), len(TreeValue.EdgeIds)) not in ((3, 2), (4, 4))
+    ):
         raise ValueError("closed-circle binding has an unqualified native inventory")
     Vertices = {Vertex.id: Vertex for Vertex in ModelValue.vertices}
     Edges = {EdgeValue.id: EdgeValue for EdgeValue in ModelValue.edges}

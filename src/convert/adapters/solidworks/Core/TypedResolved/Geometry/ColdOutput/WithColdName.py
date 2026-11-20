@@ -12,6 +12,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdName
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
     PartGeometry,
 )
+from convert.adapters.solidworks.Core.TypedResolved.ReadNativeName import ReadNativeName
 from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -20,10 +21,12 @@ from interchange.document.Models.DocumentModel import CadDocument
 def WithColdName(
     Document: CadDocument, GeometryValue: PartGeometry | None
 ) -> CadDocument:
-    if GeometryValue is None or GeometryValue.ColdValue is None:
+    if GeometryValue is None:
         return Document
     OutputValue = GeometryValue.ColdValue
-    CheckColdBind(Document, GeometryValue, OutputValue)
+    if OutputValue is None:
+        return WithColdProducerName(Document, GeometryValue)
+    CheckColdBind(Document, GeometryValue, OutputValue.BossValue)
     ModelValue = GeometryValue.BrepValue
     ProofValue = ColdNameProof(OutputValue)
     BodyValue = Document.bodies[0]
@@ -50,5 +53,34 @@ def WithColdName(
         brep=ReplaceValue(ModelValue, bodies=(KernelBody,)),
         metadata=FreezeMapping(
             {**Document.metadata, "solidworks.cacheless_body_names": ProofValue}
+        ),
+    )
+
+
+# a derived cold cylinder label may follow only its actual typed producer and owned neutral solid
+def WithColdProducerName(
+    Document: CadDocument, GeometryValue: PartGeometry
+) -> CadDocument:
+    BossValue = GeometryValue.ProducerValue
+    if BossValue is None:
+        return Document
+    try:
+        FeatureValue = CheckColdBind(Document, GeometryValue, BossValue)
+        LabelValue = ReadNativeName(BossValue)
+    except (ValueError, TypeError, KeyError):
+        return Document
+    if (
+        FeatureValue.name != LabelValue
+        or FeatureValue.provenance is None
+        or not LabelValue.isascii()
+        or not LabelValue.isprintable()
+    ):
+        return Document
+    return ReplaceValue(
+        Document,
+        bodies=(
+            ReplaceValue(
+                Document.bodies[0], name=LabelValue, provenance=FeatureValue.provenance
+            ),
         ),
     )

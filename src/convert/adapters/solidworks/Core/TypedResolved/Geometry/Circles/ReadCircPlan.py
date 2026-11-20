@@ -103,4 +103,5 @@ def ReadCircPlan(
         Lower,
         Upper,
         EvidenceValue,
+        BossValue,
     )

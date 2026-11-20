@@ -4,6 +4,8 @@ Use the normal `convert.open_document(path)` entry point for the measured ordina
 
 The admitted profile has one solved concentric mate, two rigid direct occurrences of one saved cylinder part/configuration and one fixed occurrence. The ordinary aligned and anti-aligned modes and both rotation-lock states are read. The child must contain the actual saved single-cylinder kernel body and its profile/extrusion owners.
 
+With B-rep enabled, the saved child's owned implicit body label is exposed on its design body. The reader ties the selected active partition and matching extrusion output atom to the complete cylinder and its two caps. [Implicit cylinder body labels](../../Changes/Solidworks/Reading/Names/SolidworksImplicitCylinderBodyNames.md)
+
 When a SOLIDWORKS 2026 component index repeats the assembly filename in both model labels, an independently resolved direct part definition uses its own indexed filename stem. The original index label remains in the definition's native attributes. [Linked part definition names](../../Changes/Solidworks/Reading/Assembly/SolidworksLinkedPartDefinitionNames.md)
 
 The mate entities have `kind == "cylinder"`, a radius in millimetres, their actual instance paths and a source face ID present in the resolved child B-rep. `MateConstraint.alignment` retains aligned or anti-aligned intent. Its `attributes["rotation_locked"]` retains the actual Boolean lock choice. The instance `fixed` flags and selected configuration names come from the native owners.

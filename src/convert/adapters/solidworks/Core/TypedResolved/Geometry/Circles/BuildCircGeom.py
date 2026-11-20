@@ -35,4 +35,9 @@ def BuildCircGeom(PlanValue: CircleGeomPlan, BodyId: str) -> PartGeometry:
         bounding_box=BoundsValue,
         valid=True,
     )
-    return PartGeometry(ModelValue, TopologyValue, PlanValue.EvidenceValue)
+    return PartGeometry(
+        ModelValue,
+        TopologyValue,
+        PlanValue.EvidenceValue,
+        ProducerValue=PlanValue.BossValue,
+    )

@@ -15,13 +15,20 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyAttrs impo
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyCache import (
     ReadBodyCache,
 )
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyOwner import (
+    ReadBodyOwner,
+)
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyTree import (
     ReadBodyTree,
+)
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadCylBodyTree import (
+    ReadCylBodyTree,
 )
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadKernelName import (
     ReadKernelName,
 )
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
+from convert.adapters.solidworks.Core.TypedResolved.ReadNativeName import ReadNativeName
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -48,13 +55,21 @@ def ReadNamedBody(
         )
     StreamName = LinkValue.ConfigName + "-Partition"
     NodesValue = ReadBodyCache(Document, Archive, StreamName)
-    TreeValue = ReadBodyTree(NodesValue)
+    IsCylinder = Document.brep is not None and len(Document.brep.faces) == 3
+    TreeValue = ReadCylBodyTree(NodesValue) if IsCylinder else ReadBodyTree(NodesValue)
     BodyValue = NodesValue[TreeValue.BodyIndex]
     CheckXmtAttrs(NodesValue, BodyValue)
     Attributes = ReadBodyAttrs(NodesValue, BodyValue)
-    LabelValue, ExplicitLabel = ReadKernelName(
-        NodesValue, Attributes, ReadBodyAuthor(LinkValue)
-    )
+    AuthoredLabel = ReadBodyAuthor(LinkValue)
+    LabelValue, ExplicitLabel = ReadKernelName(NodesValue, Attributes, AuthoredLabel)
+    if IsCylinder and (
+        AuthoredLabel is not None
+        or ExplicitLabel is not None
+        or LabelValue != ReadNativeName(ReadBodyOwner(LinkValue, None))
+    ):
+        raise ValueError(
+            "implicit cylinder body name must agree with its actual producer"
+        )
     AtomValue, FeatureId = ReadBodyAtom(
         LinkValue, NodesValue, Attributes, LabelValue, ExplicitLabel
     )

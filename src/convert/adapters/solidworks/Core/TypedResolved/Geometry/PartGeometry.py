@@ -1,5 +1,6 @@
 from collections.abc import Mapping
 from dataclasses import dataclass as DataClass
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.Records.RecordTopology import TopologyCounts
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutput import (
@@ -14,3 +15,4 @@ class PartGeometry:
     TopologyValue: TopologyCounts
     EvidenceValue: Mapping[str, object]
     ColdValue: ColdOutput | None = None
+    ProducerValue: ArchiveNode | None = None
