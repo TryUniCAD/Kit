@@ -1,0 +1,95 @@
+{
+  "schema": "kit.sw2026.ordinary-revolve-source-lock.v1",
+  "source_revision": "954e5773df5088df4995701ea684f98ecb1dcac1",
+  "job_sha256": "2a5528e57cbf9f65cfa4aea68626fe0a6bb2052f28c154867230b571d663056c",
+  "specs_sha256": "13be8abb8186c7a876637ea27e93c0b35083c0ea34cbf4b052d3b8988a81e457",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "tool_sha256": {
+    "AuthorRevolveSources.py": "1190f61d1158a7643d4c2d53a5707659edf04e0c0c1b9412db9606e9400f6369",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+  },
+  "started_at": 1795214210.1679235,
+  "cases": [
+    {
+      "name": "PrincipalRevolveFrontFull",
+      "split": "discovery",
+      "native_sha256": "04763616b53383aa354b130613a4ccd85e2b6fecc4b2a504c38893d6007e9705",
+      "native_bytes": 61363,
+      "phase_record_sha256": [
+        "05cbb90ed886f2cdcf8f130f01cf22a9c4509a1fa90a0f3a654a11291e396f50",
+        "5dd6427b6577ceff87c5a2c645416f7ee05d0d12093c96b82d4f3fc43ef8f93a"
+      ],
+      "dimension_edit_passed": true,
+      "passed": true
+    },
+    {
+      "name": "PrincipalRevolveTopForward",
+      "split": "discovery",
+      "native_sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0",
+      "native_bytes": 65739,
+      "phase_record_sha256": [
+        "ab8ce37ebf91ff912f52fdb583534aea2a4fbac6f77e39bc737dd47fe2ed4291",
+        "a70e49bd5c9d179dcb0c93496ed52dc546a34653eafced80d335f4020962df6b"
+      ],
+      "dimension_edit_passed": true,
+      "passed": true
+    },
+    {
+      "name": "PrincipalRevolveTopReverse",
+      "split": "discovery",
+      "native_sha256": "04f734b81c99be660bfb3bf9c4b98cd4bf50d456ea13cb3008584dd2892ba932",
+      "native_bytes": 74355,
+      "phase_record_sha256": [
+        "715692e7bdabb1f239904be02bae6908c71c289a7db204c2d950067a3d21cf83",
+        "0aa976eab39c8a6398741e0dbad4cf30eb861c966e260acd164cb591da969ae6"
+      ],
+      "dimension_edit_passed": true,
+      "passed": true
+    },
+    {
+      "name": "PrincipalRevolveHeldoutRight",
+      "split": "heldout",
+      "native_sha256": "029c9528398e56edefbe54f362965ceed84f4c6a4ad2f6c30e48e6b15d18ef74",
+      "native_bytes": 53995,
+      "phase_record_sha256": [
+        "7f0e7f6bd8f1ebb270687b28584cbcd9fa8a620d8ac47c6801c4805ea119310e",
+        "09fc920d33f22c5f1e615353655da5d7f5a6e97599237df760ba230a742c594f"
+      ],
+      "dimension_edit_passed": true,
+      "passed": true
+    },
+    {
+      "name": "PrincipalRevolveHeldoutTop",
+      "split": "heldout",
+      "native_sha256": "e7021d5bf67b00bcfa09777c5ae0a417200645712afc33a27300b41d361c2d80",
+      "native_bytes": 74446,
+      "phase_record_sha256": [
+        "960ff61d18638641fb20f54da8c40d6918284cb2930d084eba0650ad98750f4c",
+        "cc2332fee70151db6c4490a0bf221a6cc9985281a8f66a43d501832cd8952a78"
+      ],
+      "dimension_edit_passed": true,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "writer_output_count": 0,
+  "heldout_results_sealed": true,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "control_before_healthy": true,
+  "control_after_healthy": true,
+  "controls_unchanged": true,
+  "control_record_sha256": {
+    "control-after.json": "34e3d3ef5e1b15a4613ef014c2e1d0cb2a3225fcc4a01342d31e32ec42d03d4a",
+    "control-before.json": "91735a99c0461e61f0a7c84904b0032918f5cdfe6b1f3dcc9ec8eabaff266be1"
+  },
+  "distinct_processes": 12,
+  "direction_consistent": true,
+  "tools_unchanged": true,
+  "inputs_unchanged": true,
+  "finished_at": 1795214543.999224
+}
