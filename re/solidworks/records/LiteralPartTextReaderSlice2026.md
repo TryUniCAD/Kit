@@ -165,6 +165,15 @@ path case creates no destination. The registry's ordinary target
 transfer and carrier checks continue to apply to eligible documents.
 [Write queue case](../../../tests/Convert/Solidworks/Properties/WriteTextTests.py)
 
+For a snapshot already read by the registered interchange JSON reader,
+the registry uses the actual input adapter for the text publication
+decision. A matching interchange JSON writer can retain the original
+document, unavailable diagnostic and source provenance. The same
+status still refuses fresh SOLIDWORKS projections and direct writes.
+The queue probes exercise both copy entry points and the complete
+qualified circular-part JSON write/readback.
+[Direct write queue case](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py)
+
 The current host verification also reruns all six disclosed property
 cases. Its fully absent control removes both the XML and binary
 property owners. The advanced rectangle retains its real binary-only

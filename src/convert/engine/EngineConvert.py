@@ -30,11 +30,12 @@ class EngineConvert:
             format_id=SourceFormat,
             options=ReadOpts or ReadOptions(),
         )
-        OutputResult = RegistryData.write(
+        OutputResult = RegistryData.WriteFromRead(
             DocumentData,
             TargetData,
-            format_id=DestFormat,
-            options=WriteOpts or WriteOptions(),
+            ReaderData,
+            FormatId=DestFormat,
+            WriteOpts=WriteOpts or WriteOptions(),
         )
         return ConvertResult(
             document=DocumentData,

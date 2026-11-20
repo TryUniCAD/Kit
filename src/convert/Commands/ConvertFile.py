@@ -1,6 +1,7 @@
+from convert.adapters.base.WriteOptions import WriteOptions
 from convert.api.ApiContext import GetRegistry
 from convert.api.ApiOpen import OpenDocument
-from convert.api.ApiWrite import WriteDocument
+from convert.api.ApiValues import BuildWriteVals
 from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.WriteReport import WriteReport
@@ -39,15 +40,17 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         StrictMode=True,
     )
     CheckPortable(Document)
-    Result = WriteDocument(
+    Result = Registry.WriteFromRead(
         Document,
         Options.Destination,
-        DestFormat=DestFormat,
-        Configuration=Options.Configuration,
-        Overwrite=Options.Overwrite,
-        ValidateData=True,
-        AllowCarrier=False,
-        InputValues={"require_native_transfers": True},
+        Reader,
+        FormatId=DestFormat,
+        WriteOpts=WriteOptions(
+            configuration=Options.Configuration,
+            overwrite=Options.Overwrite,
+            validate=True,
+            values=BuildWriteVals({"require_native_transfers": True}, False),
+        ),
     )
     return {
         "source_format": ResolveFormat(Document, Reader),

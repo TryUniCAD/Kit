@@ -38,3 +38,6 @@ def TestTextRefusal() -> None:
         ("strict", "nonstrict", "public_write", "registry", "compatibility"),
         f"SOLIDWORKS part text properties are unavailable for writing ({KPartCause})",
     )
+    assert ReportValue["neutral_copies"] == dict.fromkeys(
+        ("ordinary", "compatibility"), InfoValue
+    )

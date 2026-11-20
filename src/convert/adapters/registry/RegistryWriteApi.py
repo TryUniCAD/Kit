@@ -6,6 +6,7 @@ from typing import Protocol
 
 from interchange import CadDocument
 
+from convert.adapters.base.AdapterProtocols import CadReaderAdapter
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.base.Materials.CheckMatWrites import CheckMatWrites
 from convert.adapters.base.ContractTypes import KTargetType
@@ -99,11 +100,21 @@ class WriteSelectApi(WriteCatalog):
 # write orchestration owns validation policy before transactional output staging
 class WriteApi(WriteLookup):
 
-    # complete orchestration prevents unsupported capabilities from mutating any destination
+    # a direct write has no selected transport reader that can attest a neutral copy
     def WriteDocument(
         self,
         DocumentData: CadDocument,
         TargetData: KTargetType,
+        **NamedValues: object,
+    ) -> WriteResult:
+        return self.WriteFromRead(DocumentData, TargetData, None, **NamedValues)
+
+    # selected reader identity distinguishes a neutral snapshot from a fresh native projection
+    def WriteFromRead(
+        self,
+        DocumentData: CadDocument,
+        TargetData: KTargetType,
+        ReaderData: CadReaderAdapter | None,
         **NamedValues: object,
     ) -> WriteResult:
         FormatId, OptionsData = GetWriteArgs(NamedValues)
@@ -112,7 +123,11 @@ class WriteApi(WriteLookup):
             if FormatId
             else self.PickWriter(DocumentData, TargetData)
         )
-        CheckSourceText(DocumentData)
+        CheckSourceText(
+            DocumentData,
+            None if ReaderData is None else ReaderData.info.FormatId,
+            AdapterData.info.FormatId,
+        )
         CheckMatWrites(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:

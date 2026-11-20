@@ -1,7 +1,11 @@
 from pathlib import Path as FilePath
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Properties.RunPartText import KPartCorpus, RunPartText
+from tests.Convert.Solidworks.Properties.RunPartText import (
+    KPartCorpus,
+    KPartProbe,
+    RunPartText,
+)
 
 # scope values come from the native author observation including the repeated custom name
 KNativeText = [
@@ -39,3 +43,16 @@ def TestLiteralText() -> None:
     assert ReportValue["text_scopes"] == [True, True, True]
     assert ReportValue["configuration"] == ["modeled default", True, 0]
     assert ReportValue["body"] == ["sldprt:body:1", 1, 1, 1]
+
+
+# an interchange write must retain all three qualified scopes and their actual owner
+def TestLiteralWrite() -> None:
+    ReportValue = RunPartText(
+        KPartProbe / "CheckLiteralTextWrite.py",
+        KPartCorpus / "part-properties/CircularProperties.SLDPRT",
+    )
+    StatusValue = CastValue(dict[str, object], ReportValue["status"])
+    assert StatusValue["status"] == "complete"
+    assert ReportValue["text"] == KNativeText
+    assert ReportValue["configuration"] == ["modeled default", True, 0]
+    assert ReportValue["source_provenance_preserved"] is True

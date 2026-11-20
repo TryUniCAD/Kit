@@ -1,5 +1,6 @@
 from functools import partial
 from hashlib import sha256
+from io import BytesIO
 import json
 from pathlib import Path
 import sys
@@ -8,12 +9,33 @@ from tempfile import TemporaryDirectory
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from PartTextProbe import check_model, model_state, read_part, refuse_write
-from convert import convert, write_document
+from convert import convert, open_document, write_document
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.api.ApiContext import GetRegistry
 from convert.engine.EngineConvert import EngineConvert
 
 CAUSE = "part properties require an empty compatible native manager"
+
+
+def check_neutral_copy(document, legacy):
+    expected = model_state(document)
+    source = document.to_json().encode()
+    first, second = BytesIO(), BytesIO()
+    convert(source, first, source_format="interchange.json", destination_format="interchange.json",
+            include_tessellation=False, allow_carrier=False)
+    legacy.ConvertData(source, second, SourceFormat="interchange.json", DestFormat="interchange.json",
+                       ReadOpts=ReadOptions(include_tessellation=False))
+    result = {}
+    for mode, stream in (("ordinary", first), ("compatibility", second)):
+        restored = open_document(stream.getvalue(), source_format="interchange.json",
+                                 strict=True, include_tessellation=False)
+        check_model(document, restored)
+        observed = model_state(restored)
+        if (expected != observed or document.source != restored.source
+                or document.diagnostics != restored.diagnostics or document.configurations != restored.configurations):
+            raise ValueError("neutral JSON copy changed the original native inspection state")
+        result[mode] = observed["status"]
+    return result
 
 
 def inspect(source):
@@ -59,6 +81,7 @@ def inspect(source):
     state["source_sha256"] = sha256(source.read_bytes()).hexdigest()
     state["refusals"] = refusals
     state["implicit_path_unchanged"] = True
+    state["neutral_copies"] = check_neutral_copy(document, legacy)
     return state
 
 

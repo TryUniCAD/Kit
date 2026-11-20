@@ -14,8 +14,11 @@ checked even when it is the sole property owner. Name dictionaries, raw
 and evaluated text and reserved section fields must agree. Unsupported
 or malformed scopes withhold all property bags and provide an information
 diagnostic. The ordinary model read remains available. The registry
-refuses conversion and direct writes of this diagnostic result before
-publishing output, with the original property failure in the error.
+refuses new native projections and direct writes of this diagnostic
+result before publishing output, with the original property failure
+in the error. When conversion uses the registered interchange JSON
+reader and writer, it can preserve an existing snapshot and its native
+inspection status.
 
 The version-18000 compatibility path verifies absence of authored text
 through the complete supported binary property owner and all recognized
@@ -33,8 +36,11 @@ values through the public reader. The advanced property control keeps
 its B-rep and native feature tree while withholding all property scopes.
 Two generated files retain their existing modeling refusals and pass
 separate typed property checks.
+The queued direct-write case reads back all three qualified text bags,
+their configuration owner and original source provenance through JSON.
 
 [SDK evidence](../../../../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
 · [Saved directory ownership](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/SavedDirectoryOwnsPartText.md)
 · [Legacy empty manager](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/LegacyEmptyTextManagers.md)
 · [Binary-only manager](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/PropertyManagerCanStandAlone.md)
+· [Neutral snapshot provenance](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/JsonRetainsPropertyStatus.md)
