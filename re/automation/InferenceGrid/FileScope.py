@@ -144,6 +144,13 @@ def file_scope(path, application, scratch, root):
                      "expected": witness["timeline_names"], "ordered_names_match": names == witness["timeline_names"]}
                     for witness in reports["body-correspondence"]["witnesses"] if witness["timeline_names"] is not None
                 ]
+                from InferenceGrid.ParameterWitness import parameter_witness
+                recovered["parameter_checks"] = [
+                    {"capture": witness["capture"], "sha256": witness["sha256"],
+                     **parameter_witness(components[0]["parameters"], witness["parameters"])}
+                    for witness in reports["body-correspondence"]["witnesses"]
+                    if witness["parameters"] is not None and "parameters" in components[0]
+                ]
             oracle = comparison and comparison.get("oracle_timeline")
             if oracle and len(components) == 1:
                 actual = components[0]["features"]

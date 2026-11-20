@@ -11,10 +11,37 @@ from pathlib import Path
 import sys
 
 from convert.adapters.Fusion.Native.Graph.BuildGraph import BuildGraph
-from convert.adapters.Fusion.Native.Graph.GraphChecks import ResolveField
+from convert.adapters.Fusion.Native.Graph.GraphChecks import LinkedNodes, ResolveField
 from convert.adapters.Fusion.Native.Graph.OrderedFeatures import OrderedFeatures
 from convert.Formats.Fusion.DocumentCodec.PartFeatures.Extrude.ExtrudeShape import KBooleanCodes
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
+
+
+def parameters(graph, component, feature_ids):
+    table = ResolveField(graph, component, "rParameterTable", "ParameterTable")
+    if graph.Resolve(table.Fields["rParent"], table.SegmentId) != component:
+        raise ValueError("parameter table has a different component parent")
+    result = []
+    for node in LinkedNodes(graph, table, "children"):
+        fields = node.Fields
+        row = {"id": node.Identity}
+        try:
+            if node.ClassName != "Parameter" or graph.Resolve(fields["rParent"], node.SegmentId) != table:
+                raise ValueError("invalid parameter table member")
+            binding = ResolveField(graph, node, "dcParameter", "DcDoubleParameter")
+            if ResolveField(graph, binding, "parameter", "Parameter") != node:
+                raise ValueError("parameter binding is not reciprocal")
+            owner = graph.Resolve(binding.Fields["rrOwnerFeature"], binding.SegmentId)
+            if owner.Identity not in feature_ids or graph.Resolve(binding.Fields["rParentFeature"], binding.SegmentId) != owner:
+                raise ValueError("parameter owner differs from saved feature order")
+            if type(fields["value"]) not in (int, float) or fields["value"] != binding.Fields["value"]:
+                raise ValueError("numeric parameter values disagree")
+            row.update(name=fields["userName"], role=fields["name"], unit=fields["unit"],
+                       expression=fields["expression"], value=fields["value"], owner=owner.Identity, binding=binding.Identity)
+        except (KeyError, ValueError) as error:
+            row["refusal"] = str(error)[:256]
+        result.append(row)
+    return result
 
 
 def recover(path):
@@ -38,13 +65,18 @@ def recover(path):
                 timeline[-1]["operation"] = next((operation for operation, value in KBooleanCodes.items() if type(code) is int and code == value), None)
                 thin = fields.get("thinExtrude")
                 timeline[-1]["thin"] = thin if type(thin) is bool else None
-        result.append({"component": component.Identity, "fragment": fragment.Identity, "features": timeline})
+        entry = {"component": component.Identity, "fragment": fragment.Identity, "features": timeline}
+        try:
+            entry["parameters"] = parameters(graph, component, {node.Identity for node in features})
+        except (KeyError, ValueError) as error:
+            entry["parameter_refusal"] = str(error)[:256]
+        result.append(entry)
     return result
 
 
 if __name__ == "__main__":
     try:
         print(json.dumps(recover(Path(sys.argv[1]))))
-    except ValueError as error:
+    except (KeyError, ValueError) as error:
         print(json.dumps({"refusal": str(error)[:1024]}))
         sys.exit(2)

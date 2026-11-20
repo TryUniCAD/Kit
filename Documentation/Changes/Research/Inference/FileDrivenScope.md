@@ -35,3 +35,5 @@ The directional loft generated a second three-record patch and passed fresh nati
 Integrated Codex advice now explicitly selects `gpt-6.2-sol` at medium reasoning when the caller omits a model. Login and API modes share this default.
 
 Timeline recovery now runs independently of the strict reader's error wording. In the Loft control the work-plane feature at object 235 stores an empty user name. Its typed work-plane link reaches object 234, which stores the measured name “Loft plane”.
+
+Independent Loft, LoftRects and Sweep file runs recovered all eleven measured feature names in order. Native timeline research now also recovers double parameters and checks their names, expressions, roles, units and numeric values against available captured observations.

@@ -132,6 +132,9 @@ def capture_names(root, pin, size, native):
             timeline = case.get("observed", {}).get("timeline")
             names = [row["name"] for row in timeline] if isinstance(timeline, list) and all(
                 isinstance(row, dict) and isinstance(row.get("name"), str) for row in timeline) else None
-            witnesses.append({"timeline_names": names, "capture": blob, "sha256": hashlib.sha256(raw).hexdigest(), "case": case["name"],
+            parameters = case.get("observed", {}).get("parameters")
+            measurements = [{k: row[k] for k in ("name", "role", "unit", "expression", "value") if k in row}
+                            for row in parameters] if isinstance(parameters, list) and all(isinstance(row, dict) for row in parameters) else None
+            witnesses.append({"parameters": measurements, "timeline_names": names, "capture": blob, "sha256": hashlib.sha256(raw).hexdigest(), "case": case["name"],
                               "unique_geometry_match": bijective, "candidate_indices": matches, "matches": aligned})
     return {"input_sha256": pin, "bodies": bodies, "witnesses": witnesses, "default_name_rules": default_name_rules(witnesses)}
