@@ -141,6 +141,9 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalBodyBrep import (
+    ReadLocalBrep,
+)
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -313,7 +316,15 @@ def ReadNativePart(
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
-    BrepValue = TypedBrep(Payloads)
+    BrepValue = TypedBrep(
+        Payloads,
+        AllowLocal=(
+            Settings.include_brep
+            and Model.active_configuration_id == 0
+            and len(ConfigValues) == 1
+            and not PayloadDiags
+        ),
+    )
     SolidOpIds = frozenset(
         (
             FeatureId(Operation.object_id)
@@ -3657,13 +3668,16 @@ def BrepPayloadA(Index: int, Native: ParasolidPayload) -> BrepPayload:
 
 
 # this definition exists because focused behavior needs one stable owner
-def TypedBrep(Payloads: Sequence[BrepPayload]) -> BrepModel | None:
+def TypedBrep(
+    Payloads: Sequence[BrepPayload], *, AllowLocal: bool = False
+) -> BrepModel | None:
     Groups: dict[str, list[BrepPayload]] = {}
     for Index, Payload in enumerate(Payloads):
         Groups.setdefault(Payload.source_stream or f"payload:{Index}", []).append(
             Payload
         )
     Models: list[BrepModel] = []
+    HasAmbiguous = False
     for Group in Groups.values():
         Decoded = tuple(
             (
@@ -3675,7 +3689,11 @@ def TypedBrep(Payloads: Sequence[BrepPayload]) -> BrepModel | None:
         )
         if len(Decoded) == 1:
             Models.append(Decoded[0])
-    return Models[0] if len(Models) == 1 else None
+        elif len(Decoded) > 1:
+            HasAmbiguous = True
+    if Models or HasAmbiguous or not AllowLocal:
+        return Models[0] if len(Models) == 1 else None
+    return ReadLocalBrep(Payloads)
 
 
 # this definition exists because focused behavior needs one stable owner
