@@ -19,10 +19,10 @@ Its one-file manifest SHA-256 is
 `0fc16240b0a5be45846576ed7681c0f979ce2e8e3bb8579f4ea1472d059e45aa`.
 The delivered single production file
 [`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
-adds the carriage-return rule below. Its source SHA-256 is
-`d36f8d6f8af533542f9af3acfd2159a187ac43494d64976d6ffd36ab32031990`
+adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
+`78b00542c1a43fccb9e6812730ea87a8f11d08740db9acc6606c11e8cbb47221`
 and its one-file manifest SHA-256 is
-`c38cfb7f94d5bc29ecc9d7a15e81ee79ea0afff4fa803556cba3138b25886005`.
+`ed1b0a5dc4c55560e7457d72273f3a822f5912875a5b64c1f3af6c089200292d`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. Production imports use
 the Python standard library.
@@ -33,7 +33,7 @@ The ordinary current model archive uses stream
 `swXmlContents/KeyWords` in container format 4 and archive version
 19000. The stream starts with byte `0x86`, the XML 1.0 declaration
 with encoding `UTF-8` and CRLF. Its root is `Keywords` and the outer
-stream closes with CRLF. The encoder emits UTF-8 without a BOM.
+stream closes with CRLF. The encoder emits UTF-8 without a BOM. The native outer CRLF owns the document boundary, and a nonempty root tail refuses before serialization.
 The formatting argument selects either compact `/>` or spaced
 ` />` empty elements.
 

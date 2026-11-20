@@ -19,6 +19,7 @@ from convert.adapters.solidworks.Core.Native import ParseXml
 
 def author_frame(source):
     root = Element(source["root"], {"id": "17", "Name": source["name"]})
+    root.tail = source.get("root_tail")
     SubElement(
         root,
         "Configuration",

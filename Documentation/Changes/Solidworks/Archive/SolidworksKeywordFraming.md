@@ -8,7 +8,7 @@ characters through XML escaping. Numeric character references preserve
 CR and CRLF through XML end-of-line normalization.
 [Carriage-return handling](../../../Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordTextPreservesCarriageReturns.md)
 
-The framing contract covers named elements, attributes, text and tails.
+The framing contract covers named elements, attributes, text and child tails. A nonempty root tail refuses before serialization.
 Comment and processing-instruction nodes fall outside that vocabulary.
 Configuration and feature projection follow their own format rules.
 

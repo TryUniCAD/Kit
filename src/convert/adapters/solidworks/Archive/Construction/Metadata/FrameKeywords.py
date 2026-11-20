@@ -8,6 +8,10 @@ def FrameKeywords(RootValue: Element, CompactTags: bool) -> bytes:
         raise ValueError(
             "native keyword framing requires the actual keyword root and explicit formatting mode"
         )
+    if RootValue.tail:
+        raise ValueError(
+            "native keyword framing requires content inside the keyword root"
+        )
     PayloadValue = CastValue(
         bytes, XmlBytes(RootValue, encoding="utf-8", short_empty_elements=True)
     )
