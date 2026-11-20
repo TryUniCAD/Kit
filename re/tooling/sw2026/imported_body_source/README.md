@@ -112,6 +112,40 @@ after a separate fresh reopen. The two source variants let the archive
 inspection compare object counts across different geometries.
 [Temporary cylinder API](https://help.solidworks.com/2024/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IModeler~CreateBodyFromCyl.html)
 
+## Lock private cylindrical sources
+
+Prepare a separate packet with `--cohort sealed-topology` and a new
+`C:\KitImportedBodySourcesNN` guest directory. The host packet contains the
+frozen author tools, job and pristine rectangle control. The preparer prints
+the exact job digest. Verify the frozen packet without opening SOLIDWORKS.
+
+```sh
+python3 -B "$PACKET/Tools/RunImportedBodySources.py" run "$PACKET/Job.json" \
+  --job-sha256 "$JOB_SHA" --verify-only
+```
+
+The oracle owner then runs the same command with guest paths and omits
+`--verify-only`. The author draws two independent translated cylinders with
+different signed oblique axes inside Windows. It writes and hashes the
+private specifications before the first control process. Both parts come
+from SOLIDWORKS creating and attaching a temporary solid.
+
+Each author process observes the solid before and after saving. A fresh
+process reopens each saved source read-only and compares the cold and rebuilt
+states. The observer checks the sole BaseBody feature and persistent face
+ownership, the outward caps, both full circular rims, six directional bounds,
+volume, area and centre of mass. Both pristine controls and all four source
+processes must pass. The source and specification hashes must still match
+after the final control.
+
+Retain the aggregate `Result.json` from the packet. A passing result records
+two opaque source hashes, two specification and source lock times, six
+distinct processes, eight periodic observations and zero shared held-out
+payloads. The native parts, salted specifications, persistent references and
+per-phase measurements stay inside the guest. Freeze this source receipt
+before implementing the typed neutral-source writer. Candidate generation
+and acceptance need their own later evidence.
+
 ## Observe a standalone body in the native kernel
 
 Run [ObserveKernelBodyRestore.py](ObserveKernelBodyRestore.py) from a

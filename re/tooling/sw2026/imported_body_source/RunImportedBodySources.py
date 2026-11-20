@@ -21,8 +21,15 @@ VERSION = "34.5.2.0604"
 OWN_TOOLS = ("RunImportedBodySources.py", "AuthorImportedBody.py")
 CONTROL_TOOLS = ("AuthorRectangleAnchors.py", "AuthorCurves.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py")
 DISCLOSED = {"face_center_m": (0.007, -0.011, 0.004), "size_m": (0.019, 0.027, 0.013)}
-COHORTS = ("disclosed", "sealed", "contrast", "topology")
+COHORTS = ("disclosed", "sealed", "contrast", "topology", "sealed-topology")
 PUBLIC_COHORTS = ("contrast", "topology")
+SEALED_COHORTS = ("sealed", "sealed-topology")
+SEALED_TOPOLOGY_TOOLS = (
+    "SealedCylinderSource.py",
+    "ObserveCylinderExchange.py",
+    "ObserveKernelBodyRestore.py",
+    "ObserveKernelExchange.py",
+)
 
 
 def private_destination(value):
@@ -33,6 +40,10 @@ def private_destination(value):
     return str(path)
 
 
+def own_tools(cohort):
+    return OWN_TOOLS + (SEALED_TOPOLOGY_TOOLS if cohort == "sealed-topology" else ())
+
+
 def prepare(args):
     source = Path(__file__).resolve().parent
     repository = source.parents[3]
@@ -41,7 +52,7 @@ def prepare(args):
     private = private_destination(args.guest_private_root)
     target = args.destination.resolve()
     require(not target.is_relative_to(repository), "keep the source packet outside the Kit checkout")
-    tool_sources = [*(source / name for name in OWN_TOOLS), *(source.parent / name for name in CONTROL_TOOLS)]
+    tool_sources = [*(source / name for name in own_tools(args.cohort)), *(source.parent / name for name in CONTROL_TOOLS)]
     entries = {}
     for file in tool_sources:
         relative = file.relative_to(repository).as_posix()
@@ -72,8 +83,18 @@ def verify(job_path, expected):
             and job["control_sha256"] == CONTROL and re.fullmatch(r"[a-f0-9]{40}", job["source_revision"]),
             "source job profile differs")
     private_destination(job["guest_private_root"])
-    require(Path(__file__).resolve().parent == tools and set(job["tools_sha256"]) == set(OWN_TOOLS + CONTROL_TOOLS),
+    required_tools = set(own_tools(job["cohort"]) + CONTROL_TOOLS)
+    require(Path(__file__).resolve().parent == tools and set(job["tools_sha256"]) == required_tools,
             "run the complete frozen source tools")
+    if job["cohort"] == "sealed-topology":
+        require(job_path.name == "Job.json" and not job_path.is_symlink() and not tools.is_symlink(),
+                "use the regular frozen sealed source packet")
+        require({item.name for item in job_path.parent.iterdir()} <= {"Job.json", "Tools", "Control.SLDPRT", "Result.json"}
+                and {item.name for item in tools.iterdir()} == required_tools
+                and all(item.is_file() and not item.is_symlink() for item in tools.iterdir())
+                and (job_path.parent / "Control.SLDPRT").is_file()
+                and not (job_path.parent / "Control.SLDPRT").is_symlink(),
+                "sealed source packet contains unbound inputs or private outputs")
     for name, expected_digest in job["tools_sha256"].items():
         require(digest(tools / name) == expected_digest, f"source tool changed: {name}")
     require(digest(job_path.parent / "Control.SLDPRT") == CONTROL, "pristine rectangle control changed")
@@ -97,6 +118,10 @@ def cases(cohort):
             "CylinderReverseY": {"face_center_m": (0.013, 0.023, -0.017), "axis": (0.0, -1.0, 0.0),
                                  "radius_m": 0.0075, "height_m": 0.019},
         }
+    if cohort == "sealed-topology":
+        from SealedCylinderSource import private_specification
+
+        return private_specification()["cases"]
     require(os.name == "nt", "sample held-out inputs only inside the Windows guest")
 
     def metres(ranges):
@@ -161,7 +186,7 @@ def reopen_phase(observer, controller, path, case, authored):
             "open_errors": error, "open_warnings": warning}
 
 
-def phase(directory, case, name, prior=None):
+def phase(directory, case, name, prior=None, *, author_type=ImportedBodyAuthor, expected_observations=0):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -175,9 +200,13 @@ def phase(directory, case, name, prior=None):
             controller = rec.call("launch fresh source oracle", Swapp.Sw)
             require(controller.revision == "34.5.2", "native COM revision differs")
             result["oracle_identity"] = oracle_identity(rec.call("bind exact source oracle", application_identity, controller.app))
-            observer = ImportedBodyAuthor(controller.app, rec, Swapp)
+            observer = author_type(controller.app, rec, Swapp)
             measured = (author_phase(observer, controller, path, case) if prior is None
                         else reopen_phase(observer, controller, path, case, prior))
+            if expected_observations:
+                periodic_count = len(rec.data.get("periodic_observations", ()))
+                require(periodic_count == expected_observations, "sealed cylinder phase lacks both periodic observations")
+                measured["periodic_observations"] = periodic_count
             result.update(measured, passed=True)
         except Exception as error:
             rec.failure(error)
@@ -213,23 +242,44 @@ def run(job_path, expected):
     seed = root / "Control.SLDPRT"
     copyfile(job_path.parent / seed.name, seed)
     require(digest(seed) == CONTROL, "the guest-local pristine control changed")
-    private_cases = cases(job["cohort"])
+    sealed_topology = job["cohort"] == "sealed-topology"
+    author_type, required_observations = ImportedBodyAuthor, 0
+    if sealed_topology:
+        from SealedCylinderSource import (
+            OBSERVATIONS_PER_PHASE, SLOT_NAMES, SOURCE_PROFILE, SealedCylinderAuthor,
+            private_specification,
+        )
+
+        specification = private_specification()
+        author_type, required_observations = SealedCylinderAuthor, OBSERVATIONS_PER_PHASE
+    else:
+        specification = cases(job["cohort"])
     specifications = root / "SourceSpecifications.json"
-    write_json(specifications, private_cases)
+    write_json(specifications, specification)
+    specifications_digest = digest(specifications)
+    if sealed_topology:
+        frozen = json.loads(specifications.read_bytes())
+        require(digest(specifications) == specifications_digest and tuple(frozen["cases"]) == SLOT_NAMES,
+                "sealed cylinder specification changed before native authoring")
+        private_cases = frozen["cases"]
+    else:
+        private_cases = specification
     status = {"schema": SCHEMA, "source_revision": job["source_revision"], "cohort": job["cohort"],
-              "job_sha256": expected, "specifications_sha256": digest(specifications),
+              "job_sha256": expected, "specifications_sha256": specifications_digest,
               "specifications_locked_at_unix_s": time.time(),
               "tools_sha256": job["tools_sha256"], "oracle_sha256": ORACLE, "oracle_version": VERSION,
               "phases": [], "sources": {}, "passed": False, "heldout_sources_locked": 0,
               "writer_outputs": 0, "native_writer_acceptance": False, "heldout_payloads_shared": 0}
     if job["cohort"] == "disclosed":
         status["disclosed_specification"] = DISCLOSED
+    if sealed_topology:
+        status.update(source_profile=SOURCE_PROFILE, periodic_source_observations=0)
     write_json(public, status)
 
-    def measure(label, function, *args):
+    def measure(label, function, *args, **options):
         status["stage"] = label
         write_json(public, status)
-        result = function(*args)
+        result = function(*args, **options)
         identity = result.get("oracle_identity")
         if identity is not None:
             oracle_identity(identity)
@@ -244,10 +294,11 @@ def run(job_path, expected):
     with (root / "Oracle.log").open("x", encoding="utf-8") as log, redirect_stdout(log), redirect_stderr(log):
         try:
             measure("ControlBefore", control, root, "ControlBefore", seed)
+            phase_options = {"author_type": author_type, "expected_observations": required_observations} if sealed_topology else {}
             for name, case in private_cases.items():
                 directory = root / name
-                authored = measure(name + "Author", phase, directory, case, "Author")
-                reopened = measure(name + "Reopen", phase, directory, case, "Reopen", authored)
+                authored = measure(name + "Author", phase, directory, case, "Author", **phase_options)
+                reopened = measure(name + "Reopen", phase, directory, case, "Reopen", authored, **phase_options)
                 status["sources"][name] = {"source_sha256": reopened["source"]["sha256"],
                                            "author_record_sha256": authored["record_sha256"],
                                            "reopen_record_sha256": reopened["record_sha256"]}
@@ -258,6 +309,8 @@ def run(job_path, expected):
                     data = reopened["cold"]
                     status["sources"][name]["observed"] = {key: data[key] for key in
                                                             ("feature", "body_name", "body_count", "topology", "mass_si")}
+                if sealed_topology:
+                    status["periodic_source_observations"] += authored["periodic_observations"] + reopened["periodic_observations"]
                 write_json(public, status)
         except Exception as error:
             status["failure"] = {"stage": status["stage"], "type": type(error).__name__}
@@ -273,6 +326,10 @@ def run(job_path, expected):
             require(digest(specifications) == status["specifications_sha256"], "private specifications changed")
             for name, result in status["sources"].items():
                 require(digest(root / name / "Source.SLDPRT") == result["source_sha256"], "locked source changed")
+            if sealed_topology:
+                require(len({result["source_sha256"] for result in status["sources"].values()}) == len(private_cases)
+                        and status["periodic_source_observations"] == 2 * required_observations * len(private_cases),
+                        "sealed cylinder custody lacks distinct originals and all measured states")
         except Exception as error:
             status["custody_failure"] = type(error).__name__
             print(repr(error))
@@ -285,7 +342,7 @@ def run(job_path, expected):
     status["passed"] = (status["controls_healthy"] and len(status["sources"]) == len(private_cases)
                         and len(identities) == len(status["phases"]) == 2 * len(private_cases) + 2
                         and not {"failure", "final_control_failure", "custody_failure"} & status.keys())
-    status["heldout_sources_locked"] = len(private_cases) if status["passed"] and job["cohort"] == "sealed" else 0
+    status["heldout_sources_locked"] = len(private_cases) if status["passed"] and job["cohort"] in SEALED_COHORTS else 0
     if status["passed"] and job["cohort"] in PUBLIC_COHORTS:
         try:
             for name, result in status["sources"].items():
@@ -316,9 +373,15 @@ def main():
     native = modes.add_parser("run")
     native.add_argument("job", type=Path)
     native.add_argument("--job-sha256", required=True)
+    native.add_argument("--verify-only", action="store_true")
     args = parser.parse_args()
     if args.mode == "prepare":
         prepare(args)
+        return 0
+    if args.verify_only:
+        require(not args.job.is_symlink(), "use a regular source job")
+        job = verify(args.job.resolve(), args.job_sha256)
+        print(json.dumps({"verified": True, "cohort": job["cohort"], "native_processes": 0}))
         return 0
     return run(args.job.resolve(), args.job_sha256)
 
