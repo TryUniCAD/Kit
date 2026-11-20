@@ -37,7 +37,7 @@ def TestMemberWire() -> None:
     ]
 
 
-# a native color descriptor reused by tag keeps its class slot and allocates one object
+# allocating a new class for its reference would shift later configuration map aliases
 def TestColorSlot() -> None:
     Original, Reused, Refusals = ReadMemberCase("color-ref")
     assert Original["class"] == ["moFeatColorTab_c", 0, 96]
