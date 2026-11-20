@@ -1,0 +1,619 @@
+{
+  "aggregate_rule_revision": "f4fc8744235448c0ff6048e4447440bb7927a6d1",
+  "archive_version": 19000,
+  "candidate_queue_run_recorded": false,
+  "inherited_verification": {
+    "field_action_base_comparison": {
+      "concave": {
+        "exit_status": 0,
+        "stdout_sha256": "a87b590732145a1ebfaa3204d33d221c32ea9e285fa1ec1beda79a7006095f26"
+      },
+      "exact_base": "0cd540e298655e091bcfb4a984ba50e793d67c53",
+      "ladder": {
+        "diagnostic": "ValueError: wrong_map_counter failed for a different reason: SOLIDWORKS body moSketchBlockMgr_c field blocks at 191: SOLIDWORKS body moSketchBlockMgr_c/moRefIdToSketchBlockListMap_c.FUN_4c9080f0 field blocks/f30 at 191: SOLIDWORKS stream has an unresolved external object",
+        "exit_status": 1
+      }
+    },
+    "receipt_exact": {
+      "CheckCfgMembers.py": {
+        "bound_receipt": "ConfigMemberFieldsReader01.json",
+        "stdout_sha256": {
+          "authored": "2bf13ba974abc506f95487e250a7bef7b3a0b21f3284d7a3d1032d26c768a4ad",
+          "concave": "e523efeceb349826ab43984181710ba9691f1122865d6a335ec1d7e84fe92fcc",
+          "ladder": "c8d0afa37310d36c1cddda18e135646ccae96baaf700c8f3085f372d03cb7ca9"
+        }
+      },
+      "CheckUnitTables.py": {
+        "bound_receipt": "ConfigUnitTableReader01.json",
+        "stdout_sha256": {
+          "concave": "f443b1ea9425ded2f716644ce4063942f5c3261c88662469ad60464164afd861",
+          "ladder": "ad2a58ec26ab42905f33c880bca7510f5598f3ef6f95da7771025ca5ae681fb1"
+        }
+      }
+    }
+  },
+  "native_processes_started": 0,
+  "native_reference_build": "SOLIDWORKS 2026 SP05.2 34.5.2.0604",
+  "physical_file_version": 4,
+  "preparation_base": "0cd540e298655e091bcfb4a984ba50e793d67c53",
+  "process_tool_sha256": {
+    "re/tooling/sw2026/CheckCfgCaches.py": "d06c17e1d6eba5c3d66487243c632759db308f8b679d796cab41a171b0f7c385",
+    "re/tooling/sw2026/ReadWirePartCaches.py": "7c3cf96a9d6ac802250ffa3d79ffa35c09c07cc577028d2d5ac03159b72e10dd"
+  },
+  "queue_source_sha256": {
+    "tests/Convert/Solidworks/Configuration/CacheNativeTests.py": "187c86c569bd4657868a7dd55c5720966ba7589267eabb0904e318668b93ed1d",
+    "tests/Convert/Solidworks/Configuration/CacheWireTests.py": "ea62ab074909fab0a1179dd9ccc4926db22b9a7b4ab14487cc1f0eb5e0b5286e",
+    "tests/Convert/Solidworks/Configuration/RunCacheCase.py": "70eb6040d9a66da716f77b43ce915d1193c7a1af1c421255111d4dc22aaeb4ec"
+  },
+  "reader_boundary": "selected mass field or empty bounds field on a mapped ordinary moPart_c schema 1",
+  "reference_census": {
+    "advanced_rectangle": {
+      "bounds": {
+        "count": 0,
+        "interval": [
+          25694,
+          25698
+        ],
+        "map_counter": [
+          110,
+          110
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "config_sha256": "a77890c040efaa9792d0b151c5d38c8b9458301781c399a4a52b9b4a9d003d3a",
+      "config_terminal_map_counter": 110,
+      "mass": {
+        "interval": [
+          25201,
+          25479
+        ],
+        "map_counter": [
+          108,
+          108
+        ],
+        "sha256": "187e19de4add56ed677244ab94efe3c52892f3376eb4bfedb211a22d72b349bc",
+        "slot_atom_counts": [
+          1
+        ],
+        "slots": 1
+      },
+      "model_header_sha256": "c3fd32646c92282433f0d265e0ee767256f869489c88efc0bdf41b925b9c058b",
+      "original_locator": "PartPropertySource01/Inspection/RectanglePropertiesAuthor/RectangleProperties.SLDPRT",
+      "original_scope": "disclosed",
+      "source_sha256": "4377bf5680f30d1c9de52227928911e55604a75d30ceb987240df00d6b1b1805"
+    },
+    "box": {
+      "bounds": {
+        "count": 0,
+        "interval": [
+          22686,
+          22690
+        ],
+        "map_counter": [
+          94,
+          94
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "config_sha256": "9b1d79fe0e012e6722c8e8d9faf51c29e17cc11fd57512530a60abe23df071d6",
+      "config_terminal_map_counter": 94,
+      "mass": {
+        "interval": [
+          22660,
+          22664
+        ],
+        "map_counter": [
+          94,
+          94
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "slot_atom_counts": [],
+        "slots": 0
+      },
+      "model_header_sha256": "84212628d391b8c5891fb9b72fccd7b259421c3037c88bedec526af301a03fec",
+      "original_locator": "re/solidworks/v2026/corpus/local-import-readback/RectangularBare.SLDPRT",
+      "original_scope": "tracked",
+      "source_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+    },
+    "circle": {
+      "bounds": {
+        "count": 0,
+        "interval": [
+          26035,
+          26039
+        ],
+        "map_counter": [
+          122,
+          122
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+      "config_terminal_map_counter": 122,
+      "mass": {
+        "interval": [
+          25542,
+          25820
+        ],
+        "map_counter": [
+          120,
+          120
+        ],
+        "sha256": "c746956086c2a50c590354c3bf0615f0c1cf31c1051e7c5b5e942ec6a385da95",
+        "slot_atom_counts": [
+          1
+        ],
+        "slots": 1
+      },
+      "model_header_sha256": "dbff4fc3e0c22cc292d30541648df2aef7e7e193c513d005ceb3cbc88e962a9a",
+      "original_locator": "PartPropertySource01/Inspection/CircularPropertiesAuthor/CircularProperties.SLDPRT",
+      "original_scope": "disclosed",
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23"
+    },
+    "circle_saved": {
+      "bounds": {
+        "count": 0,
+        "interval": [
+          26063,
+          26067
+        ],
+        "map_counter": [
+          122,
+          122
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "config_sha256": "94e7079c568be9d3b6adf5b16215cf23d668f5f8dafe86462df218da86f9a8b4",
+      "config_terminal_map_counter": 122,
+      "mass": {
+        "interval": [
+          25562,
+          25848
+        ],
+        "map_counter": [
+          120,
+          120
+        ],
+        "sha256": "7a255195edd24cc420ab0d4ec2ca183c444d8a8013cfddd94ca0bcb675e01a02",
+        "signed_trailer": 0,
+        "slot_atom_counts": [
+          0,
+          1
+        ],
+        "slots": 2
+      },
+      "model_header_sha256": "beed1d3222c13d77d850506edb98607c272ffe5943b39929e1f2babe15b53f3d",
+      "original_locator": "SdkPartPropertiesNative02/Inspection/circleEdit/PropertyCircleDiscoveryEdited.SLDPRT",
+      "original_scope": "disclosed",
+      "source_sha256": "8007d21df3db5fc58c23d3fe589cfc15cf274ac83d9b2daa4878ee792e104e30"
+    },
+    "concave": {
+      "bounds": {
+        "count": 0,
+        "interval": [
+          22680,
+          22684
+        ],
+        "map_counter": [
+          94,
+          94
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "config_terminal_map_counter": 94,
+      "mass": {
+        "interval": [
+          22654,
+          22658
+        ],
+        "map_counter": [
+          94,
+          94
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "slot_atom_counts": [],
+        "slots": 0
+      },
+      "model_header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "original_locator": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "original_scope": "tracked",
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    "ladder": {
+      "bounds": {
+        "count": 0,
+        "interval": [
+          25370,
+          25374
+        ],
+        "map_counter": [
+          110,
+          110
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "config_terminal_map_counter": 110,
+      "mass": {
+        "interval": [
+          25151,
+          25155
+        ],
+        "map_counter": [
+          108,
+          108
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "slot_atom_counts": [],
+        "slots": 0
+      },
+      "model_header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "original_locator": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "original_scope": "tracked",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    "polygon_saved": {
+      "bounds": {
+        "count": 0,
+        "interval": [
+          26065,
+          26069
+        ],
+        "map_counter": [
+          122,
+          122
+        ],
+        "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "config_sha256": "0c18e5880e64c1ff1fef5560cd16e2b57c94a2545ad8ee73371ac79cc0bec631",
+      "config_terminal_map_counter": 122,
+      "mass": {
+        "interval": [
+          25564,
+          25850
+        ],
+        "map_counter": [
+          120,
+          120
+        ],
+        "sha256": "2160148b4498dce04a212b87fc10490d124eeb6942b8913ed498ba95e9dee9bb",
+        "signed_trailer": 0,
+        "slot_atom_counts": [
+          0,
+          1
+        ],
+        "slots": 2
+      },
+      "model_header_sha256": "42523f3d74f6ec041b06f5b3012c178627c626c82a9ac3d13faf492848906487",
+      "original_locator": "SdkPartPropertiesNative02/Inspection/polygonEdit/PropertyPolygonDiscoveryEdited.SLDPRT",
+      "original_scope": "disclosed",
+      "source_sha256": "e311ba0626114291e62aacd26f705c8d304baa5d0315f89972fdde66bdee1f14"
+    }
+  },
+  "reference_model_module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "reference_module_evidence": "ev_dce068421fbd5576d2d720304f0a68a8019d0cd19d551e09922617c41adf388d",
+  "reference_scope": {
+    "archive_conditions": 0,
+    "bounds": "f1640",
+    "f161c": 0,
+    "mass": [
+      "f1628",
+      "f1638"
+    ],
+    "schema_path": [
+      "moPart_c",
+      "moPart_c.FUN_4c2378b0"
+    ],
+    "shared_header": "Contents/Config-0-ModelHeader",
+    "stream": "Contents/Config-0"
+  },
+  "schema": "Kit.SolidworksConfigCacheReader.1",
+  "source_manifest_sha256": "047ddddcfa5874ffd0c048579f4d6e723aa9000c5ab35392f24d9ab94d5aa515",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/MassCacheFields.py": "e50fbeb2b2208f7ffd390b90e419fb106c2d6a518663d1932610b8f2563cad01",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/GeometryFields.py": "8d2c6db81cb0525faad7ab1bbc8dee2fab3847bbc226941f555742658d2cff89",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/MassPropFields.py": "1eac2be351aa8e23f96d4be70d3171cb7c03071d8f1a1fd23edaa9aaf52b14ac",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "51ae21d1f3e249a771b60c657a390b4bbbfe1e3db58197ccd5f037bb40689ffd",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadBBoxMut.py": "9b2406e532cc21ac7bb3a5b9af3b2780b2ef8a76413bfbd478fb49865b3269d6",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadCacheNumMut.py": "11f8ef66a58cd344519f5b82bcc609d778abda0145c8862dfaad3b38e7169891",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadMassMut.py": "684f1ecc895aae7ebc0ee28032160a45a19f28c14faf1b439064e0dc20eefb7d",
+    "src/convert/adapters/solidworks/Archive/Config/Caches/CacheLayouts.py": "bc025c8663abab0b0a233d9f0aa8841e486de88349f5c5e24a0fe6caf802c2bf",
+    "src/convert/adapters/solidworks/Archive/Config/Caches/CacheRules.py": "0dca44fbe9c12c23f7aa3f1e925ef35ddc5f0a60c3f7efc66a2e9a33e1f85184",
+    "src/convert/adapters/solidworks/Archive/Config/Caches/CfgCacheGraph.py": "2410d7b9ef4a0932465c76ecaf56146b2223eabcd6cd01144a73d3a60eec86bc",
+    "src/convert/adapters/solidworks/Archive/Config/Caches/CheckCachePart.py": "71e5ab5a65ee377a278676c6f021fb84a3de18a8e9c2d1676348484ededdea41",
+    "src/convert/adapters/solidworks/Archive/Config/Caches/ReadCfgCache.py": "7606065587e89c92e8495f90ae9ea80eeb8d2995f6f23997e98c81c968e25fcf"
+  },
+  "verified_host": {
+    "authored_records_per_pass": 2,
+    "case_results": {
+      "authored": {
+        "case": "authored",
+        "independent_repeat_exact": true,
+        "records": {
+          "bounds": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "bytes": 4,
+            "count": 0,
+            "counter": 108,
+            "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+            "layouts": [],
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "mass": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "atom_ids": [
+              [],
+              [
+                101,
+                103
+              ]
+            ],
+            "bytes": 329,
+            "counter": 108,
+            "fields_sha256": "89727816989f7e4682c5cc735d9e9a17dbc796ec2a37ee2fa444fd7008acf178",
+            "layouts": [
+              "mgVector_c.restore",
+              "moMassPropCache_c.Serialize",
+              "moMassProp_c"
+            ],
+            "property_counts": [
+              0,
+              33
+            ],
+            "row_integers": [
+              [],
+              [
+                -5,
+                7
+              ]
+            ],
+            "sha256": "73bf385093cc0baeb18d75386676986deae5ed97c2e9c18e23008bfc669d6f7d",
+            "signed_trailer": -17,
+            "slot_atom_counts": [
+              0,
+              2
+            ],
+            "slot_count": 2,
+            "trailer_on_wire": true
+          }
+        },
+        "refusals": [
+          "negative_count",
+          "oversized_count",
+          "negative_atom_count",
+          "truncated_selector",
+          "mass_surplus",
+          "bounds_owner",
+          "bounds_surplus",
+          "missing_part",
+          "version"
+        ],
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "cf28edd68dc9dc857456c68597f7de395dbd7df24045008f568b9de0295758d0"
+      },
+      "circle": {
+        "case": "circle",
+        "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+        "file_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+        "header_sha256": "dbff4fc3e0c22cc292d30541648df2aef7e7e193c513d005ceb3cbc88e962a9a",
+        "independent_repeat_exact": true,
+        "records": {
+          "bounds": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "bytes": 4,
+            "count": 0,
+            "counter": 122,
+            "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+            "layouts": [],
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "mass": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "atom_ids": [
+              [
+                101
+              ]
+            ],
+            "bytes": 278,
+            "counter": 120,
+            "fields_sha256": "d391c813d771de97eb734d476371e815e4f2d9dba80200c551000a1bd847997e",
+            "layouts": [
+              "mgVector_c.restore",
+              "moMassPropCache_c.Serialize",
+              "moMassProp_c"
+            ],
+            "property_counts": [
+              33
+            ],
+            "raw_property_f10": 0.000007373688714995752,
+            "row_integers": [
+              [
+                107
+              ]
+            ],
+            "sha256": "c746956086c2a50c590354c3bf0615f0c1cf31c1051e7c5b5e942ec6a385da95",
+            "slot_atom_counts": [
+              1
+            ],
+            "slot_count": 1,
+            "trailer_on_wire": false
+          }
+        },
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "563eebcc92f4990e463baae45e0dcc333377ea8999cad33339e7411271581c2a"
+      },
+      "concave": {
+        "case": "concave",
+        "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+        "file_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+        "header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+        "independent_repeat_exact": true,
+        "records": {
+          "bounds": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "bytes": 4,
+            "count": 0,
+            "counter": 94,
+            "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+            "layouts": [],
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "mass": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "atom_ids": [],
+            "bytes": 4,
+            "counter": 94,
+            "fields_sha256": "34c2e3515121924cbd6d665b1e606b30d1baa87261a4d0b1077b7343b5a92f5e",
+            "layouts": [],
+            "property_counts": [],
+            "row_integers": [],
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "slot_atom_counts": [],
+            "slot_count": 0,
+            "trailer_on_wire": false
+          }
+        },
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "1649e50c3468f8374c21d28bb304ca710a3c2d978c1e8fc6d9e523bbd31f35e9"
+      },
+      "ladder": {
+        "case": "ladder",
+        "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+        "file_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+        "header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+        "independent_repeat_exact": true,
+        "records": {
+          "bounds": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "bytes": 4,
+            "count": 0,
+            "counter": 110,
+            "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+            "layouts": [],
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "mass": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "atom_ids": [],
+            "bytes": 4,
+            "counter": 108,
+            "fields_sha256": "34c2e3515121924cbd6d665b1e606b30d1baa87261a4d0b1077b7343b5a92f5e",
+            "layouts": [],
+            "property_counts": [],
+            "row_integers": [],
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "slot_atom_counts": [],
+            "slot_count": 0,
+            "trailer_on_wire": false
+          }
+        },
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "63c572d15c16b29858dda5f0f1c31a4d685c925914c7a21f652f4f8b1d1ea75b"
+      },
+      "polygon": {
+        "case": "polygon",
+        "config_sha256": "0c18e5880e64c1ff1fef5560cd16e2b57c94a2545ad8ee73371ac79cc0bec631",
+        "file_sha256": "e311ba0626114291e62aacd26f705c8d304baa5d0315f89972fdde66bdee1f14",
+        "header_sha256": "42523f3d74f6ec041b06f5b3012c178627c626c82a9ac3d13faf492848906487",
+        "independent_repeat_exact": true,
+        "records": {
+          "bounds": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "bytes": 4,
+            "count": 0,
+            "counter": 122,
+            "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+            "layouts": [],
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "mass": {
+            "anchor_slots": [
+              1,
+              2,
+              3
+            ],
+            "atom_ids": [
+              [],
+              [
+                101
+              ]
+            ],
+            "bytes": 286,
+            "counter": 120,
+            "fields_sha256": "419dcb7686febf942b5fceb7dbf51704514331d63f540bb44a656bf37f4df9a5",
+            "layouts": [
+              "mgVector_c.restore",
+              "moMassPropCache_c.Serialize",
+              "moMassProp_c"
+            ],
+            "property_counts": [
+              0,
+              33
+            ],
+            "raw_property_f10": 0.0000015300000000000004,
+            "row_integers": [
+              [],
+              [
+                105
+              ]
+            ],
+            "sha256": "2160148b4498dce04a212b87fc10490d124eeb6942b8913ed498ba95e9dee9bb",
+            "signed_trailer": 0,
+            "slot_atom_counts": [
+              0,
+              1
+            ],
+            "slot_count": 2,
+            "trailer_on_wire": true
+          }
+        },
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "f4bfc34d002d6624fbe6803e7fffac9b3946879f67b74fb77763cd714ec1927a"
+      }
+    },
+    "controls_pristine": true,
+    "disclosed_files_per_pass": 2,
+    "native_records_per_pass": 8,
+    "process_count": 10,
+    "python": "3.14.7",
+    "refusals_per_pass": 9,
+    "tracked_files_per_pass": 2
+  }
+}
