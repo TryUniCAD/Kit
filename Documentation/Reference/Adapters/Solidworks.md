@@ -202,9 +202,10 @@ Source metadata and diagnostics qualify the decoded result.
 The cached body geometry and feature history provide different evidence.
 
 The Parasolid reader uses forward fin links and terminal vertices for schema
-`SCH_3701250_37102_13006`. The disclosed SOLIDWORKS 2026 rectangular
-solids retain outward face loops and positive signed volume in
-`open_document()`. [Current fin orientation](../../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
+`SCH_3701250_37102_13006`. The disclosed SOLIDWORKS 2026 rectangles and an
+independently locked capsule retain outward face loops and positive signed
+volume in `open_document()`.
+[Current fin orientation](../../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
 
 ### Drawing layout inspection
 
