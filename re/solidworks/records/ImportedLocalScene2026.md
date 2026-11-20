@@ -56,3 +56,14 @@ typed captions and chronology, 64 light values, three empty property
 scopes and the 102-byte file property owner. This disclosed trial leaves
 complete original-source admission and public writer qualification open.
 [Native notes receipt](../measurements/2026/ImportedPartNotesNative01.json)
+
+## Empty exploded-view manager
+
+A separate frozen comparison constructs the concrete empty part manager
+from explicit presence. Its keyword binds to its generated persistent
+ID. The manager starts in Config-0 and remains inherited by the actual
+resolved map. Three native saved derivatives retain the manager and its
+persistent identity. Their save allocation can move its archive map
+index. Both controls pass across eleven processes, with 348 candidate
+geometry checks and matching cold trees.
+[Disclosed manager result](../measurements/2026/ImportedPartExplodedNative01.json)

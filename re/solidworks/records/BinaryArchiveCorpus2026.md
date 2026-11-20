@@ -75,3 +75,8 @@ The complete repeated report SHA-256 is `3b1f135b6324f4fa069ff6123986c54bc89b0c2
 The [follow-up receipt](../measurements/2026/BinaryArchiveCorpusAfterHistory01.json) retains the new totals
 and the only two changed observations. The original files and the other
 1,326 observations retain their exact hashes and results.
+
+The aggregate rechecked the same pinned cohort after integrating the
+accepted standalone header codec. At `14c1d82cf5cba0c17ba14cf7e630bdd1660f084f`
+all 1,328 measured streams still replay exactly. The 88 VisualStates
+paths retain their provisional schemas. [Post-merge receipt](../measurements/2026/BinaryArchiveAfterStandaloneHeaders01.json)

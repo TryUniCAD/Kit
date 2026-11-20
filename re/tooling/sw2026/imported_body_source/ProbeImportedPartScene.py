@@ -269,6 +269,30 @@ def compare(actual, wanted):
     return type(actual) is type(wanted) and actual == wanted
 
 
+def preserved_annotations(build, baseline, first, reopened, saved_data):
+    result = {}
+    if "note_pair" in build:
+        expected = baseline["cold"]["note_rows"]
+        require(expected == baseline["rebuilt"]["note_rows"]
+                and all(phase_row[mode]["note_rows"] == expected
+                        for phase_row in (first, reopened) for mode in ("cold", "rebuilt")),
+                "native note tree differs from the actual original")
+        wanted = build["note_pair"]
+        actual = asdict(part_notes(saved_data))
+        require(tuple(actual[key] for key in ("HeadName", "EndName"))
+                == tuple(wanted[key] for key in ("HeadName", "EndName")),
+                "native save changed the typed note pair captions")
+        result["saved_notes"] = {"count": len(expected), "chronology_equal": actual == wanted}
+        result["complete_tree_equal"] = all(phase_row["cold"]["tree_signature"] == baseline["cold"]["tree_signature"]
+                                            for phase_row in (first, reopened))
+    if "exploded_view" in build:
+        saved_exploded = part_exploded(saved_data)
+        require(saved_exploded is not None and saved_exploded["persistent_id"] == build["exploded_view"]["generated"]["persistent_id"],
+                "native save did not retain the linked empty part manager")
+        result["saved_exploded_view"] = saved_exploded
+    return result
+
+
 def measure_case(packet, guest, name, build, record, row):
     filename = name + ".SLDPRT"
     source, generated, saved = tuple(guest / branch / filename for branch in ("Sources", "Generated", "Saved"))
@@ -292,36 +316,19 @@ def measure_case(packet, guest, name, build, record, row):
                       reference=first["rebuilt"]["persistent_reference"], **options)
     if not reopened["passed"]:
         return
-    folder, lights = light_scene(read_checked(saved, first["saved_sha256"]))
+    saved_data = read_checked(saved, first["saved_sha256"])
+    folder, lights = light_scene(saved_data)
     require(decoded_scene_row(folder, lights) == scene and compare(tuple(map(asdict, lights)), build["neutral_lights"]),
             "native save changed an authored light value")
     if build["explicit_empty_text_owners_preserved"]:
         original = project_part_text(decode_import(read_checked(source, build["source_sha256"])), preserve_empty=True)
-        saved_text = project_part_text(decode_import(read_checked(saved, first["saved_sha256"])), preserve_empty=True)
+        saved_text = project_part_text(decode_import(saved_data), preserve_empty=True)
         require(saved_text == original, "native save changed an explicit empty property scope")
         row["saved_empty_text_scopes"] = sorted(saved_text.EmptyScopes)
     if "note_pair" in build:
-        expected = baseline["cold"]["note_rows"]
-        require(expected == baseline["rebuilt"]["note_rows"]
-                and all(result[mode]["note_rows"] == expected
-                        for result in (first, reopened) for mode in ("cold", "rebuilt")),
-                "native note tree differs from the actual original")
-        saved_notes = part_notes(read_checked(saved, first["saved_sha256"]))
-        wanted = build["note_pair"]
-        actual = asdict(saved_notes)
-        require(tuple(actual[key] for key in ("HeadName", "EndName"))
-                == tuple(wanted[key] for key in ("HeadName", "EndName")),
-                "native save changed the typed note pair captions")
-        row["saved_notes"] = {"count": len(expected), "chronology_equal": actual == wanted}
-        row["complete_tree_equal"] = all(result["cold"]["tree_signature"] == baseline["cold"]["tree_signature"]
-                                         for result in (first, reopened))
-        manager = read_empty_file_owner(read_checked(saved, first["saved_sha256"]))
+        manager = read_empty_file_owner(saved_data)
         require(fingerprint(manager) == build["file_property_owner"], "native save changed the complete file property owner")
-    if "exploded_view" in build:
-        saved_exploded = part_exploded(read_checked(saved, first["saved_sha256"]))
-        require(saved_exploded is not None and saved_exploded["persistent_id"] == build["exploded_view"]["generated"]["persistent_id"],
-                "native save did not retain the linked empty part manager")
-        row["saved_exploded_view"] = saved_exploded
+    row.update(preserved_annotations(build, baseline, first, reopened, saved_data))
     row.update(binary_light_values_preserved=sum(len(asdict(light)) for light in lights), full_disclosed_lifecycle=True)
 
 

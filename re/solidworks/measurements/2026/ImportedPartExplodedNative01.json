@@ -1,0 +1,169 @@
+{
+  "schema": "kit.sw2026.disclosed-import-empty-exploded-view.v1",
+  "job_sha256": "5f28c018a0dc841f051c22799205249d0e06bec451ee0db6c608846261582334",
+  "writer_revision": "628cd95e76506be1a1a601520864876617d42688",
+  "oracle_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "full_native_receipt_sha256": "9b0eeabf1bfa77e07f1939fd374150085b5c5fd39a3b642a36596932dbde3485",
+  "build_receipt_sha256": "728ab68458024189e9a6d54530a801c34e07985d53d73c5e7f2bae90f1dba1e4",
+  "controls_healthy": true,
+  "distinct_native_processes": 11,
+  "control_receipts": {
+    "ControlBefore": "6483b98edd4cf29098e2497756cb49d3cd78a280606b9c75e41e223a166cb3b4",
+    "ControlAfter": "4ac24b6493a957ebb68b267bfc5154ef36e4723756d3a7eeed9bfb09f1050a12"
+  },
+  "frozen_operators": {
+    "re/tooling/sw2026/imported_body_source/ProbeImportedPartScene.py": "d194a7051f5a54ccbd0820f6afada102e4b515d8dd34ca3c60297e7545429b7c",
+    "re/tooling/sw2026/imported_body_source/ObserveLocalImportedPart.py": "9a4c3b0756688aea9e8ba5560b0ce500387f03199cabcc84c960a607b860b506",
+    "re/tooling/sw2026/imported_body_source/ProjectDisclosedImport.py": "c6a5b3b9899b0a3e1bd89f9b4784647e97721704d25e579b8c0c3ff4df36b08c",
+    "re/tooling/sw2026/imported_body_source/ProjectImportedSemantics.py": "4ecea9266afd8ba428171e96f0ca14facdf68febd396ca241a31683c9010b398",
+    "re/tooling/sw2026/AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "re/tooling/sw2026/AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+    "re/tooling/sw2026/OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "re/tooling/sw2026/Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "re/tooling/sw2026/downstream/lighting/AuditStockPartLights.py": "6b29f143855ef58e3b9992168b05d1e49f9c4ca1aec0a7e4d13aa5a0abceb177",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/BindImportScene.py": "c4bb61896f66c28fd0b3bc202b6a5ae313c03477d04dfb3b3a1fdea3c6d3d6ff",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/CheckBareImport.py": "e6d185886955e6b1f12539373243e686037a46abf9ca81f7c882e2f820ea232e",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeBareImport.py": "1e2156b454d96f68299f6a75c858fd9dcb322b95d4d0e1d37fde893fec0aeaa2",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeImportKeys.py": "ca4afc6afbbbac7bffb6874735d7fcb9c7d273209657c6e1e52994727b44659f",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/ReadImportScene.py": "00656296cb1864057dc0529354c27ae0c4d06472bede813c54fc70f7a1ea9c06",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/MakePartProps.py": "6c92897a0ecb4c773cd87c26ed539d025fd24c27b0e7d237bad569a206751faf",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/PartTextInput.py": "11e3a41952389cf6ac61f049a3ee0961aa349c8ad98afaf8727f08d1fa02c9d2",
+    "src/convert/adapters/solidworks/Archive/Construction/System/MakePartExplode.py": "cdd55c1298484fda5f01296c77f9933beed2df04a1f8848582d6f57cd27d308b",
+    "src/convert/adapters/solidworks/Archive/Construction/System/InitExplodeMut.py": "807fcf0d17758294d60ae9f5e2cf1de093bb9f0b37aad58d26feb128b248fb61",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ReadLocalExpl.py": "1044644a8cfa36814de2443e72127ce40b39e60eea537dc8bd746cd87a87aaa5"
+  },
+  "complete_original_source_conversions": 0,
+  "heldout_cases": 0,
+  "cases": {
+    "Disclosed": {
+      "input_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+      "generated_sha256": "bb0f7b13a746c3f3850f8d6c34f1779021d12c27818b5b43eb786418c99fcff3",
+      "saved_candidate_sha256": "32bf8ff2291be57b8895608b85be90262b880ffef38dc6c506c4c290959c542e",
+      "generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "manager_ownership": {
+        "affected_streams": [
+          "Contents/CMgr",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2",
+          "swXmlContents/KeyWords"
+        ],
+        "generated": {
+          "archive_index": 102,
+          "persistent_id": 25
+        },
+        "source": {
+          "archive_index": 106,
+          "persistent_id": 19
+        },
+        "native_saved": {
+          "persistent_id": 25,
+          "archive_index": 121
+        }
+      },
+      "saved_notes": {
+        "count": 2,
+        "chronology_equal": true
+      },
+      "saved_binary_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "native_cold_tree_rows": 24,
+      "complete_cold_trees_match": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": {
+        "Source": "d38ab5973d7eed82dc83e3bc8597cf4bb1c2d3c58897fcdecd81dc46cfa36daa",
+        "Generated": "bba9c7964fd15d57de681b2aa9bae5572c3a161a93fb677882251cd2178222d4",
+        "Reopen": "3e4a322f99f03e7191a5cc5d7b50518f83035ada9c3f59ecfffc18f601f9e9ad"
+      }
+    },
+    "OtherShape": {
+      "input_sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d",
+      "generated_sha256": "f8fdae21c341d7d809ed3fdb108d05bb6fa0714d90ce6582da0411e89d647b73",
+      "saved_candidate_sha256": "b75edc2122ec6eb94e8b22355faf8c3a62cdf3a6fcd9f8ba079ef97903366126",
+      "generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "manager_ownership": {
+        "affected_streams": [
+          "Contents/CMgr",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2",
+          "swXmlContents/KeyWords"
+        ],
+        "generated": {
+          "archive_index": 102,
+          "persistent_id": 25
+        },
+        "source": {
+          "archive_index": 106,
+          "persistent_id": 19
+        },
+        "native_saved": {
+          "persistent_id": 25,
+          "archive_index": 121
+        }
+      },
+      "saved_notes": {
+        "count": 2,
+        "chronology_equal": true
+      },
+      "saved_binary_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "native_cold_tree_rows": 24,
+      "complete_cold_trees_match": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": {
+        "Source": "4b1235f7e2ac52a0f76cd8f33e0a96f88e19dc386893e5355c7c18784028b7f5",
+        "Generated": "4e9678f8b0a0062e2d0795811f026715a817681d9d5b3b6e829a65fc945210ef",
+        "Reopen": "5fb0bd6bf76f20c78a0692cccf925b883c96eff70a6de9e3a0027fa726f72a6c"
+      }
+    },
+    "RenamedFeature": {
+      "input_sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8",
+      "generated_sha256": "cb4e73545a797617e8baeeaca9646355925a199d1eb3e3af7c6f93feab15ee0c",
+      "saved_candidate_sha256": "39b96a4f0ea0ba7f5f33f3c9e53d05d15f3c4a1e9d237729b85499a4abe1afcb",
+      "generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "manager_ownership": {
+        "affected_streams": [
+          "Contents/CMgr",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2",
+          "swXmlContents/KeyWords"
+        ],
+        "generated": {
+          "archive_index": 102,
+          "persistent_id": 25
+        },
+        "source": {
+          "archive_index": 106,
+          "persistent_id": 19
+        },
+        "native_saved": {
+          "persistent_id": 25,
+          "archive_index": 121
+        }
+      },
+      "saved_notes": {
+        "count": 2,
+        "chronology_equal": true
+      },
+      "saved_binary_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "native_cold_tree_rows": 24,
+      "complete_cold_trees_match": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": {
+        "Source": "0368c205b8a5a9533d17bc475340f2ecec38a4fc045f86328f905bcf6223d691",
+        "Generated": "bf9359c5039b627e9a7e3afc16f9e7bf2e54a43f2036a4e69bf60ede011542ba",
+        "Reopen": "e48152a9b80aa614cad606ecffe5ef5faa2f49325230a42b2ceeeae1ce91b812"
+      }
+    }
+  }
+}

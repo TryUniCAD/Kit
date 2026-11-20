@@ -39,7 +39,8 @@ def stage(args):
     code = output / "Code"
     code.mkdir()
     pinned_tree(repo, args.revision, code)
-    operator_names = OPERATORS + (SCENE_OPERATORS if args.scene_and_text or args.empty_file_owner else ())
+    has_scene = args.scene_and_text or args.empty_file_owner or args.annotation_managers
+    operator_names = OPERATORS + (SCENE_OPERATORS if has_scene else ())
     hashes = {name: digest((code / IMPORT / name).read_bytes()) for name in operator_names}
     (output / "SealedSourceReceipt.json").write_bytes(public_receipt)
     copyfile(args.control, output / "Control.SLDPRT")
@@ -49,6 +50,8 @@ def stage(args):
         schema, guest = ("kit.sw2026.sealed-import-scene-text-job.v1", r"C:\KitImportedEvaluation02")
     if args.empty_file_owner:
         schema, guest = ("kit.sw2026.sealed-import-property-owner-job.v1", r"C:\KitImportedEvaluation03")
+    if args.annotation_managers:
+        schema, guest = ("kit.sw2026.sealed-import-annotation-managers-job.v1", r"C:\KitImportedEvaluation04")
     job = json_data({"schema": schema, "writer_revision": args.revision, "oracle_sha256": ORACLE,
                      "guest_output": guest, "operators": hashes})
     (output / "Job.json").write_bytes(job)
@@ -65,4 +68,5 @@ if __name__ == "__main__":
     profile = parser.add_mutually_exclusive_group()
     profile.add_argument("--scene-and-text", action="store_true")
     profile.add_argument("--empty-file-owner", action="store_true")
+    profile.add_argument("--annotation-managers", action="store_true")
     stage(parser.parse_args())

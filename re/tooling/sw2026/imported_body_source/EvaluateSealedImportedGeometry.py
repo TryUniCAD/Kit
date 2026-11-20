@@ -103,8 +103,8 @@ def evaluate(slot, source_lock, specification, output):
     }, [tuple(row["oracle_identity"][key] for key in ("process_id", "process_creation_filetime")) for row in phases]
 
 
-def evaluate_scene(slot, source_lock, specification, output, *, preserve_empty_file_owner=False):
-    from ProbeImportedPartScene import compare, decoded_scene_row, light_scene, prepared_part, read_checked
+def evaluate_scene(slot, source_lock, specification, output, *, preserve_empty_file_owner=False, preserve_annotations=False):
+    from ProbeImportedPartScene import compare, decoded_scene_row, light_scene, prepared_part, preserved_annotations, read_checked
     from ProjectImportedSemantics import project_part_text, read_empty_file_owner
 
     source = SOURCE_ROOT / slot / "Source.SLDPRT"
@@ -112,8 +112,10 @@ def evaluate_scene(slot, source_lock, specification, output, *, preserve_empty_f
     original = read_checked(source, source_hash)
     target = output / (slot + ".SLDPRT")
     saved = output / (slot + "Saved.SLDPRT")
-    generated, build = prepared_part(original, target, preserve_empty=True, preserve_empty_file_owner=preserve_empty_file_owner)
-    other, repeat = prepared_part(original, target, preserve_empty=True, preserve_empty_file_owner=preserve_empty_file_owner)
+    options = {"preserve_empty": True, "preserve_empty_file_owner": preserve_empty_file_owner,
+               "preserve_notes": preserve_annotations, "preserve_exploded": preserve_annotations}
+    generated, build = prepared_part(original, target, **options)
+    other, repeat = prepared_part(original, target, **options)
     require(generated == other and build == repeat and build["runtime_file_reads"] == 0,
             "sealed semantic build was nondeterministic or read files")
     require(build["explicit_empty_text_owners_preserved"], "selected source text owners are missing")
@@ -121,13 +123,17 @@ def evaluate_scene(slot, source_lock, specification, output, *, preserve_empty_f
         file.write(generated)
     expected = expected_shape(specification)
     scene = build["native_scene"]
-    native = phase(output, slot + "Original", source, source_hash, expected, build["feature"], scene=scene)
+    native_options = {"scene": scene}
+    if preserve_annotations:
+        notes = build["note_pair"]
+        native_options["note_names"] = (notes["HeadName"], notes["EndName"])
+    native = phase(output, slot + "Original", source, source_hash, expected, build["feature"], **native_options)
     require(native["passed"], "independent original geometry and scene did not pass")
     candidate = phase(output, slot + "Candidate", target, build["file"]["sha256"], expected,
-                      build["feature"], save=saved, scene=scene)
+                      build["feature"], save=saved, **native_options)
     require(candidate["passed"], "generated sealed candidate failed open rebuild or save")
     reopened = phase(output, slot + "Reopen", saved, candidate["saved_sha256"], expected,
-                     build["feature"], reference=candidate["rebuilt"]["persistent_reference"], scene=scene)
+                     build["feature"], reference=candidate["rebuilt"]["persistent_reference"], **native_options)
     require(reopened["passed"] and digest(source) == source_hash, "native reopen failed or original changed")
     saved_data = read_checked(saved, candidate["saved_sha256"])
     folder, lights = light_scene(saved_data)
@@ -149,6 +155,12 @@ def evaluate_scene(slot, source_lock, specification, output, *, preserve_empty_f
         original_owner = read_empty_file_owner(original)
         require(read_empty_file_owner(saved_data) == original_owner, "native save changed the empty file owner")
         report["file_property_owner"] = build["file_property_owner"]
+    if preserve_annotations:
+        annotations = preserved_annotations(build, native, candidate, reopened, saved_data)
+        require(annotations["saved_notes"]["chronology_equal"] and annotations["complete_tree_equal"],
+                "saved note chronology or complete cold native tree differs")
+        report.update(annotations)
+        report["cold_native_tree_rows"] = len(native["cold"]["tree_signature"])
     return report, [tuple(row["oracle_identity"][key] for key in ("process_id", "process_creation_filetime")) for row in phases]
 
 
@@ -160,11 +172,13 @@ def run(job_path, checksum):
         "kit.sw2026.sealed-import-geometry-job.v1": Path(r"C:\KitImportedEvaluation01"),
         "kit.sw2026.sealed-import-scene-text-job.v1": Path(r"C:\KitImportedEvaluation02"),
         "kit.sw2026.sealed-import-property-owner-job.v1": Path(r"C:\KitImportedEvaluation03"),
+        "kit.sw2026.sealed-import-annotation-managers-job.v1": Path(r"C:\KitImportedEvaluation04"),
     }
     require(job["oracle_sha256"] == ORACLE and schema in paths, "unexpected sealed import evaluator profile")
     output = Path(job["guest_output"])
     require(output == paths[schema] and not output.exists(), "use the owned separate evaluation path")
-    property_mode = schema == "kit.sw2026.sealed-import-property-owner-job.v1"
+    annotations_mode = schema == "kit.sw2026.sealed-import-annotation-managers-job.v1"
+    property_mode = annotations_mode or schema == "kit.sw2026.sealed-import-property-owner-job.v1"
     scene_mode = property_mode or schema == "kit.sw2026.sealed-import-scene-text-job.v1"
     operator_folder = Path(__file__).resolve().parent
     require(set(job["operators"]) == set(OPERATORS + (SCENE_OPERATORS if scene_mode else ())) and
@@ -193,7 +207,9 @@ def run(job_path, checksum):
     if scene_mode:
         report["schema"] = "kit.sw2026.sealed-import-scene-text.v1"
         report["unqualified_source_domains"] = ["source tracking and provenance", "archived payload and system attributes"]
-        if property_mode:
+        if annotations_mode:
+            report["schema"] = "kit.sw2026.sealed-import-annotation-managers.v1"
+        elif property_mode:
             report["schema"] = "kit.sw2026.sealed-import-property-owner.v1"
         else:
             report["unqualified_source_domains"].append("binary property manager")
@@ -206,7 +222,8 @@ def run(job_path, checksum):
                 try:
                     arguments = slot, locks["sources"][slot], expected[slot], output
                     if scene_mode:
-                        result, process_ids = evaluate_scene(*arguments, preserve_empty_file_owner=property_mode)
+                        result, process_ids = evaluate_scene(*arguments, preserve_empty_file_owner=property_mode,
+                                                            preserve_annotations=annotations_mode)
                     else:
                         result, process_ids = evaluate(*arguments)
                     report["cases"][slot] = result
@@ -227,6 +244,8 @@ def run(job_path, checksum):
         report["complete_heldout_scene_text_lifecycles"] = report["complete_heldout_geometry_lifecycles"]
     if property_mode:
         report["complete_heldout_file_property_owner_lifecycles"] = report["complete_heldout_geometry_lifecycles"]
+    if annotations_mode:
+        report["complete_heldout_annotation_manager_lifecycles"] = report["complete_heldout_geometry_lifecycles"]
     report["faults"] = faults
     write_json(frozen_dir / "Result.json", report)
     print(json.dumps({"controls_healthy": report["controls_healthy"], "geometry_lifecycles": report["complete_heldout_geometry_lifecycles"]}))
