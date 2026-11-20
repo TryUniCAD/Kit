@@ -1,5 +1,6 @@
 from collections.abc import Mapping
 
+from convert.adapters.base.ContractCompat import IsObjectDict
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 
 
@@ -18,7 +19,7 @@ def CheckDefRender(FieldsValue: Mapping[str, object]) -> None:
             )
         return
     if (
-        not isinstance(RendererValue, dict)
+        not IsObjectDict(RendererValue)
         or RendererValue.get("f08") != 6
         or RendererValue.get("f0c") != 0
     ):
@@ -27,7 +28,7 @@ def CheckDefRender(FieldsValue: Mapping[str, object]) -> None:
         )
     ListValue = RendererValue.get("list")
     if (
-        not isinstance(ListValue, dict)
+        not IsObjectDict(ListValue)
         or ListValue.get("items") != []
         or ListValue.get("n", 0) != 0
     ):

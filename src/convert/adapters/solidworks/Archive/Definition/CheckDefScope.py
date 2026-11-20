@@ -1,5 +1,6 @@
 from collections.abc import Mapping
 
+from convert.adapters.base.ContractCompat import IsObjectDict
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleNum import (
     ReadStyleNum,
@@ -23,11 +24,11 @@ def CheckDefScope(FieldsValue: Mapping[str, object]) -> None:
         raise BodyUnsupported("SOLIDWORKS part Definition has optional UI objects")
     ModelData = FieldsValue.get("fbf0")
     BaseValue = FieldsValue.get("basedoc")
-    OleValue = BaseValue.get("ole") if isinstance(BaseValue, dict) else None
+    OleValue = BaseValue.get("ole") if IsObjectDict(BaseValue) else None
     if (
-        not isinstance(ModelData, dict)
+        not IsObjectDict(ModelData)
         or ModelData.get("f08") is not None
-        or not isinstance(OleValue, dict)
+        or not IsObjectDict(OleValue)
         or OleValue.get("f7f8") != []
     ):
         raise BodyUnsupported(
