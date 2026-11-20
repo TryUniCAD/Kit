@@ -49,6 +49,15 @@ The earlier disclosed same-model plain controls open with one solid and zero war
 
 The [builder](../../tooling/sw2026/equations/BuildWidthDepthPart.py) creates the clone and the local component separately for each operand. The width and depth identifiers and numeric relationship come from the neutral request. The builder emits both linked streams from their shared graph, using the actual linked configuration version and map. Four guarded builds reproduce two complete ten-stream containers with zero construction input reads. The measured output changes apply to the disclosed prototypes. The [reference gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Equations/EquationDimensionsUseLocalReferences.md) records the distinction.
 
+The [shared typed constructor](../../../src/convert/adapters/solidworks/Archive/Construction/Part/Equations/MakeDerivedBoss.py)
+now consumes the derived neutral parameter and explicit corner anchor.
+It creates the relation before either linked stream is serialized.
+Independent workers reproduce both ten-stream prototype archives byte
+for byte. One matches the previously native-tested same-locator file.
+Both default strict reads retain the calculated solid and the actual
+parameter dependency. Six altered inputs refuse before publication.
+[Construction proof](../measurements/2026/SharedWidthDepthConstruction01.json)
+
 ### Native measurement
 
 The complete edit lifecycle fails. The first generated candidate opens with errors and warnings both zero and one solid. Its unchanged rebuild returns success. The native equation manager reports one enabled local equation. The 25-row tree and actual drivers report width 39.125 mm, height 17.375 mm and depth 19.5625 mm. All nine initial comparisons pass. Initial volume is `1.3298526367187503e-05 m³`, area is `0.00357015625 m²` and the centroid is `(0.0195625, 0.0086875, 0.00978125) m`.

@@ -13,6 +13,9 @@ from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndInput import
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import (
     SetCfgStampMut,
 )
+from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph import (
+    DimensionGraph,
+)
 from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import CutGraph
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeBlindMut import (
     MakeBlindMut,
@@ -31,6 +34,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan im
 )
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartStreams import (
     EmitPartStreams,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Equations.BindWidthMut import (
+    BindWidthMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartCutMut import (
     MakePartCutMut,
@@ -73,6 +79,7 @@ def FinishBlindMut(
     *,
     PocketValue: PocketPlan | None = None,
     ThroughValue: ThroughPartSpec | None = None,
+    WidthDriver: DimensionGraph | None = None,
 ) -> PartCandidate:
     EndInput: BlindEndInput | BossEndInput
     if ThroughValue is not None:
@@ -101,6 +108,8 @@ def FinishBlindMut(
         InputValue.DesignIntent,
         InputValue.SelectedLeader,
     )
+    if WidthDriver is not None:
+        BindWidthMut(SystemValue.RootValue, WidthDriver, BossValue.DimensionsValue[0])
     CutValue: CutGraph | None = None
     CutSketchDims: tuple[KeywordDim, ...] = ()
     if PocketValue is not None:
@@ -129,6 +138,7 @@ def FinishBlindMut(
         SketchDims,
         CutValue=CutValue,
         CutSketchDims=CutSketchDims,
+        PartRelations=WidthDriver is not None,
     )
     BytesValue = BuildSldprt(StreamsValue, FormatVersion=4)
     return PartCandidate(

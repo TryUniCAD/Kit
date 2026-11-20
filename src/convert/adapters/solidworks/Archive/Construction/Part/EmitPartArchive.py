@@ -43,9 +43,12 @@ def EmitPartArchive(
     KeywordsValue: bytes,
     *,
     BodyMapFields: MutableMapping[str, object] | None = None,
+    PartRelations: bool = False,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
-    ConfigBytes, ConfigValue = WriteConfigMut(SystemValue.RootValue, 19000, HeaderValue)
+    ConfigBytes, ConfigValue = WriteConfigMut(
+        SystemValue.RootValue, 19000, HeaderValue, PartRelations=PartRelations
+    )
     ContextValue = {
         "model_compressed_stream": 1,
         "model_is_part": 1,

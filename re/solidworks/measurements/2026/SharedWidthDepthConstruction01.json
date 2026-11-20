@@ -1,0 +1,178 @@
+{
+  "cases": {
+    "distinct_profile": {
+      "byte_identical_to_previous_model": true,
+      "dimensions_mm": [
+        26.4375,
+        20.75,
+        13.21875
+      ],
+      "generated_sha256": "b50d176e897ebc5d468f593554ba4e885571c9f0716437b6319485e105317629",
+      "map_counters": [
+        163,
+        256
+      ],
+      "native_tested_container": false,
+      "runtime_input_reads": 0,
+      "source_sha256": "3b17a8c1088782a848325ae985c427744585168a90018977506039f7a19c4cf3",
+      "streams": {
+        "Contents/CMgr": {
+          "sha256": "053fd3cf9bf90a3d36a29b13b3248043ba5ce79075d152b91322e221893e9329",
+          "size": 1145
+        },
+        "Contents/CMgrHdr2": {
+          "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d",
+          "size": 169
+        },
+        "Contents/Config-0": {
+          "sha256": "780d150953c3dbcc106c2bbc07304157e78a3c37f5b768482824a065ff822b4a",
+          "size": 28711
+        },
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "d758fc2f4b12acef336f9edca2dc251676a95ccbb5f57dee86167225bafb0d1b",
+          "size": 747
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "e0e5ca51298296576a652776e19e38efe2924436aaef80d038b607ae060fbd7c",
+          "size": 12247
+        },
+        "Contents/Definition": {
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "size": 477
+        },
+        "Header2": {
+          "sha256": "4eaf877faa61d8f62704bb5adcccc7a10c25a411e29d18904a9ac5f9989ab3b5",
+          "size": 747
+        },
+        "_MO_VERSION_19000/Biography": {
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "size": 23
+        },
+        "_MO_VERSION_19000/History": {
+          "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc",
+          "size": 169
+        },
+        "swXmlContents/KeyWords": {
+          "sha256": "3df58be98e897f38e0f1a259e84794197f6ce35f350f214da3f903fbbf4fad3c",
+          "size": 1510
+        }
+      },
+      "width_depth_identity": [
+        "sldprt:parameter:18:D1",
+        "sldprt:parameter:21:D1"
+      ]
+    },
+    "same_locator": {
+      "byte_identical_to_previous_model": true,
+      "dimensions_mm": [
+        39.125,
+        17.375,
+        19.5625
+      ],
+      "generated_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "map_counters": [
+        163,
+        256
+      ],
+      "native_tested_container": true,
+      "runtime_input_reads": 0,
+      "source_sha256": "2e0a84ca6f061d9c34622ba98a8a440a8322cf55ec8cc2d72b720da0b223c94f",
+      "streams": {
+        "Contents/CMgr": {
+          "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79",
+          "size": 1145
+        },
+        "Contents/CMgrHdr2": {
+          "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8",
+          "size": 169
+        },
+        "Contents/Config-0": {
+          "sha256": "6e8049d379e4f59fe2a9a8a7dcbcd70402c85100cc90a8aab973d6375a28ab43",
+          "size": 28773
+        },
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "8e1d46ed1ffc855781c64be83f41c9aabfcdfcf262622604d2d2a23c0db5bf90",
+          "size": 783
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "3910f6c4f93ed481b20fefb2955a365146dad6b1d03afde7ef91c5a2e4990202",
+          "size": 12247
+        },
+        "Contents/Definition": {
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "size": 477
+        },
+        "Header2": {
+          "sha256": "5a9b2c7e235ff5434292884c26441cfa0e56ce9ca1e06dc84fe51a7dd247d55a",
+          "size": 783
+        },
+        "_MO_VERSION_19000/Biography": {
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "size": 23
+        },
+        "_MO_VERSION_19000/History": {
+          "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63",
+          "size": 169
+        },
+        "swXmlContents/KeyWords": {
+          "sha256": "4ac4b5e47ba95c239aa1d57da27bfb2f9b5c00fa07bdbb40051b936b835a3bbf",
+          "size": 1515
+        }
+      },
+      "width_depth_identity": [
+        "sldprt:parameter:18:D1",
+        "sldprt:parameter:21:D1"
+      ]
+    }
+  },
+  "faults": {
+    "different_divisor": {
+      "fault": "different_divisor",
+      "refusal": "local equation must reference the actual width divided by two",
+      "runtime_input_reads": 0
+    },
+    "height_identity": {
+      "fault": "height_identity",
+      "refusal": "local equation must reference the actual width divided by two",
+      "runtime_input_reads": 0
+    },
+    "inconsistent_depth": {
+      "fault": "inconsistent_depth",
+      "refusal": "local equation disagrees with the anchored Front Plane boss",
+      "runtime_input_reads": 0
+    },
+    "independent_depth": {
+      "fault": "independent_depth",
+      "refusal": "local equation must reference the actual width divided by two",
+      "runtime_input_reads": 0
+    },
+    "missing_anchor": {
+      "fault": "missing_anchor",
+      "refusal": "local equation requires an explicit Front Plane corner anchor",
+      "runtime_input_reads": 0
+    },
+    "source_language": {
+      "fault": "source_language",
+      "refusal": "local equation must reference the actual width divided by two",
+      "runtime_input_reads": 0
+    }
+  },
+  "heldout_inputs_read": false,
+  "isolated_worker_processes": 10,
+  "native_processes": 0,
+  "schema": "kit.sw2026.shared-width-depth-build.v1",
+  "tool_sha256": "1032f37ab49425efb2bca506fd73e90b58a1de6b7e91225a12519d1d94ee327f",
+  "writer_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/BodyNames/MakeAnchorBase.py": "4a99880e87feb2ffc4aadae23bd62d6c59aca97537ae734974a405c1774dccf7",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeObList.py": "cbbd31984af09a92f6e3bf7d5f82b70df93221650710b1fe579664752802f7a0",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartArchive.py": "ce3416d5ab4027710ae3981839ac793a8743befca040c0d425fa5a9597ec8c32",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartStreams.py": "abcacefadb1b277d21bf7c1b99d1f937d6f04eede2f5ed302558f074b3868be1",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Equations/BindWidthMut.py": "e741fca5a4bc5a93343a4f6546cb03ef8cf9ac21b2e8910e81e289b866d8e61f",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Equations/MakeDerivedBoss.py": "a603776c266443992c4e6e9289b58a168b4020ac5e9fdfae6cea8be04a62117c",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Equations/MakeEqDimension.py": "bc4d3a82ad3556e03786da4ca50b3d6e074521d0f5f7adad1b4742dbdc55caa2",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Equations/MakeEqToken.py": "89d24be25d2d87b6e0207dcd218195669a5353fefc4ffa1d2220ca175f1dfaaf",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Equations/PlanWidthDepth.py": "fff8da68bdbd808b93dc58983a900f58f4988ed6d33925ba159cf3a0edd3e9f8",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/FinishBlindMut.py": "82a435f932775ce14ec084faa636ff43e32fac093865960593c3cc5994141fcb",
+    "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/MakeAnchorPart.py": "9cb067a82828b1454c51df8899af1545ad424738c1a6db2879fa6c394f3defe7"
+  }
+}

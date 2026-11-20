@@ -35,6 +35,7 @@ def EmitPartStreams(
     *,
     CutValue: CutGraph | None = None,
     CutSketchDims: tuple[KeywordDim, ...] = (),
+    PartRelations: bool = False,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     KeywordsValue = MakePartKeys(
         SystemValue,
@@ -52,4 +53,5 @@ def EmitPartStreams(
         DefinitionValue,
         InputValue,
         KeywordsValue,
+        PartRelations=PartRelations,
     )
