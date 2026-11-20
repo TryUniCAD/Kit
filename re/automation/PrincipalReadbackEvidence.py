@@ -194,12 +194,15 @@ def git_pin(snapshot, revision, path):
 
 def read_sources(snapshot, plan):
     revision = plan["source_revision"]
+    authoring = AUTHORING
+    if plan["collector"]["path"] == "re/automation/CaptureTools/SolidWorksAuthoring/P04Readback.cs":
+        authoring = "re/automation/CaptureTools/SolidWorksAuthoring"
     sources = {}
     for role, path in (
         ("specification", SPEC),
         ("control", CONTROL),
-        ("collector", f"{AUTHORING}/P04Readback.cs"),
-        ("launcher", f"{AUTHORING}/ReadP04SolidWorks.ps1"),
+        ("collector", f"{authoring}/P04Readback.cs"),
+        ("launcher", f"{authoring}/ReadP04SolidWorks.ps1"),
     ):
         pin = git_pin(snapshot, revision, path)
         require(pin == plan[role], f"worker {role} differs from its Git source pin")
@@ -218,16 +221,21 @@ def read_sources(snapshot, plan):
             "legacy principal collector has an unexpected companion",
         )
     else:
-        companion = git_pin(snapshot, revision, f"{AUTHORING}/P02Readback.cs")
+        companion = git_pin(snapshot, revision, f"{authoring}/P02Readback.cs")
+        launcher_bytes = snapshot.blob(revision, f"{authoring}/ReadP04SolidWorks.ps1")
+        if authoring != AUTHORING:
+            declaration = f"$authoringRoot = '{authoring}'".encode()
+            require(launcher_bytes.count(declaration) == 1, "live readback launcher has no unique source root")
+            launcher_bytes = launcher_bytes.replace(declaration, f"$authoringRoot = '{AUTHORING}'".encode(), 1)
         require(
             companion == plan.get("circle_collector")
             and companion["sha256"] == bundle["circle_collector"]
-            and sources["launcher"]["sha256"] == bundle["launcher"],
+            and sha256(launcher_bytes) == bundle["launcher"],
             "worker compiled principal collector bundle differs from the approved sources",
         )
         sources["circle_collector"] = companion
     if bundle is not None and "progress_collector" in bundle:
-        progress = git_pin(snapshot, revision, f"{AUTHORING}/ReadbackProgress.cs")
+        progress = git_pin(snapshot, revision, f"{authoring}/ReadbackProgress.cs")
         require(progress == plan.get("progress_collector") and progress["sha256"] == bundle["progress_collector"],
                 "worker native progress collector differs from the approved source")
         sources["progress_collector"] = progress

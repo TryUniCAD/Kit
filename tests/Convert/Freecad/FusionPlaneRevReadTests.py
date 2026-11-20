@@ -5,7 +5,7 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import write_document as WriteDocument
+from tests.Convert.Freecad.FixturePolicy.CodecRebuild import CodecRebuild
 from tests.Convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.EditPlaneRev.PlaneRevPlan import (
     PlaneRevPlan,
@@ -26,7 +26,7 @@ def ReadPlaneSeed() -> tuple[Element, CadDocument, PlaneRevPlan]:
     assert PlanValue is not None
     with TempDirectory() as Folder:
         Destination = FilePath(Folder) / "plane.FCStd"
-        _ = WriteDocument(DocValue, Destination, allow_carrier=True)
+        _ = CodecRebuild(DocValue, Destination)
         with ZipFile(Destination) as Archive:
             return ParseXml(Archive.read("Document.xml")), DocValue, PlanValue
 

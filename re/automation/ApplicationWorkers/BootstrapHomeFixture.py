@@ -17,7 +17,7 @@ import sys
 from types import ModuleType, SimpleNamespace
 
 ROOT = Path(__file__).resolve().parents[3]
-BOOT = ROOT / "re/automation/PairedCaptures/Runner/KitCaptureRunner/KitCaptureRunner.py"
+BOOT = ROOT / "re/automation/CaptureTools/Runner/KitCaptureRunner/KitCaptureRunner.py"
 
 
 def host(folder):

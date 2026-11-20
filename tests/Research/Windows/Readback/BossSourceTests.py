@@ -64,7 +64,7 @@ def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) ->
             if TestTarget == "collector"
             else "RunBossWitness.ps1"
         )
-        RelativePath = "re/automation/PairedCaptures/SolidWorksAuthoring/" + FileName
+        RelativePath = "re/automation/CaptureTools/SolidWorksAuthoring/" + FileName
         FileValue = RootPath / RelativePath
         BeforeBlob = ReadbackGit(RootPath, "rev-parse", "HEAD:" + RelativePath)
         Comment = (
