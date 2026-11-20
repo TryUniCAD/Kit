@@ -40,6 +40,34 @@ The implemented container uses encoded stream names and compressed data.
 A valid stream directory does not prove valid native feature records.
 A valid feature record does not establish a successful vendor rebuild.
 
+Internal archive primitives encode and decode collection counts, structural
+tags, CString frames and fixed-width scalars in memory. Stream owners select
+the count dialect and supply the context for object references.
+[Wire primitives and verification](../../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
+
+The typed archive graph allocates class descriptors and objects in one
+map. Its stream readers validate reference kinds and retain shared object
+identity when the next stream inherits a snapshot. Body callbacks provide
+the fields for each stream and class.
+[Object maps and verification](../../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
+
+The standalone header codec uses independent maps for `Header2` and
+`Contents/Config-0-ModelHeader` in the ordinary version-19000 profile.
+Its typed records retain file references, revision logs and bounds for
+reconstruction.
+[Standalone header scope](../../Changes/Solidworks/SolidworksStandaloneHeaders.md)
+
+Internal body callbacks handle scalars, canonical CString frames and
+object links in the same graph and counted row scopes. Individual
+stream layouts define the order and meaning of those fields.
+Inherited body links require the concrete objects from the prior map.
+[Body value scope](../../Changes/Solidworks/Archive/SolidworksArchiveBodyValues.md)
+
+The current configuration directory codec reads and constructs
+`Contents/CMgrHdr2` from a typed manager and its configuration rows.
+Its archive map starts at one, independently of the full `CMgr` stream.
+[Configuration directory scope](../../Changes/Solidworks/Archive/SolidworksConfigurationDirectory.md)
+
 ## Read flow
 
 ```mermaid
@@ -54,6 +82,26 @@ flowchart LR
 The reader combines available feature, geometry, and assembly information.
 Source metadata and diagnostics qualify the decoded result.
 The cached body geometry and feature history provide different evidence.
+
+For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid
+reader uses forward fin links and terminal vertices. This preserves outward
+face loops and positive signed volume in the disclosed rectangular case.
+[Current fin orientation](../../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
+
+A part read can recover a closed planar solid from the local body store
+when the sole selected configuration is zero, the active partition is
+empty, and its rollback history validates. A sole resolved native
+`Imported` feature must match the local group key. The SDK retains the
+feature and payload records and returns the solid with matching design
+body counts. The ordinary partition decoder keeps priority.
+If the required current-profile local solid fails validation, a strict
+B-rep read raises a format error. Explicit non-strict reads retain the
+payloads with a local geometry rejection warning.
+`extract_brep` reads the native payloads with strict framing
+validation and without requiring local snapshot reconstruction.
+This is source-backed inspection of the native import. Conversion
+acceptance follows the [CAD success criteria](../Operations/CadSuccessCriteria.md).
+[Local body readback](../../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
 
 ## Feature history
 

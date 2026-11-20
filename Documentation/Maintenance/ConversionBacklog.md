@@ -60,6 +60,91 @@ B04's parent is not complete merely because controlled constructor probes exist.
 
 ## Important gap boundaries
 
+### B04-SW2026-LOCAL-IMPORT-READBACK
+
+The PR #121 takeover agent owns the strict local geometry reader extraction
+on `codex/solidworks-local-import-readback`. It depends on the terminal fin
+semantics in [PR #171](https://github.com/TryUniCAD/Kit/pull/171) and the typed
+partition rules from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+Exit requires the public SDK integrations to verify both disclosed planar
+solids and their native feature ownership and body counts. The accepted
+revision must also pass the absent-history, mismatched-mark, wrong-owner,
+and metadata controls.
+[Change entry](../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
+
+### B14-COMPANION-PUBLICATION
+
+The PR #121 takeover agent owns this active destination-safety task. The
+separate main-target PR from `codex/staged-companion-publication` extracts
+the generic file publication correction from
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+It depends on the existing registry and staging directory next to the
+destination. [Change entry](../Changes/Commands/CompanionPublication.md)
+
+Exit requires revision-bound CI and review evidence. The registry integration
+cases must preserve a concurrent companion file with replacement disabled
+and restore earlier originals after a later backup fails.
+[Integration cases](../../tests/Convert/Registry/RegistryRaceTests.py)
+
+### B03-SW2026-ARCHIVE
+
+The [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167) landed the
+[exact-build research record](../../re/solidworks/records/Solidworks2026ArchiveCompatibility.md)
+for the observed signature table, map handoff and count fields. The record
+binds the build manifest and typed traces from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+
+B03's qualified comparisons and codecs and B04's portable writer remain
+separate programme milestones. [PR #158](https://github.com/TryUniCAD/Kit/pull/158)
+continues the programme scope defined in [PR #94](https://github.com/TryUniCAD/Kit/pull/94).
+
+### B03-SW2026-ARCHIVE-CORE
+
+The PR #121 takeover team owns the wire primitive extraction on
+`codex/solidworks-archive-core` for a separate main-target delivery. It depends on
+the exact-build archive evidence above and the
+[pinned primitive rules](../../re/solidworks/records/ArchiveWirePrimitiveSlice2026.md).
+Exit requires the synthetic process integration and the normal CI and review
+gates on the delivered revision. Class descriptors, object maps and linked
+stream integration have separate exits.
+[Change entry](../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
+
+### B03-SW2026-ARCHIVE-OBJECTS
+
+The PR #121 takeover team owns the typed object and map extraction on
+`codex/solidworks-archive-objects` for separate main-target delivery. It
+depends on the [wire primitive PR](https://github.com/TryUniCAD/Kit/pull/173)
+and the [pinned map evidence](../../re/solidworks/records/ArchiveObjectMapSlice2026.md).
+Exit requires the linked graph process checks and the normal CI and review
+gates on the delivered revision. Actual header and configuration stream
+owners have separate exits.
+[Change entry](../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
+
+### B03-SW2026-ARCHIVE-HEADERS
+
+The PR #121 takeover team owns the standalone header extraction on
+`codex/solidworks-archive-headers`. It depends on the
+[typed object maps](https://github.com/TryUniCAD/Kit/pull/174) and
+[pinned standalone header evidence](../../re/solidworks/records/StandaloneHeaderSlice2026.md).
+Exit requires exact replay of both streams in the two tracked part controls,
+including their distinct role test, and the normal CI and review gates.
+Configuration binding, CMgr headers and inline Definition headers have
+separate exits.
+[Change entry](../Changes/Solidworks/SolidworksStandaloneHeaders.md)
+
+### B08-SW2026-TERMINAL-FIN
+
+The PR #121 takeover agent owns this active reader compatibility task.
+The separate main-target PR from `codex/solidworks-terminal-fin` extracts
+the current Parasolid fin traversal correction. It depends on the existing
+decoder and the disclosed L1 native fixture.
+[Change entry](../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
+
+Exit requires revision-bound CI and review evidence. The strict public
+reader must preserve the disclosed closed shell and positive signed volume.
+A separately locked capsule passes the current rule and fails the older
+semicircle traversal. Its signed volume and area match the fresh native
+reference. [Fixture and comparisons](../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
+
 ### Fusion schemas
 
 The [saved-document coverage record](../Changes/Fusion/Records/FusionSavedDocumentCoverage.md#remaining-boundaries)

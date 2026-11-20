@@ -20,6 +20,8 @@ from convert.adapters.freecad.Adapter import (
     ResolveTarget,
     TrustedNative,
 )
+from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
+from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -35,14 +37,19 @@ def CodecRebuild(
         _ = Adapter.write(Document, GuardOutput, WriteOptions(values={"rebuild": True}))
     assert GuardOutput.getvalue() == b"existing destination"
     Selected = Options or WriteOptions()
+    ReplayReads: KReplayReadCache = {}
+    Prepared, NativeSource = PrepareReplay(
+        Document, Migrate=True, ReplayReads=ReplayReads
+    )
     return RebuildResult(
         Adapter,
-        Document,
+        Prepared,
         Target,
         ResolveTarget(Target),
         Selected,
         Selected.Overwrite,
         Selected.OptionValues.get("portable", True) is True,
-        NativeOuter(Document),
-        TrustedNative(Document),
+        NativeOuter(Prepared),
+        TrustedNative(Document, NativeSource, ReplayReads),
+        ReplayReads,
     )

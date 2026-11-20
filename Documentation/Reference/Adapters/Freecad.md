@@ -55,16 +55,25 @@ A recognized type identifier does not prove complete reconstruction of every ins
 For native `Part::Extrusion`, the reader preserves the saved `Symmetric` and `Reversed` flags.
 Equal forward and reverse distances do not imply symmetry.
 Both raw distances and the original direction remain available, including an inactive reverse distance in symmetric mode.
-See [native extrusion end semantics](../../Changes/FreeCad/FreeCadNativeEndSemantics.md) for the retained termination convention, native-only process coverage and acceptance limits.
+See [native extrusion end semantics](../../Changes/Freecad/FreeCadNativeEndSemantics.md) for the retained termination convention, native-only process coverage and acceptance limits.
 
-Native-only public reads recover [bounded spreadsheet alias dependencies](../../Changes/FreeCad/FreeCadNativeSheetAliases.md) from actual unique cells and direct object-qualified references.
+Native-only public reads recover [bounded spreadsheet alias dependencies](../../Changes/Freecad/FreeCadNativeSheetAliases.md) from actual unique cells and direct object-qualified references.
 Dependency links require finite raw native scalar or dimensional-constraint evidence and matching physical quantities.
 Placeholders, malformed numeric defaults, unsupported formulas and ambiguous or external references remain unresolved with raw data preserved.
 The same recovery runs during unchanged-native replay verification.
 
-Embedded snapshots also pass the [scoped inline control guard](../../Changes/FreeCad/FreeCadInlineManifestGuard.md) before filtering.
+Embedded snapshots also pass the [scoped inline control guard](../../Changes/Freecad/FreeCadInlineManifestGuard.md) before filtering.
 It refuses changed checked end controls, profile geometry, solver constraints, aliases or geometry-owner inventory instead of returning the old graph.
 Retained routes keep their separate contracts; the guard does not establish cached BREP freshness or reconstruct edited parameters and shapes.
+
+A sketch can drive an active feature while its native `Visibility` is false.
+The reader retains visibility in the FreeCAD properties and reads sketch suppression from `SourceSuppressed` or `Suppressed`.
+When rebuilding an edited sketch record, the writer retains the existing visibility property and updates explicit suppression.
+[Hidden sketch example and evidence](../../Gotchas/Conversion/Freecad/HiddenSketchesCanDriveActiveFeatures.md)
+
+Unchanged archives carried by older Kit versions can restore their original bytes.
+The carried model and an independent historical or current parse must match the stored semantic digest.
+[Legacy sketch replay digest](../../Gotchas/Conversion/Freecad/LegacySketchReplayDigests.md)
 
 | Component     | Responsibility                                    |
 | ------------- | ------------------------------------------------- |
@@ -102,21 +111,21 @@ The spreadsheet retains each parameter's declared units.
 A two-ended feature with a parameter roster and missing or invalid end ownership is refused before output publication.
 Literal two-ended features without a parameter roster retain literal editable properties.
 Symmetric extrusion retains one total-thickness driver.
-See [two-length bindings](../../Changes/FreeCad/FreeCadTwoLengthBindings.md) for scope, process coverage and the outstanding native edit, rebuild and fresh-reopen evidence.
+See [two-length bindings](../../Changes/Freecad/FreeCadTwoLengthBindings.md) for scope, process coverage and the outstanding native edit, rebuild and fresh-reopen evidence.
 
 Supported inline extrusions emit the normalized profile normal or explicit direction as `Dir` and retain reversal in the independent native `Reversed` property.
 The reversal flag applies once, including when an explicit axis is supplied.
 An explicit false definition takes precedence over the existing direction-multiplier and Cut fallbacks.
 Linked-edit seeds retain their existing effective direction vectors and default false flag.
-See [extrusion reversal emission](../../Changes/FreeCad/FreeCadReversedExtrusion.md) for process coverage and the outstanding native acceptance evidence.
+See [extrusion reversal emission](../../Changes/Freecad/FreeCadReversedExtrusion.md) for process coverage and the outstanding native acceptance evidence.
 
-The [independent FreeCAD 1.1.4 witness](../../Changes/FreeCad/FreeCadEndNativeWitness.md) observed scoped driving edits, restoration, save and fresh reopen at exact source `b32222b5`.
+The [independent FreeCAD 1.1.4 witness](../../Changes/Freecad/FreeCadEndNativeWitness.md) observed scoped driving edits, restoration, save and fresh reopen at exact source `b32222b5`.
 Its original generated packages had no cached BREP and exposed zero solids before native recompute.
 The post-recompute and saved-copy successes do not establish initial geometry availability or broader route qualification.
-The [calculated initial-shape implementation](../../Changes/FreeCad/FreeCadInitialExtrusionShapes.md) attaches supported independent Create caches to their actual editable owners without a CAD runtime.
-The [later initial-open witness](../../Changes/FreeCad/FreeCadInitialOpenWitness.md) at `161885d8` measured three rectangular controls with valid editable solids before recompute, then independent edits, restoration, save and fresh reopen with healthy controls.
+The [calculated initial-shape implementation](../../Changes/Freecad/FreeCadInitialExtrusionShapes.md) attaches supported independent Create caches to their actual editable owners without a CAD runtime.
+The [later initial-open witness](../../Changes/Freecad/FreeCadInitialOpenWitness.md) at `161885d8` measured three rectangular controls with valid editable solids before recompute, then independent edits, restoration, save and fresh reopen with healthy controls.
 Other cache families and Boolean results remain unfinished; neither cache presence nor these three controls qualify the entire route.
-The [fresh-extrusion attestation repair](../../Changes/FreeCad/FreeCadInitialGeometryAttestation.md) reports both acceptance flags as false for its scoped reconstructed history, including sketch-reference dependencies and omitted Create operations.
+The [fresh-extrusion attestation repair](../../Changes/Freecad/FreeCadInitialGeometryAttestation.md) reports both acceptance flags as false for its scoped reconstructed history, including sketch-reference dependencies and omitted Create operations.
 Strict public writes refuse that output before changing the destination; explicit `AllowCarrier=True` permits an unqualified research artifact.
 Retained-geometry and other history routes remain outside that audit.
 
