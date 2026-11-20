@@ -11,7 +11,7 @@ stream re-emission. That writer was removed from production.
 [Native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
 [Circle end modes](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
 [Periodic import](../../Documentation/Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
-[Rectangular import](../../Documentation/Changes/Solidworks/Construction/SolidworksBareRectangleImport.md)
+[Rectangular import](../../Documentation/Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
 [Recorded payload removal](../../Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md)
 
 The figures below are the last audit of that removed writer. They record which source histories it

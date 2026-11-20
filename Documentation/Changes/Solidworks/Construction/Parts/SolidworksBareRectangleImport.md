@@ -23,8 +23,8 @@ at its original logical destination and epoch. Both reproduce the
 All 12 logical streams match the case that previously passed native
 open, rebuild, save and fresh reopen. The recipe computes the authored
 ambient light from the same creation event.
-[Disclosed native lifecycle](../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartCompleted01.json)
-· [Same-locator lighting comparison](../../../../re/solidworks/measurements/2026/GeneratedLocalImportLightingContrast01.json)
+[Disclosed native lifecycle](../../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartCompleted01.json)
+· [Same-locator lighting comparison](../../../../../re/solidworks/measurements/2026/GeneratedLocalImportLightingContrast01.json)
 
 A separately authored signed rectangular solid passes the no-options
 host staging path and default strict readback. The read verifies both
@@ -37,7 +37,7 @@ shapes include the earlier triangle, a trapezoidal prism with identical
 element counts and a box whose face has a foreign loop. A plane shifted by
 `2^-34 mm` retains the corner and topology counts and passes the shared
 prism residual check. The exact face-plane check refuses it before output.
-[Host verification](../../../../re/tooling/sw2026/imported_body_source/VerifyPublicBox.py)
+[Host verification](../../../../../re/tooling/sw2026/imported_body_source/VerifyPublicBox.py)
 The host report SHA-256 is
 `5ed595144edd9ba39bb9fc79edd9c627629b84298d00a45ccdbf0c531a2dfda6`.
 
@@ -48,9 +48,9 @@ errors or warnings. The candidate and its fresh reopen passed 116
 comparisons for one solid, six faces, twelve edges, eight vertices, volume,
 area, centre of mass and owned feature and configuration. Both
 controls passed across four distinct native processes.
-[Public native lifecycle](../../../../re/solidworks/measurements/2026/SdkPublicRectangularNative01.json)
-· [Exact rectangular face planes](../../../Gotchas/Conversion/Solidworks/Archive/Partition/LocalBodies/BoxFacesNeedExactPlaneStations.md)
+[Public native lifecycle](../../../../../re/solidworks/measurements/2026/SdkPublicRectangularNative01.json)
+· [Exact rectangular face planes](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/LocalBodies/BoxFacesNeedExactPlaneStations.md)
 
 The earlier locked planar lifecycles use attributed bodies and
 projected source labels. Bare held-out coverage remains open.
-[Locked geometry evidence](../../../../re/solidworks/measurements/2026/SealedImportedLocalGeometryNative01.json)
+[Locked geometry evidence](../../../../../re/solidworks/measurements/2026/SealedImportedLocalGeometryNative01.json)

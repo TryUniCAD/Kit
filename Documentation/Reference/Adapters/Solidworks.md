@@ -432,7 +432,7 @@ reports native B-rep and configuration transfers. Other geometry and
 requests carrying source identity or additional model content refuse
 before publication.
 [Periodic cylinder writer](../../Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
-· [Rectangular solid writer](../../Changes/Solidworks/Construction/SolidworksBareRectangleImport.md)
+· [Rectangular solid writer](../../Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
 
 ### Writing standalone blank drawings
 

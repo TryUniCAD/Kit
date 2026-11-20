@@ -10,4 +10,4 @@ For the bounded bare box write, check each signed unit normal and its
 exact plane coordinate against the vertices in the actual linked face
 ring before invoking the shared prism constructor.
 [Guarded displaced-plane contrast](../../../../../../../re/tooling/sw2026/imported_body_source/VerifyPublicBox.py)
-· [Write scope](../../../../../../Changes/Solidworks/Construction/SolidworksBareRectangleImport.md)
+· [Write scope](../../../../../../Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
