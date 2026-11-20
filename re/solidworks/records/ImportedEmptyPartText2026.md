@@ -51,3 +51,6 @@ The generated and reopened solids pass 232 geometry checks. The receipt
 retains zero complete original-source conversions until source provenance,
 the binary property manager and other archived owners are qualified.
 [Held-out scene and text receipt](../measurements/2026/SealedImportedSceneAndText01.json)
+
+The [subsequent native file-owner trial](../measurements/2026/SealedImportedFilePropertyOwner01.json)
+qualifies the empty binary manager through those same source locks.

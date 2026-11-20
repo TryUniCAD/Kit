@@ -1,0 +1,67 @@
+{
+  "schema": "kit.sw2026.sealed-import-property-owner.v1",
+  "job_sha256": "9e73a690351e5e920cc529cdc3e4f0a64515bf1fb5e816b02df76f27ae069c1c",
+  "source_lock_receipt_sha256": "1a5a4993881c967682496c90924c262c7954fddd67dd9d1ee3e105186deed281",
+  "writer_revision": "7999101d29f274be44c595403d85cbf75aa4d444",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_file_version": "34.5.2.0604",
+  "cases": {
+    "Slot01": {
+      "input_sha256": "27de26139590fe292ae420212af7515660fdb48d8f4f1830fae739cb3799b93a",
+      "candidate_sha256": "36a24c45959afcb24ff217be183703a45a945c512a1c3e13606e33b6c43f9c20",
+      "saved_candidate_sha256": "874ea2fd1f5507c66d75da2b66c00f78b1d44897dabd491281f9453cae18c073",
+      "model_generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "saved_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "source_unchanged": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": [
+        "08de19ff401a5bb32825294377be783646c35390b2cb92f4c3c59e1dd42ac5d5",
+        "334ec131e7b0a144f82cff9787b79d91adfe51d6ab046db50619e122b6c4b6c1",
+        "c21a90a62cb37a993290078c8963d2e016e31bc146c76899d80a327eef04e9df"
+      ],
+      "file_property_owner": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      }
+    },
+    "Slot02": {
+      "input_sha256": "db9a9dc8cdaec057421ad7934ab8a55680d6e50b1e966e61887c56a43bbe755d",
+      "candidate_sha256": "9da2e617969444969fa35b458ce90fe071d4b9de6f741949d14d151c5ecb316b",
+      "saved_candidate_sha256": "37e852941bc3d10b56a87683082d5f04f9755e3aaca3221688c9377039a76c6d",
+      "model_generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "saved_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "source_unchanged": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": [
+        "b43a426ef01ccc63e50cd2e01f842bfb15f8001aba9d7513dc538877d9a01c21",
+        "bebf36f003ba36c0381807f20e42553d6e85c1ec8ad200fdccda412b9bcd25ea",
+        "6b78f006fb99f7de60104746522cd7bae21f4d26c612e5ca093bc8324c24e4f1"
+      ],
+      "file_property_owner": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      }
+    }
+  },
+  "heldout_payloads_shared": 0,
+  "complete_original_source_conversions": 0,
+  "public_writer_qualified": false,
+  "controls_healthy": true,
+  "unqualified_source_domains": [
+    "source tracking and provenance",
+    "archived payload and system attributes"
+  ],
+  "control_receipts": {
+    "before": "ac773263a1e37b203c342558cf287bd133f6bd719b79217f3a46e951ff44cb1e",
+    "after": "b1241052241fa28357f8e1a1995f9d90f4f54852d48eeffcb0702d36bf11f45a"
+  },
+  "distinct_accepted_processes": 8,
+  "complete_heldout_geometry_lifecycles": 2,
+  "complete_heldout_scene_text_lifecycles": 2,
+  "complete_heldout_file_property_owner_lifecycles": 2,
+  "faults": {}
+}

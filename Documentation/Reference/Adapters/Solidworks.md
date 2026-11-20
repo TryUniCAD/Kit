@@ -74,9 +74,10 @@ clean native open, rebuild, save and fresh reopen. The shared part text
 serializer also preserves explicit empty summary, document and configuration
 scopes through native save when selected by the neutral model. Two pre-writer
 locked imports preserve these scopes and their authored lights through the
-same measured geometry lifecycle.
+same measured geometry lifecycle with the generated native file property owner.
 [Local import scene](../../Changes/Solidworks/Construction/SolidworksLocalImportScene.md)
 [Empty part text scopes](../../Changes/Solidworks/Construction/SolidworksEmptyPartTextScopes.md)
+[Empty file property owner](../../Changes/Solidworks/Construction/Properties/SolidworksEmptyFilePropertyOwner.md)
 
 For the measured 2026 custom part preference, read `metadata["solidworks.typed_resolved_semantics"]["document_units"]` for millimetres, degrees, grams or kilograms, cubic millimetres and the native decimal counts for length, angle and mass. The reader requires a matching independent density length format in the document's user table. Presets and unqualified custom settings omit the optional entry. [Custom document units](../../Changes/Solidworks/Archive/SolidworksCustomDocumentUnitRead.md)
 

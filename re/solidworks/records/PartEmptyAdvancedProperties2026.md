@@ -55,8 +55,8 @@ reader.
 A same-path comparison on each of three disclosed local imports changes only
 `Contents/CusProps` when this flag changes. The typed output equals the
 102-byte native stream on all three originals, and construction reads no
-files. The file owner does not create a summary or custom XML dictionary
-on its own. Public compatibility still uses the complete read guard.
+files. Summary and custom XML dictionaries come from their own inputs.
+Public compatibility uses the complete read guard.
 [Change entry](../../../Documentation/Changes/Solidworks/Construction/Properties/SolidworksEmptyFilePropertyOwner.md)
 
 The sealed `--empty-file-owner` evaluation preserves original geometry,
@@ -65,4 +65,16 @@ its exact source lock and file-owner graph and then projects only the typed
 intent flag into the build. The native save must retain the same complete
 binary manager. The original and generated sources are measured through a
 fresh cold open, rebuild, save and reopen using healthy pristine controls.
-The sealed result is pending.
+Both locked originals pass on native build `34.5.2.0604`. Two guarded
+builds per case produce identical 16-stream containers and read zero
+files during construction. Each generated and native-saved archive
+retains the original complete 102-byte property manager. The two cases
+pass 232 geometry checks and preserve 128 light values and six XML
+scopes across eight fresh processes with healthy controls. The receipt
+keeps source hashes and counts. The original files and their geometry
+and scene values stay in the guest.
+[Native file-owner receipt](../measurements/2026/SealedImportedFilePropertyOwner01.json)
+
+Complete source tracking, archived payload and system-attribute transfer
+and public fallback remain open. These cases add zero FCStd benchmark
+credits.
