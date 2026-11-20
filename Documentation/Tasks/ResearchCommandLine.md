@@ -301,3 +301,5 @@ See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthE
 [Edited prism evidence](../Changes/Research/Inference/EditedPrismEvidence.md) compares the predicted solid with its saved shape member.
 
 [Edited extrusion graph recovery](../Changes/Research/Inference/EditedExtrusionGraph.md) records the candidate feature definition and its driving parameter.
+
+[Derived extrusion readers](../Changes/Research/Inference/DerivedDepthGraphReader.md) capture replayed native-to-graph bindings in Reader.patch.

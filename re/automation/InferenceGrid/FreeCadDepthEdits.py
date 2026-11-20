@@ -100,7 +100,7 @@ def depth_edits(data):
     return changes
 
 
-def reconcile_depths(data, changes):
+def reconcile_depths(data, changes, bindings=None):
     import json
     from convert.adapters.freecad.InlineRead.CheckInline import GuardInline
     from convert.adapters.freecad.InlineRead.ReadInline import ReadInlineScope
@@ -129,7 +129,30 @@ def reconcile_depths(data, changes):
         if (parameter["owner_id"] != key or step["parameter_ids"]["$tuple"].count(ident) != 1
                 or parameter.get("expression") or parameter["role"]["value"] != "driving"):
             raise ValueError("embedded driving parameter ownership differs")
-        slot = {"LengthFwd": "length", "LengthRev": "second_length"}[field]
+        if parameter["value"].get("value") != row["embedded_mm"]:
+            raise ValueError("original parameter value differs")
+        baseline = RequireEditObj(ReadExpected(graph), key, "Part::Extrusion")
+        candidates = []
+        for slot, value in step["definition"].items():
+            if bindings is not None and bindings.get(field) != slot:
+                continue
+            if (not isinstance(value, dict) or value.get("$type") != "ParameterValue"
+                    or value.get("kind", {}).get("value") != "length" or value.get("unit") != "mm"
+                    or value.get("value") != row["embedded_mm"]):
+                continue
+            parameter["value"]["value"] = value["value"] = row["saved_mm"]
+            try:
+                probe = RequireEditObj(ReadExpected(graph), key, "Part::Extrusion")
+                if all(ReadInlineDepth(probe, name) == (row["saved_mm"] if name == field else ReadInlineDepth(baseline, name))
+                       for name in ("LengthFwd", "LengthRev")):
+                    candidates.append(slot)
+            except ValueError:
+                continue
+            finally:
+                parameter["value"]["value"] = value["value"] = row["embedded_mm"]
+        if len(candidates) != 1:
+            raise ValueError("controlled graph variations did not identify one native end")
+        slot = candidates[0]
         for value in (parameter["value"], step["definition"][slot]):
             if not value or value["kind"]["value"] != "length" or value["unit"] != "mm" or value["value"] != row["embedded_mm"]:
                 raise ValueError("embedded parameter or extrusion distance differs")

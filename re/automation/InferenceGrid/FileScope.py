@@ -154,6 +154,11 @@ def file_scope(path, application, scratch, root, control_paths=()):
                 except (KeyError, TypeError, ValueError, OverflowError) as error:
                     graph = {"status": "unresolved", "reason": str(error)[:512]}
                 reports["edited-graph"] = {"source_sha256": pin, **graph}
+                if graph["status"] == "candidate_matches_native_graph":
+                    from InferenceGrid.FreeCadGraphReader import graph_reader
+                    patch = graph_reader(root, scratch, source, pin, changes, graph)
+                    if patch:
+                        reports["reader-patch"] = patch
         from runpy import run_path
         cases = run_path(str(root / "re/FreeCad/Verification/Cases.py"))["KCases"]
         for case in cases.values():
