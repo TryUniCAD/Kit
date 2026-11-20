@@ -5,7 +5,7 @@ from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.NormalizeCount import NormalizeCount
-from convert.adapters.solidworks.Archive.Bodies.GetRepeatSize import GetRepeatSize
+from convert.adapters.solidworks.Archive.Expressions.GetRepeatSize import GetRepeatSize
 from convert.adapters.solidworks.Archive.Expressions.ExprFrame import ExprFrame
 from convert.adapters.solidworks.Archive.Bodies.ReadBodyRows import ReadBodyRows
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame

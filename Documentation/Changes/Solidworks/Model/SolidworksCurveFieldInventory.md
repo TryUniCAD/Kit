@@ -145,7 +145,7 @@ The [CAD success criteria](../../../Reference/Operations/CadSuccessCriteria.md) 
 They also state: “The second is the end of the available context.”
 This inventory does not close that goal.
 
-See the [summary limitation](../../../Gotchas/Conversion/Solidworks/Archive/FieldSummariesDoNotInventoryValues.md),
+See the [summary limitation](../../../Gotchas/Conversion/Solidworks/Archive/Inventory/FieldSummariesDoNotInventoryValues.md),
 [correlation method](../../../../re/Playbook/CorpusCorrelation.md),
 [archive map finding](../../../../re/solidworks/records/ArchiveMapConstruction2026.md),
 and [schema usage limits](../../../Gotchas/Conversion/Solidworks/Archive/ProvisionalSchemasDoNotProveClosure.md).

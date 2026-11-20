@@ -26,6 +26,6 @@ Do not use its six-value prefix to infer a complete count, constant, field domai
 For linked resolved streams, preserve the configuration seed and its distinct source ownership.
 Treat absent, discarded or semantically unclassified data as open work rather than inventing a value.
 
-See the [inventory change and remote process contract](../../../../Changes/Solidworks/Model/SolidworksCurveFieldInventory.md),
-[wire-value distinction](../ArchiveWireValues.md),
-and [CAD success criteria](../../../../Reference/Operations/CadSuccessCriteria.md).
+See the [inventory change and remote process contract](../../../../../Changes/Solidworks/Model/SolidworksCurveFieldInventory.md),
+[wire-value distinction](../../ArchiveWireValues.md),
+and [CAD success criteria](../../../../../Reference/Operations/CadSuccessCriteria.md).

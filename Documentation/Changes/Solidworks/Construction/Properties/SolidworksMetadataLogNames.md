@@ -11,8 +11,8 @@ supported final state. Static analysis closes the missing caller: active
 filed-concept construction at `sldmodu.dll!0x4bda5a20` assigns the document name
 after attaching the creation log. `sldarchiveu.dll!0x31a04830` serializes the
 member as a CString without an emptiness branch. The
-[construction reference](../../../re/solidworks/records/MetadataConstruction2026.md)
-and [constructor-seed gotcha](../../Gotchas/Conversion/Solidworks/Archive/CreationLogDocumentNames.md)
+[construction reference](../../../../../re/solidworks/records/MetadataConstruction2026.md)
+and [constructor-seed gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/CreationLogDocumentNames.md)
 record the field ownership, module digests and instruction evidence.
 
 Remote process coverage constructs metadata under the shared import and runtime

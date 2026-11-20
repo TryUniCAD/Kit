@@ -2,7 +2,7 @@ from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
-from convert.adapters.solidworks.Archive.Bodies.GetRepeatSize import GetRepeatSize
+from convert.adapters.solidworks.Archive.Expressions.GetRepeatSize import GetRepeatSize
 from convert.adapters.solidworks.Archive.Expressions.ExprFrame import ExprFrame
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 

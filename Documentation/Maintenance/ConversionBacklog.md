@@ -277,12 +277,19 @@ separate exits.
 
 ### B03-SW2026-BODY-ROWS
 
-The PR #121 takeover team owns the [counted archive row extraction](https://github.com/TryUniCAD/Kit/pull/176),
-which depends on the accepted object maps and scalar and count primitives.
-The initial slice uses modeled field scopes and computed row counts.
-Review identified stale count handling, preservation of stored count
-forms and transactional rejection as remaining requirements. The
-configuration-manager header and connected body dispatcher have separate exits.
+The [counted archive row extraction](https://github.com/TryUniCAD/Kit/pull/176)
+landed at `8c04635ae1d04146dd8a0a7546ea06a2e1eb614e`. The process checks cover
+modeled counts, exact split words and frame widths, scope lookups after
+edits and transactional rejection. [Accepted queue](https://github.com/TryUniCAD/Kit/actions/runs/44692684301)
+The configuration-manager header and connected body dispatcher have separate exits.
+
+### B03-SW2026-BODY-VALUES
+
+The PR #121 takeover team owns the [body value extraction](https://github.com/TryUniCAD/Kit/pull/177).
+It depends on the accepted counted-row operators and object graph.
+Exit requires independent scalar and text framing, exact alias identity,
+and depth and class refusal checks through fresh process boundaries.
+Configuration-manager headers and native document writing remain separate.
 
 ### B08-SW2026-TERMINAL-FIN
 
