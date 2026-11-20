@@ -1,6 +1,6 @@
 # Paired bare rectangular import regression
 
-**Status: method prepared. Native execution pending.**
+**Two previously locked geometry regressions passed through the ordinary SDK path.**
 
 B04-SW2026 imported-body research in [PR #121](https://github.com/TryUniCAD/Kit/pull/121) pairs the normal SDK writer with two previously evaluated, pre-writer locked SOLIDWORKS box originals. The takeover agent owns the Windows oracle. The exit condition for this protocol is a clean pair of bare geometry lifecycles and strict SDK readbacks with unchanged inputs and healthy controls.
 
@@ -67,3 +67,15 @@ the single imported feature through the actual typed owner, body link
 and active configuration. The original projector's admission rules
 remain in use for both original files.
 [Second packet receipt](../measurements/2026/SdkSealedBareRectangleInitial02.json)
+
+The third packet took both models through native open, rebuild, save
+and fresh reopen with two healthy controls. Its initial direct
+comparison applied the near-zero absolute tolerance to every value.
+The recheck implements the stated six-significant-figure comparison
+outside the near-zero range, verifies the original process records and
+checks both normal and native-saved parts through the strict reader.
+Both scoped geometry comparisons pass. The earlier receipts remain
+linked to their exact method revisions.
+[Initial third packet](../measurements/2026/SdkSealedBareRectangleInitial03.json)
+· [Recheck method](SdkSealedBareRectangleReadjudication2026.md)
+· [Accepted scoped receipt](../measurements/2026/SdkSealedBareRectangleNative01.json)

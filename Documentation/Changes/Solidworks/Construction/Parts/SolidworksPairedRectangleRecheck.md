@@ -8,4 +8,6 @@ near zero. It reuses the original native measurements and runs a
 guarded strict SDK read on each candidate and separate save.
 
 The original failed receipt remains available. The recheck publishes a
-separate result and starts no CAD process.
+separate passing result for both geometry comparisons and starts no CAD
+process.
+[Recheck receipt](../../../../../re/solidworks/measurements/2026/SdkSealedBareRectangleNative01.json)

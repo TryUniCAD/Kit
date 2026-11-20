@@ -53,3 +53,23 @@ prlctl exec 'Windows 11' --current-user py -3.12 -B "$guest_evaluator" summary "
 ## Complete-source refusal
 
 The [native source author](../../tooling/sw2026/ThroughAllAuthor.py) used `FeatureCut4` with feature scope and automatic selection enabled. Only the actual persisted one-stock selection is modeled in the qualified SDK composition. Version 19000 carries the selected scope and wrapper at `f544` and `f548`. The runtime automatic-selection mode has no qualified portable construction or alternate-history measurement. [The source envelope gate](../../../src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/RequireThruFull.py) derives that refusal and preserves the original archive chronology, provenance, system history, presentation, configuration and naming gaps. [The disclosed source projection](ThroughAllOriginalSourceNormalization2026.md) documents the additional typed owners. This experiment has zero complete-source or production held-out credit even if every scoped comparison passes.
+
+## H01 native result
+
+Packet 02 generated the candidate with zero reads of the locked CAD
+files and zero guarded external attempts. Both controls and both
+candidate phases passed in four distinct SOLIDWORKS processes. The
+generated part opened, rebuilt, accepted the live stock depth edit,
+saved and reopened with the measured geometry.
+
+The source comparison failed. A follow-up read of the immutable
+observations found one differing stock value, `depth_reverse_m`, in
+all six candidate snapshots. No cut-owner fields differ at this
+comparison boundary. The stock's secondary value requires separate
+field and behavioral evidence. Full source equivalence and independent
+credit remain open.
+
+Parallels returned an invalid-argument error after the trailing control
+completed. The guest comparison file was absent. Repeating the
+read-only summary produced the recorded result without another native
+launch. [H01 comparison receipt](../measurements/2026/SdkLockedThroughAllNativeComparison01.json)

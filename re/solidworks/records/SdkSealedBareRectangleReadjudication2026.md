@@ -1,4 +1,4 @@
-# Third rectangular packet read-adjudication
+# Recheck of the third rectangular packet
 
 The third previously locked rectangular regression completed eight distinct native processes with both controls healthy. All six original, candidate and reopen phases passed 58 numeric checks each. Slot01 passed both strict SDK reads and the inter-file comparison. Slot02 passed strict candidate readback and stopped at the inter-file mass assertion before strict native-save readback. The initial result records zero complete paired regressions. Preserve that failed result. [Paired protocol](SdkSealedBareRectangle2026.md)
 
@@ -31,4 +31,14 @@ prlctl exec 'Windows 11' --current-user "$guest_python" -B "$tool" "$job" "$resu
   --method-sha256 0440b54f7152b2e0920e51b83a1746cfdf94f4f2acfe47dca0b1aafab3d71c9d
 ```
 
-The supplement is prepared and awaits the guest run.
+The guest completed the supplement. Both candidates and both native
+saves pass guarded strict SDK readback. Both pairs match at six
+significant figures on the checked physical quantities and preserve
+the complete signed face and edge incidence. The recheck verified all
+eight recorded native identities, healthy controls and unchanged source
+locks. It launched no new CAD process. Two paired geometry regressions
+pass with zero new independent, whole-source or FCStd conversions.
+The exact [published receipt](../measurements/2026/SdkSealedBareRectangleNative01.json)
+has SHA-256 `147716b1bd3d160209d8096a75e9e14adc2917879110ef35613423ef729dcced`.
+The [initial failed receipt](../measurements/2026/SdkSealedBareRectangleInitial03.json)
+retains the former comparison result.

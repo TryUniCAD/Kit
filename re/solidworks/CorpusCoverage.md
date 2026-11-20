@@ -110,11 +110,23 @@ passes 116 candidate checks across clean native open, rebuild, save and
 fresh reopen, with two healthy controls. Its disclosed neutral input
 adds zero FCStd benchmark conversions.
 
+The [paired default rectangular trial](measurements/2026/SdkSealedBareRectangleNative01.json)
+uses the two previously evaluated pre-writer locks. Both geometry-only
+outputs pass clean native save and fresh reopen and both strict SDK
+readbacks. The recheck preserves the earlier comparison receipt and
+binds the eight distinct native processes. These cases add zero original
+FCStd benchmark conversions.
+
 The [locked revolve comparison](measurements/2026/SdkLockedRevolveNativeComparison01.json)
 matches the original and the model-only SDK candidate in all three
 observed stages with healthy controls. It reuses a previously released
 intent and leaves whole-source admission and independent coverage open.
 It adds zero FCStd benchmark conversions.
+
+The [locked through-all candidate](measurements/2026/SdkLockedThroughAllNativeComparison01.json)
+passes native stock-depth editing, save and fresh reopen. Its source
+comparison reports a mismatch in the stock extrusion's secondary depth.
+This case receives zero held-out and FCStd benchmark credit.
 
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,

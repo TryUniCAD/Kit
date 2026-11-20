@@ -52,5 +52,10 @@ controls passed across four distinct native processes.
 · [Exact rectangular face planes](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/LocalBodies/BoxFacesNeedExactPlaneStations.md)
 
 The earlier locked planar lifecycles use attributed bodies and
-projected source labels. Bare held-out coverage remains open.
+projected source labels. The default two-argument write now passes
+the bare geometry lifecycle on the same two pre-writer locked sources.
+The original and generated solids agree in signed incidence, volume,
+area and centre of mass. Both native saves pass strict SDK readback.
+New independent coverage remains open.
 [Locked geometry evidence](../../../../../re/solidworks/measurements/2026/SealedImportedLocalGeometryNative01.json)
+· [Paired default writer evidence](../../../../../re/solidworks/measurements/2026/SdkSealedBareRectangleNative01.json)

@@ -9,6 +9,8 @@ without acquiring a cut-depth driver.
 
 Disclosed guarded builds matched across ten streams. Disclosed native
 records also passed the comparison for the full tree and owned driver.
-The locked comparison runs in the exact SOLIDWORKS 2026 SP05.2 oracle.
-Continuous automatic scope and complete original-source conversion
-remain open.
+The first locked candidate passed native edit, save and reopen with
+two healthy controls in SOLIDWORKS 2026 SP05.2. The cross-source
+comparison found a different secondary depth on the stock extrusion.
+Continuous automatic scope and complete original-source conversion remain open.
+[H01 native comparison](../../../../../re/solidworks/measurements/2026/SdkLockedThroughAllNativeComparison01.json)
