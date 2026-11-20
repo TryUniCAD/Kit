@@ -20,7 +20,7 @@ Strict and partial results retain separate modes. Partial results retain the str
 Rejected files retain their reason. Reader errors also retain their exception type.
 
 The corpus process check writes this report before its temporary reader output is removed.
-Set `KIT_FUSION_CENSUS` to an unused report path under the working directory, system temporary directory, or GitHub Actions runner temporary directory to retain it for remote artifact publication. The standalone collect command accepts an explicit output path.
+Set `KIT_FUSION_CENSUS` to the unused file `FusionReaderCensus.json` directly in the working directory or system temporary directory to retain it for remote artifact publication. The standalone collect command accepts an explicit output path.
 Without that variable, the check uses its temporary directory.
 
 ## Comparison
