@@ -7,6 +7,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedLayouts
     KResolvedLayouts,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedSchemas import (
+    KAssemblyResolvedSchemas,
     KResolvedSchemas,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedVirtuals import (
@@ -34,9 +35,10 @@ def MakeResolvedCtx(
             "ordinary resolved graph requires its exact typed model and manager context"
         )
     OwnerValue = FindModelRoot(SeedValue)
+    IsPart = OwnerValue.ClassValue.NameValue == "moPart_c"
     if LinkContext["model_compressed_stream"] != 1 or LinkContext[
         "model_is_part"
-    ] != int(OwnerValue.ClassValue.NameValue == "moPart_c"):
+    ] != int(IsPart):
         raise BodyUnsupported(
             "resolved context does not match the inherited ordinary model"
         )
@@ -44,7 +46,7 @@ def MakeResolvedCtx(
         VersionValue,
         KResolvedLayouts,
         KResolvedVirtuals,
-        KResolvedSchemas,
+        KResolvedSchemas if IsPart else KAssemblyResolvedSchemas,
         UsageValue,
         FlagsValue=dict(LinkContext),
     )

@@ -1,5 +1,9 @@
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadHistRefMut import (
+    ReadHistRefMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.RequireHistRef import KHistRefMode
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
 from convert.adapters.solidworks.Archive.Reading.ReadNativeScalar import ReadScalarMut
 from convert.adapters.solidworks.Archive.Reading.ReadNativeText import ReadCStringMut
@@ -10,7 +14,11 @@ def ReadValueMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
     Cursor = FrameValue.ReaderValue.Cursor
     Value: object
     if RuleValue.KindValue == "Node":
-        Value = ReadNodeMut(FrameValue.ReaderValue)
+        Value = (
+            ReadHistRefMut(FrameValue)
+            if RuleValue.ModeValue == KHistRefMode
+            else ReadNodeMut(FrameValue.ReaderValue)
+        )
     elif RuleValue.KindValue == "Text":
         TextValue = ReadCStringMut(Cursor)
         Value = (

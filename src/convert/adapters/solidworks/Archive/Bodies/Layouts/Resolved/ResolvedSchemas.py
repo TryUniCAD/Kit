@@ -78,3 +78,14 @@ KResolvedSchemas = MappingProxyType(
         "sgSketch": (1,),
     }
 )
+
+# the resolved assembly history admits only its concrete schema one reference owners
+KAssemblyResolvedSchemas = MappingProxyType(
+    {
+        **KResolvedSchemas,
+        "moChainComponent_c": (1,),
+        "moExtFeatureList_c": (1,),
+        "moHistoryCompItemData_c": (1,),
+        "moReferenceChain_c": (1,),
+    }
+)

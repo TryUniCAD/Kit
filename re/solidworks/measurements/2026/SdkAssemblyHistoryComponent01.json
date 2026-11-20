@@ -1,0 +1,131 @@
+{
+  "cases": {
+    "A0_one.SLDASM": {
+      "archive_version": 19000,
+      "fixture_bytes": 51308,
+      "fixture_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "history_references": [
+        {
+          "chain_index": 115,
+          "feature_list_index": 119,
+          "history_index": 113,
+          "reference_index": 117,
+          "shared_identity": true
+        }
+      ],
+      "mate_classes": [],
+      "original_native_source_sha256": "54eb2475f10754077920339493ceeb3aba7caf226fcebfa2282293d2634e6d21",
+      "source_native_revision": "34.5.2",
+      "streams": {
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 24828,
+          "encoded_sha256": "8ed41cbefe04dde1b76328c273f93a81e3f105f4fbbb43e1305cf9b0476d9a4d",
+          "map_count": 103,
+          "sha256": "8ed41cbefe04dde1b76328c273f93a81e3f105f4fbbb43e1305cf9b0476d9a4d"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 6,
+          "encoded_sha256": "98cd9d7146a2605b60a6fd9fb269265f2363574ca58ef3c1fdf39e486f410fb8",
+          "map_count": 172,
+          "sha256": "98cd9d7146a2605b60a6fd9fb269265f2363574ca58ef3c1fdf39e486f410fb8"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 5444,
+          "encoded_sha256": "2c9894392b3adf1a43249f05d71fff2dee2b6c7ce6f412b26559eca1330ae870",
+          "map_count": 172,
+          "sha256": "2c9894392b3adf1a43249f05d71fff2dee2b6c7ce6f412b26559eca1330ae870"
+        }
+      }
+    },
+    "A1_two.SLDASM": {
+      "archive_version": 19000,
+      "fixture_bytes": 59374,
+      "fixture_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "history_references": [
+        {
+          "chain_index": 120,
+          "feature_list_index": 124,
+          "history_index": 118,
+          "reference_index": 122,
+          "shared_identity": true
+        },
+        {
+          "chain_index": 126,
+          "feature_list_index": 128,
+          "history_index": 125,
+          "reference_index": 127,
+          "shared_identity": true
+        }
+      ],
+      "mate_classes": [
+        "moMateCoincident",
+        "moMateDistanceDim_c",
+        "moMateCoincident"
+      ],
+      "original_native_source_sha256": "bdd593786c4f6750c03d7c911d6a1b1a718f938c7d33c2f48d5bb94c03c36418",
+      "source_native_revision": "34.5.2",
+      "streams": {
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25338,
+          "encoded_sha256": "d104518bb0d5d4fdbb8595bc3a7627e9c6870b71758a35c538ae7edc600cc5bb",
+          "map_count": 108,
+          "sha256": "d104518bb0d5d4fdbb8595bc3a7627e9c6870b71758a35c538ae7edc600cc5bb"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 10411,
+          "encoded_sha256": "1be858bb7a88b225639ee939785387e7ba4fdcfda3cf5d945dbcc670f240772a",
+          "map_count": 250,
+          "sha256": "1be858bb7a88b225639ee939785387e7ba4fdcfda3cf5d945dbcc670f240772a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 5500,
+          "encoded_sha256": "f90f0d19f283bdb1b81354d595e1df01ee5f6082e000f3c2af8c98ffa00c7ba0",
+          "map_count": 181,
+          "sha256": "f90f0d19f283bdb1b81354d595e1df01ee5f6082e000f3c2af8c98ffa00c7ba0"
+        }
+      }
+    }
+  },
+  "codec_owner_sha256": {
+    "Archive/Bodies/CheckBodyMut.py": "dae91c21703b9810514aa0e9a6ff57ae895331f63288cffc8dd9cdf294922ea7",
+    "Archive/Bodies/Layouts/ReferenceFields.py": "670a8aecf7daf7c765bee1c54be03167a04ee439416e20e6fdca89d236fb8835",
+    "Archive/Bodies/Layouts/Resolved/ComponentFields.py": "29449d816c245adcd7481c98a70e3a12f40dd91891d290a71958a00a718a3723",
+    "Archive/Bodies/Layouts/Resolved/ResolvedLayouts.py": "a2758dce8b9939eadfb6431707418e799d96330c3257f8a5d6a2f2a9dee54285",
+    "Archive/Bodies/Layouts/Resolved/ResolvedSchemas.py": "60ecd13e4a8552697c9113adceb9a27e8b04511c9e8ad8c51976576b392f6dbd",
+    "Archive/Bodies/Layouts/Resolved/ResolvedVirtuals.py": "2086d2957cf0a2597edf3a29287a0e94a0fa67ca52603531444f53fa5e842611",
+    "Archive/Bodies/ReadBodyMut.py": "70edaac9cfa18197e8ec3af3d8de57e81122308934d37dbd7b2083a885edfff6",
+    "Archive/Bodies/Reading/ReadHistRefMut.py": "8e1aca71e930a504f477b2653ebec1edbe8192e7c8c48124023d4a9973bb3ad5",
+    "Archive/Bodies/Reading/ReadValueMut.py": "fb0237154258565e18a9b6a3e0b1e371484725672acde39c3dd5e63155e89041",
+    "Archive/Bodies/RequireHistRef.py": "f29faba6982895472fbcdfbf4fdf5c17d8c81305dfd10ff0906dfae6e9ca08a7",
+    "Archive/Bodies/WriteBodyMut.py": "8b79ec6e8248147a8a3bc242d4106eb2eeeaf70b5a8673a1eb629fb4422a2c9b",
+    "Archive/Bodies/Writing/WriteValueMut.py": "648c2cb629e54b85205a0ab0814657933f3aee374abcb6893dd53eb79da0d4d9",
+    "Archive/Cmgr/ReadCmgrMut.py": "13e7a371e53d0f374d9fc94be1e370357e49b91f08c524669c98d9966998705b",
+    "Archive/Config/ReadConfigMut.py": "154f9b3bb35bd37a9a731ea8ef55befb5f4342b7c544d96599f6fbea0487ed48",
+    "Archive/Config/WriteConfigMut.py": "aac17df55d0791702a7223e6835beef9eb0cc0856f6b1e1a8291d17aed51966d",
+    "Archive/Header/ReadNativeHeader.py": "58ce33b0c360f522d80c7cff7a9f6933bf44be266085f00c0710beb912d63ec1",
+    "Archive/Maps/ArchiveMaps.py": "f00531cff23d3d6dcf6216ea5b7e888903d3bacff1c8424542a90ca0e56cb9d4",
+    "Archive/Maps/MapEntry.py": "3422480656f9d6f8219839e6cad430fd0ad0b43522c4b16315a0407bfd1a85c0",
+    "Archive/Maps/MapSnapshot.py": "ea3fd9a0b3a2494a15180d5b4ce661f8498e96168debc583db85e1fdf7934493",
+    "Archive/Mates/MakeMatesCtx.py": "c6b87b2da30a934c4cc66ac56375868e85ca7d3c5fd3baa4c7a01df86db6ecba",
+    "Archive/Mates/MatesSchemas.py": "87405efdf0033d6f7b9d7cdd4a7a042d792e646df718266cb5253fae96c2b95d",
+    "Archive/Mates/ReadMatesMut.py": "8b3dd39641effc38447d9cc0be955dc8c7194703bf22791f432f1678ab04ae98",
+    "Archive/Mates/WriteMatesMut.py": "264758133c64863b0953fb349ff2170e87d6ce575adf16b7d0845947fcc96a21",
+    "Archive/Reading/ReadGraphNode.py": "ba816587dae766eca628e2945af666fbe2850ba2f2c111f6116924ba30e99dd6",
+    "Archive/Resolved/MakeResolvedCtx.py": "a20d75c2d4ca7e7d892e53444ca4970afd91ab73a4d3051902da62750c9b393d",
+    "Archive/Resolved/ReadResolvedMut.py": "5adef9bc054b0ae8d1b7f1778cc61be2ef2d88f9659065845fbde969b513aaf3",
+    "Archive/Resolved/WriteResolMut.py": "d390b76e194bdce123e8beb74cd0103ce93a6b8a74ddebf1c639c4abf927d296",
+    "Container/Container.py": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81",
+    "Core/TypedResolved/ReadNativeLink.py": "c00869fa3ead56527000885d53532451dd2a2c16cdd0e13e930b1e2466716ac7"
+  },
+  "observer_sha256": "d61a7e2a0a70aa54a9fc574150a96b585334893eeef21c5471c3fdde1a7d41f0",
+  "schema": "kit.sw2026.sdk-history-component-roundtrip.v1",
+  "scope": "two disclosed version-19000 assembly source controls",
+  "source_manifest_sha256": "e60ba221757cf1452d70d952eecc1eb41c75e2bc0711c0c6aac7c457f9cd15c8",
+  "verified_streams": 6
+}

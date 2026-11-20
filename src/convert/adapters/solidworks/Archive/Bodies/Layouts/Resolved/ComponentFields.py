@@ -1,6 +1,7 @@
 from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Bodies.RequireHistRef import KHistRefMode
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
 KComponentFields = MappingProxyType(
@@ -279,6 +280,10 @@ KComponentFields = MappingProxyType(
             NativeField("Scalar", "f108", "i32"),
             NativeField("Scalar", "f104", "i32"),
             NativeField("Scalar", "f100", "i32"),
+        ),
+        "moHistoryCompItemData_c": (
+            NativeField("Base", "moNode_c"),
+            NativeField("Node", "f48", ModeValue=KHistRefMode),
         ),
         "moHistoryFeatItemData_c": (
             NativeField("Base", "moNode_c"),

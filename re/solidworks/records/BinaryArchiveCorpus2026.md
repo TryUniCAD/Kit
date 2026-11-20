@@ -54,3 +54,7 @@ linked map counts, schema state and the two refusals. This census starts
 zero native processes, reads zero sealed inputs and publishes zero CAD
 outputs. Derivation of model inputs, native writing and original FCStd
 conversion qualification have separate acceptance gates.
+
+The [subsequent SDK history-component port](SdkAssemblyHistoryComponent2026.md)
+reproduces all six linked streams on those two controls, including the actual
+three-mate graph in A1. The census above retains its original codec revision.
