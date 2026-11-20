@@ -51,7 +51,7 @@ A body field validates the width through that shared length grammar
 before the cursor advances. Canonical ANSI has a typed source-frame
 representation, with fresh text supplied as Unicode.
 [Native function hashes, marker grammar and mode limits](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/CStringArchive2026.md)
-[Body text gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/BodyTextRequiresCanonicalLengths.md)
+[Body text gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Strings/BodyTextRequiresCanonicalLengths.md)
 
 Native object store allocates a class slot and a new object slot before
 its body fields. Null and object references consume no slots. At Kit's

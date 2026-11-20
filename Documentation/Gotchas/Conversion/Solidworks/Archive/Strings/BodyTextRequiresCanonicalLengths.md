@@ -11,4 +11,4 @@ of the text. Keep the body cursor and field scope at the prior state
 if the prefix is overlong. Canonical ANSI source text retains its
 original bytes through the Latin-1 representation.
 [Exact-build CString evidence](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/CStringArchive2026.md)
-[Body text refusal process](../../../../../tests/Convert/Solidworks/ArchiveValues/ValueRejectTests.py)
+[Body text refusal process](../../../../../../tests/Convert/Solidworks/ArchiveValues/ValueRejectTests.py)

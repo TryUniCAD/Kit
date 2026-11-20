@@ -60,7 +60,7 @@ reconstruction.
 Internal body callbacks handle scalars, canonical CString frames and
 object links in the same graph and counted row scopes. Individual
 stream layouts define the order and meaning of those fields.
-[Body value scope](../../Changes/Solidworks/SolidworksArchiveBodyValues.md)
+[Body value scope](../../Changes/Solidworks/Archive/SolidworksArchiveBodyValues.md)
 
 ## Read flow
 
