@@ -9,13 +9,11 @@
 from json import loads as DecodeJson
 from pathlib import Path as FilePath
 
-from tests.Research.Inference.Authoring.Pipeline.PipelineClient import (
-    KSourceRoot,
-    PreparePipeline,
-    ReadAccepted,
-    RunPipeline,
-    RunSupervisor,
-)
+from tests.Research.SupervisorClient import KRepoRoot as KSourceRoot
+from tests.Research.Inference.Authoring.Pipeline.PreparePipeline import PreparePipeline
+from tests.Research.Inference.Authoring.Pipeline.ReadAccepted import ReadAccepted
+from tests.Research.Inference.Authoring.Pipeline.RunPipeline import RunPipeline
+from tests.Research.Inference.Authoring.Pipeline.RunSupervisor import RunSupervisor
 
 
 # real artifact transport must continue to the public decoder and retain unresolved semantics honestly

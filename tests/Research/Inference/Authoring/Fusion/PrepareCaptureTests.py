@@ -15,8 +15,8 @@ from sys import executable as PythonExe
 from tests.Research.Inference.Authoring.Fusion.CaptureFixture import (
     CaptureFixture,
     KCaptureTool,
-    RunPreparation,
 )
+from tests.Research.Inference.Authoring.Fusion.RunPreparation import RunPreparation
 
 
 # custom dimensions must survive the public planner and exact native artifact roster derivation

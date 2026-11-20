@@ -111,6 +111,11 @@ The expanded suite passed all 38 checks at `27cc80b9` after the native environme
 repair. Five affected controller/resume/public-decoder checks also passed after
 integrating the merged catalogue prerequisites.
 
+Review follow-up adds the three Windows native process checks to the shared
+merge-queue platform selection and splits independent fixture helpers into
+focused modules. All ten affected process checks passed after those changes.
+The measured native authoring and decoder source files remain unchanged.
+
 A separate configured SOLIDWORKS 34.4.1 run authored a 43 × 23 × 12 mm forward
 XY boss: one solid, volume 11868.000000000002 mm³, center of mass
 `[21.5, 11.5, 6]` mm. All eight saved archives passed fresh-process reopen and
