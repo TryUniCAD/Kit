@@ -11,18 +11,18 @@ def IsBranchTaken(
 ) -> bool:
     FlagsValue = ContextValue.FlagsValue
     Conditions = FlagsValue.get("conditions", 0)
-    match RuleValue.ModeValue:
-        case "Nonzero":
-            return ReadScopeValue(ScopeValue, RuleValue.NameValue) != 0
-        case "Condition":
-            return bool(Conditions & RuleValue.MaskValue)
-        case "NotContext":
-            return not FlagsValue.get(RuleValue.NameValue, 0)
-        case "ConditionsClear":
-            return Conditions == 0
-        case "PeNoise":
-            return bool(
-                (FlagsValue.get("pe_active", 0) and FlagsValue.get("pe_helper", 0))
-                or FlagsValue.get("pe_file", 0)
-            )
-    raise BodyUnsupported(f"unsupported native branch rule {RuleValue.ModeValue}")
+    ModeValue = RuleValue.ModeValue
+    if ModeValue == "Nonzero":
+        return ReadScopeValue(ScopeValue, RuleValue.NameValue) != 0
+    if ModeValue == "Condition":
+        return bool(Conditions & RuleValue.MaskValue)
+    if ModeValue == "NotContext":
+        return not FlagsValue.get(RuleValue.NameValue, 0)
+    if ModeValue == "ConditionsClear":
+        return Conditions == 0
+    if ModeValue == "PeNoise":
+        return bool(
+            (FlagsValue.get("pe_active", 0) and FlagsValue.get("pe_helper", 0))
+            or FlagsValue.get("pe_file", 0)
+        )
+    raise BodyUnsupported(f"unsupported native branch rule {ModeValue}")
