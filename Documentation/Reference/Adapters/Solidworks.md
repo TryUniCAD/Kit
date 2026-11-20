@@ -83,6 +83,13 @@ The reader combines available feature, geometry, and assembly information.
 Source metadata and diagnostics qualify the decoded result.
 The cached body geometry and feature history provide different evidence.
 
+For the compatible version-19000 part profile, strict reads project
+literal native summary, document custom text and active configuration
+text. Configuration text is bound to the saved configuration directory
+and its physical streams. Unsupported property variants leave the
+ordinary geometry and feature result available with a diagnostic.
+[Literal part properties](../../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
+
 For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid
 reader uses forward fin links and terminal vertices. This preserves outward
 face loops and positive signed volume in the disclosed rectangular case.

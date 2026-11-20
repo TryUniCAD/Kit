@@ -86,6 +86,20 @@ cases must preserve a concurrent companion file with replacement disabled
 and restore earlier originals after a later backup fails.
 [Integration cases](../../tests/Convert/Registry/RegistryRaceTests.py)
 
+### B04-SW2026-PARTPROPS
+
+The scoped literal text reader follows PR #178's typed configuration
+directory. The takeover workstream owns the main-target delivery.
+The branch binds one saved active configuration, its physical streams
+and the compatible literal property managers. Three strict public
+source reads recover 23 values with their geometry intact. Two further
+saved property sets retain their earlier geometry refusals. The
+advanced baseline and 12 malformed variants keep the prior modeled
+document. Exit requires the disclosed fresh-process fixture, current
+review and native queue acceptance.
+[Slice record](../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
+[Change entry](../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
+
 ### B03-SW2026-ARCHIVE
 
 The [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167) landed the
