@@ -31,6 +31,7 @@ OPERATORS = (
     "BuildImportedLocalPart.py", "EvaluateSealedImportedGeometry.py", "ProjectDisclosedImport.py",
     "ObserveLocalImportedPart.py", "BuildLocalBodyKernel.py", "LocalBodyKernel.py",
 )
+SCENE_OPERATORS = ("ProbeImportedPartScene.py", "VerifyBareImportPackage.py", "ProjectImportedSemantics.py")
 
 
 def expected_shape(specification):
@@ -102,16 +103,62 @@ def evaluate(slot, source_lock, specification, output):
     }, [tuple(row["oracle_identity"][key] for key in ("process_id", "process_creation_filetime")) for row in phases]
 
 
+def evaluate_scene(slot, source_lock, specification, output):
+    from ProbeImportedPartScene import compare, decoded_scene_row, light_scene, prepared_part, read_checked
+    from ProjectImportedSemantics import project_part_text
+
+    source = SOURCE_ROOT / slot / "Source.SLDPRT"
+    source_hash = source_lock["source_sha256"]
+    original = read_checked(source, source_hash)
+    target = output / (slot + ".SLDPRT")
+    saved = output / (slot + "Saved.SLDPRT")
+    generated, build = prepared_part(original, target, preserve_empty=True)
+    other, repeat = prepared_part(original, target, preserve_empty=True)
+    require(generated == other and build == repeat and build["runtime_file_reads"] == 0,
+            "sealed semantic build was nondeterministic or read files")
+    require(build["explicit_empty_text_owners_preserved"], "selected source text owners are missing")
+    with target.open("xb") as file:
+        file.write(generated)
+    expected = expected_shape(specification)
+    scene = build["native_scene"]
+    native = phase(output, slot + "Original", source, source_hash, expected, build["feature"], scene=scene)
+    require(native["passed"], "independent original geometry and scene did not pass")
+    candidate = phase(output, slot + "Candidate", target, build["file"]["sha256"], expected,
+                      build["feature"], save=saved, scene=scene)
+    require(candidate["passed"], "generated sealed candidate failed open rebuild or save")
+    reopened = phase(output, slot + "Reopen", saved, candidate["saved_sha256"], expected,
+                     build["feature"], reference=candidate["rebuilt"]["persistent_reference"], scene=scene)
+    require(reopened["passed"] and digest(source) == source_hash, "native reopen failed or original changed")
+    saved_data = read_checked(saved, candidate["saved_sha256"])
+    folder, lights = light_scene(saved_data)
+    native_text = project_part_text(decode_import(saved_data), preserve_empty=True)
+    source_text = project_part_text(decode_import(original), preserve_empty=True)
+    require(decoded_scene_row(folder, lights) == scene and compare(tuple(map(asdict, lights)), build["neutral_lights"])
+            and native_text == source_text,
+            "a saved source light or empty text scope changed")
+    phases = (native, candidate, reopened)
+    return {
+        "input_sha256": source_hash, "candidate_sha256": build["file"]["sha256"],
+        "saved_candidate_sha256": candidate["saved_sha256"], "model_generated_streams": build["stream_count"],
+        "runtime_input_file_reads": 0, "saved_light_values": sum(len(asdict(light)) for light in lights),
+        "saved_empty_text_scopes": len(native_text.EmptyScopes), "source_unchanged": True,
+        "numeric_candidate_checks": candidate["numeric_checks"] + reopened["numeric_checks"],
+        "native_phase_records": [row["record_sha256"] for row in phases],
+    }, [tuple(row["oracle_identity"][key] for key in ("process_id", "process_creation_filetime")) for row in phases]
+
+
 def run(job_path, checksum):
     require(os.name == "nt" and digest(job_path) == checksum, "run the frozen evaluator inside the exact guest")
     job = json.loads(job_path.read_bytes())
+    scene_mode = job["schema"] == "kit.sw2026.sealed-import-scene-text-job.v1"
     output = Path(job["guest_output"])
     require(output.drive.casefold() == "c:" and output.parent == Path("C:\\")
-            and output.name == "KitImportedEvaluation01" and not output.exists(), "use the owned separate evaluation path")
-    require(job["oracle_sha256"] == ORACLE and job["schema"] == "kit.sw2026.sealed-import-geometry-job.v1",
+            and output.name == ("KitImportedEvaluation02" if scene_mode else "KitImportedEvaluation01")
+            and not output.exists(), "use the owned separate evaluation path")
+    require(job["oracle_sha256"] == ORACLE and (scene_mode or job["schema"] == "kit.sw2026.sealed-import-geometry-job.v1"),
             "unexpected sealed import evaluator profile")
     operator_folder = Path(__file__).resolve().parent
-    require(set(job["operators"]) == set(OPERATORS) and
+    require(set(job["operators"]) == set(OPERATORS + (SCENE_OPERATORS if scene_mode else ())) and
             all(digest(operator_folder / name) == checksum for name, checksum in job["operators"].items()),
             "sealed evaluator code differs from the frozen revision")
     frozen_dir = job_path.parent
@@ -134,6 +181,9 @@ def run(job_path, checksum):
               "oracle_sha256": ORACLE, "oracle_file_version": "34.5.2.0604", "cases": {},
               "heldout_payloads_shared": 0, "complete_original_source_conversions": 0,
               "public_writer_qualified": False, "controls_healthy": False}
+    if scene_mode:
+        report["schema"] = "kit.sw2026.sealed-import-scene-text.v1"
+        report["unqualified_source_domains"] = ["source tracking and provenance", "binary property manager", "archived payload and system attributes"]
     identities = []
     before = control(output, "ControlBefore", seed)
     faults = {}
@@ -141,7 +191,8 @@ def run(job_path, checksum):
         if before["passed"]:
             for slot in SLOTS:
                 try:
-                    result, process_ids = evaluate(slot, locks["sources"][slot], expected[slot], output)
+                    evaluator = evaluate_scene if scene_mode else evaluate
+                    result, process_ids = evaluator(slot, locks["sources"][slot], expected[slot], output)
                     report["cases"][slot] = result
                     identities.extend(process_ids)
                 except Exception as exc:
@@ -156,6 +207,8 @@ def run(job_path, checksum):
     report["controls_healthy"] = bool(before["passed"] and after["passed"] and len(set(identities)) == len(identities))
     report["distinct_accepted_processes"] = len(set(identities))
     report["complete_heldout_geometry_lifecycles"] = len(report["cases"]) if report["controls_healthy"] else 0
+    if scene_mode:
+        report["complete_heldout_scene_text_lifecycles"] = report["complete_heldout_geometry_lifecycles"]
     report["faults"] = faults
     write_json(frozen_dir / "Result.json", report)
     print(json.dumps({"controls_healthy": report["controls_healthy"], "geometry_lifecycles": report["complete_heldout_geometry_lifecycles"]}))

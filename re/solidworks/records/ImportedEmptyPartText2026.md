@@ -1,7 +1,7 @@
 # Explicit empty native part text scopes
 
 Task `B04-SW2026-IMPORTED-BODY`, PR #121. Source geometry and scene output
-retained neither the explicit empty project text dictionaries nor their
+omitted the explicit empty text property dictionaries and their
 presence in the typed part. All three disclosed input files return an
 explicit empty summary, document custom text and selected configuration
 custom text. [Earlier scene trial](ImportedLocalScene2026.md)
@@ -26,3 +26,15 @@ process integration also checks the case with an omitted document scope.
 The native protocol measures disclosed import parts before and after native
 save and reopen. The physical binary manager and complete original-source
 coverage remain separate requirements.
+
+The held-out scene and text protocol uses the two existing source locks
+and their independent geometry specifications. `StageSealedImportedGeometry.py`
+with `--scene-and-text` freezes the committed writer after those source
+locks. `EvaluateSealedImportedGeometry.py` projects the actual local shape,
+four light definitions and three explicit empty text scopes inside the guest.
+Original, generated and independently reopened files must agree on the model
+geometry, feature and scene through both passing controls. Typed native save
+inspection checks all those light values and text owners. The public record
+keeps digests and field counts. The source geometry, light values and raw
+file bytes remain in the guest.
+[Source lock](../measurements/2026/ImportedBaseBodySourcesNative01.json)

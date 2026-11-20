@@ -14,6 +14,7 @@ OPERATORS = (
     "BuildImportedLocalPart.py", "EvaluateSealedImportedGeometry.py", "ProjectDisclosedImport.py",
     "ObserveLocalImportedPart.py", "BuildLocalBodyKernel.py", "LocalBodyKernel.py",
 )
+SCENE_OPERATORS = ("ProbeImportedPartScene.py", "VerifyBareImportPackage.py", "ProjectImportedSemantics.py")
 
 
 def digest(data):
@@ -38,12 +39,15 @@ def stage(args):
     code = output / "Code"
     code.mkdir()
     pinned_tree(repo, args.revision, code)
-    hashes = {name: digest((code / IMPORT / name).read_bytes()) for name in OPERATORS}
+    operator_names = OPERATORS + (SCENE_OPERATORS if args.scene_and_text else ())
+    hashes = {name: digest((code / IMPORT / name).read_bytes()) for name in operator_names}
     (output / "SealedSourceReceipt.json").write_bytes(public_receipt)
     copyfile(args.control, output / "Control.SLDPRT")
     require(digest((output / "Control.SLDPRT").read_bytes()) == CONTROL, "copied control changed")
-    job = json_data({"schema": "kit.sw2026.sealed-import-geometry-job.v1", "writer_revision": args.revision,
-                     "oracle_sha256": ORACLE, "guest_output": r"C:\KitImportedEvaluation01", "operators": hashes})
+    schema = "kit.sw2026.sealed-import-scene-text-job.v1" if args.scene_and_text else "kit.sw2026.sealed-import-geometry-job.v1"
+    guest = r"C:\KitImportedEvaluation02" if args.scene_and_text else r"C:\KitImportedEvaluation01"
+    job = json_data({"schema": schema, "writer_revision": args.revision, "oracle_sha256": ORACLE,
+                     "guest_output": guest, "operators": hashes})
     (output / "Job.json").write_bytes(job)
     print(json.dumps({"job_sha256": digest(job), "writer_revision": args.revision,
                       "source_receipt_sha256": SOURCE_RECEIPT}))
@@ -55,4 +59,5 @@ if __name__ == "__main__":
     parser.add_argument("--revision", required=True)
     parser.add_argument("--sealed-source-receipt", type=Path, required=True)
     parser.add_argument("--control", type=Path, required=True)
+    parser.add_argument("--scene-and-text", action="store_true")
     stage(parser.parse_args())
