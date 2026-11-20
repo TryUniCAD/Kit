@@ -30,6 +30,9 @@ from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import
 from convert.adapters.solidworks.Archive.Construction.System.Members.MakeLightMut import (
     MakeLightMut,
 )
+from convert.adapters.solidworks.Archive.Construction.System.Members.MakeNotesMut import (
+    MakeNotesMut,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
@@ -85,6 +88,17 @@ def MakeAsmSysMut(
                     }
                     for LightValue in InputValue.LightValues
                 ],
+            },
+            "tail": 0,
+        }
+    if InputValue.NotesValue is not None:
+        NotesValue = MakeNotesMut(
+            CabinetValue, InputValue.NotesValue, TargetValue, Allocator
+        )
+        CabinetValue.FieldsValue["f60"] = {
+            "list": {
+                "n": 2,
+                "items": [{"o": NotesValue.HeadValue}, {"o": NotesValue.EndValue}],
             },
             "tail": 0,
         }
