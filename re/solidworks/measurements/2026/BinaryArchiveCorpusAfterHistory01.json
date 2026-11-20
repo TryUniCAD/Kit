@@ -1,0 +1,212 @@
+{
+  "assemblies": 8,
+  "changed_cases": {
+    "re/solidworks/v2026/corpus/assemblies/A0_one.SLDASM": {
+      "bytes": 6,
+      "exact_without_raw": true,
+      "exact_without_tail": true,
+      "map_count": 172,
+      "missing_schemas": [],
+      "proven_typed_exact": true,
+      "provisional_schemas": [],
+      "raw_operations": 0,
+      "seeded_map_count": 172,
+      "sha256": "98cd9d7146a2605b60a6fd9fb269265f2363574ca58ef3c1fdf39e486f410fb8"
+    },
+    "re/solidworks/v2026/corpus/assemblies/A1_two.SLDASM": {
+      "bytes": 10411,
+      "exact_without_raw": true,
+      "exact_without_tail": true,
+      "map_count": 250,
+      "missing_schemas": [],
+      "proven_typed_exact": true,
+      "provisional_schemas": [],
+      "raw_operations": 0,
+      "seeded_map_count": 181,
+      "sha256": "1be858bb7a88b225639ee939785387e7ba4fdcfda3cf5d945dbcc670f240772a",
+      "typed_packed_fields": [
+        {
+          "declared_length": 8,
+          "element_count": 1,
+          "element_type": "f64",
+          "field": "data",
+          "object_class": "moDisplayDistanceDim_c",
+          "schema": "dm.FUN_4bd03960"
+        },
+        {
+          "declared_length": 8,
+          "element_count": 1,
+          "element_type": "f64",
+          "field": "data",
+          "object_class": "moDisplayDistanceDim_c",
+          "schema": "dm.FUN_4bd03960"
+        }
+      ]
+    }
+  },
+  "codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/serial": "524addbc06c8df1467fa7a0427282d7278aea194",
+    "src": "33714b541bcf2a6af42c0d3a522afd8583a1f0e0"
+  },
+  "codec_revision": "698fa68a6a9990bc4c125d2fea36c3e443a14445",
+  "complete_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 0
+  },
+  "counts_by_stream": {
+    "Contents/CMgr": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/CMgrHdr2": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-MatesList": {
+      "attempts": 8,
+      "exact_without_raw": 8,
+      "exact_without_tail": 8,
+      "proven_typed_exact": 8,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-ModelHeader": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-ResolvedFeatures": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/CusProps": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Definition": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/eModelLic": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Header2": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "ModelStamps": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "SwDocContentMgr/SwDocContentMgrInfo": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "ThirdPtyStore/VisualStates": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 0,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_DL_VERSION_19000/DLUpdateStamp": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_MO_VERSION_19000/Biography": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_MO_VERSION_19000/History": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    }
+  },
+  "full_report_sha256": "3b1f135b6324f4fa069ff6123986c54bc89b0c246cb7740d83de20d50126981a",
+  "heldout_inputs_read": 0,
+  "identical_runs": 2,
+  "missing_schema_incidence": {},
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "parts": 80,
+  "provisional_schema_incidence": {
+    "moCompHolder_c": 80,
+    "moDisplayedEntityTracker_c.Serialize": 88,
+    "moExtFeature_c": 6,
+    "moExtObjectInterface_c.FUN_4c179410": 6
+  },
+  "python": "3.14.7",
+  "schema": "kit.sw2026.binary-archive-corpus-followup.v1",
+  "script_sha256": "37ca0e6b06e93fd05ced6725f890d40700cab1f7703b032680a4aa250fc6bafa",
+  "source_files": 88,
+  "source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1240
+  }
+}

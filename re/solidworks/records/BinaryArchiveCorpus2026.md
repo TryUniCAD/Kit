@@ -58,3 +58,20 @@ conversion qualification have separate acceptance gates.
 The [subsequent SDK history-component port](SdkAssemblyHistoryComponent2026.md)
 reproduces all six linked streams on those two controls, including the actual
 three-mate graph in A1. The census above retains its original codec revision.
+
+## Follow-up after SDK assembly history admission
+
+Two independent runs at codec revision `698fa68a6a9990bc4c125d2fea36c3e443a14445`
+reproduce both previous mate refusals and all other measured streams.
+All 1,328 comparisons on the 88 original inputs now consume the complete
+stream and re-emit exact bytes through typed fields. The eight mate
+streams include A1's three ordered mates. A1's display distance uses the
+counted binary64 codec. The audit recognizes that typed field by its
+element count, type and observed length. Its writer encodes the individual
+scalars. All 88 VisualStates streams still carry provisional grammar,
+leaving 1,240 comparisons across the other roles with confirmed schemas.
+
+The complete repeated report SHA-256 is `3b1f135b6324f4fa069ff6123986c54bc89b0c246cb7740d83de20d50126981a`.
+The [follow-up receipt](../measurements/2026/BinaryArchiveCorpusAfterHistory01.json) retains the new totals
+and the only two changed observations. The original files and the other
+1,326 observations retain their exact hashes and results.

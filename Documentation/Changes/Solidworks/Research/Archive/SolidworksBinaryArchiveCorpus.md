@@ -14,3 +14,8 @@ and adds zero FCStd conversion credits.
 
 [Archive census](../../../../../re/solidworks/records/BinaryArchiveCorpus2026.md)
 · [Receipt](../../../../../re/solidworks/measurements/2026/BinaryArchiveCorpus2026.json)
+
+The follow-up uses the admitted history-component schema and reproduces
+the two remaining mate streams through typed boundaries. All 1,328
+comparisons are now exact. VisualStates retains its provisional schemas.
+[Follow-up receipt](../../../../../re/solidworks/measurements/2026/BinaryArchiveCorpusAfterHistory01.json)

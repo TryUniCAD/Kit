@@ -67,12 +67,33 @@ def compact_stream(record):
     return output
 
 
+def is_packed_scalar(field):
+    count = field.get("element_count")
+    values = field.get("typed_values")
+    return (
+        field.get("length_rule") == "count_times_native_binary64_width"
+        and field.get("element_type") == "f64"
+        and field.get("completed") is True
+        and type(count) is int
+        and type(values) is tuple
+        and len(values) == count
+        and field.get("declared_length") == field.get("observed_length") == count * 8
+    )
+
+
 def sdk_stream(data, emit):
     result = {"bytes": len(data), "sha256": digest(data), "raw_operations": 0}
     try:
         rebuilt, seed, reports = emit()
         exact = rebuilt == data and all(report["completed"] for report in reports)
-        raw_fields = sum(len(report["native_byte_fields"]) for report in reports)
+        byte_fields = [field for report in reports for field in report["native_byte_fields"]]
+        packed = [field for field in byte_fields if is_packed_scalar(field)]
+        raw_fields = len(byte_fields) - len(packed)
+        if packed:
+            result["typed_packed_fields"] = [
+                {key: field[key] for key in ("schema", "field", "object_class", "element_type", "element_count", "declared_length")}
+                for field in packed
+            ]
         provisional = sorted({name for report in reports for name in report["provisional_schemas"]})
         missing = sorted({name for report in reports for name in report["missing_schemas"]})
         result.update(exact_without_tail=exact, exact_without_raw=exact and raw_fields == 0,
