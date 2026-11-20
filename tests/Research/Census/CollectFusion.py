@@ -3,6 +3,9 @@ from shutil import copyfileobj as CopyStream
 import subprocess as Subprocess
 import sys as System
 from pathlib import Path as FilePath
+from tempfile import gettempdir as GetTempDir
+
+from convert.Security.PathBoundary import ResolveWithin
 
 
 # the full census needs bounded reader batches so a single subprocess cannot hide partial progress
@@ -29,7 +32,20 @@ def CollectFusion(TargetList: list[FilePath], TempPath: FilePath) -> FilePath:
     )
     assert CensusRun.returncode == 0, CensusRun.stderr
     ExportPath = OsModule.environ.get("KIT_FUSION_CENSUS")
-    if ExportPath and FilePath(ExportPath).absolute() != CensusPath.absolute():
-        with CensusPath.open("rb") as Source, FilePath(ExportPath).open("xb") as Target:
-            CopyStream(Source, Target)
+    if ExportPath:
+        Requested = FilePath(ExportPath).absolute()
+        Roots = [FilePath.cwd(), FilePath(GetTempDir())]
+        if OsModule.environ.get("GITHUB_ACTIONS") == "true" and OsModule.environ.get(
+            "RUNNER_TEMP"
+        ):
+            Roots.append(FilePath(OsModule.environ["RUNNER_TEMP"]))
+        Root = next((Value for Value in Roots if Requested.is_relative_to(Value)), None)
+        if Root is None:
+            raise ValueError(
+                "census artifact must be inside the workspace or temporary directory"
+            )
+        TargetPath = ResolveWithin(Requested.parent, Root) / Requested.name
+        if TargetPath != CensusPath:
+            with CensusPath.open("rb") as Source, TargetPath.open("xb") as Target:
+                CopyStream(Source, Target)
     return CensusPath

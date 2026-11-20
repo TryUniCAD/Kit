@@ -15,7 +15,7 @@ from tempfile import gettempdir as GetTempDir
 def SessionRoot(SessionArg: str) -> FilePath:
     WorkPath = FilePath(GetTempDir()).resolve(strict=True)
     if WorkPath.name != "work" or any(
-        FilePath(Value).resolve(strict=True) != WorkPath.parent
+        FilePath(Value) != WorkPath.parent
         for Value in (SessionArg, Environment["KIT_SESSION"])
     ):
         raise ValueError("worker session differs from its private work directory")
