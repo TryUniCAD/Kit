@@ -54,3 +54,18 @@ def TestDefWideRead(TmpPath: FilePath) -> None:
         "tag_width": 6,
         "typed_wire_equal": True,
     }
+
+
+# an extra class declaration would shift subsequent object slots during replay
+def TestDefClass(TmpPath: FilePath) -> None:
+    WireValue = RunDefProcess(TmpPath, "author_refs", b"")
+    Report = CastValue(
+        dict[str, object],
+        LoadJson(RunDefProcess(TmpPath, "repeat_type_declaration", WireValue)),
+    )
+    assert Report["class_name"] == "moLineStyle_c"
+    assert Report["canonical_class_slot"] == 3
+    assert Report["canonical_replays"] is True
+    assert "archive repeats a canonical class declaration" in CastValue(
+        str, Report["diagnostic"]
+    )

@@ -51,6 +51,12 @@ first escaped index `0x7fff`. The fresh receiver checks its six physical
 bytes, identity and exact re-emission. These cases await queue evidence.
 [Width gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/DefinitionTagWidths.md)
 
+The canonical Definition reader also refuses a second declaration
+of the same class before allocating another map slot. The separate
+receiver verifies a generated line-style class reference, constructs
+an independent repeated declaration at that boundary and verifies
+its refusal. [Repeated class slots](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/DefinitionRepeatedClassSlots.md)
+
 ## Guarded measurement
 
 | Case | Stream size (bytes) | Next map index | Status |

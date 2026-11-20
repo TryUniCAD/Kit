@@ -392,6 +392,37 @@ def replay_wide_reference(data):
     }
 
 
+def refuse_repeated_class(data):
+    from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
+    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
+    from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
+
+    typed = ReadModelDef(data, 19000)
+    rows = typed.GraphValue.DocumentValue.FieldsValue["f878"]["styles"]
+    first, repeated, separate = (row["o"] for row in rows)
+    offset = separate.StartOffset
+    tag, end = ReadTag(data, offset)
+    require(
+        first is repeated and first is not separate
+        and first.ClassValue == separate.ClassValue and tag.KindValue == "ClassRef"
+        and tag.IndexValue == 3 and end == offset + 2
+        and WriteModelDef(typed.GraphValue).OutputValue == data,
+        "the canonical contrast requires an exact reference to its mapped class",
+    )
+    name = separate.ClassValue.NameValue.encode("ascii")
+    descriptor = pack("<HHH", 0xFFFF, separate.ClassValue.SchemaValue, len(name)) + name
+    alternate = data[:offset] + descriptor + data[end:]
+    return {
+        "class_name": name.decode("ascii"),
+        "canonical_class_slot": tag.IndexValue,
+        "canonical_replays": True,
+        "diagnostic": refusal(
+            lambda: ReadModelDef(alternate, 19000),
+            "archive repeats a canonical class declaration",
+        ),
+    }
+
+
 def worker(mode):
     sys.path.insert(0, str(REPO / "src"))
     from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import (
@@ -438,6 +469,8 @@ def worker(mode):
         output = emit_references(wide=True)
     elif mode == "replay_wide_tag":
         output = replay_wide_reference(raw)
+    elif mode == "repeat_type_declaration":
+        output = refuse_repeated_class(raw)
     elif mode in NATIVE:
         output = native_readback(raw, mode)
     else:
