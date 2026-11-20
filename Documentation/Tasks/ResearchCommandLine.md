@@ -255,3 +255,5 @@ A strict SOLIDWORKS run can emit `SketchPatternCounts.patch` when it discovers a
 `keyword_evidence.feature_pattern_evidence` contains the training and held-out results for linear and circular feature pattern instance counts. A dimension with `pattern_count_reader_mismatch` has a decoded native count that still needs a corresponding public reader correction. A `verified_pattern_count` also agrees with the public parameter's unitless integer and exact scalar span.
 
 For repeated SOLIDWORKS dimensions, inspect `keyword_evidence.extrusion_depth_evidence` for the training models, mirror locations and held-out predictions. Rows marked `paired_radial_dimension` identify the driving scalar, the separate display copy and the circle referenced by the neutral constraint.
+
+For unresolved SOLIDWORKS features, inspect `discovered_feature_fields` in `Input-dimension-evidence.json`. The decoder searches for mirrored scalar fields for the input's own feature types and dimensions. A successful strict reader replay can produce `MirroredFields.patch` and `Input-mirrored-field-reader.json`.

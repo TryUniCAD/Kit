@@ -99,7 +99,7 @@ def keyword_evidence(streams, discovered, document, root, pin):
                 if unit is None:
                     continue
                 expected = dim.value_mm * unit
-                tolerance = 0.5 * unit * 10 ** -display.Decimals
+                tolerance = 0.5 * unit * 10 ** -display.Decimals if display.Decimals is not None else 1e-12
             matches = [(r["stream"], r["offset"]) for r in candidates
                        if r["stream"] in (base, base + "-ResolvedFeatures") and
                        math.isclose(r["system_value"], expected, rel_tol=1e-12, abs_tol=tolerance)]

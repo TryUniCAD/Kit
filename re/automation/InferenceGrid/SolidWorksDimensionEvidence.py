@@ -178,6 +178,8 @@ def dimension_evidence(root, source, pin, document):
     equations = equation_evidence(streams, predictions, sets, pin)
     from InferenceGrid.SolidWorksKeywordEvidence import keyword_evidence
     keywords = keyword_evidence(streams, discovered, document, root, pin)
-    return {**result, "keyword_evidence": keywords, "equations": equations, "status": "held_out_dimensions_match" if verified else "partial_evidence",
+    from InferenceGrid.SolidWorksFieldDiscovery import discover_fields
+    discovered_fields = discover_fields(root, streams, document, pin)
+    return {**result, "discovered_feature_fields": discovered_fields, "keyword_evidence": keywords, "equations": equations, "status": "held_out_dimensions_match" if verified else "partial_evidence",
             "measurement_stage": "edited_before_save" if checks else None, "predictions": predictions,
             "discovered_dimension_records": discovered, "measured_count": len(checks), "missing_from_reader": [list(key) for key in measured if key not in requested]}

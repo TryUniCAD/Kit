@@ -4,6 +4,7 @@ from convert.adapters.solidworks.Core.NativeScalar import NativeScalar as Native
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension as NativeDimension
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
+from convert.adapters.solidworks.Core.BindMirroredField import BindMirroredField, KMirroredFields
 from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
 from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
@@ -1711,6 +1712,34 @@ def BuildNativeList(
                 Updated.append(Dimension)
             Dimensions = tuple(Updated)
         NativeEnd = EndsValue.get(Record.offset) if Record is not None else None
+        if (
+            KMirroredFields
+            and Record
+            and Record.name == Feature.name
+            and NativeEnd is not None
+        ):
+            Dimensions = tuple(
+                (
+                    BindMirroredField(
+                        Resolved,
+                        NativeEnd,
+                        ResolvedStream,
+                        Raw,
+                        Bound,
+                        Owned,
+                        Copies,
+                        Display,
+                    )
+                    if (
+                        Copies := KMirroredFields.get(
+                            (Feature.kind, Raw.name, Raw.kind)
+                        )
+                    )
+                    and sum(Item.name == Raw.name for Item in Feature.dimensions) == 1
+                    else Bound
+                )
+                for Raw, Bound in zip(Feature.dimensions, Dimensions, strict=True)
+            )
         NativeFeatures.append(
             NativeFeature(
                 object_id=Feature.object_id,
