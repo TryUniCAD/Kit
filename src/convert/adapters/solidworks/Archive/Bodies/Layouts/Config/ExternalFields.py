@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# current native field order supplies both directions without saved document values
+# inline model bounds and lists have distinct owners in the external data layout
 KExternalFields = MappingProxyType(
     {
         "mgBBox_c.restore": (

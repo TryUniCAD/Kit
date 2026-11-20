@@ -1,19 +1,27 @@
-from typing import cast as CastValue
-
+from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
-from convert.adapters.solidworks.Archive.Reading.ReadNativeScalar import ReadScalarMut
+from convert.adapters.solidworks.Archive.Header.HeaderFields import KHeaderVersion
+from convert.adapters.solidworks.Archive.Reading.ReadSectSpan import ReadSectSpan
 
 
-# model sections must prove their declared boundary instead of retaining an opaque body span
+# sized model sections must complete their own bodies before the outer cursor advances
 def ReadSectionMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
-    Cursor = FrameValue.ReaderValue.Cursor
-    ByteCount = CastValue(int, ReadScalarMut(Cursor, "u32"))
-    StartValue = Cursor.OffsetValue
-    if ByteCount > Cursor.GetRemaining():
-        raise ValueError("SOLIDWORKS model section exceeds its remaining stream")
-    FrameValue.FieldsReader(FrameValue, RuleValue.BodyValue)
-    if Cursor.OffsetValue - StartValue != ByteCount:
-        raise ValueError(
-            f"SOLIDWORKS model section {RuleValue.MaskValue} has an incorrect length"
-        )
+    Context = FrameValue.ContextValue
+    if Context.VersionValue != KHeaderVersion:
+        raise BodyUnsupported("SOLIDWORKS model section requires archive version 19000")
+    if Context.FlagsValue.get("conditions", 0) & 0x180000:
+        raise BodyUnsupported("unsupported SOLIDWORKS skipped model section")
+    Reader = FrameValue.ReaderValue
+    Cursor = Reader.Cursor
+    Section = ReadSectSpan(Cursor)
+    Reader.Cursor = Section
+    try:
+        FrameValue.FieldsReader(FrameValue, RuleValue.BodyValue)
+        if Section.GetRemaining():
+            raise ValueError(
+                f"SOLIDWORKS model section {RuleValue.MaskValue} has an incorrect length"
+            )
+    finally:
+        Reader.Cursor = Cursor
+    Cursor.OffsetValue = Section.GetOffset()

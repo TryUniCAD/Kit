@@ -1,4 +1,5 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
+from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Bodies.IsFieldBranch import IsFieldBranch
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
@@ -16,7 +17,7 @@ def IsBranchTaken(
     NodeValue: ArchiveNode,
     RuleValue: NativeField,
 ) -> bool:
-    if RuleValue.ModeValue == "Expression":
+    if RuleValue.ModeValue == "Expression" and RuleValue.ExpressionValue:
         return bool(
             ReadExpression(
                 ExprFrame(ContextValue, ScopeValue, NodeValue),
@@ -52,4 +53,6 @@ def IsBranchTaken(
         case "NotClass":
             return NodeValue.ClassValue.NameValue != RuleValue.NameValue
         case _:
-            raise ValueError(f"unsupported native branch rule {RuleValue.ModeValue}")
+            raise BodyUnsupported(
+                f"unsupported native branch rule {RuleValue.ModeValue}"
+            )

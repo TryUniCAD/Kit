@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Archive.Reading.ReadNativeScalar import ReadSca
 # array prefixes retain their native words while item traversal uses the proven count rule
 def ReadCountMut(FrameValue: ReadFrame, RuleValue: NativeField) -> int:
     Cursor = FrameValue.ReaderValue.Cursor
-    Probe = BinaryReader(Cursor.BytesValue, Cursor.OffsetValue)
+    Probe = BinaryReader(Cursor.BytesValue, Cursor.OffsetValue, Cursor.LimitValue)
     CountName = RuleValue.CountValue or RuleValue.NameValue + "#count"
     WidthName = CountName + "#width"
     if RuleValue.TypeValue == "Split":
@@ -21,7 +21,10 @@ def ReadCountMut(FrameValue: ReadFrame, RuleValue: NativeField) -> int:
     elif RuleValue.TypeValue in ("Count", "Framework"):
         IsFramework = RuleValue.TypeValue == "Framework"
         CountValue, Probe.OffsetValue = ReadCount(
-            Probe.BytesValue, Probe.OffsetValue, IsFramework=IsFramework
+            Probe.BytesValue,
+            Probe.OffsetValue,
+            IsFramework=IsFramework,
+            LimitValue=Probe.LimitValue,
         )
         RepeatCount = NormalizeCount(CountValue, RuleValue.ModeValue)
         CountFields = {CountName: CountValue}

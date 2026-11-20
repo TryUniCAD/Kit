@@ -1,6 +1,3 @@
-from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPackedMut import (
-    ReadPackedMut,
-)
 from collections.abc import Callable
 from types import MappingProxyType
 
@@ -33,6 +30,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNormalMut import (
     ReadNormalMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadOwnedMut import ReadOwnedMut
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPackedMut import (
+    ReadPackedMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import (
     ReadPresentMut,
 )

@@ -1,6 +1,7 @@
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
+from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 
@@ -28,6 +29,6 @@ def NormalizeWord(
         case "Positive":
             return int(NumberValue > 0)
         case _:
-            raise ValueError(
+            raise BodyUnsupported(
                 f"unsupported native normalization rule {RuleValue.ModeValue}"
             )

@@ -3,6 +3,9 @@ from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBodyTextMut import (
     ReadBodyTextMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadFrameOwnMut import (
+    ReadFrameOwnMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadHistRefMut import (
     ReadHistRefMut,
 )
@@ -16,11 +19,12 @@ def ReadValueMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
     Cursor = FrameValue.ReaderValue.Cursor
     Value: object
     if RuleValue.KindValue == "Node":
-        Value = (
-            ReadHistRefMut(FrameValue)
-            if RuleValue.ModeValue == KHistRefMode
-            else ReadNodeMut(FrameValue.ReaderValue)
-        )
+        if RuleValue.ModeValue == "FrameOwner":
+            Value = ReadFrameOwnMut(FrameValue)
+        elif RuleValue.ModeValue == KHistRefMode:
+            Value = ReadHistRefMut(FrameValue)
+        else:
+            Value = ReadNodeMut(FrameValue.ReaderValue)
     elif RuleValue.KindValue == "Text":
         Value = ReadBodyTextMut(Cursor)
     else:

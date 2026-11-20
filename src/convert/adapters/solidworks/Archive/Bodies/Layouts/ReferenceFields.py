@@ -61,3 +61,8 @@ KReferenceFields = MappingProxyType(
         ),
     }
 )
+
+# the bounded unit component read requires the actual enclosing part as its backlink
+KFrameOwnerFields = MappingProxyType(
+    {"moComponent_c": (NativeField("Node", "owner", ModeValue="FrameOwner"),)}
+)

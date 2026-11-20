@@ -5,7 +5,9 @@ from convert.adapters.solidworks.Archive.Strings.ReadString import ReadString
 
 # archive fields retain their text encoding when they are written again
 def ReadCStringMut(Cursor: BinaryReader) -> CStringValue:
-    StringValue, Offset = ReadString(Cursor.BytesValue, Cursor.OffsetValue)
+    StringValue, Offset = ReadString(
+        Cursor.BytesValue, Cursor.OffsetValue, LimitValue=Cursor.LimitValue
+    )
     Cursor.OffsetValue = Offset
     return StringValue
 
