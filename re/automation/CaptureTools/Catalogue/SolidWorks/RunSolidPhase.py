@@ -10,6 +10,7 @@ from os import environ
 from pathlib import Path
 
 from CaptureTools.Catalogue.SolidWorks.NativeSolidEnv import NativeSolidEnv
+from CaptureTools.Catalogue.SolidWorks.SolidPhaseFault import SolidPhaseFault
 
 
 # a dedicated job bounds native descendants without touching other application sessions
@@ -55,8 +56,8 @@ def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName, IsBatch=False):
             ExitCode = Process.wait(timeout=HostConfig.get("phase_seconds", 600))
             Process.finish()
             if ExitCode:
-                raise RuntimeError(
-                    "SOLIDWORKS authoring phase failed inspect " + str(Errors.name)
-                )
+                Output.flush()
+                Errors.flush()
+                raise SolidPhaseFault(OutputPath, PhaseName, ExitCode)
         finally:
             Process.close()
