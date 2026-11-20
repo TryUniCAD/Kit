@@ -1,0 +1,35 @@
+{
+  "assemblies": 8,
+  "changed_visual_qualification_rows": 88,
+  "codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/serial": "40a081f74b7e3a1a217ea8bf152d7c499022fbf9",
+    "src": "f104c8f4fea2dea557774f84b4621f17e3fe1d15"
+  },
+  "codec_revision": "f2764043247895f830ee1974b509fd9edc4190e3",
+  "complete_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 88
+  },
+  "full_binary_report_sha256": "b27889e3013f3eb22ebd05167d0040b14bf2d44141f2906bb904c73a500db9b6",
+  "heldout_inputs_read": 0,
+  "missing_schema_incidence": {},
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "parts": 80,
+  "prior_full_binary_report_sha256": "3a0e8b5cbafd53fac273c84a848da7d2b33880c0092b3bc1ca0656731a54fe46",
+  "provisional_schema_incidence": {},
+  "schema": "kit.sw2026.binary-archive-after-visual-state-profiles.v1",
+  "script_sha256": "37ca0e6b06e93fd05ced6725f890d40700cab1f7703b032680a4aa250fc6bafa",
+  "source_files": 88,
+  "source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1328
+  },
+  "unchanged_nonvisual_stream_rows": 1240,
+  "unchanged_source_hashes_and_stream_bytes": true
+}

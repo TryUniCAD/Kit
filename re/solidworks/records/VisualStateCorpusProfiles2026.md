@@ -31,7 +31,9 @@ for the display-state module. The exports remain outside the checkout.
 [Serializer map](../../data/Serialization/SerializeMap2026.json)
 [Native external reference wire](ExternalReferenceWire2026.md)
 
-An initial 88-file selective replay passed all VisualStates stream
-comparisons without opaque data, unread tails, missing or provisional
-schemas within the observed profile. The full binary audit is the
-integration check for all measured streams.
+All 1,328 streams in the complete disclosed binary audit replay byte
+for byte without opaque data, unread tails, missing or provisional
+schemas. Only the 88 VisualStates qualification rows changed from the
+previous full report. Each source identity, byte length, stream digest
+and map counter remained equal. The other 1,240 stream results are
+identical. [Integrated receipt](../measurements/2026/BinaryArchiveAfterVisualProfiles01.json)
