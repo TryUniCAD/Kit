@@ -31,6 +31,9 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.FolderFields im
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.GeometryFields import (
     KGeometryFields,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ImportFields import (
+    KImportFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.MaterialFields import (
     KMaterialFields,
 )
@@ -60,6 +63,7 @@ KResolvedLayouts = MappingProxyType(
         **KFeatureFields,
         **KFolderFields,
         **KGeometryFields,
+        **KImportFields,
         **KMaterialFields,
         **KProfileFields,
         **KReferenceFields,

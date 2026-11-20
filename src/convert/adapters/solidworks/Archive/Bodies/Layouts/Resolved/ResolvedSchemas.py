@@ -12,6 +12,7 @@ KResolvedSchemas = MappingProxyType(
         "ParallelPlaneDistanceDim_c": (1,),
         "moAngleParameter_c": (1,),
         "moAtomFeature_c": (1,),
+        "moBaseBody_c": (1,),
         "moBBoxCenterData_c": (1,),
         "moBodyChooser_c": (1,),
         "moCommentsFolder_c": (1,),

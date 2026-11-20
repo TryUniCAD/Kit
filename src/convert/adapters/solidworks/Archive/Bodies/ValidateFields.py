@@ -1,5 +1,6 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
+from convert.adapters.solidworks.Archive.Bodies.CheckBaseCtx import CheckBaseCtx
 from convert.adapters.solidworks.Archive.Bodies.CheckExtShape import CheckExtShape
 from convert.adapters.solidworks.Archive.Bodies.CheckConfigMut import CheckConfigMut
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
@@ -14,6 +15,9 @@ def ValidateFields(
     NodeValue: ArchiveNode,
     ProfileName: str,
 ) -> None:
+    if ProfileName == "OrdinaryLocalBaseBody":
+        CheckBaseCtx(ContextValue)
+        return
     if ProfileName == "OrdinaryConfigExternal":
         CheckConfigMut(ContextValue, ScopeValue, NodeValue)
         return
