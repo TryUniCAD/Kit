@@ -1,0 +1,345 @@
+{
+  "baseline": "b791b65c8dea2fc0c486aa0b47eea97ece4d9ce9",
+  "changed_sources_sha256": {
+    "re/tooling/sw2026/para/concentric/ProveConcentricParentExploded.py": "9e1d5a177c687b323b7c041dbc0ecc0d90407384e71ae61c3c00e7503d4e7af5",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/AssemblySysIn.py": "d5b10c42ad8e0ab3c0599b7c90113fca3990098654e198dc30fd534137afc6ef",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/System/CheckAsmMembers.py": "80ba97eab9e32916e054524433d983cf0a04d1c44375fa0ab73736ef2e76dda5",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/System/MakeAsmExploded.py": "e65739fdd875966be3bd806f33f095a6e34aaf6833d74e2fa2214e94bea3e3c3",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/System/MakeAsmSysMut.py": "896f52fe29426638850745b0f7808900c1cbf6fce2e7dc8537f981929dcf0b18",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/AsmExplodeNode.py": "bb0c800f81e7ed02b9ad986d20060eb9cd02dba5cd62248ad32d0a1dff1b35f3",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/AsmKeyNodes.py": "d43d7c72f123b0825e5546aa5b27444da93d3df6b78ec7a4ad01dd767c137f69",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/AsmKeywordName.py": "4a2930a6be9797fe96f390dd9742b8b352942b2d41ed2137dc66da3f007e9a82",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/AsmXmlRoles.py": "6bdb2b2823bd51e5cf5dee1ec1bd4bcfac19eda6908e4fffdd90e1f2e34dfe4c",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/MakeAsmKeys.py": "b26fa744320836c6cbea2774164d7a9f74ed78ce36f594c634ee8734f9a39f6a",
+    "src/convert/adapters/solidworks/Archive/Construction/NestedAssemblies/MakeNestedKeys.py": "0cc05d8319f4d7346d53acf61c16f898d6cfd8ed3722a63be7f1d032e1cf06f2",
+    "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitNodeMut.py": "d76a5cef644dccd714d5bc6af2201e144c65e002b46b7415b62c85cce2048823"
+  },
+  "disclosed_inputs_unchanged": true,
+  "disclosed_sources": [
+    {
+      "case": "D01Source",
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "clock": {
+        "FractionTicks": 8441349,
+        "SecondsValue": 1795044311
+      },
+      "config_map_entries": 1,
+      "creation_subservice_pack": 0,
+      "manager_class": "moExplViewManager_c",
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "raw_and_public_keyword": {
+        "id": 1,
+        "native_name": "",
+        "reader_name": "Exploded Views 1",
+        "role": "Exploded Views"
+      },
+      "resolved_map_entries": 1,
+      "resolved_roots": 0,
+      "total_feature_rows": 25,
+      "typed_common_field_count": 39,
+      "typed_common_state_sha256": "97af3bcdc0c288c4b5c825d955ba8105f439cd6a84a760473d3d403f86dc10b4"
+    },
+    {
+      "case": "D01Edited",
+      "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "clock": {
+        "FractionTicks": 8441349,
+        "SecondsValue": 1795044311
+      },
+      "config_map_entries": 1,
+      "creation_subservice_pack": 0,
+      "manager_class": "moExplViewManager_c",
+      "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "raw_and_public_keyword": {
+        "id": 1,
+        "native_name": "",
+        "reader_name": "Exploded Views 1",
+        "role": "Exploded Views"
+      },
+      "resolved_map_entries": 1,
+      "resolved_roots": 0,
+      "total_feature_rows": 25,
+      "typed_common_field_count": 39,
+      "typed_common_state_sha256": "97af3bcdc0c288c4b5c825d955ba8105f439cd6a84a760473d3d403f86dc10b4"
+    },
+    {
+      "case": "RadialSaved",
+      "child_sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416",
+      "clock": null,
+      "config_map_entries": 1,
+      "creation_subservice_pack": 0,
+      "manager_class": "moExplViewManager_c",
+      "parent_sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3",
+      "raw_and_public_keyword": {
+        "id": 26,
+        "native_name": "",
+        "reader_name": "Exploded Views 26",
+        "role": "Exploded Views"
+      },
+      "resolved_map_entries": 1,
+      "resolved_roots": 0,
+      "total_feature_rows": 25,
+      "typed_common_field_count": 39,
+      "typed_common_state_sha256": "97af3bcdc0c288c4b5c825d955ba8105f439cd6a84a760473d3d403f86dc10b4"
+    },
+    {
+      "case": "RadialFrozen",
+      "child_sha256": "699be1addf4b644f1ebdeecc6862f65610155d294e10fa6d7cbcf3d6a224f1cd",
+      "parent_sha256": "9474ca54466a450eec3ba5e49703053fe160e0a221647b2bcc984d8d3672dc74",
+      "raw_and_public_keyword": null,
+      "total_feature_rows": 18
+    }
+  ],
+  "emission": {
+    "changed_streams": [
+      "Contents/CMgr",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Header2",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "child_sha256": "1f57dc2b626d97a737b8b1dddd1eebd415e30530c018425c1db9cfcec598bab2",
+    "config_before_after_bytes": [
+      23839,
+      24029
+    ],
+    "guarded_repeats": 2,
+    "linked_mate_readback": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.031369999999999995
+        ],
+        [
+          0.0,
+          -0.03137000000000001
+        ]
+      ],
+      "alignment": 1,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "1f57dc2b626d97a737b8b1dddd1eebd415e30530c018425c1db9cfcec598bab2",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        150,
+        203
+      ],
+      "mate_bytes": 3562,
+      "mate_sha256": "35fbc3a316d68f93bc9dba0894ca767c8229531b23c8b52bca163393822c2ae9",
+      "occurrence_names": [
+        "D01SignedChild-1",
+        "D01SignedChild-2"
+      ],
+      "occurrences": [
+        24,
+        25
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": false,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "world_origins": [
+        [
+          0.043930000000000004,
+          -0.03127,
+          0.018700000000000005
+        ],
+        [
+          0.04393000000000001,
+          -0.031270000000000006,
+          0.2558
+        ]
+      ]
+    },
+    "normal_read": {
+      "annotation_keyword_rows": [
+        [
+          11,
+          "Annotations",
+          "Annotations"
+        ],
+        [
+          21,
+          "Notes",
+          "Notes"
+        ],
+        [
+          22,
+          "Notes1___EndTag___",
+          "Notes"
+        ]
+      ],
+      "clock": null,
+      "config_map_entries": 1,
+      "creation_subservice_pack": 2,
+      "lights": [
+        [
+          17,
+          "Ambient",
+          "Ambient"
+        ],
+        [
+          18,
+          "Directional1",
+          "Directional"
+        ],
+        [
+          19,
+          "Directional2",
+          "Directional"
+        ],
+        [
+          20,
+          "Directional3",
+          "Directional"
+        ]
+      ],
+      "manager_class": "moExplViewManager_c",
+      "raw_and_public_keyword": {
+        "id": 23,
+        "native_name": "",
+        "reader_name": "Exploded Views 23",
+        "role": "Exploded Views"
+      },
+      "resolved_map_entries": 1,
+      "resolved_roots": 0,
+      "total_feature_rows": 25,
+      "typed_common_field_count": 39,
+      "typed_common_state_sha256": "97af3bcdc0c288c4b5c825d955ba8105f439cd6a84a760473d3d403f86dc10b4"
+    },
+    "parent_sha256": "555ab0ec70cf65a842e5f61bc0ee0842bd9e3fd40fcf8b245ea2b608248e0285",
+    "presence_without_notes_or_lights": true,
+    "previous_notes_parent_sha256": "f0384f8120977e0538e506349d75e214ca8694484adff4cb3aa1bcc2060aca8e",
+    "runtime_file_process_network_attempts": 0
+  },
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "neutral_document_sha256": "8aa4d720cdc7b62eb25fd43a2e0a8ca822a8e012053070ea2c893fe3d12fe90b",
+  "passed": true,
+  "previous_flat": [
+    {
+      "alignment": 1,
+      "fixture": "ConcentricFeatureNeutral01.json",
+      "full_archive_sha256": {
+        "ConcentricNeutralAlphaDerived.SLDASM": "c13378f6876be09b2d102b52d84c1cb3661ea4711485598f13b484f6b1afab7a",
+        "NeutralCylinderAlphaDerived.SLDPRT": "615e14358679180c4c07dceca47b1683dc57b909528b5b73075ba66b016038a6"
+      },
+      "input_sha256": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3",
+      "locked": false,
+      "ordered_occurrences": [
+        "Cylinder-1",
+        "Cylinder-2"
+      ],
+      "same_receipt_and_archive_bytes": true
+    },
+    {
+      "alignment": 2,
+      "fixture": "ConcentricBrepNeutral01.json",
+      "full_archive_sha256": {
+        "ConcentricNeutralBetaAuthored.SLDASM": "301e9ffedf9f3860f730c4ba67b302346db7a395810162952e088144fa09fe5f",
+        "NeutralCylinderBetaAuthored.SLDPRT": "1d7ba96b077cd192724f10e780fbabba5136e3b8549b7e8457a730c1955c8398"
+      },
+      "input_sha256": "2b00d988374d26b39d6edfd2752fe488d7ad9a527a3d1913bdd384ee614fbf63",
+      "locked": true,
+      "ordered_occurrences": [
+        "Cylinder-2",
+        "Cylinder-1"
+      ],
+      "same_receipt_and_archive_bytes": true
+    }
+  ],
+  "previous_nested": [
+    {
+      "full_document_sha256": {
+        "frame": "b28fb14b68601deb25cd405c4385d07269f8e68291935be57541435e4febba28",
+        "module": "11713d093fff9eb94db251276b49e3aefaca8cac2e5eda981bdb6926d69db0cd",
+        "plate": "8ac2cb78071168d4a462e18a1d2d514006823fb0b8b0d9e8c5c3d61c88c707f7"
+      },
+      "identical_default_bytes": true,
+      "input_sha256": "deaf07d8169e7c5178e49bba88d80742ef460dff828789e9b44631c512886452",
+      "linked_reemissions": 34,
+      "mixed": false
+    },
+    {
+      "full_document_sha256": {
+        "frame": "dbd31983f4e6d796de9b8b3e388f3ca323764015eeb0884e65d28035055deccc",
+        "gauge": "0eff946292bc5f665ebb26f1375de602ff92284abc84f12e7fe567bd4a51d3c6",
+        "module": "007a02f3a8a309175a8c329276c15074daf2b3556e363522fb2ecc4ad8053d05",
+        "plate": "8ac2cb78071168d4a462e18a1d2d514006823fb0b8b0d9e8c5c3d61c88c707f7"
+      },
+      "identical_default_bytes": true,
+      "input_sha256": "cd20a99f3d555f176647094c93f737f9fcbc04ae4ba2e84e191da1293daf7818",
+      "linked_reemissions": 44,
+      "mixed": true
+    }
+  ],
+  "refused": {
+    "source": {
+      "active_placement_record": "assembly exploded manager carries unsupported contents or placement state",
+      "missing_actual_manager": "assembly direct exploded manager presence differs",
+      "populated_explosion_map": "assembly exploded manager carries unsupported contents or placement state",
+      "positive_explode_index": "assembly exploded manager carries unsupported contents or placement state",
+      "unexpected_placement_flags": "assembly has unmapped exploded placement state"
+    },
+    "writer": {
+      "active_placement": "assembly keyword exploded manager has unsupported ownership or placement state",
+      "duplicate_feature_id": "assembly keyword rows contain duplicate feature identities",
+      "flat_resolved_root": "assembly exploded manager must belong only to its direct config owner",
+      "foreign_class": "planar mate graph expected concrete moExplViewManager_c",
+      "foreign_owner": "assembly keyword exploded manager has unsupported ownership or placement state",
+      "invalid_presence": "assembly exploded view presence requires a boolean",
+      "unexpected_name": "ordinary assembly exploded manager cannot carry a name owner"
+    }
+  },
+  "schema": "kit.sw2026.disclosed-parent-empty-exploded-view.v1",
+  "source_closures": {
+    "after": {
+      "paths": 6108,
+      "sha256": "d93ac6da056083c4d74f7d4fff44cdf93ccc4865dfeecc5bdb0c29d59ca0485a"
+    },
+    "before": {
+      "paths": 6103,
+      "sha256": "7ef78be87c667c1fe7a849c4d3653255d3bd6e2ce9d9b722b2a0a2aee21192e4"
+    }
+  },
+  "whole_source_guards": {
+    "whole_source": "assembly root contains unprojected model content"
+  }
+}

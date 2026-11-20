@@ -9,6 +9,7 @@ KAsmXmlRoles = {
     "moDocsFolder_c": ("Feature", "Design Binder"),
     "moDetailCabinet_c": ("Feature", "Annotations"),
     "moNotesAreaFtrFolder_c": ("Feature", "Notes"),
+    "moExplViewManager_c": ("Feature", "Exploded Views"),
     "moEnvFolder_c": ("Feature", "Lights and Cameras"),
     "moAmbientLight_c": ("Feature", "Ambient"),
     "moDirectionLight_c": ("Feature", "Directional"),

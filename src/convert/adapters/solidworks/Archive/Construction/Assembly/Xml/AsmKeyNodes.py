@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmExplodeNode import (
+    AsmExplodeNode,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
@@ -52,6 +55,9 @@ def AsmKeyNodes(
     if NotesValue:
         _ = ReadNotesInput(NotesValue)
     NodesValue = (*FeaturesValue, *MembersValue, *NotesValue)
+    ExplodedValue = AsmExplodeNode(RootValue, NodesValue)
+    if ExplodedValue is not None:
+        NodesValue = (*NodesValue, ExplodedValue)
     if len({FieldInt(NodeValue.FieldsValue, "f08") for NodeValue in NodesValue}) != len(
         NodesValue
     ):

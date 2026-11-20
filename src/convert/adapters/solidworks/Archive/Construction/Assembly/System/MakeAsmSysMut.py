@@ -9,6 +9,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.System.AsmVocabul
 from convert.adapters.solidworks.Archive.Construction.Assembly.System.MakeAsmCabinet import (
     MakeAsmCabinet,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.System.MakeAsmExploded import (
+    MakeAsmExploded,
+)
 from convert.adapters.solidworks.Archive.Construction.Assembly.System.MakeAsmFolder import (
     MakeAsmFolder,
 )
@@ -102,6 +105,10 @@ def MakeAsmSysMut(
             },
             "tail": 0,
         }
+    if InputValue.HasEmptyExplodedView:
+        OwnerValue.FieldsValue["f1590"] = MakeAsmExploded(
+            OwnerValue, TargetValue, Allocator
+        )
     FeatureValues = (
         *(FolderValues[ClassName] for ClassName in KAsmEarly),
         CabinetValue,

@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState imp
 from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmKeyNodes import (
     AsmKeyNodes,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmKeywordName import (
+    AsmKeywordName,
+)
 from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmXmlRoles import (
     KAsmXmlRoles,
 )
@@ -67,7 +70,7 @@ def MakeAsmKeys(
             TagValue,
             {
                 "id": str(NodeValue.FieldsValue["f08"]),
-                "Name": ReadNodeName(NodeValue),
+                "Name": AsmKeywordName(NodeValue),
                 "Type": KindValue,
             },
         )

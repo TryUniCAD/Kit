@@ -25,6 +25,7 @@ def InitNodeMut(
         if Allocator is not None or NodeValue.ClassValue.NameValue not in (
             "moRefPlane_c",
             "moConfigurationMgr_c",
+            "moExplViewManager_c",
         ):
             raise ValueError(
                 "only unregistered reference planes and configuration managers may omit a native name"

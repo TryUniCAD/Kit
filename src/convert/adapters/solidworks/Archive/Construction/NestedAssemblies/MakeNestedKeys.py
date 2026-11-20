@@ -3,6 +3,9 @@ from xml.etree.ElementTree import Element, SubElement
 from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmKeyNodes import (
     AsmKeyNodes,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmKeywordName import (
+    AsmKeywordName,
+)
 from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.AsmXmlRoles import (
     KAsmXmlRoles,
 )
@@ -60,7 +63,7 @@ def MakeNestedKeys(TargetValue: TargetDocument) -> bytes:
             TagValue,
             {
                 "id": str(NodeValue.FieldsValue["f08"]),
-                "Name": ReadNodeName(NodeValue),
+                "Name": AsmKeywordName(NodeValue),
                 "Type": KindValue,
             },
         )

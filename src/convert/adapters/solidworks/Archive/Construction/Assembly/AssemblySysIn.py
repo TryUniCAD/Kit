@@ -2,6 +2,9 @@ from dataclasses import dataclass as DataClass
 from convert.adapters.solidworks.Archive.Construction.Assembly.System.AsmVocabulary import (
     KAsmFolders,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.System.CheckAsmMembers import (
+    CheckAsmMembers,
+)
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTime import (
     FeatureTime,
 )
@@ -27,6 +30,7 @@ class AssemblySysIn:
     CreatedAt: int
     LightValues: tuple[LightInput, ...] = ()
     NotesValue: NotesInput | None = None
+    HasEmptyExplodedView: bool = False
 
     # incomplete or ambiguous names must reject before any native persistent feature identifier can be consumed
     def __post_init__(self) -> None:
@@ -58,20 +62,7 @@ class AssemblySysIn:
             raise ValueError(
                 "assembly system feature names must be distinct nonempty authored text"
             )
-        if type(self.LightValues) is not tuple or any(
-            type(LightValue) is not LightInput for LightValue in self.LightValues
-        ):
-            raise TypeError("assembly lighting requires ordered typed light inputs")
-        LightNames = {LightValue.NameValue for LightValue in self.LightValues}
-        if len(LightNames) != len(self.LightValues) or LightNames.intersection(
-            NamesValue
-        ):
-            raise ValueError("assembly light names must be distinct system captions")
-        if self.NotesValue is not None:
-            if type(self.NotesValue) is not NotesInput:
-                raise TypeError("assembly notes require typed empty pair input")
-            if not {self.NotesValue.HeadName, self.NotesValue.EndName}.isdisjoint(
-                (*NamesValue, *LightNames)
-            ):
-                raise ValueError("assembly note captions must be distinct system names")
+        CheckAsmMembers(
+            NamesValue, self.LightValues, self.NotesValue, self.HasEmptyExplodedView
+        )
         _ = FeatureTime(self.CreatedAt)
