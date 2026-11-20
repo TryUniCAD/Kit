@@ -45,8 +45,6 @@ def PrincipalRoute(
     ControllerId, DescriptorId = SketchRouteIds(FeatureBody)
     Controller = SelectCursor(BulkData, Owners, ControllerId, KOffsetBackend)
     ControllerSize = len(Controller.DataValue)
-    if ControllerSize not in (187, 315):
-        raise ValueError("Unsupported Fusion principal sketch controller extent")
     Controller.Offset = ControllerSize - 103
     if Controller.ReadWord() != 1 or ReadNativeRef(Controller) != DescriptorId:
         raise ValueError("Fusion principal sketch descriptor copies disagree")
