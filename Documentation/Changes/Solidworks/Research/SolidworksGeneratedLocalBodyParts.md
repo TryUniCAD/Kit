@@ -10,7 +10,11 @@ keeps an empty world and a generated rollback history.
 The guarded process builds rectangular and concave cases in both modes,
 verifies all twelve compound streams and rejoins the typed archive and kernel
 owners. The exact-build oracle brackets the candidates with native controls and checks
-cold geometry, rebuild, body identity and persistent feature ownership. The
+cold geometry, rebuild, body identity and persistent feature ownership. Four
+original probes pass 280 geometry comparisons across healthy control processes.
+SOLIDWORKS reports load warning 32 on all four. A separate authored ambient
+comparison keeps the local body payload and active partition identical. The
 public writer and original held-out source qualification remain open.
 [Composer](../../../../re/tooling/sw2026/imported_body_source/BuildImportedLocalPart.py)
 · [Native observer](../../../../re/tooling/sw2026/imported_body_source/ObserveLocalImportedPart.py)
+· [First native measurement](../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartNative01.json)

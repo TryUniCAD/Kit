@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from codecs import lookup
-from dataclasses import dataclass, replace
+from dataclasses import asdict, dataclass, replace
 from hashlib import sha256
 import json
 from pathlib import Path, PureWindowsPath
@@ -41,6 +41,8 @@ from convert.adapters.solidworks.Container.Format import KResolvedFeaturesStream
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeName import ReadNativeName
+from downstream.lighting.AmbientInput import AmbientInput
+from downstream.lighting.AttachAmbientMut import AttachAmbientMut
 from interchange import CadDocument
 from interchange.brep.Validation.BrepValidate import GetBrepErrors
 from interchange.document.Validation.DocumentAssemblyValidate import GetAssemblyErrs
@@ -62,6 +64,7 @@ VERSION = 19000
 FEATURE_CLASS = "moBaseBody_c"
 EPOCH = 1790000000
 MODES = ("Bare", "Owned")
+AUTHORED_AMBIENT = AmbientInput("Import ambient", "KitImportAmbient", 0.5, 0.5, 0.0, 0x00FFFFFF)
 
 
 @dataclass(frozen=True)
@@ -74,10 +77,11 @@ class ImportedLabels:
     SketchName: str = ""
 
 
-def make_document(name, points, levels):
+def make_document(name, points, levels, light):
+    presentation = {"kit.sw2026.ambient": asdict(light)} if light is not None else {}
     return CadDocument(
         CadSource("kit.neutral", "", ""), (Configuration("active", "Default", True),),
-        (), (), (), (), (), (), brep=prism_model(name, points, levels),
+        (), (), (), (), (), (), brep=prism_model(name, points, levels), metadata=presentation,
     )
 
 
@@ -144,7 +148,8 @@ def make_owned_kernel(model, name, feature_id, atom_id, body_stamp):
     require_neutral_prism(model)
     topology, next_id = complete_topology(topology_nodes(model, None))
     body = topology[0].ref
-    units = unpack("<" + "H" * (len(name.encode("utf-16-le")) // 2), name.encode("utf-16-le"))
+    encoded_name = name.encode("utf-16-le")
+    units = unpack("<" + "H" * (len(encoded_name) // 2), encoded_name)
     installs = (
         Install(body, "ATOM_ID_2001", (None, (atom_id,))),
         Install(body, "LAST_BODY_MODIFYING_FEATURE_ID", (None, (feature_id,))),
@@ -192,6 +197,12 @@ def make_streams(system, feature, recipe, headers, labels, local, partition):
 
 def make_part(document, destination, mode):
     document.AssertValid()
+    require(mode in MODES and str(document.units) == "mm" and
+            set(document.metadata) <= {"kit.sw2026.ambient"} and
+            not (document.assembly or document.DrawingValue or document.bodies or document.feature_timeline
+                 or document.parameters or document.support_planes or document.sketches or document.selections
+                 or document.meshes or document.materials or document.brep_payloads),
+            "the local-body diagnostic requires a standalone neutral millimetre boundary")
     name = PureWindowsPath(destination).stem
     configuration, = document.configurations
     labels = ImportedLabels(name, configuration.name, "Imported geometry")
@@ -201,6 +212,9 @@ def make_part(document, destination, mode):
     system = MakePartBaseMut(recipe, labels, allocator)
     marks, partition = empty_local_history()
     feature, atom_id = bind_feature(system, allocator, recipe.TargetValue, labels, marks)
+    if "kit.sw2026.ambient" in document.metadata:
+        light = AmbientInput(**document.metadata["kit.sw2026.ambient"])
+        AttachAmbientMut(system.RootValue, light, recipe.TargetValue, allocator, EPOCH)
     SetCfgStampMut(system.ConfigValues[0], allocator)
     headers = MakePartHeaders(system, recipe, allocator)
     body_stamp = headers[0].FieldsValue["f44"] + 1
@@ -239,7 +253,7 @@ def verify_part(blob, streams):
             "streams": {key: fingerprint(value) for key, value in streams.items()}}
 
 
-def batch(native_root):
+def batch(native_root, light=None):
     repository = Path(__file__).resolve().parents[4]
     tuple(lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
     audit = BuildAudit(repository / "re/tooling/sw2026/serial/defs")
@@ -258,7 +272,7 @@ def batch(native_root):
         for shape, (points, levels, geometry) in CASES.items():
             for mode in MODES:
                 name = shape + mode
-                model = make_document(shape, points, levels)
+                model = make_document(shape, points, levels, light)
                 destination = str(native_root / (name + ".SLDPRT"))
                 blob, streams = make_part(model, destination, mode)
                 details = verify_part(blob, streams)
@@ -282,8 +296,9 @@ if __name__ == "__main__":
     parser = ArgumentParser(description="Generate complete local-body part candidates without original files")
     parser.add_argument("native_root", type=PureWindowsPath)
     parser.add_argument("--artifacts", type=Path)
+    parser.add_argument("--ambient", action="store_true")
     args = parser.parse_args()
-    results, denied = batch(args.native_root)
+    results, denied = batch(args.native_root, AUTHORED_AMBIENT if args.ambient else None)
     if args.artifacts:
         destination = args.artifacts.resolve()
         require(not destination.exists() and not destination.is_relative_to(Path(__file__).resolve().parents[4]),
@@ -292,5 +307,6 @@ if __name__ == "__main__":
         for name, (blob, _) in results.items():
             (destination / (name + ".SLDPRT")).write_bytes(blob)
     print(json.dumps({"schema": "kit.sw2026.generated-imported-local-part.v1", "build_operator_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
+                      "authored_ambient": args.ambient,
                       "runtime_input_file_reads": denied, "native_acceptance": False, "heldout_payloads_read": 0,
                       "cases": {name: data for name, (_, data) in results.items()}}, indent=2, sort_keys=True, allow_nan=False))

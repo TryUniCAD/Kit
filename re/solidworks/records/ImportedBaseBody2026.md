@@ -188,6 +188,10 @@ mode, tracking tag and face count. The reason for the different local
 [Topology receipt](../measurements/2026/ImportedBodyTopologyNative01.json)
 · [Replay procedure](../../tooling/sw2026/imported_body_source/InspectImportedTopology.py)
 
+The [imported face identity record](ImportedFaceIdentity2026.md) binds the
+code-77 path to the actual feature creation log and kernel shell traversal.
+Its auxiliary IDs use a separate allocator.
+
 ## Kernel intake
 
 Both out-of-process stream restore probes fail in their native controls
@@ -200,9 +204,13 @@ records 140 candidate comparisons, seven fresh processes and all passing
 controls. Each lane restores the original preference.
 
 This result qualifies the binary kernel geometry for the disclosed
-inputs. The native imported-feature writer still needs the complete
-atom and tracking publication, container generation, and independent
-cold part acceptance.
+inputs. A model-only part diagnostic now wraps both neutral shapes in
+ordinary import archives, each with a bare and an attributed body. Every
+candidate exposes one solid with its actual `BaseBody` owner during cold
+open and after rebuild. All 280 numeric checks pass. Each initial open
+reports warning 32, so the save/reopen acceptance gate stays closed.
+The two ordinary part controls and the separate native import control pass.
+[First generated part evidence](../measurements/2026/GeneratedLocalBodyPartNative01.json)
 
 The source protocol writes vendor-authored control and source files.
 The Kit writer, generated native fallback and public capability-loss
