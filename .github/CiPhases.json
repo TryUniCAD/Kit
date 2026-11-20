@@ -8,7 +8,7 @@
     "SteeringSync.yml": ["Verify repository skill"],
     "WorkflowPins.yml": ["Verify immutable workflow dependencies"],
     "RationaleComments.yml": ["Verify rationale comments on changed sources"],
-    "WorkflowQuality.yml": ["Zizmor", "actionlint"]
+    "WorkflowQuality.yml": ["Zizmor", "actionlint", "Qualify reader and writer patches"]
   },
   "MergeQueue": {
     "PythonQuality.yml": ["Pyright", "Mypy"],

@@ -71,6 +71,38 @@ jobs:
           tests/Convert/Formats/ParasolidTests.py
           tests/Steering/RationaleCommentsTests.py
 
+  codec-promotion:
+    if: >-
+      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'pull_request')
+    needs: pr-ci-reuse
+    name: Qualify reader and writer patches
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            Cli
+            src
+            re/automation
+            re/Fusion/LocalOracle/PublicAdapter
+            re/Playbook
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+
+      - name: Exercise code promotion through the public CLI
+        env:
+          QualificationImage: python@sha256:9aaa474097d094040649f2162a627c0049b408f52138d980916788d80f04802f
+        run: |
+          docker pull "$QualificationImage"
+          ImageId=$(docker image inspect --format '{{.Id}}' "$QualificationImage")
+          uv run --frozen --with 'numpy<2.5' --no-default-groups --extra dev --python 3.14 python re/automation/CodecPromotion/ProcessGate.py "$ImageId"
+
   research-cli:
     if: >-
       always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
