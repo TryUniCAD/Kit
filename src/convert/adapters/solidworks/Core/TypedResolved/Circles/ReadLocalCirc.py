@@ -37,11 +37,14 @@ def ReadLocalCirc(
     ProfileValue, CenterIndex = Shape
     CenterX, CenterY, RadiusValue = ProfileValue.coordinates
     Dimension, ModeValue, _ = Drive if Drive is not None else (None, None, None)
-    if Dimension is not None and not IsClose(
-        Dimension.value_mm,
-        RadiusValue * (2 if ModeValue == "diameter" else 1),
-        rel_tol=1e-12,
-        abs_tol=1e-10,
+    if Dimension is not None and (
+        Dimension.value_mm is None
+        or not IsClose(
+            Dimension.value_mm,
+            RadiusValue * (2 if ModeValue == "diameter" else 1),
+            rel_tol=1e-12,
+            abs_tol=1e-10,
+        )
     ):
         return None
     CenterMark, ArcMark = ReadCircleMarks(SketchValue, CenterIndex, Drive is not None)

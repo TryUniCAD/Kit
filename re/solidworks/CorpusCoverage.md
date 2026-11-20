@@ -154,19 +154,27 @@ in-memory container readback.
 One [disclosed generated two-stock part](measurements/2026/TwoStockColdNative01.json)
 passed native rebuild, the unrelated depth edit, save and fresh reopen.
 Both native controls passed. Complete strict SDK readback and the two
-locked inputs remain open. This adds zero benchmark conversions.
+locked inputs were pending at this experiment. This adds zero benchmark
+conversions.
 
 The [cache-free reader proof](measurements/2026/TwoStockColdRebuild01.json)
 rebuilds both analytic solids from the generated archive's actual
 owners. Initial and edited geometry matches the disclosed native
 measures. The reader also resolves an independently generated
-second-stock selection. Ordinary SDK registration remains open.
+second-stock selection.
 
 The [saved two-stock SDK trial](measurements/2026/TwoStockSavedSdkRead01.json)
 reads both editable depths and the selected cut from the original
 disclosed source and three derivatives saved by SOLIDWORKS.
 The native controls and separate edits to each depth passed.
 This contributes zero original FCStd benchmark conversions.
+
+The [combined strict SDK proof](measurements/2026/TwoStockCombinedSdkRead01.json)
+confirms both solid owners and the selected cut through the normal reader
+for the cache-free generated archive and all three native-saved derivatives.
+Twenty-three guarded processes recorded zero external accesses. The two
+pre-writer-locked source comparisons and ordinary writer admission remain
+open. The original FCStd conversion counts remain zero.
 
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,

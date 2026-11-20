@@ -58,6 +58,9 @@ def ReadPrismPlan(
         SelectedMidPlane=SelectedStock and ModeValue == ExtrudeEnd.KMidPlane,
     )
     Depth = OwnerValue.RequireDepth().DepthValue
+    Length = Depth.value_mm
+    if Length is None:
+        raise ValueError("cache free prism requires a measured active depth")
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
     LoopValue = ReadPrismLoop(OwnerValue.ProfileValue, LinkValue)
     FrameValue = ReadPrismFrame(
@@ -79,7 +82,7 @@ def ReadPrismPlan(
     return PrismPlan(
         FrameValue,
         MakePrismLines(LoopValue),
-        Depth.value_mm,
+        Length,
         EvidenceValue,
         ReversedBlind=ReversedBlind,
     )

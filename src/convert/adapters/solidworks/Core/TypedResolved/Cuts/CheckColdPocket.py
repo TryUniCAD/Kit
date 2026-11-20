@@ -87,9 +87,13 @@ def CheckColdPocket(
         raise ValueError(
             "cold circular cut must stay inside the actual rectangular sides"
         )
-    if not Through and not (
-        0.0
-        < CutValue.RequireDepth().DepthValue.value_mm
-        < BossValue.RequireDepth().DepthValue.value_mm
-    ):
+    if not Through:
+        CheckPocketEnd(BossValue, CutValue)
+
+
+# a finite pocket must end before it reaches the opposite stock face
+def CheckPocketEnd(BossValue: ExtrudeOwner, CutValue: ExtrudeOwner) -> None:
+    CutDepth = CutValue.RequireDepth().DepthValue.value_mm
+    BossDepth = BossValue.RequireDepth().DepthValue.value_mm
+    if CutDepth is None or BossDepth is None or not 0.0 < CutDepth < BossDepth:
         raise ValueError("cold blind pocket must terminate inside its stock")

@@ -1,3 +1,5 @@
+from typing import cast as CastValue
+
 from convert.adapters.solidworks.Archive.Construction.Assembly.Displays.AsmDisplayIn import (
     AsmDisplayIn,
 )
@@ -28,7 +30,7 @@ def ReadDisplayRows(
                 or len(RowValue) != 2
                 or type(RowValue[0]) is not str
                 or type(RowValue[1]) is not bool
-                for RowValue in State.VisibilityValues
+                for RowValue in CastValue(tuple[object, ...], State.VisibilityValues)
             )
         ):
             raise ValueError(
