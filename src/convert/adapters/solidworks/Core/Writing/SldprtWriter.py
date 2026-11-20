@@ -14,6 +14,9 @@ from convert.adapters.solidworks.Core.DrawingWriting.CanWriteBlankDrawing import
 from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import (
     EmitBlankMut,
 )
+from convert.adapters.solidworks.Core.Preparation.Imports.PlanImportPart import (
+    PlanImportPart,
+)
 from convert.adapters.solidworks.Core.Preparation.PlanNativePart import PlanNativePart
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
@@ -38,6 +41,9 @@ class SldprtWriter(PairProtocol):
         if DocValue.assembly is not None:
             return CanWriteAsm(DocValue, Target)
         try:
+            if DocValue.brep is not None:
+                _ = PlanImportPart(DocValue, Target)
+                return True
             PlanValue = PlanNativePart(DocValue)
         except (TypeError, ValueError):
             return False

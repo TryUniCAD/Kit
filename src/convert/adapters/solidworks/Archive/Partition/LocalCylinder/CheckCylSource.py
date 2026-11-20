@@ -1,8 +1,12 @@
 from convert.Geometry.Parasolid import BrepTopology
+from convert.adapters.solidworks.Archive.Partition.LocalCylinder.CheckCylSpan import (
+    CheckCylSpan,
+)
 from convert.adapters.solidworks.Archive.Partition.LocalCylinder.LocalCylShape import (
     LocalCylShape,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismVectors import (
+    PrismMeters,
     PrismVector,
 )
 
@@ -12,6 +16,12 @@ def CheckCylBasis(ShapeValue: LocalCylShape) -> None:
     MantleValue = ShapeValue.MantleValue
     AxisValue = PrismVector(MantleValue.axis)
     Radial = PrismVector(MantleValue.reference_direction)
+    CheckCylSpan(
+        PrismMeters(ShapeValue.NearRim.PlaneValue.origin),
+        PrismMeters(ShapeValue.FarRim.PlaneValue.origin),
+        AxisValue,
+        Radial,
+    )
     if PrismVector(ShapeValue.NearRim.PlaneValue.origin) != PrismVector(
         MantleValue.origin
     ):

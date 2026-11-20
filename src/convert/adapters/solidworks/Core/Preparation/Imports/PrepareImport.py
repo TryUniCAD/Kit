@@ -1,0 +1,50 @@
+from dataclasses import replace as ReplaceValue
+from pathlib import Path as FilePath
+
+from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import (
+    ImportCandidate,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.MakeBareImport import (
+    MakeBareImport,
+)
+from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPartPath
+from convert.adapters.solidworks.Core.Preparation.Imports.MakeImportLight import (
+    MakeImportLight,
+)
+from convert.adapters.solidworks.Core.Preparation.Imports.PlanImportPart import (
+    PlanImportPart,
+)
+from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
+from interchange.document.Models.DocumentModel import CadDocument
+
+
+# a staged periodic part must carry the final filename and the actual single selected configuration
+def PrepareImport(
+    DocumentValue: CadDocument,
+    TargetValue: KTargetType,
+    WrittenAt: int,
+    SettingsValue: WriteOptions,
+) -> ImportCandidate:
+    if not isinstance(TargetValue, (str, FilePath)):
+        raise TypeError("native periodic import requires a part path")
+    FinalValue = SettingsValue.values.get("final_destination")
+    if FinalValue is None:
+        FinalValue = TargetValue
+    if not isinstance(FinalValue, (str, FilePath)):
+        raise TypeError("final destination must be path text or a filesystem path")
+    PlanValue = PlanImportPart(DocumentValue, FinalValue)
+    (ConfigValue,) = DocumentValue.configurations
+    if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):
+        raise ValueError("requested write configuration is unavailable")
+    RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
+    OutputValue = FinalPartPath(
+        TargetValue, SettingsValue, RecipeValue.OutputValue, PlanValue.NameValue
+    )
+    return MakeBareImport(
+        DocumentValue,
+        ReplaceValue(RecipeValue, OutputValue=OutputValue),
+        PlanValue,
+        AmbientValue=MakeImportLight(WrittenAt),
+    )

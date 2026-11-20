@@ -2,12 +2,23 @@ from pathlib import Path as FilePath
 from time import time as ReadTime
 
 from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
+from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import (
+    ImportCandidate,
+)
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Enums.EnumDocument import Capability
+
+# a bare import transfers the closed boundary and active configuration as native objects
+KImportTransfers = (
+    CapTransfer(Capability.KBrep, TransferMode.KNative),
+    CapTransfer(Capability.KConfigurations, TransferMode.KNative),
+)
 
 
 # native emission must complete strict model preparation before writing its one generated destination
@@ -40,6 +51,7 @@ def EmitNativeMut(
         OutputPath,
         KPartFormatId,
         len(Payload),
+        transfers=KImportTransfers if isinstance(Candidate, ImportCandidate) else (),
         application_usable=True,
         vendor_loadable=True,
     )

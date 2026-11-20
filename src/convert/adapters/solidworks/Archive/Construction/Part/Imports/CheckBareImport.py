@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTe
 from convert.adapters.solidworks.Archive.Construction.Part.CheckPartInput import (
     CheckPartInput,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ReadBareConfig import (
+    ReadBareConfig,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
 )
@@ -18,7 +21,6 @@ from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Validation.DocumentValidate import HasValidCaps
 from interchange.Enums.EnumDocument import Capability
-from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordSource import CadSource
 
 
@@ -60,7 +62,7 @@ def CheckBareText(PropertiesValue: PartTextInput | None) -> None:
     if PropertiesValue is not None and (
         type(CastValue(object, PropertiesValue)) is not PartTextInput
         or not all(
-            isinstance(ScopeValue, Mapping)
+            isinstance(CastValue(object, ScopeValue), Mapping)
             for ScopeValue in (
                 PropertiesValue.SummaryFields,
                 PropertiesValue.DocumentFields,
@@ -81,20 +83,8 @@ def CheckBareImport(
     LightValues: tuple[LightInput, ...],
 ) -> BrepModel:
     ModelValue = ReadBareModel(DocumentValue)
-    if len(DocumentValue.configurations) != 1:
-        raise ValueError("bare local import requires one selected configuration")
-    (ConfigValue,) = DocumentValue.configurations
-    if (
-        type(ConfigValue) is not Configuration
-        or type(ConfigValue.id) is not str
-        or not ConfigValue.id.strip()
-        or ConfigValue.name != LabelsValue.ConfigName
-        or ConfigValue.active is not True
-        or ConfigValue.parent_id is not None
-        or ConfigValue.overrides
-        or ConfigValue.suppressed_feature_ids
-        or ConfigValue.attributes
-    ):
+    ConfigValue = ReadBareConfig(DocumentValue)
+    if ConfigValue.name != LabelsValue.ConfigName:
         raise ValueError(
             "bare local import configuration differs from its neutral owner"
         )

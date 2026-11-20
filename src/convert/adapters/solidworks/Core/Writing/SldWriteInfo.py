@@ -12,8 +12,8 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.AsmWriteCaps import (
 from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
 from interchange.Enums.EnumDocument import Capability
 
-# the measured single part relation extends the format capability without changing assembly admission
-KNativeWriteCaps = KAsmWriteCaps | {Capability.KExpressions}
+# the canonical catalog exposes the independently admitted equation and periodic part capabilities
+KNativeWriteCaps = KAsmWriteCaps | {Capability.KExpressions, Capability.KBrep}
 
 # the canonical format dispatches admitted part assembly and blank drawing destinations through one native writer
 KSldWriteInfo = ReplaceValue(

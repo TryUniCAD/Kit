@@ -1,5 +1,8 @@
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import (
+    ImportCandidate,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
@@ -9,6 +12,9 @@ from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
 )
 from convert.adapters.solidworks.Core.Preparation.Equations.PrepareEqPart import (
     PrepareEqPart,
+)
+from convert.adapters.solidworks.Core.Preparation.Imports.PrepareImport import (
+    PrepareImport,
 )
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
@@ -22,7 +28,11 @@ def PrepareNative(
     TargetValue: KTargetType,
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
-) -> PartCandidate:
+) -> PartCandidate | ImportCandidate:
+    if DocumentValue.brep is not None:
+        return PrepareImport(
+            DocumentValue, TargetValue, WrittenAt, CheckPartOpts(OptionsValue)
+        )
     if any(Parameter.expression is not None for Parameter in DocumentValue.parameters):
         return PrepareEqPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)

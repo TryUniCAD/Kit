@@ -1,10 +1,10 @@
-from math import dist as Distance, isfinite as IsFinite
+from math import isfinite as IsFinite
 
-from convert.Geometry.Revolve.SweepInput import CheckSweepFrame
-from convert.Geometry.Revolve.SweepVector import OffsetVector
+from convert.adapters.solidworks.Archive.Partition.LocalCylinder.CheckCylSpan import (
+    CheckCylSpan,
+)
 from convert.adapters.solidworks.Archive.Partition.ReadXmtVector import ReadXmtVector
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
-from interchange.geometry.Models.VectorSpace import SpaceVector
 
 
 # the two supported rims must bound the same positively oriented analytic cylinder
@@ -19,20 +19,10 @@ def CheckCylFrame(
     EndValue = ReadXmtVector(FarPlane, "pvec")
     AxisValue = ReadXmtVector(MantleValue, "axis")
     RadialValue = ReadXmtVector(MantleValue, "x_axis")
-    StartPoint, AxisVector, Radial = (
-        SpaceVector(*VectorValue)
-        for VectorValue in (StartValue, AxisValue, RadialValue)
-    )
-    CheckSweepFrame(StartPoint, AxisVector, Radial)
-    HeightValue = Distance(StartValue, EndValue)
-    Projected = OffsetVector(StartPoint, AxisVector, HeightValue)
+    CheckCylSpan(StartValue, EndValue, AxisValue, RadialValue)
     RadiusValue = MantleValue.FieldsValue["radius"]
     if (
-        not IsFinite(HeightValue)
-        or HeightValue <= 0.0
-        or Distance((Projected.x, Projected.y, Projected.z), EndValue)
-        > 1e-14 * HeightValue
-        or ReadXmtVector(MantleValue, "pvec") != StartValue
+        ReadXmtVector(MantleValue, "pvec") != StartValue
         or ReadXmtVector(FarPlane, "normal") != AxisValue
         or ReadXmtVector(FarPlane, "x_axis") != RadialValue
         or ReadXmtVector(NearPlane, "normal")
