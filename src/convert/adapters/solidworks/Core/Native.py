@@ -1528,7 +1528,7 @@ def SketchPatternPairs(
 
 
 # each admitted handle displacement comes from held-out reader replay
-KSketchCountOffsets: dict[str, int] = {}
+KSketchCountOffsets: dict[str, int] = {"circular": 401, "linear": 401}
 
 
 # the named integer and independent handle must agree before a dimension can lose its length unit

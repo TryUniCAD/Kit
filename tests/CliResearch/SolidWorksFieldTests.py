@@ -6,7 +6,7 @@ from sys import executable as PythonPath
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
-# file-driven integration checks require receipts from a complete CLI process
+# file-driven integration checks require receipts from a complete cli process
 def ReadDimensionEvidence(Root: FilePath, Source: FilePath, Run: FilePath) -> dict:
     Result = RunProcess(
         [
@@ -86,3 +86,17 @@ def CheckPatternCounts(TmpPath: FilePath) -> None:
     assert all(Row["keyword_count_matches"] for Row in Counts)
     assert all(Row["possible_integer_widths"] == [1, 2, 4] for Row in Counts)
     assert len({Row["handle_value_offset"] for Row in Counts}) == 2
+    Strict = LoadJson((TmpPath / "run/Input-strict.json").read_bytes())["document"]
+    Params = {Param["id"]: Param for Param in Strict["parameters"]["$tuple"]}
+    for Row in Counts:
+        Param = Params[f"sldprt:parameter:{Row['feature_id']}:{Row['name']}"]
+        assert Param["value"]["kind"]["value"] == "integer"
+        assert Param["value"]["value"] == 6
+        assert Param["value"]["unit"] == ""
+        assert Param["attributes"]["native_unit"] is None
+        Span = Param["provenance"]["spans"]["$tuple"][0]
+        assert (Span["stream"], Span["offset"], Span["length"]) == (
+            Row["stream"],
+            Row["handle_value_offset"],
+            8,
+        )
