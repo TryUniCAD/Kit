@@ -416,6 +416,7 @@ def OpenNamedMutex(NameValue: str) -> "MutexHandle":
     import win32event as EventApi
 
     Create = CastValue(
-        "Callable[[None, bool, str], MutexHandle]", EventApi.CreateMutex  # pyright: ignore[reportUnknownMemberType]
+        "Callable[[None, bool, str], MutexHandle]",
+        EventApi.CreateMutex,  # pyright: ignore[reportUnknownMemberType]
     )
     return Create(None, False, NameValue)
