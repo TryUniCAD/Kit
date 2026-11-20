@@ -212,6 +212,13 @@ reports warning 32, so the save/reopen acceptance gate stays closed.
 The two ordinary part controls and the separate native import control pass.
 [First generated part evidence](../measurements/2026/GeneratedLocalBodyPartNative01.json)
 
+The authored ambient light changes exactly five logical streams in each
+same-path build. The kernel and rollback bytes stay identical. The native
+retry passes the same 280 geometry checks with healthy controls, and all
+four opens still report warning 32. The local body ownership and the model
+load status require separate checks.
+[Authored ambient retry](../measurements/2026/GeneratedLocalBodyPartAmbient01.json)
+
 The source protocol writes vendor-authored control and source files.
 The Kit writer, generated native fallback and public capability-loss
 report remain open.

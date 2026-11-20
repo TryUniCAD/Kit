@@ -16,6 +16,8 @@ from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
 from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.BodyScope.MakeStockAtom import MakeStockAtom
+from convert.adapters.solidworks.Archive.Construction.Chronology.FeatureInstant import FeatureInstant
+from convert.adapters.solidworks.Archive.Construction.Chronology.MakeFeatTime import MakeFeatTime
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import SetCfgStampMut
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
 from convert.adapters.solidworks.Archive.Construction.Header.MakeRootLog import MakeRootLog
@@ -55,6 +57,7 @@ from para.Partition import History, Node, Partition, Rollback, SCHEMAS, frame_pa
 from para.rectangle.Allocate import DeltaEvent, MarkEvent, Session, allocate_marks, index_fields
 from para.rectangle.AttributeChains import Install, attach_attributes
 from para.rectangle.Attributes import RECTANGLE_DEFINITION_BY_NAME
+from para.rectangle.ArchiveAttachment import CLEAR_UPDATE_STATUS_MASK, FORCE_REBUILD_NODE_FLAG, PART_REBUILD_CALLBACK_NODE_FLAG
 from para.rectangle.Geometry import topology_nodes
 from para.rectangle.RectanglePartition import complete_topology
 from tests.Convert.Solidworks.Research.ConstructionGuard import BuildAudit
@@ -195,7 +198,27 @@ def make_streams(system, feature, recipe, headers, labels, local, partition):
     }
 
 
-def make_part(document, destination, mode):
+def publish_completed_update(system, headers, feature, recipe):
+    retained = (system.OriginValue.ProfileValue, feature)
+    active_header, top_header, _ = headers
+    stamp = active_header.FieldsValue["f40"]
+    clock = MakeFeatTime(FeatureInstant(recipe.HeaderValue.UpdatedAt, 0))
+    for owner in retained:
+        stamp += 1
+        fields = owner.FieldsValue
+        fields.update(clock, f29c=stamp, f2b8=recipe.TargetValue.FileVersion, f2bc=recipe.TargetValue.DateCode)
+        fields["f0c"] &= CLEAR_UPDATE_STATUS_MASK
+    model = system.RootValue.FieldsValue
+    model["f0c"] &= CLEAR_UPDATE_STATUS_MASK
+    model["f2c"] |= FORCE_REBUILD_NODE_FLAG | PART_REBUILD_CALLBACK_NODE_FLAG
+    configuration = system.ConfigValues[0].FieldsValue
+    configuration["f860"] = stamp
+    configuration["f6f8"] = len(model["fd88"]["atoms"])
+    for header in (active_header, top_header):
+        header.FieldsValue["f40"] = stamp
+
+
+def make_part(document, destination, mode, completed=False):
     document.AssertValid()
     require(mode in MODES and str(document.units) == "mm" and
             set(document.metadata) <= {"kit.sw2026.ambient"} and
@@ -222,6 +245,8 @@ def make_part(document, destination, mode):
         header.FieldsValue["f44"] = body_stamp
         logs = header.FieldsValue["f20"].FieldsValue
         logs["items"] += (MakeRootLog(feature, recipe.HeaderValue),)
+    if completed:
+        publish_completed_update(system, headers, feature, recipe)
     if mode == "Owned":
         raw = make_owned_kernel(document.brep, labels.FeatureName, feature.FieldsValue["f08"], atom_id, body_stamp)
     else:
@@ -253,7 +278,7 @@ def verify_part(blob, streams):
             "streams": {key: fingerprint(value) for key, value in streams.items()}}
 
 
-def batch(native_root, light=None):
+def batch(native_root, light=None, completed=False):
     repository = Path(__file__).resolve().parents[4]
     tuple(lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
     audit = BuildAudit(repository / "re/tooling/sw2026/serial/defs")
@@ -274,7 +299,7 @@ def batch(native_root, light=None):
                 name = shape + mode
                 model = make_document(shape, points, levels, light)
                 destination = str(native_root / (name + ".SLDPRT"))
-                blob, streams = make_part(model, destination, mode)
+                blob, streams = make_part(model, destination, mode, completed)
                 details = verify_part(blob, streams)
                 model_data = json.dumps(ToData(model), sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
                 volume, area, center = geometry
@@ -297,8 +322,9 @@ if __name__ == "__main__":
     parser.add_argument("native_root", type=PureWindowsPath)
     parser.add_argument("--artifacts", type=Path)
     parser.add_argument("--ambient", action="store_true")
+    parser.add_argument("--completed", action="store_true")
     args = parser.parse_args()
-    results, denied = batch(args.native_root, AUTHORED_AMBIENT if args.ambient else None)
+    results, denied = batch(args.native_root, AUTHORED_AMBIENT if args.ambient else None, args.completed)
     if args.artifacts:
         destination = args.artifacts.resolve()
         require(not destination.exists() and not destination.is_relative_to(Path(__file__).resolve().parents[4]),
@@ -308,5 +334,6 @@ if __name__ == "__main__":
             (destination / (name + ".SLDPRT")).write_bytes(blob)
     print(json.dumps({"schema": "kit.sw2026.generated-imported-local-part.v1", "build_operator_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
                       "authored_ambient": args.ambient,
+                      "modeled_completed_update": args.completed,
                       "runtime_input_file_reads": denied, "native_acceptance": False, "heldout_payloads_read": 0,
                       "cases": {name: data for name, (_, data) in results.items()}}, indent=2, sort_keys=True, allow_nan=False))

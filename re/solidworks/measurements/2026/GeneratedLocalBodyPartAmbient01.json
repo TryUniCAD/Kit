@@ -1,0 +1,83 @@
+{
+  "cases": {
+    "ConcaveBare": {
+      "cold_and_rebuilt_feature_id": 18,
+      "cold_and_rebuilt_geometry_match": true,
+      "local_and_partition_preserved": true,
+      "native_checks": 82,
+      "native_record_sha256": "52f597a63a0c00e27625765a724a57ba29f02faaca231b51df42d5e1e258adb4",
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 32
+      },
+      "same_path_empty_environment_sha256": "bef29e53fe14387e60f174c79dfc0bbc81000f5c94156a9b3f9dcd9e9346052c",
+      "sha256": "d9b53de7420cb63bd9ccdf1b5da6abf3132fa50a170927a46249d24def455b1e"
+    },
+    "ConcaveOwned": {
+      "cold_and_rebuilt_feature_id": 18,
+      "cold_and_rebuilt_geometry_match": true,
+      "local_and_partition_preserved": true,
+      "native_checks": 82,
+      "native_record_sha256": "6810b33eefb5ced982c0844a759b01073291b7ff1c0079fcb912c11fc1731eb1",
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 32
+      },
+      "same_path_empty_environment_sha256": "25f0b86da901f2e1c7647b627acf660cfdf38e9555ee62d0003e37a84fd1a135",
+      "sha256": "9aa425a985c2b809327bfd160ec6a8719f1c75bd6ae52a85af1b3461b7f39be1"
+    },
+    "RectangularBare": {
+      "cold_and_rebuilt_feature_id": 18,
+      "cold_and_rebuilt_geometry_match": true,
+      "local_and_partition_preserved": true,
+      "native_checks": 58,
+      "native_record_sha256": "1f8cfbb614ecd5d8324f232e2043e235eb4d79beb4ffeaf47854e628bbff43cf",
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 32
+      },
+      "same_path_empty_environment_sha256": "b7d79278e774d9ef8cec404ec007150203e46e9b2b468680237d0cb1ed6c0d4b",
+      "sha256": "5768a0223fe95440ef1902d4856c4045f03c715022881f6a4448ed3469907c64"
+    },
+    "RectangularOwned": {
+      "cold_and_rebuilt_feature_id": 18,
+      "cold_and_rebuilt_geometry_match": true,
+      "local_and_partition_preserved": true,
+      "native_checks": 58,
+      "native_record_sha256": "a463bb50e4416b361c07c6907abffcdf581fd26466d88a01ef70148729bd71c7",
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 32
+      },
+      "same_path_empty_environment_sha256": "f8a823589ceebf002a4b4e0ad3c0683c4a66b04040431e421a98d978848fdbf3",
+      "sha256": "470d5e6c212658d5307352e79d32b74382e53cae8f18e3f5344a6dbaf8d31636"
+    }
+  },
+  "controls_healthy": true,
+  "guarded_build_sha256": "88ed6e7e0f677de42c289b3fce619a3a6062ae1d85836854f8638fd27fb77337",
+  "heldout_candidates": 0,
+  "native_job_sha256": "8c0925b15dee8206844375e6f3a84edf8660ee1079265ecda36eefd235d2329d",
+  "native_processes": 7,
+  "native_raw_sha256": "145421bd96be5ee7ff5f61ff4d3733e12b443ceaf31800057d180a6abdd93c9d",
+  "numeric_candidate_checks": 280,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer_qualified": false,
+  "qualifying_lifecycles": 0,
+  "runtime_input_file_reads": 0,
+  "same_path_changed_streams": [
+    "Contents/CMgr",
+    "Contents/Config-0",
+    "Contents/Config-0-ModelHeader",
+    "Contents/Config-0-ResolvedFeatures",
+    "Header2"
+  ],
+  "same_path_empty_environment_build_sha256": "3d9a5266644ac9390822147f28693e7b0fc8db73373c71f6b9131ca8d5439530",
+  "saved_candidates": 0,
+  "schema": "kit.sw2026.generated-imported-local-part-ambient.v1",
+  "writer_revision": "163309ad92afaff6eeeb7ba434fed8e3ce0dd6b8"
+}

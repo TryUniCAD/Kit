@@ -41,8 +41,12 @@ def snapshot(observer, expected, name, persistent):
         observer.exact_object(observer.get(face, "GetBody"), body, "local body face owning solid")
     token = observer.persistent_reference(feature) if persistent is None else persistent
     observer.exact_object(observer.resolve_feature(token), feature, "native persistent reference resolves to the same feature")
+    extension = observer.get(observer.model, "Extension")
+    state = {"needs_rebuild": int(observer.get(extension, "NeedsRebuild2")),
+             "save_flag": bool(observer.get(observer.model, "GetSaveFlag")),
+             "update_stamp": int(observer.get(observer.model, "GetUpdateStamp"))}
     return {"shape": measured, "feature": name, "feature_id": int(observer.get(feature, "GetID")),
-            "persistent_reference": token, "feature_faces": len(feature_faces)}
+            "persistent_reference": token, "feature_faces": len(feature_faces), "application_state": state}
 
 
 def phase(directory, label, source, source_sha, expected, feature_name, *, save=None, reference=None):

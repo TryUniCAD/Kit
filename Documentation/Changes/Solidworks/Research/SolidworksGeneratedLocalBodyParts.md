@@ -13,8 +13,12 @@ owners. The exact-build oracle brackets the candidates with native controls and 
 cold geometry, rebuild, body identity and persistent feature ownership. Four
 original probes pass 280 geometry comparisons across healthy control processes.
 SOLIDWORKS reports load warning 32 on all four. A separate authored ambient
-comparison keeps the local body payload and active partition identical. The
-public writer and original held-out source qualification remain open.
+comparison reproduces the warning and all 280 geometry checks, with local
+body and active partition bytes unchanged in each same-path comparison.
+The public writer and original held-out source qualification remain open.
 [Composer](../../../../re/tooling/sw2026/imported_body_source/BuildImportedLocalPart.py)
+· [Frozen staging tool](../../../../re/tooling/sw2026/imported_body_source/StageLocalPartProbe.py)
 · [Native observer](../../../../re/tooling/sw2026/imported_body_source/ObserveLocalImportedPart.py)
 · [First native measurement](../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartNative01.json)
+· [Authored ambient measurement](../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartAmbient01.json)
+· [Load warning gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Partition/ImportedPartWarningSurvivesAuthoredAmbient.md)
