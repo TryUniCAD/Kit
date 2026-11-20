@@ -38,7 +38,7 @@ def exchange_body(observer, expected):
     return measure_body(observer, observer.typed(bodies[0], "Body2"), expected, temporary=False)
 
 
-def phase(directory, label, expected, candidate, binding):
+def phase(directory, label, expected, candidate, binding, *, observe_body=exchange_body):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -70,11 +70,11 @@ def phase(directory, label, expected, candidate, binding):
             observer.model = observer.get(controller.app, "LoadFile4", str(path), "r", Swapp.nothing(), error)
             result["load_error"] = int(error.value)
             require(observer.model is not None and result["load_error"] == 0, "binary Parasolid exchange import failed")
-            result["cold"] = exchange_body(observer, expected)
+            result["cold"] = observe_body(observer, expected)
             observer.rebuild()
             require(int(observer.get(observer.get(observer.model, "Extension"), "GetWhatsWrongCount")) == 0,
                     "binary Parasolid import produced native rebuild diagnostics")
-            result["rebuilt"] = exchange_body(observer, expected)
+            result["rebuilt"] = observe_body(observer, expected)
             require(digest(path) == result["payload"]["sha256"], "binary Parasolid input changed during import")
             result["passed"] = True
         except Exception as error:
@@ -99,6 +99,9 @@ def phase(directory, label, expected, candidate, binding):
                         result["controller_diagnostics"] = controller.diagnostics
                     except Exception as error:
                         rec.failure(error, cleanup=True)
+    if observe_body is not exchange_body:
+        result["dialogs"] = dialogs.log
+        result["progress_windows"] = dialogs.progress
     result["passed"] = bool(result["passed"] and result.get("preference_restored") and not dialogs.log
                             and not result.get("controller_diagnostics") and not rec.data["first_failure"]
                             and not rec.data["cleanup_errors"])
