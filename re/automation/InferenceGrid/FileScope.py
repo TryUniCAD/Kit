@@ -107,6 +107,9 @@ def file_scope(path, application, scratch, root):
              "features_without_experiment": unresolved, "selected_experiments": sorted(features),
              "diagnostics": document.get("diagnostics", {}).get("$tuple", []),
              "whole_file_verified": False}
+    if application == "solidworks" and document and suffix == ".sldprt" and reports.get("container", {}).get("members"):
+        from InferenceGrid.SolidWorksDimensionEvidence import dimension_evidence
+        reports["dimension-evidence"] = dimension_evidence(root, source, pin, document)
     if "native" in reports:
         from InferenceGrid.BodyCorrespondence import capture_names
         reports["body-correspondence"] = capture_names(root, pin, source.stat().st_size, reports["native"])
