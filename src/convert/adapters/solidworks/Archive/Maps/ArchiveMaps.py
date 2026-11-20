@@ -1,6 +1,5 @@
 from convert.adapters.solidworks.Archive.Maps.MapEntry import MapEntry
 from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
-from convert.adapters.solidworks.Archive.Maps.PutEntryMut import PutEntryMut
 from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
@@ -23,7 +22,17 @@ class ArchiveMaps:
         self.ClassLookup: dict[RuntimeClass | ExternalClass, int] = {}
         self.ObjectLookup: dict[int, int] = {}
         for EntryValue in SeedValue.EntriesValue:
-            PutEntryMut(self, EntryValue)
+            self.PutEntryMut(EntryValue)
+
+    # inverse lookups need strong node owners so python identities cannot be reused
+    def PutEntryMut(self, EntryValue: MapEntry) -> None:
+        if EntryValue.IndexValue in self.EntryMap:
+            raise ValueError("archive map slot is already occupied")
+        self.EntryMap[EntryValue.IndexValue] = EntryValue
+        if isinstance(EntryValue.EntryValue, (RuntimeClass, ExternalClass)):
+            self.ClassLookup[EntryValue.EntryValue] = EntryValue.IndexValue
+        else:
+            self.ObjectLookup[id(EntryValue.EntryValue)] = EntryValue.IndexValue
 
     # membership snapshots must not borrow a later stream counter or map mutation
     def Snapshot(self) -> MapSnapshot:

@@ -1,6 +1,5 @@
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.MapEntry import MapEntry
-from convert.adapters.solidworks.Archive.Maps.PutEntryMut import PutEntryMut
 from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
 
 
@@ -15,4 +14,4 @@ def BindClassMut(MapValue: ArchiveMaps, ClassValue: ExternalClass) -> None:
         if EntryValue.EntryValue != ClassValue:
             raise ValueError("external class binding conflicts with its existing slot")
         return
-    PutEntryMut(MapValue, MapEntry(ClassValue.IndexValue, ClassValue))
+    MapValue.PutEntryMut(MapEntry(ClassValue.IndexValue, ClassValue))

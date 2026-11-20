@@ -9,16 +9,27 @@ matched the pinned revision across all 27 files. Their direct dependencies
 are `BinaryReader.py`, `ArchiveTag.py` and `ReadTag.py` from the
 [wire primitive parent](https://github.com/TryUniCAD/Kit/commit/fcd4852563482c5af9299edb4a3096cc8f763f42).
 
-The review revision retains 26 matching files. `ReadGraphNode.py` composes
+The traversal review retained 26 matching files. `ReadGraphNode.py` composes
 the graph callbacks. `ReadNodeTagMut.py` checks new-body tags before
 advancing the cursor, `ReadNodeBodyMut.py` tracks open bodies and
 `ReadTypeDescMut.py` owns descriptor framing and the empty-name check.
 Its legacy counterpart also rejects a zero-length descriptor name.
 
+The queue repair moves entry insertion into `ArchiveMaps.PutEntryMut`.
+Seeding, allocation and external class binding call that same method.
+It keeps the original slot check, entry insertion and inverse lookup
+updates. The old helper's type-only back import produced two
+cyclic-import findings on candidate `4e40c9f8b8644d941afc51486e6e8cb79e05450e`.
+The repaired slice retains 22 source files byte for byte from the aggregate.
+[Merge-group CodeQL job](https://github.com/TryUniCAD/Kit/actions/runs/44679083863/job/136097881927)
+[Type-only import cycles](../../../Documentation/Gotchas/Ci/TypeCheckingImportCycles.md)
+
 The original 27-file manifest SHA-256 was
 `2e8b69615518fa47afe3b2321764c80a0c60232f2f85e9b3fd7b1c17d2f06fe1`.
-The revised 30-file manifest SHA-256 is
+The 30-file traversal review manifest SHA-256 was
 `39d61c0e529a285d1184557b92078dac227a0057bb1d9fa2209e7661ab57f66c`.
+The 29-file queue repair manifest SHA-256 is
+`8624ced395a8224a6fdb584ae306d71f13f31db8c241f8640b6bbdf8ae811008`.
 The manifest concatenates sorted repository-relative paths, each followed
 by a NUL, the lowercase file SHA-256 and a newline.
 
@@ -86,7 +97,8 @@ reference or a new class declaration. Process verification is pending
 remote CI.
 
 Scoped Black, Ruff, Mypy, Pyright and steering checks passed. The
-production donor scan found no recorded payloads across 3,184 files.
+traversal revision's donor scan found no recorded payloads across 3,184
+production files.
 [Open body depth](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ArchiveDepthCountsOpenBodies.md)
 [Nonempty archive class names](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/EmptyArchiveClassNames.md)
 
