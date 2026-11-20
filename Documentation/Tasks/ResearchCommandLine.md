@@ -125,7 +125,7 @@ kit run --root . solidworks --catalogue /path/to/FeaturePlan.json --directory /t
 | `--advisor claude --auth api`                 | Installed Claude Code CLI with `ANTHROPIC_API_KEY`.                              |
 | `--advisor ollama --auth local --model MODEL` | Ollama at `127.0.0.1:11434` with an installed local model.                       |
 
-Cloud providers default to login mode. The installed CLI selects the model unless you supply `--model`.
+Cloud providers default to login mode. Integrated Codex advice uses `gpt-6.2-sol` with medium reasoning. Use `--model` to override the model. The Claude CLI selects its configured model when no override is given.
 For Ollama, start the server with `OLLAMA_NO_CLOUD=1` and supply an installed model tag.
 Omit `--advisor` to run deterministic research alone. Advice requires macOS or Linux.
 Use `--advice-calls N` to set the limit for the batch. The default is four calls.

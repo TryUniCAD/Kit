@@ -31,3 +31,5 @@ On the Loft control at `d998c09de`, the runner independently discovered 13 missi
 The 13-record loft patch was applied to the reader. A separate directional loft still required three additional typed records: CurveContext, ExactIntCur and IntcurveNode.
 
 The directional loft generated a second three-record patch and passed fresh native CLI and semantic-state round-trip checks. The MoveBody capture exposed a nested integer tag with constructor validation. Its bounds were reviewed separately and the move file's decoded model survived a complete state round trip. The original corpus sweep examined 90 digest-matched control entries: 85 produced native state and five exposed missing record types.
+
+Integrated Codex advice now explicitly selects `gpt-6.2-sol` at medium reasoning when the caller omits a model. Login and API modes share this default.
