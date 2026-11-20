@@ -83,7 +83,7 @@ def GetOutputKey(FileValue: FilePath, TargetPath: FilePath) -> tuple[bool, str, 
 
 
 # record each successful backup as it moves so a later failure retains the earlier restoration paths
-def BackupTargets(
+def BackupPathsMut(
     TargetValues: tuple[tuple[FilePath, FilePath], ...],
     BackupPath: FilePath,
     ReplacedValues: list[tuple[FilePath, FilePath]],
@@ -150,7 +150,7 @@ def CommitOutputs(
     CommitValues: list[tuple[FilePath, FilePath, tuple[int, int, int]]] = []
     try:
         if Overwrite:
-            BackupTargets(
+            BackupPathsMut(
                 TargetValues,
                 StagingPath / ".kit-backup",
                 ReplacedValues,

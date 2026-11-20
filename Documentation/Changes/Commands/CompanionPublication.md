@@ -7,8 +7,9 @@ earlier in that write. When replacement is enabled, the registry records
 each completed backup before moving the next target so rollback can recover
 from a partial backup failure.
 
-The registry integration suite exercises both failures through the
-ordinary staged write path and verifies the final directory contents.
-Multi-file output still uses separate filesystem operations.
+The registry integration cases cover both failures through the ordinary
+staged write path and check the final directory contents. Multi-file output
+uses separate filesystem operations. Exclusive file publication on POSIX
+requires hard link support in the destination filesystem.
 
 [Path destination behavior](../../Reference/Architecture/Engine.md#path-destinations)

@@ -51,12 +51,15 @@ The registry checks the result before output commitment.
 The commit includes the requested file and any staged companion outputs.
 
 With `overwrite=False`, a conflict in the destination set raises
-`FileExistsError`. File publication also checks exclusivity in the filesystem
-operation, so a file created by another process after the initial scan
-retains its data. On a handled failure, rollback removes outputs that still
-belong to the current write. With replacement enabled, the registry records
-each backup as it moves the original and restores earlier backups if a later
-move fails.
+`FileExistsError`. Publishing a file also checks exclusivity in the filesystem
+operation, so a file created by another process after the initial scan retains
+its data. On POSIX systems the destination filesystem needs to support hard
+links for this file publication. Directory outputs use the platform's directory
+move behavior.
+
+On a handled failure, rollback checks the identity of each published entry
+before removing it. With replacement enabled, the registry records each backup
+as it moves the original and restores earlier backups if a later move fails.
 
 Multi-file commitment uses a sequence of filesystem operations. Keep
 independent backups for recovery from power loss or external filesystem

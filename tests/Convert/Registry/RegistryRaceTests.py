@@ -1,38 +1,19 @@
-from dataclasses import replace as ReplaceValue
 from pathlib import Path as FilePath
 from sys import addaudithook as AddAuditHook
 
 import pytest as Pytest
-from typing_extensions import override as Override
 
-from convert.adapters import AdapterInfo, AdapterRegistry, Destination
-from convert.adapters import WriteOptions, WriteResult
-from interchange import CadDocument, Capability
+from convert.adapters import AdapterInfo, AdapterRegistry, WriteOptions
+from interchange import Capability
 from tests.Convert.Registry.RegistryPolicyTests import BundleAdapter
 from tests.Convert.Registry.RegistryTestSupport import BuildSource
-
-
-# exercising the accepted write path isolates filesystem publishing from external dependency policy
-class LocalBundle(BundleAdapter):
-
-    # the bundle remains entirely within the writing process and adjacent filesystem paths
-    @Override
-    def write(
-        self,
-        document: CadDocument,
-        destination: Destination,
-        options: WriteOptions | None = None,
-    ) -> WriteResult:
-        return ReplaceValue(
-            super().write(document, destination, options), requirements=()
-        )
 
 
 # both boundaries need the ordinary registry to stage the primary file and one companion
 def MakeBundle() -> AdapterRegistry:
     RegistryData = AdapterRegistry()
     RegistryData.register(
-        LocalBundle(
+        BundleAdapter(
             AdapterInfo(
                 "format.bundle",
                 "Filesystem bundle",
@@ -40,7 +21,8 @@ def MakeBundle() -> AdapterRegistry:
                 (".bundle",),
                 capabilities=frozenset(Capability),
                 native_capabilities=frozenset(Capability),
-            )
+            ),
+            Requirements=(),
         )
     )
     return RegistryData

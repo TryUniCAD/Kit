@@ -195,6 +195,20 @@ Protocol byte identity, an open PR, source training measurements, and green stat
 
 ## Important gap boundaries
 
+### B14-COMPANION-PUBLICATION
+
+[PR #170](https://github.com/TryUniCAD/Kit/pull/170) delivered the generic
+file-publication correction from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+It uses the existing registry and the staging directory next to the
+destination. [Change entry](../Changes/Commands/CompanionPublication.md)
+
+The accepted main revision `139a3b7511c57f0c8c25dee06be68b42d1c5f41f`
+passed native merge-queue acceptance. The registry integration cases preserve
+the concurrent companion with replacement disabled and restore earlier
+originals after a later backup fails.
+[Integration cases](../../tests/Convert/Registry/RegistryRaceTests.py)
+[Merge-queue evidence](https://github.com/TryUniCAD/Kit/actions/runs/44661327969)
+
 ### B03-SW2026-ARCHIVE
 
 The scoped [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167) landed through the native queue at `181d3268a`. All post-merge checks passed on that revision.
