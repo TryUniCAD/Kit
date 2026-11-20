@@ -110,6 +110,10 @@ def RunCatalogueBatch(
 
 # the controller retains successful receipts across stops and restarts
 def ResumeCatalogue(Directory, SourceRoot, Format, MaxSeconds, NativeReady):
+    if (Directory / "AuthoringRun.json").is_file():
+        from InferenceGrid.Authoring.RunAuthorBatch import ResumeAuthor
+
+        return ResumeAuthor(Directory, SourceRoot, Format, MaxSeconds, NativeReady)
     with HoldCatalogue(Directory):
         Plan, Run = ReadRun(Directory, SourceRoot, Format)
         Submissions, Results = ReadSubmissions(Directory, Plan)
@@ -271,42 +275,57 @@ def RunSupervisor(
     Reserve=None,
     Handoffs=None,
     Resume=False,
+    CheckRunning=None,
 ):
     AdviceArgs = Advice.arguments() if Advice else []
     MemoryArgs = [] if Reserve is None else ["--reserved-memory-mib", str(Reserve)]
     HandoffArgs = [] if Handoffs is None else ["--catalogue-handoffs", str(Handoffs)]
     AdviceSeconds = 90 * Advice.calls if Advice else 0
     PauseArgs = ["--catalogue-pause-file", str(Directory / "CataloguePause.json")]
+    if Stage == "Authoring":
+        PauseArgs.append("--catalogue-authoring")
     try:
         LogPath = Directory / f"{Stage}Supervisor.log"
         with LogPath.open("ab" if Resume else "xb") as Log:
             with ObserveCatalogue(Directory, LogPath, Log.tell()):
-                Process = subprocess.run(
-                    [
-                        sys.executable,
-                        "-B",
-                        str(SourceRoot / "re/automation/Supervisor.py"),
-                        "--config",
-                        str(Config),
-                        "run",
-                        "--idle-seconds",
-                        "8",
-                        "--max-seconds",
-                        str(MaxSeconds),
-                        *AdviceArgs,
-                        *MemoryArgs,
-                        *HandoffArgs,
-                        *PauseArgs,
-                    ],
-                    cwd=SourceRoot,
-                    stdout=Log,
-                    stderr=subprocess.STDOUT,
-                    timeout=MaxSeconds + AdviceSeconds + 90,
-                    check=False,
-                )
+                Command = [
+                    sys.executable,
+                    "-B",
+                    str(SourceRoot / "re/automation/Supervisor.py"),
+                    "--config",
+                    str(Config),
+                    "run",
+                    "--idle-seconds",
+                    "8",
+                    "--max-seconds",
+                    str(MaxSeconds),
+                    *AdviceArgs,
+                    *MemoryArgs,
+                    *HandoffArgs,
+                    *PauseArgs,
+                ]
+                if CheckRunning is not None:
+                    from InferenceGrid.Authoring.WatchSupervisor import WatchSupervisor
+
+                    Process = WatchSupervisor(
+                        Command,
+                        SourceRoot,
+                        Log,
+                        MaxSeconds + AdviceSeconds + 90,
+                        CheckRunning,
+                    )
+                else:
+                    Process = subprocess.run(
+                        Command,
+                        cwd=SourceRoot,
+                        stdout=Log,
+                        stderr=subprocess.STDOUT,
+                        timeout=MaxSeconds + AdviceSeconds + 90,
+                        check=False,
+                    )
         if Process.returncode:
             return {"stage": Stage, "exit_code": Process.returncode}
-    except (OSError, subprocess.TimeoutExpired) as Error:
+    except (OSError, RuntimeError, subprocess.TimeoutExpired) as Error:
         return {"stage": Stage, "reason": str(Error)[:2048]}
     return None
 
