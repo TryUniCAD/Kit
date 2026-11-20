@@ -30,10 +30,10 @@ def file_scope(path, application, scratch, root, control_paths=()):
     if application == "auto":
         from InferenceGrid.IdentifyFile import identify_file, raw_scope
         application, suffix = identify_file(data)
-        if control_paths and suffix != ".sldprt":
+        if control_paths and suffix != ".sldprt" and application != "unknown":
             raise ValueError("--control requires a SOLIDWORKS part")
         if application in {"asm", "unknown"}:
-            return raw_scope(data, path, pin, application, root, scratch)
+            return raw_scope(data, path, pin, application, root, scratch, control_paths)
     source = scratch / ("input" + suffix)
     source.write_bytes(data)
     del data

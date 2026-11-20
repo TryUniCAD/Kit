@@ -283,3 +283,5 @@ The [single-dimension control experiment](../Changes/Research/Inference/SingleDi
 For standalone spheres and tori, see [analytic solid reader generation](../Changes/Research/Inference/AnalyticSolidReaderGeneration.md) for the generated script, its required Python paths and the native comparisons that gate the patch.
 
 For standalone planar shells and geometry journals, [planar journal replay](../Changes/Research/Inference/PlanarJournalReplay.md) describes state reconstruction and comparison with a measured snapshot.
+
+For an extracted native configuration stream, use [raw scalar reader inference](../Changes/Research/Inference/RawScalarReaderInference.md) to fit a numeric layout to discovery measurements and replay it on another raw stream with `--control`.

@@ -11,6 +11,7 @@ import hashlib
 from io import BytesIO
 import json
 import math
+import struct
 from zipfile import ZipFile
 
 from InferenceInputs import read_file
@@ -43,7 +44,7 @@ def identify_file(data):
     return "unknown", ""
 
 
-def raw_scope(data, path, pin, application, root, scratch):
+def raw_scope(data, path, pin, application, root, scratch, control_paths=()):
     patch = None
     report = {"status": "unidentified", "size": len(data)}
     if application == "asm":
@@ -82,14 +83,22 @@ def raw_scope(data, path, pin, application, root, scratch):
             break
         else:
             from InferenceGrid.RoundReader import round_reader
+
             candidate, reason, patch = round_reader(root, data, pin, scratch)
             if candidate is None:
-                report["readers"]["round_surface"] = {"status": "refused", "reason": reason}
+                report["readers"]["round_surface"] = {
+                    "status": "refused",
+                    "reason": reason,
+                }
                 from InferenceGrid.PlanarFile import planar_file
+
                 try:
                     decoded = planar_file(data, pin, root)
                 except ValueError as error:
-                    report["readers"]["planar_shell"] = {"status": "refused", "reason": str(error)[:250]}
+                    report["readers"]["planar_shell"] = {
+                        "status": "refused",
+                        "reason": str(error)[:250],
+                    }
                 else:
                     report["readers"]["planar_shell"] = {"status": "decoded"}
                     report.update(decoded)
@@ -97,7 +106,56 @@ def raw_scope(data, path, pin, application, root, scratch):
                 report["readers"]["round_surface"] = {"status": "decoded"}
                 report.update(candidate)
     else:
-        report["length_prefix_candidates"] = frame_candidates(data)
+        xml = xml_structure(data)
+        if xml is not None:
+            if control_paths:
+                raise ValueError("binary comparison controls require a binary input")
+            report.update(status="decoded_xml_structure", xml=xml)
+        else:
+            if len(control_paths) > 8:
+                raise ValueError("raw stream comparison accepts up to eight controls")
+            controls = []
+            seen = {pin}
+            remaining = 32 * 1024 * 1024
+            layouts = frame_candidates(data)
+            report["length_prefix_candidates"] = layouts
+            viable = {
+                (r["start"], r["width"], r["byte_order"], r["includes_prefix"])
+                for r in layouts
+            }
+            comparisons = []
+            for control in control_paths:
+                blob = read_file(control, min(remaining, 16 * 1024 * 1024))
+                digest = hashlib.sha256(blob).hexdigest()
+                if (
+                    not blob
+                    or digest in seen
+                    or identify_file(blob)[0] != "unknown"
+                    or xml_structure(blob) is not None
+                ):
+                    raise ValueError(
+                        "supply distinct nonempty raw binary comparison streams"
+                    )
+                seen.add(digest)
+                remaining -= len(blob)
+                controls.append(blob)
+                found = frame_candidates(blob)
+                viable &= {
+                    (r["start"], r["width"], r["byte_order"], r["includes_prefix"])
+                    for r in found
+                }
+                comparisons.append({"sha256": digest, "candidates": found})
+            if controls:
+                report["frame_comparisons"] = {
+                    "controls": comparisons,
+                    "shared_layouts": sorted(viable),
+                }
+            from InferenceGrid.RawScalarRule import raw_scalars
+
+            scalar, patch = raw_scalars(root, data, pin, scratch, controls)
+            if scalar:
+                report["named_scalar_experiment"] = scalar
+                report["status"] = scalar["status"]
     audit = {
         "source_sha256": pin,
         "source_name": path.name,
@@ -110,6 +168,19 @@ def raw_scope(data, path, pin, application, root, scratch):
         "diagnostics": [],
         "whole_file_verified": False,
     }
+    scalar = report.get("named_scalar_experiment", {})
+    confirmed = sorted(scalar.get("native_measurement_offsets", []))
+    if confirmed:
+        width = struct.calcsize(scalar["encoding"])
+        gaps = []
+        cursor = 0
+        for offset in confirmed:
+            if cursor < offset:
+                gaps.append(["input", cursor, offset])
+            cursor = max(cursor, offset + width)
+        if cursor < len(data):
+            gaps.append(["input", cursor, len(data)])
+        audit["unattributed_stream_ranges"] = gaps
     return {application: {"catalogue_sha256": pin, "features": {}}}, (
         audit,
         {"raw-structure": report, **({"reader-patch": patch} if patch else {})},
@@ -220,3 +291,43 @@ def prism_witness(root, data, pin, model):
             "geometry_matches": matches,
         }
     return None
+
+
+def xml_structure(data):
+    from xml.parsers.expat import ExpatError, ParserCreate
+
+    if len(data) > 4 * 1024 * 1024 or not data.removeprefix(
+        b"\xef\xbb\xbf"
+    ).lstrip().startswith(b"<"):
+        return None
+    parser = ParserCreate()
+    counts = {}
+    depth = 0
+    elements = 0
+    root = None
+
+    def enter(name, attrs):
+        nonlocal depth, elements, root
+        depth += 1
+        elements += 1
+        if depth > 256 or elements > 100000 or len(counts) > 4096:
+            raise ValueError("XML structure budget exceeded")
+        if root is None:
+            root = name
+        counts[name] = counts.get(name, 0) + 1
+
+    def leave(name):
+        nonlocal depth
+        depth -= 1
+
+    def reject(*_):
+        raise ValueError("DTD declarations are unsupported")
+
+    parser.StartElementHandler = enter
+    parser.EndElementHandler = leave
+    parser.StartDoctypeDeclHandler = reject
+    try:
+        parser.Parse(data, True)
+    except ExpatError:
+        return None
+    return {"root": root, "element_count": elements, "elements": counts}

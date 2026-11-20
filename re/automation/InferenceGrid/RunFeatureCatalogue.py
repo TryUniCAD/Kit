@@ -36,7 +36,7 @@ def MainRun():
         allow_abbrev=False,
     )
     Parser.add_argument("--input", type=Path, help="Inspect this CAD file and schedule feature experiments from its decoded structure")
-    Parser.add_argument("--control", type=Path, action="append", default=[], help="Additional local SOLIDWORKS part for field inference (repeatable)")
+    Parser.add_argument("--control", type=Path, action="append", default=[], help="Local SOLIDWORKS control part or raw binary comparison stream in auto mode (repeatable)")
     Parser.add_argument("--directory", required=True, type=Path)
     Parser.add_argument("--solidworks-catalogue", type=Path)
     Parser.add_argument("--solidworks-sha256")

@@ -369,3 +369,58 @@ def CheckPlacedPlanarJournal(TmpPath: FilePath) -> None:
     (Body,) = States[4]["bodies"]
     assert (Body["faces"], Body["edges"], Body["vertices"]) == (4, 6, 4)
     assert abs(Body["volume_cm3"] - 3.945638020833335) < 1e-10
+
+
+# raw-stream discovery must withhold the evaluation family and verify the generated program at native scalar offsets
+def CheckUnlabelledDimensionStream(TmpPath: FilePath) -> None:
+    from convert.adapters.solidworks.Container.Container import SldprtArchive
+
+    Root = ResearchRoot()
+    Folder = Root / "re/automation/PairedCaptures/P05"
+    Target = TmpPath / "target"
+    Control = TmpPath / "baseline"
+    Member = "Contents/Config-0-ResolvedFeatures"
+    for Pathname, Variant in ((Target, "edit-angle_deg-90"), (Control, "baseline-a")):
+        Part = next(Folder.glob(f"solidworks-*/*{Variant}.SLDPRT"))
+        Pathname.write_bytes(SldprtArchive.FromBytes(Part.read_bytes()).Streams[Member])
+    Output = TmpPath / "run"
+    Result = RunProcess(
+        [
+            PythonPath,
+            "-m",
+            "KitCli",
+            "run",
+            "--root",
+            str(Root),
+            "auto",
+            "--input",
+            str(Target),
+            "--control",
+            str(Control),
+            "--directory",
+            str(Output),
+        ],
+        capture_output=True,
+        timeout=180,
+    )
+    assert Result.returncode == 2, Result.stderr
+    Report = LoadJson((Output / "Input-raw-structure.json").read_bytes())[
+        "named_scalar_experiment"
+    ]
+    assert (Report["encoding"], Report["displacement"]) == ("<d", 22)
+    assert {
+        Row["recipe"] for Row in Report["trials"] if Row["split"] == "discovery"
+    } == {"P01", "P03", "P04"}
+    assert all(Row["generated_reader_matches"] for Row in Report["trials"])
+    assert {Row["split"] for Row in Report["trials"]} == {
+        "discovery",
+        "qualification",
+        "holdout",
+    }
+    assert len(Report["native_measurement_offsets"]) == 4
+    Angle = next(Row for Row in Report["records"] if Row["name"] == "angle_deg")
+    assert Angle["offset"] in Report["native_measurement_offsets"]
+    (Comparison,) = Report["control_replays"]
+    Original = next(Row for Row in Comparison["records"] if Row["name"] == "angle_deg")
+    assert abs(Angle["value"] * 4 - Original["value"]) < 1e-12
+    assert (Output / "Reader.patch").is_file()
