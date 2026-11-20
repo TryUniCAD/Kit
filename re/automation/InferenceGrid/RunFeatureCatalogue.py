@@ -92,6 +92,11 @@ def MainRun():
         "--capture-mode", choices=("discovery", "qualification", "holdout")
     )
     Parser.add_argument(
+        "--authoring-grid",
+        choices=("baseline", "three-values"),
+        help="Generate a one-parameter-at-a-time ladder for every exposed driving quantity",
+    )
+    Parser.add_argument(
         "--solidworks-host",
         type=Path,
         help="Explicit installed executable and interop paths for owned SOLIDWORKS authoring",
@@ -184,6 +189,7 @@ def CheckSavedArgs(Args):
                 Args.advice_calls,
                 Args.authoring_cases,
                 Args.capture_mode,
+                Args.authoring_grid,
                 Args.solidworks_host,
                 Args.fusion_lifecycle,
             )
@@ -232,6 +238,7 @@ def StartNewRun(Args, SourceRoot):
             Native,
             CasePath=Args.authoring_cases,
             ModeValue=Args.capture_mode or "discovery",
+            GridValue=Args.authoring_grid or "baseline",
             HostPath=Args.solidworks_host,
             Reserve=Reserve,
             LifecyclePath=Args.fusion_lifecycle,
@@ -249,6 +256,7 @@ def StartNewRun(Args, SourceRoot):
             for Value in (
                 Args.authoring_cases,
                 Args.capture_mode,
+                Args.authoring_grid,
                 Args.solidworks_host,
                 Args.fusion_lifecycle,
             )

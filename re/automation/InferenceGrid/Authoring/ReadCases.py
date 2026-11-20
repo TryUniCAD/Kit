@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from InferenceGrid.FeatureSpecs import SpecFor
+from InferenceGrid.Authoring.RecipeAccess import CanBuildRecipe
 from Records import digest, read_record
 
 # reserved recipe families must never enter discovery through an alias
@@ -69,6 +70,25 @@ def ReadOverrides(CasePath, Catalogues, ModeValue):
 def MakeCase(Application, FeatureKey, Overrides, ModeValue, *, Required=False):
     Written = SpecFor(FeatureKey)
     RecipeKey = None if Written is None else Written.get("pair_recipe")
+    if Written is not None and FeatureKey not in Written.get("entries", {}).get(
+        Application, []
+    ):
+        raise ValueError("recipe entry does not belong to the requested application")
+    if RecipeKey is None and CanBuildRecipe(Application, Written, ModeValue):
+        from CaptureTools.Catalogue.Recipes.CompileRecipe import CompileRecipe
+
+        CaseValue = CompileRecipe(
+            {
+                "recipe": Written["id"],
+                "parameters": Overrides.get("parameters", {}),
+                "options": Overrides.get("options", {}),
+            }
+        )
+        return {
+            "application": Application,
+            "feature": FeatureKey,
+            "case": {"id": digest(CaseValue)[:16], **CaseValue},
+        }
     if RecipeKey not in KRecipeModes[ModeValue]:
         if Required:
             raise ValueError(

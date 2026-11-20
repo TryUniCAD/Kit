@@ -7,11 +7,14 @@
 # to you under it immediately and permanently.
 
 from InferenceGrid.Authoring.ReadCases import KRecipeModes, MakeCase, ReadOverrides
+from InferenceGrid.Authoring.RecipeGrid import ExpandCaseGrid
 from Records import digest
 
 
 # aliases share authored samples while distinct parameter choices retain independent native evidence
-def BuildAuthorPlan(Catalogues, Revision, CasePath=None, ModeValue="discovery"):
+def BuildAuthorPlan(
+    Catalogues, Revision, CasePath=None, ModeValue="discovery", GridValue="baseline"
+):
     if ModeValue not in KRecipeModes:
         raise ValueError("unknown catalogue capture mode")
     Selected = ReadOverrides(CasePath, Catalogues, ModeValue)
@@ -22,6 +25,7 @@ def BuildAuthorPlan(Catalogues, Revision, CasePath=None, ModeValue="discovery"):
                 CaseValue = MakeCase(Application, FeatureKey, {}, ModeValue)
                 if CaseValue is not None:
                     Selected.append(CaseValue)
+    Selected = ExpandCaseGrid(Selected, ModeValue, GridValue)
     Samples, Features = {}, {}
     for Application, Catalogue in sorted(Catalogues.items()):
         Features[Application] = {
@@ -46,7 +50,7 @@ def BuildAuthorPlan(Catalogues, Revision, CasePath=None, ModeValue="discovery"):
         raise ValueError(
             "selected catalogue has no executable cases for this capture mode"
         )
-    return {
+    ResultValue = {
         "schema_version": 1,
         "source_revision": Revision,
         "mode": ModeValue,
@@ -58,3 +62,6 @@ def BuildAuthorPlan(Catalogues, Revision, CasePath=None, ModeValue="discovery"):
         "samples": dict(sorted(Samples.items())),
         "inputs_sha256": digest([Revision, ModeValue, Selected]),
     }
+    if GridValue != "baseline":
+        ResultValue["parameter_grid"] = GridValue
+    return ResultValue

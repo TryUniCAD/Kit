@@ -6,35 +6,54 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from hashlib import sha256
 from pathlib import Path
+from re import fullmatch
 
 from Corpus import git
+from InferenceGrid.Authoring.NativeSources import SolidSourceSet
 
 
-# queued native execution must use the same immutable source that its controller job names
-def CheckSolidSrc(Revision):
-    SourceRoot = Path(__file__).resolve().parents[4]
-    Selected = [
-        SourceRoot / "re/automation/InferenceGrid/Authoring/SolidWorker.py",
-        SourceRoot / "re/automation/InferenceGrid/Authoring/SolidSources.py",
-        SourceRoot / "re/automation/InferenceGrid/Authoring/NativeEnvironment.py",
-        SourceRoot
-        / "re/automation/CaptureTools/SolidWorksAuthoring/SolidWorksCapture.cs",
-        SourceRoot / "re/automation/PairSpecs.json",
-        SourceRoot / "re/solidworks/examples/.SLDPRT/example.SLDPRT",
-    ]
-    Selected.extend(
-        FileValue
-        for FileValue in (
-            SourceRoot / "re/automation/CaptureTools/Catalogue/SolidWorks"
-        ).iterdir()
-        if FileValue.suffix in {".py", ".cs", ".ps1"}
+# source receipts must identify every reviewed native dependency at the scheduled immutable revision
+def ReadSolidPins(Revision, SourceRoot=None):
+    if not isinstance(Revision, str) or fullmatch("[0-9a-f]{40}", Revision) is None:
+        raise ValueError("SOLIDWORKS authoring requires an immutable source revision")
+    SourceRoot = (
+        Path(__file__).resolve().parents[4]
+        if SourceRoot is None
+        else Path(SourceRoot).resolve(strict=True)
     )
-    for SourcePath in Selected:
-        Relative = SourcePath.relative_to(SourceRoot).as_posix()
-        if SourcePath.is_symlink() or SourcePath.read_bytes() != git(
-            SourceRoot, "show", Revision + ":" + Relative
+    Manifest = []
+    for Relative in SolidSourceSet(SourceRoot, Revision):
+        SourcePath = SourceRoot / Relative
+        if (
+            not SourcePath.is_file()
+            or SourcePath.is_symlink()
+            or any(
+                Parent.is_symlink()
+                for Parent in SourcePath.parents
+                if Parent.is_relative_to(SourceRoot)
+            )
+            or not SourcePath.resolve(strict=True).is_relative_to(SourceRoot)
         ):
+            raise ValueError(
+                "SOLIDWORKS authoring source is missing or escapes its checkout"
+            )
+        Content = SourcePath.read_bytes()
+        if Content != git(SourceRoot, "show", Revision + ":" + Relative):
             raise ValueError(
                 "SOLIDWORKS authoring source differs from its scheduled revision"
             )
+        Manifest.append(
+            {
+                "path": Relative,
+                "sha256": sha256(Content).hexdigest(),
+                "size_bytes": len(Content),
+            }
+        )
+    return Manifest
+
+
+# native startup must reject any dependency changed after the controller scheduled its recipe
+def CheckSolidSrc(Revision, SourceRoot=None):
+    ReadSolidPins(Revision, SourceRoot)

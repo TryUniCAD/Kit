@@ -11,6 +11,7 @@ from sys import executable
 
 from InferenceGrid.CatalogueWorkerConfig import BuildWorkerCfg
 from InferenceGrid.Authoring.NativeEnvironment import CaptureNative, ValidateNative
+from InferenceGrid.Authoring.AddSolidRunners import AddSolidRunners
 from Pilot.PilotConfig import PilotConfig
 from Pilot.PilotFiles import WriteRecord
 from Records import read_record
@@ -64,25 +65,7 @@ def AuthorConfig(Directory, SourceRoot, Workers, Native, HostPath):
             else CaptureNative()
         )
         HostFile = WriteRecord(Directory / "SolidWorksHost.json", HostValue)
-        RegistryPath = Path(ConfigValue["registry"])
-        RegistryValue = read_record(RegistryPath)
-        RegistryValue["runners"]["capture.catalogue.solidworks"] = {
-            "pool": "authoring-solidworks",
-            "argv": [
-                executable,
-                "-B",
-                str(
-                    SourceRoot / "re/automation/InferenceGrid/Authoring/SolidWorker.py"
-                ),
-                "--host",
-                str(HostFile),
-                "{session}",
-            ],
-            "result_schema": str(SchemaPath),
-            "initial_peak_memory_mib": 2048,
-            "max_memory_mib": 8192,
-        }
-        write_private(RegistryPath, RegistryValue)
+        AddSolidRunners(ConfigValue, SourceRoot, SchemaPath, HostFile)
         Resources["solidworks"] = "application:solidworks:catalogue"
         ConfigValue["pools"]["authoring-solidworks"] = {"max_sessions": 1}
         ConfigValue["resources"] = {Resources["solidworks"]: 1}

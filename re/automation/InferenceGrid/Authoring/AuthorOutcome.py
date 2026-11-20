@@ -9,12 +9,14 @@
 from json import loads
 
 from Ledger import Ledger
+from InferenceGrid.Authoring.NativeProofs import ReadNativeProof
 
 
 # native capture completion and unresolved decoding must remain separate observable outcomes
 def AuthorOutcome(Directory, PlanValue, Submissions, Failures):
     Samples = {}
     with Ledger(Directory / "Store") as StateValue:
+        NativeVerified = ReadNativeProof(StateValue, PlanValue, Submissions)
         for Submission in Submissions:
             JobsValue = [
                 StateValue.status(JobId)["jobs"][0]
@@ -43,7 +45,11 @@ def AuthorOutcome(Directory, PlanValue, Submissions, Failures):
                     "unfinished",
                 )
             for Identity in Submission["samples"]:
-                Samples[Identity] = {"status": StatusValue, "jobs": JobsValue}
+                Samples[Identity] = {
+                    "status": StatusValue,
+                    "native_verified": Identity in NativeVerified,
+                    "jobs": JobsValue,
+                }
     CountsValue = {}
     for Application, FeaturesValue in PlanValue["features"].items():
         CountsValue[Application] = {}
@@ -77,5 +83,6 @@ def AuthorOutcome(Directory, PlanValue, Submissions, Failures):
         "features": CountsValue,
         "samples": Samples,
         "supervisor_failures": Failures,
+        "native_verified_samples": len(NativeVerified),
         "portable_complete": False,
     }

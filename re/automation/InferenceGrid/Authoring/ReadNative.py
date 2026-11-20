@@ -37,7 +37,12 @@ def ReadNative(SessionPath, PacketValue):
         }:
             raise ValueError("native source differs from its accepted artifact")
         if RoleValue == "bundle":
-            Expected = Accepted["result"]["records"]["archives"]
+            RecordsValue = Accepted["result"]["records"]
+            Expected = (
+                RecordsValue["bundles"][Binding["artifact"]]
+                if "bundles" in RecordsValue
+                else RecordsValue["archives"]
+            )
             NativeFiles.update(ReadBundle(Content, Expected))
         elif RoleValue.startswith("native."):
             if len(Content) > 64 * 1024 * 1024:

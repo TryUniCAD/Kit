@@ -34,6 +34,7 @@ def RunAuthorBatch(
     *,
     CasePath=None,
     ModeValue="discovery",
+    GridValue="baseline",
     HostPath=None,
     Reserve=None,
     Workers=4,
@@ -44,7 +45,7 @@ def RunAuthorBatch(
     Directory = Path(Directory).resolve()
     if Directory.is_relative_to(SourceRoot):
         raise ValueError("use an authoring run directory outside the source checkout")
-    PlanValue = BuildAuthorPlan(Catalogues, Revision, CasePath, ModeValue)
+    PlanValue = BuildAuthorPlan(Catalogues, Revision, CasePath, ModeValue, GridValue)
     Applications = {Value["application"] for Value in PlanValue["samples"].values()}
     if not PrepareOnly and (
         ("fusion" in Applications and Native is None)

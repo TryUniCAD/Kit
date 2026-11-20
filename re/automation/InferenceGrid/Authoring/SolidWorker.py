@@ -11,14 +11,14 @@ from hashlib import sha256
 from json import dumps
 from pathlib import Path
 from sys import path
-from zipfile import ZIP_STORED, ZipFile
 
 path[:0] = [str(Path(__file__).resolve().parents[2])]
 
 from CaptureTools.Catalogue.SolidWorks.RunSolid import RunSolid
 from InferenceInputs import read_json_input
 from InferenceSession import read_session
-from InferenceGrid.Authoring.SolidSources import CheckSolidSrc
+from InferenceGrid.Authoring.SolidSources import ReadSolidPins
+from InferenceGrid.Authoring.PackNative import PackNative
 from Records import digest, read_record
 from Sessions import write_private
 
@@ -34,30 +34,10 @@ def RunSolidJob(SessionPath, HostPath):
     CaseValue = read_json_input(SessionPath, PacketValue["inputs"]["case"])
     if digest(CaseValue) != JobValue["options"].get("case_sha256"):
         raise ValueError("capture case differs from its scheduled identity")
-    CheckSolidSrc(JobValue["tool_version"])
+    SourcePins = ReadSolidPins(JobValue["tool_version"])
     WorkPath = SessionPath / "work"
     ReportValue = RunSolid(CaseValue, WorkPath / "Capture", read_record(HostPath))
-    Manifest = {}
-    BundlePath = WorkPath / "Samples.zip"
-    with ZipFile(BundlePath, "x", compression=ZIP_STORED) as BundleFile:
-        for Archive in ReportValue["archives"]:
-            SourcePath = Path(Archive["path"])
-            SourceRaw = SourcePath.read_bytes()
-            FileName = SourcePath.name
-            if FileName in Manifest or len(SourceRaw) > 64 * 1024 * 1024:
-                raise ValueError("duplicate or oversized native capture archive")
-            SourceHash = sha256(SourceRaw).hexdigest()
-            if (
-                SourceHash != Archive["sha256"]
-                or len(SourceRaw) != Archive["size_bytes"]
-            ):
-                raise ValueError("native sample changed before controller publication")
-            BundleFile.writestr(FileName, SourceRaw)
-            Manifest[FileName] = {"sha256": SourceHash, "size_bytes": len(SourceRaw)}
-    if not Manifest or len(Manifest) > 48:
-        raise ValueError(
-            "native capture archive roster exceeds the bounded decoder batch"
-        )
+    BundlePath, Manifest = PackNative(WorkPath, ReportValue)
     ReportPath = WorkPath / "NativeReport.json"
     ReportPath.write_text(dumps(ReportValue, sort_keys=True), encoding="utf-8")
     Artifacts = {}
@@ -77,6 +57,8 @@ def RunSolidJob(SessionPath, HostPath):
                 "application": "solidworks",
                 "case": CaseValue,
                 "archives": Manifest,
+                "native_verified": True,
+                "source_pins": SourcePins,
                 "execution": Execution,
             },
             "artifacts": Artifacts,

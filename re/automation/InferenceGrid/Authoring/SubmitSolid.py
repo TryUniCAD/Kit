@@ -7,6 +7,8 @@
 # to you under it immediately and permanently.
 
 from InferenceGrid.Resume import BindGrid
+from InferenceGrid.Authoring.SubmitSolidBatch import SubmitBatch
+from CaptureTools.Catalogue.Recipes.RecipeRegistry import KRecipeBuilders
 from Ledger import Ledger
 from Pilot.PilotFiles import WriteRecord
 from Records import digest, read_record
@@ -17,6 +19,8 @@ def SubmitSolid(Directory, PlanValue, Resource):
     Submissions = []
     for Identity, Selection in PlanValue["samples"].items():
         if Selection["application"] != "solidworks":
+            continue
+        if Selection["case"]["recipe"] in KRecipeBuilders:
             continue
         CaseValue = {
             NameValue: Value
@@ -68,4 +72,4 @@ def SubmitSolid(Directory, PlanValue, Resource):
         Submissions.append(
             {"samples": [Identity], "capture": [CaptureJob], "decode": DecodeJob}
         )
-    return Submissions
+    return [*Submissions, *SubmitBatch(Directory, PlanValue, Resource)]
