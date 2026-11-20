@@ -226,3 +226,21 @@ def CheckNativePartScalarReader(TmpPath: FilePath) -> None:
         and abs(Row["control_value"] - 6.283185307179586) < 1e-14
         for Row in Changes
     )
+
+
+# a rounded inch diameter must retain its full native scalar and exact reopen measurement
+def CheckRoundedDiameterReader(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Part = next((Root / "re/automation/PairedCaptures/P02").glob("solidworks-*/*units-inch.SLDPRT"))
+    Run = TmpPath / "run"
+    ReadDimensionEvidence(Root, Part, Run)
+    Evidence = LoadJson((Run / "Input-scalar-streams.json").read_bytes())
+    Row, = Evidence["members"]["Contents/Config-0-ResolvedFeatures"]["ownership"]["records"]
+    assert Row["value"] == 0.01
+    assert Row["ownership_status"] == "rounded_declaration_and_marker_agree"
+    Match, = Row["declaration_matches"]
+    assert Match["kind"] == "diameter"
+    assert Match["display"] == "<MOD-DIAM>0.39"
+    Observation, = Evidence["owner_observations"]
+    assert Observation["status"] == "native_name_and_value_match"
+    assert Observation["native_values"] == [Row["value"]]
