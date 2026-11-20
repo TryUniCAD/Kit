@@ -8,9 +8,11 @@
 
 from bisect import bisect_right
 from collections import Counter, defaultdict
+from decimal import Decimal, ROUND_HALF_UP
 import hashlib
 import math
 import os
+import re
 import struct
 import subprocess
 
@@ -65,7 +67,7 @@ def records(streams, wanted):
             scalar = SelectNamedField(scalars[owner, d.name])
             if scalar is not None and scalar.value_offset + 8 <= end:
                 rows.append((group, owner, expected, scalar, start, end, d.source_text))
-    return stream, data, rows
+    return stream, data, rows, display
 
 
 def discover_fields(root, streams, document, pin):
@@ -89,7 +91,7 @@ def discover_fields(root, streams, document, pin):
     target = records(streams, wanted)
     if not target:
         return None
-    stream, data, rows = target
+    stream, data, rows, _ = target
     if not rows:
         return {"input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": 0,
                 "rules": [], "predictions": [], "unresolved_fields": [
@@ -121,15 +123,24 @@ def discover_fields(root, streams, document, pin):
             continue
         if not sample:
             continue
-        _, blob, training = sample
+        _, blob, training, units = sample
         fingerprint = hashlib.sha256(blob).hexdigest()
         if fingerprint in seen:
             continue
         seen.add(fingerprint)
-        for key, owner, expected, scalar, start, end, _ in training:
+        for key, owner, expected, scalar, start, end, text in training:
+            agreement = "exact" if math.isclose(scalar.value, expected, rel_tol=1e-10, abs_tol=1e-14) else "conflict"
+            if (agreement == "conflict" and key[2] == "length" and units and units.UnitName == "mm"
+                    and type(units.Decimals) is int and 0 <= units.Decimals <= 12 and abs(scalar.value) < 1e9
+                    and re.fullmatch(r"[+-]?[0-9]{1,12}(?:[.][0-9]{1,12})?", text.strip())):
+                quantum = Decimal(1).scaleb(-units.Decimals)
+                measured = Decimal(str(scalar.value)) * 1000
+                if measured.quantize(quantum, rounding=ROUND_HALF_UP) == Decimal(text.strip()):
+                    agreement = "matches_display_precision"
             anchor_samples[key].append({"file_sha256": digest, "stream_sha256": fingerprint, "feature_id": owner,
                                         "value": scalar.value, "offset": scalar.value_offset, "owner_start": start,
-                                        "owner_end": end, "scalar_object_id": scalar.object_id, "expected_value": expected})
+                                        "owner_end": end, "scalar_object_id": scalar.object_id, "expected_value": expected,
+                                        "agreement": agreement, "display_text": text})
             if expected == 0 or not math.isclose(scalar.value, expected, rel_tol=1e-10, abs_tol=1e-14):
                 continue
             pos = scalar.value_offset
@@ -173,7 +184,9 @@ def discover_fields(root, streams, document, pin):
         observations = anchor_samples.get(key, [])
         if len({s["stream_sha256"] for s in observations}) < 2 or len({s["value"] for s in observations}) < 2:
             continue
-        if any(not math.isclose(s["expected_value"], s["value"], rel_tol=1e-10, abs_tol=1e-14) for s in observations):
+        exact = [s for s in observations if s["agreement"] == "exact"]
+        if (any(s["agreement"] == "conflict" for s in observations) or len({s["stream_sha256"] for s in exact}) < 2
+                or len({s["value"] for s in exact}) < 2):
             continue
         anchors = {}
         for boundary, offset in (("owner_start", start), ("owner_end", end)):

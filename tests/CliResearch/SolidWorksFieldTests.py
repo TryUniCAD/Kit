@@ -177,7 +177,11 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
     assert {Row["feature_id"] for Row in Repeated} == {109, 127}
     assert len({tuple(Row["verified_location"]) for Row in Repeated}) == 2
     assert all(abs(Row["radius_m"] * 2000 - 10.16) < 1e-9 for Row in Repeated)
-    Angles = [Row for Row in Dimensions if Row["status"] == "held_out_owner_anchor"]
+    Angles = [
+        Row
+        for Row in Dimensions
+        if Row["status"] == "held_out_owner_anchor" and Row["name"] == "D2"
+    ]
     assert {(Row["feature_id"], Row["verified_location"][1]) for Row in Angles} == {
         (178, 163267),
         (291, 242847),
@@ -193,4 +197,25 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
     assert all(
         Row["stream_sha256"] != Fields["input_stream_sha256"]
         for Row in Controls["samples"]
+    )
+
+    Lengths = [
+        Row
+        for Row in Dimensions
+        if Row["status"] == "held_out_owner_anchor" and Row["name"] == "D1"
+    ]
+    assert {(Row["feature_id"], Row["verified_location"][1]) for Row in Lengths} == {
+        (178, 161535),
+        (291, 241115),
+    }
+    assert all(Row["anchors"] == {"object_id_delta": -2} for Row in Lengths)
+    (LengthGroup,) = [
+        Group
+        for Group in Fields["owner_anchor_controls"]
+        if Group["key"] == ["Chamfer", "D1", "length"]
+    ]
+    assert any(
+        Row["agreement"] == "matches_display_precision"
+        and Row["display_text"] == "1.91"
+        for Row in LengthGroup["samples"]
     )
