@@ -93,6 +93,11 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The bounded configuration member reader also handles the ordinary view
+record with compact transforms and empty presentation lists. Context
+changes govern both optional list windows in the same archive.
+[Configuration view scope](../../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)

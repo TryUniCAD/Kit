@@ -188,6 +188,17 @@ Populated thread maps and complete configuration support have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+### B04-SW2026-CONFIG-VIEWS
+
+The PR #121 takeover team owns this bounded `moView_c` reader on
+`codex/solidworks-config-view-context`. It depends on the shared
+member reader and field actions from #187. Exit requires both disclosed
+view groups, the authored archive state and refusal cases, and current
+revision queue and review evidence. Full configuration admission,
+annotation view owners and populated presentation lists retain separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent owns this active reader compatibility task.

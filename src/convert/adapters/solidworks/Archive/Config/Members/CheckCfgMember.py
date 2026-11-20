@@ -5,6 +5,7 @@ from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
     KRequiredMembers,
     KSketchBlockClass,
     KThreadMgrClass,
+    KViewClass,
 )
 from convert.adapters.solidworks.Archive.Config.Members.CheckCfgOwner import (
     CheckCfgOwner,
@@ -15,6 +16,7 @@ from convert.adapters.solidworks.Archive.Config.Members.CheckRelMember import (
 from convert.adapters.solidworks.Archive.Config.Members.CheckThreadMap import (
     CheckThreadMap,
 )
+from convert.adapters.solidworks.Archive.Config.Members.CheckCfgView import CheckCfgView
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.ObjectIndex import ObjectIndex
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -47,3 +49,5 @@ def CheckCfgMember(
         CheckCfgOwner(RootValue)
     elif MemberClass == KThreadMgrClass:
         CheckThreadMap(RootValue)
+    elif MemberClass == KViewClass:
+        CheckCfgView(RootValue)
