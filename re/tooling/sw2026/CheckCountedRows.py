@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from copy import deepcopy
+from dataclasses import replace
 from functools import partial
 from json import dumps, loads
 from pathlib import Path
@@ -34,7 +35,6 @@ ARRAY_FIELDS = (
         "framework_rows",
         "Framework",
         BodyValue=ROW_FIELDS,
-        CountValue="framework_count",
     ),
     NativeField(
         "Array",
@@ -43,6 +43,18 @@ ARRAY_FIELDS = (
         BodyValue=ROW_FIELDS,
         CountValue="signed_count",
         ModeValue="Positive",
+    ),
+    NativeField(
+        "Array",
+        "split_rows",
+        "Split",
+        BodyValue=ROW_FIELDS,
+        CountValue="split_high",
+        OtherName="split_low",
+        ModeValue="Unsigned",
+    ),
+    NativeField(
+        "Array", "combined_rows", "Split", BodyValue=ROW_FIELDS, ModeValue="Combined"
     ),
 )
 
@@ -78,7 +90,7 @@ def verify_rows(scope, name, observed):
     observed.clear()
 
 
-def read_record(payload):
+def read_record(payload, rules):
     context = BodyContext(19000, {}, {}, {})
     cursor = BinaryReader(payload)
     reader = GraphReader(cursor, ArchiveMaps(1), reject_nested)
@@ -89,15 +101,29 @@ def read_record(payload):
     frame = ReadFrame(
         context, reader, scope, node, reject_nested, partial(read_fields, observed)
     )
-    for rule in ARRAY_FIELDS:
-        ReadArrayMut(frame, rule)
+    for rule in rules:
+        start = cursor.OffsetValue
+        previous_fields = deepcopy(fields)
+        previous_values = deepcopy(scope.ValuesValue)
+        try:
+            ReadArrayMut(frame, rule)
+        except ValueError as error:
+            intact = (
+                cursor.OffsetValue == start
+                and fields == previous_fields
+                and scope.ValuesValue == previous_values
+            )
+            raise ValueError(
+                f"{error}; array checkpoint {start}, cursor {cursor.OffsetValue}, "
+                f"scope intact {intact}"
+            ) from None
         verify_rows(scope, rule.NameValue, observed)
     if cursor.GetRemaining():
         raise ValueError("synthetic counted record retains unread bytes")
     return fields
 
 
-def write_record(fields):
+def write_record(fields, rules):
     before = deepcopy(fields)
     context = BodyContext(19000, {}, {}, {})
     writer = BodyWriter(ArchiveMaps(1), context, reject_nested)
@@ -105,7 +131,7 @@ def write_record(fields):
     scope = FieldScope(fields)
     observed = []
     frame = WriteFrame(writer, scope, node, reject_nested, partial(write_fields, observed))
-    for rule in ARRAY_FIELDS:
+    for rule in rules:
         WriteArrayMut(frame, rule)
         verify_rows(scope, rule.NameValue, observed)
     if fields != before or ReadScopeValue(scope, "row_count") != len(fields["rows"]):
@@ -118,11 +144,15 @@ def main():
     parser.add_argument("mode", choices=("read", "write"))
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--count-mode")
     options = parser.parse_args()
+    rules = ARRAY_FIELDS
+    if options.count_mode is not None:
+        rules = (replace(rules[0], ModeValue=options.count_mode), *rules[1:])
     if options.mode == "write":
-        payload = write_record(loads(options.source.read_text(encoding="utf-8")))
+        payload = write_record(loads(options.source.read_text(encoding="utf-8")), rules)
     else:
-        payload = dumps(read_record(options.source.read_bytes())).encode("utf-8")
+        payload = dumps(read_record(options.source.read_bytes(), rules)).encode("utf-8")
     with options.output.open("xb") as output:
         output.write(payload)
 

@@ -1,8 +1,15 @@
-from typing import cast as CastValue
-
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.NormalizeCount import NormalizeCount
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
+from convert.adapters.solidworks.Archive.Bodies.Writing.EncodeCountForm import (
+    EncodeCountForm,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.SelectCountWord import (
+    SelectCountWord,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteSplitMut import (
+    WriteSplitMut,
+)
 from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
@@ -14,28 +21,25 @@ def WriteCountMut(
     _ = NormalizeCount(ItemCount, "")
     Fields = FrameValue.ScopeValue.FieldsValue
     CountName = RuleValue.CountValue or RuleValue.NameValue + "#count"
-    Buffer = FrameValue.WriterValue.OutputValue
+    WidthName = CountName + "#width"
+    IsArchive = RuleValue.TypeValue in ("Count", "Framework")
+    if not IsArchive and WidthName in Fields:
+        raise ValueError("archive count width requires a vendor or framework count")
     if RuleValue.TypeValue == "Split":
-        FrameValue.ScopeValue.ValuesValue[CountName] = (
-            ItemCount if RuleValue.ModeValue == "Combined" else ItemCount >> 32
-        )
-        if RuleValue.ModeValue != "Combined":
-            FrameValue.ScopeValue.ValuesValue[RuleValue.OtherName] = (
-                ItemCount & 0xFFFFFFFF
-            )
-        Buffer.extend(EncodeScalar(ItemCount >> 32, "u32"))
-        Buffer.extend(EncodeScalar(ItemCount & 0xFFFFFFFF, "u32"))
+        WriteSplitMut(FrameValue, RuleValue, CountName, ItemCount)
         return
-    WireValue = CastValue(int, Fields.get(CountName, ItemCount))
-    CountValue = (
-        WireValue
-        if NormalizeCount(WireValue, RuleValue.ModeValue) == ItemCount
-        else ItemCount
-    )
-    FrameValue.ScopeValue.ValuesValue[CountName] = CountValue
-    if RuleValue.TypeValue in ("Count", "Framework"):
-        Buffer.extend(
-            EncodeCount(CountValue, IsFramework=RuleValue.TypeValue == "Framework")
-        )
+    WireValue = Fields.get(CountName)
+    CountValue = SelectCountWord(WireValue, ItemCount, RuleValue.ModeValue)
+    if IsArchive:
+        IsFramework = RuleValue.TypeValue == "Framework"
+        Payload = EncodeCount(CountValue, IsFramework=IsFramework)
+        if WidthName in Fields:
+            Retained = EncodeCountForm(
+                WireValue, Fields[WidthName], IsFramework=IsFramework
+            )
+            if WireValue == CountValue:
+                Payload = Retained
     else:
-        Buffer.extend(EncodeScalar(CountValue, RuleValue.TypeValue))
+        Payload = EncodeScalar(CountValue, RuleValue.TypeValue)
+    FrameValue.WriterValue.OutputValue.extend(Payload)
+    FrameValue.ScopeValue.ValuesValue[CountName] = CountValue

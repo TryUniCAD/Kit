@@ -4,7 +4,7 @@
 | --- | --- |
 | Task | `B03-SW2026-BODY-ROWS` |
 | Owner | PR #121 takeover team |
-| Delivery | Separate main-target PR from `codex/solidworks-counted-body-rows` |
+| Delivery | [PR #176](https://github.com/TryUniCAD/Kit/pull/176) from `codex/solidworks-counted-body-rows` |
 | Prerequisite | [Accepted object and map archive layer](https://github.com/TryUniCAD/Kit/commit/77d2f7c4380355e40d65376a00151d82812759dc), including the shared count and scalar codecs |
 | Exit | Fresh-process counted-row generation and reading, the malformed input cases, and current-revision CI and review |
 
@@ -18,10 +18,15 @@ dependencies are `Counts/{EncodeCount,ReadCount}`, `Maps/ArchiveMaps`,
 `Objects/ArchiveNode`, `Reading/{GraphReader,ReadNativeScalar}` and
 `Scalars/EncodeScalar`.
 
-The pinned and delivered production source manifest SHA-256 is
+The original 13-file production source manifest SHA-256 is
 `02a2356fcc8a6c6e92dd4c68b048e91f3c7fa7e626920004638b3cc8719720d0`.
-The manifest concatenates sorted repository-relative paths, each followed
-by a NUL, the lowercase file SHA-256 and a newline.
+The revised 18-file production manifest is
+`9f5edb49bc507470e7e314af524704bc23b09adf28415cdccf1615f2441c2928`.
+Ten pinned files are unchanged. The revision updates `NormalizeCount`,
+`ReadCountMut` and `WriteCountMut` and adds `ApplyCountMode`,
+`ReadSplitMut`, `EncodeCountForm`, `SelectCountWord` and `WriteSplitMut`.
+Each manifest hashes the concatenation of sorted repository-relative paths,
+each followed by a NUL, the lowercase file SHA-256 and a newline.
 
 The archive grammar evidence applies to SOLIDWORKS 2026 SP05.2
 `34.5.2.0604` and its ordinary version-19000 profile. The lightweight
@@ -31,13 +36,30 @@ bound its counted object list and child field order.
 [Configuration manager header construction](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/ConfigurationManagerHeader2026.md)
 
 Vendor and framework count escapes have independently traced owners.
-The typed configuration field rules preserve raw count words when their
-interpretation matches the modeled row count. Otherwise the writer
-computes the count and makes it available through the field scope overlay.
-The SDK limits normalized repetition to ten million. The complete body
-dispatcher and native class layouts have separate acceptance requirements.
-[Count owners](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/MfcCountArchive2026.md)
+Both use the unsigned short marker `0xffff` before a 32-bit word. The
+framework accepts a further 64-bit word after the 32-bit marker
+`0xffffffff`. The vendor reads that 32-bit word as the value. The
+archive body scope records an integer `#width` suffix on the count key
+only when a decoded prefix differs from the canonical store width.
+An inline count uses the rule name with `#count` as its count key.
+Equivalent rows preserve the accepted width using the documented
+markers. Physically valid retained widths are ignored when a changed
+row length requires a fresh count. A width with a missing, incompatible
+or unrepresentable word fails closed.
+[Count owners and framing](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/MfcCountArchive2026.md)
+[Width gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/CountWidthsRetainWireIdentity.md)
+
+Split counts store high then low unsigned words. The mate-group
+`f4e8` rule exposes a combined count. A separate `Unsigned` rule can
+ignore a nonzero high word for row traversal and still retain both
+words for an equivalent write. If retained words no longer describe
+the rows, the writer computes the count and updates the field scope
+overlay. The SDK limits normalized repetition to ten million and
+commits the count cursor and fields only after successful validation.
+The complete body dispatcher and native class layouts have separate
+acceptance requirements.
 [Modeled field rules](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/ConfigBodyGrammar2026.md#field-operations)
+[Resolved assembly field owners](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/ResolvedBodyGrammar2026.md)
 
 ## Process evidence
 
@@ -49,17 +71,21 @@ visible through the scope and that the authored mapping retains its stale
 count. The reader requires complete consumption.
 
 The [authored case](../../../tests/Convert/Solidworks/ArchiveRows/CountedRowTests.py)
-compares the 16 bytes against independent little-endian framing. The two
-authored rows determine the vendor count and an empty framework array
-gets a zero count. The signed count word of minus seven represents an
-empty array under the positive-count rule. The
-[malformed cases](../../../tests/Convert/Solidworks/ArchiveRows/RejectRowTests.py)
-require a diagnostic and no decoded result. Process results are pending
-remote CI. Native configuration-manager header replay, Config and
-ResolvedFeatures grammar and native document acceptance have separate
-exits.
+compares the 40 bytes against independent little-endian framing.
+It replaces implausible vendor and framework counts, preserves the
+signed minus-seven count for an empty array and checks combined and
+separate split fields. The
+[escaped-width case](../../../tests/Convert/Solidworks/ArchiveRows/CountWidthTests.py)
+starts from independently framed vendor and framework prefixes and
+checks exact replay and changed lengths in fresh write processes.
+The [malformed reads](../../../tests/Convert/Solidworks/ArchiveRows/RejectRowTests.py)
+require the original cursor, unchanged scope and no decoded result.
+The [malformed writes](../../../tests/Convert/Solidworks/ArchiveRows/RejectWidthTests.py)
+cover incompatible or missing width fields and an invalid count mode.
+Current process results await remote CI. Native configuration-manager
+header replay, Config and ResolvedFeatures grammar and native document
+acceptance have separate exits.
 
-Scoped Black, Ruff, Mypy, Pyright and steering checks passed. The
-static import walk found no cycles across the 27 reachable archive
-modules. The donor scan found no recorded payloads across 3,238
-production sources.
+Scoped Black, Ruff, Mypy, Pyright and steering checks passed. The static
+import walk found no cycles across 32 reachable archive modules. The
+donor scan found no recorded payloads across 3,261 production sources.

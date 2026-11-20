@@ -10,7 +10,10 @@ KRowsProbe = (
 
 # distinct interpreters prevent writer fields and scopes from reaching the reader
 def RunRows(
-    ModeName: str, SourcePath: FilePath, OutputPath: FilePath
+    ModeName: str,
+    SourcePath: FilePath,
+    OutputPath: FilePath,
+    ExtraArgs: tuple[str, ...] = (),
 ) -> CompletedProcess[str]:
     return RunProcess(
         [
@@ -21,6 +24,7 @@ def RunRows(
             ModeName,
             str(SourcePath),
             str(OutputPath),
+            *ExtraArgs,
         ],
         cwd=SourcePath.parent,
         capture_output=True,
