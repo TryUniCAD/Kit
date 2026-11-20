@@ -11,5 +11,7 @@ class RuntimeClass:
     def __post_init__(self) -> None:
         if type(self.NameValue) is not str or type(self.SchemaValue) is not int:
             raise TypeError("archive class name and schema have invalid types")
+        if not self.NameValue:
+            raise ValueError("SOLIDWORKS archive class name must not be empty")
         if not 0 <= self.SchemaValue <= 0xFFFF:
             raise ValueError("archive class schema exceeds its unsigned short domain")

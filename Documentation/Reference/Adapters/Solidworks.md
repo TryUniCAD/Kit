@@ -57,6 +57,11 @@ Its typed records retain file references, revision logs and bounds for
 reconstruction.
 [Standalone header scope](../../Changes/Solidworks/SolidworksStandaloneHeaders.md)
 
+Internal body callbacks handle scalars, canonical CString frames and
+object links in the same graph and counted row scopes. Individual
+stream layouts define the order and meaning of those fields.
+[Body value scope](../../Changes/Solidworks/SolidworksArchiveBodyValues.md)
+
 ## Read flow
 
 ```mermaid
