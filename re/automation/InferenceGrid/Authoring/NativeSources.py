@@ -34,6 +34,7 @@ KSourceFiles = (
     "re/automation/LinuxOomProof.py",
     "re/automation/OutputManifest.py",
     "re/automation/Runners.py",
+    "re/automation/Artifacts.py",
     "re/solidworks/examples/.SLDPRT/example.SLDPRT",
 )
 
