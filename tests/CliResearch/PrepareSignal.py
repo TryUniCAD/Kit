@@ -32,12 +32,12 @@ if sys.argv[3] == "handled":
 Path(sys.argv[1]).with_name("ChildPid").write_text(str(getpid()))
 
 # the launcher can signal the child as soon as this marker appears
-ReadyPath = Path(sys.argv[1])
+KReadyPath = Path(sys.argv[1])
 
 # keeping the incomplete payload private prevents a false readiness signal
-PendingPath = ReadyPath.with_name(ReadyPath.name + ".pending")
-PendingPath.write_text(KIdentity, encoding="utf-8")
-PendingPath.replace(ReadyPath)
+KPendingPath = KReadyPath.with_name(KReadyPath.name + ".pending")
+KPendingPath.write_text(KIdentity, encoding="utf-8")
+KPendingPath.replace(KReadyPath)
 for _ in range(3000):
     time.sleep(0.01)
 raise SystemExit(38)
