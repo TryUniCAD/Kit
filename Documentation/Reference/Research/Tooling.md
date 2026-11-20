@@ -15,6 +15,11 @@ Use the tools below for new format discovery, decompilation, tracing, and contro
 
 ## Tool map
 
+The [SOLIDWORKS planner catalogue](SolidworksPlannerCatalog.md) supplies a saved
+SQLite/CSV inventory of installed API declarations, feature families, subfeatures,
+planning dependencies and unresolved evidence. Verify the bundle before using it.
+Declared metadata and planned scope do not establish feature availability or conversion support.
+
 | Location              | Purpose                                | Required context                       |
 | --------------------- | -------------------------------------- | -------------------------------------- |
 | `re/tooling/ghidra/`  | Static analysis and decompilation      | Exact binary hash and analysis project |
