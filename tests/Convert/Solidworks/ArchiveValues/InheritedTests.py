@@ -5,7 +5,7 @@ from struct import pack as PackValues
 from tests.Convert.Solidworks.ArchiveValues.MakeValueWire import MakeValueWire
 from tests.Convert.Solidworks.ArchiveValues.RunBodyValues import RunBodyValues
 
-# the linked record only opens a body through inherited class slot three
+# independently authored wire bytes catch a shared reader and writer error in inherited slot encoding
 KLinkBytes = PackValues("<H", 0x8003) + b"\xff\xfe\xff\x01L\x00" + PackValues("<H", 4)
 
 
