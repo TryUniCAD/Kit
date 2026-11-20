@@ -10,6 +10,13 @@ KPlainFeature: dict[str, object] = {
     "tag": "Sketch",
 }
 
+# a typeless linear sketch still needs its actual positive dissection flag
+KUntypedLinear: dict[str, object] = {
+    **KPlainFeature,
+    "kind": None,
+    "dimensions": [{"name": "D1", "value": 12}, {"name": "D2", "value": 8}],
+}
+
 # malformed feature shapes must fail before any stream bytes reach the caller
 KShapeRejects: tuple[tuple[list[dict[str, object]], bytes], ...] = (
     ([{**KPlainFeature, "children": [21]}], b"identify actual emitted features"),
@@ -20,6 +27,8 @@ KShapeRejects: tuple[tuple[list[dict[str, object]], bytes], ...] = (
         [{**KPlainFeature, "kind": None, "dissectable": True}],
         b"requires its native revolve angle",
     ),
+    ([KUntypedLinear], b"omitted keyword type requires"),
+    ([{**KUntypedLinear, "dissectable": False}], b"omitted keyword type requires"),
     ([{**KPlainFeature, "dissectable": 1}], b"require explicit booleans"),
     (
         [

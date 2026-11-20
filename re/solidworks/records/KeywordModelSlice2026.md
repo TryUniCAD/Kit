@@ -130,10 +130,11 @@ authors a consumed sketch and a `147.5°` driver. Each compares complete
 independently specified wire bytes and uses a separate interpreter with
 the existing XML parser to check the emitted rows. The
 [refusal case](../../../tests/Convert/Solidworks/KeywordModels/KeywordRefusalTests.py)
-checks fifteen invalid row or dimension forms and requires empty
+checks seventeen invalid row or dimension forms and requires empty
 output. Angular controls reject an absent dimension, unitless `D1`,
 a degree-valued `D2`, a second dimension and a revolve with the
-sketch tag despite a valid degree driver.
+sketch tag despite a valid degree driver. Dimensioned type-less sketches
+with an omitted or false dissection flag also refuse.
 
 The process cases use authored metadata and no source CAD files. Scoped Black,
 Ruff, Mypy, Pyright and steering checks passed for 13 Python files. The donor
