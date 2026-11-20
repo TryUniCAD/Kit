@@ -52,9 +52,9 @@ public sealed partial class SolidWorksCapture
     {
         var Start=MapValue(Operation["start"]);
         bool FrameFlip=IsFrameFlip((ISketch)Profile.GetSpecificFeature2(),BasisName);
-        Reverse=Reverse^FrameFlip;
         var End=MapValue(Operation["end"]);
         string EndKind=TextValue(End,"kind");
+        Reverse=Reverse^(FrameFlip && EndKind!="midplane");
         int EndCode=EndKind=="midplane"?6:EndKind=="up_to_plane"?4:0;
         IFeature EndPlane=null;
         if(EndKind=="up_to_plane") {

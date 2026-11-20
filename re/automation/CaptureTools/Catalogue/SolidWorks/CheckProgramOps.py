@@ -43,7 +43,8 @@ def CheckProgramOps(CaseValue, Observed):
         raise ValueError("SOLIDWORKS actual sketch normal differs from the basis")
     FrameFlip = Operation["kind"] == "extrude" and Alignment < 0
     Expected = {
-        "reverse_direction": (CaseValue["options"]["direction"] == -1) != FrameFlip,
+        "reverse_direction": (CaseValue["options"]["direction"] == -1)
+        != (FrameFlip and End["kind"] != "midplane"),
         "merge": Operation["effect"] == "join",
         "thin": Operation["thin"] is not None,
     }
