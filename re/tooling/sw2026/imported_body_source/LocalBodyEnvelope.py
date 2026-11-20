@@ -16,7 +16,7 @@ from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValu
 from convert.adapters.solidworks.Archive.Strings.EncodeString import EncodeString
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from para.Partition import frame_payloads, read_partition, write_payloads
-from ReplayImportedBaseBody import SOURCE, require, witness_grammar
+from ReplayImportedBaseBody import SOURCE, require
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 
 
@@ -92,8 +92,7 @@ def inspect(source):
             "the active configuration partition changed on re-emission")
     world, = partition.nodes
     require(world.kind == 101 and world.fields["body"] == 0, "expected a body-free active WORLD")
-    with witness_grammar("ReadResolvedMut"):
-        link = ReadNativeLink(archive, 0)
+    link = ReadNativeLink(archive, 0)
     feature, = (node for node in link.ResolvedValue.RootsValue if node.ClassValue.NameValue == "moBaseBody_c")
     fields = feature.FieldsValue
     atom, = (row["o"] for row in fields["f528"]["items"])
@@ -103,7 +102,7 @@ def inspect(source):
             and atom.FieldsValue["f130"] == atom.FieldsValue["f12c"] == fields["f08"]
             and mark == world.fields["current_id"] == partition.history[0].mark.fields["id"],
             "the import's atom, feature or mark ownership differs")
-    require(fields["import_suffix_second_text"] == local.storage_key,
+    require(fields["local_storage_key"] == local.storage_key,
             "the disclosed import text and local feature storage key differ")
     return {
         "schema": "kit.sw2026.imported-local-body-envelope.v1",
@@ -114,7 +113,7 @@ def inspect(source):
         "configuration_partition": {"stream": PARTITION, "bytes": len(native_partition),
                                     "sha256": sha256(native_partition).hexdigest(), "active_world_body": 0},
         "observed_resolved_link": {"feature_id": fields["f08"], "atom_id": identifier,
-                                   "current_mark_id": mark, "atom_tail_face_word": atom.FieldsValue["f19c"]},
+                                   "current_mark_id": mark, "atom_display_mode": atom.FieldsValue["f19c"]},
         "exact_linked_frames": 2,
         "native_writer_outputs": 0,
         "heldout_payloads_read": 0,

@@ -122,7 +122,7 @@ following identities for each populated control.
 | `moAtom.f180`, `moAtom.f1b0` | Both equal `BODY_MATCH`, the body tag. A13 and A14 keep their distinct tags in both structures. |
 | `moAtom.f140` | Body `ATOM_ID_2001`. |
 | `moAtom.f12c`, `moAtom.f130`, boss `f08` | Body `LAST_BODY_MODIFYING_FEATURE_ID`. |
-| `moAtom.f19c` | Six persistent face identities. |
+| `moAtom.f19c` | The atom's display mode. The native constructor sets it to six. [Getter and constructor evidence](GeneratedRectanglePartition2026.md#native-ownership-rules). |
 | `ModelHeader.f44` | Stored body stamp in this cohort. |
 | `moPart.fe38.f18` | Intermediate kernel mark ID 3, the retained mark before geometry. |
 | `moExtrusion.f3d0.f18` | Selected kernel mark ID 7 in the ladder and 9 in the synchronized sources. |

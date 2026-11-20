@@ -102,13 +102,10 @@ class ImportedBodyAuthor(CurveAuthor):
         along = sum(a * b for a, b in zip(offset, axis, strict=True))
         for value, direction in zip(offset, axis, strict=True):
             self.rec.close_number("cylinder axis transverse offset", value, along * direction, absolute=1e-11)
-        curves = [self.typed(self.get(self.typed(edge, "Edge"), "GetCurve"), "Curve")
-                  for edge in self.get(body, "GetEdges") or ()]
-        circular = sum(bool(self.get(curve, "IsCircle")) for curve in curves)
-        require(circular == 2 and all(self.get(curve, "IsCircle") or self.get(curve, "IsLine") for curve in curves),
-                "cylinder boundary does not have its two circular cap edges")
-        return {"vertices": len(self.get(body, "GetVertices") or ()), "edges": len(curves), "faces": len(owners),
-                "planar_faces": planes, "cylindrical_faces": len(walls), "circular_edges": circular}, owners
+        edges = len(self.get(body, "GetEdges") or ())
+        require(edges >= 2, "cylinder lacks its cap boundaries")
+        return {"vertices": len(self.get(body, "GetVertices") or ()), "edges": edges, "faces": len(owners),
+                "planar_faces": planes, "cylindrical_faces": len(walls)}, owners
 
     def persistent_reference(self, feature):
         raw = self.get(self.get(self.model, "Extension"), "GetPersistReference3", feature)

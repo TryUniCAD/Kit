@@ -95,8 +95,9 @@ The active configuration partition in the disclosed file contains a
 single body-free WORLD and three empty rollback marks. The selected mark
 ID 7 equals the base feature's `moPMarkRecord_c` reference. The feature's
 `f498` row and resolved atom `f140` share identity 101. The atom fields
-`f130` and `f12c` both name native feature 26. Its tail word `f19c` is 6
-in this witness.
+`f130` and `f12c` both name native feature 26. The atom's display mode
+`f19c` is 6. The exact constructor and display getter establish its role.
+[Display field evidence](GeneratedRectanglePartition2026.md)
 
 The body geometry is in the root-level
 `Config-0-FeatureBodies/LocalBodies` stream. Its one group key is
@@ -123,6 +124,9 @@ Two [independent envelope probes](../measurements/2026/ImportedLocalBodyEnvelope
 reconstruct both streams byte-for-byte from their measured fields. The
 [local body storage gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/ImportedBodyOwnsLocalStorage.md)
 records the separate partition and payload locations.
+The original envelope receipt labels the observed display-mode sample
+as a face word. The current probe and field record use the getter's
+display-mode meaning.
 
 ## Ordinary subclass producer fields and name owners
 
