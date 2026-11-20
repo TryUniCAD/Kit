@@ -85,14 +85,66 @@ borrowed or repeated objects, absent required lights and populated
 property state. The in-memory body reads deny file and external
 runtime access.
 
+## Independently saved one and two direction controls
+
+The disclosed independently authored `OneLights.SLDPRT` and
+`TwoLights.SLDPRT` were saved and reopened by SOLIDWORKS 2026
+`34.5.2.0604`. Both native author/reopen pairs and both bracket
+controls passed, with 14 numerical checks per candidate phase.
+The canonical eight-process packet is SHA-256
+`e716b46e72d8f37081cdf5bf7ca7832d5a3445532bed7a840e631d497b305081`.
+Its aggregate outcome remains false because the separate property
+getter arm failed. These two disclosed cases carry zero held-out or
+production qualification.
+
+[Checksum-bound source and phase manifest](../measurements/2026/ConfigSceneCounts01.json)
+
+The independent full Config trace on aggregate revision
+`db7a68ef02fa0ac4cb9d7711d59ee053861d870d` binds the physical part
+root, header aliases, earlier separate name, scene, all light and
+name scopes, and the six linked stream hashes. The full typed probe
+receipt SHA-256 is
+`c413d0be30786fafa782749b7e21c0d6f57093b226727fc89abd707917147423`.
+The repository copies match the native save hashes. The guard reads
+the actual earlier name at slots 4 and 5 and retains those same
+entries. Slots outside the bounded role remain unmaterialized. All
+scenes are read by `ReadCfgMember` with the original ordered records.
+Both new source controls reuse stock light values in parts of their
+records. Their native owner scopes, counts and complete source
+digests were measured independently.
+
+| Control | `moPart_c.f1e0` | Scene map counter | Child object slots |
+| --- | --- | --- | --- |
+| OneLights | [20822, 21668) | 70 to 79 | Ambient 74, directional 77 |
+| TwoLights | [20822, 21989) | 70 to 81 | Ambient 74, directional 77 and 79 |
+
+Both scene roots are at slot 71. The separate names are at slots 72,
+75 and 78, with additional name slot 80 in TwoLights. Both directions
+in TwoLights use the same class descriptor at slot 76. The signed
+`f500` property counts are zero in every light. The guard separately
+checks the physical scene and name hashes, the typed root descriptor
+and the native stored row count. Its original L1 and Concave reports
+matched byte-for-byte after adding the two cases.
+
+The two new guarded host reports carry zero runtime external access.
+The OneLights report SHA-256 is
+`afb269ccd4f7e2c894accf9b9b21f6e4af550befc10d93c77bdf5537363c9658`.
+The TwoLights report SHA-256 is
+`03e724fdd93e3b5d6b257992bb90bc13c6daf0943b1f6bc350129ab3b6526fae`.
+
 ```sh
 python -I -B re/tooling/sw2026/CheckCfgLights.py ladder
 python -I -B re/tooling/sw2026/CheckCfgLights.py concave
+python -I -B re/tooling/sw2026/CheckCfgLights.py one
+python -I -B re/tooling/sw2026/CheckCfgLights.py two
 ```
 
-The [new guarded process cases](../../../tests/Convert/Solidworks/Configuration/CfgSceneTests.py)
-await queue execution. Both reference profiles were observed on
-existing tracked files. Further Normalize modes, populated properties,
+Queue execution of the updated process cases remains pending.
+[Original cases](../../../tests/Convert/Solidworks/Configuration/CfgSceneTests.py)
+· [OneLights case](../../../tests/Convert/Solidworks/Configuration/OneLightTests.py)
+· [TwoLights case](../../../tests/Convert/Solidworks/Configuration/TwoLightTests.py)
+
+Further Normalize modes, populated properties,
 other scene classes and user-facing presentation semantics remain open.
 Complete Config-0 admission still needs the model and part sections,
 direct owner binding, context and ghost bookkeeping, cache readers,

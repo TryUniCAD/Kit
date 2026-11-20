@@ -11,9 +11,11 @@ the independent runtime value. It keeps both `f384` occurrences.
 Populated user properties and other presentation owners remain
 outside the admitted profile.
 
-The disclosed L1 and concave parts supply the measured scene intervals,
-actual slot reuse and both light profiles. New guarded process cases
-cover these controls, one and two directional count contrasts, authored
-signed-word differences and invalid records. Queue execution remains pending.
+The disclosed L1 and concave parts supply measured scene intervals and
+slot reuse. Two separately saved SOLIDWORKS 2026 SP05.2 controls add
+actual scenes with one and two directional lights, each with an ambient
+light. The guarded host process checks their source hashes, ordered rows
+and native name, class and owner slots. It also covers authored signed
+word differences and invalid records. Queue execution remains pending.
 [Source and process evidence](../../../../re/solidworks/records/ConfigSceneSlice2026.md)
 · [Light normalization gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/LightResetRetainsWireWord.md)

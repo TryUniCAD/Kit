@@ -16,14 +16,21 @@ from convert.adapters.solidworks.Archive.Config.Scene.SceneTypes import (
     KAmbientClass, KDirectionClass, KEnvFolderClass, KNodeNameClass,
 )
 from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
+from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
+from convert.adapters.solidworks.Archive.Reading.ReadNodeTagMut import ReadNodeTagMut
+from convert.adapters.solidworks.Archive.Reading.ReadTypeDescMut import ReadTypeDescMut
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 
 MANIFEST = ROOT / "re/solidworks/measurements/2026/ConfigSceneSource01.json"
+COUNTS_MANIFEST = ROOT / "re/solidworks/measurements/2026/ConfigSceneCounts01.json"
+NATIVE_COUNTS = ("one", "two")
 
 
 def input_config(case):
-    manifest = json.loads(MANIFEST.read_bytes())
+    source = COUNTS_MANIFEST if case in NATIVE_COUNTS else MANIFEST
+    manifest = json.loads(source.read_bytes())
     entry = manifest["controls"][case]
     raw = (ROOT / entry["path"]).read_bytes()
     require(digest(raw) == entry["part_sha256"], "native source changed")
@@ -32,6 +39,13 @@ def input_config(case):
             "wrong native archive version")
     config = archive.require(manifest["stream"])
     require(digest(config) == entry["config_sha256"], "physical configuration changed")
+    if case in NATIVE_COUNTS:
+        require(len(raw) == entry["part_bytes"] and len(config) == entry["config_bytes"],
+                "native count source sizes changed")
+        for stream, expected in entry["linked_streams"].items():
+            data = archive.require(stream)
+            require(len(data) == expected["bytes"] and digest(data) == expected["sha256"],
+                    f"native count linked stream changed: {stream}")
     return config, entry
 
 
@@ -40,6 +54,19 @@ def record_bytes(config, record):
     data = config[first:last]
     require(digest(data) == record["sha256"], "native scene record or interval changed")
     return data
+
+
+def read_count_root(config, case):
+    original = case["part_root"]
+    data = record_bytes(config, original)
+    cursor = BinaryReader(data)
+    tag = ReadNodeTagMut(cursor, 0, 128)
+    descriptor = ReadTypeDescMut(cursor)
+    require(tag.KindValue == "NewClass" and cursor.GetRemaining() == 0
+            and descriptor == RuntimeClass("moPart_c", 1)
+            and original["complete_end"] == len(config),
+            "native count control model root changed")
+    return digest(data)
 
 
 def scene_seed(config, case):
@@ -54,6 +81,8 @@ def scene_seed(config, case):
             and class_entry.IndexValue == name["class_slot"]
             and node.StartOffset == 0 and node.EndOffset == len(data)
             and graph.MapValue.CounterValue == end, "actual earlier name map entries differ")
+    if "name" in name:
+        require(node.FieldsValue["f08"] == name["name"], "native part name changed")
     return MapSnapshot(case["scene_counter"][0], graph.MapValue.EntriesValue)
 
 
@@ -73,7 +102,15 @@ def read_scene(config, case, data, seed):
     root = graph.RootValue
     start = case["scene"][0]["bounds"][0]
     rows = []
-    for node, expected in zip((root, *children(root)), case["scene"], strict=True):
+    owned_lights = children(root)
+    if "directional_count" in case:
+        first, final = case["list_count_span"]
+        require(final - first == 2 and final == case["scene"][1]["bounds"][0],
+                "native count word or first light boundary changed")
+        stored, = unpack_from("<H", config, first)
+        require(stored == len(owned_lights) == case["directional_count"] + 1,
+                "native and decoded light counts differ")
+    for node, expected in zip((root, *owned_lights), case["scene"], strict=True):
         row = scene_row(config, start, node, expected, values)
         rows.append(row)
     return rows, graph.ReportValue["field_calls"].get("Normalize", 0)
@@ -93,13 +130,25 @@ def scene_row(config, start, node, expected, entries):
             and entries[4] is name.ClassValue, "scene class reuse or object ownership differs")
     result = {"class": expected["class"], "slots": [expected[key] for key in ("class_slot", "object_slot", "name_slot")],
               "name": name.FieldsValue["f08"], "record_bytes": bounds[1] - bounds[0]}
+    if "name_sha256" in expected:
+        first, final = expected["name_bounds"]
+        require(digest(config[first:final]) == expected["name_sha256"]
+                and result["name"] == expected["name"]
+                and fields["f08"] == expected["native_f08"],
+                "native count control name or feature word changed")
+        result["native_f08"] = fields["f08"]
     if "normalized_word_offset" in expected:
         raw, = unpack_from("<i", config, expected["normalized_word_offset"])
         require(fields["f36c#wire"] == raw and fields["f36c"] == 0
                 and fields["f500"] == {"n": 0, "props": []}, "normalization or empty property scope differs")
+        if "name_sha256" in expected:
+            count, = unpack_from("<i", config, expected["property_count_offset"])
+            require(count == 0, "native light property count changed")
         result.update(normalization=[raw, fields["f36c"]], state=[fields["state#wire"], fields["state"]])
     if node.ClassValue == KDirectionClass:
         result["direction"] = [fields["f3b0"][axis] for axis in ("x", "y", "z")]
+        if "direction" in expected:
+            require(result["direction"] == expected["direction"], "native directional vector changed")
     return result
 
 
@@ -194,15 +243,19 @@ def run(name):
               "normalization_calls": normalized, "runtime_external_accesses": 0}
     if name == "concave":
         report.update(contrasted_words=contrast_words(data, case, seed), refusals=small_refusals(case, data, seed))
-    else:
+    elif name == "ladder":
         report["counted_variants"] = counted_variants(case, data, seed)
         report["refusals"] = [repeated_light(case, data, seed)]
+    else:
+        report.update(part_root_sha256=read_count_root(config, case),
+                      scene_span=case["scene"][0]["bounds"], scene_sha256=digest(data),
+                      directional_count=len(rows) - 2)
     return report
 
 
 def main():
     parser = ArgumentParser(description="Verify the bounded ordinary Config-0 scene owner")
-    parser.add_argument("case", choices=("ladder", "concave"))
+    parser.add_argument("case", choices=("ladder", "concave", *NATIVE_COUNTS))
     print(json.dumps(run(parser.parse_args().case), sort_keys=True))
 
 
