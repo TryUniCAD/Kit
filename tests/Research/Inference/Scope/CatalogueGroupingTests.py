@@ -37,9 +37,9 @@ def CheckGrouping(TmpPath: FilePath) -> None:
         .splitlines()
     ]
     GroupSizes = [
-        Item["group_size"]
-        for Item in Events
-        if Item.get("event") == "started" and Item["group_size"] > 1
+        Event["group_size"]
+        for Event in Events
+        if Event.get("event") == "started" and Event["group_size"] > 1
     ]
     assert GroupSizes and max(GroupSizes) <= 4
     Report = DecodeJson((RunPath / "CatalogueResult.json").read_bytes())
