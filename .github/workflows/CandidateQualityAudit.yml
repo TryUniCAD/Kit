@@ -287,7 +287,7 @@ jobs:
                       print(sample.split("/")[-1], "roster", bool(sketch.attributes.get("fusion.geometry_child_ids")), "support",frame.attributes.get("fusion.native_support_resolved"), "rules",HasSketchRules(bulk,root,sketch), "projected",sum(bool(e.attributes.get("fusion.geometry_is_projected")) for e in sketch.entities), "steps",[str(s.kind) for s in doc.feature_timeline if s.sketch_id == sketch.id])
           PYTHON
       - name: Exercise editable profile exports and saved edit readback
-        run: uv run --no-sync python -m pytest -q --tb=line tests/Convert/Freecad/{FusionEditTests,FusionRevolveTests,FusionSketchRuleTests,EditReadTests,ProfileReadTests,RingReadTests}.py tests/Convert/Api/Fusion/SketchRosterTests.py
+        run: uv run --no-sync python -m pytest -q --tb=line tests/Convert/Freecad/{FusionAxisRevolveTests,FusionBodyRevTests,FusionEditTests,FusionPlaneRevolveTests,FusionRevolveTests,FusionScaleWriteTests,FusionSketchRuleTests,EditReadTests,ProfileReadTests,RingReadTests}.py tests/Convert/Api/Fusion/SketchRosterTests.py
       - name: Verify native sketch child ownership at the archive boundary
         run: uv run --no-sync python -m pytest -q tests/Convert/Api/Fusion/SketchRosterTests.py
       - name: Measure sketch membership agreement
