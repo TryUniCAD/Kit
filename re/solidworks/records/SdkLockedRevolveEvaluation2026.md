@@ -79,3 +79,20 @@ independence from the SDK's development. Whole-source owner transfer,
 public writer registration and a separately qualified held-out input
 remain open.
 [Native comparison and phase digests](../measurements/2026/SdkLockedRevolveNativeComparison01.json)
+
+## Reproduction across runtimes
+
+The integrated source tree `f8f88d07e8c973fc7e2d0c61418ba4e6923b01ab`
+reproduced the previously native-tested 8,036-byte candidate on Windows
+with all ten streams unchanged. The frozen prior writer and two fresh
+integrated workers on macOS produced a different, mutually identical
+container. The sole logical-stream difference is the same-length
+`Contents/Config-0`, beginning at byte 20,591. Both host variants
+preserve the typed angle, selected axis and closed body under the strict
+readback. Four independent workers completed with zero runtime input
+accesses. The replay used the same released intent and ran no new
+SOLIDWORKS process. Public admission and independent SDK held-out
+qualification remain open.
+
+[Guarded replay](../../tooling/sw2026/revolve/LockedEvaluation/ProvePreviousRevolveReplay.py) ·
+[Cross-runtime receipt](../measurements/2026/SdkRevolveHostParity01.json)
