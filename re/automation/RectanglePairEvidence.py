@@ -166,6 +166,7 @@ def paired_dimension(fusion, solidworks, links, tolerance):
         links[fusion["perimeter_id"]] == solidworks["perimeter_id"]
         and fusion["driving"]
         and solidworks["driving"]
+        and fusion["parameter_role"] == solidworks["parameter_role"] == "driving"
         and abs(fusion["value_mm"] - solidworks["value_mm"]) <= tolerance
         and edge_gap(fusion["operands_world_mm"], solidworks["operands_world_mm"])
         <= tolerance,
