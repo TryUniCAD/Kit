@@ -113,7 +113,14 @@ def WriteNext(Directory, State, SourceRoot):
     if not Waiting:
         PacketPath.unlink(missing_ok=True)
         return None
-    Entry = min(Waiting, key=lambda Value: (Value["application"], Value["recipe_id"]))
+    Entry = min(
+        Waiting,
+        key=lambda Value: (
+            not bool(Value["attempts"]),
+            Value["application"],
+            Value["recipe_id"],
+        ),
+    )
     Packet = AssistPacket(Entry, SourceRoot, Entry.get("assistant_error"))
     Packet["reply_path"] = str(Directory / "RecipeReply.json")
     Packet["previous_attempts"] = Entry["attempts"]

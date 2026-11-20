@@ -56,6 +56,14 @@ Two real CLI process checks cover the full written roster, repeated preparation,
 source-bound handoff and rejection of unsupported ready claims. This establishes
 the campaign workflow, not complete native coverage of the catalogue.
 
+An actual one-step campaign pilot at `b58cab72` selected mid-plane extrusion,
+launched the existing native runner and saved its first file. SOLIDWORKS failed
+normal shutdown, so the campaign retained the failed attempt and requested
+assistant help. It accepted zero native observations and did not run the
+dependent decoder. This verifies dispatch and failure handoff, while native
+completion of that recipe remains unresolved. The separate offset-start proof
+at `7a868f5e` is retained independently.
+
 Delivery is local at the user's request. No DLLs or native archives are included
 in source commits. Step ownership is recorded in the
 [automation register](../../../../Reference/Research/AutomationSteps.md).
