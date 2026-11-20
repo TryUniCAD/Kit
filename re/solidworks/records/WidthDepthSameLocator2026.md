@@ -102,3 +102,23 @@ solid with the expected volume, area and centroid. All 170 candidate
 checks and 18 control checks pass. The disclosed pair adds zero
 held-out or public-writer credits.
 [Native result](../measurements/2026/WidthDepthSameLocatorNative01.json)
+
+## Ordinary adapter settings
+
+The preparer accepts `--sdk-created-at <epoch>` to use the ordinary
+SDK part recipe, final location, explicit neutral corner coincidence
+and dimension annotation placement derived from the shape. Four guarded
+workers build the plain and equation files from the same neutral model.
+The shared typed replay verifies the two linked equation streams and
+all unchanged streams across the pair.
+
+Packet 03 opens the plain comparator with zero errors and warnings.
+Its full 25-row tree, support, dimensions, volume and area agree.
+The observer stops at the initial mass check after 14 numeric checks
+because it uses the document preference of 1,000 kg/m³. The actual
+unassigned body measures 1 kg/m³, consistent with the earlier default
+part controls. Both controls pass and the equation candidate is unopened.
+The first summary command has transport exit 255. The summary rerun
+recovers the same three native phases without starting SOLIDWORKS.
+[Density contrast](../measurements/2026/SdkWidthDepthPrepDensityContrast01.json)
+· [Separate density owners](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Parts/DefaultPartDensityHasTwoOwners.md)

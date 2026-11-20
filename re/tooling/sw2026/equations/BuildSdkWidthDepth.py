@@ -79,7 +79,8 @@ def authored_settings(plan, epoch):
     return {
         "system": {"folders": tree.FolderValues, "planes": dict(tree.PlaneNames),
                    "origin_name": tree.OriginName, "cabinet_name": tree.CabinetName},
-        "density_kg_m3": recipe.DensityValue,
+        "density_kg_m3": 1.0,
+        "document_density_preference_kg_m3": recipe.DensityValue,
     }
 
 

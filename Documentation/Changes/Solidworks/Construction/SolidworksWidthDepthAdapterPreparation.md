@@ -10,4 +10,8 @@ The host preflight builds a complete ten-stream archive and the strict
 reader reconstructs its solid and actual parameter dependency. The
 [same-locator preparer](../../../../re/tooling/sw2026/equations/PrepareWidthDepthSameLocator.py)
 can stage a matched plain and derived pair using the ordinary settings.
+Its mass prediction keeps the known unassigned-body density separate
+from the document preference.
 The native comparison and public writer registration remain pending.
+
+[Measured density owners](../../../Gotchas/Conversion/Solidworks/Oracle/Parts/DefaultPartDensityHasTwoOwners.md)

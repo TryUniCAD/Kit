@@ -279,7 +279,9 @@ def freeze(name, revision, sdk_created_at=None):
         'initial_prediction': case['initial'], 'edited_predictions': edits}
     if sdk_source is not None:
         host_build.update(sdk_created_at=sdk_created_at,
-                          sdk_worker_sha256=digest(sdk_source.read_bytes()))
+                          sdk_worker_sha256=digest(sdk_source.read_bytes()),
+                          expected_effective_density_kg_m3=case['density_kg_m3'],
+                          document_density_preference_kg_m3=source['settings']['document_density_preference_kg_m3'])
     inputs['Build.json'] = canonical(host_build)
     hashes = {relative: publish(root / relative, blob) for relative, blob in sorted(inputs.items())}
     job = {'schema': SCHEMA, 'revision': revision, 'files_sha256': hashes, 'encoded_locator': str(locator),
