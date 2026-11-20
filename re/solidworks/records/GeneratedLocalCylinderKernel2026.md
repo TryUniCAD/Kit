@@ -1,6 +1,6 @@
 # Model-generated bare local cylinder
 
-Task `B04-SW2026-IMPORTED-BODY`, owner `/root/release_path`, delivery PR #121. The [host preflight](../../tooling/sw2026/imported_body_source/BuildLocalCylinder.py) generates a bare `SCH_3701250_37102_13006` BODY from an explicit near-cap center, signed axis, radial basis, radius and height. The host exit is two deterministic, fully linked typed transmits with independently checked analytic geometry. SOLIDWORKS binary exchange and embedded part loadability are pending. This tranche records zero native outputs and zero held-out cases.
+Task `B04-SW2026-IMPORTED-BODY`, owner `/root/release_path`, delivery PR #121. The [host preflight](../../tooling/sw2026/imported_body_source/BuildLocalCylinder.py) generates a bare `SCH_3701250_37102_13006` BODY from an explicit near-cap center, signed axis, radial basis, radius and height. The host exit is two deterministic, fully linked typed transmits with independently checked analytic geometry. Both pass SOLIDWORKS binary exchange. Embedded part loadability remains open. This tranche records zero complete native part outputs and zero held-out cases.
 
 ## Geometry and field ownership
 
@@ -49,3 +49,16 @@ The [guest observer](../../tooling/sw2026/imported_body_source/ObserveCylinderEx
 accepts the frozen `Job.json` path and its `--job-sha256`. The flag
 `--verify-only` performs the standalone custody check and starts no
 application. Native execution requires an unused guest-local directory.
+
+## Native exchange result
+
+The [frozen trial](../measurements/2026/GeneratedLocalCylinderExchangeNative01.json)
+passes all ten phases with eight healthy controls. The two 1,414-byte
+transmits each pass 76 checks on their independent translated and signed
+cylinders. Both load with error zero, restore the original import
+preference and keep the complete measured geometry through rebuild.
+Each body has three faces, two full-turn circular edges and zero native
+vertices. Both caps and the periodic mantle retain their distinct loop
+ownership. Signed extrema, area, volume and centroid agree with the
+analytic model at the recorded tolerances. The result qualifies the
+disclosed binary exchange step and leaves completed parts unmeasured.

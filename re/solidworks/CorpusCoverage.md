@@ -67,6 +67,11 @@ also pass native cold open, rebuild, save and fresh reopen with their actual
 owned solids. These disclosed inputs contribute zero original FCStd
 benchmark conversions.
 
+The [cylinder exchange extension](measurements/2026/GeneratedLocalCylinderExchangeNative01.json)
+loads two generated periodic bodies and retains their geometry through
+native rebuild. Both cases pass 76 checks with eight healthy controls.
+Standalone part attachment and original FCStd coverage remain open.
+
 Two [sealed native imports](measurements/2026/SealedImportedLocalGeometryNative01.json)
 also pass geometry projection, generation and the full native lifecycle.
 The receipt records the omitted source domains. [Supplemental SDK readback](measurements/2026/SealedImportedLocalGeometryReadback01.json)
