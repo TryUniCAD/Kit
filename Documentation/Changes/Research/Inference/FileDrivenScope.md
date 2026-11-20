@@ -51,3 +51,5 @@ On polynomial and rational cubic spline sweeps, two separate file-driven runs ea
 File-driven SOLIDWORKS research now searches both byte orders, single and double precision, and offsets up to 96 bytes from a tagged UTF-16 dimension name. It excludes the input recipe before fitting and compares a unique encoding with independently measured edit values in the input.
 
 The first local runs recovered the four measured P05 revolve dimensions and the three P03 blind-boss dimensions. The P04 cut located two depths in the resolved feature stream. Six other dimensions pointed to the numbered configuration stream, which the scanner now also reads.
+
+At revision 6d43020f1, training on other SOLIDWORKS recipes selected little-endian float64 at displacement 22. The decoder independently found eight cut dimensions across two configuration streams, four revolve dimensions and two rectangular sketch dimensions. Each uniquely located scalar matched its vendor edit measurement and neutral-reader span. The report additionally checks conversion from native metres or radians to the neutral unit.

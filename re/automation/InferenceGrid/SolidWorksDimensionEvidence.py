@@ -54,6 +54,7 @@ def name_records(streams, name):
 
 def observed_records(streams, fmt, displacement):
     records = {}
+    count = 0
     for stream, data in streams.items():
         if not re.fullmatch(r"Contents/Config-[0-9]+(?:-ResolvedFeatures)?", stream):
             continue
@@ -75,8 +76,11 @@ def observed_records(streams, fmt, displacement):
             pos = end + displacement
             value = struct.unpack_from(fmt, data, pos)[0]
             if math.isfinite(value):
+                if count >= 16384:
+                    return records, True
+                count += 1
                 records.setdefault(name, []).append({"stream": stream, "offset": pos, "system_value": value})
-    return records
+    return records, False
 
 
 def dimensions(observation):
@@ -137,7 +141,9 @@ def dimension_evidence(root, source, pin, document):
         return {**result, "status": "no_unique_rule"}
     fmt, offset = next(iter(candidates))
     streams = SldprtArchive.FromBytes(source.read_bytes()).Streams
-    discovered = observed_records(streams, fmt, offset)
+    discovered, truncated = observed_records(streams, fmt, offset)
+    if truncated:
+        return {**result, "status": "dimension_record_limit", "record_limit": 16384}
     features = {row["id"]: row["name"] for row in document.get("feature_timeline", {}).get("$tuple", [])}
     for row in document.get("parameters", {}).get("$tuple", []):
         requested.setdefault((features.get(row.get("owner_id")), row["name"]), []).append(row)
@@ -154,12 +160,19 @@ def dimension_evidence(root, source, pin, document):
             spans = rows[0].get("provenance", {}).get("spans", {}).get("$tuple", [])
             prediction.update(match, reader_span_matches=any((s["stream"], s["offset"], s["length"]) ==
                                                              (match["stream"], match["offset"], struct.calcsize(fmt)) for s in spans))
+            neutral = rows[0].get("value") or {}
+            source_unit = rows[0].get("attributes", {}).get("native_unit")
+            scale = {("m", "mm"): 1000.0, ("rad", "deg"): 180 / math.pi, ("m", "m"): 1.0,
+                     ("rad", "rad"): 1.0}.get((source_unit, neutral.get("unit")))
+            amount = neutral.get("value")
+            prediction["neutral_value_matches"] = scale is not None and type(amount) in (int, float) and math.isclose(
+                match["system_value"] * scale, amount, rel_tol=1e-12, abs_tol=1e-12)
             oracle = measured.get((owner, name), [])
             if len(oracle) == 1:
                 prediction["vendor_value_matches"] = math.isclose(match["system_value"], oracle[0], rel_tol=1e-12, abs_tol=1e-14)
         predictions.append(prediction)
     verified = bool(checks) and len(predictions) == len(checks) and all(
-        row.get("vendor_value_matches") and row.get("reader_span_matches") for row in predictions)
+        row.get("vendor_value_matches") and row.get("reader_span_matches") and row.get("neutral_value_matches") for row in predictions)
     return {**result, "status": "held_out_dimensions_match" if verified else "partial_evidence",
             "measurement_stage": "edited_before_save" if checks else None, "predictions": predictions,
             "discovered_dimension_records": discovered, "measured_count": len(checks), "missing_from_reader": [list(key) for key in measured if key not in requested]}
