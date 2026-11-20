@@ -8,18 +8,23 @@
 
 using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 using SolidWorks.Interop.sldworks;
 
 public sealed partial class SolidWorksCapture
 {
     double[] ProgramNormal(ISketch Sketch)
     {
-        var Inverse=Sketch.ModelToSketchTransform.IInverse();
-        var OriginValue=Transform(Vector(0,0,0),Inverse);
-        var NormalValue=Transform(Vector(0,0,1),Inverse).Zip(OriginValue,(First,Second)=>First-Second).ToArray();
-        double Length=Math.Sqrt(NormalValue.Sum(Value=>Value*Value));
-        Check(Length>0,"Native sketch has no normal");
-        return Scale(NormalValue,1/Length);
+        MathTransform NativeTransform=null;
+        try {
+            NativeTransform=Sketch.ModelToSketchTransform;
+            var MatrixData=(double[])NativeTransform.ArrayData;
+            Check(MatrixData.Length>=13 && MatrixData[12]!=0,"Invalid native sketch transform");
+            var NormalValue=new[]{MatrixData[2]/MatrixData[12],MatrixData[5]/MatrixData[12],MatrixData[8]/MatrixData[12]};
+            double Length=Math.Sqrt(NormalValue.Sum(Value=>Value*Value));
+            Check(Length>0 && !double.IsInfinity(Length) && !double.IsNaN(Length),"Native sketch has no normal");
+            return Scale(NormalValue,1/Length);
+        } finally { if(NativeTransform!=null) Marshal.ReleaseComObject(NativeTransform); }
     }
 
     bool IsFrameFlip(ISketch Sketch,string BasisName)
