@@ -1,8 +1,8 @@
 from typing import cast as CastValue
 from xml.etree.ElementTree import Element
 
-from convert.adapters.solidworks.Archive.Construction.Metadata.SerializeKeywordXml import (
-    SerializeKeywordXml,
+from convert.adapters.solidworks.Archive.Construction.Metadata.EmitKeywordXml import (
+    EmitKeywordXml,
 )
 
 
@@ -16,5 +16,5 @@ def FrameKeywords(RootValue: Element, CompactTags: bool) -> bytes:
         raise ValueError(
             "native keyword framing requires content inside the keyword root"
         )
-    PayloadValue = SerializeKeywordXml(RootValue, CompactTags)
+    PayloadValue = EmitKeywordXml(RootValue, CompactTags)
     return b'\x86<?xml version="1.0" encoding="UTF-8"?>\r\n' + PayloadValue + b"\r\n"

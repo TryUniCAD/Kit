@@ -20,17 +20,21 @@ Its one-file manifest SHA-256 is
 The delivered framing file
 [`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
-`d9b6fb7e8dceb8d90f450a8775b95123fb95ebe908a896a089a874f3c3edd7c2`.
-The focused [named-tree serializer](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/SerializeKeywordXml.py)
-has SHA-256 `0f3802936dfd1f820df9189f601fa72815700da9295a7ed55d1bc08a07d90fe8`.
-The two-file manifest SHA-256 is
-`e4da169c3703fe338947bd17ed1682852e92503755642a3fe25759cfa8f8eba4`.
+`62d04af2ee71dfa7671b01fe795b105c2d97e32e391e2bf348102fc69fa39523`.
+The focused [named-tree serializer](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/EmitKeywordXml.py)
+has SHA-256 `00053df539f603c5c2db5ddb9b797bb968c900524f5a9717e7745eb35782a1d2`.
+The [name boundary](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckXmlNames.py)
+has SHA-256 `0cfdc45a8402a449679b4da2e179edc9edf3f5ddda4e9392017b89211918e928`.
+The path-sorted three-file manifest SHA-256 is
+`8fc72ccc3765d8ed93a4fc0d8014d15ae6a1a5378913fd88d72dd45cd2cb5e63`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. The serializer uses the
 standard-library `tostring` exposed by the repository's locked
 `defusedxml` version, now declared as a runtime dependency. The final
-payload passes the hardened XML parser after lexical rewriting and
-retains its authored element and attribute names.
+payload passes the hardened XML parser after lexical rewriting. The
+name boundary rejects delimiter characters in authored name tokens,
+and the final parser checks the native root. Literal namespace prefixes
+and declarations retain their lexical form.
 
 ## Framing and serialization
 
@@ -66,6 +70,7 @@ are refused before serialization. The process cases exercise both node types in 
 The generated XML also rejects NUL, other forbidden controls and
 unpaired surrogates in attributes, text and child tails before either
 mode publishes bytes.
+[Namespace gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordNamespacesExpandOnRead.md)
 [Empty tag gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordEmptyTagsFollowProfile.md)
 
 XML 1.0 normalizes literal CR and CRLF before parsing. The framer

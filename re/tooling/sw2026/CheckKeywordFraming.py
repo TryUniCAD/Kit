@@ -40,6 +40,10 @@ def author_frame(source):
     if qualified is not None:
         name = "{urn:kit:keyword}Native"
         SubElement(root, QName(name) if qualified == "object" else name)
+    if source.get("literal_namespace"):
+        root.set("xmlns:kit", "urn:kit:declared")
+        feature.set("xml:lang", "en")
+        feature.set("kit:role", "feature")
     return FrameKeywords(root, source["compact"])
 
 
