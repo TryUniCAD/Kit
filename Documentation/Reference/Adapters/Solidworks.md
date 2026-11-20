@@ -45,6 +45,12 @@ tags, CString frames and fixed-width scalars in memory. Stream owners select
 the count dialect and supply the context for object references.
 [Wire primitives and verification](../../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
 
+The typed archive graph allocates class descriptors and objects in one
+map. Its stream readers validate reference kinds and retain shared object
+identity when the next stream inherits a snapshot. Body callbacks provide
+the fields for each stream and class.
+[Object maps and verification](../../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
+
 ## Read flow
 
 ```mermaid
