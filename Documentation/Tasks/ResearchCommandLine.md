@@ -105,6 +105,10 @@ It uses the local Codex login and writes proposals for independent verification.
 Application workers remain separate isolated research oracles.
 See [session output lifetime](../Gotchas/Research/SupervisorSessionOutputLifetime.md) before implementing a persistent decode runner.
 
+## Identify an input by content
+
+Run `kit run --root . auto --input /path/to/unknown --directory /tmp/KitUnknownRun`. The [content-driven input mode](../Changes/Research/Inference/IdentifyResearchInput.md) accepts an extensionless file, probes for native Fusion and SOLIDWORKS containers, and inspects standalone ASM geometry.
+
 ## Run a CAD catalogue with optional advice
 
 Use a clean checkout with the catalogue runner and install Kit from that revision with

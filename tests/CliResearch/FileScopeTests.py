@@ -222,3 +222,46 @@ def CheckSweepProjection(TmpPath: FilePath) -> None:
     ]
     Digests = {Row["source_sha256"] for Row in Report["training"]}
     assert len(Digests) >= 2 and Report["held_out_sha256"] not in Digests
+
+
+# an extensionless geometry stream must bind its recovered dimensions to the measured native archive
+def CheckUnlabelledSnapshot(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Source = TmpPath / "unknown"
+    Source.write_bytes(
+        (
+            Root / "re/Fusion/LocalOracle/PrismSnapshot/OrdinaryRectangleSnapshot.smb"
+        ).read_bytes()
+    )
+    Output = TmpPath / "run"
+    Result = RunProcess(
+        [
+            PythonPath,
+            "-m",
+            "KitCli",
+            "run",
+            "--root",
+            str(Root),
+            "auto",
+            "--input",
+            str(Source),
+            "--directory",
+            str(Output),
+        ],
+        capture_output=True,
+        timeout=180,
+    )
+    assert Result.returncode == 2, Result.stderr
+    Report = LoadJson((Output / "Input-raw-structure.json").read_bytes())
+    assert Report["profile"] == "PrismSnapshot"
+    assert Report["model"]["Model"] == {
+        "Width": 40,
+        "Depth": 30,
+        "Height": 25,
+        "BasePoint": [0, 0, 0],
+    }
+    assert Report["native_witness"]["geometry_matches"]
+    assert Report["native_witness"]["observed"]["volume_cm3"] == 30
+    assert (
+        LoadJson((Output / "FileStall.json").read_bytes())["focus"] == "geometry_only"
+    )

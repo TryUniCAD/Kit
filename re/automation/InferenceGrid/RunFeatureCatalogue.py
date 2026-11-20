@@ -45,7 +45,7 @@ def MainRun():
         "--catalogue", type=Path, help="Catalogue path for the kit run format"
     )
     Parser.add_argument(
-        "--batch-format", choices=("fusion", "solidworks"), help=SUPPRESS
+        "--batch-format", choices=("fusion", "solidworks", "auto"), help=SUPPRESS
     )
     Parser.add_argument("--fusion-sha256")
     Parser.add_argument("--max-seconds", type=int, default=1200)
@@ -81,7 +81,9 @@ def MainRun():
         if Advice is not None and os.name != "posix":
             raise ValueError("decoder advice requires macOS or Linux")
         FileAudit = None
-        if Args.control and (not Args.input or Args.batch_format != "solidworks" or Args.input.suffix.lower() != ".sldprt"):
+        if Args.batch_format == "auto" and not Args.input:
+            raise ValueError("kit run auto requires --input")
+        if Args.control and (not Args.input or (Args.batch_format != "auto" and (Args.batch_format != "solidworks" or Args.input.suffix.lower() != ".sldprt"))):
             raise ValueError("--control requires a SOLIDWORKS part --input")
         if Args.input:
             from InferenceGrid.FileScope import file_scope

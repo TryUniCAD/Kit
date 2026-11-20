@@ -40,6 +40,10 @@ def file_stall(audit, reports):
             for row in missing
         ]
         sources = ["FileScope.json", "Input-" + dimension_layer + ".json"]
+    elif reports.get("raw-structure", {}).get("status") == "decoded_profile":
+        focus = "geometry_only" if (reports["raw-structure"].get("native_witness") or {}).get("geometry_matches") else "profile_validation"
+        references = [{"reader_profile": reports["raw-structure"]["profile"]}]
+        sources = ["FileScope.json", "Input-raw-structure.json"]
     elif audit["features_without_experiment"]:
         focus = "feature_semantics"
         references = [
@@ -55,6 +59,8 @@ def file_stall(audit, reports):
         sources = ["FileScope.json"]
     else:
         return None
+    if "raw-structure" in reports and "Input-raw-structure.json" not in sources:
+        sources.append("Input-raw-structure.json")
     shifted = (
         evidence.get("keyword_evidence", {}).get("extrusion_depth_evidence") or {}
     ).get("shifted_layout_experiments", [])
@@ -79,6 +85,8 @@ def advise_file(directory, stall, options):
         "ambiguous_dimension": "Multiple stored scalar locations fit a declared CAD dimension.",
         "missing_dimension": "No stored scalar location matches a declared CAD dimension.",
         "feature_semantics": "A native CAD feature has no mapped semantic experiment.",
+        "geometry_only": "Standalone solid geometry matches measured volume, bounds and topology counts. The parent document history is outside this input.",
+        "profile_validation": "A standalone geometry reader recovered a typed profile. An independent measurement is needed to verify the recovered model.",
         "stream_layout": "A native CAD stream contains ranges without a known semantic owner.",
     }
     destination = directory / "FileAdvice"
