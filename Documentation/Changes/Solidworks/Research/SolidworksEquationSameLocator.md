@@ -11,4 +11,11 @@ calculated dimension and geometry bounds for both arms. It performs the
 same driving width edit, measures its effect on the second dimension and
 checks save and fresh reopen between two native controls.
 
+The corrected observation passes both arms across six fresh native
+processes. Editing the width to 47.875 mm keeps the plain depth at
+19.5625 mm and drives the reference depth to 23.9375 mm. Both saved
+derivatives reopen cleanly and preserve the measured geometry.
+
 [Frozen procedure and scope](../../../../re/solidworks/records/WidthDepthSameLocator2026.md)
+· [Native result](../../../../re/solidworks/measurements/2026/WidthDepthSameLocatorNative01.json)
+· [Relation receipt representation](../../../Gotchas/Conversion/Solidworks/Oracle/Extrusion/RelationReceiptUsesJsonArrays.md)

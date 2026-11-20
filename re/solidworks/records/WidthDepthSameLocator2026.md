@@ -91,4 +91,14 @@ prlctl exec 'Windows 11' --current-user \
   da6021c5bcd50e3da7649c3c8b41d58c3ba7685d61284ca4e3b8dd1dc5478f8b
 ```
 
-Packet 02 native observation is pending. A plain pass and reference failure isolates the divergent native stage under the same body observer and initial locator. A failure shared by both arms leaves the equation-specific cause unresolved. The disclosed pair has no held-out or public-writer credit.
+Packet 02 passes all six native phases. Both controls and four candidate
+processes use build `34.5.2.0604`. Both candidates open and rebuild
+without errors or warnings. After the same 47.875 mm width edit, the
+plain arm retains 19.5625 mm depth and the reference arm measures
+23.9375 mm. The native equation manager reports the enabled dependency
+and the target dimension becomes driven. Both files save cleanly and
+fresh reopen retains the depth, actual relation identities and one
+solid with the expected volume, area and centroid. All 170 candidate
+checks and 18 control checks pass. The disclosed pair adds zero
+held-out or public-writer credits.
+[Native result](../measurements/2026/WidthDepthSameLocatorNative01.json)

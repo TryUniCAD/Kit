@@ -89,6 +89,11 @@ The [generated local equation reference trial](measurements/2026/WidthDepthLocal
 opens one disclosed part with a solid and an enabled width-to-depth equation.
 The rebuild after editing the width fails. The native held-outs stay sealed.
 
+The [later same-locator equation trial](measurements/2026/WidthDepthSameLocatorNative01.json)
+passes both generated arms with healthy controls. The reference arm's
+linked depth updates after a width edit and persists through native
+save and fresh reopen. The disclosed native trial adds zero FCStd cases.
+
 Two [public SDK blank drawing cases](measurements/2026/SdkPublicBlankDrawingHeldout01.json)
 matched their pre-registration locked native sources through rebuild, scale
 edit, save and fresh reopen. The guarded builds use independently authored

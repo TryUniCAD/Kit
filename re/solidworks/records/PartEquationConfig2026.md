@@ -70,3 +70,15 @@ Both the plain and equation inputs lose their interface under the original obser
 The unchanged plain candidate passes the sketch feature lookup after the observer switches to the original live model dispatch. The first attempt reaches the dimension reads under both healthy controls. Its prediction still computes depth from the new width and fails on the plain part's unchanged 19.5625 mm depth. The corrected observer treats that depth as independent.
 
 With the corrected prediction, both the typed body lookup and a direct lookup on the original model report HRESULT `-2147023179` at `GetBodies2` after 13 checks. Each observes the edited width, unchanged depth and fully constrained sketch following the successful rebuild. The surviving process prevents the scheduled trailing control from running. A separate trailing control passes after verifying the owned process identity and restarting. Neither attempt saves an edited part. The [dispatch receipt](../measurements/2026/WidthDepthModelDispatchControls01.json) preserves all three runs. These observations leave equation propagation, edited mass properties and native persistence open.
+
+### Same-locator edit and reopen
+
+The later [matched experiment](WidthDepthSameLocator2026.md) puts both
+generated arms at the same encoded self locator and uses the same
+typed part observer. The generated reference equation drives a second
+dimension after the width edit. Its distinct depth and mass properties
+persist through native save and fresh reopen. Both controls pass.
+The earlier COM failures remain bound to their original observer and
+location. Independently locked generated sources and public publication
+remain separate qualification steps.
+[Native result](../measurements/2026/WidthDepthSameLocatorNative01.json)
