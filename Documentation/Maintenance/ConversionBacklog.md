@@ -195,6 +195,19 @@ Protocol byte identity, an open PR, source training measurements, and green stat
 
 ## Important gap boundaries
 
+### B04-SW2026-LOCAL-IMPORT-READBACK
+
+[PR #172](https://github.com/TryUniCAD/Kit/pull/172) delivered the strict
+local geometry reader to main at `086870fac1253918919bbd467f1a8797f65e60fa`.
+Its native merge-queue candidate passed all 43 applicable checks, including
+the public SDK integration for both disclosed planar solids, actual
+feature and body ownership, absent history, mismatched marks, wrong
+owner, and metadata and raw extraction controls. The accepted case
+depends on the terminal fin semantics in [PR #171](https://github.com/TryUniCAD/Kit/pull/171)
+and the typed partition rules from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+[Queue verification](https://github.com/TryUniCAD/Kit/actions/runs/44679488820)
+[Change entry](../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
+
 ### B14-COMPANION-PUBLICATION
 
 [PR #170](https://github.com/TryUniCAD/Kit/pull/170) delivered the generic

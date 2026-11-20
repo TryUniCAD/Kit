@@ -20,6 +20,8 @@ def ReadLocalPay(
     StreamsValue = {
         (Payload.source_stream, Payload.kind): Payload.data for Payload in Payloads
     }
+    if (KPartitionStream, "deltas") not in StreamsValue:
+        raise ValueError("local body rollback history is missing")
     if len(Payloads) != 3 or StreamsValue.keys() != {
         (KLocalBodyStream, "unknown"),
         (KPartitionStream, "partition"),

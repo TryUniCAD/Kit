@@ -125,6 +125,7 @@ from convert.adapters.solidworks.Container.Format import (
     DISPLAY_LISTS_STREAM as DisplayListsStream,
     FORMAT_ID_BY_SUFFIX as FormatIdBySuffix,
     INFO as InfoValue,
+    KLocalBodyStream,
     KEYWORDS_STREAM as KeywordsStream,
     KIT_DOCUMENT_STREAM as KitDocStream,
     KIT_RESOLVED_STREAM as KitResolvedStream,
@@ -177,14 +178,23 @@ from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.Display.ReadGeomParts import (
     ReadGeomParts,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalBodyBrep import (
-    ReadLocalBrep,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
+    PartGeometry,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadNoCache import (
     ReadNoCache,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.WithColdName import (
     WithColdName,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.FindLocalOwner import (
+    FindLocalOwner,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.LinkLocalBody import (
+    LinkLocalBody,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalImport import (
+    ReadLocalImport,
 )
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -245,6 +255,9 @@ KSourceKeys = frozenset(
 
 # this binding exists because shared behavior needs one stable value
 KResolvedConfigStream = RegexLib.compile("^Contents/Config-(\\d+)-ResolvedFeatures$")
+
+# native part geometry and the design body need the same public identifier
+KPartBodyId = "sldprt:body:1"
 
 
 # this binding exists because shared behavior needs one stable value
@@ -369,11 +382,13 @@ def ReadNativePart(
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
     DerivedValue = (
-        ReadNoCache(Archive, Model, "sldprt:body:1") if Settings.include_brep else None
+        ReadNoCache(Archive, Model, KPartBodyId) if Settings.include_brep else None
     )
+    LocalOwner: NativeFeature | None = None
     if DerivedValue is None:
-        Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
-        BrepValue = TypedBrep(Payloads)
+        Payloads, PayloadDiags, BrepValue, LocalOwner = ReadPartSolid(
+            Archive, Model, Settings, len(ConfigValues)
+        )
     else:
         Payloads, PayloadDiags, BrepValue = ReadGeomParts(DerivedValue)
     SolidOpIds = frozenset(
@@ -383,19 +398,27 @@ def ReadNativePart(
             if Operation.kind != "surface"
         )
     )
-    BodyFeature = SolidBody(Model.features)
+    FinalFeature = (
+        FeatureId(LocalOwner.object_id)
+        if LocalOwner is not None
+        else FinalBodyId(TimeValues, SolidOpIds)
+    )
+    BodyFeature = LocalOwner or SolidBody(Model.features)
+    TopologyValue = (
+        DerivedValue.TopologyValue
+        if DerivedValue is not None
+        else TopologySummary(
+            solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
+        )
+    )
+    if LocalOwner is not None and BrepValue is not None:
+        BrepValue, TopologyValue = LinkLocalBody(BrepValue, KPartBodyId, TopologyValue)
     Bodies = (
         BodyValue(
-            id="sldprt:body:1",
+            id=KPartBodyId,
             name=BodyFeature.name if BodyFeature is not None else "Body 1",
-            final_feature_id=FinalBodyId(TimeValues, SolidOpIds),
-            topology=(
-                DerivedValue.TopologyValue
-                if DerivedValue is not None
-                else TopologySummary(
-                    solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
-                )
-            ),
+            final_feature_id=FinalFeature,
+            topology=TopologyValue,
             provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
             attributes=FrozenMapping(
                 {
@@ -459,11 +482,25 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
+    return FinishPartDoc(
+        DocValue, Archive, Model.active_configuration_id, DerivedValue, DataValue, Label
+    )
+
+
+# native metadata and parametric diagnostics must qualify after geometry is selected
+def FinishPartDoc(
+    DocValue: CadDoc,
+    Archive: SldprtArchive,
+    ConfigId: int | None,
+    DerivedValue: PartGeometry | None,
+    DataValue: bytes,
+    Label: str,
+) -> CadDoc:
     DocValue = WithColdName(DocValue, DerivedValue)
-    DocValue = WithBodyNames(DocValue, Archive, Model.active_configuration_id)
+    DocValue = WithBodyNames(DocValue, Archive, ConfigId)
     DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive), Archive)
     DocValue = BindCutStock(DocValue)
-    DocValue = WithRevolveDoc(DocValue, Archive, Model.active_configuration_id)
+    DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)
     if (
         DerivedValue is not None
         and DerivedValue.EvidenceValue.get("method")
@@ -804,13 +841,7 @@ def AsmDoc(
     )
     Instances = WithTypedFixed(Instances, TypedMates)
     FlatMateValues = FlattenedMates(Native, Mates)
-    PayloadSettings = ReadOptions(
-        configuration=Settings.configuration,
-        include_brep=Settings.include_brep,
-        include_tessellation=Settings.include_tessellation,
-        strict=False,
-        values=Settings.values,
-    )
+    PayloadSettings = Replace(Settings, strict=False)
     BrepValues, PayloadDiagnostics = BrepPayloads(Archive, PayloadSettings)
     CompanionPayloads = (
         Companion(Label)
@@ -1088,11 +1119,10 @@ def AsmDocuments(
         Values = dict(Settings.values)
         Values["resolve_components"] = False
         Values["discover_companions"] = False
-        Options = ReadOptions(
+        Options = Replace(
+            Settings,
             configuration=Representative.configuration_name or None,
-            include_brep=Settings.include_brep,
             include_tessellation=Representative.document_type == "ASSEMBLY",
-            strict=Settings.strict,
             values=FrozenMapping(Values),
         )
         try:
@@ -3821,8 +3851,43 @@ def BrepPayloadA(Index: int, Native: ParasolidPayload) -> BrepPayload:
     )
 
 
+# the native import fallback must own the selected part without changing raw payload extraction
+def ReadPartSolid(
+    Archive: SldprtArchive,
+    Model: NativeModel,
+    Settings: ReadOptions,
+    ConfigCount: int,
+) -> tuple[
+    tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None, NativeFeature | None
+]:
+    Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
+    Candidate = (
+        FindLocalOwner(Model)
+        if Settings.include_brep
+        and not Settings.extract_raw_brep
+        and Model.active_configuration_id == 0
+        and ConfigCount == 1
+        and not PayloadDiags
+        else None
+    )
+    BrepValue, LocalOwner, LocalDiag = TypedBrep(
+        Payloads,
+        LocalOwner=Candidate,
+        GroupData=Archive.get(KLocalBodyStream) if Candidate is not None else None,
+        Strict=Settings.strict,
+    )
+    Diagnostics = PayloadDiags + ((LocalDiag,) if LocalDiag is not None else ())
+    return Payloads, Diagnostics, BrepValue, LocalOwner
+
+
 # this definition exists because focused behavior needs one stable owner
-def TypedBrep(Payloads: Sequence[BrepPayload]) -> BrepModel | None:
+def TypedBrep(
+    Payloads: Sequence[BrepPayload],
+    *,
+    Strict: bool,
+    LocalOwner: NativeFeature | None = None,
+    GroupData: bytes | None = None,
+) -> tuple[BrepModel | None, NativeFeature | None, DiagValue | None]:
     Groups: dict[str, list[BrepPayload]] = {}
     for Index, Payload in enumerate(Payloads):
         Groups.setdefault(Payload.source_stream or f"payload:{Index}", []).append(
@@ -3843,9 +3908,9 @@ def TypedBrep(Payloads: Sequence[BrepPayload]) -> BrepModel | None:
             Models.append(Decoded[0])
         elif len(Decoded) > 1:
             HasAmbiguous = True
-    if Models or HasAmbiguous:
-        return Models[0] if len(Models) == 1 else None
-    return ReadLocalBrep(Payloads)
+    if Models or HasAmbiguous or LocalOwner is None or GroupData is None:
+        return (Models[0] if len(Models) == 1 else None), None, None
+    return ReadLocalImport(Payloads, GroupData, LocalOwner, Strict=Strict)
 
 
 # this definition exists because focused behavior needs one stable owner

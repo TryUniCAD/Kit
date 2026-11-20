@@ -19,6 +19,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Local.ReadLocalTre
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyAttrs import (
     ReadBodyAttrs,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.LinkLocalBody import (
+    LinkLocalBody,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalBodyBrep import (
     ReadLocalBrep,
 )
@@ -75,8 +78,14 @@ def ReadLocalName(
         )
     NodesValue, _ = ReadLocalNodes(LocalData)
     TreeValue = ReadLocalTree(NodesValue)
-    ModelValue = DecodeBrepModel(LocalData) or ReadLocalBrep(Document.brep_payloads)
-    if ModelValue is None or ModelValue != Document.brep:
+    ModelValue = DecodeBrepModel(LocalData) or ReadLocalBrep(
+        Document.brep_payloads, LocalStream, GroupKey
+    )
+    if ModelValue != Document.brep and len(ModelValue.bodies) == 1:
+        ModelValue, _ = LinkLocalBody(
+            ModelValue, Document.bodies[0].id, Document.bodies[0].topology
+        )
+    if ModelValue != Document.brep:
         raise ValueError("public geometry differs from the selected native local body")
     Attributes = ReadBodyAttrs(NodesValue, NodesValue[TreeValue.BodyIndex])
     LabelValue, OwnerValue = ReadLocalLabel(

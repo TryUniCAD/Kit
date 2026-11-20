@@ -93,8 +93,6 @@ The public SDK uses matching version-19000 feature nodes for native name, class 
 
 The strict part reader can reconstruct a neutral B-rep for a guarded version-19000 rectangular blind prism whose source omits the geometry-cache stream. The reader validates the complete typed feature history, plan, drivers and configuration before building the solid. Its `sldprt.brep_reconstructed` diagnostic identifies the computed geometry, and `brep_payloads` is empty. Parts with a native cache use its native payload decoder. [Typed prism reconstruction](../../Changes/Solidworks/Inspection/Parts/Geometry/SolidworksTypedPrismReconstruction.md)
 
-When the active configuration partition has no bodies, the reader can recover a single planar solid from the current SOLIDWORKS 2026 local-body stream. The fallback follows the typed shell, face, loop, fin and point links. The measured profile uses linear edges and planar faces with one loop each. [Local body readback](../../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
-
 The default strict reader also reconstructs the two circle profiles already qualified by the public writer: a Front Plane diameter-driven forward blind boss, or a Top Plane radius-driven reversed blind boss. It validates the real circle, fixed centre, depth, support and complete ordinary system graph. The reconstruction diagnostic reports `native_kernel_identity=false`; neutral face IDs do not establish native mate references. [Strict circle geometry](../../Changes/Solidworks/Reading/Parts/SolidworksColdCircleGeometry.md)
 
 For an ordinary cache-free prism with one actual output atom, the reader retains the atom's printable ASCII body name after validating its relationships and the computed B-rep. The name evidence reports `native_kernel_identity=false`. [Cache-free body names](../../Changes/Solidworks/Reading/Names/SolidworksCachelessBodyNames.md)
@@ -234,6 +232,21 @@ The Parasolid reader uses forward fin links and terminal vertices for schema
 independently locked capsule retain outward face loops and positive signed
 volume in `open_document()`.
 [Current fin orientation](../../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
+
+A part read can recover a closed planar solid from the local body store
+when the sole selected configuration is zero, the active partition is
+empty, and its rollback history validates. A sole resolved native
+`Imported` feature must match the local group key. The SDK retains the
+feature and payload records and returns the solid with matching design
+body counts. The ordinary partition decoder keeps priority.
+If the required current-profile local solid fails validation, a strict
+B-rep read raises a format error. Explicit non-strict reads retain the
+payloads with a local geometry rejection warning.
+`extract_brep` reads the native payloads with strict framing
+validation and without requiring local snapshot reconstruction.
+This is source-backed inspection of the native import. Conversion
+acceptance follows the [CAD success criteria](../Operations/CadSuccessCriteria.md).
+[Local body readback](../../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
 
 ### Drawing layout inspection
 

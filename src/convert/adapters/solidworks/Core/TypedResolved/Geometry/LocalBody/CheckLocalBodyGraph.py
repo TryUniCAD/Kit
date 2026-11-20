@@ -7,29 +7,15 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyFaces impo
     ReadBodyFaces,
 )
 
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.CheckLocalFins import (
+    CheckLocalFins,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.CheckLocalGeom import (
     CheckLocalGeom,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalRoot import (
     ReadLocalRoot,
 )
-
-
-# local fin links must agree across both uses of each solid edge
-def CheckLocalFins(NodesValue: Mapping[int, XmtNode], FinValue: XmtNode) -> None:
-    MateValue = RequireXmt(NodesValue, FinValue.Integer("other"), 17)
-    NextValue = RequireXmt(NodesValue, FinValue.Integer("forward"), 17)
-    if (
-        MateValue.Integer("other") != FinValue.IndexValue
-        or MateValue.Integer("edge") != FinValue.Integer("edge")
-        or MateValue.Integer("loop") == FinValue.Integer("loop")
-        or {MateValue.String("sense"), FinValue.String("sense")} != {"+", "-"}
-        or NextValue.Integer("backward") != FinValue.IndexValue
-        or NextValue.Integer("loop") != FinValue.Integer("loop")
-        or RequireXmt(NodesValue, NextValue.Integer("other"), 17).Integer("vertex")
-        != FinValue.Integer("vertex")
-    ):
-        raise ValueError("local body has inconsistent fin ownership")
 
 
 # all transmitted nodes must belong to the single typed local solid

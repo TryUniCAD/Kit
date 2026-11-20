@@ -1,13 +1,12 @@
 # Local Parasolid faces can lack attributes
 
-A SOLIDWORKS 2026 SP05.2 local-body FACE may have a null
-`attributes_features` pointer even when its primary and front shell links
-own a valid boundary. The legacy bridge reader treats that pointer as part of
-its face-recognition rule. All four disclosed generated parts therefore lose
-their faces and loops on that path.
+A SOLIDWORKS 2026 SP05.2 local-body FACE can have a null
+`attributes_features` pointer while its primary and front shell links own
+a valid boundary. The scanning reader expects a non-null pointer at this
+position in the current schema.
 
-Permitting the null pointer alone still leaves the legacy scan susceptible to
-an incidental vertex record with the same index as a real vertex. Read the
-bounded current-schema transmit sequentially, prove the links, and use the
-actual vertex-to-point references to construct the boundary.
+Allowing the null pointer alone can still pick an incidental vertex-shaped
+record whose index equals that of a real vertex. Parse the local transmit in
+declared node order and verify the actual face, fin, and vertex links before
+building the boundary.
 [Measured readback](../../../../../../re/solidworks/records/SdkImportedLocalBodyReadback2026.md)

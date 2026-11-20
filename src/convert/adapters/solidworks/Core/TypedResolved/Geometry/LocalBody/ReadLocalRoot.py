@@ -51,6 +51,6 @@ def ReadLocalRoot(
                     Reference for Reference in References if Reference != DefinitionNext
                 )
         Pending.update(set(References) - Visited)
-    if Visited != NodesValue.keys():
+    if Visited != set(NodesValue):
         raise ValueError("local body has detached nodes")
     return BodyValue, KindsValue
