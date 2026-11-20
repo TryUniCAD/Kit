@@ -47,7 +47,7 @@ def ProjectSketches(
         if Feature.ClassGuid != KSketchFeature:
             continue
         try:
-            RootSpan, Frame = ResolveSketch(BulkData, Feature, Owners, Bases)
+            RootSpan, Frame, Children = ResolveSketch(BulkData, Feature, Owners, Bases)
         except ValueError as ErrorInfo:
             Diagnostics.append(
                 Diagnostic(
@@ -60,7 +60,11 @@ def ProjectSketches(
         Entities, Issues = ProjectGeom(BulkData, Geometry.get(RootSpan.ObjectId, []))
         Diagnostics.extend(Issues)
         Planes.append(Frame)
-        Sketches.append(BuildSketch(StepValue, RootSpan, Frame, Entities))
+        Sketches.append(
+            BuildSketch(
+                StepValue, RootSpan, Frame, Entities, None if Issues else Children
+            )
+        )
         Steps[-1] = Replace(StepValue, name=Frame.name, sketch_id=Sketches[-1].id)
     return tuple(Planes), tuple(Sketches), tuple(Steps), tuple(Diagnostics)
 
@@ -71,7 +75,11 @@ def BuildSketch(
     RootSpan: RecordSpan,
     Frame: SupportPlane,
     Entities: tuple[SketchEntity, ...],
+    Children: tuple[int, ...] | None,
 ) -> Sketch:
+    Verified = Children is not None and {Entity.id for Entity in Entities} == {
+        f"fusion-sketch-entity-{Identity}" for Identity in Children
+    }
     SketchId = f"fusion-sketch-{RootSpan.ObjectId}"
     return Sketch(
         id=SketchId,
@@ -81,5 +89,10 @@ def BuildSketch(
         parameter_ids=StepValue.parameter_ids,
         suppressed=StepValue.suppressed,
         provenance=RecordOrigin(RootSpan),
-        attributes=FreezeMapping({"fusion.geometry_partial": True}),
+        attributes=FreezeMapping(
+            {
+                "fusion.geometry_partial": True,
+                **({"fusion.geometry_child_ids": Children} if Verified else {}),
+            }
+        ),
     )
