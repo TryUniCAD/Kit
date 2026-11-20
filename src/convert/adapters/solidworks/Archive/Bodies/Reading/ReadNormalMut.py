@@ -7,8 +7,11 @@ from convert.adapters.solidworks.Archive.Reading.ReadNativeScalar import ReadSca
 
 # normalized runtime values need their independently persisted words for archive inspection
 def ReadNormalMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
-    if RuleValue.ModeValue not in ("Zero", "AtomState"):
+    ModeValue = RuleValue.ModeValue
+    if ModeValue not in ("Zero", "AtomState", "AtLeast", "Identity"):
         raise BodyUnsupported("unsupported native normalization rule")
+    if ModeValue in ("AtLeast", "Identity") and RuleValue.TypeValue != "i32":
+        raise BodyUnsupported("native signed normalization requires an i32 word")
     Value = ReadScalarMut(FrameValue.ReaderValue.Cursor, RuleValue.TypeValue)
     Normalized = NormalizeWord(FrameValue.ContextValue, RuleValue, Value)
     Fields = FrameValue.ScopeValue.FieldsValue

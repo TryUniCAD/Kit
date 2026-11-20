@@ -187,6 +187,18 @@ evidence. Full configuration admission and write coverage have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
 
+### B04-SW2026-CONFIG-FIELD-MODES
+
+The PR #121 takeover team owns the shared field modes and bounded
+layout extraction on `codex/solidworks-config-field-modes`. It depends
+on the accepted body and ModelHeader primitives and shares its
+normalization path with the scene and atom slices. Exit requires
+exact physical leaf and normalized word reads, independent authored
+branch and repeat checks, and current revision review and CI.
+Directly owned bodies and whole configuration admission follow
+separately.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
+
 ### B04-SW2026-CONFIG-VIEWS
 
 The PR #121 takeover team owns this bounded `moView_c` reader on

@@ -156,6 +156,12 @@ The reader combines available feature, geometry, and assembly information.
 Source metadata and diagnostics qualify the decoded result.
 The cached body geometry and feature history provide different evidence.
 
+The shared body reader uses the stored comparison field and archive
+conditions for ordinary branches. A fixed repeat uses its field
+declaration for the row count. Signed normalization retains the
+original word with its runtime projection.
+[Configuration field modes](../../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
+
 For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid
 reader uses forward fin links and terminal vertices. This preserves outward
 face loops and positive signed volume in the disclosed rectangular case.
