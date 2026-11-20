@@ -88,10 +88,11 @@ literal native summary, document custom text and active configuration
 text. Configuration text uses the saved configuration directory and
 requires the corresponding streams. Unsupported property variants leave
 the ordinary geometry and feature result available with a diagnostic.
-The registry refuses fresh native projections and direct writes of
-parts with an explicit property refusal. An unfiltered interchange JSON
-copy preserves the inspection status and original provenance when both
-registered adapters are interchange JSON. The CLI also checks its
+The registry refuses fresh native projections and direct writes when a
+part or owned assembly component has an explicit property refusal.
+An unfiltered interchange JSON copy preserves the inspection status
+and original provenance when both registered adapters are interchange
+JSON. The CLI also checks its
 existing portable-data requirements. A verified empty legacy scope
 remains eligible for conversion.
 [Literal part properties](../../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)

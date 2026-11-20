@@ -173,8 +173,16 @@ and configuration filtering are disabled. The same status still
 refuses filtered copies, fresh SOLIDWORKS projections and direct
 writes. The CLI keeps its portable-data gate. The queue probes exercise
 both copy entry points, three filtered-copy refusals and the complete
-qualified circular-part JSON write/readback.
+qualified circular-part JSON write/readback. The CLI process starts
+from the existing portable geometry control with the explicit native
+text diagnostic. Its unfiltered copy preserves the source. A requested
+configuration filter reaches the text refusal and preserves both paths.
+The SDK also traverses actual embedded assembly documents before
+publication. A linked unavailable L1 part retains its original cause and
+the prefilled stream is untouched.
 [Direct write queue case](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py)
+· [CLI process case](../../../tests/Convert/Solidworks/Properties/CliTextTests.py)
+· [Linked document case](../../../tests/Convert/Solidworks/Properties/LinkedTextTests.py)
 
 The current host verification also reruns all six disclosed property
 cases. Its fully absent control removes both the XML and binary

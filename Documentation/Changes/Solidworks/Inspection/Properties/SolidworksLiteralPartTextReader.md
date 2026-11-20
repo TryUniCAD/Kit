@@ -14,11 +14,11 @@ checked even when it is the sole property owner. Name dictionaries, raw
 and evaluated text and reserved section fields must agree. Unsupported
 or malformed scopes withhold all property bags and provide an information
 diagnostic. The ordinary model read remains available. The registry
-refuses new native projections and direct writes of this diagnostic
-result before publishing output, with the original property failure
-in the error. When conversion uses the registered interchange JSON
-reader and writer without configuration or geometry filtering, it
-can preserve an existing snapshot and its native inspection status.
+refuses new native projections and direct writes when the root or an
+owned component document has this status. The error retains the first
+unavailable property's original cause. The registered interchange JSON
+reader and writer can preserve an existing snapshot and its native
+inspection status when configuration and geometry filtering are disabled.
 
 The version-18000 compatibility path verifies absence of authored text
 through the complete supported binary property owner and all recognized
@@ -38,6 +38,8 @@ Two generated files retain their existing modeling refusals and pass
 separate typed property checks.
 The queued direct-write case reads back all three qualified text bags,
 their configuration owner and original source provenance through JSON.
+The queue also checks an actual unavailable part wrapped in an assembly
+and a copy of a portable neutral CLI document with and without filtering.
 
 [SDK evidence](../../../../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
 · [Saved directory ownership](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/SavedDirectoryOwnsPartText.md)
