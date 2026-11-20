@@ -236,6 +236,44 @@ jobs:
                   for sketch in doc.sketches:
                       root = next(r for r in spans if r.IsPrimary and str(r.ObjectId)==sketch.provenance.native_id)
                       frame = next(p for p in doc.support_planes if p.id == sketch.support_plane_id)
+                      from convert.Formats.Fusion.Sketches.PrincipalRoute import PrincipalRoute
+                      from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchFeature
+                      from convert.Formats.Fusion.HistoryRef import ReadNativeRef
+                      from convert.Formats.Fusion.MetaCursor import MetaCursor
+                      from convert.Formats.Fusion.SelectionRef import ReadDescLeaf, ReadEntityLeaf
+                      from convert.Formats.Fusion.ConstructionPlane.OriginDatum import ReadOriginDatum
+                      owners = {r.ObjectId:r for r in spans if r.IsPrimary}
+                      feature = owners[ReadNativeRef(MetaCursor(bulk[root.EndOffset-15:root.EndOffset-4]))]
+                      try:
+                          PrincipalRoute(bulk,owners,feature)
+                      except ValueError as error:
+                          print('existing principal route:',str(error))
+                      try:
+                          cursor = MetaCursor(bulk[feature.PayloadOffset+4:feature.EndOffset])
+                          cursor.Offset = 3
+                          params = [ReadNativeRef(cursor) for _ in range(cursor.ReadCount(256))]
+                          cursor.TakeBytes(1)
+                          assert cursor.ReadWord() == 0
+                          assert ReadNativeRef(cursor)==root.ObjectId
+                          controller = ReadNativeRef(cursor)
+                          arrays = [cursor.ReadWord() for _ in range(3)]
+                          assert arrays == [0,0,0], arrays
+                          cursor.ReadText(True, Maximum=1024)
+                          cursor.TakeBytes(3)
+                          children = [ReadNativeRef(cursor) for _ in range(cursor.ReadCount(256))]
+                          assert children.count(controller)==1
+                          node=owners[controller]
+                          matrix=MetaCursor(bulk[node.PayloadOffset+4:node.EndOffset])
+                          matrix.Offset=len(matrix.DataValue)-103
+                          assert matrix.ReadWord()==1
+                          desc=ReadNativeRef(matrix)
+                          assert children.count(desc)==1
+                          assert ReadNativeRef(MetaCursor(matrix.DataValue[-11:]))==feature.ObjectId
+                          plane=ReadEntityLeaf(bulk,owners,ReadDescLeaf(bulk,owners,desc,feature.ObjectId))
+                          name,datum,container=ReadOriginDatum(bulk,owners,plane,frame.attributes["fusion.component_object_id"])
+                          print('typed support',name,'origin agrees',frame.transform.origin==datum.origin,'normal agrees',frame.transform.z_axis==datum.z_axis,'children',len(children),'parameters',len(params))
+                      except (ValueError, AssertionError) as error:
+                          print('typed support incomplete',str(error),'at cursor offset',cursor.Offset,'of',len(cursor.DataValue))
                       print(sample.split("/")[-1], "roster", bool(sketch.attributes.get("fusion.geometry_child_ids")), "support",frame.attributes.get("fusion.native_support_resolved"), "rules",HasSketchRules(bulk,root,sketch), "projected",sum(bool(e.attributes.get("fusion.geometry_is_projected")) for e in sketch.entities), "steps",[str(s.kind) for s in doc.feature_timeline if s.sketch_id == sketch.id])
           PYTHON
       - name: Exercise editable profile exports and saved edit readback
