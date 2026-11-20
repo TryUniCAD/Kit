@@ -20,7 +20,7 @@ def TestLadderMat() -> None:
         "counter": [57, 61],
         "slots": [57, 58, 59, 60],
         "spans": [[0, 52], [52, 89], [54, 89], [89, 97]],
-        "hatch": [["A", "Kit hatch"], -0.375, 1.5, -7],
+        "hatch": [["A", "Kit hatch"], -0.375, 1.5, -7, 21, -3, 5, -9, 6],
         "density": [-31, -27, 1234.5, 0],
         "model_word": -11,
     }

@@ -165,7 +165,10 @@ def authored_read(model, seed, slots):
     return {"bytes": len(data), "counter": [seed.CounterValue, decoded.MapValue.CounterValue],
             "slots": [node.IndexValue for node in nodes],
             "spans": [[node.StartOffset, node.EndOffset] for node in nodes],
-            "hatch": [hatch.FieldsValue[key] for key in ("f08", "f10", "f18", "f34")],
+            "hatch": [
+                hatch.FieldsValue[key]
+                for key in ("f08", "f10", "f18", "f34", "f20", "f24", "f28", "f2c", "f30")
+            ],
             "density": [density.FieldsValue[key] for key in ("f0c", "f08", "f58", "f68")],
             "model_word": data_node.FieldsValue["f10"]}
 
