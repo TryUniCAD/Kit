@@ -15,11 +15,14 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.CheckBrepOwners im
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.CheckBrepTree import (
     CheckBrepTree,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.LinkLocalBody import (
+    LinkLocalBody,
+)
 from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# authored labels can be projected only after the complete brep has a valid neutral body owner
+# native labels and local counts require complete binding to the selected neutral body
 def BindBodyName(Document: CadDocument, GraphValue: BodyNameGraph) -> CadDocument:
     ModelValue = Document.brep
     if ModelValue is None or len(Document.bodies) != 1:
@@ -47,9 +50,13 @@ def BindBodyName(Document: CadDocument, GraphValue: BodyNameGraph) -> CadDocumen
         raise ValueError(
             "named native body did not bind completely to its neutral owner"
         )
+    TopologyValue = DesignBody.topology
+    if GraphValue.LocalStoreKey is not None:
+        _, TopologyValue = LinkLocalBody(BoundModel, DesignBody.id, TopologyValue)
     NamedBody = ReplaceValue(
         DesignBody,
         name=GraphValue.NameValue,
+        topology=TopologyValue,
         provenance=Provenance,
         attributes=BodyAttrs,
     )

@@ -80,3 +80,8 @@ The aggregate rechecked the same pinned cohort after integrating the
 accepted standalone header codec. At `14c1d82cf5cba0c17ba14cf7e630bdd1660f084f`
 all 1,328 measured streams still replay exactly. The 88 VisualStates
 paths retain their provisional schemas. [Post-merge receipt](../measurements/2026/BinaryArchiveAfterStandaloneHeaders01.json)
+
+After integrating the accepted counted-row codec, all 88 per-file
+reports match the preceding audit. The typed wire forms preserve
+1,328 exact stream comparisons and the same schema boundaries.
+[Counted-row integration receipt](../measurements/2026/BinaryArchiveAfterCountedRows01.json)

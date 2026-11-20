@@ -160,3 +160,18 @@ three disclosed imports before and after integration. Each generated
 16-stream container and its property manager compare byte for byte. An
 independent renamed source retains its authored name and design-body link.
 [Aggregate receipt](../measurements/2026/AggregateLocalImportReadback01.json)
+
+## Bound topology for ordinary local payloads
+
+The subsequent six original and native-saved snapshots select the
+ordinary decoder's LocalBodies payload. The actual import and shared
+atom prove one closed local solid for each selected design body. The
+projection now derives the topology summary after that ownership
+check. The B-rep, raw payloads, design IDs and bounds match the prior
+reader. The revised summary has one solid, one shell, six faces,
+twelve edges and eight vertices in all six cases.
+
+The removal control alters only the actual resolved output-atom row.
+Its ordinary geometry still decodes, and the local count binding
+refuses because the reference no longer agrees with the atom manager.
+[Typed topology receipt](../measurements/2026/ImportedNativeKeywordTopology01.json)

@@ -3,6 +3,7 @@ from codecs import lookup
 from copy import deepcopy
 from dataclasses import replace
 from hashlib import sha256
+from importlib import import_module
 import json
 from pathlib import Path, PureWindowsPath
 import subprocess
@@ -26,6 +27,7 @@ from ProjectImportedSemantics import (
     read_empty_file_owner,
 )
 from VerifyBareImportPackage import BareLabels, guard_build, recipe
+from convert.Geometry.Parasolid import DecodeBrepModel
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.Metadata.FrameKeywords import (
     FrameKeywords,
@@ -54,8 +56,16 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.ReadImpKeyNod
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNodeName
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
-from convert.adapters.solidworks.Container.Format import KeywordsStream
-from convert.adapters.solidworks.Core.Adapter import NativePartModel
+from convert.adapters.solidworks.Container.Format import (
+    KLocalBodyStream,
+    KPartitionStream,
+    KeywordsStream,
+)
+from convert.adapters.solidworks.Core.Adapter import (
+    KSourceSemanticShaTwoFive,
+    NativePartModel,
+    SemanticShaTwo,
+)
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseXml
 from convert.adapters.solidworks.Core.Preparation.ThroughAll.Members.ReadLightInput import (
     ReadLightInput,
@@ -63,11 +73,20 @@ from convert.adapters.solidworks.Core.Preparation.ThroughAll.Members.ReadLightIn
 from convert.adapters.solidworks.Core.Preparation.ThroughAll.Members.ReadNotesInput import (
     ReadNotesInput,
 )
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Local.ReadLocalOwner import (
+    ReadLocalOwner,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.FindLocalOwner import (
     FindLocalOwner,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalEnvelope import (
+    ReadLocalWrap,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalKeys import (
     ReadLocalKeys,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalPayload import (
+    ReadLocalPay,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.ReadChildren import (
@@ -82,6 +101,10 @@ from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordSource import CadSource
 
 BASE = "1b70d67b854814cb5066f44028439c43f2b4a632"
+TOPOLOGY_BASE = "c0b962453fd467d8a807aff3629351536a018dc2"
+BODY_BINDER = (
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/BindBodyName.py"
+)
 BUILD = "728ab68458024189e9a6d54530a801c34e07985d53d73c5e7f2bae90f1dba1e4"
 SAVED_BUILD = "9c2625cc8a1eb59e60e3dacf835c304479bd3b3a690156ad181fc97cf3740f32"
 SAVED_NATIVE = "767e3f65aa98d85a1aa8ac2ce4eaf416a70e4b2d369662a9c2f5e243700a6249"
@@ -102,7 +125,7 @@ OWNERS = tuple(
         "Core/TypedResolved/Geometry/LocalBody/ReadLocalKeys.py",
         "Archive/Construction/Metadata/KeywordConfig.py",
     )
-)
+) + (BODY_BINDER,)
 
 
 def require(condition, message):
@@ -578,6 +601,173 @@ def generated_omission(source, destination, present):
     }
 
 
+def previous_body_binder():
+    source = subprocess.check_output(
+        ["git", "show", f"{TOPOLOGY_BASE}:{BODY_BINDER}"], cwd=ROOT
+    )
+    scope = {}
+    exec(compile(source, BODY_BINDER, "exec"), scope)
+    return scope["BindBodyName"], digest(source)
+
+
+def read_with_binders(raw, module, previous_binder):
+    current_binder = module.BindBodyName
+    with guard_build():
+        current = decode_import(raw)
+        try:
+            module.BindBodyName = previous_binder
+            previous = decode_import(raw)
+        finally:
+            module.BindBodyName = current_binder
+    return previous, current
+
+
+def ordinary_local_model(document):
+    ordinary_models = tuple(
+        (payload.source_stream, model)
+        for payload in document.brep_payloads
+        if payload.data is not None
+        and (model := DecodeBrepModel(payload.data)) is not None
+    )
+    require(
+        tuple(stream for stream, _ in ordinary_models) == (KLocalBodyStream,),
+        "replay requires one ordinary local stream decode",
+    )
+    return ordinary_models[0][1]
+
+
+def replay_body_counts(raw, module, previous_binder, feature_id):
+    previous, document = read_with_binders(raw, module, previous_binder)
+    ordinary = ordinary_local_model(document)
+    (before,) = previous.bodies
+    (body,) = document.bodies
+    (kernel_body,) = document.brep.bodies
+    counts = {
+        "solid_count": 1,
+        "shell_count": 1,
+        "face_count": 6,
+        "edge_count": 12,
+        "vertex_count": 8,
+    }
+    proof = document.metadata["solidworks.native_body_names"]
+    prior_digest = previous.metadata[KSourceSemanticShaTwoFive]
+    current_digest = document.metadata[KSourceSemanticShaTwoFive]
+    normalized = replace(
+        document,
+        bodies=(replace(body, topology=before.topology),),
+        metadata=dict(document.metadata) | {KSourceSemanticShaTwoFive: prior_digest},
+    )
+    require(
+        before.topology.solid_count == 0
+        and body.topology == replace(before.topology, **counts)
+        and normalized == previous
+        and prior_digest != current_digest
+        and SemanticShaTwo(normalized) == prior_digest
+        and SemanticShaTwo(document) == current_digest
+        and replace(document.brep, bodies=ordinary.bodies) == ordinary
+        and kernel_body.design_body_id == body.id
+        and proof["profile"] == "current_single_local_solid_names"
+        and proof["complete_brep_binding"]
+        and proof["last_modifying_feature_id"] == feature_id
+        and kernel_body.provenance == body.provenance
+        and tuple(span.record_kind for span in body.provenance.spans)
+        == ("typed-native-body-atom", "native-local-body"),
+        "proved local projection changed more than the design body counts",
+    )
+    return document, {
+        "file_sha256": digest(raw),
+        "selected_stream": KLocalBodyStream,
+        "design_body_id": body.id,
+        "previous_solid_count": before.topology.solid_count,
+        "topology": counts,
+        "only_topology_counts_and_derived_digest_changed": True,
+        "body_proof": dict(proof),
+        "body_provenance": {
+            "native_id": body.provenance.native_id,
+            "spans": [
+                {
+                    "stream": span.stream,
+                    "offset": span.offset,
+                    "length": span.length,
+                    "record_kind": span.record_kind,
+                }
+                for span in body.provenance.spans
+            ],
+        },
+        "runtime_reads": 0,
+    }
+
+
+def missing_body_owner(archive, module, previous_binder):
+    link = ReadNativeLink(archive, 0)
+    resolved = link.ResolvedValue
+    (feature,) = tuple(
+        node
+        for node in resolved.RootsValue
+        if node.ClassValue.NameValue == "moBaseBody_c"
+    )
+    feature.FieldsValue["n494"] = 0
+    feature.FieldsValue["f498"] = []
+    changed, _ = WriteResolMut(
+        resolved.RootsValue,
+        resolved.ExtraFields,
+        19000,
+        link.ConfigValue.MapValue,
+        resolved.ContextValue,
+    )
+    raw = BuildSldprt(
+        dict(archive.streams) | {link.StreamName: changed},
+        FormatVersion=archive.format_version,
+    )
+    malformed = SldprtArchive.from_bytes(raw)
+    require(
+        {
+            name
+            for name in archive.streams
+            if archive.require(name) != malformed.require(name)
+        }
+        == {link.StreamName},
+        "missing atom control changed other archive streams",
+    )
+    previous, document = read_with_binders(raw, module, previous_binder)
+    ordinary = ordinary_local_model(document)
+    local, mark = ReadLocalPay(
+        document.brep_payloads, malformed.require(KPartitionStream)
+    )
+    group = ReadLocalWrap(malformed.require(KLocalBodyStream), local)
+    owner_link = ReadNativeLink(malformed, 0)
+    try:
+        ReadLocalOwner(owner_link, group, mark)
+    except ValueError as error:
+        reason = str(error)
+        require(
+            reason == "local body atom identities disagree",
+            "control hit a different guard",
+        )
+    else:
+        raise ValueError("local counts admitted a missing atom reference")
+    (body,) = document.bodies
+    require(
+        document == previous
+        and document.brep == ordinary
+        and body.topology.solid_count == 0
+        and "solidworks.native_body_names" not in document.metadata,
+        "ordinary geometry or counts changed without native ownership proof",
+    )
+    return {
+        "control_sha256": digest(raw),
+        "changed_stream": link.StreamName,
+        "selected_stream": KLocalBodyStream,
+        "storage_key": group,
+        "rollback_mark": mark,
+        "reason": reason,
+        "design_body_id": body.id,
+        "solid_count": body.topology.solid_count,
+        "ordinary_document_unchanged": True,
+        "runtime_reads": 0,
+    }
+
+
 def replay_saved_packet(packet, source_packet):
     native = json.loads(checked(packet / "Native.json", SAVED_NATIVE))
     build = json.loads(checked(packet / "Build.json", SAVED_BUILD))
@@ -585,6 +775,10 @@ def replay_saved_packet(packet, source_packet):
         native["controls_healthy"] and native["distinct_native_processes"] == 11,
         "saved packet controls or native process inventory changed",
     )
+    module = import_module(
+        "convert.adapters.solidworks.Core.TypedResolved.BodyNames.WithBodyNames"
+    )
+    previous_binder, previous_binder_sha = previous_body_binder()
     reports = {}
     for name, source_sha in SOURCES.items():
         source = checked(source_packet / "Sources" / f"{name}.SLDPRT", source_sha)
@@ -592,7 +786,8 @@ def replay_saved_packet(packet, source_packet):
         raw = checked(packet / "SavedCopies" / f"{name}.SLDPRT", saved_sha)
         archive = SldprtArchive.from_bytes(raw)
         link = ReadNativeLink(archive, 0)
-        document = decode_import(raw)
+        _, source_topology = replay_body_counts(source, module, previous_binder, 26)
+        document, saved_topology = replay_body_counts(raw, module, previous_binder, 18)
         index, saved_roles, owners = project_index(archive, link, document)
         actual = FindLocalOwner(NativePartModel(archive, None), archive)
         destination = PureWindowsPath(build[name]["native_path"])
@@ -628,14 +823,20 @@ def replay_saved_packet(packet, source_packet):
             "roles_equal": True,
             "keyword_rows": len(saved_roles),
             "owner_ids": owners,
+            "source_topology": source_topology,
+            "saved_topology": saved_topology,
         }
         if name == "Disclosed":
             omission = generated_omission(source, destination, present)
+            omitted_owner = missing_body_owner(archive, module, previous_binder)
     return {
         "native_receipt_sha256": SAVED_NATIVE,
         "build_sha256": SAVED_BUILD,
         "cases": reports,
         "model_only_omission": omission,
+        "topology_baseline_revision": TOPOLOGY_BASE,
+        "topology_baseline_binder_sha256": previous_binder_sha,
+        "missing_body_owner": omitted_owner,
     }
 
 

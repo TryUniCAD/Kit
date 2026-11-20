@@ -101,6 +101,8 @@ On the verified cache-backed single-solid profile, the normal part reader projec
 
 For the measured single planar local BaseBody profile, the reader binds the body to its existing design ID and preserves the native label. The actual LocalBodies group and import feature select the managed atom. Derived labels use the storage key and any agreeing kernel name, and explicitly named bodies retain their Unicode label. [Local imported-body names](../../Changes/Solidworks/Reading/Names/SolidworksLocalBodyNames.md)
 
+The same proven local binding supplies solid, shell, face, edge and vertex counts when the ordinary payload decoder selects a complete body. [Local topology counts](../../Changes/Solidworks/Reading/Names/SolidworksLocalImportTopology.md)
+
 An ordinary saved cylinder retains its implicit body label when the kernel attribute, actual extrusion output atom and complete cylindrical boundary agree. In the two already supported cache-free circle profiles, the label follows the actual sole producer of the computed neutral solid. The native name proof is available only on the cache-backed route. [Implicit cylinder body labels](../../Changes/Solidworks/Reading/Names/SolidworksImplicitCylinderBodyNames.md)
 
 For the qualified Unicode case, the body label comes from the actual archive name and the agreeing implicit UTF-16 attribute owned by that body. The legacy character attribute can contain code-page substitutions. Nine disclosed source states pass the supported semantic and B-rep comparisons. [Unicode body names](../../Changes/Solidworks/Reading/Names/SolidworksUnicodeBodyNames.md)
