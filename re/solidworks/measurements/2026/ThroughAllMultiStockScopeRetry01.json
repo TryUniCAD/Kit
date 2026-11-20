@@ -1,0 +1,100 @@
+{
+  "candidate_native_status": {
+    "bytes": 718936,
+    "executable": "SLDWORKS.exe",
+    "expected_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "pe_machine": "0x8664",
+    "process_creation_filetime": 134396592631437026,
+    "process_id": 9444,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version_matches": true
+  },
+  "completed_numeric_checks": 48,
+  "direct_scope_properties": {
+    "AutoSelect": false,
+    "FeatureScope": true,
+    "FeatureScopeBodies": null,
+    "GetFeatureScopeBodiesCount": -1
+  },
+  "first_failure": {
+    "error": "ValueError('the direct scope count and body array disagree')",
+    "pending_capability": false,
+    "stage": "FeatureScopeBodies",
+    "type": "ValueError"
+  },
+  "native_com": "SldWorks.Application.34",
+  "native_result": {
+    "api_sha256": "f31fec15188279b5991ecc791a4af3e5a0d0b494ae6153389372047bf4e68f7e",
+    "distinct_processes": 3,
+    "freeze_sha256": "78224c301b11cddd78591e9a8d30f556b2353c3fddbe2f61f599b99469345bb2",
+    "heldout_coverage": 0,
+    "outcomes": {},
+    "passed": false,
+    "phase_receipts": {
+      "After": "c99243de58948313249e28beb769e1cc0ec12c7f6740a3bec2fb0ec44309180d",
+      "AutoAuthor": "9c63835fed0e8747b9d6bcdb6ce73e472cf1f2bbdad02cedcd6040aed4b65c8b",
+      "Before": "4207b687f1e0fc5bcc62c09f4d17c8ed66ed695275f5fa7b3e1430ea7da16372"
+    },
+    "phase_status": {
+      "After": true,
+      "AutoAuthor": false,
+      "Before": true
+    },
+    "production_coverage": 0,
+    "schema": "kit.sw2026.disclosed-through-all-multistock.v2",
+    "sealed_payloads_read": 0,
+    "serial": true
+  },
+  "native_summary_sha256": "52bd6d7d9f6d1fa5dcf88cd00c44035dd9017954591b644f0e9f6741a69dbffe",
+  "observed_request": {
+    "arguments": [
+      true,
+      false,
+      true,
+      1,
+      0,
+      0.012,
+      0.006,
+      false,
+      false,
+      false,
+      false,
+      0.0,
+      0.0,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      0,
+      0.0,
+      false,
+      false
+    ],
+    "body_mark": null,
+    "preselected_producer": null,
+    "profile_mark": 0,
+    "selected_body_name": null
+  },
+  "oracle_version": "34.5.2.0604",
+  "schema": "kit.sw2026.disclosed-through-all-multistock.failure-receipt.v2",
+  "tool_revision": "b32b0bf85db4d038b35abb2ad2370618429a944a",
+  "tool_sha256": "f22c6aff370859b79e9e43dd94f716fdaab81d47163461e20f55f4d6b291fdee"
+}
