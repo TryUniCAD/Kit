@@ -424,3 +424,24 @@ def CheckUnlabelledDimensionStream(TmpPath: FilePath) -> None:
     Original = next(Row for Row in Comparison["records"] if Row["name"] == "angle_deg")
     assert abs(Angle["value"] * 4 - Original["value"]) < 1e-12
     assert (Output / "Reader.patch").is_file()
+
+
+# a reversed saved extrusion must agree with edited geometry and reject stale end positions
+def CheckReversedSavedPrism(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Run = TmpPath / "research"
+    Result = RunProcess(
+        [PythonPath, "-m", "KitCli", "run", "--root", str(Root), "auto", "--input",
+         str(Root / "re/FreeCad/Verification/ReversedFrontEdited.FCStd"),
+         "--directory", str(Run), "--workers", "1", "--reserved-memory-mib", "512"],
+        capture_output=True, text=True, timeout=300,
+    )
+    assert Result.returncode == 2, Result.stderr
+    Edit, = LoadJson((Run / "Input-native-edits.json").read_bytes())["changes"]
+    Geometry = Edit["saved_geometry"]
+    assert Edit["field"] == "LengthFwd"
+    assert Geometry["saved_stations_mm"] == [-14.0, 5.0]
+    assert Geometry["embedded_stations_mm"] == [-11.0, 5.0]
+    assert Geometry["saved_depths_match"] is True
+    assert Geometry["embedded_depths_match"] is False
+    assert LoadJson((Run / "FileStall.json").read_bytes())["focus"] == "edited_graph_reconciliation"
