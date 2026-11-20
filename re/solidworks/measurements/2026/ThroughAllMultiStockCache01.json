@@ -1,0 +1,128 @@
+{
+  "baseline_revision": "5b51280a4d9ddf03a35445650a8c5c4077e523a3",
+  "distinct_host_processes": 9,
+  "generated_native_files": 0,
+  "heldout_read_count": 0,
+  "native_processes_started": 0,
+  "phases": {
+    "cross-carrier": {
+      "external_access_attempts": 0,
+      "refusal": "saved stock body does not match its decoded faces and carriers"
+    },
+    "cross-producer": {
+      "external_access_attempts": 0,
+      "refusal": "saved kernel body tag or producer differs from its surviving atom"
+    },
+    "detached-face": {
+      "external_access_attempts": 0,
+      "refusal": "saved stock cache has unowned native faces or shell topology"
+    },
+    "detached-world": {
+      "external_access_attempts": 0,
+      "refusal": "saved stock cache has detached or alternate world bodies"
+    },
+    "pointer-mirror": {
+      "external_access_attempts": 0,
+      "refusal": "saved stock cache has alternate tracking pointer lanes"
+    },
+    "retired-atom": {
+      "external_access_attempts": 0,
+      "refusal": "saved kernel body does not identify a surviving stock atom"
+    },
+    "selected": {
+      "bodies": [
+        {
+          "atom_id": 102,
+          "body_index": 2,
+          "brep_body_id": "sldprt:brep:body:atom:102",
+          "design_body_id": "sldprt:body:atom:102",
+          "face_carriers": {
+            "sldprt:brep:face:105": "sldprt:brep:surface:53",
+            "sldprt:brep:face:108": "sldprt:brep:surface:136",
+            "sldprt:brep:face:122": "sldprt:brep:surface:133",
+            "sldprt:brep:face:123": "sldprt:brep:surface:134",
+            "sldprt:brep:face:52": "sldprt:brep:surface:9",
+            "sldprt:brep:face:99": "sldprt:brep:surface:141"
+          },
+          "name": "MovingStock",
+          "producer_id": 40,
+          "regions": [
+            "sldprt:brep:region:derived:1"
+          ]
+        },
+        {
+          "atom_id": 103,
+          "body_index": 6,
+          "brep_body_id": "sldprt:brep:body:atom:103",
+          "design_body_id": "sldprt:body:atom:103",
+          "face_carriers": {
+            "sldprt:brep:face:173": "sldprt:brep:surface:294",
+            "sldprt:brep:face:181": "sldprt:brep:surface:45",
+            "sldprt:brep:face:234": "sldprt:brep:surface:292",
+            "sldprt:brep:face:248": "sldprt:brep:surface:289",
+            "sldprt:brep:face:265": "sldprt:brep:surface:296",
+            "sldprt:brep:face:268": "sldprt:brep:surface:294",
+            "sldprt:brep:face:278": "sldprt:brep:surface:180",
+            "sldprt:brep:face:286": "sldprt:brep:surface:283"
+          },
+          "name": "ThroughFeature",
+          "producer_id": 47,
+          "regions": [
+            "sldprt:brep:region:derived:2"
+          ]
+        }
+      ],
+      "external_access_attempts": 0,
+      "history_boundary": {
+        "decompressed_offset": 144,
+        "delta_key": 3,
+        "error": "current kernel framing differs",
+        "expected_words": [
+          1,
+          1
+        ],
+        "observed_words": [
+          98,
+          65280
+        ],
+        "pmark_id": 21,
+        "pmark_index": 378
+      },
+      "retired_atom_id": 101,
+      "stream": "Contents/Config-0-Partition",
+      "unchanged_geometry_except_body_grouping": true
+    },
+    "unrestricted": {
+      "external_access_attempts": 0,
+      "refusal": "two stock cut requires its actual selected scope"
+    },
+    "world-order": {
+      "external_access_attempts": 0,
+      "reversed_world_chain": [
+        6,
+        2
+      ],
+      "same_brep_and_body_order": true
+    }
+  },
+  "public_projection_qualified": false,
+  "reader_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/MapStockBrep.py": "dc2523540570ed16a08a2688ce4a60a9517cb8a78012561ed14044ce95732f8c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/ReadBrepGroups.py": "09f9d80883f1cf8570193996a10d776abf486c584026c518dfeb6a639e9704d3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/ReadCacheBodies.py": "b02f7e2d4a1e4e0bf314b1561f6d0ce59698b5bcaeb49dd429985f37c8c9c2d9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/ReadCacheBody.py": "4fff76103dabb61f9b7d68739f6c2cf43d3697797b26cc2d081c6c49973c84d5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/ReadCacheFaces.py": "efb87d93430854a18ed9af619e3d2761ecf72a5e02d7574140d0ee69f109b3b8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/ReadCacheShell.py": "d3d86fb2d04a49c02c2cb82233a20bc438b8edefc645f9bbd8c815f056fc7885",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/ReadStockCache.py": "5fe692ee387b2435e5c9a33f4f487162af743d074c8b84b5c24261e717f3dc16",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/ReadStockData.py": "68b5d00be0ed66c7046b2fbd94b9b249a135d9471ae316e995b9a7255d1fc6b5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/StockCacheBody.py": "21af7a4a3b3b42b4650caf55cf79da3a6389326465821a5d7118d0cd35d6eb92",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cache/StockCacheGeom.py": "959b48358ba828a4d3bd68804724f2dfc3555623ea702c79d80eabfd35b9eea7"
+  },
+  "schema": "kit.sw2026.saved-two-stock-cache.v1",
+  "source_sha256": {
+    "ThroughAllBodies02": "f87568db0dfa361ea44c42def01063c8ed07ea57c8270098cf3c60995e3e3b22",
+    "ThroughMultiStock03": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3"
+  },
+  "tool_sha256": "f6e818faf6d9eca09280cd406f8ffc4445046ec8e7d8b09d836e24de5f642d33",
+  "worktree_head": "5b51280a4d9ddf03a35445650a8c5c4077e523a3"
+}
