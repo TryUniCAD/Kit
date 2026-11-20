@@ -94,7 +94,15 @@ recursive tree, live D1, stock and cut end definitions, support frame,
 body count, volume, area, centre of mass and material-free COM mass.
 The saved candidate retains scope 1 and the actual selected-stock alias
 through strict SDK readback with zero external accesses. It records
-six informational unresolved presentation names. The original's
-continuous automatic scope still refuses. The result adds zero
-production, complete-source or FCStd benchmark credit.
+six informational unresolved presentation names. The complete-source
+gate still refuses the unresolved scope semantics and other source
+owners. The result adds zero production, complete-source or FCStd
+benchmark credit.
 [H02 scoped comparison receipt](../measurements/2026/SdkLockedThroughAllScopedParity01.json)
+
+The disclosed scope follow-up finds that a fresh one-stock author call
+with `UseAutoSelect=True` already returns `AutoSelect=False` on the
+created definition. Save and fresh reopen preserve that observed scope.
+Both disclosed source controls and the generated explicit-selection
+control return the same pair of properties. Multibody automatic
+selection remains unmeasured. [Direct COM scope observation](ThroughAllAutoScopeObservation2026.md)
