@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 from codecs import lookup
 from dataclasses import replace
+from functools import partial
 from hashlib import sha256
 from json import dumps
 from pathlib import Path
@@ -200,6 +201,15 @@ def update_config(root, manager, header, output, allocator, field, value):
     return root, manager, header, output, allocator
 
 
+def exhausted_input(*_):
+    return build_inputs({
+        **CASES["straight"],
+        "root_id": 0x7FFFFFFB,
+        "feature_ids": (0x7FFFFFFC, 0x7FFFFFFD),
+        "reserved": (0x7FFFFFFE,),
+    })
+
+
 def refusals():
     duplicate = lambda root, manager, header, output, alloc: update_manager(
         root, manager, header, output, alloc, "f368",
@@ -216,27 +226,27 @@ def refusals():
         check_refusal("distinct_selector", duplicate, "active independent configuration"),
         check_refusal(
             "duplicate_count",
-            lambda *args: update_manager(*args, "f40c", 2),
+            partial(update_manager, field="f40c", value=2),
             "requires one actual independent configuration",
         ),
         check_refusal(
             "configuration_parent",
-            lambda *args: update_config(*args, "f6a0", native_node("moPartConfiguration_c", {})),
+            partial(update_config, field="f6a0", value=native_node("moPartConfiguration_c", {})),
             "active independent configuration",
         ),
         check_refusal(
             "foreign_configuration_owner",
-            lambda *args: update_config(*args, "owner", native_node("moPart_c", {})),
+            partial(update_config, field="owner", value=native_node("moPart_c", {})),
             "active independent configuration",
         ),
         check_refusal(
             "excluded_configuration",
-            lambda *args: update_config(*args, "fbe0", 1),
+            partial(update_config, field="fbe0", value=1),
             "does not admit excluded configurations",
         ),
         check_refusal(
             "comment_sidecar",
-            lambda *args: update_config(*args, "f2f0", native_node("suObList", {"items": ()})),
+            partial(update_config, field="f2f0", value=native_node("suObList", {"items": ()})),
             "does not admit excluded configurations or comment sidecars",
         ),
         check_refusal(
@@ -267,6 +277,7 @@ def refusals():
             ),
             "native self path must identify a part",
         ),
+        check_refusal("exhausted_id_space", exhausted_input, "persistent id space exhausted"),
     ]
 
 

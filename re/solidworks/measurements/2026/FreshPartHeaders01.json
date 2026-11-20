@@ -125,7 +125,8 @@
           "unallocated_part",
           "assembly_root",
           "early_save",
-          "nonpart_extension"
+          "nonpart_extension",
+          "exhausted_id_space"
         ]
       }
     },
@@ -356,7 +357,7 @@
     }
   },
   "passed": true,
-  "production_manifest_sha256": "a119d5986027da75d0d0eb900935053b0d1350212a73a04a019f020b42f0cbfe",
+  "production_manifest_sha256": "539b1e1b57b68766e3159357b37b16f5e542e72f880026a4627ca604f4b4b3bb",
   "production_sources": {
     "src/convert/adapters/solidworks/Archive/Construction/Files/MakeFileConfig.py": {
       "delivered_sha256": "b9a19dec373c00b071e9ea362dffc57271c97d037e0a08b5dcc5fb9b5c3d88ec",
@@ -419,7 +420,7 @@
       "source_sha256": "8a3b61be1e1c436ee1c67dc76f02507397b00a360dd432db72e4c4f7dc794157"
     },
     "src/convert/adapters/solidworks/Archive/Construction/Nodes/PersistentIds.py": {
-      "delivered_sha256": "501230bc5167d1bbcc1761d2772dacbc37797cb20e4dc0280a9d97ac17114ac0",
+      "delivered_sha256": "8eb3a480339e0a470b33b063a07f2a72c2adb09ee3c02275116221ab997dcf6e",
       "source_sha256": "1ceff807e1f749498984af1749f77f93a1d19aef3261229b72da3dee3662dd60"
     }
   },
@@ -438,12 +439,12 @@
     "native_runs": 0,
     "original_heldout_inputs_read": 0,
     "preserved_disclosed_sources": 2,
-    "refusals": 11
+    "refusals": 12
   },
   "worker_and_queue_sources_sha256": {
     "re/tooling/sw2026/AuthorFreshHead.py": "e50a291872611e90baa718992553b960dc6db2ce2c04011f4329881ad014032c",
-    "re/tooling/sw2026/CheckFreshHeads.py": "062ad56532891d9cbe9d9fd773531729c9119a3e511a02f177399f27cd6ffc03",
-    "tests/Convert/Solidworks/ArchiveHeader/FreshHeadTests.py": "a7a4c38a0f864668df2f64969d5692922ab05d145326d0d03fa70250188df1fd",
+    "re/tooling/sw2026/CheckFreshHeads.py": "06b1d53885758c6441722ea88b6826004c3ed74d7b7a99350579d217ea5fee01",
+    "tests/Convert/Solidworks/ArchiveHeader/FreshHeadTests.py": "cb047de17ca95cccf4231202c24d1462ac84edfbdb10443d5087cfcb5f5ee8d2",
     "tests/Convert/Solidworks/ArchiveHeader/RunFreshHead.py": "dcaa581bf270afc8549a6b279caa341e15c1a9b1a98be6393d8412e63d656578"
   }
 }

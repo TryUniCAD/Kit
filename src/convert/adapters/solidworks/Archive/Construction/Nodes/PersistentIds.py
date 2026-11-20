@@ -22,6 +22,8 @@ class PersistentIds:
         NumberValue = self.CounterValue
         while NumberValue in self.ReservedSet:
             NumberValue += 1
+        if NumberValue >= 0x7FFFFFFF:
+            raise ValueError("persistent id space exhausted")
         return NumberValue
 
     # repeated allocation must retain the same actual node identity and reject externally replaced ids
@@ -43,8 +45,6 @@ class PersistentIds:
         if NodeValue.FieldsValue.get(FieldName, -1) != -1:
             raise ValueError("fresh nodes cannot supply an existing persistent id")
         NumberValue = self.NextValue
-        if NumberValue >= 0x7FFFFFFF:
-            raise ValueError("persistent id space exhausted")
         self.CounterValue = NumberValue + 1
         self.Allocations[KeyValue] = NumberValue
         NodeValue.FieldsValue[FieldName] = NumberValue

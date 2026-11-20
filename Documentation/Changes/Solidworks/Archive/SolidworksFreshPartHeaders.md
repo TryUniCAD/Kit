@@ -15,7 +15,7 @@ Three guarded authored cases match all nine independently framed
 streams. Consecutive reservations after the last allocation advance
 both Header counters to the ID the allocator actually returns.
 The existing L1 and ConcaveOwned controls retain six
-exact streams in separate replay processes. Eleven guard cases
+exact streams in separate replay processes. Twelve guard cases
 exercise the construction boundary. This change supplies internal
 graph construction. Complete part emission and public writing
 have separate acceptance conditions.

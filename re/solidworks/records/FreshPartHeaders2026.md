@@ -64,6 +64,8 @@ text, description fallback, signed manager state and rebuild status.
 The trailing-reservation case reserves 8 and 9 after allocating 7.
 Both Header counters store 10 and the immediately following allocation
 returns 10. The manager directory bytes remain exact.
+Reserving the final signed ID refuses Header construction before any
+header bytes are emitted.
 
 The native reference scope is SOLIDWORKS 2026 SP05.2
 `34.5.2.0604`. The two separately run control readers verify the
@@ -72,7 +74,7 @@ digests and indexes agree with the accepted Header and CMgrHdr2
 observations. L1 is native-authored. ConcaveOwned is a generated
 fixture with prior native observations. L1 has equal standalone
 Header digests. ConcaveOwned has different digests. Neither fixture
-feeds the constructor. Eleven authored invalid owner and input
+feeds the constructor. Twelve authored invalid owner and input
 cases refuse before yielding a header graph.
 
 ```sh

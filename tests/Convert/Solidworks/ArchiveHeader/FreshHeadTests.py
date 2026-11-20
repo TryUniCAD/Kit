@@ -70,4 +70,5 @@ def TestHeadRefusal(TmpPath: FilePath) -> None:
         "assembly_root",
         "early_save",
         "nonpart_extension",
+        "exhausted_id_space",
     ]
