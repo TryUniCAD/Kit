@@ -5,8 +5,11 @@ from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 
 
-# embedded values retain a distinct field owner inside the enclosing object
+# base records share fields while embedded values retain a distinct native field owner
 def ReadNestedMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
+    if RuleValue.KindValue == "Base":
+        FrameValue.SchemaReader(FrameValue, RuleValue.NameValue)
+        return
     Fields: dict[str, object] = {}
     ScopeValue = FieldScope(Fields, FrameValue.ScopeValue)
     ChildFrame = ReplaceValue(FrameValue, ScopeValue=ScopeValue)

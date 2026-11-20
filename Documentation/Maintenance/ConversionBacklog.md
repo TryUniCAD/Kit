@@ -142,6 +142,19 @@ coverage, and revision-bound CI and review. Neutral graph projection and
 part and assembly writer qualification have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
 
+### B04-SW2026-CONFIG-UNITS
+
+The PR #121 takeover team owns this unit-table reader on
+`codex/solidworks-config-unit-tables` for separate main delivery. It reuses
+the [typed maps](../../re/solidworks/records/ArchiveObjectMapSlice2026.md) and
+[body field and counted row codecs](../../re/solidworks/records/BodyValueSlice2026.md).
+Exit requires measured record and map identity for the disclosed ladder
+and concave parts, invalid frame and owner refusals through the queue
+processes, and current revision review and CI. The remaining executors,
+configuration owners and full physical `Config-0` admission have separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigUnitTables.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent owns this active reader compatibility task.
