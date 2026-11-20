@@ -15,10 +15,14 @@ Commit the protocol and evaluator before opening either sealed
 original or its measurements. The host freeze verifies Git
 ancestry, the exact source tree, the source lock chronology, the
 four disclosed outcomes and the healthy control file. It emits
-`Freeze.json`, a Git archive with the production source and exact
-observation tools, and the matching evaluator on the Mac share.
-Record the freeze digest before issuing either guest command.
-[Frozen evaluator](../../tooling/sw2026/revolve/PrincipalWriter/EvaluatePrincipalRevolves.py)
+`Freeze.json`, a packet with the disclosed revision's production
+Git archive and exact research blobs, and the matching evaluator
+on the Mac share. Record the freeze digest before issuing either
+guest command. The first bundle used the release archive's
+`export-ignore` and omitted the research inventory. Its validation
+stopped before the specification or either native original was read.
+The second bundle adds the individually pinned research blobs.
+[Frozen evaluator](../../tooling/sw2026/revolve/PrincipalWriter/EvaluatePrincipalRevolves.py) · [Source staging gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/SourceStaging/FrozenSourceNeedsCanonicalPaths.md)
 
 The Windows preparation opens the hash-pinned private authored
 specification after validation of the frozen files. It selects the
@@ -76,7 +80,7 @@ digest returned by the first.
 
 ```sh
 python3.14 -B re/tooling/sw2026/revolve/PrincipalWriter/EvaluatePrincipalRevolves.py \
-  freeze --name PrincipalRevolveEvaluation01
+  freeze --name PrincipalRevolveEvaluation02
 prlctl exec 'Windows 11' --current-user "$guest_python" -B "$guest_evaluator" \
   prepare --packet "$guest_freeze" --freeze-sha256 "$freeze_sha256"
 prlctl exec 'Windows 11' --current-user "$guest_python" -B "$guest_evaluator" \

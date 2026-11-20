@@ -8,8 +8,9 @@ import json
 from math import cos, isclose, isfinite, radians, sin
 import os
 from pathlib import Path, PureWindowsPath
+import re
 from subprocess import check_output, run
-from tarfile import open as open_tar
+from tarfile import TarInfo, open as open_tar
 import sys
 import time
 
@@ -96,8 +97,22 @@ def locked_slots(lock):
     return rows
 
 
+def pack(source, research):
+    output = BytesIO()
+    with open_tar(fileobj=BytesIO(source), mode="r:") as sdk, open_tar(fileobj=output, mode="w:gz") as bundle:
+        for entry in sdk:
+            bundle.addfile(entry, sdk.extractfile(entry) if entry.isfile() else None)
+        for name, payload in sorted(research.items()):
+            entry = TarInfo(name)
+            entry.size = len(payload)
+            entry.mode = 0o644
+            bundle.addfile(entry, BytesIO(payload))
+    return output.getvalue()
+
+
 def freeze(name):
-    require(os.name != "nt" and name == "PrincipalRevolveEvaluation01", "use the pinned fresh host packet")
+    require(os.name != "nt" and re.fullmatch(r"PrincipalRevolveEvaluation\d{2}", name) is not None,
+            "use a fresh principal revolve host packet")
     repo = HERE.parents[5]
     root = HOST / name
     require(not root.exists(), "packet already exists")
@@ -108,9 +123,8 @@ def freeze(name):
     method = git("rev-parse", "HEAD").decode().strip()
     for parent, child in ((LOCK_COMMIT, FIRST), (FIRST, WRITER), (WRITER, method)):
         git("merge-base", "--is-ancestor", parent, child)
-    tree = git("rev-parse", f"{method}:src").decode().strip()
-    require(tree == SOURCE_TREE and git("rev-parse", f"{WRITER}:src").decode().strip() == tree,
-            "method does not use the disclosed writer tree")
+    tree = git("rev-parse", f"{WRITER}:src").decode().strip()
+    require(tree == SOURCE_TREE, "package does not use the disclosed writer tree")
     exact = {name: git("show", f"{method}:{name}") for name in PACKED}
     lock = json.loads(exact[LOCK_PATH])
     locked_slots(lock)
@@ -122,7 +136,7 @@ def freeze(name):
             and len(evaluated["cases"]) == 4, "writer chronology or disclosed acceptance differs")
     require(exact[EVALUATOR] == HERE.read_bytes(), "running a different method from the committed code")
     checked(HOST / CONTROL, CONTROL_SHA)
-    package = git("archive", "--format=tar.gz", method, "src", *PACKED)
+    package = pack(git("archive", "--format=tar", WRITER, "src"), exact)
     value = {
         "schema": SCHEMA, "method_revision": method, "writer_revision": WRITER, "source_tree": tree,
         "first_orientation_writer": FIRST, "first_orientation_writer_epoch": first_written,
