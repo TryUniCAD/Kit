@@ -177,6 +177,17 @@ evidence. Full configuration admission and write coverage have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
 
+### B04-SW2026-CONFIG-VIEWS
+
+The PR #121 takeover team owns this bounded `moView_c` reader on
+`codex/solidworks-config-view-context`. It depends on the shared
+member reader and field actions from #187. Exit requires both disclosed
+view groups, the authored archive state and refusal cases, and current
+revision queue and review evidence. Full configuration admission,
+annotation view owners and populated presentation lists retain separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+
 ### B04-SW2026-CONFIG-THREAD-MARK
 
 The PR #121 takeover team owns this bounded thread and mark read
@@ -200,6 +211,17 @@ Complete configuration admission and the property owner's physical
 link remain separate work.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
+### B04-SW2026-CONFIG-LW-MATERIAL
+
+The PR #121 takeover team owns the ordinary material and model-data
+read slice on `codex/solidworks-config-material-owners`. It uses
+the accepted part header handoff and lightweight node grammar.
+Exit requires both measured suffixes and map identities, guarded
+authored contrasts and refusals, and current revision review and queue
+evidence. Complete configuration admission and material assignment
+retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
 ### B04-SW2026-CONFIG-CACHES
 
 The PR #121 takeover team owns the bounded part cache reader on
@@ -220,6 +242,16 @@ manager and producer identities, guarded signed state and rejection
 cases, and current revision queue and review evidence. Inline bodies,
 handle modes and full configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+
+### B04-SW2026-CONFIG-FONT-FIELDS
+
+The PR #121 takeover team owns this bounded reader on
+`codex/solidworks-config-annotation-font` for separate main delivery.
+It reuses the accepted scalar, text and embedded field readers and the
+part header handoff. Exit requires exact native field and map comparisons,
+guarded malformed cases and current revision queue and review evidence.
+The composed label, annotation and detail definitions have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
 
 ### B08-SW2026-TERMINAL-FIN
 

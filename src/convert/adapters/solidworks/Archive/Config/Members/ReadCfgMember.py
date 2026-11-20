@@ -1,4 +1,6 @@
+from collections.abc import Mapping
 from functools import partial as PartialValue
+from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
@@ -11,6 +13,9 @@ from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
 )
 from convert.adapters.solidworks.Archive.Config.Members.CheckCfgMember import (
     CheckCfgMember,
+)
+from convert.adapters.solidworks.Archive.Config.Members.CopyMemberFlags import (
+    CopyMemberFlags,
 )
 from convert.adapters.solidworks.Archive.Config.Members.MemberLayouts import (
     KMemberLayouts,
@@ -35,6 +40,8 @@ def ReadCfgMember(
     VersionValue: int,
     SeedValue: MapSnapshot,
     MemberClass: RuntimeClass,
+    *,
+    FlagSeed: Mapping[str, int] | None = None,
 ) -> CfgMemberGraph:
     if type(VersionValue) is not int or VersionValue != 19000:
         raise BodyUnsupported(
@@ -42,8 +49,13 @@ def ReadCfgMember(
         )
     if MemberClass.SchemaValue not in KCfgMemberSchemas.get(MemberClass.NameValue, ()):
         raise BodyUnsupported("SOLIDWORKS configuration member has an unsupported role")
+    FlagsValue = CopyMemberFlags(MemberClass, FlagSeed)
     ContextValue = BodyContext(
-        VersionValue, KMemberLayouts, KMemberVirtuals, KCfgMemberSchemas
+        VersionValue,
+        KMemberLayouts,
+        KMemberVirtuals,
+        KCfgMemberSchemas,
+        FlagsValue=FlagsValue,
     )
     MapValue = ArchiveMaps(SeedValue.CounterValue, SeedValue)
     ReaderValue = GraphReader(
@@ -57,5 +69,8 @@ def ReadCfgMember(
     CheckCfgMember(RootValue, MemberClass, MapValue)
     ContextValue.UsageValue.IsComplete = True
     return CfgMemberGraph(
-        RootValue, MapValue.Snapshot(), GetBodyReport(ContextValue.UsageValue)
+        RootValue,
+        MapValue.Snapshot(),
+        GetBodyReport(ContextValue.UsageValue),
+        MappingProxyType(FlagsValue),
     )

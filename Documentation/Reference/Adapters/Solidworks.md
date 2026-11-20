@@ -87,11 +87,21 @@ concrete virtual targets. The sketch map backlink retains the newly
 allocated manager's identity.
 [Configuration field action scope](../../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
 
+The bounded configuration member reader also handles the ordinary view
+record with compact transforms and empty presentation lists. Context
+changes govern both optional list windows in the same archive.
+[Configuration view scope](../../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+
 The same member reader accepts a concrete partition mark and an absent
 or empty thread reference manager. The archive slot and kernel mark ID
 remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
+
+The bounded lightweight material reader handles the part hatch, optional
+density parameter, model data with an absent scene and empty body visual
+counts. Each concrete owner retains its actual archive slot.
+[Lightweight material scope](../../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
 
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
@@ -115,6 +125,12 @@ with their signed IDs and existing map context. Later feature links
 can reuse those exact objects. The stored unsigned atom state remains
 available alongside its runtime projection.
 [Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+
+The shared version-19000 body reader has layouts for line fonts, embedded
+widths, character formats, and print width tables in part detail definitions.
+These fields retain their wire values and leave the archive map unchanged.
+Complete detail definitions require the remaining annotation and table owners.
+[Configuration font scope](../../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
 
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.

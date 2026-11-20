@@ -95,15 +95,15 @@ The registry maps each job kind to one runner.
 The runner and schema paths in this example are placeholders.
 The repository does not ship a registry, because no production runner exists yet.
 
-| Field                     | Required | Meaning                                                                                                         |
-| ------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `pool`                    | Yes      | Pool that runs this job kind                                                                                    |
-| `argv`                    | Yes      | 1–64 arguments; a whole `{session}` argument is the only substitution                                           |
-| `result_schema`           | Yes      | JSON Schema for the `records` value; relative paths resolve from the root                                       |
-| `threads`                 | No       | Threads per session, 1–256; recorded for A08b capacity limits                                                   |
-| `max_memory_mib`          | No       | Sampled group-memory stop threshold, 1–1,048,576 MiB; default twice the initial estimate, capped at the maximum |
-| `initial_peak_memory_mib` | No       | First memory estimate, 1–1,048,576 MiB; recorded for A08b capacity limits                                       |
-| `application_installation` | No     | Owner-controlled application installation for [acknowledging accepted output](../../Changes/Research/Workers/SupervisedApplicationAcceptance.md). Relative paths resolve from the registry directory. Requires the built-in A03 adapter and a single-job runner. |
+| Field                      | Required | Meaning                                                                                                                                                                                                                                                          |
+| -------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pool`                     | Yes      | Pool that runs this job kind                                                                                                                                                                                                                                     |
+| `argv`                     | Yes      | 1–64 arguments; a whole `{session}` argument is the only substitution                                                                                                                                                                                            |
+| `result_schema`            | Yes      | JSON Schema for the `records` value; relative paths resolve from the root                                                                                                                                                                                        |
+| `threads`                  | No       | Threads per session, 1–256; recorded for A08b capacity limits                                                                                                                                                                                                    |
+| `max_memory_mib`           | No       | Sampled group-memory stop threshold, 1–1,048,576 MiB; default twice the initial estimate, capped at the maximum                                                                                                                                                  |
+| `initial_peak_memory_mib`  | No       | First memory estimate, 1–1,048,576 MiB; recorded for A08b capacity limits                                                                                                                                                                                        |
+| `application_installation` | No       | Owner-controlled application installation for [acknowledging accepted output](../../Changes/Research/Workers/SupervisedApplicationAcceptance.md). Relative paths resolve from the registry directory. Requires the built-in A03 adapter and a single-job runner. |
 
 The schema checker accepts `type`, `properties`, `required`, `additionalProperties`, `items`, `enum`, `const`, `minLength`, `maxLength`, `minimum`, `maximum`, `minItems` and `maxItems`.
 It refuses a schema that uses any other keyword.
