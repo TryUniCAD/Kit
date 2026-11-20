@@ -1,0 +1,697 @@
+{
+  "base_revision": "b503656075e6934107884e15fd041705bf5c07f0",
+  "base_sdk_tree": "c1967f83c511b6ffc699684335e132704851a1fb",
+  "cases": {
+    "A20": {
+      "closed_source_gate": {
+        "actual_mates_feature_ids": [
+          "sldprt:feature:11"
+        ],
+        "actual_native_root_rows": 25,
+        "actual_source_child_rows": 19,
+        "child_literal_property_count": 0,
+        "child_metadata_keys": [
+          "adapter",
+          "custom_properties",
+          "document_summary",
+          "file_id",
+          "kit.wrapper_metadata_keys",
+          "native_class_names",
+          "native_feature_count",
+          "native_name_record_count",
+          "native_scalar_count",
+          "solidworks.part_text_properties",
+          "solidworks.typed_configuration_graph",
+          "solidworks.typed_configuration_manager",
+          "solidworks.typed_resolved_semantics",
+          "solidworks_source_bytes",
+          "solidworks_source_format_id",
+          "solidworks_source_semantic_sha256",
+          "solidworks_source_sha256",
+          "source_display_units",
+          "source_display_units_stream",
+          "stream_names"
+        ],
+        "child_source_extension_keys": [
+          "file_id",
+          "stream_count"
+        ],
+        "child_summary_item_count": 0,
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "neutral_mate_group_count": 0,
+        "refusal": "ValueError('assembly root contains unprojected model content')",
+        "root_metadata_keys": [
+          "adapter",
+          "assembly_definition_count",
+          "assembly_flattened_mate_count",
+          "assembly_flattened_occurrence_count",
+          "assembly_instance_count",
+          "assembly_mate_count",
+          "assembly_mesh_count",
+          "file_id",
+          "kit.wrapper_metadata_keys",
+          "native_class_names",
+          "native_feature_count",
+          "native_name_record_count",
+          "native_scalar_count",
+          "solidworks.typed_configuration_graph",
+          "solidworks.typed_configuration_manager",
+          "solidworks.typed_mates_semantics",
+          "solidworks.typed_resolved_semantics",
+          "solidworks_source_bytes",
+          "solidworks_source_format_id",
+          "solidworks_source_semantic_sha256",
+          "solidworks_source_sha256",
+          "stream_names"
+        ],
+        "root_source_extension_keys": [
+          "file_id",
+          "stream_count"
+        ]
+      },
+      "crossed_source_owner_refusal": "ValueError('native rectangle display does not match the strict source relation owner')",
+      "guarded_label_construction": {
+        "child_changed_streams": [
+          "Contents/Config-0-ResolvedFeatures"
+        ],
+        "default_control": {
+          "actual_owner_identities": {
+            "D1": {
+              "display_id": 10,
+              "display_index": 177,
+              "driving_value_m": 0.04,
+              "group_slot": 0,
+              "handle_index": 179,
+              "parameter_index": 162,
+              "selected_point_indices": [
+                0,
+                1
+              ],
+              "sketch_index": 149,
+              "value_id": 19,
+              "value_index": 160
+            },
+            "D2": {
+              "display_id": 11,
+              "display_index": 182,
+              "driving_value_m": 0.02,
+              "group_slot": 1,
+              "handle_index": 183,
+              "parameter_index": 167,
+              "selected_point_indices": [
+                1,
+                2
+              ],
+              "sketch_index": 149,
+              "value_id": 20,
+              "value_index": 166
+            }
+          },
+          "child_resolved": {
+            "bytes": 17289,
+            "sha256": "a5ac87861e94fbb2d8533143020219c7249d92ab6ed12809be10ccc42336f4ce"
+          },
+          "child_sha256": "85d5c13bf1ec7bd8932f4b34097c07b08f6eae50166e1d9366efcb5124ebf773",
+          "child_stream_count": 10,
+          "parent_sha256": "1965ccb38a61591dc8e368e812b2eec63ce05d627c74676f6a5a61f6e1a3a61c",
+          "parent_stream_count": 12,
+          "request_sha256": "9b979e861be4611b84f0a723989c61cadc46c8c0e62ed8773906314f7556b48d",
+          "typed_label_intent": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.0,
+                -0.015,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.03,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "witness_lengths_m": {
+            "D1": 0.004999999999999999,
+            "D2": 0.009999999999999998
+          },
+          "worker_pids": [
+            23749,
+            24144
+          ],
+          "worker_stdout_sha256": [
+            "b37edad4bfd9620c4a240612d660c816cac7132ce99d88258420f8900c00596f",
+            "cef0be47564c1a39a763ef0bbd7b95a7ece0432be9321d0bfec0644f242a67c7"
+          ]
+        },
+        "generated": {
+          "actual_owner_identities": {
+            "D1": {
+              "display_id": 10,
+              "display_index": 177,
+              "driving_value_m": 0.04,
+              "group_slot": 0,
+              "handle_index": 179,
+              "parameter_index": 162,
+              "selected_point_indices": [
+                0,
+                1
+              ],
+              "sketch_index": 149,
+              "value_id": 19,
+              "value_index": 160
+            },
+            "D2": {
+              "display_id": 11,
+              "display_index": 182,
+              "driving_value_m": 0.02,
+              "group_slot": 1,
+              "handle_index": 183,
+              "parameter_index": 167,
+              "selected_point_indices": [
+                1,
+                2
+              ],
+              "sketch_index": 149,
+              "value_id": 20,
+              "value_index": 166
+            }
+          },
+          "child_resolved": {
+            "bytes": 17289,
+            "sha256": "079d41deedc2918bfdd64ea01094f3235c6aa5a4464e7381f2d189511ac6e288"
+          },
+          "child_sha256": "9721260fed3d01ea3d57a946f7857440e477566da6d80b39c7315462c948dcab",
+          "child_stream_count": 10,
+          "parent_sha256": "1965ccb38a61591dc8e368e812b2eec63ce05d627c74676f6a5a61f6e1a3a61c",
+          "parent_stream_count": 12,
+          "request_sha256": "b87c06d9632f6bd2313971bc0e6433615d425283c71a8145ff529e1d388df86e",
+          "typed_label_intent": {
+            "D1": {
+              "route_centerline": true,
+              "text_point_m": [
+                3.0616169978683825e-19,
+                -0.015,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": true,
+              "text_point_m": [
+                0.025,
+                3.0616169978683835e-19,
+                0.0001
+              ]
+            }
+          },
+          "witness_lengths_m": {
+            "D1": 0.004999999999999999,
+            "D2": 0.005000000000000001
+          },
+          "worker_pids": [
+            23746,
+            23748
+          ],
+          "worker_stdout_sha256": [
+            "74f38a60c30941d2ac2b3320cbc8dcb714a9d4a0ffe537d895504950c564688d",
+            "52ffe3bfdf0208fababfd535e470c5254145cf3514486e8d0681007a8149b9dc"
+          ]
+        },
+        "parent_exact": true,
+        "source_and_generated_witness_arithmetic_differences": {
+          "D1": [
+            {
+              "generated": 0.0,
+              "path": "/away_axis/0",
+              "source": 6.123233995736766e-17
+            }
+          ],
+          "D2": [
+            {
+              "generated": 0.0,
+              "path": "/away_axis/1",
+              "source": 6.123233995736766e-17
+            }
+          ]
+        },
+        "source_label_xyz_and_routes_exact": true
+      },
+      "neutral_labels": [
+        {
+          "parameter_id": "parameter/width",
+          "route_centerline": true,
+          "sketch_id": "sketch/profile",
+          "text_point_m": [
+            3.0616169978683825e-19,
+            -0.015,
+            0.0
+          ]
+        },
+        {
+          "parameter_id": "parameter/height",
+          "route_centerline": true,
+          "sketch_id": "sketch/profile",
+          "text_point_m": [
+            0.025,
+            3.0616169978683835e-19,
+            0.0001
+          ]
+        }
+      ],
+      "neutral_metadata_custody": {
+        "child_inverse_keys": [
+          "bodies",
+          "capabilities",
+          "configurations",
+          "feature_timeline",
+          "metadata",
+          "parameters",
+          "selections",
+          "sketches",
+          "source",
+          "support_planes"
+        ],
+        "complete_source_child_wire_restored_exactly": true,
+        "complete_source_wire_restored_exactly": true,
+        "parent_inverse_keys": [
+          "assembly",
+          "brep_payloads",
+          "capabilities",
+          "configurations",
+          "diagnostics",
+          "feature_timeline",
+          "metadata",
+          "parameters",
+          "source",
+          "support_planes"
+        ],
+        "private_custody_sha256": "e4865116aeea95755d109eb78d0e949fd9ee23cb2e833c5f761d56f9b3f74660",
+        "projected_wire_sha256": "a16c3d4a8fff0b1b49123aadea82f6905d9752c2a9cb4b00013461be3f255acd",
+        "source_child_wire_sha256": "acc72159b3eb76b4d73798aa7655c2685f6eb6a68d339a48242f6bde8d53f6e3",
+        "source_wire_sha256": "6db034151e22e61eeed0eb4d792c810f719eb234b9d215f89c4b3cb1582d784d"
+      },
+      "original_sha256": {
+        "author": "46d29bdc6b1478935d7c53f74cab10f2d95e6483f0db81545ef0aa318b9b4db8",
+        "child": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115",
+        "parent": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd"
+      },
+      "source_label_owners": {
+        "D1": {
+          "source_display_id": 10,
+          "source_display_index": 213,
+          "source_handle_index": 215,
+          "source_parameter_id": "sldprt:parameter:26:D1",
+          "source_profile_id": 26,
+          "source_relation_id": "sldprt:constraint:26:dimension:27",
+          "source_route_word": 2048,
+          "source_sketch_map_index": 185,
+          "source_value_id": 27,
+          "source_value_index": 196,
+          "source_value_slot": 0
+        },
+        "D2": {
+          "source_display_id": 11,
+          "source_display_index": 218,
+          "source_handle_index": 219,
+          "source_parameter_id": "sldprt:parameter:26:D2",
+          "source_profile_id": 26,
+          "source_relation_id": "sldprt:constraint:26:dimension:28",
+          "source_route_word": 2048,
+          "source_sketch_map_index": 185,
+          "source_value_id": 28,
+          "source_value_index": 202,
+          "source_value_slot": 1
+        }
+      },
+      "strict_reader_pid": 23745,
+      "strict_reader_stdout_sha256": "32b26ff49a113c5c96aa413e6c501ef519c9bf99751e67eca32c272a8165cea0"
+    },
+    "A21": {
+      "closed_source_gate": {
+        "actual_mates_feature_ids": [
+          "sldprt:feature:11"
+        ],
+        "actual_native_root_rows": 26,
+        "actual_source_child_rows": 19,
+        "child_literal_property_count": 0,
+        "child_metadata_keys": [
+          "adapter",
+          "custom_properties",
+          "document_summary",
+          "file_id",
+          "kit.wrapper_metadata_keys",
+          "native_class_names",
+          "native_feature_count",
+          "native_name_record_count",
+          "native_scalar_count",
+          "solidworks.part_text_properties",
+          "solidworks.typed_configuration_graph",
+          "solidworks.typed_configuration_manager",
+          "solidworks.typed_resolved_semantics",
+          "solidworks_source_bytes",
+          "solidworks_source_format_id",
+          "solidworks_source_semantic_sha256",
+          "solidworks_source_sha256",
+          "source_display_units",
+          "source_display_units_stream",
+          "stream_names"
+        ],
+        "child_source_extension_keys": [
+          "file_id",
+          "stream_count"
+        ],
+        "child_summary_item_count": 0,
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "neutral_mate_group_count": 0,
+        "refusal": "ValueError('assembly root contains unprojected model content')",
+        "root_metadata_keys": [
+          "adapter",
+          "assembly_definition_count",
+          "assembly_flattened_mate_count",
+          "assembly_flattened_occurrence_count",
+          "assembly_instance_count",
+          "assembly_mate_count",
+          "assembly_mesh_count",
+          "file_id",
+          "kit.wrapper_metadata_keys",
+          "native_class_names",
+          "native_feature_count",
+          "native_name_record_count",
+          "native_scalar_count",
+          "solidworks.typed_configuration_graph",
+          "solidworks.typed_configuration_manager",
+          "solidworks.typed_mates_semantics",
+          "solidworks.typed_resolved_semantics",
+          "solidworks_source_bytes",
+          "solidworks_source_format_id",
+          "solidworks_source_semantic_sha256",
+          "solidworks_source_sha256",
+          "stream_names"
+        ],
+        "root_source_extension_keys": [
+          "file_id",
+          "stream_count"
+        ]
+      },
+      "crossed_source_owner_refusal": "ValueError('native rectangle display does not match the strict source relation owner')",
+      "guarded_label_construction": {
+        "child_changed_streams": [
+          "Contents/Config-0-ResolvedFeatures"
+        ],
+        "default_control": {
+          "actual_owner_identities": {
+            "D1": {
+              "display_id": 10,
+              "display_index": 177,
+              "driving_value_m": 0.04,
+              "group_slot": 0,
+              "handle_index": 179,
+              "parameter_index": 162,
+              "selected_point_indices": [
+                0,
+                1
+              ],
+              "sketch_index": 149,
+              "value_id": 19,
+              "value_index": 160
+            },
+            "D2": {
+              "display_id": 11,
+              "display_index": 182,
+              "driving_value_m": 0.02,
+              "group_slot": 1,
+              "handle_index": 183,
+              "parameter_index": 167,
+              "selected_point_indices": [
+                1,
+                2
+              ],
+              "sketch_index": 149,
+              "value_id": 20,
+              "value_index": 166
+            }
+          },
+          "child_resolved": {
+            "bytes": 17289,
+            "sha256": "a5ac87861e94fbb2d8533143020219c7249d92ab6ed12809be10ccc42336f4ce"
+          },
+          "child_sha256": "85d5c13bf1ec7bd8932f4b34097c07b08f6eae50166e1d9366efcb5124ebf773",
+          "child_stream_count": 10,
+          "parent_sha256": "2ccd927f260a2b12a36428201442d12baae6b95c9ae8ea958d7332ea7ff66fa5",
+          "parent_stream_count": 12,
+          "request_sha256": "afe7ca94fc8d155da773bb36cab75c11907b78184caa1d2805f8db608e56a7ea",
+          "typed_label_intent": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.0,
+                -0.015,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.03,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "witness_lengths_m": {
+            "D1": 0.004999999999999999,
+            "D2": 0.009999999999999998
+          },
+          "worker_pids": [
+            24153,
+            24156
+          ],
+          "worker_stdout_sha256": [
+            "a2367bc07f208ba7415ede5e577a90f384b6ac12a27aaff9f954613b5ec470e6",
+            "16111a882636b27be978b83d67480d1a73fe8fc7031a33eccef673fd93b8b2bf"
+          ]
+        },
+        "generated": {
+          "actual_owner_identities": {
+            "D1": {
+              "display_id": 10,
+              "display_index": 177,
+              "driving_value_m": 0.04,
+              "group_slot": 0,
+              "handle_index": 179,
+              "parameter_index": 162,
+              "selected_point_indices": [
+                0,
+                1
+              ],
+              "sketch_index": 149,
+              "value_id": 19,
+              "value_index": 160
+            },
+            "D2": {
+              "display_id": 11,
+              "display_index": 182,
+              "driving_value_m": 0.02,
+              "group_slot": 1,
+              "handle_index": 183,
+              "parameter_index": 167,
+              "selected_point_indices": [
+                1,
+                2
+              ],
+              "sketch_index": 149,
+              "value_id": 20,
+              "value_index": 166
+            }
+          },
+          "child_resolved": {
+            "bytes": 17289,
+            "sha256": "079d41deedc2918bfdd64ea01094f3235c6aa5a4464e7381f2d189511ac6e288"
+          },
+          "child_sha256": "9721260fed3d01ea3d57a946f7857440e477566da6d80b39c7315462c948dcab",
+          "child_stream_count": 10,
+          "parent_sha256": "2ccd927f260a2b12a36428201442d12baae6b95c9ae8ea958d7332ea7ff66fa5",
+          "parent_stream_count": 12,
+          "request_sha256": "12f943df4db1d3906c0b1a07cca0b89776971945b2d65a380e50466280826b5a",
+          "typed_label_intent": {
+            "D1": {
+              "route_centerline": true,
+              "text_point_m": [
+                3.0616169978683825e-19,
+                -0.015,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": true,
+              "text_point_m": [
+                0.025,
+                3.0616169978683835e-19,
+                0.0001
+              ]
+            }
+          },
+          "witness_lengths_m": {
+            "D1": 0.004999999999999999,
+            "D2": 0.005000000000000001
+          },
+          "worker_pids": [
+            24151,
+            24152
+          ],
+          "worker_stdout_sha256": [
+            "32e94ac7d20055c098d884ae5828085dd92244281a2cff5b85ba96400c79a413",
+            "b4bb8d2d7a66b81fc9d17919e0e7494ec640f44708dd0f26d7f84ed8ecd3ea48"
+          ]
+        },
+        "parent_exact": true,
+        "source_and_generated_witness_arithmetic_differences": {
+          "D1": [
+            {
+              "generated": 0.0,
+              "path": "/away_axis/0",
+              "source": 6.123233995736766e-17
+            }
+          ],
+          "D2": [
+            {
+              "generated": 0.0,
+              "path": "/away_axis/1",
+              "source": 6.123233995736766e-17
+            }
+          ]
+        },
+        "source_label_xyz_and_routes_exact": true
+      },
+      "neutral_labels": [
+        {
+          "parameter_id": "parameter/width",
+          "route_centerline": true,
+          "sketch_id": "sketch/profile",
+          "text_point_m": [
+            3.0616169978683825e-19,
+            -0.015,
+            0.0
+          ]
+        },
+        {
+          "parameter_id": "parameter/height",
+          "route_centerline": true,
+          "sketch_id": "sketch/profile",
+          "text_point_m": [
+            0.025,
+            3.0616169978683835e-19,
+            0.0001
+          ]
+        }
+      ],
+      "neutral_metadata_custody": {
+        "child_inverse_keys": [
+          "bodies",
+          "capabilities",
+          "configurations",
+          "feature_timeline",
+          "metadata",
+          "parameters",
+          "selections",
+          "sketches",
+          "source",
+          "support_planes"
+        ],
+        "complete_source_child_wire_restored_exactly": true,
+        "complete_source_wire_restored_exactly": true,
+        "parent_inverse_keys": [
+          "assembly",
+          "brep_payloads",
+          "capabilities",
+          "configurations",
+          "diagnostics",
+          "feature_timeline",
+          "metadata",
+          "parameters",
+          "source",
+          "support_planes"
+        ],
+        "private_custody_sha256": "806d466b79bf5329347d93b93d67ce8d1981aeb8591443040fecea006c3731f2",
+        "projected_wire_sha256": "113018fcb309269507a0a41a14849775a46a87af7f2acf0fb6c3426cb67d2543",
+        "source_child_wire_sha256": "91c0f3f52ffa41fcf1b5ac0c9e0a5a6a4decf18cb42ea84767841f23af416d9c",
+        "source_wire_sha256": "f1b67e04c0e7142bc09f88aa114de172af42e00154d46add427f6288ca100b17"
+      },
+      "original_sha256": {
+        "author": "e8fae71fbd9403e2d4fcd9952606fda9876cdd551ce161f6afe029a104af643c",
+        "child": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff",
+        "parent": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0"
+      },
+      "source_label_owners": {
+        "D1": {
+          "source_display_id": 10,
+          "source_display_index": 213,
+          "source_handle_index": 215,
+          "source_parameter_id": "sldprt:parameter:26:D1",
+          "source_profile_id": 26,
+          "source_relation_id": "sldprt:constraint:26:dimension:27",
+          "source_route_word": 2048,
+          "source_sketch_map_index": 185,
+          "source_value_id": 27,
+          "source_value_index": 196,
+          "source_value_slot": 0
+        },
+        "D2": {
+          "source_display_id": 11,
+          "source_display_index": 218,
+          "source_handle_index": 219,
+          "source_parameter_id": "sldprt:parameter:26:D2",
+          "source_profile_id": 26,
+          "source_relation_id": "sldprt:constraint:26:dimension:28",
+          "source_route_word": 2048,
+          "source_sketch_map_index": 185,
+          "source_value_id": 28,
+          "source_value_index": 202,
+          "source_value_slot": 1
+        }
+      },
+      "strict_reader_pid": 24150,
+      "strict_reader_stdout_sha256": "9f9437731199d4af6d1c8244766cb49e6ff32ff98dacf24d08d3a0393d462290"
+    }
+  },
+  "crossed_child_refusal": "ValueError('use the exact prior native source custody identities')",
+  "guarded_constructor_processes": 8,
+  "interpreter": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "interpreter_sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634",
+  "label_projection_passed": true,
+  "linked_child_stream_round_trips": 16,
+  "native_acceptance": false,
+  "native_artifacts_published": 0,
+  "native_processes": 0,
+  "new_heldout_credit": 0,
+  "original_public_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "original_source_lock_sha256": "92a8f99288b3193bf0b39bd7694a63d8c6475df0c158ba39778b44ae47e1b1e0",
+  "passed": true,
+  "prior_cohort_native_regression_credit": 0,
+  "prior_observation_sha256": "fb68f130ad521ca7473c6f3f239a71a276ccb2318c75586b1eb63de930965f55",
+  "raw_result_sha256": "7c7e8f59ae2b1dcce629b0dc64f517a734c1d614ae618e081c103e669ae166e5",
+  "recorded_source_payload_forwarded": false,
+  "runtime_constructor_reads": 0,
+  "schema": "kit.sw2026.prior-planar-source-label-bridge.v1",
+  "source_identities_preserved": true,
+  "source_tool_sha256": {
+    "re/tooling/sw2026/CheckOriginalPlanarMethod.py": "cecaaeeae40be0ee54acc73f1fe93f610136546ca92129f78c0f230c6681fa69",
+    "re/tooling/sw2026/OriginPortableWire.py": "473e33b58269800c8e020800101045c4678835b73a0b662d3511ca7d027afc25",
+    "re/tooling/sw2026/ReadSdkOrderedNative.py": "3b808a43e62c691197b386bd8e46f2631553ae746352d6748e9e7ba8906df46d",
+    "re/tooling/sw2026/planar_registry/PlanarPriorAdmission.py": "68f4c5298b23e04fff7e49bd9b9bbefede375c4c74e23988a66b3810a493db32",
+    "re/tooling/sw2026/planar_registry/PlanarSourceLabels.py": "6244015e672ecc77f41c76b87a33f416edb9498e92d615eeaa6c54136fcfb832",
+    "re/tooling/sw2026/planar_registry/ProvePlanarSourceLabels.py": "9435f178cacef2ceef500775c31927f33993341afb6f58323986039b51de2e19",
+    "re/tooling/sw2026/planar_registry/ProveSketchLabelIntent.py": "7da9bdaad09b15af3329d64c97239e7d9788776aebcd41dc7f4d6a29e9f273c2",
+    "re/tooling/sw2026/planar_registry/RectanglePresentation.py": "de95d552038dc3069965c8a2c58d3e0810cc1b6cfe3cd1dfc75ea450dcd355f9",
+    "re/tooling/sw2026/planar_registry/SketchLabelIntent.py": "292aca3bbe14917a948dc0447db74eab1f1035c95a2f8f48ceb6dd7c20486d33"
+  },
+  "strict_source_readers": 2,
+  "whole_source_admission": false
+}
