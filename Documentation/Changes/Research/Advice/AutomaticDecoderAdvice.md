@@ -14,4 +14,4 @@ Provider failure leaves the deterministic result available. A suggestion still n
 
 ## Verification
 
-The installed Codex model catalog lists `gpt-6.2-sol` with medium reasoning. The supervisor process case exercises the provider command boundary with a disposable CLI. Stephen’s [61 passing process cases](https://github.com/TryUniCAD/Kit/pull/158#issuecomment-6985183316) predate this integration. The earlier [live synthetic call](CodexFallback.md) exercised the separate helper. Neither establishes a live account result for this change.
+The installed Codex model catalog lists `gpt-6.2-sol` with medium reasoning. The process cases exercise a parked paired gap, a refuted field search and a successful field match. A disposable provider records each invocation independently. The developer research launcher requires an explicit trusted checkout. The production SDK has no advice entry point. Stephen’s [61 passing process cases](https://github.com/TryUniCAD/Kit/pull/158#issuecomment-6985183316) predate this integration. The earlier [live synthetic call](CodexFallback.md) exercised the separate helper. Neither establishes a live account result for this change.
