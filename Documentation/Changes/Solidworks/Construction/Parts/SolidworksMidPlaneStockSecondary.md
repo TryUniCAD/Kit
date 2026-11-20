@@ -8,6 +8,9 @@ and the container for each arm.
 
 Two isolated builds reproduce both outputs. The typed stream check
 identifies the reachable records removed by the null owner. The strict
-SDK reader currently refuses that arm. The controlled native lifecycle
-checks the stock's independent driving dimension, actual reverse depth
-and geometry before and after save and fresh reopen.
+SDK reader currently refuses that arm. Six distinct native phases
+passed across both arms and both controls. The null arm reports zero
+reverse depth and retains the same live stock driver, feature tree
+and geometry through save and fresh reopen.
+[Native result](../../../../../re/solidworks/measurements/2026/MidPlaneStockSecondaryNative01.json)
+· [Inactive depth behavior](../../../../Gotchas/Conversion/Solidworks/Model/Extrusion/MidPlaneCanReportInactiveDepth.md)

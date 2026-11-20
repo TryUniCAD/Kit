@@ -58,4 +58,21 @@ prlctl exec 'Windows 11' --current-user py -3.12 -B \
 
 `C:\KitSdkCandidates\MidPlaneStockSecondary02\Result.json` binds the two controls and four arm receipts. The approved source-like control remains at the exact previously accepted UNC locator. Both emitted arms are loaded from `C:\KitSdkCandidates\MidPlaneStockSecondary02\GeneratedInput\StockSecondaryCalibration.SLDPRT`. Their owned saves reopen at the same `Inspection\Generated\Saved.SLDPRT` under that private root before archival in the per-arm receipt directories. Native observations apply to this calibration and leave the existing strict SDK refusal unchanged.
 
-If the disclosed native discriminator passes, use a narrowly selected explicit-null branch for the verified forward mid-plane stock and actual selected through-all consumer. Preserve all existing checks for the live primary display, two inactive draft displays, three independent dimension and parameter identities, positive D1, zero draft and exact other fields. Present secondary displays must still pass the original four-display checks. Keep ordinary prism, blind pocket, circle, two-direction and unproven modes on their existing contracts. Then verify the `Absent` derivative's typed `f20` ownership and actual saved selected-stock aliases, run the ordinary strict cold read on the fresh candidate with all other guards, and preserve the original H01 mismatch. An unused held-out slot can only be evaluated after a new pre-comparison freeze.
+Packet 02 passed all six native phases. The candidate with the
+present display retained `0.03173 m` in all six reverse queries.
+The null candidate returned zero in all six. The candidates retained
+the same other stock, cut and profile fields, native tree, active
+driver and physical quantities. Both D01 controls passed. The
+[native result](../measurements/2026/MidPlaneStockSecondaryNative01.json)
+has SHA-256 `a77fd9262fb9d92e31cdfa18778c3a9d7dd7e8543802795956ead2a6a8d65892`.
+This calibration earns zero independent case credit.
+
+The next SDK revision needs a narrowly selected explicit-null branch
+for the verified forward mid-plane stock and actual selected
+through-all consumer. Retain the live primary display, two inactive
+draft displays, independent dimension and parameter identities,
+positive D1, zero draft and exact other fields. Present secondary
+displays still require the four-display check. Verify the native
+derivative's typed ownership and the strict cold read before testing
+another pre-writer locked source.
+[Inactive depth behavior](../../../Documentation/Gotchas/Conversion/Solidworks/Model/Extrusion/MidPlaneCanReportInactiveDepth.md)
