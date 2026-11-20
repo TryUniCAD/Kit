@@ -1,6 +1,7 @@
 from math import isclose as IsClose
 from xml.etree.ElementTree import Element
 
+from convert.adapters.freecad.EditRead.Sketch.SavedSketchRules import CheckFixedRows
 from convert.adapters.freecad.EditRead.EditGeometry import KSketchTolerance
 from convert.adapters.freecad.EditRead.XmlField import EditAttr, EditChild, EditFloat
 from convert.adapters.freecad.Native import NativeObject
@@ -78,11 +79,7 @@ def CheckOpenXml(Native: NativeObject, Original: Sketch) -> None:
         if NodeValue.tag != "Geometry" or NodeValue.get("id") != str(Index):
             raise ValueError("FreeCAD independent sketch geometry order changed")
         CheckOpenEntity(NodeValue, Entity)
-    Rules = EditChild(
-        Native, "Constraints", "Sketcher::PropertyConstraintList", "ConstraintList"
-    )
-    if len(Rules) or Rules.get("count") != "0":
-        raise ValueError("FreeCAD independent sketch constraints changed")
+    CheckFixedRows(Native, Original)
     if "ExternalGeometry" in Native.properties:
         External = EditChild(
             Native, "ExternalGeometry", "App::PropertyLinkSubList", "LinkSubList"

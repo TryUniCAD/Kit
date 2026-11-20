@@ -600,6 +600,16 @@ def TestEVFSRBD(
     ForwardDirectory = TmpPath / f"{NameValue}_forward"
     ForwardDirectory.mkdir()
     Destination = ForwardDirectory / f"{NameValue}_swapped{DestinationSuffix}"
+    Refusal = {
+        "catpart": r"native-only feature definitions cannot be exported: .*catia:feature:graph \(catia\.v5\.osmx:CATPrtCont\)",
+        "catproduct": r"native-only feature definitions cannot be exported: .*catia:feature:graph \(catia\.v5\.osmx:CATPrtCont\)",
+        "sldprt": r"unqualified SOLIDWORKS sketch support references: .*example\.SLDPRT: sldprt:sketch:40",
+    }.get(NameValue)
+    if Refusal is not None:
+        with Pytest.raises(ValueError, match=Refusal):
+            _ = Convert(Source, Destination)
+        assert list(ForwardDirectory.iterdir()) == []
+        return
     Result = ConvertWAG(Source, Destination)
     Restored = OpenDocument(Destination)
     assert Result.source_format == KFormatBySuffix[SourceSuffix]

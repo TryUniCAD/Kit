@@ -1,6 +1,7 @@
+from convert.adapters.freecad.EditExtScope import FrameKinds
 from convert.adapters.freecad.EditExtScope import EditSketchInput, ReadSketchInput
-from convert.Formats.Fusion.Revolves.SketchAxis import KFrameGuid, KSketchGuid
-from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchBase, KSketchFeature
+from convert.Formats.Fusion.Revolves.SketchAxis import KSketchGuid
+from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchFeature
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Enums.EnumUnits import UnitSystem
@@ -98,7 +99,7 @@ def ReadAxisInputs(DocValue: CadDocument) -> dict[str, EditSketchInput]:
                 for Origin, Kinds in (
                     (StepValue.provenance, (KSketchFeature,)),
                     (SketchValue.provenance, (KSketchGuid,)),
-                    (PlaneValue.provenance, (KFrameGuid, KSketchBase)),
+                    (PlaneValue.provenance, FrameKinds(PlaneValue)),
                 )
             )
         ):

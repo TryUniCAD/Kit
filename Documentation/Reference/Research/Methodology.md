@@ -81,6 +81,8 @@ It does not establish production readiness.
 
 - [CAD success criteria](../Operations/CadSuccessCriteria.md)
 - [Reverse engineering instruction book](../../../re/Playbook/README.md)
+- [Neutral-first automation plan](AutomationPlan.md)
+- [Implementation steps and progress comments](AutomationSteps.md)
 - [Research tools](Tooling.md)
 - [Oracle evidence](Oracles.md)
 - [Product verification](../Operations/Testing.md)

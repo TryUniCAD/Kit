@@ -17,7 +17,7 @@ def ReadRuleIds(Cursor: MetaCursor) -> tuple[int, ...]:
 
 # reciprocal membership rejects orphan records even when their backlinks appear valid
 def ReadSketchRules(
-    BulkData: bytes, RootSpan: RecordSpan
+    BulkData: bytes, RootSpan: RecordSpan, *, RequirePlain: bool = False
 ) -> tuple[tuple[int, ...], tuple[int, ...]]:
     Start = RootSpan.PayloadOffset + 4
     if (
@@ -46,5 +46,13 @@ def ReadSketchRules(
         or Trailer[-4:] != b"\0\0\1\1"
     ):
         raise ValueError("Invalid Fusion sketch relation membership")
+    if RequirePlain and (
+        len(Trailer) != 32
+        or Trailer[10:16] != b"\1" + bytes(5)
+        or Trailer[16] not in (0, 1)
+    ):
+        raise ValueError(
+            "Unsupported Fusion sketch transform offset or external placement"
+        )
     _ = ReadNativeRef(MetaCursor(Trailer[-15:-4]))
     return Geometric, Dimensions
