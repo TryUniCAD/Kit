@@ -19,7 +19,7 @@ TOOLS = {"ObserveLocalImportedPart.py", "AuthorCurves.py", "AuthorImportedBody.p
          "RunImportedBodySources.py", "ObserveKernelBodyRestore.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py"}
 
 
-def snapshot(observer, expected, name, persistent, scene=None):
+def snapshot(observer, expected, name, persistent, scene=None, note_names=()):
     feature = observer.get(observer.model, "FeatureByName", name)
     require(feature is not None and observer.get(feature, "GetTypeName2") == IMPORTED, "imported feature is absent")
     tree = observer.feature_tree(required_names=(name,))
@@ -53,10 +53,16 @@ def snapshot(observer, expected, name, persistent, scene=None):
         require(observed == scene and any(row["type"] == "EnvFolder" and row["name"] == scene[0][2]
                                           for row in tree), "native light inventory or environment owner differs")
         result["light_tree"] = observed
+    if note_names:
+        note_rows = [row for row in tree if row["name"] in note_names]
+        require(len(note_rows) == len(note_names) and {row["name"] for row in note_rows} == set(note_names),
+                "native note tree does not contain both owned captions")
+        result["note_rows"] = note_rows
+        result["tree_signature"] = [(row["name"], row["type"], row["parent"], row["suppressed"]) for row in tree]
     return result
 
 
-def phase(directory, label, source, source_sha, expected, feature_name, *, save=None, reference=None, scene=None):
+def phase(directory, label, source, source_sha, expected, feature_name, *, save=None, reference=None, scene=None, note_names=()):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -74,12 +80,12 @@ def phase(directory, label, source, source_sha, expected, feature_name, *, save=
             result["open"] = {"returned_document": observer.model is not None, "error": error, "warning": warning}
             require(observer.model is not None and error == 0, "native container could not open")
             try:
-                result["cold"] = snapshot(observer, expected, feature_name, reference, scene)
+                result["cold"] = snapshot(observer, expected, feature_name, reference, scene, note_names)
             except Exception as problem:
                 result["cold_failure"] = repr(problem)
             observer.rebuild()
             result["rebuilt"] = snapshot(observer, expected, feature_name,
-                                         result.get("cold", {}).get("persistent_reference", reference), scene)
+                                         result.get("cold", {}).get("persistent_reference", reference), scene, note_names)
             if save is not None and warning == 0 and "cold" in result:
                 require(not save.exists(), "fresh generated save target already exists")
                 status = tuple(record.call("save to a separate local file", controller.save_as, observer.model, save))

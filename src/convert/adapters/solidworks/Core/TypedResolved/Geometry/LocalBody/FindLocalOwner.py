@@ -1,5 +1,9 @@
+from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KResolvedFeaturesStream
 from convert.adapters.solidworks.Core.Native import NativeFeature, NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.HasBoundNotes import (
+    HasBoundNotes,
+)
 
 # reference scaffold classes can accompany an import without adding solid history
 KLocalScaffold = frozenset(
@@ -33,11 +37,20 @@ KDatumScaffold = frozenset(
 
 
 # the fallback represents the resolved native import in a standalone import part
-def FindLocalOwner(ModelValue: NativeModel) -> NativeFeature | None:
+def FindLocalOwner(
+    ModelValue: NativeModel, Archive: SldprtArchive
+) -> NativeFeature | None:
     if ModelValue.operations:
+        return None
+    NotesValue = tuple(
+        FeatureValue for FeatureValue in ModelValue.features if FeatureValue.kind == "Notes"
+    )
+    if NotesValue and not HasBoundNotes(Archive, NotesValue):
         return None
     ImportValue = None
     for FeatureValue in ModelValue.features:
+        if FeatureValue.kind == "Notes":
+            continue
         if FeatureValue.kind in KLocalScaffold and FeatureValue.class_name in (
             "",
             FeatureValue.kind,

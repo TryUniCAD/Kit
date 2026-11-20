@@ -41,8 +41,17 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
     PartBuildInput,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartLabels import PartLabels
+from convert.adapters.solidworks.Archive.Construction.System.Members.AttachMembers import (
+    AttachMembers,
+)
 from convert.adapters.solidworks.Archive.Construction.System.Members.LightInput import (
     LightInput,
+)
+from convert.adapters.solidworks.Archive.Construction.System.Members.MemberInput import (
+    MemberInput,
+)
+from convert.adapters.solidworks.Archive.Construction.System.Members.NotesInput import (
+    NotesInput,
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import (
     MakePartDef,
@@ -75,6 +84,7 @@ def MakeBareImport(
     *,
     AmbientValue: LightInput | None = None,
     LightValues: tuple[LightInput, ...] = (),
+    NotesValue: NotesInput | None = None,
 ) -> ImportCandidate:
     Selected = ReadImportScene(AmbientValue, LightValues)
     ModelValue = CheckBareImport(DocumentValue, InputValue, LabelsValue, Selected)
@@ -92,7 +102,12 @@ def MakeBareImport(
         LabelsValue.FeatureName,
         HistoryValue.MarkIds,
     )
-    if Selected:
+    NotesGraphValue = None
+    if NotesValue is not None:
+        NotesGraphValue = AttachMembers(
+            SystemValue, MemberInput(NotesValue, Selected), TargetValue, Allocator
+        ).NotesValue
+    elif Selected:
         BindImportScene(SystemValue, Selected, TargetValue, Allocator)
     SetCfgStampMut(SystemValue.ConfigValues[0], Allocator)
     HeadersValue = MakePartHeaders(SystemValue, InputValue, Allocator)
@@ -100,7 +115,7 @@ def MakeBareImport(
     FinishImportMut(SystemValue, FeatureValue, HeadersValue, InputValue)
     DefinitionValue = MakePartDef(InputValue.DefinitionValue, InputValue.DensityValue)
     KeywordsValue = MakeImportKeys(
-        SystemValue, FeatureValue, InputValue.HeaderValue.ModifiedAt
+        SystemValue, FeatureValue, InputValue.HeaderValue.ModifiedAt, NotesGraphValue
     )
     StreamsValue, ConfigValue, ResolvedValue = EmitPartArchive(
         SystemValue,

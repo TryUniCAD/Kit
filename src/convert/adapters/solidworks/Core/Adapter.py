@@ -3862,7 +3862,7 @@ def ReadPartSolid(
 ]:
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
     Candidate = (
-        FindLocalOwner(Model)
+        FindLocalOwner(Model, Archive)
         if Settings.include_brep
         and not Settings.extract_raw_brep
         and Model.active_configuration_id == 0
