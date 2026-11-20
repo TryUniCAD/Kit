@@ -9,13 +9,15 @@ import sys
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
+HERE = Path(__file__).resolve()
+sys.path.insert(0, str(HERE.parent))
+
 from ObservePublicCyl import (
     CONTROL, IMPORT, ORACLE, REPO, RESEARCH, digest, file_bytes, measure_lifecycle,
     publish, require, tracked_extract,
 )
 
 
-HERE = Path(__file__).resolve()
 GUEST = r"C:\KitPublicBox01"
 NAME = "TranslatedBox.SLDPRT"
 CONFIGURATION = "Inspection"
