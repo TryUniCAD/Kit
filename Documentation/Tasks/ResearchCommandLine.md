@@ -189,3 +189,15 @@ See [the change record](../Changes/Research/DeterministicResearchCli.md) for com
 - [Step register](../Reference/Research/AutomationSteps.md)
 - [SOLIDWORKS reader](../Reference/Research/SolidworksResearchReader.md)
 - [Fusion reader](../Reference/Research/FusionResearchReader.md)
+
+## Start research from a CAD file
+
+```sh
+kit run --root . fusion --input part.f3d --directory /tmp/KitPartRun --advisor codex
+```
+
+Use `solidworks` for a part or assembly from SOLIDWORKS. The runner snapshots up to 128 MiB of input, inventories its streams, attempts a strict neutral decode, and uses the partial reader if strict decoding refuses the file.
+
+The run saves the successful decode layers and a `FileScope.json` report containing the input digest, reader refusals, features without mapped experiments and stream intervals without cited provenance. Intervals are zero-based and end-exclusive within each uncompressed stream. A cited range can still contain unresolved fields.
+
+Typed blind-boss and through-all cut records select the existing P03 and P04 research experiments. The experiments use their controlled corpus. Their receipts can inform the investigation of the input. File-driven runs report incomplete coverage until independent evidence establishes whole-file semantics.

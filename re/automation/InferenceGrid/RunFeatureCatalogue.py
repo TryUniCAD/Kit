@@ -13,6 +13,7 @@ from pathlib import Path
 import sqlite3
 import subprocess
 import sys
+from tempfile import TemporaryDirectory
 
 sys.path[:0] = [
     str(Path(__file__).resolve().parents[1]),
@@ -34,6 +35,7 @@ def MainRun():
         description="Run every mapped feature in one or both CAD catalogues",
         allow_abbrev=False,
     )
+    Parser.add_argument("--input", type=Path, help="Inspect this CAD file and schedule feature experiments from its decoded structure")
     Parser.add_argument("--directory", required=True, type=Path)
     Parser.add_argument("--solidworks-catalogue", type=Path)
     Parser.add_argument("--solidworks-sha256")
@@ -77,7 +79,15 @@ def MainRun():
         Advice = read_options(Args)
         if Advice is not None and os.name != "posix":
             raise ValueError("decoder advice requires macOS or Linux")
-        Catalogues = ReadRunInputs(Args)
+        FileAudit = None
+        if Args.input:
+            from InferenceGrid.FileScope import file_scope
+            if not Args.batch_format or any((Args.catalogue, Args.solidworks_catalogue, Args.fusion_catalogue, Args.fusion_sha256, Args.solidworks_sha256)):
+                raise ValueError("use --input with one kit run format and no catalogue options")
+            with TemporaryDirectory() as Scratch:
+                Catalogues, FileAudit = file_scope(Args.input, Args.batch_format, Path(Scratch), Path(__file__).resolve().parents[3])
+        else:
+            Catalogues = ReadRunInputs(Args)
         Native = ReadNativeOptions(Args)
         if Args.native_ready and Native is None:
             raise ValueError("--native-ready requires the native worker configuration")
@@ -94,6 +104,7 @@ def MainRun():
             Reserve=Reserve,
             Workers=KMaxBatchWorkers if Args.workers is None else Args.workers,
             NativeReady=Args.native_ready,
+            FileScope=FileAudit,
         )
         Output = canonical(
             {

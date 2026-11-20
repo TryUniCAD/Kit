@@ -49,6 +49,7 @@ def RunCatalogueBatch(
     Reserve=None,
     Workers=KMaxBatchWorkers,
     NativeReady=False,
+    FileScope=None,
 ):
     Workers = bounded(Workers, 1, KMaxBatchWorkers)
     CheckRevision(Revision)
@@ -56,6 +57,11 @@ def RunCatalogueBatch(
         raise ValueError("use a new run directory outside the source checkout")
     Plan = BuildRunPlan(Catalogues, Revision)
     Directory.mkdir(mode=0o700)
+    if FileScope is not None:
+        Audit, Reports = FileScope
+        WriteRecord(Directory / "FileScope.json", Audit)
+        for Layer, Report in Reports.items():
+            WriteRecord(Directory / f"Input-{Layer}.json", Report)
     WriteRecord(Directory / "CataloguePlan.json", Plan)
     Store = Directory / "Store"
     Config, _, _ = PilotConfig(Directory, SourceRoot, Workers, GroupRescans=False)
@@ -84,6 +90,10 @@ def RunCatalogueBatch(
         )
     Results.update(ReadCatalogueJobs(Store, Submissions, PhaseJobs))
     Outcome = RunOutcome(Plan, Results, Failures)
+    if FileScope is not None:
+        Outcome["file_scope"] = str(Directory / "FileScope.json")
+        if Outcome["status"] == "completed":
+            Outcome["status"] = "coverage_incomplete"
     WriteRecord(Directory / "CatalogueResult.json", Outcome)
     return Outcome
 
