@@ -239,3 +239,5 @@ The SOLIDWORKS dimension report includes saved equations from numbered configura
 Equation replay requires the configuration's relation-manager count to agree with the recovered list and the six-byte relation trailer to match. Numeric global literals include their explicit unit when present. These checks establish saved record framing, not vendor regeneration.
 
 The file-driven run selects the existing P01 paired experiment when a sketch contains a single closed axis-aligned rectangular profile and at least two linked driving length constraints. FileScope.json records the sketch and driving parameter IDs used for dispatch.
+
+For single-configuration SOLIDWORKS parts, the dimension report compares the keyword XML's feature IDs, dimension names and display values with the configuration's discovered binary records. Length comparisons use the file's recorded display precision. A match must identify one record which is also unique to that XML dimension. Other matches retain their ambiguity. This corroborates two representations inside one file.
