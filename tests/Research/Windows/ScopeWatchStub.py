@@ -1,0 +1,57 @@
+import json as JsonCodec
+import os as OsLayer
+import runpy as ScriptRun
+import subprocess as Subprocess
+import sys as System
+import time as Clock
+from pathlib import Path as FilePath
+
+
+# process evidence needs the interpreter itself because a virtual environment launcher owns a different pid
+def GetBasePython() -> str:
+    PythonPath: object = getattr(System, "_base_executable", None)
+    if not isinstance(PythonPath, str) or not PythonPath:
+        raise RuntimeError("base Python executable is unavailable")
+    return PythonPath
+
+
+# the launcher starts an actual descendant before it enters an unreturning wait
+def HangCollector(RunPath: FilePath) -> None:
+    Child = Subprocess.Popen(
+        [System.executable, "-I", "-S", "-c", "import time; time.sleep(120)"]
+    )
+    _ = (RunPath / "fixture.json").write_text(
+        JsonCodec.dumps({"collector": OsLayer.getpid(), "child": Child.pid}),
+        encoding="utf-8",
+    )
+    Clock.sleep(120)
+
+
+# fixture use of the watcher shares native job creation and drain with the campaign
+def WatchFixture(RunPath: FilePath) -> None:
+    ResearchPath = FilePath(__file__).resolve().parents[3] / "re/automation"
+    System.path.insert(0, str(ResearchPath))
+    Watcher = ScriptRun.run_path(str(ResearchPath / "ScopeWatchdog.py"))
+    Command = [
+        GetBasePython(),
+        "-I",
+        "-S",
+        __file__,
+        "collect",
+    ]
+    Receipt = Watcher["watch"](
+        Command,
+        RunPath,
+        dict(OsLayer.environ),
+        RunPath,
+        8,
+        {"scope": "disposable_scope_watch_fixture"},
+    )
+    assert Receipt["outcome"] == "timed_out" and Receipt["job_drained"] is True, Receipt
+
+
+if __name__ == "__main__":
+    if System.argv[1] == "collect":
+        HangCollector(FilePath.cwd())
+    else:
+        WatchFixture(FilePath.cwd())

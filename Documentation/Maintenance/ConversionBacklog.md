@@ -46,7 +46,7 @@ Availability is a dated observation, not a permanent reservation.
 | B06 | Ordinary part histories and schema coverage            | Planned   | PR #94 register: A16; child owners unassigned         | B05 and feature-specific evidence            | Qualified sketches, constraints, expressions, cuts, revolutions, finishing operations, patterns and geometry pass held-out route acceptance.          |
 | B07 | Complete assembly, configuration and drawing semantics | Planned   | PR #94 register: A16; coordinate drawing PRs          | B06 and independent native controls          | Supported documents preserve all occurrences, mates, variants, dependencies, drawing dimensions and links through edit/rebuild and reopen.            |
 | B08 | Integrate existing native-format and evidence work     | Active    | Each existing PR below owns its scoped delivery       | Each PR's implementation and gates           | Accepted implementations are integrated without reviving donor writers. Their exact capability limits enter B01 and B12.                              |
-| B09 | Remaining CAD family adapters                          | Planned   | PR #94 register: A16; coordinate PRs #115–#117        | B01, B05 and family-specific grammar         | All nine roadmap families have qualified native reads and independent writes for their declared version scope.                                        |
+| B09 | Remaining CAD family adapters                          | Planned   | PR #94 register: A16 child claims                     | B01, B05 and family-specific grammar         | All nine roadmap families have qualified native reads and independent writes for their declared version scope.                                        |
 | B10 | CLI workflow and error usability                       | Available | Unassigned; separate scoped PR                        | Existing CLI and documented supported cases  | Representative users install, select formats, convert, inspect results and recover from refusal without undocumented assistance.                      |
 | B11 | Documentation accuracy, accessibility and evaluation   | Available | Unassigned; separate scoped PR                        | Current public contracts                     | Task guides match source and support limits. Rendered/narrow-view and representative-user findings are resolved or recorded explicitly.               |
 | B12 | Directional conversion acceptance matrix               | Planned   | Unassigned release owner; reuse PR #94's A13 evidence | B01 and each supported route                 | Every promised direction/version passes all CAD criteria on independent cases. Unsupported combinations refuse before output mutation.                |
@@ -59,6 +59,213 @@ B03's parent is not complete merely because its deterministic scheduler has proc
 B04's parent is not complete merely because controlled constructor probes exist.
 
 ## Important gap boundaries
+
+### B04-SW2026-LOCAL-IMPORT-READBACK
+
+The PR #121 takeover agent owns the strict local geometry reader extraction
+on `codex/solidworks-local-import-readback`. It depends on the terminal fin
+semantics in [PR #171](https://github.com/TryUniCAD/Kit/pull/171) and the typed
+partition rules from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+Exit requires the public SDK integrations to verify both disclosed planar
+solids and their native feature ownership and body counts. The accepted
+revision must also pass the absent-history, mismatched-mark, wrong-owner,
+and metadata controls.
+[Change entry](../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
+
+### B14-COMPANION-PUBLICATION
+
+The PR #121 takeover agent owns this active destination-safety task. The
+separate main-target PR from `codex/staged-companion-publication` extracts
+the generic file publication correction from
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+It depends on the existing registry and staging directory next to the
+destination. [Change entry](../Changes/Commands/CompanionPublication.md)
+
+Exit requires revision-bound CI and review evidence. The registry integration
+cases must preserve a concurrent companion file with replacement disabled
+and restore earlier originals after a later backup fails.
+[Integration cases](../../tests/Convert/Registry/RegistryRaceTests.py)
+
+### B03-SW2026-ARCHIVE
+
+The [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167) landed the
+[exact-build research record](../../re/solidworks/records/Solidworks2026ArchiveCompatibility.md)
+for the observed signature table, map handoff and count fields. The record
+binds the build manifest and typed traces from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+
+B03's qualified comparisons and codecs and B04's portable writer remain
+separate programme milestones. [PR #158](https://github.com/TryUniCAD/Kit/pull/158)
+continues the programme scope defined in [PR #94](https://github.com/TryUniCAD/Kit/pull/94).
+
+### B03-SW2026-ARCHIVE-CORE
+
+The PR #121 takeover team owns the wire primitive extraction on
+`codex/solidworks-archive-core` for a separate main-target delivery. It depends on
+the exact-build archive evidence above and the
+[pinned primitive rules](../../re/solidworks/records/ArchiveWirePrimitiveSlice2026.md).
+Exit requires the synthetic process integration and the normal CI and review
+gates on the delivered revision. Class descriptors, object maps and linked
+stream integration have separate exits.
+[Change entry](../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
+
+### B03-SW2026-ARCHIVE-OBJECTS
+
+The PR #121 takeover team owns the typed object and map extraction on
+`codex/solidworks-archive-objects` for separate main-target delivery. It
+depends on the [wire primitive PR](https://github.com/TryUniCAD/Kit/pull/173)
+and the [pinned map evidence](../../re/solidworks/records/ArchiveObjectMapSlice2026.md).
+Exit requires the linked graph process checks and the normal CI and review
+gates on the delivered revision. Actual header and configuration stream
+owners have separate exits.
+[Change entry](../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
+
+### B03-SW2026-ARCHIVE-HEADERS
+
+The PR #121 takeover team owns the standalone header extraction on
+`codex/solidworks-archive-headers`. It depends on the
+[typed object maps](https://github.com/TryUniCAD/Kit/pull/174) and
+[pinned standalone header evidence](../../re/solidworks/records/StandaloneHeaderSlice2026.md).
+Exit requires exact replay of both streams in the two tracked part controls,
+including their distinct role test, and the normal CI and review gates.
+Configuration binding, CMgr headers and inline Definition headers have
+separate exits.
+[Change entry](../Changes/Solidworks/SolidworksStandaloneHeaders.md)
+
+### B03-SW2026-KEYWORDS-MODEL
+
+The PR #121 takeover team owns the typed keyword row extraction on
+`codex/solidworks-keyword-typed`. It depends on the accepted
+[KeyWords framing](https://github.com/TryUniCAD/Kit/pull/181) and the
+[field ownership record](../../re/solidworks/records/KeywordModelSlice2026.md).
+Exit requires guarded independent wire assertions, XML readback, refusal
+coverage, and revision-bound CI and review. Neutral graph projection and
+part and assembly writer qualification have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
+
+### B04-SW2026-CONFIG-UNITS
+
+The PR #121 takeover team owns this unit-table reader on
+`codex/solidworks-config-unit-tables` for separate main delivery. It reuses
+the [typed maps](../../re/solidworks/records/ArchiveObjectMapSlice2026.md) and
+[body field and counted row codecs](../../re/solidworks/records/BodyValueSlice2026.md).
+Exit requires measured record and map identity for the disclosed ladder
+and concave parts, invalid frame and owner refusals through the queue
+processes, and current revision review and CI. The remaining executors,
+configuration owners and full physical `Config-0` admission have separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigUnitTables.md)
+
+### B04-SW2026-CONFIG-MEMBERS
+
+The PR #121 takeover team owns the next bounded configuration extraction
+on `codex/solidworks-config-member-fields`. It follows the shared body
+executor and unit-table work in [PR #185](https://github.com/TryUniCAD/Kit/pull/185).
+Exit requires exact relation and feature color member readback from the
+disclosed controls, independently authored repeated rows and class map
+cases, and current revision review and CI. The remaining configuration
+layouts and complete physical admission have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
+
+### B04-SW2026-CONFIG-FIELD-ACTIONS
+
+The PR #121 takeover team owns the bounded branch, virtual and fixed
+field read extraction on `codex/solidworks-config-field-actions` for
+separate main delivery. It depends on the unit-table and relation and
+color member readers. Exit requires the two disclosed part controls,
+the guarded invalid record cases and current revision queue and review
+evidence. Full configuration admission and write coverage have separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
+
+### B04-SW2026-CONFIG-VIEWS
+
+The PR #121 takeover team owns this bounded `moView_c` reader on
+`codex/solidworks-config-view-context`. It depends on the shared
+member reader and field actions from #187. Exit requires both disclosed
+view groups, the authored archive state and refusal cases, and current
+revision queue and review evidence. Full configuration admission,
+annotation view owners and populated presentation lists retain separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+
+### B04-SW2026-CONFIG-THREAD-MARK
+
+The PR #121 takeover team owns this bounded thread and mark read
+extraction on `codex/solidworks-config-thread-action` for separate main
+delivery after the configuration field-action slice. Exit requires
+the exact native record and map handoffs, guarded signed-word and
+invalid record cases, and current revision queue and review evidence.
+Populated thread maps and complete configuration support have separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
+
+### B04-SW2026-CONFIG-HEADER-LINK
+
+The PR #121 takeover team owns the bounded part header handoff on
+`codex/solidworks-config-model-header-link` for separate main delivery.
+It depends on the standalone header and typed archive map codecs.
+Exit requires exact named ModelHeader selection, preserved object
+identities at the part's lightweight boundary, malformed physical
+prefix refusals and current revision queue and review evidence.
+Complete configuration admission and the property owner's physical
+link remain separate work.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
+
+### B04-SW2026-CONFIG-LW-MATERIAL
+
+The PR #121 takeover team owns the ordinary material and model-data
+read slice on `codex/solidworks-config-material-owners`. It uses
+the accepted part header handoff and lightweight node grammar.
+Exit requires both measured suffixes and map identities, guarded
+authored contrasts and refusals, and current revision review and queue
+evidence. Complete configuration admission and material assignment
+retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
+### B04-SW2026-CONFIG-CACHES
+
+The PR #121 takeover team owns the bounded part cache reader on
+`codex/solidworks-config-caches` for separate main delivery. It depends
+on the shared body field, counted row and branch readers. Exit requires
+the disclosed mass and empty bounds intervals, malformed record
+refusals and current revision queue and review evidence. Populated
+bounds ownership and complete physical `Config-0` admission have
+separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
+
+### B04-SW2026-CONFIG-ATOMS
+
+The PR #121 takeover team owns this bounded part atom reader on
+`codex/solidworks-config-atom-manager`. It uses the typed maps, header
+objects and accepted concept fields. Exit requires both disclosed
+manager and producer identities, guarded signed state and rejection
+cases, and current revision queue and review evidence. Inline bodies,
+handle modes and full configuration admission retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+
+### B04-SW2026-CONFIG-FONT-FIELDS
+
+The PR #121 takeover team owns this bounded reader on
+`codex/solidworks-config-annotation-font` for separate main delivery.
+It reuses the accepted scalar, text and embedded field readers and the
+part header handoff. Exit requires exact native field and map comparisons,
+guarded malformed cases and current revision queue and review evidence.
+The composed label, annotation and detail definitions have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
+
+### B08-SW2026-TERMINAL-FIN
+
+The PR #121 takeover agent owns this active reader compatibility task.
+The separate main-target PR from `codex/solidworks-terminal-fin` extracts
+the current Parasolid fin traversal correction. It depends on the existing
+decoder and the disclosed L1 native fixture.
+[Change entry](../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
+
+Exit requires revision-bound CI and review evidence. The strict public
+reader must preserve the disclosed closed shell and positive signed volume.
+A separately locked capsule passes the current rule and fails the older
+semicircle traversal. Its signed volume and area match the fresh native
+reference. [Fixture and comparisons](../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
 
 ### Fusion schemas
 
@@ -80,9 +287,8 @@ This is B07 expansion work within PR #94's broad plan, not a completed or active
 
 ### Other native formats
 
-NX, Creo and CATIA already have open implementation PRs.
-Their containers, retained payloads and bounded geometry work do not establish arbitrary parametric conversion.
-Coordinate B08/B09 with those PRs before adding another adapter effort.
+The NX, CATIA and Creo implementation PRs closed without merging on 2026-11-16.
+Their work on containers, retained payloads and bounded geometry remains research evidence for scoped A16 child claims. Each claimed route requires independent native acceptance after A13 and A15. [NX #115](https://github.com/TryUniCAD/Kit/pull/115), [CATIA #116](https://github.com/TryUniCAD/Kit/pull/116), [Creo #117](https://github.com/TryUniCAD/Kit/pull/117)
 Rhino, standalone AutoCAD and Parashell have no matching implementation PR in the inspected inventory.
 They still belong to the broader A16 expansion scope and require explicit child claims.
 

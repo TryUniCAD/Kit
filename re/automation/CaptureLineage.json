@@ -1,0 +1,7 @@
+{
+  "lineage_version": 1,
+  "source_repository": "https://github.com/Stephen316/Kit.git",
+  "source_ref": "refs/heads/fix/a12-portable-boss-content-20261116",
+  "source_revision": "f5b23031c4163528a2e4f5029ab34102133b983e",
+  "input_tree_sha256": "ca44feca3f2ca32cd852f32e4afde2e5a2b334a8c83a150e813d8256f6c106b6"
+}

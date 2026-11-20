@@ -9,6 +9,7 @@ from convert.adapters.Fusion.Native.Graph.GraphValues import (
     PointCoords,
 )
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
+from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.adapters.Fusion.Native.Policy.CheckClasses import CheckClasses
 from convert.adapters.Fusion.Native.Policy.CheckAssembly import CheckAssembly
 from convert.adapters.Fusion.Native.Policy.CheckContainers import CheckContainers
@@ -18,15 +19,22 @@ from convert.adapters.Fusion.Native.Policy.CheckPlacement import CheckPlacement
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
+from convert.adapters.Fusion.Native.Rectangle.RectSketchProof import RectSketchProof
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
 
 
 # invalid base input must fail here so public document claims remain grounded in native records
-def CheckBase(Graph: NativeGraph, Context: KSketchContexts) -> None:
-    CheckClasses(Graph)
+def CheckBase(
+    Graph: NativeGraph,
+    Context: KSketchContexts,
+    Dimension: NativeNode | None = None,
+    Rectangle: RectSketchProof | None = None,
+    YzDatum: bool = False,
+) -> None:
+    CheckClasses(Graph, Dimension, Rectangle)
     CheckAssembly(Graph, Context)
     CheckContainers(Graph, Context)
-    CheckPlacement(Graph, Context)
+    CheckPlacement(Graph, Context, Dimension, Rectangle, YzDatum)
     CheckFeature(Graph, Context.SketchFeature)
     Overrides = ObjectFields(Context.Component.Fields["massProperties"])
     if any(Value != -1.0 for Value in Overrides.values()):
@@ -34,10 +42,15 @@ def CheckBase(Graph: NativeGraph, Context: KSketchContexts) -> None:
 
 
 # invalid graph input must fail here so public document claims remain grounded in native records
-def CheckGraph(Graph: NativeGraph, Context: ExtrudeContext) -> None:
-    CheckBase(Graph, Context)
+def CheckGraph(
+    Graph: NativeGraph,
+    Context: ExtrudeContext,
+    Rectangle: RectSketchProof | None = None,
+    YzDatum: bool = False,
+) -> None:
+    CheckBase(Graph, Context, Rectangle=Rectangle, YzDatum=YzDatum)
     CheckFeature(Graph, Context.Extrude)
-    CheckExtrusion(Graph, Context)
+    CheckExtrusion(Graph, Context, YzDatum)
     Overrides = ObjectFields(Context.BodyNode.Fields["massProperties"])
     if any(Value != -1.0 for Value in Overrides.values()):
         raise ValueError("Native body mass-property overrides are not qualified")

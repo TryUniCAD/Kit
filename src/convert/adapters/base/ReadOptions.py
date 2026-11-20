@@ -17,6 +17,7 @@ class ReadOptions(ContractBase):
     include_tessellation: bool = True
     strict: bool = True
     values: TypeMap[str, object] = DataField(default_factory=FreezeMapping)
+    extract_raw_brep: bool = False
 
     # historical configuration access remains typed because readers consume this public selection field
     @property
