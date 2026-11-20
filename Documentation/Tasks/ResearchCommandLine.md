@@ -311,17 +311,17 @@ For known native captures, the single-input command [selects measured controls a
 
 For an unrecognized ZIP package, inspect [member structure and cross-file references](../Changes/Research/Inference/UnknownArchiveMembers.md).
 
-[Native FreeCAD input](../Changes/Research/Inference/FreeCadFileResearch.md) also runs the neutral feature reader and compares matching recorded controls.
+[Native FreeCAD input](../Changes/Research/Inference/FreeCad/FreeCadFileResearch.md) also runs the neutral feature reader and compares matching recorded controls.
 
-See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthEdits.md) when the embedded model is stale.
+See [edited native extrusion depths](../Changes/Research/Inference/FreeCad/FreeCadDepthEdits.md) when the embedded model is stale.
 
-[Edited prism evidence](../Changes/Research/Inference/EditedPrismEvidence.md) compares the predicted solid with its saved shape member.
+[Edited prism evidence](../Changes/Research/Inference/FreeCad/EditedPrismEvidence.md) compares the predicted solid with its saved shape member.
 
-[Edited extrusion graph recovery](../Changes/Research/Inference/EditedExtrusionGraph.md) records the candidate feature definition and its driving parameter.
+[Edited extrusion graph recovery](../Changes/Research/Inference/FreeCad/EditedExtrusionGraph.md) records the candidate feature definition and its driving parameter.
 
-[Derived extrusion readers](../Changes/Research/Inference/DerivedDepthGraphReader.md) capture replayed native-to-graph bindings in Reader.patch.
+[Derived extrusion readers](../Changes/Research/Inference/FreeCad/DerivedDepthGraphReader.md) capture replayed native-to-graph bindings in Reader.patch.
 
-[Complementary depth discovery](../Changes/Research/Inference/ComplementaryDepthBindings.md) explains the extra controlled variations and independent replays.
+[Complementary depth discovery](../Changes/Research/Inference/FreeCad/ComplementaryDepthBindings.md) explains the extra controlled variations and independent replays.
 
 [SolidWorks scalar display precision](../Changes/Research/Inference/SolidWorksScalarPrecision.md) covers rounded declarations and diameter and radius dimensions.
 

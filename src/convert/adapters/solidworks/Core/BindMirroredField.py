@@ -2,7 +2,7 @@ from dataclasses import replace as Replace
 from math import degrees as Degrees, isclose as IsClose
 from re import fullmatch as FullMatch
 from struct import unpack_from as UnpackFrom
-from convert.adapters.solidworks.Core.PickNamedScalar import PickNamedScalar
+from convert.adapters.solidworks.Core.Dimensions.PickNamedScalar import PickNamedScalar
 
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension

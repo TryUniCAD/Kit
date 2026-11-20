@@ -32,9 +32,7 @@ pathlib.Path(args[args.index('--output-last-message')+1]).write_text(json.dumps(
         encoding="utf-8",
     )
     Provider.chmod(0o700)
-    Environment["PATH"] = (
-        str(TmpPath) + PathSeparator + Environment["PATH"]
-    )
+    Environment["PATH"] = str(TmpPath) + PathSeparator + Environment["PATH"]
 
 
 # a proposal can be saved only for the accepted receipt of the same deterministic result

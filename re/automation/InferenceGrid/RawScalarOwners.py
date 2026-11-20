@@ -12,7 +12,7 @@ import math
 import struct
 
 from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle
-from convert.adapters.solidworks.Core.PickNamedScalar import PickNamedScalar
+from convert.adapters.solidworks.Core.Dimensions.PickNamedScalar import PickNamedScalar
 from convert.adapters.solidworks.Core.Native import FeatureCountFields, ParseKeywords, ParseNames, ParseScalars
 from convert.adapters.solidworks.Core.ParseDisplay import (
     KInformationStream,

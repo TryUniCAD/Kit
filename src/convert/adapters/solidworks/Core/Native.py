@@ -1,8 +1,8 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.Core.NativeOperand import NativeOperand as NativeOperand
-from convert.adapters.solidworks.Core.BindCounts import BindCounts
-from convert.adapters.solidworks.Core.PatternPairs import PatternPairs
-from convert.adapters.solidworks.Core.ReadPairLength import ReadPairLength
+from convert.adapters.solidworks.Core.Dimensions.BindCounts import BindCounts
+from convert.adapters.solidworks.Core.Dimensions.PatternPairs import PatternPairs
+from convert.adapters.solidworks.Core.Dimensions.ReadPairLength import ReadPairLength
 from convert.adapters.solidworks.Core.NativeScalar import NativeScalar as NativeScalar
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension as NativeDimension
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Core.BindMirroredField import BindMirroredField
 from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
 from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
-from convert.adapters.solidworks.Core.CountValue import CountValue
+from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
 from bisect import bisect_right as BisectRight
 from collections import Counter, defaultdict as DefaultDict
 from collections.abc import Iterator

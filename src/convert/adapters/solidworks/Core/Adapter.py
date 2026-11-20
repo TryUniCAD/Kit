@@ -1,5 +1,5 @@
 from __future__ import annotations as Annotations
-from convert.adapters.solidworks.Core.CountValue import CountValue
+from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
 from collections import defaultdict as Defaultdict
 from contextlib import suppress as Suppress
 from dataclasses import dataclass as DataClass, replace as Replace

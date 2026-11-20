@@ -387,7 +387,7 @@ def CheckPlacedPlanarJournal(TmpPath: FilePath) -> None:
     assert abs(Body["volume_cm3"] - 3.945638020833335) < 1e-10
 
 
-# raw-stream discovery must withhold the evaluation family and verify the generated program at native scalar offsets
+# raw stream discovery must withhold the evaluation family and verify the generated program at native scalar offsets
 def CheckUnlabelledDimensionStream(TmpPath: FilePath) -> None:
     from convert.adapters.solidworks.Container.Container import SldprtArchive
 

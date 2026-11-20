@@ -13,7 +13,7 @@ import struct
 from InferenceGrid.SolidWorksFieldDiscovery import control_parts
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import ParseClasses, ParseKeywords, ParseNames
-from convert.adapters.solidworks.Core.PatternPairs import PatternPairs
+from convert.adapters.solidworks.Core.Dimensions.PatternPairs import PatternPairs
 
 
 def learn_count_rule(root, held_out, held_stream):
