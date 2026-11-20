@@ -12,9 +12,9 @@ from convert import open_document
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
 from convert.adapters.solidworks.Archive.Views.ViewInput import ViewInput
 from convert.adapters.solidworks.Core.DrawingWriting.MakeBlankWriteRecipe import MakeBlankWriteRecipe
-from convert.adapters.solidworks.Drawing.Construction.Notes.MakePlainNoteFile import MakePlainNoteFile
+from convert.adapters.solidworks.Drawing.Construction.Notes.MakePlainNoteFile import MakeNoteFile
 from convert.adapters.solidworks.Drawing.Definition.Linked.ReadLinkedBody import ReadLinkedBody
-from convert.adapters.solidworks.Drawing.Definition.PlainNotes.WritePlainNoteDef import WritePlainNoteDef
+from convert.adapters.solidworks.Drawing.Definition.PlainNotes.WritePlainNoteDef import WriteNoteDef
 from interchange.document.Models.Drawing.DrawingData import DrawingData
 from interchange.document.Models.Drawing.DrawingNote import DrawingNote
 from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
@@ -58,7 +58,7 @@ def verify(value, record):
     definition = value.StreamsValue["Contents/Definition"]
     version = value.UiGraph.VersionValue
     raw, maps, usage = ReadLinkedBody(definition, version, "guarded SDK standalone note")
-    rewritten = WritePlainNoteDef(replace(value.UiGraph, DocumentValue=raw))
+    rewritten = WriteNoteDef(replace(value.UiGraph, DocumentValue=raw))
     if (
         rewritten.OutputValue != definition
         or maps != rewritten.MapValue
@@ -131,7 +131,7 @@ def main():
     sys.addaudithook(guard.event)
     guard.active = True
     try:
-        value = MakePlainNoteFile(
+        value = MakeNoteFile(
             make_input(record), DisplayGrid=record.get("display_grid", True), ViewValue=viewport(record),
         )
         with args.target.open("xb") as target:

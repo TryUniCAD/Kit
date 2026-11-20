@@ -39,7 +39,7 @@ from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import KDrawCl
 
 
 # complete drawing profiles share the header and body object map while the selected folder may own its proved note
-def WriteDrawBody(
+def EmitDrawBodyMut(
     GraphValue: BlankGraph,
     ContextValue: BodyContext,
     *,

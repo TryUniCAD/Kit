@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Drawing.Construction.Portable.DrawingFile impor
     DrawingFile,
 )
 from convert.adapters.solidworks.Drawing.Construction.Portable.FinishDrawFile import (
-    FinishDrawFile,
+    FinishDrawMut,
 )
 from convert.adapters.solidworks.Drawing.Construction.Portable.MakeBlankBuild import (
     MakeBlankBuild,
@@ -27,4 +27,4 @@ def MakeBlankFile(InputValue: BlankDrawInput) -> DrawingFile:
     GraphValue = MakeDrawRoot(
         MakeBlankBuild(InputValue.DrawingValue, InputValue.OptionsValue)
     )
-    return FinishDrawFile(InputValue, GraphValue, WriteBlankDef)
+    return FinishDrawMut(InputValue, GraphValue, WriteBlankDef)

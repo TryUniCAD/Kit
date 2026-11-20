@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Drawing.Definition.Emission.CheckBlankGraph imp
     CheckBlankGraph,
 )
 from convert.adapters.solidworks.Drawing.Definition.Emission.WriteDrawBody import (
-    WriteDrawBody,
+    EmitDrawBodyMut,
 )
 from convert.adapters.solidworks.Drawing.Definition.Linked.FrontLayouts import (
     KFrontLayouts,
@@ -30,7 +30,7 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
 
 
 # the actual note folder may own its one verified annotation while other drawing owners remain in the blank profile
-def WritePlainNoteDef(GraphValue: BlankGraph) -> DefinitionWire:
+def WriteNoteDef(GraphValue: BlankGraph) -> DefinitionWire:
     CheckBlankGraph(GraphValue)
     ModelValue = NeedConceptNode(
         GraphValue.DocumentValue.FieldsValue["model"], "moDrawing_c"
@@ -43,4 +43,4 @@ def WritePlainNoteDef(GraphValue: BlankGraph) -> DefinitionWire:
         GraphValue.VersionValue, KFrontLayouts, KFrontVirtuals, KFrontSchemas
     )
     ContextValue.FlagsValue["owner_is_drawing"] = 1
-    return WriteDrawBody(GraphValue, ContextValue, NoteFolder=FolderValue)
+    return EmitDrawBodyMut(GraphValue, ContextValue, NoteFolder=FolderValue)

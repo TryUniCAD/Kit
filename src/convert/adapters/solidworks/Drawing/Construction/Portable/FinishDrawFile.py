@@ -30,7 +30,7 @@ from convert.adapters.solidworks.Drawing.Definition.Emission.BlankGraph import (
 
 
 # loose drawing metadata and the container must use the same generated header and selected definition graph
-def FinishDrawFile(
+def FinishDrawMut(
     InputValue: BlankDrawInput,
     GraphValue: DrawRootGraph,
     EncodeDefinition: Callable[[BlankGraph], DefinitionWire],

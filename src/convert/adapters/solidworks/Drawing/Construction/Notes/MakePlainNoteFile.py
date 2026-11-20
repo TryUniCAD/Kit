@@ -22,18 +22,18 @@ from convert.adapters.solidworks.Drawing.Construction.Portable.DrawingFile impor
     DrawingFile,
 )
 from convert.adapters.solidworks.Drawing.Construction.Portable.FinishDrawFile import (
-    FinishDrawFile,
+    FinishDrawMut,
 )
 from convert.adapters.solidworks.Drawing.Construction.Portable.MakeBlankBuild import (
     MakeBlankBuild,
 )
 from convert.adapters.solidworks.Drawing.Definition.PlainNotes.WritePlainNoteDef import (
-    WritePlainNoteDef,
+    WriteNoteDef,
 )
 
 
 # a standalone note extends the same drawing model and container generation used for an empty sheet
-def MakePlainNoteFile(
+def MakeNoteFile(
     InputValue: BlankDrawInput,
     *,
     DisplayGrid: bool = True,
@@ -63,6 +63,4 @@ def MakePlainNoteFile(
         InputValue.UiSettings.VersionValue,
         InputValue.OptionsValue.StyleValue.LanguageId,
     )
-    return FinishDrawFile(
-        InputValue, GraphValue, WritePlainNoteDef, DisplayGrid=DisplayGrid
-    )
+    return FinishDrawMut(InputValue, GraphValue, WriteNoteDef, DisplayGrid=DisplayGrid)

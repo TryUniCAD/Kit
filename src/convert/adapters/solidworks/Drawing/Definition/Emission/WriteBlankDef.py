@@ -16,7 +16,7 @@ from convert.adapters.solidworks.Drawing.Definition.Emission.Layouts.BlankLayout
     KBlankLayouts,
 )
 from convert.adapters.solidworks.Drawing.Definition.Emission.WriteDrawBody import (
-    WriteDrawBody,
+    EmitDrawBodyMut,
 )
 
 
@@ -26,4 +26,4 @@ def WriteBlankDef(GraphValue: BlankGraph) -> DefinitionWire:
     ContextValue = BodyContext(
         GraphValue.VersionValue, KBlankLayouts, KBlankVirtuals, KBlankSchemas
     )
-    return WriteDrawBody(GraphValue, ContextValue)
+    return EmitDrawBodyMut(GraphValue, ContextValue)

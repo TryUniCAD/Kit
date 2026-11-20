@@ -12,8 +12,35 @@ from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
 from tests.Convert.Commands.CliProcess import CliProcess
 
 
+# both cli outputs must expose the same usable strict drawing and partial readback sheet
+def AssertDrawFile(Candidate: FilePath, Sheet: DrawingSheet) -> None:
+    Strict = OpenDoc(Candidate)
+    Drawing = Strict.DrawingValue
+    assert Drawing is not None and not Drawing.ModelRefs
+    assert Strict.diagnostics == ()
+    assert (
+        Strict.source.attributes["solidworks.blank.complete_container_reconstruction"]
+        is True
+    )
+    Partial = OpenDoc(Candidate, strict=False)
+    assert Partial.DrawingValue is not None and Partial.diagnostics
+    (PartialSheet,) = Partial.DrawingValue.Sheets
+    (Actual,) = Drawing.Sheets
+    assert (
+        Actual.EntityId,
+        Actual.EntityName,
+        Actual.ScaleRatio,
+    ) == (PartialSheet.EntityId, Sheet.EntityName, Sheet.ScaleRatio)
+    assert abs(Actual.SheetWidth - Sheet.SheetWidth) <= UnitInLastPlace(
+        Sheet.SheetWidth
+    )
+    assert abs(Actual.SheetHeight - Sheet.SheetHeight) <= UnitInLastPlace(
+        Sheet.SheetHeight
+    )
+
+
 # normal command conversion must route a complete typed drawing through the native writer
-def CheckBlankDrawingConvert(TmpPath: FilePath) -> None:
+def CheckBlankDraw(TmpPath: FilePath) -> None:
     Sheet = DrawingSheet("page", "Installation sheet", 0.2794, 0.2159, (5, 7))
     Document = CadDocument(
         CadSource("interchange.json", "", "0" * 64),
@@ -42,38 +69,14 @@ def CheckBlankDrawingConvert(TmpPath: FilePath) -> None:
         Report = LoadJson(Result.stdout)
         assert Report["destination_format"] == "solidworks.slddrw"
         assert Report["vendor_loadable"] is True and Report["dropped"] == []
-        Strict = OpenDoc(Candidate)
-        Drawing = Strict.DrawingValue
-        assert Drawing is not None and not Drawing.ModelRefs
-        assert Strict.diagnostics == ()
-        assert (
-            Strict.source.attributes[
-                "solidworks.blank.complete_container_reconstruction"
-            ]
-            is True
-        )
-        Partial = OpenDoc(Candidate, strict=False)
-        assert Partial.DrawingValue is not None and Partial.diagnostics
-        (PartialSheet,) = Partial.DrawingValue.Sheets
-        (Actual,) = Drawing.Sheets
-        assert (
-            Actual.EntityId,
-            Actual.EntityName,
-            Actual.ScaleRatio,
-        ) == (PartialSheet.EntityId, Sheet.EntityName, Sheet.ScaleRatio)
-        assert abs(Actual.SheetWidth - Sheet.SheetWidth) <= UnitInLastPlace(
-            Sheet.SheetWidth
-        )
-        assert abs(Actual.SheetHeight - Sheet.SheetHeight) <= UnitInLastPlace(
-            Sheet.SheetHeight
-        )
+        AssertDrawFile(Candidate, Sheet)
     Strict = OpenDoc(Target)
     Decoded = CliProcess(TmpPath, "decode", str(Target))
     assert Decoded.returncode == 0, Decoded.stderr
     ReadBack = CadDocument.from_json(DumpJson(LoadJson(Decoded.stdout)["document"]))
     assert ReadBack.DrawingValue == Strict.DrawingValue
     assert ReadBack.source.attributes == Strict.source.attributes
-    RewriteDecodedBlank(TmpPath, Target, ReadBack)
+    RewriteBlank(TmpPath, Target, ReadBack)
     assert Source.read_text(encoding="utf-8") == Authored
     Unsupported = ReplaceValue(Sheet, SheetWidth=0.297, SheetHeight=0.21)
     _ = Source.write_text(
@@ -92,9 +95,7 @@ def CheckBlankDrawingConvert(TmpPath: FilePath) -> None:
 
 
 # the normal command must preserve strict source owners across native input and old neutral metadata
-def RewriteDecodedBlank(
-    TmpPath: FilePath, Source: FilePath, Document: CadDocument
-) -> None:
+def RewriteBlank(TmpPath: FilePath, Source: FilePath, Document: CadDocument) -> None:
     Original = Source.read_bytes()
     Neutral = LoadJson(Document.to_json())
     IntentKey = "solidworks.blank.intent"
@@ -121,6 +122,8 @@ def RewriteDecodedBlank(
         ReopenedIntent = LoadJson(Reopened.to_json())["source"]["attributes"][IntentKey]
         assert ReopenedIntent.pop("FileValue") != Intent["FileValue"]
         assert ReopenedIntent == {
-            Name: Value for Name, Value in Intent.items() if Name != "FileValue"
+            FieldName: Value
+            for FieldName, Value in Intent.items()
+            if FieldName != "FileValue"
         }
     assert Source.read_bytes() == Original

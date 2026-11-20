@@ -39,6 +39,6 @@ def ApplyRectMut(
     elif ModeValue == "extended-handles":
         ExtendDimsMut(SketchValue)
     elif ModeValue.startswith("stock-"):
-        StockSlotMut(SketchValue, ModeValue)
+        StockSlotMut(SketchValue.FieldsValue, ModeValue)
     else:
         AlterDimOwner(SketchValue, OtherSketch, ModeValue)

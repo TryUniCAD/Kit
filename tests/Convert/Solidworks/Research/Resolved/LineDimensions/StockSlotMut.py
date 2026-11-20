@@ -7,8 +7,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
 
 
 # the ordinary reader must encounter a real sparse slot encoding through the complete serialized archive
-def StockSlotMut(SketchValue: ArchiveNode, ModeValue: str) -> None:
-    FieldsValue = SketchValue.FieldsValue
+def StockSlotMut(FieldsValue: MutableMapping[str, object], ModeValue: str) -> None:
     Points = NativeRows(FieldsValue["points"])
     SlotsValue = (0, 2, 3, 4)
     for RowValue in Points:
