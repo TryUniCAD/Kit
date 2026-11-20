@@ -1,0 +1,30 @@
+{
+  "cases": {
+    "ConcaveBare": {
+      "container_sha256": "21867dbe53b94bbfadfc343ed47f8ca3b0af1fb30114f3a921f730c84f087429",
+      "exact_streams": 12
+    },
+    "ConcaveOwned": {
+      "container_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "exact_streams": 12
+    },
+    "RectangularBare": {
+      "container_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357",
+      "exact_streams": 12
+    },
+    "RectangularOwned": {
+      "container_sha256": "dafdf93377f504435d3fe62dd9417f7292ac03c2c23ade9d379b4632311f9149",
+      "exact_streams": 12
+    }
+  },
+  "exact_containers": 4,
+  "exact_logical_streams": 48,
+  "new_native_processes": 0,
+  "original_native_measurement_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+  "owning_sources_sha256": {
+    "re/tooling/sw2026/imported_body_source/BuildImportedLocalPart.py": "5f514083efc4acbb7cffffee3dd2e31b8b56eecbf7624881081706c792291e87",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/FinishImportMut.py": "163e2d39b8351ed9511cc271c96f7eebcf0dea374755b29ffacdff0a9658f56e"
+  },
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.shared-import-completed-update.v1"
+}

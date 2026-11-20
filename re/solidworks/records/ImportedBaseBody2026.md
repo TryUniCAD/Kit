@@ -242,6 +242,12 @@ builds reproduced their full files and 120 stream digests with zero runtime
 input reads.
 [Shared archive regression](../measurements/2026/SharedGeneratedPartArchive01.json)
 
+The completed update now runs through the shared archive constructor. It
+stamps the true origin and local import, publishes the single managed body
+in the configuration, and carries the same update counter in both headers.
+All four completed files and 48 streams stay byte-identical.
+[Shared completed-state regression](../measurements/2026/SharedImportCompletedUpdate01.json)
+
 ## Sealed source geometry
 
 The two independently authored native input files were locked before the

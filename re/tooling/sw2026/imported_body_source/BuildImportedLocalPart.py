@@ -13,8 +13,6 @@ from LocalBodyEnvelope import LOCAL, PARTITION, LocalBody, decode, encode
 from LocalBodyKernel import BODY, _render_local, decode_local, fingerprint
 from ReplayImportedBaseBody import require
 from builders.EmptyPartition import PMARK_KIND, PARTITION_KIND, WORLD_KIND
-from convert.adapters.solidworks.Archive.Construction.Chronology.FeatureInstant import FeatureInstant
-from convert.adapters.solidworks.Archive.Construction.Chronology.MakeFeatTime import MakeFeatTime
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import SetCfgStampMut
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
 from convert.adapters.solidworks.Archive.Construction.Header.MakeRootLog import MakeRootLog
@@ -25,6 +23,7 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTe
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import PersistentIds
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartArchive import EmitPartArchive
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.BindImportMut import BindImportMut
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.FinishImportMut import FinishImportMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartBaseMut import MakePartBaseMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartHeaders import MakePartHeaders
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import MakePartDef
@@ -50,7 +49,6 @@ from para.Partition import History, Node, Partition, Rollback, SCHEMAS, frame_pa
 from para.rectangle.Allocate import DeltaEvent, MarkEvent, Session, allocate_marks, index_fields
 from para.rectangle.AttributeChains import Install, attach_attributes
 from para.rectangle.Attributes import RECTANGLE_DEFINITION_BY_NAME
-from para.rectangle.ArchiveAttachment import CLEAR_UPDATE_STATUS_MASK, FORCE_REBUILD_NODE_FLAG, PART_REBUILD_CALLBACK_NODE_FLAG
 from para.rectangle.Geometry import topology_nodes
 from para.rectangle.RectanglePartition import complete_topology
 from tests.Convert.Solidworks.Research.ConstructionGuard import BuildAudit
@@ -185,26 +183,6 @@ def make_streams(system, feature, recipe, headers, labels, local, partition):
     return streams | {LOCAL: encode(local), PARTITION: partition}
 
 
-def publish_completed_update(system, headers, feature, recipe):
-    retained = (system.OriginValue.ProfileValue, feature)
-    active_header, top_header, _ = headers
-    stamp = active_header.FieldsValue["f40"]
-    clock = MakeFeatTime(FeatureInstant(recipe.HeaderValue.UpdatedAt, 0))
-    for owner in retained:
-        stamp += 1
-        fields = owner.FieldsValue
-        fields.update(clock, f29c=stamp, f2b8=recipe.TargetValue.FileVersion, f2bc=recipe.TargetValue.DateCode)
-        fields["f0c"] &= CLEAR_UPDATE_STATUS_MASK
-    model = system.RootValue.FieldsValue
-    model["f0c"] &= CLEAR_UPDATE_STATUS_MASK
-    model["f2c"] |= FORCE_REBUILD_NODE_FLAG | PART_REBUILD_CALLBACK_NODE_FLAG
-    configuration = system.ConfigValues[0].FieldsValue
-    configuration["f860"] = stamp
-    configuration["f6f8"] = len(model["fd88"]["atoms"])
-    for header in (active_header, top_header):
-        header.FieldsValue["f40"] = stamp
-
-
 def make_part(document, destination, mode, completed=False, *, feature_name=DEFAULT_FEATURE_NAME, semantics=None):
     document.AssertValid()
     require(mode in MODES and str(document.units) == "mm" and
@@ -236,7 +214,7 @@ def make_part(document, destination, mode, completed=False, *, feature_name=DEFA
         logs = header.FieldsValue["f20"].FieldsValue
         logs["items"] += (MakeRootLog(feature, recipe.HeaderValue),)
     if completed:
-        publish_completed_update(system, headers, feature, recipe)
+        FinishImportMut(system, feature, headers, recipe)
     if mode == "Owned":
         nodes = make_owned_nodes(document.brep, body_name, feature.FieldsValue["f08"], atom_id, body_stamp)
     else:
