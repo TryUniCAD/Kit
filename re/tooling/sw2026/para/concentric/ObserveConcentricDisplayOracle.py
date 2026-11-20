@@ -140,7 +140,8 @@ def previous(root, expected, role):
 def stored_dependency(author, app, pair):
     parent, child = pair
     refs = tuple(author.get(app, 'GetDocumentDependencies2', str(parent), False, False, False) or ())
-    require(len(refs) == 2 and refs[0].casefold() == child.name.casefold() and same_file(refs[1], child),
+    labels = (child.stem.casefold(), child.name.casefold())
+    require(len(refs) == 2 and refs[0].casefold() in labels and same_file(refs[1], child),
             'the stored parent dependency does not resolve to its exact paired child')
     return refs[1]
 

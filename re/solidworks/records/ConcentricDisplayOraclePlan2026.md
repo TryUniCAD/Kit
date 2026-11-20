@@ -36,12 +36,27 @@ No SOLIDWORKS process started in either attempt.
 [Observed Parallels transport](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/ParallelsInventoryTransportStatus.md)
 [Guest COM import gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/Rewrite/IsolatedPythonHidesUserSiteComObservers.md)
 
-Use packet `ConcentricDisplayVisibility03` for dispatch through the pinned
-user-site-enabled Python. Its trial SHA-256 is
+Packet `ConcentricDisplayVisibility03` used the pinned user-site-enabled
+Python. Its trial SHA-256 is
 `0aa6638570ce6f007a5024303a4619aedbf8de0036eea337eb4e8c4ea639e29f` and its
 recipe SHA-256 is `2929ad4692c401a241d7a5920631a20d66f48eebc0616df5bd634860fcc94945`.
-The registered interface and enum preflight passed before any CAD launch.
+The registered interface and enum preflight passed, and both original
+controls passed. The author stopped before `CopyDocument`. The source
+dependency row returned the display label `ConcentricD01Child` followed by
+the exact pinned `ConcentricD01Child.SLDPRT` path. The prior basename check
+refused the stem. The author record SHA-256 is
+`311267914a3df94a0befdf40c4f880b7d01a2d3be44f159a569c2e349fbe5825`.
+The summary records three distinct native processes and a skipped observer.
 
-The saved baseline is retained privately at `Inspection/Author/Before.SLDASM`. Both its bytes and the changed final parent were saved at the same owned parent path. After a passing cold read, compare the two native archives independently, joining `COMPINSTANCETREE` through configuration and occurrence XML IDs and joining `ThirdPtyStore/VisualStates` through its typed state keys and occurrence owners. Agreement would establish correlation with authored visibility. A later causal discrimination requires its own controlled same-path oracle batch.
+Use the fresh packet `ConcentricDisplayVisibility04` for the retry. Its trial
+SHA-256 is `eace2beb513a3f02ba7a053a6622a1d793f12f55f288e9cc9a675c9b41daa048`
+and its recipe SHA-256 is `39b3ffb93eda1fd534e9640b262e578d66e6d01687b83b7fc9a717a6958f89d7`.
+The first dependency field accepts either the exact expected stem or basename.
+The second must still resolve to the exact paired file, and its full returned
+path drives the single native copy mapping with option zero. The frozen
+argv uses `prlctl exec 'Windows 11' --current-user` with the pinned Python
+user-site enabled for `pythoncom`.
 
-This preparation ran the host packet builder only. SOLIDWORKS and the guest preflight await the oracle owner. The samples remain disclosed research with no held-out reads. The batch leaves native stream precedence, cache omission and the public writer gate unqualified. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) · [Corpus protocol](../../Playbook/GenerativeCorpus.md)
+The author will retain the baseline privately at `Inspection/Author/Before.SLDASM` after saving it at the same owned parent path as the final parent. After a passing cold read, compare the two native archives independently, joining `COMPINSTANCETREE` through configuration and occurrence XML IDs and joining `ThirdPtyStore/VisualStates` through its typed state keys and occurrence owners. Agreement would establish correlation with authored visibility. A later causal discrimination requires its own controlled same-path oracle batch.
+
+Packet 04 preparation ran the host packet builder. Guest preflight and native observations are pending. All samples are disclosed. Native stream precedence, cache omission and writer eligibility require separate evidence. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) · [Corpus protocol](../../Playbook/GenerativeCorpus.md)
