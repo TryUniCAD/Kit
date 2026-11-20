@@ -1,7 +1,7 @@
 {
   "label": "circle",
-  "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\CIRCLE_r10.SLDPRT",
-  "log": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\out\\cdb_trace_circle.log",
+  "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\CIRCLE_r10.SLDPRT",
+  "log": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\trace\\out\\cdb_trace_circle.log",
   "stream_length": 10556,
   "base_map_index": 109,
   "object_count": 285,

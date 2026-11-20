@@ -1,6 +1,6 @@
 [
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\diagnose\\D1_depth_only.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\diagnose\\D1_depth_only.SLDPRT",
     "returncode": 0,
     "seconds": 19.183659599999373,
     "opened": true,
@@ -140,7 +140,7 @@
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\diagnose\\D2_rect_only.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\diagnose\\D2_rect_only.SLDPRT",
     "returncode": 0,
     "seconds": 18.85312129999511,
     "opened": true,
@@ -280,7 +280,7 @@
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\diagnose\\D3_both_inherited_xml.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\diagnose\\D3_both_inherited_xml.SLDPRT",
     "returncode": 0,
     "seconds": 18.792876200001047,
     "opened": true,
@@ -420,7 +420,7 @@
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\diagnose\\D4_both_authored_xml.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\diagnose\\D4_both_authored_xml.SLDPRT",
     "returncode": 0,
     "seconds": 20.352320800004236,
     "opened": true,

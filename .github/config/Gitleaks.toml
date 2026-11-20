@@ -10,7 +10,6 @@ description = "Paths outside the CI security boundary, and DWG named object dict
 paths = [
     '''(^|/)\.venv(/|$)''',
     '''(^|/)examples(/|$)''',
-    '''(^|/)Parashell(/|$)''',
     '''(^|/)modules(/|$)''',
     '''(^|/)re(/|$)''',
 ]

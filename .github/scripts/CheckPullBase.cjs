@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
+// SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt
 
 const { CheckBaseOrder } = require("./CheckBaseOrder.cjs");
 const { CheckBaseSigner } = require("./CheckBaseSigner.cjs");

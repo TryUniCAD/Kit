@@ -79,6 +79,14 @@ Use React for frontend work.
 Use project-owned PascalCase paths.
 The `re/` exemption does not waive product acceptance.
 
+## Licensing
+
+Document the correct license for every added or changed artifact.
+Verify claims against the governing license file and applicable third-party notices before publication.
+Kit uses the [MIT License](../../../LICENSE).
+Preserve third-party terms and attribution, and state which materials they cover.
+Do not copy obsolete restrictions or restore retired per-file boilerplate.
+
 ## Completion evidence
 
 Record the accepted head SHA, full CI inventory, each reviewer identity, reviewed SHAs, and mergeability.

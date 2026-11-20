@@ -203,7 +203,7 @@ This is B07 expansion work within PR #94's broad plan, not a completed or active
 NX, Creo and CATIA already have open implementation PRs.
 Their containers, retained payloads and bounded geometry work do not establish arbitrary parametric conversion.
 Coordinate B08/B09 with those PRs before adding another adapter effort.
-Rhino, standalone AutoCAD and Parashell have no matching implementation PR in the inspected inventory.
+Rhino and standalone AutoCAD have no matching implementation PR in the inspected inventory.
 They still belong to the broader A16 expansion scope and require explicit child claims.
 
 ### Drawings and assemblies

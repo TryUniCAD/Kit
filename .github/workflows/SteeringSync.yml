@@ -77,10 +77,17 @@ jobs:
           FileNotice = Regex.compile(
               rb"(?m)^(?P<block><!--\r?\n)?(?P<prefix>(?:\# |// |\$\$ |))"
               rb"SPDX-License-Identifier: MIT\r?\n(?P=prefix)"
-              rb"SPDX-FileCopyrightText: Copyright \(c\) 2026 (?:Parashell, )?"
+              rb"SPDX-FileCopyrightText: Copyright \(c\) 2026 (?:[^,\r\n]+, )?"
               rb"Odin Glynn-Martin(?:, Stephen Harcourt)?\r?\n"
               rb"(?(block)-->\r?\n)(?:\r?\n)?"
           )
+          # archived naming supplies one deterministic normalization without changing historical provenance
+          LegacyBrand = Regex.search(
+              rb"under `/([^/]+)/`",
+              Subprocess.check_output([
+                  "git", "show", f"{SourceCommit}:.kiro/steering/CodeFormatting.md",
+              ]),
+          ).group(1)
           Manifest = Json.loads((PackageRoot / "references/Standards/Manifest.json").read_text())
           if Manifest["source_commit"] != SourceCommit:
               raise SystemExit("The original standards source commit must remain pinned")
@@ -120,6 +127,9 @@ jobs:
               _ = DocumentPath.relative_to(PackageRoot)
               Document = DocumentPath.read_bytes()
               ExpectedText = FileNotice.sub(b"", Original)
+              ExpectedText = ExpectedText.replace(LegacyBrand, b"Kit").replace(LegacyBrand.lower(), b"kit")
+              ExpectedText = ExpectedText.replace(b"`Kit/", b"`FreeCAD/").replace(b"/Kit/", b"/FreeCAD/")
+              ExpectedText = ExpectedText.replace(b"`Kit` FreeCAD fork", b"`FreeCAD` fork")
               if SourceName.endswith("/RepositoryStructure.md") or SourceName == ".agents/skills/repository-structure/SKILL.md":
                   ExpectedText = ExpectedText.replace(
                       b"- Start every new non exempt text file with the exact repository SPDX notice\n", b""

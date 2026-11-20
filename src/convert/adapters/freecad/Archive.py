@@ -6253,8 +6253,8 @@ def DocProperties(Label: str, DocId: str, DocTimestamp: str) -> XmlTree.Element:
     Properties.extend(
         [
             StringProp("Label", Label),
-            StringProp("Comment", "Kit by Parashell interchange document"),
-            StringProp("CreatedBy", "Kit by Parashell"),
+            StringProp("Comment", "Kit interchange document"),
+            StringProp("CreatedBy", "Kit"),
             StringProp("Id", DocId),
             StringProp("License", ""),
         ]

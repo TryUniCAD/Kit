@@ -1,7 +1,7 @@
 [
   {
     "label": "boss1",
-    "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\donors\\parts\\boss1_front_rect_blind.SLDPRT",
+    "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\donors\\parts\\boss1_front_rect_blind.SLDPRT",
     "spans": [
       11073,
       1957,
@@ -9,8 +9,8 @@
       25212,
       1593
     ],
-    "script": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\CdbMultiBossOne.txt",
-    "log": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\out\\cdb_multi_boss1.log",
+    "script": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\trace\\CdbMultiBossOne.txt",
+    "log": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\trace\\out\\cdb_multi_boss1.log",
     "status": "traced",
     "streams": [
       {
@@ -174,7 +174,7 @@
   },
   {
     "label": "boss2",
-    "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\donors\\parts\\boss2_front_rect_blind.SLDPRT",
+    "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\donors\\parts\\boss2_front_rect_blind.SLDPRT",
     "spans": [
       16174,
       2019,
@@ -182,8 +182,8 @@
       25316,
       1704
     ],
-    "script": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\CdbMultiBossTwo.txt",
-    "log": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\out\\cdb_multi_boss2.log",
+    "script": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\trace\\CdbMultiBossTwo.txt",
+    "log": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\trace\\out\\cdb_multi_boss2.log",
     "status": "traced",
     "streams": [
       {
@@ -347,7 +347,7 @@
   },
   {
     "label": "boss3",
-    "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\donors\\parts\\boss3_front_rect_blind.SLDPRT",
+    "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\donors\\parts\\boss3_front_rect_blind.SLDPRT",
     "spans": [
       21205,
       2081,
@@ -355,8 +355,8 @@
       25420,
       1815
     ],
-    "script": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\CdbMultiBossThree.txt",
-    "log": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\out\\cdb_multi_boss3.log",
+    "script": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\trace\\CdbMultiBossThree.txt",
+    "log": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\trace\\out\\cdb_multi_boss3.log",
     "status": "traced",
     "streams": [
       {

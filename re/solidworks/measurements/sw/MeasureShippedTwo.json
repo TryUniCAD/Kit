@@ -1,6 +1,6 @@
 [
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 17.66503420000663,
     "opened": true,
@@ -144,7 +144,7 @@
     "role": "control-before"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\kit_boss_cut_cut_cut.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\sw\\sldprt\\kit_boss_cut_cut_cut.SLDPRT",
     "returncode": 0,
     "seconds": 14.875899200007552,
     "opened": true,
@@ -341,7 +341,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 13.009531700008665,
     "opened": true,

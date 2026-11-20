@@ -249,7 +249,7 @@
   },
   "traces": {
     "baseline": {
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
       "stream_length": 11075,
       "base_map_index": 109,
       "slots": {
@@ -396,7 +396,7 @@
       }
     },
     "circle": {
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\CIRCLE_r10.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\CIRCLE_r10.SLDPRT",
       "stream_length": 10556,
       "base_map_index": 109,
       "slots": {
@@ -547,7 +547,7 @@
       }
     },
     "planetop": {
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\PLANE_TOP.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\PLANE_TOP.SLDPRT",
       "stream_length": 11075,
       "base_map_index": 109,
       "slots": {
@@ -694,7 +694,7 @@
       }
     },
     "twopad": {
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus2\\parts\\TWOPAD_d5.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus2\\parts\\TWOPAD_d5.SLDPRT",
       "stream_length": 19390,
       "base_map_index": 110,
       "slots": {
@@ -841,7 +841,7 @@
       }
     },
     "cutbase": {
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus2\\parts\\CUTBASE_cd5.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus2\\parts\\CUTBASE_cd5.SLDPRT",
       "stream_length": 16579,
       "base_map_index": 110,
       "slots": {
@@ -1000,7 +1000,7 @@
       }
     },
     "padplane": {
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus2\\parts\\PADPLANE_rev_d5.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus2\\parts\\PADPLANE_rev_d5.SLDPRT",
       "stream_length": 16581,
       "base_map_index": 110,
       "slots": {
@@ -1159,7 +1159,7 @@
       }
     },
     "three": {
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus2\\parts\\THREEFEATURE_pad_cut_pad.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus2\\parts\\THREEFEATURE_pad_cut_pad.SLDPRT",
       "stream_length": 24805,
       "base_map_index": 111,
       "slots": {
@@ -1318,7 +1318,7 @@
       }
     },
     "vendor_ring": {
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\examples\\Single Turbo Dual Overhead Cam V8 - KDP - 2024\\Piston Ring KF.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\examples\\Single Turbo Dual Overhead Cam V8 - KDP - 2024\\Piston Ring KF.SLDPRT",
       "stream_length": 25998,
       "base_map_index": 111,
       "slots": {
@@ -1484,7 +1484,7 @@
       }
     },
     "vendor_cojinete": {
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\examples\\Single Turbo Dual Overhead Cam V8 - KDP - 2024\\COJINETE INFERIOR.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\examples\\Single Turbo Dual Overhead Cam V8 - KDP - 2024\\COJINETE INFERIOR.SLDPRT",
       "stream_length": 17601,
       "base_map_index": 111,
       "slots": {

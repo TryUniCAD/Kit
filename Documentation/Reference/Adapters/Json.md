@@ -8,13 +8,13 @@ This reference distinguishes interchange storage from native CAD output.
 
 ## JSON identity
 
-| Item              | Value                                |
-| ----------------- | ------------------------------------ |
-| Format identifier | `interchange.json`                   |
-| Suffix            | `.json`                              |
-| Media type        | `application/vnd.parashell.kit+json` |
-| Main model        | `CadDocument`                        |
-| Text encoding     | UTF-8                                |
+| Item              | Value                      |
+| ----------------- | -------------------------- |
+| Format identifier | `interchange.json`         |
+| Suffix            | `.json`                    |
+| Media type        | `application/vnd.kit+json` |
+| Main model        | `CadDocument`              |
+| Text encoding     | UTF-8                      |
 
 The probe examines a prefix for the `$type` and `CadDocument` markers.
 A `.json` suffix alone is weaker evidence than the document markers.

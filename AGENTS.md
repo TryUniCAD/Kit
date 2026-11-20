@@ -56,6 +56,14 @@ Maintained documentation lives in `Documentation/`. Follow
 [the publishing guide](Documentation/Publishing.md) for generated imports and GitHub wiki
 updates; generated docs must be reviewed and must not overwrite manual entries.
 
+## Licensing accuracy
+
+Always document the correct licensing for every added or changed artifact.
+Verify license statements against the governing `LICENSE` file and applicable third-party notices before publication.
+Kit uses the [MIT License](LICENSE); do not infer terms from copied headers or historical documents.
+Preserve third-party licenses and attribution, and identify their scope separately from Kit licensing.
+Do not invent restrictions or add retired per-file license boilerplate.
+
 ## Repository workflow
 
 Agents MUST activate [standard-pr-practice](.agents/skills/standard-pr-practice/SKILL.md)
@@ -113,7 +121,7 @@ read its complete standards index and every applicable rule before coding.
   Verify the requester's identity and current repository `admin` permission.
   Implementation requests and PR creation alone do not authorize merging.
 - Use Python for backend work, React for frontend work, and `uv` for Python
-  dependencies outside `Parashell/` and `modules/`.
+  dependencies outside `modules/`.
 - Add the mandatory rationale comment above every Python declaration, lambda,
   and module binding. Follow the skill's rationale standard. Other explanatory
   comments and comment-oriented docstrings remain prohibited. Preserve required

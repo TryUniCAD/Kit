@@ -1,7 +1,7 @@
 {
   "label": "planetop",
-  "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\PLANE_TOP.SLDPRT",
-  "log": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\out\\cdb_trace_planetop.log",
+  "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\PLANE_TOP.SLDPRT",
+  "log": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\trace\\out\\cdb_trace_planetop.log",
   "stream_length": 11075,
   "base_map_index": 109,
   "object_count": 321,

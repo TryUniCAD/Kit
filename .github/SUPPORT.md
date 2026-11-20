@@ -1,9 +1,5 @@
 # Support
 
-Kit is confidential, internal Parashell software (see
-[README.md](../README.md)). Support is provided to Parashell only.
-
-- Bug reports: <https://github.com/TryParashell/Kit/issues>
-- Direct contact: odin.glynn@parashell.cloud
-
-Do not open pull requests; see [CONTRIBUTING.md](CONTRIBUTING.md) for why.
+Report bugs through [GitHub issues](https://github.com/TryUniCAD/Kit/issues).
+See [contribution guidance](CONTRIBUTING.md) before submitting a pull request.
+Use the [security policy](../SECURITY.md) for private vulnerability reports.
