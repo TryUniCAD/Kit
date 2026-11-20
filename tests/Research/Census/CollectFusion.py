@@ -10,19 +10,23 @@ def CollectFusion(TargetList: list[FilePath], TempPath: FilePath) -> FilePath:
     CensusPath = FilePath(
         OsModule.environ.get("KIT_FUSION_CENSUS", str(TempPath / "census.json"))
     )
-    CensusArgs = [
-        System.executable,
-        str(RootPath / "re/automation/FusionCensus.py"),
-        "collect",
-        "--manifest",
-        str(RootPath / "re/automation/Corpus.json"),
-        "--output",
-        str(CensusPath),
-    ]
-    for TargetPath in TargetList:
-        CensusArgs += ["--summary", str(TargetPath / "summary.json")]
     CensusRun = Subprocess.run(
-        CensusArgs, capture_output=True, text=True, timeout=120, check=False
+        [
+            System.executable,
+            str(RootPath / "re/automation/FusionCensus.py"),
+            "collect",
+            "--manifest",
+            str(RootPath / "re/automation/Corpus.json"),
+            f"--output={CensusPath.absolute()}",
+            *(
+                f"--summary={TargetPath.absolute() / 'summary.json'}"
+                for TargetPath in TargetList
+            ),
+        ],
+        capture_output=True,
+        text=True,
+        timeout=120,
+        check=False,
     )
     assert CensusRun.returncode == 0, CensusRun.stderr
     return CensusPath
