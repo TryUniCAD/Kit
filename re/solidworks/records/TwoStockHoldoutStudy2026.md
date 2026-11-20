@@ -28,3 +28,5 @@ The deterministic research CLI verifies Git-owned assets. For these VM-private f
 ## Public writer confirmation
 
 After the archive dependency merge, each locked neutral request was replayed through both the strict public registry stream route and direct part writer. Both routes produced the exact native-tested archive bytes for each lock, including all ten streams. Two closed analytic solids and seven native transfers survived strict SDK readback. Seven additional guarded workers repeated the disclosed staged, direct and streamed controls, transactional refusals and four legacy writer routes. Every result matched its recorded predecessor, and no worker attempted runtime input-file access. [Integrated public receipt](../measurements/2026/TwoStockQualifiedWriterIntegration01.json)
+
+The integrated archive codec repeated the disclosed binary census on the same 88 pinned files. All 1,328 measured streams re-emitted exactly through their typed owners, with zero opaque operations or unread tails and no missing or provisional layouts in the observed profiles. [Exact revision and census receipt](../measurements/2026/ArchiveAfterStockIntegration01.json)

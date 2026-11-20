@@ -1,0 +1,28 @@
+{
+  "assemblies": 8,
+  "audit_script_sha256": "37ca0e6b06e93fd05ced6725f890d40700cab1f7703b032680a4aa250fc6bafa",
+  "codec_revision": "4920c9264b32cd0458936e3777609edcda0f2a24",
+  "complete_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 88
+  },
+  "full_binary_report_sha256": "d976bab309a5b7e699fcd12fd64dc5691eb1fd5480bf0498ff9d3625ed8ef33b",
+  "heldout_inputs_read": 0,
+  "missing_schema_incidence": {},
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "parts": 80,
+  "prior_codec_revision": "f2764043247895f830ee1974b509fd9edc4190e3",
+  "prior_receipt_sha256": "a70a05be0d140e9c55035cdc29fe32863746cd8cac654ad784922914f9cb8614",
+  "provisional_schema_incidence": {},
+  "schema": "kit.sw2026.archive-after-stock-integration.v1",
+  "source_files": 88,
+  "source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1328
+  }
+}
