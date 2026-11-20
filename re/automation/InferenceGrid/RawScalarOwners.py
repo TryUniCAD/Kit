@@ -9,13 +9,41 @@
 from bisect import bisect_right
 from collections import Counter, defaultdict
 import math
+import struct
 
 from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle, SelectNamedField
-from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars
+from convert.adapters.solidworks.Core.Native import FeatureCountFields, ParseKeywords, ParseNames, ParseScalars
 from convert.adapters.solidworks.Core.ParseDisplay import (
     KInformationStream,
     ParseDisplay,
 )
+
+
+def count_interpretations(blob, features, names):
+    alternatives = {}
+    for owner, family, dim, offset, end in FeatureCountFields(blob, features, names):
+        text = dim.source_text.strip()
+        if not text.isascii() or not text.isdecimal() or len(text) > 10:
+            continue
+        count = int(text)
+        if not 0 < count < 2**32:
+            continue
+        formats = [fmt for fmt in ("B", "<H", ">H", "<I", ">I", "<Q", ">Q")
+                   if struct.unpack_from(fmt, blob, offset)[0] == count]
+        if not formats:
+            continue
+        mirrors = []
+        for fmt in ("<d", ">d", "<f", ">f"):
+            word = struct.pack(fmt, count)
+            if struct.unpack(fmt, word)[0] != count:
+                continue
+            start = offset + 8
+            while (found := blob.find(word, start, end)) >= 0:
+                mirrors.append({"format": fmt, "offset": found})
+                start = found + len(word)
+        alternatives[offset] = {"feature_id": owner, "family": family, "parameter": dim.name,
+                                "count": count, "integer_formats": formats, "matching_copies": mirrors}
+    return alternatives
 
 
 def associate(archive, member, records):
@@ -63,6 +91,7 @@ def associate(archive, member, records):
     markers.sort()
     if len({off for off, _ in markers}) != len(markers):
         return {"status": "overlapping_feature_markers"}
+    count_fields = count_interpretations(blob, features, names) if markers else {}
     positions = [off for off, _ in markers]
     occurrences = Counter(ident for _, ident in markers)
     rows = []
@@ -93,8 +122,9 @@ def associate(archive, member, records):
                                      "entity_index": operand.entity_index} for operand in scalar.operands]}
         if index >= 0:
             groups[(markers[index][1], label)].append(scalar if trailer else None)
+        alternative = count_fields.get(record["offset"])
         rows.append(
-            {**record, "native_trailer": trailer, "candidate_feature_ids": possible, "declaration_matches": matches, "preceding_candidate": local}
+            {**record, "count_hypothesis": alternative, "native_trailer": trailer, "candidate_feature_ids": possible, "declaration_matches": matches, "preceding_candidate": local}
         )
     driving = set()
     for group in groups.values():
@@ -108,7 +138,10 @@ def associate(archive, member, records):
         possible, local = row["candidate_feature_ids"], row["preceding_candidate"]
         rounded = any(m["agreement"] == "display_precision" for m in row["declaration_matches"])
         row["selected_among_display_copies"] = bool(local and row["offset"] in driving)
-        if local and (local_counts[local["id"], row["name"]] == 1 or row["selected_among_display_copies"]):
+        if row["count_hypothesis"]:
+            status = "pattern_count_hypothesis"
+            row["selected_among_display_copies"] = False
+        elif local and (local_counts[local["id"], row["name"]] == 1 or row["selected_among_display_copies"]):
             status = (
                 "rounded_declaration_and_marker_agree" if rounded and len(possible) == 1
                 else "declaration_and_marker_agree"
