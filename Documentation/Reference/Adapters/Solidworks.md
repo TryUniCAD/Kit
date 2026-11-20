@@ -110,6 +110,12 @@ carries an empty count in this profile. Populated bounds records require
 additional owner evidence. Cache reads preserve the caller's map state.
 [Part cache scope](../../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
 
+The embedded part atom manager keeps concrete kind-zero archive atoms
+with their signed IDs and existing map context. Later feature links
+can reuse those exact objects. The stored unsigned atom state remains
+available alongside its runtime projection.
+[Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+
 The configuration scene reader keeps the environment folder, its actual
 name and the observed ambient and directional light children. The
 runtime light reset retains its separate signed wire word. Populated

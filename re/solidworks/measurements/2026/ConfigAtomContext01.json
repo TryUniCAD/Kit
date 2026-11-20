@@ -1,0 +1,150 @@
+{
+  "production_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/AtomFields.py": "d3f536ffedeabaddfea5f4b91c0d3d9c175fc7b11d96ab7e480f63bce89bc37d",
+    "src/convert/adapters/solidworks/Archive/Bodies/NormalizeWord.py": "01e235c8f87e259517e11840a05612224766f5075f1154d0febf025411030f7c",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "7c6929b2df6f889c000c404da892d6fa15341e7f58ea65709dfd2e8c4da43f14",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadNormalMut.py": "8ab26355302b61fa3be56b814fb2bdc94568bc893df003a120d6724c3c176e60",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/AtomMgrGraph.py": "7cb6eba463854cea71392cd140ba88f1d77d9659305c6d1fc49446211a8cbc1b",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/AtomTypes.py": "d0784a1f8ebcefaea0eeadced7a8c3c8fe56bb21ac5b0edc1e2fc9283843c584",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/CheckAtomBody.py": "d71757659a7fa7c2cdfd51229cf990f51ff9fef5dbba13da98c9ae4f2ed7d163",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/CheckAtomMgr.py": "029c63cae9b32e0058ecc387e159483cdfe88bdef42a1dd87d29f991661c32d3",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/MakeAtomCtx.py": "dba86b69ed17ee2eb5ad57f29b1ba5b26593de76eca22e07a400f3a7d30311ee",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/ReadAtomMgr.py": "03899ff1421ff8948e0be49cb614c199f8d67520f9e955617a79cfad450c28a2",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/ReadAtomNodeMut.py": "89fa6dfd78572e61033765cd81bdfbddbb0927b92a17a017c235e9aed55bf8da"
+  },
+  "runs": {
+    "concave": {
+      "context": [],
+      "exit": 0,
+      "original_atom": [
+        0,
+        0,
+        101,
+        18,
+        18
+      ],
+      "producer": {
+        "class": "moBaseBody_c",
+        "feature_id": 18,
+        "feature_slot": 154,
+        "output_id": 101,
+        "reference_slot": 51
+      },
+      "refusals": [],
+      "stdout_sha256": "19ae5771189f331d8c385043e16fd601fafaee224d3d70263638b950b4b41e08"
+    },
+    "ladder": {
+      "context": [
+        {
+          "atom_span": [
+            8,
+            84
+          ],
+          "conditions": 128,
+          "frame_bytes": 88,
+          "manager_tail": 2882400001,
+          "slot": 59,
+          "stamps": [],
+          "state": [
+            2147483651,
+            2147483651,
+            -19,
+            -31,
+            -41
+          ]
+        },
+        {
+          "atom_span": [
+            8,
+            96
+          ],
+          "conditions": 4194304,
+          "frame_bytes": 100,
+          "manager_tail": 2882400001,
+          "slot": 59,
+          "stamps": [
+            -7,
+            1,
+            -7
+          ],
+          "state": [
+            2147483651,
+            0,
+            -19,
+            -31,
+            -41
+          ]
+        },
+        {
+          "atom_span": [
+            8,
+            96
+          ],
+          "conditions": 4194432,
+          "frame_bytes": 100,
+          "manager_tail": 2882400001,
+          "slot": 59,
+          "stamps": [
+            -7,
+            1,
+            -7
+          ],
+          "state": [
+            2147483651,
+            2147483651,
+            -19,
+            -31,
+            -41
+          ]
+        }
+      ],
+      "exit": 0,
+      "original_atom": [
+        0,
+        0,
+        101,
+        34,
+        34
+      ],
+      "producer": {
+        "class": "moExtrusion_c",
+        "feature_id": 34,
+        "feature_slot": 234,
+        "output_id": 101,
+        "reference_slot": 58
+      },
+      "refusals": [
+        "truncated",
+        "trailing",
+        "wrong_version",
+        "unsupported_context",
+        "unexpected_stamps",
+        "missing_stamps",
+        "detached_part",
+        "wrong_schema",
+        "null_atom",
+        "borrowed_atom",
+        "duplicate_ids",
+        "negative_count",
+        "named_owner",
+        "list_tail",
+        "body_kind_-1",
+        "body_kind_1",
+        "body_kind_2"
+      ],
+      "stdout_sha256": "a53842ffa89665787b648312ae896ccdcba8638821f187526aa4cf40793156c8"
+    }
+  },
+  "source_manifest_sha256": "ff3512e26704024c5d00cad2e413d5365b48f1936e5926006ff67cef4570af9d",
+  "source_revision": "e4bda5b315e7a8fca0a31060b8ea5de042cf276e",
+  "updated_paths_sha256": {
+    "Documentation/Changes/Solidworks/Archive/SolidworksConfigAtomManager.md": "96d615492c737cdba6106b785dd261d1b3bfb0d5dbb6a86c0942eef33cadeda2",
+    "re/solidworks/records/ConfigAtomSlice2026.md": "8fa985b4522cfa0cbcc3d9f8678db3d8622b6cccf5fa04d704cbdba3a796137c",
+    "re/tooling/sw2026/CheckCfgAtoms.py": "a902591625ea3b49523645ffdab52cdc06f37632968e56f67bbb6e419f11d508",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/AtomFields.py": "d3f536ffedeabaddfea5f4b91c0d3d9c175fc7b11d96ab7e480f63bce89bc37d",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/MakeAtomCtx.py": "dba86b69ed17ee2eb5ad57f29b1ba5b26593de76eca22e07a400f3a7d30311ee",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/ReadAtomMgr.py": "03899ff1421ff8948e0be49cb614c199f8d67520f9e955617a79cfad450c28a2",
+    "tests/Convert/Solidworks/Configuration/CfgAtomTests.py": "f0c00cb22b8e16f40b98038ea61df79e6aec0b0d4cad749b646dd147062889dd",
+    "tests/Convert/Solidworks/Configuration/ImportAtomTests.py": "140a5d7370cd1ddf34a5874faf64fec19688f2b9cd13cbee431b25c18c22d2a5"
+  }
+}
