@@ -146,6 +146,12 @@ pins two independent 2026-authored source parts ahead of writer
 implementation. Both controls and both source edit lifecycles passed.
 The generated-output total remains zero for this lock.
 
+The [neutral owner graph](measurements/2026/TwoStockColdOwnerGraph01.json)
+constructs the two provisional stock records, both editable depth owners
+and the explicit cut selection. All ten model-derived streams survive
+in-memory container readback. Native regeneration and benchmark coverage
+remain open for this graph.
+
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,
 save and reopen across 14 processes. Strict SDK readback reaches 20
