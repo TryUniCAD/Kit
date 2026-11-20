@@ -349,7 +349,7 @@ def snapshot(author, label, edited, values, rebuild=False):
             'moving_stock_cut': b_cut, 'analytic_case': case}
 
 
-def build(author, controller, automatic, values):
+def build(author, controller, automatic, values, *, use_scope=True):
     author.model = author.rec.call('create the disclosed multistock part', controller.new_part)
     manager = author.get(author.model, 'FeatureManager')
     specs = profiles()
@@ -369,7 +369,8 @@ def build(author, controller, automatic, values):
     author.create_profile({'plane': plane}, PROFILES[2], method, coordinates)
     selection = author.get(author.model, 'SelectionManager')
     selected_name = None
-    if not automatic:
+    select_body = use_scope and not automatic
+    if select_body:
         names = {role: author.get(body, 'Name') for role, (body, _) in active_bodies(author).items()}
         need(all(isinstance(name, str) and name.strip() for name in names.values())
              and len({name.casefold() for name in names.values()}) == 2, 'the two actual stock body names are ambiguous')
@@ -383,15 +384,15 @@ def build(author, controller, automatic, values):
         selected = author.typed(author.get(selection, 'GetSelectedObject6', 1, CUT_MARK), 'Body2')
         need(author.get(selected, 'Name') == selected_name and body_owners(author, selected)[0] == STEADY,
              'the explicitly selected native solid differs from the requested stock')
-    need(int(author.get(selection, 'GetSelectedObjectCount2', -1)) == (1 if automatic else 2)
+    need(int(author.get(selection, 'GetSelectedObjectCount2', -1)) == (2 if select_body else 1)
          and int(author.get(selection, 'GetSelectedObjectCount2', 0)) == 1
          and int(author.get(selection, 'GetSelectedObjectType3', 1, 0)) == 9, 'wrong native through-all profile or additional selection')
     args = (True, False, True, 1, 0, .012, .006, False, False, False, False, 0.0, 0.0,
-            False, False, False, False, False, True, automatic, False, False, False, 0, 0.0, False, False)
+            False, False, False, False, False, use_scope, automatic, False, False, False, 0, 0.0, False, False)
     author.rec.data['cut_request'] = {'arguments': list(args), 'profile_mark': 0,
-                                     'body_mark': None if automatic else CUT_MARK,
+                                     'body_mark': CUT_MARK if select_body else None,
                                      'selected_body_name': selected_name,
-                                     'preselected_producer': None if automatic else STEADY}
+                                     'preselected_producer': STEADY if select_body else None}
     author.rec.flush()
     feature = author.get(manager, 'FeatureCut4', *args)
     need(feature is not None, 'native FeatureCut4 refused the requested scope')
@@ -441,14 +442,15 @@ def candidate(folder, phase, plan, api_sha):
     from OracleIdentity import application_identity
     from ThroughAllAuthor import ThroughAllAuthor
 
-    automatic = phase.startswith('Auto')
+    arm = next(name for name in ('Auto', 'Explicit', 'AllBodies') if phase.startswith(name))
+    automatic = arm == 'Auto'
+    use_scope = arm != 'AllBodies'
     authoring = phase.endswith('Author')
     reviewing = phase in SCOPE_PHASES
     review_edited = reviewing and phase.endswith('Edited')
-    arm = 'Auto' if automatic else 'Explicit'
     stage = folder / phase
     stage.mkdir(exist_ok=False)
-    record = Recorder(stage / 'Record.json', {'schema': SCHEMA, 'phase': phase, 'api_sha256': api_sha})
+    record = Recorder(stage / 'Record.json', {'schema': plan['schema'], 'phase': phase, 'api_sha256': api_sha})
     values = plan['predictions']
     path = folder / (arm + 'Author') / PART
     result = {'passed': False, 'requested_automatic': automatic}
@@ -468,7 +470,7 @@ def candidate(folder, phase, plan, api_sha):
             result['native_identity'] = identity
             observer = ThroughAllAuthor(controller.app, record, Swapp)
             if authoring:
-                build(observer, controller, automatic, values)
+                build(observer, controller, automatic, values, use_scope=use_scope)
                 result['created'] = snapshot(observer, 'created', False, values)
             else:
                 model, error, warning = record.call('fresh open of the owned unedited native save', controller.open, path,
