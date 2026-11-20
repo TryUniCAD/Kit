@@ -5,3 +5,9 @@ The research reader compares each projected sketch's primitive backlinks with it
 A hosted comparison matched all seven sketch geometry rosters across an extrusion, a parameter expression, a revolution and a scale with two input bodies. [Hosted comparison](https://github.com/TryUniCAD/Kit/actions/runs/44753881445/job/136348454494)
 
 The reader also preserves the native point's fixed flag and exposes its origin flag in `fusion.point_is_origin`. A corner may share the origin’s coordinates and have a different fixed state. [Native solver observations](../../../../re/Fusion/Reconstruction/SketchConstraints/ConstraintModel.md)
+
+A sketch can become a portable reference step when its owning timeline record links back, its support resolves, its geometry roster agrees, its native geometric and dimensional rule rosters match in order, and the root uses the supported transform and offset layout. Projected geometry remains outside this qualification. FreeCAD’s editable profile checks retain the fixed origin's solver constraint through readback.
+
+The principal sketch plane reader follows the stored matrix-controller reference through the sketch’s variable-length parameter and child lists. [Principal sketch controller offsets](../../../Gotchas/Conversion/Fusion/Sketch/PrincipalSketchControllerOffsets.md)
+
+The hosted editing run exercised native editable extrusions, rotations, scale construction points and reopened parameter edits. A deliberately invalid revolution edge now refuses public export before writing a file. A signed-dimension case with other unresolved sketch members verifies the public refusal separately from the signed solver encoding. [Hosted editing results](https://github.com/TryUniCAD/Kit/actions/runs/44757683688/job/136361627743)

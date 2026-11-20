@@ -5,6 +5,7 @@ from convert.Formats.Fusion.HistoryPart import HistoryPart
 from convert.Formats.Fusion.ParamProjection import ParamOrigin as RecordOrigin
 from convert.Formats.Fusion.RecordSpan import RecordSpan
 from convert.Formats.Fusion.Sketches.SketchGeometry import GroupGeometry, ProjectGeom
+from convert.Formats.Fusion.Sketches.SketchRuleIds import ReadSketchRules
 from convert.Formats.Fusion.Sketches.SketchPlacement import (
     KSketchBase,
     KSketchFeature,
@@ -62,11 +63,29 @@ def ProjectSketches(
         Planes.append(Frame)
         Sketches.append(
             BuildSketch(
-                StepValue, RootSpan, Frame, Entities, None if Issues else Children
+                StepValue,
+                RootSpan,
+                Frame,
+                Entities,
+                None if Issues else GeometryRoster(BulkData, RootSpan, Children),
             )
         )
         Steps[-1] = Replace(StepValue, name=Frame.name, sketch_id=Sketches[-1].id)
     return tuple(Planes), tuple(Sketches), tuple(Steps), tuple(Diagnostics)
+
+
+# dimensions and constraints can also appear among the managed children of a sketch
+def GeometryRoster(
+    BulkData: bytes, RootSpan: RecordSpan, Children: tuple[int, ...] | None
+) -> tuple[int, ...] | None:
+    if Children is None:
+        return None
+    try:
+        Geometric, Dimensions = ReadSketchRules(BulkData, RootSpan)
+    except ValueError:
+        return None
+    RuleIds = frozenset(Geometric + Dimensions)
+    return tuple(Identity for Identity in Children if Identity not in RuleIds)
 
 
 # the neutral sketch retains the proven native identity frame and source step
