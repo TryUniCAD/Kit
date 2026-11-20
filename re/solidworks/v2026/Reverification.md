@@ -88,11 +88,16 @@ The 2026 part container has streams that the 2025 notes do not list:
 `Contents/PMISemanticDataDB` (each 12 288 bytes in a new part), and `Contents/eModelLic`.
 Their load criticality is measured in `Deletion2026.md`.
 
-## Not yet re-verified
+## Object-level coverage
 
-- Object-level byte identity and field classification across the full, varied 2026 corpus.
-  The eight-control instrument passed 56 critical-stream comparisons at head
-  `66fd65e181af98583e51c5b570b90adbe25897d7`; this does not cover every real part or assembly.
+The initial eight-control instrument passed 56 critical-stream comparisons at
+`66fd65e181af98583e51c5b570b90adbe25897d7`. The integrated codec at
+`4920c9264b32cd0458936e3777609edcda0f2a24` reproduces all 1,328 measured
+streams from 80 disclosed parts and eight assemblies. Every observed stream
+re-emits from its typed owners, consumes its full extent and has no opaque
+operations, missing schemas or provisional schemas. Full field classification
+and generalization to additional feature families remain open.
+[Integrated binary census](../measurements/2026/ArchiveAfterStockIntegration01.json)
 
 The rooted instrument's CMgr, ModelHeader, Definition, Biography and History
 archives start at map counter 1. Config-0 adds its direct external-object bindings
@@ -106,5 +111,7 @@ The native cache-copy rule is recorded in
 [ArchiveMapConstruction2026.md](../records/ArchiveMapConstruction2026.md); its
 linked-stream remote check is tracked separately from unlinked byte identity.
 
-The regenerated 2026 class map is now recorded in `SerializeMapDiff.md`. This supersedes
-the earlier pending map-generation note, but does not establish schema or writer coverage.
+The regenerated class inventory is recorded in [SerializeMapDiff.md](SerializeMapDiff.md).
+The offline comparison resolves the current two map files to the exact recorded
+receipt. The six inventoried 2026 module digests and the separate archive
+runtime digest still match the licensed external files in the SP05.2 manifest.

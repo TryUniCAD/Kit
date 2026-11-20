@@ -6,6 +6,10 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Locked two-stock native comparison](TwoStockHoldoutStudy2026.md) | Both pre-writer locks match the complete 29-row native tree and all 144 numeric checks after the evaluator supplies the original datum labels. The writer source is identical across the two trials and the first result remains recorded. |
+| [Normal two-stock writer](../measurements/2026/TwoStockQualifiedWriterIntegration01.json) | Two normal SDK routes reproduce both exact native-tested artifacts and all ten streams. Seven additional guarded workers repeat the disclosed and legacy results. Runtime input reads remain zero. |
+| [Locked two-stock saved readback](../measurements/2026/TwoStockHeldoutSavedRead01.json) | Both independently authored sources and both edited native saves retain the actual selected cut, two editable depths and two linked B-rep bodies under ordinary strict SDK reading. |
+| [Integrated disclosed archive census](../measurements/2026/ArchiveAfterStockIntegration01.json) | All 1,328 measured streams re-emit byte for byte across the same 88 pinned native assets after the shared writer changes. |
 | [Generated binary Parasolid intake](../measurements/2026/GeneratedLocalKernelExchangeNative01.json) | Both generated solids and all controls pass across seven fresh processes. The two cold and rebuilt candidate shapes pass all 140 numeric comparisons. Imported part archive generation is open. |
 | [Generated local-body part diagnostics](../measurements/2026/GeneratedLocalBodyPartNative01.json) | All four part archives open with their owned bodies and pass 280 cold and rebuilt numeric comparisons. All expose warning 32 before save. Three native controls pass. |
 | [Generated local-body ambient comparison](../measurements/2026/GeneratedLocalBodyPartAmbient01.json) | An independently authored ambient light changes five streams at each matched locator. All four native parts still report warning 32 and pass 280 geometry checks with healthy controls. |
