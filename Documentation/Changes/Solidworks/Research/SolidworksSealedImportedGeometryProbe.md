@@ -17,3 +17,14 @@ the public writer require their own transfer evidence.
 [Staging tool](../../../../re/tooling/sw2026/imported_body_source/StageSealedImportedGeometry.py)
 · [Guest evaluator](../../../../re/tooling/sw2026/imported_body_source/EvaluateSealedImportedGeometry.py)
 · [Disclosure baseline](../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartCompleted01.json)
+
+Both independently locked original sources pass the geometry evaluation.
+Eight fresh native processes pass, including both controls. All 232
+candidate comparisons agree after clean cold open, rebuild, save and fresh
+reopen. Two independent builds per input reproduce the same 12 streams
+with zero runtime file reads. [Sealed geometry result](../../../../re/solidworks/measurements/2026/SealedImportedLocalGeometryNative01.json)
+
+The frozen guest readback checks each original, generated part and native
+save against the same physical boundary and import name. Its receipt uses
+only phase hashes and comparison results.
+[Guest readback tool](../../../../re/tooling/sw2026/imported_body_source/ReadbackSealedImportedGeometry.py)

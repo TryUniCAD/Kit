@@ -230,9 +230,29 @@ All four disclosed candidates open and rebuild with zero errors or warnings,
 one correctly owned solid, a clear rebuild flag and stable persistent feature
 ownership. Each saves cleanly and reopens in a fresh process with the same
 body geometry, topology and feature reference. The 11-process batch passes
-560 candidate comparisons and all three native controls. The two sealed
-source evaluations and public writer admission remain separate.
+560 candidate comparisons and all three native controls.
 [Completed-update native receipt](../measurements/2026/GeneratedLocalBodyPartCompleted01.json)
+
+## Sealed source geometry
+
+The two independently authored native input files were locked before the
+projector and writer. The frozen evaluator reads each original through
+Kit's strict SDK inside the guest and projects its typed boundary to an
+equivalent closed neutral prism. A separate, guarded stage then constructs
+the complete ordinary local-body part. Geometry comes from the actual
+neutral source. The oracle compares the original, generated part and
+native save against the independent authoring specifications.
+
+Both cases preserve their actual import feature, solid topology, volume,
+area and centre of mass through cold open, rebuild, save and fresh reopen.
+All 232 candidate comparisons pass with both controls in eight fresh
+processes. The generator reproduces the same twelve streams twice for each
+case with zero runtime file access. The public receipt retains opaque
+digests and the projected source omissions, including properties, native
+payloads and provenance. Complete source transfer and public writer
+admission remain open.
+[Sealed native receipt](../measurements/2026/SealedImportedLocalGeometryNative01.json)
+· [Geometry projection and omissions](ImportedBodySourceGeometry2026.md)
 
 The source protocol writes vendor-authored control and source files.
 The Kit writer, generated native fallback and public capability-loss
