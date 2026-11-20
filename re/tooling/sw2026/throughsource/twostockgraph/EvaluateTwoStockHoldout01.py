@@ -12,9 +12,15 @@ import os
 import sys
 
 HERE = Path(__file__).resolve()
-PACKET = "TwoStockWriterEvaluation01"
-SCHEMA = "kit.sw2026.two-stock-writer-holdout-evaluation.v1"
+PACKET = "TwoStockWriterEvaluation02"
+SCHEMA = "kit.sw2026.two-stock-writer-holdout-evaluation.v2"
 SOURCE_LOCK = "1c07e988d425da1de7fd53ccdb30f7b18dc6b431236674404bcc1d8f3b21ae2c"
+PRIOR_FREEZE = "10660269a55fa4f363ebc5f5d96e3e148a76a7cfdd628f844223a4a631fea8cb"
+PRIOR_STAGE = "94a0e10010f7f5f30041eb88787cc149557a2ab959e6371dc62f06299a59e258"
+WRITER_REVISION = "6fc230fb31c3195ff16da5327d4a872f51e49290"
+WRITER_SRC_TREE = "93f0ef018a2e403a5cf98ba2d832a2db16b362fa"
+SOURCE_AUTHOR = "re/tooling/sw2026/ThroughAllSourcePlan.py"
+SOURCE_AUTHOR_PIN = "3fbbf5c54296619e88432e446f2e4675883ba5af3ea6e05a40b974fecb3f7ac5"
 SLOTS = ("a", "b")
 BASE = PureWindowsPath("C:/KitSdkCandidates")
 PYTHON = r"C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe"
@@ -96,6 +102,11 @@ def revision(root):
         == 0,
         "the evaluated implementation differs from its committed revision",
     )
+    require(
+        check_output(("git", "rev-parse", f"{exact}:src"), cwd=root, text=True).strip()
+        == WRITER_SRC_TREE,
+        "the production source tree differs from the original writer freeze",
+    )
     return exact
 
 
@@ -119,7 +130,17 @@ def freeze(root, control, stock):
         == 0,
         "the writer revision does not descend from the pre-implementation source lock",
     )
-    control.disclosed(stock.SHARED / stock.DISCLOSED)
+    control_trial = control.disclosed(stock.SHARED / stock.DISCLOSED)
+    author_source = check_output(
+        ("git", "show", f"{lock['before_writer_revision']}:{SOURCE_AUTHOR}"), cwd=root
+    )
+    require(
+        digest(author_source) == SOURCE_AUTHOR_PIN
+        and control_trial["tools_sha256"]["ThroughAllSourcePlan.py"]
+        == SOURCE_AUTHOR_PIN,
+        "the original source authoring labels do not match the committed evidence",
+    )
+    checked(root / SOURCE_AUTHOR, SOURCE_AUTHOR_PIN)
     packet = stock.SHARED / PACKET
     packet.mkdir(mode=0o700, exist_ok=False)
     sources = (
@@ -138,7 +159,12 @@ def freeze(root, control, stock):
     publish(packet / "SourceLock.json", lock_raw)
     record = {
         "schema": SCHEMA,
-        "writer_revision": head,
+        "writer_revision": WRITER_REVISION,
+        "writer_src_tree": WRITER_SRC_TREE,
+        "evaluator_revision": head,
+        "prior_freeze_sha256": PRIOR_FREEZE,
+        "prior_stage_sha256": PRIOR_STAGE,
+        "authoring_datum_labels_sha256": SOURCE_AUTHOR_PIN,
         "source_lock_sha256": SOURCE_LOCK,
         "oracle_build": stock.BUILD,
         "oracle_exe_sha256": stock.ORACLE,
@@ -166,6 +192,14 @@ def frozen(packet, pin, stock):
         "the evaluation freeze identifies another experiment",
     )
     require(
+        result["writer_revision"] == WRITER_REVISION
+        and result["writer_src_tree"] == WRITER_SRC_TREE
+        and result["prior_freeze_sha256"] == PRIOR_FREEZE
+        and result["prior_stage_sha256"] == PRIOR_STAGE
+        and result["authoring_datum_labels_sha256"] == SOURCE_AUTHOR_PIN,
+        "the corrected evaluator changed the frozen writer or authoring identity",
+    )
+    require(
         set(result["tool_sha256"]) == {HERE.name, *MODULES},
         "the frozen tool manifest differs",
     )
@@ -174,7 +208,7 @@ def frozen(packet, pin, stock):
     return result
 
 
-def neutral_document(slot, design, stock):
+def neutral_document(slot, design, stock, datum_names):
     from ProofModels import FRONT, RIGHT, authored_document
 
     a, b = design["stationary_m"], design["moving_initial_m"]
@@ -211,17 +245,28 @@ def neutral_document(slot, design, stock):
         feature_timeline=features,
         sketches=sketches,
         bodies=bodies,
+        support_planes=tuple(
+            replace(plane, name=name)
+            for plane, name in zip(doc.support_planes, datum_names, strict=True)
+        ),
     )
 
 
 def generate_worker(slot, root, stock):
-    sys.path[:0] = [str(root / "src"), str(HERE.parent.parent / "twostockshape")]
+    sys.path[:0] = [
+        str(root / "src"),
+        str(HERE.parent.parent / "twostockshape"),
+        str(HERE.parent.parent.parent),
+    ]
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.solidworks.Core.Preparation.TwoStock.PrepareStockPart import (
         PrepareStockPart,
     )
     from ProofModels import authored_document
+    from ThroughAllSourcePlan import PLANES
 
+    checked(root / SOURCE_AUTHOR, SOURCE_AUTHOR_PIN)
+    datum_names = (PLANES["front"], PLANES["right"])
     for name in (
         "DocumentValidate",
         "DocumentAssemblyValidate",
@@ -260,7 +305,7 @@ def generate_worker(slot, root, stock):
 
     sys.addaudithook(audit)
     design = json.loads(sys.stdin.buffer.read())
-    doc = neutral_document(slot, design, stock)
+    doc = neutral_document(slot, design, stock, datum_names)
     destination = str(BASE / PACKET / (part_name(slot) + ".SLDPRT"))
     candidate = PrepareStockPart(
         doc,
@@ -300,8 +345,8 @@ def stage(root, pin, stock):
     packet = stock.SHARED / PACKET
     freeze_value = frozen(packet, pin, stock)
     require(
-        revision(root) == freeze_value["writer_revision"],
-        "the local writer revision changed before evaluation",
+        revision(root) == freeze_value["evaluator_revision"],
+        "the frozen evaluator revision changed before evaluation",
     )
     require(
         freeze_value["sdk_preparer"]["path"] == PREPARER,
@@ -312,9 +357,17 @@ def stage(root, pin, stock):
         not (packet / "Stage.json").exists(),
         "the frozen generation has already been staged",
     )
+    prior = json.loads(
+        checked(stock.SHARED / "TwoStockWriterEvaluation01/Stage.json", PRIOR_STAGE)
+    )
     result = {}
     for slot in SLOTS:
         request = wire(json.loads(win_call(stock, pin, slot + "-export")))
+        request_sha256 = digest(request)
+        require(
+            request_sha256 == prior["slots"][slot]["request_sha256"],
+            "the independently authored request changed during evaluator correction",
+        )
         args = (sys.executable, "-I", "-B", str(HERE), slot + "-generate")
         candidate = run(
             args, input=request, capture_output=True, timeout=90, check=True
@@ -335,7 +388,7 @@ def stage(root, pin, stock):
             "name": name,
             "sha256": publish_candidate(packet / name, candidate),
             "bytes": len(candidate),
-            "request_sha256": digest(request),
+            "request_sha256": request_sha256,
             "cold_sdk_semantic_sha256": sdk["semantic_sha256"],
             "cold_sdk_body_count": len(sdk["brep_ids"]),
             "generation_guarded_processes": 2,
@@ -346,6 +399,7 @@ def stage(root, pin, stock):
         "schema": SCHEMA,
         "freeze_sha256": pin,
         "writer_revision": freeze_value["writer_revision"],
+        "evaluator_revision": freeze_value["evaluator_revision"],
         "slots": result,
     }
     return {**receipt, "stage_sha256": publish(packet / "Stage.json", wire(receipt))}
@@ -485,6 +539,7 @@ def observe(phase, pin, stage_pin, lock_module, stock, control, measure):
         stage["schema"] == SCHEMA
         and stage["freeze_sha256"] == pin
         and stage["writer_revision"] == plan["writer_revision"]
+        and stage["evaluator_revision"] == plan["evaluator_revision"]
         and set(stage["slots"]) == set(SLOTS),
         "staged generation identifies another evaluation revision",
     )
@@ -538,6 +593,9 @@ def observe(phase, pin, stage_pin, lock_module, stock, control, measure):
         "freeze_sha256": pin,
         "stage_sha256": stage_pin,
         "writer_revision": plan["writer_revision"],
+        "writer_src_tree": plan["writer_src_tree"],
+        "evaluator_revision": plan["evaluator_revision"],
+        "prior_freeze_sha256": plan["prior_freeze_sha256"],
         "oracle_build": stock.BUILD,
         "oracle_exe_sha256": stock.ORACLE,
         "controls_passed": controls_passed,
