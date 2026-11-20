@@ -12,7 +12,8 @@ from io import BytesIO
 import json
 import math
 import struct
-from zipfile import ZipFile
+from zipfile import BadZipFile, ZIP_DEFLATED, ZIP_STORED, ZipFile
+from zlib import error as InflateError
 
 from InferenceInputs import read_file
 
@@ -106,8 +107,11 @@ def raw_scope(data, path, pin, application, root, scratch, control_paths=()):
                 report["readers"]["round_surface"] = {"status": "decoded"}
                 report.update(candidate)
     else:
+        package = inspect_zip(data) if not control_paths else None
         xml = xml_structure(data)
-        if xml is not None:
+        if package is not None:
+            report.update(status="inspected_zip", package=package)
+        elif xml is not None:
             if control_paths:
                 raise ValueError("binary comparison controls require a binary input")
             report.update(status="decoded_xml_structure", xml=xml)
@@ -137,7 +141,6 @@ def raw_scope(data, path, pin, application, root, scratch, control_paths=()):
                         "supply distinct nonempty raw binary comparison streams"
                     )
                 seen.add(digest)
-                remaining -= len(blob)
                 controls.append(blob)
                 found = frame_candidates(blob)
                 viable &= {
@@ -293,7 +296,57 @@ def prism_witness(root, data, pin, model):
     return None
 
 
-def xml_structure(data):
+def inspect_zip(data):
+    if not data.startswith(b"PK\x03\x04"):
+        return None
+    try:
+        with ZipFile(BytesIO(data)) as archive:
+            entries = archive.infolist()
+            if len(entries) > 4096:
+                return {"status": "member_limit"}
+            names = {entry.filename for entry in entries if not entry.is_dir()}
+            if len({entry.filename for entry in entries}) != len(entries):
+                return {"status": "ambiguous_member_names"}
+            remaining = 32 * 1024 * 1024
+            binary_probes = 0
+            members = {}
+            for entry in sorted(entries, key=lambda e: e.filename):
+                if entry.is_dir():
+                    continue
+                row = {"size": entry.file_size}
+                members[entry.filename] = row
+                if entry.compress_type not in (ZIP_STORED, ZIP_DEFLATED) or entry.flag_bits & 1 or entry.file_size > min(4 * 1024 * 1024, remaining):
+                    row["status"] = "deferred"
+                    continue
+                remaining -= entry.file_size
+                try:
+                    with archive.open(entry) as stream:
+                        blob = stream.read(entry.file_size + 1)
+                except (BadZipFile, NotImplementedError, OSError, EOFError, InflateError):
+                    row["status"] = "unreadable_member"
+                    continue
+                if len(blob) != entry.file_size:
+                    row["status"] = "size_mismatch"
+                    continue
+                row["sha256"] = hashlib.sha256(blob).hexdigest()
+                try:
+                    xml = xml_structure(blob, names)
+                except ValueError:
+                    row["status"] = "refused_xml"
+                    continue
+                if xml:
+                    row.update(status="decoded_xml_structure", xml=xml)
+                else:
+                    row["status"] = "opaque"
+                    if binary_probes < 16 and len(blob) >= 6:
+                        row["length_prefix_candidates"] = frame_candidates(blob)
+                        binary_probes += 1
+            return {"status": "inspected", "members": members}
+    except (BadZipFile, OSError, EOFError):
+        return None
+
+
+def xml_structure(data, members=None):
     from xml.parsers.expat import ExpatError, ParserCreate
 
     if len(data) > 4 * 1024 * 1024 or not data.removeprefix(
@@ -302,6 +355,7 @@ def xml_structure(data):
         return None
     parser = ParserCreate()
     counts = {}
+    references = {}
     depth = 0
     elements = 0
     root = None
@@ -315,6 +369,13 @@ def xml_structure(data):
         if root is None:
             root = name
         counts[name] = counts.get(name, 0) + 1
+        if members:
+            for attr, value in attrs.items():
+                if value in members:
+                    key = (name, attr, value)
+                    if key not in references and len(references) >= 4096:
+                        raise ValueError("XML reference budget exceeded")
+                    references[key] = references.get(key, 0) + 1
 
     def leave(name):
         nonlocal depth
@@ -330,4 +391,10 @@ def xml_structure(data):
         parser.Parse(data, True)
     except ExpatError:
         return None
-    return {"root": root, "element_count": elements, "elements": counts}
+    result = {"root": root, "element_count": elements, "elements": counts}
+    if members is not None:
+        result["member_name_matches"] = [
+            {"element": element, "attribute": attr, "member": member, "occurrences": count}
+            for (element, attr, member), count in sorted(references.items())
+        ]
+    return result

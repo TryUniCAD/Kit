@@ -291,3 +291,5 @@ Use [scalar feature associations](../Changes/Research/Inference/ScalarFeatureAss
 Use a single-parameter edit to [compare generated scalar readings across two native parts](../Changes/Research/Inference/PairedScalarChanges.md).
 
 For known native captures, the single-input command [selects measured controls automatically](../Changes/Research/Inference/AutomaticScalarControls.md).
+
+For an unrecognized ZIP package, inspect [member structure and cross-file references](../Changes/Research/Inference/UnknownArchiveMembers.md).
