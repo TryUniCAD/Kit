@@ -247,3 +247,5 @@ For ambiguous keyword matches, the runner tests whether a dimension follows its 
 In SOLIDWORKS dimension evidence, inspect `keyword_evidence.dimensions[].integer_encoding_hypotheses` for alternative interpretations of unmatched displayed integers. Each entry records the stream, byte offset, and matching integer formats. These candidates do not count toward verified coverage.
 
 For explicit SOLIDWORKS sketch pattern count classes, inspect `keyword_evidence.pattern_counts`. The decoder reads a named parameter and its linear or circular handle in the same saved feature interval, then compares their common count with the keyword dimension. The report includes both offsets and all compatible integer widths.
+
+The pattern count reader searches the first 1,024 bytes of typed count handles in other saved parts for nine numeric encodings. Inspect `pattern_count_rule` for the intersection of matching offsets and encodings, the training file and stream hashes, and the held-out hashes. The decoder uses the surviving rule only when controls from multiple documents vary the count and cover both linear and circular patterns.

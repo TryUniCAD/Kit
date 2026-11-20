@@ -70,6 +70,14 @@ def CheckPatternCounts(TmpPath: FilePath) -> None:
     Root = ResearchRoot()
     Source = next((Root / "re/solidworks/examples").glob("*/BLOQUE V8.SLDPRT"))
     Evidence = ReadDimensionEvidence(Root, Source, TmpPath / "run")
+    Rule = Evidence["keyword_evidence"]["pattern_count_rule"]
+    assert Rule["candidates"] == [["<d", 401]]
+    assert Rule["held_out_sha256"] == Evidence["input_sha256"]
+    assert all(
+        Row["sha256"] != Rule["held_out_sha256"]
+        and Row["stream_sha256"] != Rule["held_out_stream_sha256"]
+        for Row in Rule["samples"]
+    )
     Counts = Evidence["keyword_evidence"]["pattern_counts"]
     assert sorted((Row["pattern"], Row["count"]) for Row in Counts) == [
         ("circular", 6),

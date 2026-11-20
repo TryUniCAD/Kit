@@ -64,7 +64,7 @@ def ownership_hypotheses(rows, features, data, stream):
             "proposed_dimensions": sum(counts[loc] == 1 for _, loc in proposals)}
 
 
-def keyword_evidence(streams, discovered, document):
+def keyword_evidence(streams, discovered, document, root, pin):
     data = streams.get("swXmlContents/KeyWords")
     if not data:
         return {"status": "no_keyword_stream"}
@@ -135,11 +135,11 @@ def keyword_evidence(streams, discovered, document):
         counts[status] += 1
     resolved = base + "-ResolvedFeatures"
     proposals = ownership_hypotheses(rows, features, streams[resolved], resolved) if resolved in streams else None
-    decoded = pattern_counts(streams[resolved], features) if resolved in streams else []
+    decoded, rule = pattern_counts(streams[resolved], features, root, pin) if resolved in streams else ([], None)
     for record in decoded:
         displays = [row["display_text"].strip() for row in rows if
                     (row["feature_id"], row["name"]) == (record["feature_id"], record["name"])]
         record["keyword_count_matches"] = displays == [str(record["count"])]
         record["stream"] = resolved
-    return {"status": "compared", "pattern_counts": decoded, "ownership_hypotheses": proposals, "configuration_id": configs[0].configuration_id,
+    return {"status": "compared", "pattern_count_rule": rule, "pattern_counts": decoded, "ownership_hypotheses": proposals, "configuration_id": configs[0].configuration_id,
             "display_unit": display.UnitName, "counts": counts, "dimensions": rows}

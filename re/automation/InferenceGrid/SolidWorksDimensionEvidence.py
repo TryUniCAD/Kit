@@ -177,7 +177,7 @@ def dimension_evidence(root, source, pin, document):
         row.get("vendor_value_matches") and row.get("reader_span_matches") and row.get("neutral_value_matches") for row in predictions)
     equations = equation_evidence(streams, predictions, sets, pin)
     from InferenceGrid.SolidWorksKeywordEvidence import keyword_evidence
-    keywords = keyword_evidence(streams, discovered, document)
+    keywords = keyword_evidence(streams, discovered, document, root, pin)
     return {**result, "keyword_evidence": keywords, "equations": equations, "status": "held_out_dimensions_match" if verified else "partial_evidence",
             "measurement_stage": "edited_before_save" if checks else None, "predictions": predictions,
             "discovered_dimension_records": discovered, "measured_count": len(checks), "missing_from_reader": [list(key) for key in measured if key not in requested]}
