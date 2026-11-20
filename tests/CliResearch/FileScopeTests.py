@@ -59,6 +59,14 @@ def CheckFileScope(TmpPath: FilePath) -> None:
         Link["field"] == "rDcSketch" and Link["target"] == [0, 334]
         for Link in First["links"]
     )
+    Changes = LoadJson((RunPath / "Input-repeat-save.json").read_bytes())
+    assert Changes["status"] == "compared"
+    assert len(set(Changes["controls"]) | {Audit["source_sha256"]}) == 3
+    assert any(
+        Field["field"] == "side1ExtentType"
+        and (Field["control"], Field["input"]) == (1, 4)
+        for Field in Changes["changed_after_repeat_filter"]
+    )
     assert Audit["whole_file_verified"] is False
     Outcome = LoadJson((RunPath / "CatalogueResult.json").read_bytes())
     assert Outcome["status"] == "coverage_incomplete"
