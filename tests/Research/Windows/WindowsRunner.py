@@ -27,7 +27,7 @@ def RunWindows() -> None:
         _ = System.stdout.buffer.flush()
         _ = System.stderr.buffer.flush()
     else:
-        StartChild(Options)
+        StartChild(SessionPath, Options)
     ResultInfo: dict[str, object] = {
         "outcome": "completed",
         "reason": "Windows process fixture finished",

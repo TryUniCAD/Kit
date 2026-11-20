@@ -8,10 +8,9 @@ from pathlib import Path as FilePath
 
 
 # a suspended controller command exposes the race between ownership replacement and late publication
-def GateCommand() -> int:
-    GateRoot = FilePath(System.argv[1])
-    OwnerPid = int(System.argv[2])
-    Command = System.argv[5:]
+def GateCommand(GateRoot: FilePath) -> int:
+    OwnerPid = int(System.argv[1])
+    Command = System.argv[4:]
     Controller = FilePath(__file__).resolve().parents[3] / "re/automation/Controller.py"
     if Command[:3] != [System.executable, str(Controller), "--store"]:
         raise ValueError("unexpected controller command")
@@ -20,7 +19,7 @@ def GateCommand() -> int:
         Index += 2
     Operation = Command[Index]
     IsHeld = False
-    if Operation == System.argv[3]:
+    if Operation == System.argv[2]:
         try:
             Handle = OsLayer.open(
                 GateRoot / "Held.json",
@@ -92,7 +91,3 @@ def RecordResult(
             ),
             encoding="utf-8",
         )
-
-
-if __name__ == "__main__":
-    System.exit(GateCommand())

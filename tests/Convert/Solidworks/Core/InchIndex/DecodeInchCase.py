@@ -13,15 +13,14 @@ def DecodeInchCase(RootPath: FilePath, Keywords: bytes, Resolved: bytes) -> str:
     Environment = dict(OsLayer.environ)
     RepoPath = FilePath(__file__).resolve().parents[5]
     Environment["PYTHONPATH"] = OsLayer.pathsep.join(
-        (str(RepoPath / "src"), str(RepoPath), Environment.get("PYTHONPATH", ""))
+        (str(RepoPath / "src"), str(RepoPath))
     )
     Result = Subprocess.run(
         [
             System.executable,
             str(FilePath(__file__).with_name("NativeRoster.py")),
-            str(KeywordFile),
-            str(ResolvedFile),
         ],
+        cwd=RootPath,
         capture_output=True,
         text=True,
         check=False,
