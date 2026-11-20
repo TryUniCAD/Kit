@@ -93,6 +93,11 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The internal configuration section action bounds native body readers to the
+declared lightweight or resolved length and keeps their shared map. Its scoped
+ordinary records include direct model-header aliases and an empty ghost manager.
+[Configuration section scope](../../Changes/Solidworks/Archive/SolidworksConfigSections.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)

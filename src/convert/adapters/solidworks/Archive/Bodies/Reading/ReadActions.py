@@ -11,6 +11,10 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBranchMut import (
     ReadBranchMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBytesMut import ReadBytesMut
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadDirectMut import (
+    ReadDirectMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadGhostMut import ReadGhostMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadLengthMut import (
     ReadLengthMut,
 )
@@ -22,6 +26,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import (
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadRepeatMut import (
     ReadRepeatMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadSectionMut import (
+    ReadSectionMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadValueMut import ReadValueMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadVirtualMut import (
@@ -45,6 +52,9 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Virtual": ReadVirtualMut,
             "Bytes": ReadBytesMut,
             "Boolean": ReadBooleanMut,
+            "Section": ReadSectionMut,
+            "Direct": ReadDirectMut,
+            "GhostCount": ReadGhostMut,
         }
     )
 )
