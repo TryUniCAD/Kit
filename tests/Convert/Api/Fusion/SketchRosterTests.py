@@ -1,6 +1,7 @@
 from io import BytesIO as ByteStream
 from zipfile import ZipFile
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.Formats.Fusion.DesignZip import KDesignPrefix, ReadDesignZip
 from convert.Formats.Fusion.MetaCursor import MetaCursor
 from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchBase
@@ -15,7 +16,7 @@ def TestRoster() -> None:
     Archive = KStudyPath / "extents-f0f33a9a605f/distance_positive.f3d"
     (SketchValue,) = OpenResearch(Archive, StrictMode=False).sketches
     Members = SketchValue.attributes["fusion.geometry_child_ids"]
-    assert isinstance(Members, tuple) and len(Members) == 3
+    assert IsObjectTuple(Members) and len(Members) == 3
     assert {f"fusion-sketch-entity-{Member}" for Member in Members} == {
         Entity.id for Entity in SketchValue.entities
     }
