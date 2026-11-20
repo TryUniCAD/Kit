@@ -274,6 +274,16 @@ jobs:
                           print('typed support',name,'origin agrees',frame.transform.origin==datum.origin,'normal agrees',frame.transform.z_axis==datum.z_axis,'children',len(children),'parameters',len(params))
                       except (ValueError, AssertionError) as error:
                           print('typed support incomplete',str(error),'at cursor offset',cursor.Offset,'of',len(cursor.DataValue))
+                      from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchBase, ReadChildRoster
+                      from convert.Formats.Fusion.Sketches.SketchRuleIds import ReadSketchRules
+                      cont, = [r for r in spans if r.ObjectId==root.ObjectId and r.ClassGuid==KSketchBase]
+                      cursor=MetaCursor(bulk[cont.PayloadOffset+4:cont.EndOffset]); cursor.Offset=28
+                      cursor.ReadText(True,Maximum=1024)
+                      roster=set(ReadChildRoster(cursor) or ())
+                      geom={int(e.provenance.native_id) for e in sketch.entities}
+                      sets=ReadSketchRules(bulk,root)
+                      rules=set(sets[0]+sets[1])
+                      print('native members',len(roster),'extra rule members',len((roster-geom)&rules),'unaccounted children',len(roster-geom-rules),'unlisted geometry',len(geom-roster),'complete neutral rules',HasSketchRules(bulk,root,sketch))
                       print(sample.split("/")[-1], "roster", bool(sketch.attributes.get("fusion.geometry_child_ids")), "support",frame.attributes.get("fusion.native_support_resolved"), "rules",HasSketchRules(bulk,root,sketch), "projected",sum(bool(e.attributes.get("fusion.geometry_is_projected")) for e in sketch.entities), "steps",[str(s.kind) for s in doc.feature_timeline if s.sketch_id == sketch.id])
           PYTHON
       - name: Exercise editable profile exports and saved edit readback
