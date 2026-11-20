@@ -111,6 +111,7 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     decode_mate_list as DecodeMateList,
     decode_native_assembly as DecodeNativeAsm,
 )
+from convert.adapters.solidworks.Assembly.Display.DisplayData import DisplayData
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import (
     SldprtArchive,
@@ -899,6 +900,7 @@ def AsmDoc(
                         for State in Native.display_states
                     )
                 ),
+                **DisplayData(Native.display_owner),
                 "flattened_occurrences": PathRecords,
                 "flattened_occurrence_count": len(PathRecords),
                 "flattened_mate_occurrences": FlatMateValues,

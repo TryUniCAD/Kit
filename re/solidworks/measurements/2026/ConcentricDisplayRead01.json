@@ -1,0 +1,547 @@
+{
+  "after": {
+    "paths": 6151,
+    "sha256": "f825d5f30e934e5cd1ea77926d13dd428f12926bb49c81aa099b9b43ef559df4"
+  },
+  "baseline": "dcfa8476bc1323ce0d6ee32b86b1b1b446ddf6a5",
+  "baseline_audit_sha256": "6d2e2dcddbaf2db31696cd925e0d8e360947ee29db739a8b7a1cdb9c0c98c944",
+  "before": {
+    "paths": 6144,
+    "sha256": "d7bb9062f0bd1e44bcbbed7559d41811a7bc6e2480dcea76676bc3f8228e59fc"
+  },
+  "cases": {
+    "A12SyncedEmpty": {
+      "full_raw_document_sha256": "1abbed15138201a116f59284f9a375bd753eb1c96efaeb3ce57cd1ecd881b2a3",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 0,
+      "source_semantic_sha256_before_after": [
+        "fdb0338de8da05460c778dd9102c531d8b8f8f1b3bdcc8dafe17f45db3139aa4",
+        "fdb0338de8da05460c778dd9102c531d8b8f8f1b3bdcc8dafe17f45db3139aa4"
+      ],
+      "typed_display_states": null
+    },
+    "A13SyncedSingle": {
+      "full_raw_document_sha256": "093a5e6fa9af461b7d9281a645fc5296f31c5daa16d7ad9cd7c17ca7a9e666b2",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "a6f0d30b8bb4e88f186165ee42f0fddad0fd582b8201441891fded7061af706e",
+        "d31c2d366b7b96ef9a145d674bf1c8622478c0757773119b646d8d583154d79e"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "Default",
+          "configuration_object_id": 1,
+          "list_object_id": 7,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 8,
+          "visibility": [
+            {
+              "native_feature_id": 24,
+              "native_object_id": 4,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "A14SyncedRepeat": {
+      "full_raw_document_sha256": "83101d440aa488a94eb4a0e324bbd7c14ae9f62b413e1df57ba198cc99f6782f",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "07fe288a6ace8ccff5a86cdb8486afcff35f4114222f10d141ada042426cc527",
+        "3d9bf697987d80084cc824e1f720940b4b291ced783c64e5fc0e00b67e1c0cee"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "Default",
+          "configuration_object_id": 1,
+          "list_object_id": 8,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 9,
+          "visibility": [
+            {
+              "native_feature_id": 24,
+              "native_object_id": 4,
+              "visible": true
+            },
+            {
+              "native_feature_id": 25,
+              "native_object_id": 7,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "D01Edited": {
+      "full_raw_document_sha256": "2ff7c46bb026e957c32dffe3822aa68ae9cd39279446307736275be59d7f578d",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "113a8af28fdab6a2c33fce169f81dd132f968437d48fae5665ba5debf9d36bb9",
+        "f5eb3978ed3d890f7092ba0445e8c25dc8e231aca135ada14f7fd479389a6d86"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "Default",
+          "configuration_object_id": 1,
+          "list_object_id": 8,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 9,
+          "visibility": [
+            {
+              "native_feature_id": 24,
+              "native_object_id": 4,
+              "visible": true
+            },
+            {
+              "native_feature_id": 25,
+              "native_object_id": 7,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "D01EditedResolved": {
+      "full_raw_document_sha256": "71ba675a09a9e39a80bc46a68070fd7aab1c8016f0cdfc906c6f81d5724ba1af",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "5b30f23976c704da45482e346a91d653a4ebc72c88e2ecf1e02b1d08558163ff",
+        "d426964f68e29d88e1fbbaeb5bc73c503cc9edbecc24c4fc818a5b4a80729008"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "Default",
+          "configuration_object_id": 1,
+          "list_object_id": 8,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 9,
+          "visibility": [
+            {
+              "native_feature_id": 24,
+              "native_object_id": 4,
+              "visible": true
+            },
+            {
+              "native_feature_id": 25,
+              "native_object_id": 7,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "D01Source": {
+      "full_raw_document_sha256": "dc27036b4c7c2917e4ec37e5e763a589f2caef1fcfbda13d0f3f9ecb99efd990",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "b5abee498917df706fba308c1e568167a736cf35491713334e74d1b8710cd592",
+        "567aae83af4e35e80ea5380c2886a3f6986c1a2734500b235cdac3994eb353c5"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "Default",
+          "configuration_object_id": 1,
+          "list_object_id": 8,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 9,
+          "visibility": [
+            {
+              "native_feature_id": 24,
+              "native_object_id": 4,
+              "visible": true
+            },
+            {
+              "native_feature_id": 25,
+              "native_object_id": 7,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "D01SourceResolved": {
+      "full_raw_document_sha256": "2f5fd1f066aae7a082f9cd170c1f6e365632ac21abf3d084e8b4734a21d7ec0b",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "545b6e49199fa1c935465eb69e6cb6176907357dd4a46b3b9216386866edd9ce",
+        "c3b9a9770a2cda345e49c5e0b3ce0cb38994e2e77aadc7e17785d5bedec9f3d8"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "Default",
+          "configuration_object_id": 1,
+          "list_object_id": 8,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 9,
+          "visibility": [
+            {
+              "native_feature_id": 24,
+              "native_object_id": 4,
+              "visible": true
+            },
+            {
+              "native_feature_id": 25,
+              "native_object_id": 7,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "RadialFrozen": {
+      "full_raw_document_sha256": "dc88aad4c98ed1a15d93ebdde227bb0974596e488c6978432e2ebce148fb513e",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 0,
+      "source_semantic_sha256_before_after": [
+        "d137416b7fb410841cda1e272d74801a20c8ebe0b6803f2cf9d6903b83f2a433",
+        "d137416b7fb410841cda1e272d74801a20c8ebe0b6803f2cf9d6903b83f2a433"
+      ],
+      "typed_display_states": null
+    },
+    "RadialFrozenResolved": {
+      "full_raw_document_sha256": "1c4a54c1083a2ac19fb15a00d7c915cd8748bdf90939d940a0a7d59bcd506b75",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 0,
+      "source_semantic_sha256_before_after": [
+        "440a9d4981d763ea96e7b1265da84f40c0dab5d173c44bf41fe49bf9be7fe39f",
+        "440a9d4981d763ea96e7b1265da84f40c0dab5d173c44bf41fe49bf9be7fe39f"
+      ],
+      "typed_display_states": null
+    },
+    "RadialWorking": {
+      "full_raw_document_sha256": "92fa900f45aa618eb4dd9cde1ae868a624246fc4aac9ee330a27920f7464650e",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "df3d5d870a3daaf5f2406fce73ce18253d49e0264761ec0efd50e83ba67b19cf",
+        "7ca07e9ce85fc71ed39b0f361bd4aaeddb91e5e4dc22e68c0c64ee82f2782ca7"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "AssemblyActive",
+          "configuration_object_id": 1,
+          "list_object_id": 8,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 9,
+          "visibility": [
+            {
+              "native_feature_id": 17,
+              "native_object_id": 4,
+              "visible": true
+            },
+            {
+              "native_feature_id": 18,
+              "native_object_id": 7,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "RadialWorkingResolved": {
+      "full_raw_document_sha256": "a98560891e42ee0601bd5cb25ebc7f32fb2f9ced21b151778fef7c57faa443a2",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "109927f1d27d1f2764640daa34a0cd64e3aadacb05e9286b8005b3efef1d430a",
+        "8e9a70f2ae93d7d9ece11aea4610aef5b5d9826614430593ac6f52c138838775"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "AssemblyActive",
+          "configuration_object_id": 1,
+          "list_object_id": 8,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 9,
+          "visibility": [
+            {
+              "native_feature_id": 17,
+              "native_object_id": 4,
+              "visible": true
+            },
+            {
+              "native_feature_id": 18,
+              "native_object_id": 7,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "detached_list": {
+      "full_raw_document_sha256": "01daa9dc40984ef1549f9212b4fee347aaac60d3ef7c8fdc3efbcb2f6fdc0a9d",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "2d3005b4bda6984c5ccab3330239ca9171eae00a98f2d46e20e214a80dbd9118",
+        "2d3005b4bda6984c5ccab3330239ca9171eae00a98f2d46e20e214a80dbd9118"
+      ],
+      "typed_display_states": null
+    },
+    "duplicate_members": {
+      "full_raw_document_sha256": "ae7ba926b69afa10edc18a354638b2bf993859707400cf1b4035139113e6d75a",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "b328307a12aa4773c994b209c606b93dea3dd9c1c417fdc9f90af972789ec37d",
+        "b328307a12aa4773c994b209c606b93dea3dd9c1c417fdc9f90af972789ec37d"
+      ],
+      "typed_display_states": null
+    },
+    "false_object_count": {
+      "full_raw_document_sha256": "f3f2aedf2a2b2d5974ca30118a32179debc59d5897931579580dfdb8eb1322a7",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "6f071b8c8f28d036ee6aa04164afb1a57b0d3ee1967cbd7113cb1406efef4ff5",
+        "6f071b8c8f28d036ee6aa04164afb1a57b0d3ee1967cbd7113cb1406efef4ff5"
+      ],
+      "typed_display_states": null
+    },
+    "foreign_config_id": {
+      "full_raw_document_sha256": "2231bc37014a5ba3a0e509c658b7e25f6c4c1e147a81b55360e4d255ff36f52a",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "e43becae51d71a3fe783c2f37347faa7f126ba554a25499af7dcdda2e80a0396",
+        "e43becae51d71a3fe783c2f37347faa7f126ba554a25499af7dcdda2e80a0396"
+      ],
+      "typed_display_states": null
+    },
+    "foreign_config_name": {
+      "full_raw_document_sha256": "ec5ed168f4d4348739b9b441f64c0e7f181943ef9e2ac8e855d08a76d7b3dd03",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "873bda7f35af4f72e2847f4252ceea2e764332e19ef864de450e67e6c98f154a",
+        "873bda7f35af4f72e2847f4252ceea2e764332e19ef864de450e67e6c98f154a"
+      ],
+      "typed_display_states": null
+    },
+    "foreign_root_name": {
+      "full_raw_document_sha256": "f331042f54ff504e4543a1e22aa6fe9c0552a20f6609a9ba777c4eedfa80f5cf",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "21be72dcda5203967d4b648d8a4a4303adf6db8202087f7bf25d3f93ac0c40f6",
+        "21be72dcda5203967d4b648d8a4a4303adf6db8202087f7bf25d3f93ac0c40f6"
+      ],
+      "typed_display_states": null
+    },
+    "hidden_conflict": {
+      "full_raw_document_sha256": "06b8d182d1a39a5b7cf2e9d659ffcf0e3e9092e31fa4fa8b639289f86f04f819",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "121cb985f7a815d9e5059f8ded3b5fe766acf9c30d30d28fa73c4de036a02341",
+        "121cb985f7a815d9e5059f8ded3b5fe766acf9c30d30d28fa73c4de036a02341"
+      ],
+      "typed_display_states": null
+    },
+    "legacy_names": {
+      "full_raw_document_sha256": "f90852b943fc93f5737e60031dd4a294b7c5180f500ac9b1bb283653aad45137",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 2,
+      "source_semantic_sha256_before_after": [
+        "e762fa14402ca456ccd46f201162ad6d700927ef0307d75ecfc58c6b681b02c9",
+        "e762fa14402ca456ccd46f201162ad6d700927ef0307d75ecfc58c6b681b02c9"
+      ],
+      "typed_display_states": null
+    },
+    "mixed_polarity": {
+      "full_raw_document_sha256": "c85ce3f5fd9198ffc7715eb6d6f46cfa10162acd94d80347c09b196f86da214a",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "9865a49aea88d5f5394635af7523ee4b638b46425a5b97bbf627d97119c29d0e",
+        "9865a49aea88d5f5394635af7523ee4b638b46425a5b97bbf627d97119c29d0e"
+      ],
+      "typed_display_states": null
+    },
+    "object_id_collision": {
+      "full_raw_document_sha256": "11359faebe9b251109a4e7fddff132860cbdfd82e41afa0ca9c8c7ce600a7f71",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "5d6dd26bc3ef3e8d9654975a0d68fe29f095e91dcf77df5b2bc252808015a2b0",
+        "5d6dd26bc3ef3e8d9654975a0d68fe29f095e91dcf77df5b2bc252808015a2b0"
+      ],
+      "typed_display_states": null
+    },
+    "reordered_members": {
+      "full_raw_document_sha256": "dcfe4e17f87bd8e4f3a4b1c0ebe5354c9a8e8492ef6b5d4293b3d4c2f26e06f8",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "6c2dabbb68924c457b6e8a9e78bc36f360449637ceffe0043b138e743750f3b2",
+        "6c2dabbb68924c457b6e8a9e78bc36f360449637ceffe0043b138e743750f3b2"
+      ],
+      "typed_display_states": null
+    },
+    "short_action_vector": {
+      "full_raw_document_sha256": "3210f884f3dda28d8b68fdffd7246f61813de3b72f553c0a588b722b3b354c2f",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "67471ce35dbb5a5d4db7c9a9b5d17e5a1ceee896346c97d2f32d4e5f6401e12a",
+        "67471ce35dbb5a5d4db7c9a9b5d17e5a1ceee896346c97d2f32d4e5f6401e12a"
+      ],
+      "typed_display_states": null
+    },
+    "unknown_action": {
+      "full_raw_document_sha256": "61afac6c20dc8988018ff740bb4b66e8c5ce0d1512639bc8613028b3fc14022d",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "12d139a5537f47d649abd9a879b7801ae20dc59704196430c978cff01bbcf72d",
+        "12d139a5537f47d649abd9a879b7801ae20dc59704196430c978cff01bbcf72d"
+      ],
+      "typed_display_states": null
+    },
+    "visual_store_omitted": {
+      "full_raw_document_sha256": "bbdfbcd9f80ddc13055ce372943807903ef99c31c301fcc0977e1eb77b38fec1",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "cf4261c2aa2b533fee4f79355b3e1ccc9c8813f9fd805f2c0d2f335169ea15b7",
+        "deb829a6eca193e6aa128bbbe85633d4a9d74038c28562b0fc1bb64fb3ca1f61"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "Default",
+          "configuration_object_id": 1,
+          "list_object_id": 8,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 9,
+          "visibility": [
+            {
+              "native_feature_id": 24,
+              "native_object_id": 4,
+              "visible": true
+            },
+            {
+              "native_feature_id": 25,
+              "native_object_id": 7,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "visual_store_unreadable": {
+      "full_raw_document_sha256": "c6bd779386ece89a8921acf75655e18438190ade469498c780fa985cecf720f7",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "2d057b95f1019c4124219d7b53b042851ff94c8063ddf8767e925d8b59715db1",
+        "39300630068e3f109911b2ec4a1fd0273adec48ab5011d7a58e44009362b6b4f"
+      ],
+      "typed_display_states": [
+        {
+          "configuration_id": 0,
+          "configuration_name": "Default",
+          "configuration_object_id": 1,
+          "list_object_id": 8,
+          "model_object_id": 2,
+          "name": "Display State-1",
+          "state_object_id": 9,
+          "visibility": [
+            {
+              "native_feature_id": 24,
+              "native_object_id": 4,
+              "visible": true
+            },
+            {
+              "native_feature_id": 25,
+              "native_object_id": 7,
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    "xml_consistent_foreign_binary_occurrence": {
+      "full_raw_document_sha256": "0ecd0e2b030bdac5dd492e68c77282a98cb769939a8ac313c8a12282dce26add",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "a95c58c296f94449faebd0843e4cc3383484369e7e7626c1010945d029f53bca",
+        "a95c58c296f94449faebd0843e4cc3383484369e7e7626c1010945d029f53bca"
+      ],
+      "typed_display_states": null
+    },
+    "xml_occurrence_ids_as_members": {
+      "full_raw_document_sha256": "ef8a8676b85835df8b20ff9ae05e86594702fd35ba83402c35aeb81d9fd183a6",
+      "generic_writer_guard": "assembly root contains unprojected model content",
+      "raw_leaf_row_count": 1,
+      "source_semantic_sha256_before_after": [
+        "4f82975d0d3fada65f24ceec84f35ddd6f17234b0b6fcbc6f01682386234b920",
+        "4f82975d0d3fada65f24ceec84f35ddd6f17234b0b6fcbc6f01682386234b920"
+      ],
+      "typed_display_states": null
+    }
+  },
+  "changed_sources_sha256": {
+    "re/tooling/sw2026/para/concentric/VerifyConcentricDisplayRead.py": "f281c492f8fa5bfe6c0094280bc88ace61c053a5317b868f69f7c750f96992f4",
+    "src/convert/adapters/solidworks/Assembly/Assembly.py": "f506afa0fe448586e6e363aab1cda4c08cc4620dcc6e180d5680288a11d5abf8",
+    "src/convert/adapters/solidworks/Assembly/Display/CheckDisplay.py": "e2f4eef5f4dbc20d13d7738e5f492feec9439f8a3b940d447dd87d8e6788be48",
+    "src/convert/adapters/solidworks/Assembly/Display/DisplayData.py": "58e07e345503aa71a40bea45561b1758a1bd0b4f36cfa75ea2335d092a96a4f8",
+    "src/convert/adapters/solidworks/Assembly/Display/DisplayMember.py": "16e2d7679dfe28e59219e51ad448dbf65f2bdf649e79d4ad6ab1ded24d911545",
+    "src/convert/adapters/solidworks/Assembly/Display/DisplayOwner.py": "d2dbf9cc23c3350fa272dc9c5bdab03cc7a5d1df9cc60e4d2c148712075f3111",
+    "src/convert/adapters/solidworks/Assembly/Display/ReadAsmDisplay.py": "e1753cc513d983209dfbdcc505328e5ad8cf0d5483aad9616d1853b6c3f4276a",
+    "src/convert/adapters/solidworks/Assembly/Display/ReadDisplayXml.py": "66769e890b211dfeaf347670e9e947abccf0b36dd63ec93a45b8c4f8ea41ea4a",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "bd82cdeb0ebb89aca64f918857f964b775643d518ae922ca9d67eb4eb2a01f48"
+  },
+  "diagnostic_sha256": {
+    "detached_list": "aaf25f064b7a4ae0603fde177c164bd57a9a7be23e52c7b392fa5ac5e478f791",
+    "duplicate_members": "9413742cf09c2bf5e1f59e2c60e278f5ad66d9763c5eb39e1cbf3072fd351fbe",
+    "false_object_count": "839278d533b5f30b86bad0f9719582dd546b92c8fc78b9428a46dcbbb6a7fcf8",
+    "foreign_config_id": "424cadab78607114ed1162cfe25ce69e8e86bcf8718d12a77570e2ecc6de8bf3",
+    "foreign_config_name": "1d0e63cdac87408872c501b5d7254b41e8327b4e2b8ca3da1c2fe3029736f6a3",
+    "foreign_root_name": "87cae37a1a751bcc821ae035e63e6476de9f5f4fa14397d9c8eb327979b08c86",
+    "hidden_conflict": "789bae399e0873e61fcae45c8eba52b96d8916635872f5db45182b1a73b98522",
+    "legacy_names": "197f0c859cea1f600bca8138034268f1637cd37216392529a7e545db12c85ee1",
+    "mixed_polarity": "ce8d65547f7069f1a38e040f2fa347e2bbf9678e3c38032dd5477802bb33701f",
+    "object_id_collision": "3e3ef4b854a88b0fbe0ad54919a416f318679595c07ff4e8f95fedc7811942b9",
+    "reordered_members": "9d6f4333161604a098402dfc3b4bfa7fd5735cd3abeb99139801644fa7b1c340",
+    "short_action_vector": "a6b6501b41a9d60aa32aa71ce4e3e967a152d193c9cdca70a8ebface6d9693f9",
+    "unknown_action": "901161e3baec1d4a16072a20cfc7426b94d3b9dc07ce0ab7ae123f92babecee9",
+    "visual_store_omitted": "059c15b820c41965f15c352e48ff02f830b38bf70bd9330ae673a659499da2f5",
+    "visual_store_unreadable": "ee8126415445604f7719d1b74812fddb58b3adbab392d88db41c741a1fe22f8a",
+    "xml_consistent_foreign_binary_occurrence": "dd8bf1603a43917049243234c2af3449b82c388d8c74376d3a1f12697a8d9476",
+    "xml_occurrence_ids_as_members": "73cec7bde6a6a36495c5b9cce6b96f1c2de2b0b54e7ea29843aa5d1820e42614"
+  },
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "paired_full_document_comparisons": 28,
+  "passed": true,
+  "public_writer_admission_changed": false,
+  "schema": "kit.sw2026.qualified-assembly-display-read.v1",
+  "visual_store_native_optional_proven": false,
+  "writer_outputs": 0
+}

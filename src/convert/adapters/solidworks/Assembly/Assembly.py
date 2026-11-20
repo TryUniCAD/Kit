@@ -10,6 +10,8 @@ from typing import Iterable, Literal, Mapping, Sequence
 
 import xml.etree.ElementTree as XmlTree  # noqa: DUO107
 from convert.adapters.base import ParseUntrusted
+from convert.adapters.solidworks.Assembly.Display.DisplayOwner import DisplayOwner
+from convert.adapters.solidworks.Assembly.Display.ReadAsmDisplay import ReadAsmDisplay
 from convert.adapters.solidworks.Container.Container import (
     SldprtArchive,
     SldprtFormatError,
@@ -384,6 +386,7 @@ class NativeAsm:
     mate_lists: tuple[NativeMateList, ...]
     display_components: tuple[NativeDisplayComponent, ...]
     application_version: int
+    display_owner: DisplayOwner | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -429,6 +432,7 @@ def DecodeNativeAsm(
         mate_lists=MateValues,
         display_components=DisplayComponents,
         application_version=Integer(RootValue.attrib.get("swVersion")),
+        display_owner=ReadAsmDisplay(Archive, RootValue),
     )
 
 
