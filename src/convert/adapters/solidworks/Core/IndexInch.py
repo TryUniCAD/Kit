@@ -1,9 +1,6 @@
 from __future__ import annotations as Annotations
 
-from typing import TYPE_CHECKING as TypeChecking
-
-if TypeChecking:
-    from convert.adapters.solidworks.Core.Native import NativeScalar
+from convert.adapters.solidworks.Core.NativeScalar import NativeScalar
 
 
 # feature owned name indexing preserves ambiguity checks across many dimensions
