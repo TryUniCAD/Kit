@@ -20,6 +20,7 @@ from convert.adapters.base import (
     Source,
     is_binary_destination as IsBinaryTarget,
 )
+from convert.adapters.base.ReadOptions import KRawBrepRead
 from interchange import (
     ArcEllipseGeometry as ArcEllipseGeom,
     ArcGeometry as ArcGeom,
@@ -329,6 +330,7 @@ def ReadNativePart(
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
+        and Settings.values.get(KRawBrepRead) is not True
         and Model.active_configuration_id == 0
         and len(ConfigValues) == 1
         and not PayloadDiags

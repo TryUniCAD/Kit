@@ -1,7 +1,9 @@
 from hashlib import sha256 as Fingerprint
 from math import hypot as Hypot, isclose as IsClose
 from struct import pack as PackValue
+from tempfile import TemporaryDirectory
 
+from convert import extract_brep as ExtractPayloads
 from convert import open_document as OpenDocument
 from convert.Geometry.Parasolid import EncodePartData, ParaHeaderData
 from convert.Geometry.Revolve.SweepVector import CrossVector, DotVector
@@ -226,13 +228,15 @@ def ReadLocalProbe(
     )
 
 
-# strict reads reject loss and partial reads retain the source with a warning
-def AssertLocalStop(
-    Archive: SldprtArchive, Streams: dict[str, bytes], Reason: str
-) -> CadDocument:
-    DataValue = BuildSldprt(
+# each probe must publish its controlled streams into the same native container format
+def BuildLocalProbe(Archive: SldprtArchive, Streams: dict[str, bytes]) -> bytes:
+    return BuildSldprt(
         Streams, FileId=Archive.file_id, FormatVersion=Archive.format_version
     )
+
+
+# strict reads reject loss and partial reads retain the source with a warning
+def AssertLocalStop(DataValue: bytes, Reason: str) -> CadDocument:
     try:
         _ = ReadLocalProbe(DataValue, Strict=True)
     except SldprtFormatError as ErrorInfo:
@@ -264,7 +268,8 @@ def TestNoHistory() -> None:
     )
     assert (ActiveValue.kind, HistoryValue.kind) == ("partition", "deltas")
     Streams[KPartitionStream] = ActiveValue.data
-    Document = AssertLocalStop(Archive, Streams, "rollback history is missing")
+    DataValue = BuildLocalProbe(Archive, Streams)
+    Document = AssertLocalStop(DataValue, "rollback history is missing")
     assert len(Document.brep_payloads) == 2
     assert {
         (Payload.source_stream, Payload.kind) for Payload in Document.brep_payloads
@@ -272,6 +277,28 @@ def TestNoHistory() -> None:
         (KLocalBodyStream, "unknown"),
         (KPartitionStream, "partition"),
     }
+    with TemporaryDirectory() as Target:
+        Paths = ExtractPayloads(DataValue, Target, source_format="solidworks.sldprt")
+        assert len(Paths) == 2
+        assert {Fingerprint(Entry.read_bytes()).hexdigest() for Entry in Paths} == {
+            Payload.sha256 for Payload in Document.brep_payloads
+        }
+
+
+# raw extraction still rejects a truncated native compression frame
+def TestRawFraming() -> None:
+    Archive = SldprtArchive.from_bytes(ReadFixture("RectangularBare", KRectangle))
+    Streams = Archive.streams
+    ActiveValue, _ = DecodePartition(Streams[KPartitionStream], KPartitionStream)
+    Streams[KPartitionStream] = EncodePartData(ActiveValue.data)[:-1]
+    DataValue = BuildLocalProbe(Archive, Streams)
+    with TemporaryDirectory() as Target:
+        try:
+            _ = ExtractPayloads(DataValue, Target, source_format="solidworks.sldprt")
+        except SldprtFormatError as ErrorInfo:
+            assert "truncated Parasolid chain section" in str(ErrorInfo)
+        else:
+            raise AssertionError("raw extraction accepted a truncated Parasolid frame")
 
 
 # a retained history may select an earlier real mark in the same native chain
@@ -322,7 +349,7 @@ def TestWrongMarks() -> None:
         HistoryData
     )
     Document = AssertLocalStop(
-        Archive, Streams, "world and history identities disagree"
+        BuildLocalProbe(Archive, Streams), "world and history identities disagree"
     )
     assert {Payload.kind: Payload.sha256 for Payload in Document.brep_payloads} == {
         "unknown": next(
@@ -346,7 +373,8 @@ def TestWrongOwner() -> None:
     NameStart = NameEnd - len(StemBytes)
     Streams[KLocalBodyStream] = GroupData[:NameStart] + StemBytes + GroupData[NameEnd:]
     Document = AssertLocalStop(
-        Archive, Streams, "storage key differs from its resolved import"
+        BuildLocalProbe(Archive, Streams),
+        "storage key differs from its resolved import",
     )
     assert len(Document.brep_payloads) == 3
 

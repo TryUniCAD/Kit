@@ -17,6 +17,10 @@ required current-profile local solid fails these checks. An explicit
 `sldprt.local_geometry_rejected`. Use `include_brep=False` for metadata
 inspection.
 
+`extract_brep` extracts native payloads with valid framing when
+the geometry snapshot lacks rollback history. Document reads still
+validate the snapshot before returning its solid.
+
 The two disclosed native inputs passed cold open, rebuild, save, and fresh
 reopen measurements on build `34.5.2.0604`. The public integration checks
 ownership, body counts, signed volume, area, centroid, and payload

@@ -69,6 +69,8 @@ body counts. The ordinary partition decoder keeps priority.
 If the required current-profile local solid fails validation, a strict
 B-rep read raises a format error. Explicit non-strict reads retain the
 payloads with a local geometry rejection warning.
+`extract_brep` reads the native payloads with strict framing
+validation and without requiring local snapshot reconstruction.
 This is source-backed inspection of the native import. Conversion
 acceptance follows the [CAD success criteria](../Operations/CadSuccessCriteria.md).
 [Local body readback](../../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)

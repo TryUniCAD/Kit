@@ -56,3 +56,28 @@ required local solid and a warning with the same reason on explicit
 non-strict reads. The metadata control sets `include_brep=False`.
 Current revision acceptance is the integration result from the
 repository merge queue.
+
+## Raw extraction and curved imports
+
+The missing-history control also exercises public raw extraction. It
+checks both readable payloads by hash and retains the strict document
+refusal. A separate control checks refusal of a truncated Parasolid frame.
+
+Read-only strict SDK comparisons used the disclosed native cylinder
+sources from the [topology receipt](https://github.com/TryUniCAD/Kit/blob/12d8ba0381af7504f4680088c93ee64642a8be6b/re/solidworks/measurements/2026/ImportedBodyTopologyNative01.json).
+The native `Result.json` has SHA-256
+`bbaa59c9661882912fdc0f140feb864824a9ddc36609e902e359d8c50ffd1105`
+and records healthy controls on `34.5.2.0604`.
+
+| Native source | Source SHA-256 | LocalBodies payload SHA-256 |
+| --- | --- | --- |
+| CylinderZ | `ef72c75f230331903726a4e48ca61682736289dba78261d654071f2fe2a54166` | `d6e924671f7e65f9d985f9043cb0c03ac5ecd258eae08d732c0b038f3363e09d` |
+| CylinderReverseY | `91a3a675d932d0f14c886446885980d484beb66a4f821d5ecfe9908e41182179` | `81b3209741cffe06e5332b552d82743554eb9ce3415688b82e3c32f78cda623f` |
+
+Revisions `c34686b1b448485ae78e00ceff89ee9536094473`,
+`ba5285916f31294b457fd5ca410567e3e48895c7`, and
+`bf91cbe27e4b33df2d903bd4d8ad4b1769ef4eda` each returned a valid B-rep
+with one body, one shell, three faces, two edges, and two vertices for
+both inputs. Each boundary has one analytic cylinder and two planes.
+The ordinary decoder accepts each LocalBodies payload directly. That
+result keeps priority over planar reconstruction and its refusal policy.
