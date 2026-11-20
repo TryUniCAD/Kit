@@ -176,6 +176,9 @@ from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.Display.ReadGeomParts import (
     ReadGeomParts,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalBodyBrep import (
+    ReadLocalBrep,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadNoCache import (
     ReadNoCache,
 )
@@ -3824,6 +3827,7 @@ def TypedBrep(Payloads: Sequence[BrepPayload]) -> BrepModel | None:
             Payload
         )
     Models: list[BrepModel] = []
+    HasAmbiguous = False
     for Group in Groups.values():
         Decoded = tuple(
             (
@@ -3835,7 +3839,11 @@ def TypedBrep(Payloads: Sequence[BrepPayload]) -> BrepModel | None:
         )
         if len(Decoded) == 1:
             Models.append(Decoded[0])
-    return Models[0] if len(Models) == 1 else None
+        elif len(Decoded) > 1:
+            HasAmbiguous = True
+    if Models or HasAmbiguous:
+        return Models[0] if len(Models) == 1 else None
+    return ReadLocalBrep(Payloads)
 
 
 # this definition exists because focused behavior needs one stable owner
