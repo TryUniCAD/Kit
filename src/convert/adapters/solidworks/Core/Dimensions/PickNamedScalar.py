@@ -10,11 +10,11 @@ def PickNamedScalar(Named: Sequence[NativeScalar]) -> NativeScalar | None:
     if (
         not Named
         or any(
-            Item.object_id is None or Item.role not in {"display", "driving"}
-            for Item in Named
+            ItemValue.object_id is None or ItemValue.role not in {"display", "driving"}
+            for ItemValue in Named
         )
-        or len({Item.object_id for Item in Named}) != len(Named)
+        or len({ItemValue.object_id for ItemValue in Named}) != len(Named)
     ):
         return None
-    Driving = [Item for Item in Named if Item.role == "driving"]
+    Driving = [ItemValue for ItemValue in Named if ItemValue.role == "driving"]
     return Driving[0] if len(Driving) == 1 else None

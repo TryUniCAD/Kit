@@ -10,12 +10,13 @@ import hashlib
 import struct
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Core.Native import FeatureCountFields, ParseKeywords, ParseNames
+from convert.adapters.solidworks.Core.Dimensions.CountFields import CountFields
+from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames
 from InferenceGrid.SolidWorksFieldDiscovery import control_parts
 
 
 def feature_counts(root, data, features, held_out):
-    targets = FeatureCountFields(data, features, ParseNames(data))
+    targets = CountFields(data, features, ParseNames(data))
     if not targets:
         return None
     streams_seen = {hashlib.sha256(data).hexdigest()}
@@ -33,7 +34,7 @@ def feature_counts(root, data, features, held_out):
         if stream_digest in streams_seen:
             continue
         streams_seen.add(stream_digest)
-        for owner, kind, dim, scalar, end in FeatureCountFields(stream, control_features, ParseNames(stream)):
+        for owner, kind, dim, scalar, end in CountFields(stream, control_features, ParseNames(stream)):
             text = dim.source_text.strip()
             if not text.isascii() or not text.isdecimal() or len(text) > 9:
                 continue

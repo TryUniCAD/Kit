@@ -1,18 +1,26 @@
 from __future__ import annotations as Annotations
-from convert.adapters.solidworks.Core.NativeOperand import NativeOperand as NativeOperand
+from convert.adapters.solidworks.Core.NativeOperand import (
+    NativeOperand as NativeOperand,
+)
 from convert.adapters.solidworks.Core.Dimensions.BindCounts import BindCounts
 from convert.adapters.solidworks.Core.Dimensions.PatternPairs import PatternPairs
 from convert.adapters.solidworks.Core.Dimensions.ReadPairLength import ReadPairLength
 from convert.adapters.solidworks.Core.NativeScalar import NativeScalar as NativeScalar
-from convert.adapters.solidworks.Core.NativeDimension import NativeDimension as NativeDimension
+from convert.adapters.solidworks.Core.NativeDimension import (
+    NativeDimension as NativeDimension,
+)
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
-from convert.adapters.solidworks.Core.BindMirroredField import BindMirroredField, KMirroredFields
+from convert.adapters.solidworks.Core.BindMirroredField import (
+    BindMirroredField,
+    KMirroredFields,
+)
 from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
 from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
 from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
-from bisect import bisect_right as BisectRight
+from convert.adapters.solidworks.Core.Dimensions.FeatureCounts import FeatureCounts
+from convert.adapters.solidworks.Core.Dimensions.ProjectCounts import ProjectCounts
 from collections import Counter, defaultdict as DefaultDict
 from collections.abc import Iterator
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
@@ -1435,45 +1443,6 @@ def RecordOffset(Record: NativeName) -> int:
     return Record.offset
 
 
-# feature instance counts require a named parameter inside a single matching owner interval
-def FeatureCountFields(
-    DataValue: bytes, Features: list[XmlFeature], Names: tuple[NativeName, ...]
-) -> list[tuple[int, str, NativeDimension, int, int]]:
-    Owners = {Feature.object_id: Feature for Feature in Features}
-    if len(Owners) != len(Features):
-        return []
-    Markers = sorted(
-        (Item.offset, Item.object_id)
-        for Item in Names
-        if Item.object_id in Owners and Owners[Item.object_id].name == Item.name
-    )
-    Occurrences = Counter(Owner for _, Owner in Markers)
-    Rows = []
-    for Index, (Start, Owner) in enumerate(Markers):
-        Feature = Owners[Owner]
-        if Occurrences[Owner] != 1 or Feature.kind.casefold() not in {
-            "cirpattern",
-            "circularpattern",
-            "lpattern",
-            "linearpattern",
-        }:
-            continue
-        End = Markers[Index + 1][0] if Index + 1 < len(Markers) else len(DataValue)
-        Dims = [Dim for Dim in Feature.dimensions if Dim.name.casefold() == "d1"]
-        if len(Dims) != 1:
-            continue
-        Name = Dims[0].name.encode("utf-16le")
-        Tag = SerializedStringMarker + bytes([len(Name) // 2]) + Name
-        Pos = DataValue.find(Tag, Start, End)
-        if Pos < Start + 2 or DataValue.find(Tag, Pos + len(Tag), End) != -1:
-            continue
-        Token = int.from_bytes(DataValue[Pos - 2 : Pos], "little")
-        Scalar = DimensionScalarValue(DataValue, Pos + len(Tag), End)
-        if 0x8000 <= Token < 0xFFFF and Scalar is not None:
-            Rows.append((Owner, Feature.kind, Dims[0], Scalar, min(End, Scalar + 512)))
-    return Rows
-
-
 # public instance count spans must have multiple independently learned copies in the same feature
 KFeatureCountCopies: tuple[int, ...] = ()
 
@@ -1511,30 +1480,11 @@ def BuildNativeList(
         for Index, Record in enumerate(OrderedRecords)
     }
     Pairs = PatternPairs(Resolved, XmlFeatures, Names, Classes)
-    SketchCounts = {(Owner, Name) for Owner, Name, *_ in Pairs}
+    SketchCounts = {(Owner, ParamName) for Owner, ParamName, *_ in Pairs}
     Counts = (
         BindCounts(Resolved, Pairs, KSketchCountOffsets) if KSketchCountOffsets else {}
     )
-    if KFeatureCountCopies:
-        for Owner, _, Dim, Scalar, End in FeatureCountFields(
-            Resolved, XmlFeatures, Names
-        ):
-            if Scalar + KFeatureCountCopies[-1] + 8 > End:
-                continue
-            Values = {
-                Struct.unpack_from("<d", Resolved, Scalar + Offset)[0]
-                for Offset in KFeatureCountCopies
-            }
-            if len(Values) != 1:
-                continue
-            Value = Values.pop()
-            if not Value.is_integer() or not 0 < Value < 2**32:
-                continue
-            if any(
-                int.from_bytes(Resolved[Scalar : Scalar + Width], "little") == Value
-                for Width in (1, 2, 4, 8)
-            ):
-                Counts[Owner, Dim.name] = (int(Value), Scalar + KFeatureCountCopies[0])
+    Counts.update(FeatureCounts(Resolved, XmlFeatures, Names, KFeatureCountCopies))
     ScalarOwner = ScalarOwners(Scalars, OrderedRecords, EndsValue)
     InchByOwner = (
         {OwnerId: IndexInch(Owned) for OwnerId, Owned in ScalarOwner.items()}
@@ -1577,56 +1527,9 @@ def BuildNativeList(
                 )
                 for Dimension in Dimensions
             )
-        if (
-            Counts
-            or SketchCounts
-            or any(Dimension.kind == "instance_count" for Dimension in Dimensions)
-        ):
-            OccurrenceNames = Counter(Dimension.name for Dimension in Dimensions)
-            Updated = []
-            for Dimension in Dimensions:
-                Count = Counts.get((Feature.object_id, Dimension.name))
-                if (
-                    Count
-                    and Dimension.source_text.strip() == str(Count[0])
-                    and OccurrenceNames[Dimension.name] == 1
-                ):
-                    Dimension = Replace(
-                        Dimension,
-                        kind=(
-                            "instance_count"
-                            if Dimension.kind == "instance_count"
-                            else "sketch_pattern_count"
-                        ),
-                        value_mm=None,
-                        native_value=Count[0],
-                        native_offset=Count[1],
-                        native_stream=ResolvedStream,
-                        native_role="driving",
-                        operands=(),
-                        inch_display_value=None,
-                    )
-                elif Dimension.kind == "instance_count" or (
-                    (Feature.object_id, Dimension.name) in SketchCounts
-                    and OccurrenceNames[Dimension.name] == 1
-                ):
-                    Dimension = Replace(
-                        Dimension,
-                        kind=(
-                            "instance_count"
-                            if Dimension.kind == "instance_count"
-                            else "sketch_pattern_count"
-                        ),
-                        value_mm=None,
-                        native_value=None,
-                        native_role=None,
-                        native_offset=None,
-                        native_stream=None,
-                        operands=(),
-                        inch_display_value=None,
-                    )
-                Updated.append(Dimension)
-            Dimensions = tuple(Updated)
+        Dimensions = ProjectCounts(
+            Dimensions, Counts, SketchCounts, Feature.object_id, ResolvedStream
+        )
         NativeEnd = EndsValue.get(Record.offset) if Record is not None else None
         if (
             KMirroredFields
@@ -1640,7 +1543,7 @@ def BuildNativeList(
                         Resolved,
                         NativeEnd,
                         ResolvedStream,
-                        Raw,
+                        RawDimension,
                         Bound,
                         Owned,
                         Copies,
@@ -1648,13 +1551,19 @@ def BuildNativeList(
                     )
                     if (
                         Copies := KMirroredFields.get(
-                            (Feature.kind, Raw.name, Raw.kind)
+                            (Feature.kind, RawDimension.name, RawDimension.kind)
                         )
                     )
-                    and sum(Item.name == Raw.name for Item in Feature.dimensions) == 1
+                    and sum(
+                        ItemValue.name == RawDimension.name
+                        for ItemValue in Feature.dimensions
+                    )
+                    == 1
                     else Bound
                 )
-                for Raw, Bound in zip(Feature.dimensions, Dimensions, strict=True)
+                for RawDimension, Bound in zip(
+                    Feature.dimensions, Dimensions, strict=True
+                )
             )
         NativeFeatures.append(
             NativeFeature(

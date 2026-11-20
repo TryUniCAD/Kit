@@ -1,3 +1,5 @@
+from tests.CliResearch.Reports.ReversalEvidence import VerifyReversal
+from tests.CliResearch.Reports.ManifestEvidence import VerifyManifest
 from hashlib import file_digest as FileDigest
 from json import loads as LoadJson
 from pathlib import Path as FilePath
@@ -45,28 +47,20 @@ def CheckFileScope(TmpPath: FilePath) -> None:
         assert Audit["source_sha256"] == FileDigest(Stream, "sha256").hexdigest()
     assert Audit["member_count"] > 0 and Audit["unattributed_stream_ranges"]
     assert "family:extrude:cut-extrude" in Audit["selected_experiments"]
-    Brep = Audit["native_classes"]["classes"]["5662F619-2281-4AD9-93DC-1FCFDA1062E7"]
-    assert Brep["metatypes"] == ["BrepRefMetaType"] and "rRecipe" in Brep["fields"]
+    assert "rRecipe" in Audit["native_classes"]["classes"][
+        "5662F619-2281-4AD9-93DC-1FCFDA1062E7"
+    ]["fields"] and Audit["native_classes"]["classes"][
+        "5662F619-2281-4AD9-93DC-1FCFDA1062E7"
+    ][
+        "metatypes"
+    ] == [
+        "BrepRefMetaType"
+    ]
     assert (
         "5662F619-2281-4AD9-93DC-1FCFDA1062E7"
         not in Audit["reader_attempts"]["strict"]["message"]
     )
-    Manifest = LoadJson((RunPath / "Input-manifest-text.json").read_bytes())
-    assert Manifest["status"] == "replayed_text_prefix"
-    assert Manifest["shared_codecs"] == ["utf-16le", "utf-16le", "utf-16le", "ascii"]
-    assert [record["sha256"] for record in Manifest["fusion_manifest_checks"]] == [
-        Manifest["member_sha256"],
-        *(control["member_sha256"] for control in Manifest["controls"]),
-    ]
-    assert all(
-        Check["asset_id_matches"] and Check["snapshot_id_matches"]
-        for Check in Manifest["fusion_manifest_checks"]
-    )
-    assert {Control["split"] for Control in Manifest["controls"]} == {
-        "discovery",
-        "qualification",
-        "holdout",
-    }
+    VerifyManifest(RunPath)
     Timeline = LoadJson((RunPath / "Input-timeline.json").read_bytes())
     assert Timeline["oracle_fields_match"] is True
     assert [Feature["name"] for Feature in Timeline["components"][0]["features"]] == [
@@ -93,7 +87,7 @@ def CheckFileScope(TmpPath: FilePath) -> None:
 
 
 # equal volume pattern members require independent centroid matches through the public command
-def CheckPatternBodyIdentity(TmpPath: FilePath) -> None:
+def CheckBodyIds(TmpPath: FilePath) -> None:
     RootPath = ResearchRoot()
     SourcePath = (
         RootPath / "re/Fusion/LocalOracle/FeatureAuthoring/Controls/BodyRectPattern.f3d"
@@ -129,8 +123,12 @@ def CheckPatternBodyIdentity(TmpPath: FilePath) -> None:
     assert Report["default_name_rules"]["next_capture"] == "RemoveFirstDefaultBody"
     assert len(Witness["matches"]) == 6
     assert {
-        (Body["stored_name"], Body["collection_ordinal"], Body["vendor_name"])
-        for Body in Witness["matches"]
+        (
+            BodyValue["stored_name"],
+            BodyValue["collection_ordinal"],
+            BodyValue["vendor_name"],
+        )
+        for BodyValue in Witness["matches"]
     } == {("", Index, f"Body{Index}") for Index in range(1, 7)}
 
 
@@ -171,8 +169,8 @@ def CheckLoftState(TmpPath: FilePath) -> None:
     Measurement = Timeline["parameter_checks"][0]
     assert Measurement["all_names_match"] and Measurement["native_count"] == 2
     assert Measurement["fields"] == {
-        Name: {"expression": True, "unit": True, "role": True, "value": True}
-        for Name in ("d1", "d2")
+        NameValue: {"expression": True, "unit": True, "role": True, "value": True}
+        for NameValue in ("d1", "d2")
     }
     Audit = LoadJson((RunPath / "FileScope.json").read_bytes())
     if (
@@ -193,7 +191,7 @@ def CheckLoftState(TmpPath: FilePath) -> None:
 
 
 # held out parameter collections distinguish reported sweep roles from other saved bindings
-def CheckSweepProjection(TmpPath: FilePath) -> None:
+def CheckSweep(TmpPath: FilePath) -> None:
     RootPath = ResearchRoot()
     SourcePath = (
         RootPath / "re/Fusion/Study/sweepnurbspaths-7ded30a4b9ae/polynomial_cubic.f3d"
@@ -236,17 +234,18 @@ def CheckSweepProjection(TmpPath: FilePath) -> None:
         "AgainstRailDistance",
         "AlongRailDistance",
     ]
-    Digests = {Row["source_sha256"] for Row in Report["training"]}
+    Digests = {Record["source_sha256"] for Record in Report["training"]}
     assert len(Digests) >= 2 and Report["held_out_sha256"] not in Digests
 
 
 # an extensionless geometry stream must bind its recovered dimensions to the measured native archive
-def CheckUnlabelledSnapshot(TmpPath: FilePath) -> None:
-    Root = ResearchRoot()
+def CheckSnapshot(TmpPath: FilePath) -> None:
+    RootPath = ResearchRoot()
     Source = TmpPath / "unknown"
     Source.write_bytes(
         (
-            Root / "re/Fusion/LocalOracle/PrismSnapshot/OrdinaryRectangleSnapshot.smb"
+            RootPath
+            / "re/Fusion/LocalOracle/PrismSnapshot/OrdinaryRectangleSnapshot.smb"
         ).read_bytes()
     )
     Output = TmpPath / "run"
@@ -257,7 +256,7 @@ def CheckUnlabelledSnapshot(TmpPath: FilePath) -> None:
             "KitCli",
             "run",
             "--root",
-            str(Root),
+            str(RootPath),
             "auto",
             "--input",
             str(Source),
@@ -284,16 +283,18 @@ def CheckUnlabelledSnapshot(TmpPath: FilePath) -> None:
 
 
 # the generated reader must apply cleanly and reproduce a second native solid through its own entry point
-def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
+def CheckTorus(TmpPath: FilePath) -> None:
     from os import environ as Environment, pathsep as PathSeparator
 
     from zipfile import ZipFile as Archive
 
-    Root = ResearchRoot()
-    Folder = Root / "re/Fusion/LocalOracle/RoundBodies"
+    RootPath = ResearchRoot()
+    Folder = RootPath / "re/Fusion/LocalOracle/RoundBodies"
     Source = TmpPath / "unknown"
     with Archive(Folder / "vendor_DecodedPlacedTorus.f3d") as Document:
-        (Member,) = [Name for Name in Document.namelist() if Name.endswith(".smb")]
+        (Member,) = [
+            NameValue for NameValue in Document.namelist() if NameValue.endswith(".smb")
+        ]
         Source.write_bytes(Document.read(Member))
     Output = TmpPath / "run"
     Result = RunProcess(
@@ -303,7 +304,7 @@ def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
             "KitCli",
             "run",
             "--root",
-            str(Root),
+            str(RootPath),
             "auto",
             "--input",
             str(Source),
@@ -328,16 +329,16 @@ def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
     Reader = TmpPath / Record["path"]
     with Reader.open("rb") as Stream:
         assert FileDigest(Stream, "sha256").hexdigest() == Record["reader_sha256"]
-    Env = {
+    Environment = {
         **Environment,
         "PYTHONPATH": PathSeparator.join(
-            str(Root / P) for P in ("src", "re/automation")
+            str(RootPath / EntryPath) for EntryPath in ("src", "re/automation")
         ),
     }
     Replay = RunProcess(
         [PythonPath, str(Reader), str(Folder / "AuthoredTorus.smb")],
         cwd=TmpPath,
-        env=Env,
+        env=Environment,
         capture_output=True,
         check=True,
         timeout=60,
@@ -346,7 +347,7 @@ def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
     Refusal = RunProcess(
         [PythonPath, str(Reader), str(Folder / "AuthoredSphere.smb")],
         cwd=TmpPath,
-        env=Env,
+        env=Environment,
         capture_output=True,
         timeout=60,
     )
@@ -354,9 +355,9 @@ def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
 
 
 # a standalone journal must retain the prior empty state and independently match its companion snapshot
-def CheckPlacedPlanarJournal(TmpPath: FilePath) -> None:
-    Root = ResearchRoot()
-    Source = Root / "re/Fusion/LocalOracle/PlanarTopology/PlacedTetrahedron.smbh"
+def CheckJournal(TmpPath: FilePath) -> None:
+    RootPath = ResearchRoot()
+    Source = RootPath / "re/Fusion/LocalOracle/PlanarTopology/PlacedTetrahedron.smbh"
     Output = TmpPath / "journal"
     Result = RunProcess(
         [
@@ -365,7 +366,7 @@ def CheckPlacedPlanarJournal(TmpPath: FilePath) -> None:
             "KitCli",
             "run",
             "--root",
-            str(Root),
+            str(RootPath),
             "auto",
             "--input",
             str(Source),
@@ -380,25 +381,27 @@ def CheckPlacedPlanarJournal(TmpPath: FilePath) -> None:
     assert Report["profile"] == "PlanarJournal"
     assert Report["paired_geometry"]["oriented_boundaries_match"]
     assert Report["native_witness"]["geometry_matches"]
-    States = {Row["state_id"]: Row for Row in Report["model"]["states"]}
+    States = {Record["state_id"]: Record for Record in Report["model"]["states"]}
     assert States[2]["bodies"] == [] and States[4]["active"]
-    (Body,) = States[4]["bodies"]
-    assert (Body["faces"], Body["edges"], Body["vertices"]) == (4, 6, 4)
-    assert abs(Body["volume_cm3"] - 3.945638020833335) < 1e-10
+    (BodyValue,) = States[4]["bodies"]
+    assert (BodyValue["faces"], BodyValue["edges"], BodyValue["vertices"]) == (4, 6, 4)
+    assert abs(BodyValue["volume_cm3"] - 3.945638020833335) < 1e-10
 
 
 # raw stream discovery must withhold the evaluation family and verify the generated program at native scalar offsets
-def CheckUnlabelledDimensionStream(TmpPath: FilePath) -> None:
+def CheckDimensions(TmpPath: FilePath) -> None:
     from convert.adapters.solidworks.Container.Container import SldprtArchive
 
-    Root = ResearchRoot()
-    Folder = Root / "re/automation/PairedCaptures/P05"
+    RootPath = ResearchRoot()
+    Folder = RootPath / "re/automation/PairedCaptures/P05"
     Target = TmpPath / "target"
     Control = TmpPath / "baseline"
     Member = "Contents/Config-0-ResolvedFeatures"
     for Pathname, Variant in ((Target, "edit-angle_deg-90"), (Control, "baseline-a")):
-        Part = next(Folder.glob(f"solidworks-*/*{Variant}.SLDPRT"))
-        Pathname.write_bytes(SldprtArchive.FromBytes(Part.read_bytes()).Streams[Member])
+        PartPath = next(Folder.glob(f"solidworks-*/*{Variant}.SLDPRT"))
+        Pathname.write_bytes(
+            SldprtArchive.FromBytes(PartPath.read_bytes()).Streams[Member]
+        )
     Output = TmpPath / "run"
     Result = RunProcess(
         [
@@ -407,7 +410,7 @@ def CheckUnlabelledDimensionStream(TmpPath: FilePath) -> None:
             "KitCli",
             "run",
             "--root",
-            str(Root),
+            str(RootPath),
             "auto",
             "--input",
             str(Target),
@@ -425,29 +428,35 @@ def CheckUnlabelledDimensionStream(TmpPath: FilePath) -> None:
     ]
     assert (Report["encoding"], Report["displacement"]) == ("<d", 22)
     assert {
-        Row["recipe"] for Row in Report["trials"] if Row["split"] == "discovery"
+        Record["recipe"]
+        for Record in Report["trials"]
+        if Record["split"] == "discovery"
     } == {"P01", "P03", "P04"}
-    assert all(Row["generated_reader_matches"] for Row in Report["trials"])
-    assert {Row["split"] for Row in Report["trials"]} == {
+    assert all(Record["generated_reader_matches"] for Record in Report["trials"])
+    assert {Record["split"] for Record in Report["trials"]} == {
         "discovery",
         "qualification",
         "holdout",
     }
     assert len(Report["native_measurement_offsets"]) == 4
-    Angle = next(Row for Row in Report["records"] if Row["name"] == "angle_deg")
+    Angle = next(
+        Record for Record in Report["records"] if Record["name"] == "angle_deg"
+    )
     assert Angle["offset"] in Report["native_measurement_offsets"]
     (Comparison,) = Report["control_replays"]
-    Original = next(Row for Row in Comparison["records"] if Row["name"] == "angle_deg")
+    Original = next(
+        Record for Record in Comparison["records"] if Record["name"] == "angle_deg"
+    )
     assert abs(Angle["value"] * 4 - Original["value"]) < 1e-12
     assert (Output / "Reader.patch").is_file()
 
 
 # a reversed saved extrusion must agree with edited geometry and reject stale end positions
-def CheckReversedSavedPrism(TmpPath: FilePath) -> None:
+def CheckReversal(TmpPath: FilePath) -> None:
     from os import environ as Environment, pathsep as PathSeparator
 
-    Root = ResearchRoot()
-    Run = TmpPath / "research"
+    RootPath = ResearchRoot()
+    RunPath = TmpPath / "research"
     Result = RunProcess(
         [
             PythonPath,
@@ -455,12 +464,12 @@ def CheckReversedSavedPrism(TmpPath: FilePath) -> None:
             "KitCli",
             "run",
             "--root",
-            str(Root),
+            str(RootPath),
             "auto",
             "--input",
-            str(Root / "re/FreeCad/Verification/ReversedFrontEdited.FCStd"),
+            str(RootPath / "re/FreeCad/Verification/ReversedFrontEdited.FCStd"),
             "--directory",
-            str(Run),
+            str(RunPath),
             "--workers",
             "1",
             "--reserved-memory-mib",
@@ -471,56 +480,28 @@ def CheckReversedSavedPrism(TmpPath: FilePath) -> None:
         timeout=300,
     )
     assert Result.returncode == 2, Result.stderr
-    (Edit,) = LoadJson((Run / "Input-native-edits.json").read_bytes())["changes"]
-    Geometry = Edit["saved_geometry"]
-    assert Edit["field"] == "LengthFwd"
-    assert Geometry["saved_stations_mm"] == [-14.0, 5.0]
-    assert Geometry["embedded_stations_mm"] == [-11.0, 5.0]
-    assert Geometry["saved_depths_match"] is True
-    assert Geometry["embedded_depths_match"] is False
-    Graph = LoadJson((Run / "Input-edited-graph.json").read_bytes())
-    assert Graph["status"] == "candidate_matches_native_graph"
-    (Update,) = Graph["updates"]
-    Reader = LoadJson((Run / "Input-reader-patch.json").read_bytes())
-    assert Reader["observed_bindings"] == {"LengthFwd": "length"}
-    assert Reader["bindings"] == {"LengthFwd": "length", "LengthRev": "second_length"}
-    assert {
-        Field
-        for Replay in Reader["control_replays"]
-        for Field in Replay["definition_fields"]
-    } == {"length", "second_length"}
-    assert Update["parameter_id"] == "depth:forward"
-    assert Update["definition_field"] == "length"
-    (Step,) = (
-        Item
-        for Item in Graph["candidate"]["feature_timeline"]["$tuple"]
-        if Item["id"] == Update["feature_id"]
-    )
-    assert Step["definition"]["length"]["value"] == 14.0
-    assert Step["definition"]["second_length"]["value"] == 5.0
-    assert (
-        LoadJson((Run / "FileStall.json").read_bytes())["focus"]
-        == "edited_graph_reopen"
-    )
+    VerifyReversal(RunPath)
+    Graph = LoadJson((RunPath / "Input-edited-graph.json").read_bytes())
+    Reader = LoadJson((RunPath / "Input-reader-patch.json").read_bytes())
     RunProcess(
-        ["git", "apply", "--no-index", str(Run / "Reader.patch")],
+        ["git", "apply", "--no-index", str(RunPath / "Reader.patch")],
         cwd=TmpPath,
         check=True,
     )
     Generated = TmpPath / Reader["path"]
-    with Generated.open("rb") as stream:
-        assert FileDigest(stream, "sha256").hexdigest() == Reader["reader_sha256"]
+    with Generated.open("rb") as Stream:
+        assert FileDigest(Stream, "sha256").hexdigest() == Reader["reader_sha256"]
     Replay = RunProcess(
         [
             PythonPath,
             str(Generated),
-            str(Root / "re/FreeCad/Verification/ReversedFrontEdited.FCStd"),
+            str(RootPath / "re/FreeCad/Verification/ReversedFrontEdited.FCStd"),
         ],
         cwd=TmpPath,
         env={
             **Environment,
             "PYTHONPATH": PathSeparator.join(
-                map(str, (Root / "src", Root / "re/automation"))
+                map(str, (RootPath / "src", RootPath / "re/automation"))
             ),
         },
         capture_output=True,

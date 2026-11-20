@@ -271,6 +271,8 @@ In SOLIDWORKS dimension evidence, inspect `keyword_evidence.dimensions[].integer
 
 For explicit SOLIDWORKS sketch pattern count classes, inspect `keyword_evidence.pattern_counts`. The decoder reads a named parameter and its linear or circular handle in the same saved feature interval, then compares their common count with the keyword dimension. The report includes both offsets and all compatible integer widths.
 
+The [sketch count integration checks](../Changes/Research/Inference/SketchCountReviewCoverage.md) cover unitless export and exclude count-based distance constraints.
+
 The pattern count reader searches the first 1,024 bytes of typed count handles in other saved parts for nine numeric encodings. Inspect `pattern_count_rule` for the intersection of matching offsets and encodings, the training file and stream hashes, and the held-out hashes. The decoder uses the surviving rule only when controls from multiple documents vary the count and cover both linear and circular patterns.
 
 A strict SOLIDWORKS run can emit `SketchPatternCounts.patch` when it discovers a supported pattern family missing from the public reader registry. The command stages the candidate in temporary source, runs the public decode command, and checks the held-out count, integer type, empty unit, native span and every unrelated parameter. The accompanying `Input-pattern-count-reader.json` identifies the base commit and parameter IDs.

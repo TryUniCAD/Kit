@@ -1,4 +1,6 @@
-from hashlib import sha256 as Sha256
+from tests.CliResearch.Reports.ReplayEvidence import VerifyReplay
+from tests.CliResearch.Reports.HoldoutEvidence import VerifyHoldout
+from hashlib import sha256 as ShaDigest
 from json import loads as LoadJson
 from os import environ as ProcessEnvironment, pathsep as PathSeparator
 from pathlib import Path as FilePath
@@ -10,11 +12,11 @@ from tests.Research.Inference.AdviceProvider import SetProviderMut
 
 
 # a separately supplied holdout remains outside training in a sparse checkout
-def CheckReservedControlReplay(TmpPath: FilePath) -> None:
-    Root = ResearchRoot()
+def CheckHoldout(TmpPath: FilePath) -> None:
+    RootPath = ResearchRoot()
     Checkout = TmpPath / "checkout"
     RunProcess(
-        ["git", "clone", "--shared", "--no-checkout", str(Root), str(Checkout)],
+        ["git", "clone", "--shared", "--no-checkout", str(RootPath), str(Checkout)],
         check=True,
     )
     RunProcess(
@@ -43,7 +45,7 @@ def CheckReservedControlReplay(TmpPath: FilePath) -> None:
     Source = next(
         (Checkout / "re/solidworks/examples").glob("*/RUEDA DE TURBINA.SLDPRT")
     )
-    Control = next((Root / "re/solidworks/examples").glob("*/CUBIERTA.SLDPRT"))
+    Control = next((RootPath / "re/solidworks/examples").glob("*/CUBIERTA.SLDPRT"))
     Output = TmpPath / "run"
     Environment = {
         **ProcessEnvironment,
@@ -81,8 +83,8 @@ def CheckReservedControlReplay(TmpPath: FilePath) -> None:
         timeout=300,
     )
     assert Result.returncode == 2, Result.stderr
-    assert not (Checkout / Control.relative_to(Root)).exists()
-    ControlPin = Sha256(Control.read_bytes()).hexdigest()
+    assert not (Checkout / Control.relative_to(RootPath)).exists()
+    ControlPin = ShaDigest(Control.read_bytes()).hexdigest()
     assert LoadJson((Output / "FileScope.json").read_bytes())[
         "supplied_control_sha256"
     ] == [ControlPin]
@@ -95,45 +97,23 @@ def CheckReservedControlReplay(TmpPath: FilePath) -> None:
     assert Passes["stop"] == "no_verified_patch"
     assert Passes["passes"] == []
     assert not (Output / "Reader.patch").exists()
-    Stall = LoadJson((Output / "FileStall.json").read_bytes())
-    assert Stall["source_sha256"] == Evidence["input_sha256"]
-    assert Stall["focus"] == "ambiguous_dimension"
-    assert Stall["signed_extrusion_layout_refuted_on_searched_fields"]
-    Request = LoadJson((Output / "FileAdvice/Request.json").read_bytes())
-    assert "no match" in Request["packet"]["discovery_summary"]
-    assert Source.name not in str(Request["packet"])
-    assert Evidence["input_sha256"] not in str(Request["packet"])
-    Answer = LoadJson((Output / "FileAdvice/Advice.json").read_bytes())
-    assert Answer["status"] == "proposal" and Answer["verified_rule"] is False
-    assert (TmpPath / "Calls").read_text().splitlines() == ["called"]
-    Experiments = LoadJson((Output / "FileExperiments.json").read_bytes())
-    assert Experiments["advisor_selection"] == "vary blind cut depth"
-    Cut, Boss = Experiments["results"]
-    assert Cut["controlled_change"] == Experiments["advisor_selection"]
-    assert Cut["status"] == Boss["status"] == "no_target_match"
-    assert (
-        Cut["comparisons"][0]["input_value"],
-        Cut["comparisons"][0]["control_value"],
-    ) == (0.004, 0.005)
-    assert (
-        Boss["comparisons"][0]["input_value"],
-        Boss["comparisons"][0]["control_value"],
-    ) == (0.01, 0.012)
+    VerifyHoldout(Output, TmpPath, Source, Evidence)
 
 
 # a supplied candidate exercises reader promotion independently of corpus discovery eligibility
-def CheckPatchReplay(TmpPath: FilePath, monkeypatch) -> None:
-    from math import degrees as Degrees
+def CheckReplay(TmpPath: FilePath, MonkeyPatch) -> None:
     from shutil import copytree as CopyTree
     from struct import unpack_from as UnpackFrom
 
     from convert.adapters.solidworks.Container.Container import SldprtArchive
 
-    Root = ResearchRoot()
-    monkeypatch.syspath_prepend(str(Root / "re/automation"))
+    RootPath = ResearchRoot()
+    MonkeyPatch.syspath_prepend(str(RootPath / "re/automation"))
     from InferenceGrid.ReaderPass import reader_passes
 
-    Source = next((Root / "re/solidworks/examples").glob("*/RUEDA DE TURBINA.SLDPRT"))
+    Source = next(
+        (RootPath / "re/solidworks/examples").glob("*/RUEDA DE TURBINA.SLDPRT")
+    )
     Stream = "Contents/Config-0-ResolvedFeatures"
     Payload = SldprtArchive.FromBytes(Source.read_bytes()).Streams[Stream]
     Offset = 40475
@@ -150,18 +130,18 @@ def CheckPatchReplay(TmpPath: FilePath, monkeypatch) -> None:
         "solidworks.sldprt",
         "-o",
     ]
-    RunProcess([*Command, str(Before)], cwd=Root, check=True, timeout=180)
+    RunProcess([*Command, str(Before)], cwd=RootPath, check=True, timeout=180)
     Document = LoadJson(Before.read_bytes())["document"]
     Field = ["CirPattern", "D2", "angle"]
     Reports = reader_passes(
-        Root,
+        RootPath,
         Source,
         TmpPath,
         dict(ProcessEnvironment),
         Document,
         {
             "discovered_feature_fields": {
-                "input_sha256": Sha256(Source.read_bytes()).hexdigest(),
+                "input_sha256": ShaDigest(Source.read_bytes()).hexdigest(),
                 "rules": [{"key": Field, "copies": [[537, 1]]}],
                 "predictions": [
                     {
@@ -181,7 +161,7 @@ def CheckPatchReplay(TmpPath: FilePath, monkeypatch) -> None:
     assert Reports["reader-passes"]["stop"] == "no_verified_patch"
     assert (TmpPath / "reader-pass-1/evidence.json").is_file()
     Checkout = TmpPath / "replay"
-    CopyTree(Root / "src", Checkout / "src")
+    CopyTree(RootPath / "src", Checkout / "src")
     RunProcess(
         ["git", "apply", "--no-index", "-"],
         cwd=Checkout,
@@ -189,30 +169,4 @@ def CheckPatchReplay(TmpPath: FilePath, monkeypatch) -> None:
         text=True,
         check=True,
     )
-    After = TmpPath / "after.json"
-    RunProcess(
-        [*Command, str(After)],
-        cwd=Checkout,
-        check=True,
-        timeout=180,
-        env={
-            **ProcessEnvironment,
-            "PYTHONPATH": PathSeparator.join(
-                map(str, (Checkout / "src", Root / "Cli"))
-            ),
-        },
-    )
-    (Parameter,) = [
-        entry
-        for entry in LoadJson(After.read_bytes())["document"]["parameters"]["$tuple"]
-        if entry["id"] == Target
-    ]
-    assert Parameter["value"]["value"] == Degrees(Native)
-    assert Parameter["attributes"]["native_value"] == Native
-    (Span,) = Parameter["provenance"]["spans"]["$tuple"]
-    assert (Span["stream"], Span["offset"], Span["length"], Span["record_kind"]) == (
-        Stream,
-        Offset,
-        8,
-        "dimension-scalar",
-    )
+    VerifyReplay(TmpPath, Command, Checkout, RootPath, Target, Native, Stream, Offset)

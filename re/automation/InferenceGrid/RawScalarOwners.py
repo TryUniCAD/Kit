@@ -13,7 +13,8 @@ import struct
 
 from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle
 from convert.adapters.solidworks.Core.Dimensions.PickNamedScalar import PickNamedScalar
-from convert.adapters.solidworks.Core.Native import FeatureCountFields, ParseKeywords, ParseNames, ParseScalars
+from convert.adapters.solidworks.Core.Dimensions.CountFields import CountFields
+from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars
 from convert.adapters.solidworks.Core.ParseDisplay import (
     KInformationStream,
     ParseDisplay,
@@ -22,7 +23,7 @@ from convert.adapters.solidworks.Core.ParseDisplay import (
 
 def count_interpretations(blob, features, names):
     alternatives = {}
-    for owner, family, dim, offset, end in FeatureCountFields(blob, features, names):
+    for owner, family, dim, offset, end in CountFields(blob, features, names):
         text = dim.source_text.strip()
         if not text.isascii() or not text.isdecimal() or len(text) > 10:
             continue

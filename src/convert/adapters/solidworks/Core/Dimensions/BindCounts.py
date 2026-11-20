@@ -9,14 +9,14 @@ def BindCounts(
 ) -> dict[tuple[int, str], tuple[int, int]]:
     Result = {}
     Ambiguous = set()
-    for Owner, Name, Family, _, Scalar, _, Cursor, End in Pairs:
+    for Owner, ParamName, Family, _, Scalar, _, Cursor, EndOffset in Pairs:
         Displacement = Offsets.get(Family)
         if Displacement is None:
             continue
         Offset = Cursor + Displacement
         if (
             Displacement < 16
-            or Offset + 8 > End
+            or Offset + 8 > EndOffset
             or DataValue[Offset - 16 : Offset] != Struct.pack("<4I", 8, 16, 1, 1)
         ):
             continue
@@ -28,8 +28,12 @@ def BindCounts(
             for Width in (1, 2, 4, 8)
         ):
             continue
-        Key = (Owner, Name)
-        if Key in Result:
-            Ambiguous.add(Key)
-        Result[Key] = (int(Count), Offset)
-    return {Key: Value for Key, Value in Result.items() if Key not in Ambiguous}
+        OwnerKey = (Owner, ParamName)
+        if OwnerKey in Result:
+            Ambiguous.add(OwnerKey)
+        Result[OwnerKey] = (int(Count), Offset)
+    return {
+        OwnerKey: Value
+        for OwnerKey, Value in Result.items()
+        if OwnerKey not in Ambiguous
+    }
