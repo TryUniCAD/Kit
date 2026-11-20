@@ -17,7 +17,8 @@ import re
 import struct
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle, SelectNamedField
+from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle
+from convert.adapters.solidworks.Core.PickNamedScalar import PickNamedScalar
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars, ParseXml
 from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream, ParseDisplay
 from InferenceInputs import read_file
@@ -77,7 +78,7 @@ def records(streams, wanted):
                 expected = d.value_mm * (0.0254 if display.UnitName == "in" else 0.001)
             else:
                 continue
-            scalar = SelectNamedField(scalars[owner, d.name])
+            scalar = PickNamedScalar(scalars[owner, d.name])
             if scalar is not None and scalar.value_offset + 8 <= end:
                 rows.append((group, owner, expected, scalar, start, end, d.source_text))
     declared = {(f.object_id, d.name, d.kind): d.source_text for f in features for d in f.dimensions}

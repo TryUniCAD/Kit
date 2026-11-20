@@ -12,7 +12,8 @@ import struct
 
 from InferenceGrid.SolidWorksFieldDiscovery import control_parts
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Core.Native import ParseClasses, ParseKeywords, ParseNames, SketchPatternPairs
+from convert.adapters.solidworks.Core.Native import ParseClasses, ParseKeywords, ParseNames
+from convert.adapters.solidworks.Core.PatternPairs import PatternPairs
 
 
 def learn_count_rule(root, held_out, held_stream):
@@ -37,7 +38,7 @@ def learn_count_rule(root, held_out, held_stream):
         for feature in features:
             for dim in feature.dimensions:
                 labels[feature.object_id, dim.name].append(dim.source_text.strip())
-        for owner, name, family, _, scalar, _, cursor, end in SketchPatternPairs(data, features, ParseNames(data), ParseClasses(data)):
+        for owner, name, family, _, scalar, _, cursor, end in PatternPairs(data, features, ParseNames(data), ParseClasses(data)):
             texts = labels[owner, name]
             if len(texts) != 1 or not texts[0].isascii() or not texts[0].isdecimal() or len(texts[0]) > 9:
                 continue
@@ -62,7 +63,7 @@ def learn_count_rule(root, held_out, held_stream):
 
 
 def pattern_counts(data, features, root, held_out):
-    pairs = SketchPatternPairs(data, features, ParseNames(data), ParseClasses(data))
+    pairs = PatternPairs(data, features, ParseNames(data), ParseClasses(data))
     if not pairs:
         return [], None
     rule = learn_count_rule(root, held_out, hashlib.sha256(data).hexdigest())

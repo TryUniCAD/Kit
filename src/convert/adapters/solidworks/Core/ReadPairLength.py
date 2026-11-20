@@ -1,5 +1,5 @@
 from dataclasses import replace as Replace
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import Context, Decimal, ROUND_HALF_UP, localcontext
 from math import isfinite as IsFinite
 from re import fullmatch as FullMatch
 
@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Core.NativeScalar import NativeScalar
 
 
 # paired records with the same operands preserve a sketch length beyond its printed precision
-def PairedSketchLength(
+def ReadPairLength(
     Dimension: NativeDimension,
     Scalars: tuple[NativeScalar, ...],
     Display: LinearDisplay | None,
@@ -28,27 +28,39 @@ def PairedSketchLength(
         return Dimension
     if len(Scalars) != 2:
         return Dimension
-    Copy, Driving = Scalars if Scalars[0].role == "display" else reversed(Scalars)
+    DisplayScalar, Driving = (
+        Scalars if Scalars[0].role == "display" else reversed(Scalars)
+    )
     if (
-        (Copy.role, Driving.role) != ("display", "driving")
-        or Copy.object_id is None
+        (DisplayScalar.role, Driving.role) != ("display", "driving")
+        or DisplayScalar.object_id is None
         or Driving.object_id is None
-        or Copy.object_id == Driving.object_id
-        or Copy.value != Driving.value
+        or DisplayScalar.object_id == Driving.object_id
+        or DisplayScalar.value != Driving.value
         or not IsFinite(Driving.value)
         or abs(Driving.value) >= 1e9
         or not Driving.operands
-        or tuple((Op.kind_code, Op.entity_index) for Op in Driving.operands)
-        != tuple((Op.kind_code, Op.entity_index) for Op in Copy.operands)
+        or tuple(
+            (Operand.kind_code, Operand.entity_index) for Operand in Driving.operands
+        )
+        != tuple(
+            (Operand.kind_code, Operand.entity_index)
+            for Operand in DisplayScalar.operands
+        )
     ):
         return Dimension
-    if Dimension.native_offset == Driving.value_offset and Dimension.native_role == "driving":
+    if Dimension.native_offset is not None and (
+        Dimension.native_offset != Driving.value_offset
+        or Dimension.native_role != "driving"
+        or Dimension.native_stream not in (None, Stream)
+    ):
         return Dimension
-    Measured = Decimal(str(Driving.value)) * 1000
-    if Measured.quantize(
-        Decimal(1).scaleb(-Display.Decimals), rounding=ROUND_HALF_UP
-    ) != Decimal(Dimension.source_text.strip()):
-        return Dimension
+    with localcontext(Context(prec=34, rounding=ROUND_HALF_UP)):
+        Measured = Decimal(str(Driving.value)) * 1000
+        if Measured.quantize(Decimal(1).scaleb(-Display.Decimals)) != Decimal(
+            Dimension.source_text.strip()
+        ):
+            return Dimension
     return Replace(
         Dimension,
         value_mm=float(Measured),

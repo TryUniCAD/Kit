@@ -119,3 +119,100 @@ def CheckReservedControlReplay(TmpPath: FilePath) -> None:
         Boss["comparisons"][0]["input_value"],
         Boss["comparisons"][0]["control_value"],
     ) == (0.01, 0.012)
+
+
+# a supplied candidate exercises reader promotion independently of corpus discovery eligibility
+def CheckPatchReplay(TmpPath: FilePath, monkeypatch) -> None:
+    from math import degrees as Degrees
+    from shutil import copytree as CopyTree
+    from struct import unpack_from as UnpackFrom
+
+    from convert.adapters.solidworks.Container.Container import SldprtArchive
+
+    Root = ResearchRoot()
+    monkeypatch.syspath_prepend(str(Root / "re/automation"))
+    from InferenceGrid.ReaderPass import reader_passes
+
+    Source = next((Root / "re/solidworks/examples").glob("*/RUEDA DE TURBINA.SLDPRT"))
+    Stream = "Contents/Config-0-ResolvedFeatures"
+    Payload = SldprtArchive.FromBytes(Source.read_bytes()).Streams[Stream]
+    Offset = 40475
+    Native = UnpackFrom("<d", Payload, Offset)[0]
+    assert Native == UnpackFrom("<d", Payload, Offset + 537)[0]
+    Before = TmpPath / "before.json"
+    Command = [
+        PythonPath,
+        "-m",
+        "KitCli",
+        "decode",
+        str(Source),
+        "--from",
+        "solidworks.sldprt",
+        "-o",
+    ]
+    RunProcess([*Command, str(Before)], cwd=Root, check=True, timeout=180)
+    Document = LoadJson(Before.read_bytes())["document"]
+    Field = ["CirPattern", "D2", "angle"]
+    Reports = reader_passes(
+        Root,
+        Source,
+        TmpPath,
+        dict(ProcessEnvironment),
+        Document,
+        {
+            "discovered_feature_fields": {
+                "input_sha256": Sha256(Source.read_bytes()).hexdigest(),
+                "rules": [{"key": Field, "copies": [[537, 1]]}],
+                "predictions": [
+                    {
+                        "key": Field,
+                        "feature_id": 65,
+                        "stream": Stream,
+                        "scalar_offset": Offset,
+                        "native_value": Native,
+                        "keyword_matches": True,
+                    }
+                ],
+            }
+        },
+    )
+    Target = "sldprt:parameter:65:D2"
+    assert Reports["reader-passes"]["passes"][0]["changed_parameters"] == [Target]
+    assert Reports["reader-passes"]["stop"] == "no_verified_patch"
+    assert (TmpPath / "reader-pass-1/evidence.json").is_file()
+    Checkout = TmpPath / "replay"
+    CopyTree(Root / "src", Checkout / "src")
+    RunProcess(
+        ["git", "apply", "--no-index", "-"],
+        cwd=Checkout,
+        input=Reports["reader-patch"]["patch"],
+        text=True,
+        check=True,
+    )
+    After = TmpPath / "after.json"
+    RunProcess(
+        [*Command, str(After)],
+        cwd=Checkout,
+        check=True,
+        timeout=180,
+        env={
+            **ProcessEnvironment,
+            "PYTHONPATH": PathSeparator.join(
+                map(str, (Checkout / "src", Root / "Cli"))
+            ),
+        },
+    )
+    (Parameter,) = [
+        entry
+        for entry in LoadJson(After.read_bytes())["document"]["parameters"]["$tuple"]
+        if entry["id"] == Target
+    ]
+    assert Parameter["value"]["value"] == Degrees(Native)
+    assert Parameter["attributes"]["native_value"] == Native
+    (Span,) = Parameter["provenance"]["spans"]["$tuple"]
+    assert (Span["stream"], Span["offset"], Span["length"], Span["record_kind"]) == (
+        Stream,
+        Offset,
+        8,
+        "dimension-scalar",
+    )

@@ -1,4 +1,5 @@
 from __future__ import annotations as Annotations
+from convert.adapters.solidworks.Core.CountValue import CountValue
 from collections import defaultdict as Defaultdict
 from contextlib import suppress as Suppress
 from dataclasses import dataclass as DataClass, replace as Replace
@@ -2279,7 +2280,7 @@ def Parameters(
                 if Dimension.native_value is not None
                 else (
                     Dimension.value_mm / 1000.0
-                    if Dimension.value_mm is not None
+                    if Dimension.value_mm is not None and Dimension.kind != "angle"
                     else None
                 )
             )
@@ -2312,13 +2313,14 @@ def Parameters(
                             "native_value": NativeValue,
                             "native_unit": (
                                 None
-                                if Dimension.value_mm is None
+                                if NativeValue is None or Dimension.value_mm is None
                                 else "rad" if Dimension.kind == "angle" else "m"
                             ),
                             **(
                                 {KUnresolvedInchDimension: True}
                                 if Dimension.value_mm is None
-                                and Dimension.kind not in {"sketch_pattern_count", "instance_count"}
+                                and Dimension.kind
+                                not in {"sketch_pattern_count", "instance_count"}
                                 else {}
                             ),
                             "native_role": Dimension.native_role or "unresolved",
@@ -2348,8 +2350,13 @@ def Parameters(
 
 # this definition exists because focused behavior needs one stable owner
 def DimensionParam(Dimension: NativeDimension) -> ParamValue:
-    if Dimension.kind in {"sketch_pattern_count", "instance_count"} and Dimension.value_mm is None and Dimension.native_value is not None:
-        return ParamValue(int(Dimension.native_value), ValueKind.INTEGER)
+    if Dimension.kind in {"sketch_pattern_count", "instance_count"}:
+        Count = CountValue(Dimension)
+        return (
+            ParamValue(Count, ValueKind.INTEGER)
+            if Count is not None
+            else ParamValue(Dimension.source_text, ValueKind.STRING)
+        )
     if Dimension.value_mm is None:
         if Dimension.inch_display_value is not None:
             return ParamValue(Dimension.inch_display_value, ValueKind.LENGTH, "in")
@@ -3176,6 +3183,52 @@ def RuleContextA(
     )
 
 
+# radial constraints require a unique circle with the same measurement and native operand
+def RadialTarget(
+    Dimension: NativeDimension,
+    RuleValue: NativeRule,
+    MarkerCircles: tuple[SketchEntity, ...],
+) -> str | None:
+    if (
+        Dimension.value_mm is not None
+        and Dimension.native_offset is not None
+        and Dimension.native_role in {"driving", "display"}
+        and len(Dimension.operands) == 1
+        and (
+            (Dimension.kind == "diameter" and "<MOD-DIAM>" in Dimension.source_text)
+            or (
+                Dimension.kind == "radius"
+                and Dimension.source_text.lstrip().startswith("R")
+            )
+        )
+    ):
+        Operand = Dimension.operands[0]
+        Factor = 2 if Dimension.kind == "diameter" else 1
+        Matches = [
+            Entity
+            for Entity in MarkerCircles
+            if MathValue.isclose(
+                Entity.geometry.radius * Factor,
+                Dimension.value_mm,
+                rel_tol=1e-9,
+                abs_tol=1e-9,
+            )
+        ]
+        if (
+            len(Matches) == 1
+            and Matches[0].attributes.get("object_index") == Operand.entity_index + 1
+            and sum(
+                Entity.attributes.get("object_index") == Operand.entity_index + 1
+                for Entity in MarkerCircles
+            )
+            == 1
+            and RuleValue.references
+            == (f"native:{Operand.kind_code:04x}:{Operand.entity_index}",)
+        ):
+            return Matches[0].id
+    return None
+
+
 # this definition exists because each native rule needs deterministic occurrence binding
 def RulePartsMut(
     RuleValue: NativeRule, RefMap: Mapping[str, str], ContextMut: RuleContext
@@ -3204,47 +3257,10 @@ def RulePartsMut(
     Dimensions = ContextMut.DimensionsByName.get(NativeName, [])
     Dimension = Dimensions[min(ItemValue, len(Dimensions) - 1)] if Dimensions else None
     Radial = Dimension is not None and Dimension.kind in {"diameter", "radius"}
-    if (
-        not References
-        and Radial
-        and Dimension is not None
-        and len(Dimensions) == 1
-        and Dimension.value_mm is not None
-        and Dimension.native_offset is not None
-        and Dimension.native_role in {"driving", "display"}
-        and len(Dimension.operands) == 1
-        and (
-            (Dimension.kind == "diameter" and "<MOD-DIAM>" in Dimension.source_text)
-            or (
-                Dimension.kind == "radius"
-                and Dimension.source_text.lstrip().startswith("R")
-            )
-        )
-    ):
-        Operand = Dimension.operands[0]
-        Factor = 2 if Dimension.kind == "diameter" else 1
-        Matches = [
-            Entity
-            for Entity in ContextMut.MarkerCircles
-            if MathValue.isclose(
-                Entity.geometry.radius * Factor,
-                Dimension.value_mm,
-                rel_tol=1e-9,
-                abs_tol=1e-9,
-            )
-        ]
-        if (
-            len(Matches) == 1
-            and Matches[0].attributes.get("object_index") == Operand.entity_index + 1
-            and sum(
-                Entity.attributes.get("object_index") == Operand.entity_index + 1
-                for Entity in ContextMut.MarkerCircles
-            )
-            == 1
-            and RuleValue.references
-            == (f"native:{Operand.kind_code:04x}:{Operand.entity_index}",)
-        ):
-            References = [RuleRef(Matches[0].id)]
+    if not References and Radial and Dimension is not None and len(Dimensions) == 1:
+        CircleId = RadialTarget(Dimension, RuleValue, ContextMut.MarkerCircles)
+        if CircleId is not None:
+            References = [RuleRef(CircleId)]
             KindValue = Dimension.kind
     if (
         not References

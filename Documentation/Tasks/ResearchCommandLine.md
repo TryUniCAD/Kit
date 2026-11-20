@@ -14,6 +14,8 @@ The launcher uses the interpreter running `kit` and does not silently select ano
 The equivalent module command is `python -m KitCli research`.
 `python -m convert research` reports an error directing callers to these developer entry points.
 
+Use `kit decode` for the installed production reader. `kit run --input` launches a discovery experiment in the research workspace of the selected checkout. See [SOLIDWORKS dimension provenance](../Changes/Research/Inference/SolidWorksDimensionProvenance.md) for how to interpret its strict decode.
+
 Select a trusted checkout containing PR #94 and the corpus's pinned Git objects.
 `--root` authorizes execution of that checkout's research code and SDK.
 The wheel contains the SDK and CLI, not research fixtures or the `re/` workspace.

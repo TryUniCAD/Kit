@@ -1,6 +1,8 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.Core.NativeOperand import NativeOperand as NativeOperand
-from convert.adapters.solidworks.Core.PairedSketchLength import PairedSketchLength
+from convert.adapters.solidworks.Core.BindCounts import BindCounts
+from convert.adapters.solidworks.Core.PatternPairs import PatternPairs
+from convert.adapters.solidworks.Core.ReadPairLength import ReadPairLength
 from convert.adapters.solidworks.Core.NativeScalar import NativeScalar as NativeScalar
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension as NativeDimension
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
@@ -9,6 +11,7 @@ from convert.adapters.solidworks.Core.BindMirroredField import BindMirroredField
 from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
 from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
+from convert.adapters.solidworks.Core.CountValue import CountValue
 from bisect import bisect_right as BisectRight
 from collections import Counter, defaultdict as DefaultDict
 from collections.abc import Iterator
@@ -1432,103 +1435,6 @@ def RecordOffset(Record: NativeName) -> int:
     return Record.offset
 
 
-# count parameters and handles must share a feature interval and pattern family
-def SketchPatternPairs(
-    DataValue: bytes,
-    Features: list[XmlFeature],
-    Names: tuple[NativeName, ...],
-    Classes: tuple[NativeClass, ...],
-) -> list[tuple[int, str, str, int, int, int, int, int]]:
-    Owners = {Feature.object_id: Feature.name for Feature in Features}
-    if len(Owners) != len(Features):
-        return []
-    Markers = sorted(
-        (Item.offset, Item.object_id)
-        for Item in Names
-        if Item.object_id in Owners and Owners[Item.object_id] == Item.name
-    )
-    Offsets = [Offset for Offset, _ in Markers]
-    if len(set(Offsets)) != len(Offsets):
-        return []
-    Parameters, Handles = DefaultDict(list), DefaultDict(list)
-    for Index, Record in enumerate(Classes):
-        Marker = BisectRight(Offsets, Record.offset) - 1
-        if Marker < 0:
-            continue
-        Key = (Marker, Record.name)
-        End = Offsets[Marker + 1] if Marker + 1 < len(Offsets) else len(DataValue)
-        Cursor = Record.offset + 6 + len(Record.name)
-        if Record.name in (
-            "moSkDimHandleCircularPattCnt_c",
-            "moSkDimHandleLinearPattCnt_c",
-        ):
-            End = min(
-                End, Classes[Index + 1].offset if Index + 1 < len(Classes) else End
-            )
-            Handles[Key].append((Record.offset, Cursor, min(End, Cursor + 1024)))
-            continue
-        if Record.name not in (
-            "sgCircularPattCntDim",
-            "sgLinearPattCntDim",
-        ) or DataValue[Cursor : Cursor + 4] != bytes(4):
-            continue
-        Cursor += 4
-        Nested = Classes[Index + 1] if Index + 1 < len(Classes) else None
-        if Nested and Nested.offset == Cursor and Nested.name == "moIntegerParameter_c":
-            Cursor += 6 + len(Nested.name)
-        elif (
-            Cursor + 2 <= End
-            and 0x8000
-            <= int.from_bytes(DataValue[Cursor : Cursor + 2], "little")
-            < 0xFFFF
-        ):
-            Cursor += 2
-        else:
-            continue
-        if (
-            Cursor + 6 > End
-            or not int.from_bytes(DataValue[Cursor : Cursor + 2], "little") & 0x8000
-        ):
-            continue
-        Cursor += 2
-        if DataValue[Cursor : Cursor + 3] != SerializedStringMarker:
-            continue
-        Size = DataValue[Cursor + 3]
-        if not 0 < Size < 255:
-            continue
-        TextEnd = Cursor + 4 + 2 * Size
-        Scalar = DimensionScalarValue(DataValue, TextEnd, End)
-        if Scalar is None:
-            continue
-        try:
-            Name = DataValue[Cursor + 4 : TextEnd].decode("utf-16le")
-        except UnicodeDecodeError:
-            continue
-        Parameters[Key].append((Record.offset, Name, Scalar))
-    Results = []
-    for (Marker, Kind), Items in Parameters.items():
-        Family = "Circular" if Kind == "sgCircularPattCntDim" else "Linear"
-        Copies = Handles.get((Marker, "moSkDimHandle" + Family + "PattCnt_c"), [])
-        if len(Items) != 1 or len(Copies) != 1:
-            continue
-        Start, Name, Scalar = Items[0]
-        Handle, Cursor, End = Copies[0]
-        if Scalar + 8 <= Handle:
-            Results.append(
-                (
-                    Markers[Marker][1],
-                    Name,
-                    Family.lower(),
-                    Start,
-                    Scalar,
-                    Handle,
-                    Cursor,
-                    End,
-                )
-            )
-    return Results
-
-
 # feature instance counts require a named parameter inside a single matching owner interval
 def FeatureCountFields(
     DataValue: bytes, Features: list[XmlFeature], Names: tuple[NativeName, ...]
@@ -1576,43 +1482,6 @@ KFeatureCountCopies: tuple[int, ...] = ()
 KSketchCountOffsets: dict[str, int] = {}
 
 
-# the named integer and independent handle must agree before a dimension can lose its length unit
-def SketchCountBindings(
-    DataValue: bytes,
-    Features: list[XmlFeature],
-    Names: tuple[NativeName, ...],
-    Classes: tuple[NativeClass, ...],
-) -> dict[tuple[int, str], tuple[int, int]]:
-    Result = {}
-    Ambiguous = set()
-    for Owner, Name, Family, _, Scalar, _, Cursor, End in SketchPatternPairs(
-        DataValue, Features, Names, Classes
-    ):
-        Displacement = KSketchCountOffsets.get(Family)
-        if Displacement is None:
-            continue
-        Offset = Cursor + Displacement
-        if (
-            Displacement < 16
-            or Offset + 8 > End
-            or DataValue[Offset - 16 : Offset] != Struct.pack("<4I", 8, 16, 1, 1)
-        ):
-            continue
-        Count = Struct.unpack_from("<d", DataValue, Offset)[0]
-        if not Count.is_integer() or not 0 < Count < 2**32:
-            continue
-        if not any(
-            int.from_bytes(DataValue[Scalar : Scalar + Width], "little") == Count
-            for Width in (1, 2, 4, 8)
-        ):
-            continue
-        Key = (Owner, Name)
-        if Key in Result:
-            Ambiguous.add(Key)
-        Result[Key] = (int(Count), Offset)
-    return {Key: Value for Key, Value in Result.items() if Key not in Ambiguous}
-
-
 # native feature construction owns scalar binding and stream span recovery
 def BuildNativeList(
     XmlFeatures: list[XmlFeature],
@@ -1641,10 +1510,10 @@ def BuildNativeList(
         )
         for Index, Record in enumerate(OrderedRecords)
     }
+    Pairs = PatternPairs(Resolved, XmlFeatures, Names, Classes)
+    SketchCounts = {(Owner, Name) for Owner, Name, *_ in Pairs}
     Counts = (
-        SketchCountBindings(Resolved, XmlFeatures, Names, Classes)
-        if KSketchCountOffsets
-        else {}
+        BindCounts(Resolved, Pairs, KSketchCountOffsets) if KSketchCountOffsets else {}
     )
     if KFeatureCountCopies:
         for Owner, _, Dim, Scalar, End in FeatureCountFields(
@@ -1686,22 +1555,41 @@ def BuildNativeList(
                 for ItemValue in Semantic(Feature.kind, tuple(Feature.dimensions))
             )
         )
-        if Feature.kind == "Sketch" and Record and Record.name == Feature.name and Display and Display.UnitName == "mm":
-            Occurrences = Counter(Item.name for Item in Dimensions)
+        if (
+            Feature.kind == "Sketch"
+            and Record
+            and Record.name == Feature.name
+            and Display
+            and Display.UnitName == "mm"
+        ):
+            Occurrences = Counter(Entry.name for Entry in Dimensions)
             ScalarsByName = IndexInch(Owned)
             Dimensions = tuple(
-                PairedSketchLength(Dimension, ScalarsByName.get(Dimension.name, ()), Display, ResolvedStream)
-                if Occurrences[Dimension.name] == 1 else Dimension
+                (
+                    ReadPairLength(
+                        Dimension,
+                        ScalarsByName.get(Dimension.name, ()),
+                        Display,
+                        ResolvedStream,
+                    )
+                    if Occurrences[Dimension.name] == 1
+                    else Dimension
+                )
                 for Dimension in Dimensions
             )
-        if Counts:
+        if (
+            Counts
+            or SketchCounts
+            or any(Dimension.kind == "instance_count" for Dimension in Dimensions)
+        ):
+            OccurrenceNames = Counter(Dimension.name for Dimension in Dimensions)
             Updated = []
             for Dimension in Dimensions:
                 Count = Counts.get((Feature.object_id, Dimension.name))
                 if (
                     Count
                     and Dimension.source_text.strip() == str(Count[0])
-                    and sum(Other.name == Dimension.name for Other in Dimensions) == 1
+                    and OccurrenceNames[Dimension.name] == 1
                 ):
                     Dimension = Replace(
                         Dimension,
@@ -1715,6 +1603,25 @@ def BuildNativeList(
                         native_offset=Count[1],
                         native_stream=ResolvedStream,
                         native_role="driving",
+                        operands=(),
+                        inch_display_value=None,
+                    )
+                elif Dimension.kind == "instance_count" or (
+                    (Feature.object_id, Dimension.name) in SketchCounts
+                    and OccurrenceNames[Dimension.name] == 1
+                ):
+                    Dimension = Replace(
+                        Dimension,
+                        kind=(
+                            "instance_count"
+                            if Dimension.kind == "instance_count"
+                            else "sketch_pattern_count"
+                        ),
+                        value_mm=None,
+                        native_value=None,
+                        native_role=None,
+                        native_offset=None,
+                        native_stream=None,
                         operands=(),
                         inch_display_value=None,
                     )
@@ -4283,7 +4190,10 @@ def Constraints(
                 )
             )
     for Dimension in Feature.dimensions:
-        if Dimension.name in RadialParameters:
+        if Dimension.name in RadialParameters or Dimension.kind in {
+            "instance_count",
+            "sketch_pattern_count",
+        }:
             continue
         Constraints.append(
             NativeRule(
@@ -4611,8 +4521,8 @@ def DimensionValue(
     return next(
         (
             (
-                Dimension.native_value
-                if Semantic == "instance_count" and Dimension.native_value is not None
+                CountValue(Dimension)
+                if Semantic == "instance_count"
                 else Dimension.value_mm
             )
             for Dimension in Dimensions

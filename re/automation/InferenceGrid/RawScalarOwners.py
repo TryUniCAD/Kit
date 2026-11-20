@@ -11,7 +11,8 @@ from collections import Counter, defaultdict
 import math
 import struct
 
-from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle, SelectNamedField
+from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle
+from convert.adapters.solidworks.Core.PickNamedScalar import PickNamedScalar
 from convert.adapters.solidworks.Core.Native import FeatureCountFields, ParseKeywords, ParseNames, ParseScalars
 from convert.adapters.solidworks.Core.ParseDisplay import (
     KInformationStream,
@@ -129,7 +130,7 @@ def associate(archive, member, records):
     driving = set()
     for group in groups.values():
         if len(group) > 1 and all(item is not None for item in group):
-            selected = SelectNamedField(group)
+            selected = PickNamedScalar(group)
             if selected is not None:
                 driving.add(selected.value_offset)
     counts = Counter()
