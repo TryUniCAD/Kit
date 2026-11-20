@@ -270,6 +270,16 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The internal part-start reader loads the named
+`Contents/Config-0-ModelHeader` and the current part root. At the start
+of the lightweight section, it inserts the original header objects
+into the part's map while preserving their standalone identities.
+The self file comes first, followed by the directory entries in
+stored order. This reader requires physical format 4 and logical
+archive version 19000.
+Complete configuration admission requires the remaining model body.
+[Configuration header link scope](../../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
