@@ -245,6 +245,11 @@ The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
 
+The internal KeyWords emitter constructs this stream from typed configuration,
+feature and dimension rows. The caller supplies their model identities,
+references and presentation values.
+[Typed KeyWords scope](../../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
+
 ## Read flow
 
 ```mermaid

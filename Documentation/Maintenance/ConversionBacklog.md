@@ -322,6 +322,17 @@ text preservation, refusal of invalid document tails, configured
 review and green queue acceptance. Typed model projection has its
 own delivery scope.
 
+### B03-SW2026-KEYWORDS-MODEL
+
+The [typed keyword row extraction](https://github.com/TryUniCAD/Kit/pull/184)
+landed on main at `751c3fa8c98281de5c98bb22a1240bafe0dd08ca`.
+Guarded process coverage checks independent linear and angular models,
+the exact native L1 index and refusal before publication. The
+[field ownership record](../../re/solidworks/records/KeywordModelSlice2026.md)
+binds the narrower accepted slice. The aggregate also retains
+optional material text for its native generated local imports.
+[Change entry](../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent delivered the current Parasolid fin traversal
