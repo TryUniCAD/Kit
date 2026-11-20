@@ -65,9 +65,11 @@ For the compatible ordinary part text profile, the normal reader preserves autho
 The internal local import constructor accepts explicit ambient and
 directional light semantics with their actual names, coefficients and creation
 times. Three disclosed parts retain this scene and their planar solids through
-clean native open, rebuild, save and fresh reopen. The original explicit empty
-property owners require a separate transfer rule.
+clean native open, rebuild, save and fresh reopen. The shared part text
+serializer also preserves explicit empty summary, document and configuration
+scopes through native save when selected by the neutral model.
 [Local import scene](../../Changes/Solidworks/Construction/SolidworksLocalImportScene.md)
+[Empty part text scopes](../../Changes/Solidworks/Construction/SolidworksEmptyPartTextScopes.md)
 
 For the measured 2026 custom part preference, read `metadata["solidworks.typed_resolved_semantics"]["document_units"]` for millimetres, degrees, grams or kilograms, cubic millimetres and the native decimal counts for length, angle and mass. The reader requires a matching independent density length format in the document's user table. Presets and unqualified custom settings omit the optional entry. [Custom document units](../../Changes/Solidworks/Archive/SolidworksCustomDocumentUnitRead.md)
 

@@ -23,9 +23,13 @@ scopes. The same-locator contrast compares the three generated XML streams
 against the otherwise identical geometry and author-projected scene. The
 independent public reader must recover all three empty owners. A focused
 process integration also checks the case with an omitted document scope.
-The native protocol measures disclosed import parts before and after native
-save and reopen. The physical binary manager and complete original-source
-coverage remain separate requirements.
+Three disclosed imports passed clean native open, rebuild, save and fresh
+reopen on `34.5.2.0604`. Eleven fresh processes passed with both controls
+healthy. The native-saved files retain nine explicit empty text scopes, the
+original 192 authored light values and the measured local solids across 348
+candidate and reopen geometry checks. The physical binary manager and
+complete original-source coverage remain separate requirements.
+[Native empty text receipt](../measurements/2026/ImportedEmptyPartTextNative01.json)
 
 The held-out scene and text protocol uses the two existing source locks
 and their independent geometry specifications. `StageSealedImportedGeometry.py`
