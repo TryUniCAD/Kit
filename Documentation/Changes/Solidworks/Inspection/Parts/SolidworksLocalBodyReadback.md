@@ -20,6 +20,7 @@ inspection.
 `extract_brep` extracts native payloads with valid framing when
 the geometry snapshot lacks rollback history. Document reads still
 validate the snapshot before returning its solid.
+[Strict extraction options](../../../../Gotchas/Conversion/Fusion/Api/StrictFusionReadValuesAreFormatSpecific.md)
 
 The two disclosed native inputs passed cold open, rebuild, save, and fresh
 reopen measurements on build `34.5.2.0604`. The public integration checks

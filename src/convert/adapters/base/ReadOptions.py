@@ -8,9 +8,6 @@ from interchange import frozen_mapping as FreezeMapping
 
 from convert.adapters.base.ContractCompat import ContractBase
 
-# raw extraction needs validated payloads independently of neutral solid reconstruction
-KRawBrepRead = "kit.extract_brep"
-
 
 # read policy stays immutable so adapters receive consistent filtering and validation intent
 @DataClass(frozen=True, slots=True)
@@ -20,6 +17,7 @@ class ReadOptions(ContractBase):
     include_tessellation: bool = True
     strict: bool = True
     values: TypeMap[str, object] = DataField(default_factory=FreezeMapping)
+    raw_brep_only: bool = False
 
     # historical configuration access remains typed because readers consume this public selection field
     @property

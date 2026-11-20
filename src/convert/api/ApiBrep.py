@@ -3,10 +3,9 @@ from __future__ import annotations
 from pathlib import Path as FilePath
 
 from interchange import CadDocument
-from interchange.Core.Common import FreezeMapping
 
 from convert.adapters.base.ContractTypes import KSourceType as Source
-from convert.adapters.base.ReadOptions import KRawBrepRead, ReadOptions
+from convert.adapters.base.ReadOptions import ReadOptions
 from convert.api.ApiContext import KConvertEngine
 from convert.Geometry.BrepNames import MakeBrepNameMut
 from convert.Geometry.BrepPayloads import GetBrepPayloads
@@ -29,7 +28,7 @@ def ExtractBrep(
             options=ReadOptions(
                 include_brep=True,
                 strict=True,
-                values=FreezeMapping({KRawBrepRead: True}),
+                raw_brep_only=True,
             ),
         )
     )

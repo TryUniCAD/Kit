@@ -62,6 +62,10 @@ repository merge queue.
 The missing-history control also exercises public raw extraction. It
 checks both readable payloads by hash and retains the strict document
 refusal. A separate control checks refusal of a truncated Parasolid frame.
+The read mode travels in a typed option so strict adapters keep their
+format-specific option validation. A [Fusion integration](../../../tests/Convert/Api/Fusion/RawBrepTests.py)
+checks extraction from a supported parameter archive through a
+non-seekable stream and expects an empty payload tuple.
 
 Read-only strict SDK comparisons used the disclosed native cylinder
 sources from the [topology receipt](https://github.com/TryUniCAD/Kit/blob/12d8ba0381af7504f4680088c93ee64642a8be6b/re/solidworks/measurements/2026/ImportedBodyTopologyNative01.json).

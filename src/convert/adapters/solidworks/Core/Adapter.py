@@ -20,7 +20,6 @@ from convert.adapters.base import (
     Source,
     is_binary_destination as IsBinaryTarget,
 )
-from convert.adapters.base.ReadOptions import KRawBrepRead
 from interchange import (
     ArcEllipseGeometry as ArcEllipseGeom,
     ArcGeometry as ArcGeom,
@@ -330,7 +329,7 @@ def ReadNativePart(
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
-        and Settings.values.get(KRawBrepRead) is not True
+        and not Settings.raw_brep_only
         and Model.active_configuration_id == 0
         and len(ConfigValues) == 1
         and not PayloadDiags
@@ -748,13 +747,7 @@ def AsmDoc(
     )
     MatePayloads, MateEntities, Mates, MateGroups = AsmMates(Native, MateSourceValues)
     FlatMateValues = FlattenedMates(Native, Mates)
-    PayloadSettings = ReadOptions(
-        configuration=Settings.configuration,
-        include_brep=Settings.include_brep,
-        include_tessellation=Settings.include_tessellation,
-        strict=False,
-        values=Settings.values,
-    )
+    PayloadSettings = Replace(Settings, strict=False)
     BrepValues, PayloadDiagnostics = BrepPayloads(Archive, PayloadSettings)
     CompanionPayloads = (
         Companion(Label)
@@ -1025,11 +1018,10 @@ def AsmDocuments(
         Values = dict(Settings.values)
         Values["resolve_components"] = False
         Values["discover_companions"] = False
-        Options = ReadOptions(
+        Options = Replace(
+            Settings,
             configuration=Representative.configuration_name or None,
-            include_brep=Settings.include_brep,
             include_tessellation=Representative.document_type == "ASSEMBLY",
-            strict=Settings.strict,
             values=FrozenMapping(Values),
         )
         try:
