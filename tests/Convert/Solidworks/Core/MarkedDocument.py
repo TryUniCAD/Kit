@@ -1,7 +1,7 @@
 from dataclasses import replace as ReplaceData
 
 from convert.adapters.registry.ResearchWrite import KResearchReadStatus
-from convert.adapters.solidworks.Core.BindInch import KUnresolvedInchDimension
+from convert.adapters.solidworks.Core.Inch.BindInch import KUnresolvedInchDimension
 from convert.adapters.solidworks.Core.EquationTarget import KUnresolvedEqTargets
 from interchange.document.Models.DocumentModel import CadDocument
 

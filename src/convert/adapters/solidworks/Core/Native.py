@@ -4,8 +4,8 @@ from convert.adapters.solidworks.Core.NativeScalar import NativeScalar as Native
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension as NativeDimension
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
-from convert.adapters.solidworks.Core.BindInch import BindInch
-from convert.adapters.solidworks.Core.IndexInch import IndexInch
+from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
+from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
 from collections.abc import Iterator
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace

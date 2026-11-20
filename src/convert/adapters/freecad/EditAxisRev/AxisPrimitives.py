@@ -1,4 +1,4 @@
-from convert.adapters.freecad.FixedOrigin import IsFixedOrigin
+from convert.adapters.freecad.EditShape.FixedOrigin import IsFixedOrigin
 from convert.Formats.Fusion.DesignZip import KDesignPrefix
 from convert.Formats.Fusion.Sketches.SketchPrimitive import KSketchKinds
 from interchange.brep.Topology.BrepMath import IsFinitePlane
