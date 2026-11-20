@@ -22,7 +22,7 @@ The delivered framing file
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
 `62d04af2ee71dfa7671b01fe795b105c2d97e32e391e2bf348102fc69fa39523`.
 The [named-tree serializer](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/EmitKeywordXml.py)
-has SHA-256 `f5cd56033511dfac15c43d1bb93a74c7c5cbbc4383daeea1abf8f883ab5ef6d1`.
+has SHA-256 `1df85dc04b88f252344d922a2587966514650152b62959c0bfc90a6cabb6181f`.
 The [name boundary](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckXmlNames.py)
 has SHA-256 `754d19d4612a8163beaaf991d212ef94f3d1af3e1ef09d844035899882f5e3ef`.
 The [tree comparison](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckXmlTree.py)
@@ -30,7 +30,7 @@ has SHA-256 `74cb38439908ceb7b15a0c5ed5db86f0c140a9107bf08cff67ed97fad90d185a`.
 The [namespace expansion](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/ExpandXmlName.py)
 has SHA-256 `ffbb86416a2f1c662bcf29adabd54a5ba5608020578a37267911a25410e0adb8`.
 The [parsed namespace declarations](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/ReadXmlScopes.py)
-has SHA-256 `54c39b9c8b8a0706930526b036ac56f99f38186331470707109ba7e8c14547af`.
+has SHA-256 `370a060a8bdf20ef241216c6245d964b1125aa9031fbe1220b025c24aeea4a2b`.
 The [attribute comparison](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/HasXmlAttrs.py)
 has SHA-256 `2c61128ceeffa065b483a0af3ec1b006432502833c8a795476ed3dc33ca5ab66`.
 The [bounded namespace updates](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/BindXmlScopeMut.py)
@@ -38,12 +38,15 @@ has SHA-256 `3409f056aaf3965c70a2d4c010c54a501d8a39b0445dc85dd40b840d2038c19e`.
 The [qualified value grammar](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/IsXmlNcName.py)
 has SHA-256 `dc5cb1c54cfc83233bff1eda4c975f43a02850d3a67983153021a0cf47832976`.
 The path-sorted nine-file manifest SHA-256 is
-`4ebd324a40417eea2ea18a85a0569076ecbf4f8d78c5b10070c5d675143f3bfe`.
+`56804808031f1efd21454d5961f5ba3ac154c569d05a4f972e34732a1399f09d`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. The serializer uses the
-standard-library `tostring` exposed by the repository's locked
-`defusedxml` version, now declared as a runtime dependency. The final
-payload passes the hardened XML parser after lexical rewriting. The
+standard-library XML entry point already shared by the
+[SOLIDWORKS reader](../../../src/convert/adapters/solidworks/Core/Native.py).
+The final byte sequence decodes as UTF-8 and passes the common
+[DOCTYPE guard](../../../src/convert/adapters/base/SafeParsing.py)
+before the standard-library namespace parser sees the text.
+The archive writer retains the version-independent runtime package boundary. The
 name boundary rejects delimiter characters and comment or processing
 instruction starters in authored name tokens. The final tree is checked
 against the authored tree with actual scoped namespace declarations.

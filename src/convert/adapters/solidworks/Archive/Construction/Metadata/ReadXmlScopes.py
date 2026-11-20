@@ -1,8 +1,9 @@
-from io import BytesIO
+from io import StringIO
 from typing import cast as CastValue, TypeAlias
 from xml.etree.ElementTree import Element
 
-from defusedxml.ElementTree import iterparse as ReadEvents
+from convert.adapters.base.SafeParsing import CheckXmlDoctype
+from convert.adapters.solidworks.Core.Native import XmlTree
 
 # the xml prefix is implicitly bound in both the authored and serialized tree
 KXmlNamespace = "http://www.w3.org/XML/1998/namespace"
@@ -16,12 +17,10 @@ def ReadXmlScopes(PayloadValue: bytes) -> tuple[Element, KXmlScopes]:
     ScopesValue: KXmlScopes = {}
     Pending: dict[str, str] = {}
     RootValue: Element | None = None
-    for EventName, EventValue in ReadEvents(
-        BytesIO(PayloadValue),
-        events=("start-ns", "start"),
-        forbid_dtd=True,
-        forbid_entities=True,
-        forbid_external=True,
+    TextValue = PayloadValue.decode("utf-8")
+    CheckXmlDoctype(TextValue)
+    for EventName, EventValue in XmlTree.iterparse(
+        StringIO(TextValue), events=("start-ns", "start")
     ):
         if EventName == "start-ns":
             PrefixValue, NamespaceValue = CastValue(tuple[str, str], EventValue)

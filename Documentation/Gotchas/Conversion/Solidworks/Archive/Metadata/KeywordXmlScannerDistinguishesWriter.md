@@ -6,7 +6,7 @@ The keyword writer uses `QName` in its tag validation and calls
 `tostring` on an existing tree. Both operations run without parsing
 XML input.
 
-Use the focused serializer's supported `defusedxml` entry point.
+Use the existing SOLIDWORKS standard-library XML entry point from the focused serializer.
 Validate the serialized tree with the existing hardened reader.
 The fresh-process cases cover exact QName serialization and
 refusal of sentinel tags and forbidden XML characters.
