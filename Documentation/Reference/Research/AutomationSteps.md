@@ -53,12 +53,21 @@ remaining native and process acceptance is recorded in
 This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
 requirements.
 
-A08i uses branch `codex/reusable-feature-builders`. Its delivery PR is pending.
-All nine new bindings remain native-unverified: the bounded offset-start trial
-created correct baseline geometry, but owned SOLIDWORKS shutdown failed before
-fresh reopen and downstream decoding. The focused process checks passed 103 cases.
+A08i uses branch `codex/reusable-feature-builders`. Delivery remains local at the
+user's request. The bounded offset-start run at `7a868f5e` passed native creation,
+edits, restoration and fresh reopen, then automatically completed its decoder job
+with unresolved findings. One of the nine new bindings is native verified; full
+decoder qualification remains incomplete. The focused process checks passed 103 cases.
 See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for the nine bindings, parameter grid, retained attempts, and execution limits.
+
+A08j, owned by Codex on the same local branch, is checking the
+[written recipe campaign](../../Changes/Research/Supervisor/Catalogue/WrittenRecipeCampaign.md).
+It depends on A08h/A08i and drives every written recipe through the existing
+runner with a persistent assistant handoff for missing mappings and failures.
+Its workflow checks cover the complete selected written roster, restart and
+rejection of unsupported assistant completion claims. Native recipe coverage and
+full decoder qualification remain separate exit criteria.
 
 The user assigned SOLIDWORKS and CAD-independent implementation to Codex on 2026-11-17.
 Delivery remains on [PR #158](https://github.com/TryUniCAD/Kit/pull/158), from isolated branch `codex/pr158-solidworks-completion`.
