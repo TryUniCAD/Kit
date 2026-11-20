@@ -52,3 +52,11 @@ shasum -a 256 "$scratch/Receipt.json"
 ```
 
 This audit produces zero native files. It adds zero held-out, production and corpus acceptance credit.
+
+## Exact unrestricted contrast
+
+The native unrestricted control changed the cut request to `UseFeatScope=False, UseAutoSelect=False`. Its exact source SHA-256 is `f87568db0dfa361ea44c42def01063c8ed07ea57c8270098cf3c60995e3e3b22`. The initial saved geometry and body ownership match the prior automatic-request source. In both cases the cut consumes atom 101 from map slot 60, emits atom 103 at slot 58 and leaves atom 102 at slot 59. The operation order marks are −1, 0 and 1. [Unrestricted native result](ThroughAllMultiStockScope2026.md#unrestricted-scope-contrast)
+
+The resolved selection stores `f544=1`, `has_f548=1` and the actual wrapper. The unrestricted save stores `f544=0`, `has_f548=0` and no wrapper. Both resolved streams have 20,625 uncompressed bytes. The physical comparison follows the typed owners and fields because total stream size cannot identify the scope. The independent native edit distinguishes the two saved models. Only unrestricted scope cuts the moving stock that initially missed the tool.
+
+The [comparison worker](../../tooling/sw2026/throughsource/CompareSavedStockScope.py) read both exact disclosed trees. Two fresh processes gave byte-identical reports. Each source retained its original file digest, and each re-emitted all six linked streams exactly in memory. No native file was emitted. [Exact structural receipt](../measurements/2026/ThroughAllSavedScopeContrast01.json)
