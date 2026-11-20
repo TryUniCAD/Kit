@@ -9,8 +9,8 @@ from tests.Research.Calibration.BuildManifest import BuildManifest
 from tests.Research.Calibration.RunCalibration import RunCalibration
 from tests.Research.Windows.VerifyCalTrial import VerifyCalTrial
 
-# the windows success fixture needs enough time for eight serial decoder sessions
-KSerialTrialSeconds = 45
+# hosted windows trials need headroom for eight serial decoder startups under load
+KSerialTrialSeconds = 90
 
 # hosted windows heartbeat processes need headroom for startup and scheduling delays
 KLeaseSeconds = 12
