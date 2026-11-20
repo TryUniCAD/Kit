@@ -7,8 +7,8 @@ def BindCounts(
     Pairs: list[tuple[int, str, str, int, int, int, int, int]],
     Offsets: dict[str, int],
 ) -> dict[tuple[int, str], tuple[int, int]]:
-    Result = {}
-    Ambiguous = set()
+    Result: dict[tuple[int, str], tuple[int, int]] = {}
+    Ambiguous: set[tuple[int, str]] = set()
     for Owner, ParamName, Family, _, Scalar, _, Cursor, EndOffset in Pairs:
         Displacement = Offsets.get(Family)
         if Displacement is None:

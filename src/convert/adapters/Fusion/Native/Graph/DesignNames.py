@@ -15,12 +15,12 @@ def DesignNames(Segment: ParsedSegment) -> dict[str, str]:
     )
     Result: dict[str, str] = {}
     for Entry in Segment.Metadata.Classes:
-        Guid = Entry.ClassGuid.upper()
-        Row = Names.get(Guid)
-        if Row and Row[1:] == [
+        ClassGuid = Entry.ClassGuid.upper()
+        NameRow = Names.get(ClassGuid)
+        if NameRow and NameRow[1:] == [
             Entry.SchemaVersion,
             Entry.BaseGuid.upper(),
             Entry.ClassSpace,
         ]:
-            Result[Guid] = str(Row[0])
+            Result[ClassGuid] = str(NameRow[0])
     return Result

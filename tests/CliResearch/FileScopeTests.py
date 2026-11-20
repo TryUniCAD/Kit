@@ -242,7 +242,7 @@ def CheckSweep(TmpPath: FilePath) -> None:
 def CheckSnapshot(TmpPath: FilePath) -> None:
     RootPath = ResearchRoot()
     Source = TmpPath / "unknown"
-    Source.write_bytes(
+    _ = Source.write_bytes(
         (
             RootPath
             / "re/Fusion/LocalOracle/PrismSnapshot/OrdinaryRectangleSnapshot.smb"
@@ -284,7 +284,7 @@ def CheckSnapshot(TmpPath: FilePath) -> None:
 
 # the generated reader must apply cleanly and reproduce a second native solid through its own entry point
 def CheckTorus(TmpPath: FilePath) -> None:
-    from os import environ as Environment, pathsep as PathSeparator
+    from os import environ as ProcessEnvironment, pathsep as PathSeparator
 
     from zipfile import ZipFile as Archive
 
@@ -295,7 +295,7 @@ def CheckTorus(TmpPath: FilePath) -> None:
         (Member,) = [
             NameValue for NameValue in Document.namelist() if NameValue.endswith(".smb")
         ]
-        Source.write_bytes(Document.read(Member))
+        _ = Source.write_bytes(Document.read(Member))
     Output = TmpPath / "run"
     Result = RunProcess(
         [
@@ -321,7 +321,7 @@ def CheckTorus(TmpPath: FilePath) -> None:
     assert Record["input_sha256"] not in Record["replayed_sha256"]
     assert Record["target_verification"] == "decoded_without_native_observation"
     assert Report["native_witness"] is None and not Report["missing_control_sha256"]
-    RunProcess(
+    _ = RunProcess(
         ["git", "apply", "--no-index", str(Output / "Reader.patch")],
         cwd=TmpPath,
         check=True,
@@ -330,7 +330,7 @@ def CheckTorus(TmpPath: FilePath) -> None:
     with Reader.open("rb") as Stream:
         assert FileDigest(Stream, "sha256").hexdigest() == Record["reader_sha256"]
     Environment = {
-        **Environment,
+        **ProcessEnvironment,
         "PYTHONPATH": PathSeparator.join(
             str(RootPath / EntryPath) for EntryPath in ("src", "re/automation")
         ),
@@ -399,7 +399,7 @@ def CheckDimensions(TmpPath: FilePath) -> None:
     Member = "Contents/Config-0-ResolvedFeatures"
     for Pathname, Variant in ((Target, "edit-angle_deg-90"), (Control, "baseline-a")):
         PartPath = next(Folder.glob(f"solidworks-*/*{Variant}.SLDPRT"))
-        Pathname.write_bytes(
+        _ = Pathname.write_bytes(
             SldprtArchive.FromBytes(PartPath.read_bytes()).Streams[Member]
         )
     Output = TmpPath / "run"
@@ -453,7 +453,7 @@ def CheckDimensions(TmpPath: FilePath) -> None:
 
 # a reversed saved extrusion must agree with edited geometry and reject stale end positions
 def CheckReversal(TmpPath: FilePath) -> None:
-    from os import environ as Environment, pathsep as PathSeparator
+    from os import environ as ProcessEnvironment, pathsep as PathSeparator
 
     RootPath = ResearchRoot()
     RunPath = TmpPath / "research"
@@ -483,7 +483,7 @@ def CheckReversal(TmpPath: FilePath) -> None:
     VerifyReversal(RunPath)
     Graph = LoadJson((RunPath / "Input-edited-graph.json").read_bytes())
     Reader = LoadJson((RunPath / "Input-reader-patch.json").read_bytes())
-    RunProcess(
+    _ = RunProcess(
         ["git", "apply", "--no-index", str(RunPath / "Reader.patch")],
         cwd=TmpPath,
         check=True,
@@ -499,7 +499,7 @@ def CheckReversal(TmpPath: FilePath) -> None:
         ],
         cwd=TmpPath,
         env={
-            **Environment,
+            **ProcessEnvironment,
             "PYTHONPATH": PathSeparator.join(
                 map(str, (RootPath / "src", RootPath / "re/automation"))
             ),

@@ -1,8 +1,9 @@
+from pathlib import Path as FilePath
 from json import loads as LoadJson
 
 
 # count hypotheses and scalar roles must agree with the same held out native stream
-def VerifyOwnership(RunPath):
+def VerifyOwnership(RunPath: FilePath) -> None:
     Scalars = LoadJson((RunPath / "Input-scalar-streams.json").read_bytes())
     Ownership = Scalars["members"]["Contents/Config-0-ResolvedFeatures"]["ownership"]
     Patterns = [

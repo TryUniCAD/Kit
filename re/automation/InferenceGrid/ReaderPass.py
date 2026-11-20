@@ -41,7 +41,7 @@ stages = {
     "mirrored-field-reader": (
         "field-rule-candidate",
         "document.json",
-        "src/convert/adapters/solidworks/Core/BindMirroredField.py",
+        "src/convert/adapters/solidworks/Core/BindMirrorField.py",
     ),
     "pattern-count-reader": (
         "pattern-candidate",

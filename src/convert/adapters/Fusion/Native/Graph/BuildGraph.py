@@ -27,19 +27,19 @@ def BuildGraph(Value: DocumentModel) -> NativeGraph:
                 if ItemValue.ObjectId == Record.ObjectId
                 for Group in ItemValue.Groups
             )
-            Guid = Groups[0].ClassGuid.upper()
-            Schema = Catalog.get(Guid)
+            ClassGuid = Groups[0].ClassGuid.upper()
+            Schema = Catalog.get(ClassGuid)
             if Schema is not None:
                 ClassName = Schema.NameValue
-            elif Guid in Names:
-                ClassName = Names[Guid]
+            elif ClassGuid in Names:
+                ClassName = Names[ClassGuid]
                 Reflected.add(ClassName)
-            elif Guid in Auxiliary and SegmentId != 0:
+            elif ClassGuid in Auxiliary and SegmentId != 0:
                 ClassName = "VisualAnalysesBrowserEntry"
             else:
                 raise ValueError(
                     f"Unknown native Fusion entity class {Groups[0].ClassGuid} "
-                    f"in segment {SegmentId}, object {Record.ObjectId}"
+                    + f"in segment {SegmentId}, object {Record.ObjectId}"
                 )
             Nodes[(SegmentId, Record.ObjectId)] = NativeNode(
                 SegmentId, Record.ObjectId, ClassName, Groups, Record.Frame
@@ -48,7 +48,7 @@ def BuildGraph(Value: DocumentModel) -> NativeGraph:
         Schema.NameValue: ClassBases(Schema, Catalog) for Schema in Catalog.values()
     }
     for ClassName in Reflected:
-        Bases.setdefault(ClassName, ())
+        _ = Bases.setdefault(ClassName, ())
     Bases["VisualAnalysesBrowserEntry"] = ("EntityEntry",)
     return NativeGraph(Nodes, Bases)
 

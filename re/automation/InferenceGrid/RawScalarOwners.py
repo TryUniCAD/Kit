@@ -11,7 +11,7 @@ from collections import Counter, defaultdict
 import math
 import struct
 
-from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle
+from convert.adapters.solidworks.Core.BindMirrorField import IsAngleMatch
 from convert.adapters.solidworks.Core.Dimensions.PickNamedScalar import PickNamedScalar
 from convert.adapters.solidworks.Core.Dimensions.CountFields import CountFields
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars
@@ -104,7 +104,7 @@ def associate(archive, member, records):
         matches = []
         for ident, expected, tolerance, kind, display in declarations[label]:
             exact = math.isclose(expected, record["value"], rel_tol=1e-12, abs_tol=1e-14)
-            rounded_angle = kind == "angle" and MatchesAngle(display, math.degrees(expected), math.degrees(record["value"]))
+            rounded_angle = kind == "angle" and IsAngleMatch(display, math.degrees(expected), math.degrees(record["value"]))
             if exact or rounded_angle or abs(expected - record["value"]) <= tolerance:
                 matches.append({"id": ident, "kind": kind, "display": display,
                                 "agreement": "exact" if exact else "display_precision"})

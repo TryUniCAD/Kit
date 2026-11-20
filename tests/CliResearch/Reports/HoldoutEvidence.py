@@ -1,16 +1,19 @@
+from pathlib import Path as FilePath
 from json import loads as LoadJson
 
 
 # reserved control results must remain proposals without leaking input identities into advisor requests
-def VerifyHoldout(Output, TmpPath, Source, Evidence):
+def VerifyHoldout(
+    Output: FilePath, TmpPath: FilePath, Source: FilePath, InputHash: str
+) -> None:
     Stall = LoadJson((Output / "FileStall.json").read_bytes())
-    assert Stall["source_sha256"] == Evidence["input_sha256"]
+    assert Stall["source_sha256"] == InputHash
     assert Stall["focus"] == "ambiguous_dimension"
     assert Stall["signed_extrusion_layout_refuted_on_searched_fields"]
     Request = LoadJson((Output / "FileAdvice/Request.json").read_bytes())
     assert "no match" in Request["packet"]["discovery_summary"]
     assert Source.name not in str(Request["packet"])
-    assert Evidence["input_sha256"] not in str(Request["packet"])
+    assert InputHash not in str(Request["packet"])
     Answer = LoadJson((Output / "FileAdvice/Advice.json").read_bytes())
     assert Answer["status"] == "proposal" and Answer["verified_rule"] is False
     assert (TmpPath / "Calls").read_text().splitlines() == ["called"]

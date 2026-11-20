@@ -1,8 +1,9 @@
+from pathlib import Path as FilePath
 from json import loads as LoadJson
 
 
 # manifest identity must cover every selected control before a reader patch is accepted
-def VerifyManifest(RunPath):
+def VerifyManifest(RunPath: FilePath) -> None:
     Manifest = LoadJson((RunPath / "Input-manifest-text.json").read_bytes())
     assert Manifest["status"] == "replayed_text_prefix"
     assert Manifest["shared_codecs"] == ["utf-16le", "utf-16le", "utf-16le", "ascii"]

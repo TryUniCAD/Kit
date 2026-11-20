@@ -11,8 +11,8 @@ from convert.adapters.solidworks.Core.NativeDimension import (
 )
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
-from convert.adapters.solidworks.Core.BindMirroredField import (
-    BindMirroredField,
+from convert.adapters.solidworks.Core.BindMirrorField import (
+    BindMirrorField,
     KMirroredFields,
 )
 from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
@@ -21,7 +21,7 @@ from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
 from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
 from convert.adapters.solidworks.Core.Dimensions.FeatureCounts import FeatureCounts
 from convert.adapters.solidworks.Core.Dimensions.ProjectCounts import ProjectCounts
-from collections import Counter, defaultdict as DefaultDict
+from collections import Counter
 from collections.abc import Iterator
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
 from io import StringIO
@@ -1539,7 +1539,7 @@ def BuildNativeList(
         ):
             Dimensions = tuple(
                 (
-                    BindMirroredField(
+                    BindMirrorField(
                         Resolved,
                         NativeEnd,
                         ResolvedStream,

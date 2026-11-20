@@ -1,5 +1,11 @@
+from json import loads as LoadJson
+from pathlib import Path as FilePath
+
+
 # circle and revolution evidence must bind measured geometry to distinct native owners
-def VerifyWheelGeom(Dimensions, Evidence):
+def VerifyWheelGeom(RunPath: FilePath) -> None:
+    Evidence = LoadJson((RunPath / "Input-dimension-evidence.json").read_bytes())
+    Dimensions = Evidence["keyword_evidence"]["dimensions"]
     (Circle,) = [
         Record for Record in Dimensions if Record["status"] == "verified_native_radius"
     ]

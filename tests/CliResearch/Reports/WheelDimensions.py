@@ -1,9 +1,12 @@
+from pathlib import Path as FilePath
 from tests.CliResearch.Reports.WheelGeometry import VerifyWheelGeom
 from json import loads as LoadJson
 
 
 # wheel dimension receipts must retain independent owners and exact spans across reader passes
-def VerifyWheelDims(RunPath, Evidence, Document):
+def VerifyWheelDims(RunPath: FilePath) -> None:
+    Evidence = LoadJson((RunPath / "Input-dimension-evidence.json").read_bytes())
+    Document = LoadJson((RunPath / "Input-strict.json").read_bytes())["document"]
     Dimensions = Evidence["keyword_evidence"]["dimensions"]
     Repeated = [
         Record
@@ -35,4 +38,4 @@ def VerifyWheelDims(RunPath, Evidence, Document):
     assert SketchLength["attributes"]["source_text"] == "39.41"
     assert SketchLength["attributes"]["native_role"] == "driving"
     assert SketchLength["provenance"]["spans"]["$tuple"][0]["offset"] == 49223
-    VerifyWheelGeom(Dimensions, Evidence)
+    VerifyWheelGeom(RunPath)

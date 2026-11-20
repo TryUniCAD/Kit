@@ -1,6 +1,13 @@
+from collections.abc import Mapping
+
+
 # duplicate parameters or handles cannot establish a unique sketch count owner
-def JoinCountPairs(Parameters, Handles, Markers):
-    Results = []
+def JoinCountPairs(
+    Parameters: Mapping[tuple[int, str], list[tuple[int, str, int]]],
+    Handles: Mapping[tuple[int, str], list[tuple[int, int, int]]],
+    Markers: list[tuple[int, int]],
+) -> list[tuple[int, str, str, int, int, int, int, int]]:
+    Results: list[tuple[int, str, str, int, int, int, int, int]] = []
     for (Marker, KindName), Items in Parameters.items():
         Family = "Circular" if KindName == "sgCircularPattCntDim" else "Linear"
         Copies = Handles.get((Marker, "moSkDimHandle" + Family + "PattCnt_c"), [])

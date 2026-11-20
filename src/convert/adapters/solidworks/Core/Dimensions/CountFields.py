@@ -27,7 +27,7 @@ def CountFields(
         and Owners[ItemValue.object_id].name == ItemValue.name
     )
     Occurrences = Counter(Owner for _, Owner in Markers)
-    Records = []
+    Records: list[tuple[int, str, NativeDimension, int, int]] = []
     for Index, (Start, Owner) in enumerate(Markers):
         Feature = Owners[Owner]
         if Occurrences[Owner] != 1 or Feature.kind.casefold() not in {

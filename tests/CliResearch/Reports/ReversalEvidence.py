@@ -1,8 +1,9 @@
+from pathlib import Path as FilePath
 from json import loads as LoadJson
 
 
 # saved prism evidence must reject stale geometry before the generated reader is exercised
-def VerifyReversal(RunPath):
+def VerifyReversal(RunPath: FilePath) -> None:
     (EditRecord,) = LoadJson((RunPath / "Input-native-edits.json").read_bytes())[
         "changes"
     ]

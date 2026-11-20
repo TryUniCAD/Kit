@@ -1,3 +1,6 @@
+import sys as SysModule
+from importlib import import_module as ImportModule
+from pytest import MonkeyPatch as PatchScope
 from tests.CliResearch.Reports.ReplayEvidence import VerifyReplay
 from tests.CliResearch.Reports.HoldoutEvidence import VerifyHoldout
 from hashlib import sha256 as ShaDigest
@@ -15,11 +18,11 @@ from tests.Research.Inference.AdviceProvider import SetProviderMut
 def CheckHoldout(TmpPath: FilePath) -> None:
     RootPath = ResearchRoot()
     Checkout = TmpPath / "checkout"
-    RunProcess(
+    _ = RunProcess(
         ["git", "clone", "--shared", "--no-checkout", str(RootPath), str(Checkout)],
         check=True,
     )
-    RunProcess(
+    _ = RunProcess(
         [
             "git",
             "sparse-checkout",
@@ -37,7 +40,7 @@ def CheckHoldout(TmpPath: FilePath) -> None:
         cwd=Checkout,
         check=True,
     )
-    RunProcess(
+    _ = RunProcess(
         ["git", "checkout", "--detach", ProcessEnvironment["GITHUB_SHA"]],
         cwd=Checkout,
         check=True,
@@ -97,19 +100,21 @@ def CheckHoldout(TmpPath: FilePath) -> None:
     assert Passes["stop"] == "no_verified_patch"
     assert Passes["passes"] == []
     assert not (Output / "Reader.patch").exists()
-    VerifyHoldout(Output, TmpPath, Source, Evidence)
+    VerifyHoldout(Output, TmpPath, Source, Evidence["input_sha256"])
 
 
 # a supplied candidate exercises reader promotion independently of corpus discovery eligibility
-def CheckReplay(TmpPath: FilePath, MonkeyPatch) -> None:
+def CheckReplay(TmpPath: FilePath, MonkeyPatch: PatchScope) -> None:
     from shutil import copytree as CopyTree
     from struct import unpack_from as UnpackFrom
 
     from convert.adapters.solidworks.Container.Container import SldprtArchive
 
     RootPath = ResearchRoot()
-    MonkeyPatch.syspath_prepend(str(RootPath / "re/automation"))
-    from InferenceGrid.ReaderPass import reader_passes
+    MonkeyPatch.setattr(
+        SysModule, "path", [str(RootPath / "re/automation"), *SysModule.path]
+    )
+    ReaderPasses = getattr(ImportModule("InferenceGrid.ReaderPass"), "reader_passes")
 
     Source = next(
         (RootPath / "re/solidworks/examples").glob("*/RUEDA DE TURBINA.SLDPRT")
@@ -130,10 +135,10 @@ def CheckReplay(TmpPath: FilePath, MonkeyPatch) -> None:
         "solidworks.sldprt",
         "-o",
     ]
-    RunProcess([*Command, str(Before)], cwd=RootPath, check=True, timeout=180)
+    _ = RunProcess([*Command, str(Before)], cwd=RootPath, check=True, timeout=180)
     Document = LoadJson(Before.read_bytes())["document"]
     Field = ["CirPattern", "D2", "angle"]
-    Reports = reader_passes(
+    Reports = ReaderPasses(
         RootPath,
         Source,
         TmpPath,
@@ -161,8 +166,8 @@ def CheckReplay(TmpPath: FilePath, MonkeyPatch) -> None:
     assert Reports["reader-passes"]["stop"] == "no_verified_patch"
     assert (TmpPath / "reader-pass-1/evidence.json").is_file()
     Checkout = TmpPath / "replay"
-    CopyTree(RootPath / "src", Checkout / "src")
-    RunProcess(
+    _ = CopyTree(RootPath / "src", Checkout / "src")
+    _ = RunProcess(
         ["git", "apply", "--no-index", "-"],
         cwd=Checkout,
         input=Reports["reader-patch"]["patch"],

@@ -17,7 +17,7 @@ import re
 import struct
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle
+from convert.adapters.solidworks.Core.BindMirrorField import IsAngleMatch
 from convert.adapters.solidworks.Core.Dimensions.PickNamedScalar import PickNamedScalar
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars, ParseXml
 from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream, ParseDisplay
@@ -274,7 +274,7 @@ def discover_fields(root, streams, document, pin, controls=(), compare_edits=Fal
                 continue
             predictions.append({"key": key, "feature_id": owner, "stream": stream, "scalar_offset": pos,
                                 "native_value": scalar.value, "copy_offsets": [pos+off for off,_ in copies],
-                                "display_text": text, "keyword_matches": (MatchesAngle(text, math.degrees(expected), math.degrees(scalar.value))
+                                "display_text": text, "keyword_matches": (IsAngleMatch(text, math.degrees(expected), math.degrees(scalar.value))
                                 if key[2] == "angle" else math.isclose(scalar.value, expected, rel_tol=1e-12, abs_tol=1e-14))})
     anchored = []
     for key, owner, expected, scalar, start, end, text in rows:

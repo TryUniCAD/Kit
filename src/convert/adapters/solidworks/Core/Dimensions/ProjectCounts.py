@@ -1,16 +1,24 @@
+from collections.abc import Mapping
+from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
 from collections import Counter
 from dataclasses import replace as Replace
 
 
 # unresolved count declarations must not become measured lengths or sketch distance constraints
-def ProjectCounts(Dimensions, Counts, SketchCounts, OwnerId, ResolvedStream):
+def ProjectCounts(
+    Dimensions: tuple[NativeDimension, ...],
+    Counts: Mapping[tuple[int, str], tuple[int, int]],
+    SketchCounts: set[tuple[int, str]],
+    OwnerId: int,
+    ResolvedStream: str,
+) -> tuple[NativeDimension, ...]:
     if (
         Counts
         or SketchCounts
         or any(Dimension.kind == "instance_count" for Dimension in Dimensions)
     ):
         OccurrenceNames = Counter(Dimension.name for Dimension in Dimensions)
-        Updated = []
+        Updated: list[NativeDimension] = []
         for Dimension in Dimensions:
             Count = Counts.get((OwnerId, Dimension.name))
             if (

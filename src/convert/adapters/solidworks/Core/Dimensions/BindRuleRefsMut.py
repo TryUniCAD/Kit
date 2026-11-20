@@ -1,9 +1,25 @@
+from __future__ import annotations
+
+from collections.abc import Mapping, Sequence
+from typing import TYPE_CHECKING
+from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
+
 from interchange.geometry.Models.Sketch import ConstraintRef as RuleRef
 from convert.adapters.solidworks.Core.Dimensions.RadialTarget import RadialTarget
 
+if TYPE_CHECKING:
+    from convert.adapters.solidworks.Core.Adapter import RuleContext
+    from convert.adapters.solidworks.Core.Native import NativeRule
+
 
 # native circle operands and rectangle measurements need distinct reference binding rules
-def BindRuleRefsMut(RuleValue, RefMap, ContextMut, Dimension, Dimensions):
+def BindRuleRefsMut(
+    RuleValue: NativeRule,
+    RefMap: Mapping[str, str],
+    ContextMut: RuleContext,
+    Dimension: NativeDimension | None,
+    Dimensions: Sequence[NativeDimension],
+) -> tuple[list[RuleRef], str]:
     ResolvedRefs = [RefMap.get(RefValue) for RefValue in RuleValue.references]
     References = (
         [RuleRef(Resolved) for Resolved in ResolvedRefs if Resolved is not None]

@@ -33,7 +33,12 @@ def PatternPairs(
     Offsets = [Offset for Offset, _ in Markers]
     if len(set(Offsets)) != len(Offsets):
         return []
-    Parameters, Handles = DefaultDict(list), DefaultDict(list)
+    Parameters: DefaultDict[tuple[int, str], list[tuple[int, str, int]]] = DefaultDict(
+        list
+    )
+    Handles: DefaultDict[tuple[int, str], list[tuple[int, int, int]]] = DefaultDict(
+        list
+    )
     for Index, Record in enumerate(Classes):
         Marker = BisectRight(Offsets, Record.offset) - 1
         if Marker < 0:

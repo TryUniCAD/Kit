@@ -1,11 +1,24 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from convert.adapters.solidworks.Container.Format import (
     SERIALIZED_STRING_MARKER as SerializedStringMarker,
     dimension_scalar_value_offset as DimensionScalarValue,
 )
 
+if TYPE_CHECKING:
+    from convert.adapters.solidworks.Core.Native import NativeClass
+
 
 # count parameter names must be bounded by their typed record before pairing with a handle
-def ReadCountParam(DataValue, Record, Cursor, EndOffset, Nested):
+def ReadCountParam(
+    DataValue: bytes,
+    Record: NativeClass,
+    Cursor: int,
+    EndOffset: int,
+    Nested: NativeClass | None,
+) -> tuple[int, str, int] | None:
     if Record.name not in (
         "sgCircularPattCntDim",
         "sgLinearPattCntDim",

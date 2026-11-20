@@ -9,7 +9,7 @@ from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
 # file driven integration checks require receipts from a complete cli process
-def ReadDimEvidence(RootPath: FilePath, Source: FilePath, RunPath: FilePath) -> dict:
+def ReadDimEvidence(RootPath: FilePath, Source: FilePath, RunPath: FilePath) -> str:
     Result = RunProcess(
         [
             PythonPath,
@@ -33,7 +33,7 @@ def ReadDimEvidence(RootPath: FilePath, Source: FilePath, RunPath: FilePath) -> 
         timeout=300,
     )
     assert Result.returncode == 2, Result.stderr
-    return LoadJson((RunPath / "Input-dimension-evidence.json").read_bytes())
+    return (RunPath / "Input-dimension-evidence.json").read_text(encoding="utf-8")
 
 
 # a held out cut must recover both configuration streams before claiming its measured dimensions
@@ -44,7 +44,7 @@ def CheckCutFields(TmpPath: FilePath) -> None:
             "solidworks-*/*edit-cut_height_mm-10.SLDPRT"
         )
     )
-    Evidence = ReadDimEvidence(RootPath, Source, TmpPath / "run")
+    Evidence = LoadJson(ReadDimEvidence(RootPath, Source, TmpPath / "run"))
     assert Evidence["status"] == "same_family_dimensions_match"
     assert Evidence["held_out_recipes"] == ["P04"]
     assert {Record["recipe"] for Record in Evidence["training"]} == {"P01", "P03"}
@@ -82,7 +82,7 @@ def CheckCounts(TmpPath: FilePath) -> None:
     RootPath = ResearchRoot()
     Source = next((RootPath / "re/solidworks/examples").glob("*/BLOQUE V8.SLDPRT"))
     RunPath = TmpPath / "run"
-    Evidence = ReadDimEvidence(RootPath, Source, RunPath)
+    Evidence = LoadJson(ReadDimEvidence(RootPath, Source, RunPath))
     CountRule = Evidence["keyword_evidence"]["pattern_count_rule"]
     assert CountRule["held_out_sha256"] == Evidence["input_sha256"]
     assert CountRule["samples"] == CountRule["candidates"] == []
@@ -121,7 +121,7 @@ def CheckCountCopy(TmpPath: FilePath) -> None:
     Source = next(
         (RootPath / "re/solidworks/examples").glob("*/ENGRANE ARBOL DE LEVAS.SLDPRT")
     )
-    Evidence = ReadDimEvidence(RootPath, Source, TmpPath / "run")
+    Evidence = LoadJson(ReadDimEvidence(RootPath, Source, TmpPath / "run"))
     CountRule = Evidence["keyword_evidence"]["feature_pattern_evidence"]
     assert CountRule["samples"] == CountRule["candidates"] == CountRule["counts"] == []
     Dimensions = Evidence["keyword_evidence"]["dimensions"]
@@ -145,7 +145,7 @@ def CheckWheelAngle(TmpPath: FilePath) -> None:
         (RootPath / "re/solidworks/examples").glob("*/RUEDA DE TURBINA.SLDPRT")
     )
     RunPath = TmpPath / "run"
-    Evidence = ReadDimEvidence(RootPath, Source, RunPath)
+    Evidence = LoadJson(ReadDimEvidence(RootPath, Source, RunPath))
     Fields = Evidence["discovered_feature_fields"]
     assert not Evidence["input_eligible_for_discovery"]
     assert Fields["rules"] == Fields["predictions"] == []
@@ -167,7 +167,7 @@ def CheckWheelAngle(TmpPath: FilePath) -> None:
         is None
     )
     VerifyOwnership(RunPath)
-    VerifyWheelDims(RunPath, Evidence, Document)
+    VerifyWheelDims(RunPath)
 
 
 # reopened rectangle edits challenge the byte correspondence across two independently saved streams
@@ -178,7 +178,7 @@ def CheckSingleDim(TmpPath: FilePath) -> None:
             "solidworks-*/*baseline-a.SLDPRT"
         )
     )
-    Evidence = ReadDimEvidence(RootPath, Source, TmpPath / "run")
+    Evidence = LoadJson(ReadDimEvidence(RootPath, Source, TmpPath / "run"))
     Pairs = Evidence["discovered_feature_fields"]["single_dimension_comparisons"]
     assert Evidence["input_eligible_for_discovery"]
     assert {
@@ -200,7 +200,7 @@ def CheckPartReader(TmpPath: FilePath) -> None:
         )
     )
     RunPath = TmpPath / "run"
-    ReadDimEvidence(RootPath, PartPath, RunPath)
+    _ = ReadDimEvidence(RootPath, PartPath, RunPath)
     Evidence = LoadJson((RunPath / "Input-scalar-streams.json").read_bytes())
     Records = Evidence["members"]["Contents/Config-0-ResolvedFeatures"]["records"]
     Angle = next(Record for Record in Records if Record["name"] == "angle_deg")
@@ -239,7 +239,7 @@ def CheckInchReader(TmpPath: FilePath) -> None:
         )
     )
     RunPath = TmpPath / "run"
-    ReadDimEvidence(RootPath, PartPath, RunPath)
+    _ = ReadDimEvidence(RootPath, PartPath, RunPath)
     Evidence = LoadJson((RunPath / "Input-scalar-streams.json").read_bytes())
     (Record,) = Evidence["members"]["Contents/Config-0-ResolvedFeatures"]["ownership"][
         "records"
@@ -262,7 +262,7 @@ def CheckBottomEdit(TmpPath: FilePath) -> None:
             "solidworks-*/*edit-cut_width_mm-12.SLDPRT"
         )
     )
-    Evidence = ReadDimEvidence(RootPath, Source, TmpPath / "run")
+    Evidence = LoadJson(ReadDimEvidence(RootPath, Source, TmpPath / "run"))
     (Bottom,) = [
         Record
         for Record in Evidence["equations"]

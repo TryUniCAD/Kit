@@ -1,11 +1,23 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 import struct as Struct
 
 from convert.adapters.solidworks.Core.Dimensions.CountFields import CountFields
 
+if TYPE_CHECKING:
+    from convert.adapters.solidworks.Core.Native import NativeName, XmlFeature
+
 
 # count handles need independently qualified copies before their native scalar can be exported
-def FeatureCounts(Resolved, XmlFeatures, Names, Copies):
-    Counts = {}
+def FeatureCounts(
+    Resolved: bytes,
+    XmlFeatures: list[XmlFeature],
+    Names: tuple[NativeName, ...],
+    Copies: tuple[int, ...],
+) -> dict[tuple[int, str], tuple[int, int]]:
+    Counts: dict[tuple[int, str], tuple[int, int]] = {}
     if not Copies:
         return Counts
     for Owner, _, Dimension, Scalar, EndOffset in CountFields(

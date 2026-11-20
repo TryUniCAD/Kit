@@ -13,7 +13,7 @@ KMirroredFields: dict[tuple[str, str, str], tuple[tuple[int, int], ...]] = {}
 
 
 # angular text can round a saved value to the number of printed decimal places
-def MatchesAngle(SourceText: str, Displayed: float, Measured: float) -> bool:
+def IsAngleMatch(SourceText: str, Displayed: float, Measured: float) -> bool:
     if IsClose(Displayed, Measured, rel_tol=1e-12, abs_tol=1e-12):
         return True
     Match = FullMatch(r"[+-]?[0-9]+\.([0-9]{1,12})\s*(?:°|deg)", SourceText.strip())
@@ -21,32 +21,34 @@ def MatchesAngle(SourceText: str, Displayed: float, Measured: float) -> bool:
 
 
 # a named scalar and every bounded mirror must agree before refining a public measurement
-def BindMirroredField(
+def BindMirrorField(
     DataValue: bytes,
-    End: int,
+    EndOffset: int,
     Stream: str,
-    Raw: NativeDimension,
+    RawDimension: NativeDimension,
     Bound: NativeDimension,
     Candidates: tuple[NativeScalar, ...],
     Copies: tuple[tuple[int, int], ...],
     Display: LinearDisplay | None,
 ) -> NativeDimension:
-    Scalar = PickNamedScalar([Item for Item in Candidates if Item.name == Raw.name])
-    if Scalar is None or Raw.value_mm is None:
+    Scalar = PickNamedScalar(
+        [ItemValue for ItemValue in Candidates if ItemValue.name == RawDimension.name]
+    )
+    if Scalar is None or RawDimension.value_mm is None:
         return Bound
     if Scalar.value == 0 or any(
-        Scalar.value_offset + Offset + 8 > End
-        or UnpackFrom("<d", DataValue, Scalar.value_offset + Offset)[0] * Sign
+        Scalar.value_offset + Offset + 8 > EndOffset
+        or UnpackFrom("<d", DataValue, Scalar.value_offset + Offset)[0] * CopySign
         != Scalar.value
-        for Offset, Sign in Copies
+        for Offset, CopySign in Copies
     ):
         return Bound
-    if Raw.kind == "angle" and Bound.kind == "angle":
+    if RawDimension.kind == "angle" and Bound.kind == "angle":
         Measured = Degrees(Scalar.value)
-        if not MatchesAngle(Raw.source_text, Raw.value_mm, Measured):
+        if not IsAngleMatch(RawDimension.source_text, RawDimension.value_mm, Measured):
             return Bound
     elif (
-        Raw.kind != "angle"
+        RawDimension.kind != "angle"
         and Bound.kind
         in {
             "length",
@@ -62,15 +64,15 @@ def BindMirroredField(
         and Display.UnitName == "mm"
     ):
         Measured = Scalar.value * 1000
-        if not IsClose(Raw.value_mm, Measured, rel_tol=1e-12, abs_tol=1e-12):
+        if not IsClose(RawDimension.value_mm, Measured, rel_tol=1e-12, abs_tol=1e-12):
             return Bound
     else:
         return Bound
     return Replace(
         Bound,
         value_mm=(
-            Raw.value_mm
-            if IsClose(Measured, Raw.value_mm, rel_tol=1e-12, abs_tol=1e-12)
+            RawDimension.value_mm
+            if IsClose(Measured, RawDimension.value_mm, rel_tol=1e-12, abs_tol=1e-12)
             else Measured
         ),
         native_value=Scalar.value,

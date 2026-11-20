@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math as MathValue
+from interchange.geometry.Models.GeometryCurves import CircleGeometry as CircleGeom
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -33,7 +34,8 @@ def RadialTarget(
         Matches = [
             Entity
             for Entity in MarkerCircles
-            if MathValue.isclose(
+            if isinstance(Entity.geometry, CircleGeom)
+            and MathValue.isclose(
                 Entity.geometry.radius * Factor,
                 Dimension.value_mm,
                 rel_tol=1e-9,
