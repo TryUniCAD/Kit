@@ -1,4 +1,6 @@
 {
   "DcSketch": ["rSketch", "MSketch"],
-  "DcWorkPlane": ["rWorkPlane", "WorkPlane"]
+  "DcWorkAxis": ["rWorkAxis", "WorkAxis"],
+  "DcWorkPlane": ["rWorkPlane", "WorkPlane"],
+  "DcWorkPoint": ["rWorkPoint", "WorkPoint"]
 }

@@ -150,6 +150,14 @@ def CheckLoftState(TmpPath: FilePath) -> None:
         b"Journal.Spline.SplineNode.SplineNode"
         in (RunPath / "Input-native.json").read_bytes()
     )
+    Timeline = LoadJson((RunPath / "Input-timeline.json").read_bytes())
+    assert Timeline["capture_name_checks"][0]["ordered_names_match"]
+    Measurement = Timeline["parameter_checks"][0]
+    assert Measurement["all_names_match"] and Measurement["native_count"] == 2
+    assert Measurement["fields"] == {
+        Name: {"expression": True, "unit": True, "role": True, "value": True}
+        for Name in ("d1", "d2")
+    }
     Audit = LoadJson((RunPath / "FileScope.json").read_bytes())
     if (
         Audit["reader_attempts"]["native"].get("message")
