@@ -87,7 +87,7 @@ def locked_case(data, slot):
     return row
 
 
-def freeze(name, slot, epoch):
+def freeze(name, slot, epoch, revision=REVISION):
     require(os.name != 'nt' and re.fullmatch(r'SdkLockedThroughAll[0-9]{2}', name), 'choose an unused managed host packet')
     target = SHARED / name
     require(target.resolve() == target and not target.exists(), 'host packet already exists or is redirected')
@@ -96,7 +96,10 @@ def freeze(name, slot, epoch):
     def git(*argv):
         return subprocess.run(['git', '-C', str(repo), *argv], capture_output=True, check=True).stdout
 
-    lock_data = git('show', REVISION + ':' + LOCK_PATH)
+    require(re.fullmatch(r'[0-9a-f]{40}', revision) and git('cat-file', '-t', revision).strip() == b'commit',
+            'freeze requires one exact SDK commit')
+    git('merge-base', '--is-ancestor', REVISION, revision)
+    lock_data = git('show', revision + ':' + LOCK_PATH)
     require(digest(lock_data) == LOCK, 'public source lock changed')
     row = locked_case(lock_data, slot)
     source = SHARED / SOURCE
@@ -111,7 +114,7 @@ def freeze(name, slot, epoch):
             'original source packet and opaque guest seal differ')
     times = [int(git('show', '-s', '--format=%ct', commit)) for commit in (SOURCE_COMMIT, *WRITERS)]
     for commit in (SOURCE_COMMIT, *WRITERS):
-        git('merge-base', '--is-ancestor', commit, REVISION)
+        git('merge-base', '--is-ancestor', commit, revision)
     require(seal['finished_at'] < locked['finished_at'] < times[0] < min(times[1:])
             and max(times[1:]) < epoch <= 0xffffffff - 20,
             'source lock or explicit authoring epoch violates the pre-writer chronology')
@@ -123,12 +126,12 @@ def freeze(name, slot, epoch):
     tools = {f'Tools/{file}': checked(disclosed / 'Tools' / file, pin) for file, pin in packet['tools_sha256'].items()}
     tools['Tools/' + HERE.name] = HERE.read_bytes()
     for module in ('SdkNativeRoundTrips.py', 'throughsource/Compare.py', 'throughsource/Coverage.py', 'throughsource/Predict.py', 'throughsource/Shape.py'):
-        tools['Tools/' + PurePosixPath(module).name] = git('show', REVISION + ':re/tooling/sw2026/' + module)
+        tools['Tools/' + PurePosixPath(module).name] = git('show', revision + ':re/tooling/sw2026/' + module)
     files = tools | {file: checked(disclosed / file, packet['files_sha256'][file]) for file in ('ControlCase.json', 'GeneratedCase.json')}
     files['ApiMetadata.json'] = checked(disclosed / 'ApiMetadata.json', DISCLOSED_METADATA)
     files['SourceLock.json'] = lock_data
     files['SelectedLockRecord.json'] = source_lock
-    files['Sdk.tar'] = git('archive', '--format=tar', REVISION, 'src')
+    files['Sdk.tar'] = git('archive', '--format=tar', revision, 'src')
     tree = json.loads(files.pop('GeneratedCase.json'))['expected_tree']
     require(len(tree) == 27 and tree == json.loads(files['ControlCase.json'])['expected_tree'], 'disclosed recursive tree reference differs')
     files['ExpectedTree.json'] = encode(tree)
@@ -136,7 +139,7 @@ def freeze(name, slot, epoch):
     control_sha = packet['files_sha256'][control_path]
     checked(disclosed / control_path, control_sha)
     private = PureWindowsPath('C:/KitSdkCandidates', name)
-    plan = {'schema': SCHEMA, 'slot': slot, 'epoch': epoch, 'revision': REVISION, 'chronology_unix_seconds': times,
+    plan = {'schema': SCHEMA, 'slot': slot, 'epoch': epoch, 'revision': revision, 'chronology_unix_seconds': times,
             'guest': str(SHARED_GUEST / name), 'private': str(private), 'phases': list(PHASES),
             'control': {'location': str(SHARED_GUEST / NATIVE / control_path), 'sha256': control_sha},
             'source_slot_lock_sha256': row['case_lock_sha256'], 'scope': CUT_SCOPE,
@@ -155,7 +158,7 @@ def frozen(path, pin):
     require(os.name == 'nt', 'only the Windows custodian can run guest stages')
     plan = json.loads(checked(path, pin))
     root = path.parent
-    require(plan['schema'] == SCHEMA and plan['revision'] == REVISION and list(PHASES) == plan['phases']
+    require(plan['schema'] == SCHEMA and re.fullmatch(r'[0-9a-f]{40}', plan['revision']) and list(PHASES) == plan['phases']
             and HERE == root / 'Tools' / HERE.name and root == Path(plan['guest'])
             and Path(plan['private']) == Path('C:/KitSdkCandidates') / root.name and plan['scope'] == CUT_SCOPE,
             'the guest tool, output path or revision escaped the frozen packet')
@@ -540,6 +543,7 @@ def main():
     freeze_cmd.add_argument('name')
     freeze_cmd.add_argument('--slot', choices=SLOTS, required=True)
     freeze_cmd.add_argument('--epoch', type=int, required=True)
+    freeze_cmd.add_argument('--revision', default=REVISION)
     for mode in ('prepare', 'phase', 'summary'):
         cmd = commands.add_parser(mode)
         cmd.add_argument('freeze', type=Path)
@@ -556,7 +560,7 @@ def main():
         require(os.name == 'nt', 'isolated replay belongs to the guest')
         result = worker(args.private, args.worker_mode)
     elif args.action == 'freeze':
-        result = freeze(args.name, args.slot, args.epoch)
+        result = freeze(args.name, args.slot, args.epoch, args.revision)
     else:
         root, plan, row = frozen(args.freeze, args.freeze_pin)
         if args.action == 'prepare':

@@ -25,6 +25,9 @@ The disclosed host replay used the same isolated worker and SDK closure. Two bui
 
 ## Operator recipe
 
+Pass `--revision` with a full committed descendant SHA to measure
+a later SDK. Each packet retains its own exact tools and digests.
+
 The ready H01 host freeze is `SdkLockedThroughAll02/Freeze.json`, SHA-256 `495c6ecaa18cb1c4166de6d2d407faac165661ad8ac685f662bf82da7bbd9959`. Its predecessor `SdkLockedThroughAll01` remains a frozen host artifact, SHA-256 `a62cbfb3bd8db14d2a4c0b27635a17b54b0cee13ed68db58aa1353841a681b7c`. The disclosed cross-observer rehearsal exposed a missing import root in its comparison supervisor. Packet 02 loads the verified `Code/src` before importing the comparison primitive. After that fix, the independent D01 source observation and the common observer’s initial and rebuilt D01 observations passed the same full-tree, driver, end, support-frame and mass comparator. Neither freeze records a new native acceptance.
 
 For another freeze, choose an unused numbered packet and one eligible slot, and supply an explicit writer epoch.
