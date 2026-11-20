@@ -1,26 +1,14 @@
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.CheckSavedCutScope import (
-    CheckCutScope,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.CheckStockFace import (
-    CheckStockFace,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.ReadStockAtoms import (
-    ReadStockAtoms,
-)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.ReadStockOps import (
     ReadStockOps,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.ReadStockPick import (
+    ReadStockPick,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.ReadStockRoots import (
     ReadStockRoots,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockCutLineage import (
     StockCutLineage,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadCutAtomId import (
-    ReadCutAtomId,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadSingleNode import (
-    ReadSingleNode,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
     ReadPrismFrame,
@@ -40,17 +28,8 @@ def ReadTwoStockCut(LinkValue: NativeLink) -> StockCutLineage:
     )
     if FirstFrame == SecondFrame or CutFrame != FirstFrame:
         raise ValueError("two stock lineage has alternate signed profile placement")
-    AtomsValue = ReadStockAtoms(
-        LinkValue, FirstStock.NodeValue, SecondStock.NodeValue, CutValue.NodeValue
-    )
     StockValues = (FirstStock, SecondStock)
-    Selected = StockValues[AtomsValue.SelectedIndex].NodeValue
-    AtomId = ReadCutAtomId(AtomsValue.ConsumedAtom, Selected)
-    CutNode = CutValue.NodeValue
-    if CheckCutScope(RootValue, Selected, CutNode, AtomId, StockScope=0) != 1:
-        raise ValueError("two stock cut requires its actual selected scope")
-    Wrapper = ReadSingleNode(CutNode.FieldsValue.get("f548"), "moCompSolidBody_c")
-    CheckStockFace(Wrapper, Selected)
+    AtomsValue, Wrapper = ReadStockPick(LinkValue, StockValues, CutValue)
     return StockCutLineage(
         StockValues, CutValue, AtomsValue, Wrapper, (FirstFrame, SecondFrame, CutFrame)
     )

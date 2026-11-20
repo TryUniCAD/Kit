@@ -1,0 +1,148 @@
+{
+  "base_revision": "454513a85e38f0dd03faa1c4ea52d5cff275b052",
+  "cases": {
+    "cache-word": {
+      "external_access_attempts": 0,
+      "refusal": "face-less saved stock selector has alternate component or cache state"
+    },
+    "copied-representation": {
+      "external_access_attempts": 0,
+      "refusal": "through-all presentation owner does not alias its archive map"
+    },
+    "crossed-stock-chooser": {
+      "external_access_attempts": 0,
+      "refusal": "saved stock chooser is detached from its operation"
+    },
+    "different-external": {
+      "external_access_attempts": 0,
+      "refusal": "saved cut chooser references a different producer or external owner"
+    },
+    "different-mapped-mirror": {
+      "external_access_attempts": 0,
+      "refusal": "saved cut choosers do not mirror actual representation identities"
+    },
+    "edited": {
+      "consumed_atom": 101,
+      "cut_chooser_face_indexes": [
+        [
+          347,
+          358
+        ],
+        [
+          371,
+          372
+        ]
+      ],
+      "external_access_attempts": 0,
+      "full_stock_refusal": "two stock lineage has an alternate profile or extrusion mode",
+      "part_selector": 345,
+      "physical_body_indexes": [
+        2,
+        6
+      ],
+      "producer_ids": [
+        19,
+        22,
+        25
+      ],
+      "public_design_bodies": 1,
+      "public_document_sha256": "abe22b56802c3edb25229b6fab62eea78635123e4bd9f604807b2ad44032221a",
+      "surviving_atoms": [
+        102,
+        103
+      ],
+      "wrapper": [
+        344,
+        null,
+        0,
+        0
+      ]
+    },
+    "missing-primary-chooser": {
+      "external_access_attempts": 0,
+      "refusal": "saved stock chooser has no active owner"
+    },
+    "original": {
+      "consumed_atom": 101,
+      "cut_chooser_face_indexes": [
+        [
+          378,
+          389
+        ],
+        [
+          402,
+          403
+        ]
+      ],
+      "external_access_attempts": 0,
+      "full_stock_refusal": null,
+      "part_selector": 365,
+      "physical_body_indexes": [
+        2,
+        6
+      ],
+      "producer_ids": [
+        32,
+        40,
+        47
+      ],
+      "public_design_bodies": 2,
+      "public_document_sha256": "0b00ddbf0a6f431d13a027ea34fb4bbd73d7f509273eb4adf2fea9f89e85a9d3",
+      "surviving_atoms": [
+        102,
+        103
+      ],
+      "wrapper": [
+        364,
+        366,
+        90,
+        103
+      ]
+    },
+    "other-component": {
+      "external_access_attempts": 0,
+      "refusal": "cut selection wrapper differs from the consumed boss atom"
+    },
+    "two-managed-atoms": {
+      "external_access_attempts": 0,
+      "refusal": "cut body atom manager contains missing or additional ownership"
+    },
+    "wrong-arc-marker": {
+      "external_access_attempts": 0,
+      "refusal": "saved cut chooser disagrees with its actual profile markers"
+    },
+    "wrong-producer": {
+      "external_access_attempts": 0,
+      "refusal": "saved cut chooser references a different producer or external owner"
+    }
+  },
+  "disclosed_sha256": {
+    "edited": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452",
+    "original": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3"
+  },
+  "full_edited_sdk_admission": false,
+  "generated_native_files": 0,
+  "guarded_processes": 12,
+  "head": "454513a85e38f0dd03faa1c4ea52d5cff275b052",
+  "heldout_sources_read": 0,
+  "native_processes": 0,
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.saved-stock-selector.v1",
+  "script_sha256": "0b8fa6716717d418b2ea5454a7f6b3fa7153b1c303a3e364c81336b10e5636ab",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/CheckCutWrapper.py": "d5452274c02aa534f43daf98e85e76d1667fbcc63771db68aac7c3e7db8b5152",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/CheckSavedCutScope.py": "f4868bdb9ac07672909ecb0b5e1e11416ad62e759f7e823861976f6fe68d9d69",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/CheckPickMirror.py": "188107f837bcb07f2476c15021ec042871b2ae5161c21fc5d7d83d001a27c17a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/CheckStockFace.py": "9957b78922283f545b2862b2ffcc3fcf06b0a3bb5788da1caf4625922466696b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/CheckStockMode.py": "6187eded0a7ed04df2e21041cb2fac4e42735834292165dcc10d49713a5c9983",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadChooserPair.py": "dabd61ea0c8fc813df31b49701b2099752a2cdacf093664912be4427aebf11a7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadCutFace.py": "fc8e12aceb0710d7e396de72a010b1845b3e716fa0cc4c51423686de9bdde1d2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadFaceReps.py": "cfb17269f3dc347ee2a20d56615908bdcce2b41680594629a8b9203d3938ab39",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadStockAtoms.py": "8fa3c4292cedcb3443a7d2cbd6264966522937b8af6804b113640cdcbb2ba60b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadStockOps.py": "da74f2c5aaa4cc0b286077227ea3ff27babf2736be424b18c5f59bb815671bb6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadStockPick.py": "78204e3188f4ad144cc989d3b007a96dcf18f495c77baaae48a9f034361122c3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadStockRef.py": "c9f68a9b6a68582e15db0feafbd253e2314d12824df7ecfed604e3f5cc5a34c4",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadTwoStockCut.py": "d94694076555f2b8a83266e16e011d94bc293563e47f2ec7b8c5286b591926bf",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckTreeAlias.py": "edf75792d74c31efb3e259ed7a04cfa594e4270d03abdd73aeee1496c053f2e5"
+  }
+}
