@@ -15,6 +15,8 @@ from convert.adapters.solidworks.Archive.Config.Members.CheckRelMember import (
 from convert.adapters.solidworks.Archive.Config.Members.CheckThreadMap import (
     CheckThreadMap,
 )
+from convert.adapters.solidworks.Archive.Config.Scene.CheckCfgScene import CheckCfgScene
+from convert.adapters.solidworks.Archive.Config.Scene.SceneTypes import KEnvFolderClass
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.ObjectIndex import ObjectIndex
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -47,3 +49,5 @@ def CheckCfgMember(
         CheckCfgOwner(RootValue)
     elif MemberClass == KThreadMgrClass:
         CheckThreadMap(RootValue)
+    elif MemberClass == KEnvFolderClass:
+        CheckCfgScene(RootValue, MapValue)

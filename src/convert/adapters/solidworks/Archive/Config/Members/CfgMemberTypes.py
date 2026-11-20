@@ -1,5 +1,10 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Config.Scene.SceneTypes import (
+    KEnvFolderClass,
+    KNodeNameClass,
+    KSceneSchemas,
+)
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
 # the current relation manager owns a schema one serialized body
@@ -20,9 +25,14 @@ KThreadMgrClass = RuntimeClass("moCThreadRefMgr_c", 1)
 # the kernel mark has its own schema and position in the same part map
 KPMarkClass = RuntimeClass("moPMarkRecord_c", 1)
 
-# these two bounded roles require concrete owners in the qualified profiles
+# the required member roles must reject an absent owner without allocating anything
 KRequiredMembers = MappingProxyType(
-    {KRelMgrClass: "relation", KPMarkClass: "partition mark"}
+    {
+        KRelMgrClass: "relation",
+        KPMarkClass: "partition mark",
+        KEnvFolderClass: "environment folder",
+        KNodeNameClass: "node name",
+    }
 )
 
 # the member reader admits only the measured concrete descriptors
@@ -36,6 +46,11 @@ KCfgMemberSchemas = MappingProxyType(
             KExplViewClass,
             KThreadMgrClass,
             KPMarkClass,
+            KEnvFolderClass,
+            KNodeNameClass,
         )
     }
 )
+
+# scene children need body schemas while root admission still checks the selected member role
+KAllMemberSchemas = MappingProxyType({**KCfgMemberSchemas, **KSceneSchemas})

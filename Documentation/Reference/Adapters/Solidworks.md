@@ -93,6 +93,12 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The configuration scene reader keeps the environment folder, its actual
+name and the observed ambient and directional light children. The
+runtime light reset retains its separate signed wire word. Populated
+light property owners need further layout evidence.
+[Scene record scope](../../Changes/Solidworks/Archive/SolidworksConfigSceneRecords.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)

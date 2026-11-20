@@ -188,6 +188,17 @@ Populated thread maps and complete configuration support have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+### B04-SW2026-CONFIG-SCENE
+
+The PR #121 takeover team owns this bounded scene and light
+normalization reader on `codex/solidworks-config-light-actions`.
+It follows the ordinary feature-action and thread record slices.
+Exit requires both physical part scene profiles, exact archive
+ownership, the authored normalization contrast, invalid record cases
+and current revision queue and review evidence. Broader presentation
+and complete configuration admission retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigSceneRecords.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent owns this active reader compatibility task.

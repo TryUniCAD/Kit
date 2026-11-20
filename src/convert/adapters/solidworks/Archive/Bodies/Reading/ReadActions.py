@@ -17,6 +17,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadLengthMut import (
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNestedMut import (
     ReadNestedMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNormalMut import (
+    ReadNormalMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import (
     ReadPresentMut,
 )
@@ -45,6 +48,7 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Virtual": ReadVirtualMut,
             "Bytes": ReadBytesMut,
             "Boolean": ReadBooleanMut,
+            "Normalize": ReadNormalMut,
         }
     )
 )
