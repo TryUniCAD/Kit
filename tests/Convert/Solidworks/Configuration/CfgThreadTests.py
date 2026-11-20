@@ -1,29 +1,6 @@
-from json import loads as LoadJson
-from pathlib import Path as FilePath
-from subprocess import run as RunProcess
-from sys import executable as PythonExec
 from typing import cast as CastValue
 
-# each physical native thread and mark record must pass through a fresh archive process
-KThreadProbe = (
-    FilePath(__file__).resolve().parents[4] / "re/tooling/sw2026/CheckCfgThread.py"
-)
-
-
-# merge queue failures need the process diagnostics and the complete guarded result
-def ReadThreadCase(CaseName: str) -> dict[str, object]:
-    Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(KThreadProbe), CaseName),
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        check=False,
-        timeout=60,
-    )
-    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-    ReportValue = CastValue(dict[str, object], LoadJson(Outcome.stdout))
-    assert ReportValue["runtime_external_accesses"] == 0
-    return ReportValue
+from tests.Convert.Solidworks.Configuration.ReadThreadCase import ReadThreadCase
 
 
 # the two physical marks use the live counter but retain independent kernel identifiers
@@ -75,7 +52,20 @@ def TestThreadOwner() -> None:
         [7, 1],
         [2147483647, 1],
     ]
+    AssertAuthMark(ReportValue["authored_mark"])
     AssertRefusals(ReportValue["refusals"])
+
+
+# the signed partition word and the inherited and new slots have distinct owners
+def AssertAuthMark(MarkValue: object) -> None:
+    assert MarkValue == {
+        "bytes": 6,
+        "class_slot": 103,
+        "source_slot": 104,
+        "object_slot": 105,
+        "counter": [105, 106],
+        "mark_id": -17,
+    }
 
 
 # every malformed or unqualified lane needs its own proven refusal
@@ -114,3 +104,4 @@ def TestNullThread() -> None:
     assert ReportValue["final_counter"] == 94
     assert ReportValue["final_slots"] == [52, 53, 91, 92]
     assert ReportValue["authored_boolean_pairs"] == ReportValue["refusals"] == []
+    assert ReportValue["authored_mark"] is None

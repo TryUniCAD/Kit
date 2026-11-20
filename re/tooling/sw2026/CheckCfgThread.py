@@ -106,6 +106,32 @@ def authored_contrast(thread):
     return tag, values
 
 
+def authored_mark(mark):
+    _data, native, _seed = mark
+    seed = native.MapValue
+    original = native.RootValue
+    original_fields = dict(original.FieldsValue)
+    class_entry = next(entry for entry in seed.EntriesValue if entry.EntryValue is original.ClassValue)
+    source_entry = next(entry for entry in seed.EntriesValue if entry.EntryValue is original)
+    word = -17
+    data = pack("<Hi", 0x8000 | class_entry.IndexValue, word)
+    decoded = ReadCfgMember(data, 19000, seed, KPMarkClass)
+    node = decoded.RootValue
+    entries = decoded.MapValue.EntriesValue
+    require(all(left is right for left, right in zip(entries[:-1], seed.EntriesValue, strict=True))
+            and original.FieldsValue == original_fields
+            and node is not original and node.ClassValue is class_entry.EntryValue
+            and original.IndexValue == source_entry.IndexValue
+            and entries[-1].EntryValue is node and node.IndexValue == entries[-1].IndexValue == seed.CounterValue
+            and decoded.MapValue.CounterValue == seed.CounterValue + 1,
+            "authored mark lost its inherited class, original owner or fresh slot")
+    require(node.FieldsValue == {"f18": word} and node.StartOffset == 0 and node.EndOffset == len(data)
+            and decoded.ReportValue["completed"], "authored negative mark did not retain its full signed wire")
+    return {"bytes": len(data), "class_slot": class_entry.IndexValue, "source_slot": source_entry.IndexValue,
+            "object_slot": node.IndexValue, "counter": [seed.CounterValue, decoded.MapValue.CounterValue],
+            "mark_id": node.FieldsValue["f18"]}
+
+
 def ladder_refusals(mark, thread, tag):
     mark_data, mark_graph, mark_seed = mark
     data, graph, seed = thread
@@ -141,10 +167,11 @@ def run(name):
     rows = [native_summary(config, owner, entry) for owner, entry in zip(owners[1:3], (mark, thread), strict=True)]
     report = {"members": rows, "final_counter": previous.CounterValue,
               "final_slots": [entry.IndexValue for entry in previous.EntriesValue],
-              "runtime_external_accesses": 0, "authored_boolean_pairs": [], "refusals": []}
+              "runtime_external_accesses": 0, "authored_boolean_pairs": [], "authored_mark": None, "refusals": []}
     if name == "ladder":
         tag, values = authored_contrast(thread)
-        report.update(authored_boolean_pairs=values, refusals=ladder_refusals(mark, thread, tag))
+        report.update(authored_boolean_pairs=values, authored_mark=authored_mark(mark),
+                      refusals=ladder_refusals(mark, thread, tag))
     return report
 
 

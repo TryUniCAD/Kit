@@ -7,7 +7,7 @@
 | Delivery | Separate main-target branch `codex/solidworks-config-thread-action` |
 | Preparation base | `0cd540e298655e091bcfb4a984ba50e793d67c53` |
 | Prerequisite | [Bounded feature owners and field actions](ConfigFieldActionsSlice2026.md) |
-| Exit | Actual native member and map handoffs, authored signed Boolean contrasts and refusals in the merge queue, then current revision review |
+| Exit | Actual native member and map handoffs, authored signed Boolean and mark contrasts and refusals in the merge queue, then current revision review |
 
 ## Exact native scope
 
@@ -70,7 +70,13 @@ Independent authored thread records reuse the L1 thread descriptor
 at slot 106. They retain the original signed words and decode runtime
 values for zero, a noncanonical positive word and both signed extremes.
 Each creates one distinct object in a fresh branch from the verified
-map. Refusals cover missing descriptors, schema and role mismatch,
+map. The independently authored partition record uses the L1 mark
+descriptor at slot 103 and a signed `f18` word of `-17`. Its six bytes
+allocate one distinct mark at slot 105 and retain the original mark
+at slot 104. This contrast verifies signed archive decoding and map
+identity. Native kernel resolution and geometry semantics remain open.
+
+Refusals cover missing descriptors, schema and role mismatch,
 a borrowed root, a missing required mark, incomplete frames,
 unsupported versions and unqualified map populations. The populated
 holder case uses the actual earlier partition mark as its inherited
