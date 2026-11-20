@@ -57,3 +57,13 @@ The first build stopped before any native launch. Its guard compared the
 fresh document's empty declared capability cache with the two inferred
 capabilities. A fresh packet uses the registry's shared inference for
 this assertion. The writer and the original locks are identical.
+
+The second packet generated both parts through the default writer.
+Both controls passed. Its pre-native candidate readback used the
+original projector's stock-feature vocabulary, which expects native
+user-facing kind strings. The generated archive instead identifies its
+system features by their typed class names. The next comparator binds
+the single imported feature through the actual typed owner, body link
+and active configuration. The original projector's admission rules
+remain in use for both original files.
+[Second packet receipt](../measurements/2026/SdkSealedBareRectangleInitial02.json)

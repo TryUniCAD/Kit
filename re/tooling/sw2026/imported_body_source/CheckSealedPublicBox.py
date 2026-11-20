@@ -1,4 +1,5 @@
 import json
+from collections.abc import Mapping
 from math import isclose
 from pathlib import Path
 import re
@@ -9,7 +10,10 @@ from AuthorImportedBody import box_expectation
 from AuthorRectangleAnchors import control
 from ObserveKernelBodyRestore import measure_body
 from ObserveLocalImportedPart import phase
-from ProjectDisclosedImport import OMISSIONS, decode_import, project_import, rectangular_boundary, source_owners
+from ProjectDisclosedImport import (
+    OMISSIONS, RESOLVED_STREAM, active_configuration, decode_import, project_import,
+    rectangular_boundary,
+)
 from RunImportedBodySources import oracle_identity
 from RunSealedPublicBox import (
     CONTROL, LOCK_SHA, ORACLE, RAW_LOCK_SHA, SCHEMA, SLOTS, SOURCE_ROOT, VERSION,
@@ -124,9 +128,15 @@ def build(root, lock, job_sha):
 def readback(payload, projection, *, saved=False):
     with guard_build():
         observed = open_document(payload, source_format=FORMAT)
-    feature, config, body = source_owners(observed)
-    require(feature.name == body.name == FEATURE and config.name == projection.configuration_name
-            and not observed.validate(), "strict SDK read lost the actual feature, body or active configuration")
+    config = active_configuration(observed)
+    (feature,) = tuple(item for item in observed.feature_timeline if item.kind == "imported")
+    (body,) = observed.bodies
+    owner = feature.attributes.get("typed_archive_owner")
+    require(isinstance(owner, Mapping) and owner.get("class") == "moBaseBody_c"
+            and owner.get("stream") == RESOLVED_STREAM and owner.get("field_span") is False
+            and body.final_feature_id == feature.id and feature.name == body.name == FEATURE
+            and config.name == projection.configuration_name and not observed.validate(),
+            "strict SDK read lost the actual feature, body or active configuration")
     boundary = rectangular_boundary(observed.brep, body.id)
     expected = rectangular_boundary(projection.model).limits
     if saved:
