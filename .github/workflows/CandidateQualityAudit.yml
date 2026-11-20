@@ -249,6 +249,15 @@ jobs:
           reference="$RUNNER_TEMP/rectangle-reference"
           git worktree add --detach --no-checkout "$reference" "$revision"
           git -C "$reference" restore --source=HEAD --staged --worktree -- src re/automation re/Fusion/Study re/solidworks/archive
+          python - "$reference/re/automation/PairedCaptureIntake.py" <<'PYTHON'
+          import sys
+          from pathlib import Path
+          path = Path(sys.argv[1])
+          source = path.read_text()
+          original = 'self.root, "rev-list", "--objects", "--no-object-names", revision + "^@"'
+          assert source.count(original) == 1
+          path.write_text(source.replace(original, original.replace('"--objects",', '"--missing=print", "--objects",')).replace('self.ancestry[revision] = set(git(', 'self.ancestry[revision] = set(item.removeprefix("?") for item in git('))
+          PYTHON
           .venv/bin/python "$reference/re/automation/RectanglePairEvidence.py" > "$RUNNER_TEMP/reference.json"
           .venv/bin/python re/automation/RectanglePairEvidence.py > "$RUNNER_TEMP/current.json"
           sha256sum "$RUNNER_TEMP/reference.json" "$RUNNER_TEMP/current.json"
