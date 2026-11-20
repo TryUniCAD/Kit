@@ -254,6 +254,15 @@ open returns warning 32 while all three controls pass in the seven-process
 batch. The native save and reopen gate stays closed for this input state.
 [Empty environment result](../measurements/2026/GeneratedLocalImportWithoutLight01.json)
 
+The same writer then generates a second set at the same logical locators
+with one authored ambient light. The empty and lit sets have identical
+LocalBodies and partition streams. Exactly five header and graph streams
+change. All four lit files pass cold open, rebuild, save and fresh reopen
+with zero warnings and 560 numeric comparisons. Both sets have healthy
+native controls. This qualifies the explicit light in the measured
+completed-state profile. A default light policy remains open.
+[Same-locator lighting comparison](../measurements/2026/GeneratedLocalImportLightingContrast01.json)
+
 ## Sealed source geometry
 
 The two independently authored native input files were locked before the

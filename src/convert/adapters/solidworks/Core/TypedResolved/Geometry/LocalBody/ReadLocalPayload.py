@@ -6,11 +6,11 @@ from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import (
     ReadActiveNodes,
 )
 from convert.adapters.solidworks.Archive.Partition.ReadXmtHistory import ReadXmtHistory
-from convert.adapters.solidworks.Container.Format import KPartitionStream
+from convert.adapters.solidworks.Container.Format import (
+    KLocalBodyStream,
+    KPartitionStream,
+)
 from interchange.Payloads.PayloadRecord import BrepPayload
-
-# configuration zero stores its selected local body group in a separate stream
-KLocalBodyStream = "Config-0-FeatureBodies/LocalBodies"
 
 
 # both readback paths need the same exact configuration payload selection

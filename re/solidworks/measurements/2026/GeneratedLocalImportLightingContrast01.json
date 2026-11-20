@@ -1,0 +1,112 @@
+{
+  "authored_light_numeric_checks": 560,
+  "both_native_controls_healthy": true,
+  "cases": {
+    "ConcaveBare": {
+      "authored_light_checks": 164,
+      "authored_light_fresh_reopen_warning": 0,
+      "authored_light_warning": 0,
+      "changed_logical_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "empty_light_warning": 32,
+      "identical_kernel_and_rollback": true,
+      "lit_candidate_sha256": "96e168df613c7e9e712a340afcb5040c67454991ae29f3474fa45c46ba735277",
+      "native_lifecycle_records": [
+        "ab73cf5dc4146ac8308f8036b2ee01b716591677e590dcd30be88b2fa26df8ed",
+        "da0851328275dd6f2d20fc94b3f7af58d5ef76a55cf1d0a1c847aa5e10bb1f6a",
+        "fd3befc34afdc6f2230012fe60e198735f9f8a334c6ec4ba9b4b4c64dcaa9687"
+      ],
+      "native_saved_sha256": "c51943faa7c0cea25397f40e5621f9f623f22b499760d88998bea676f58b304f",
+      "same_logical_destination": true,
+      "unlit_candidate_sha256": "98e63ae10bf88ceabfb35cf418b322c42987204de1dabdcbe9235ecbf4ebbb54"
+    },
+    "ConcaveOwned": {
+      "authored_light_checks": 164,
+      "authored_light_fresh_reopen_warning": 0,
+      "authored_light_warning": 0,
+      "changed_logical_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "empty_light_warning": 32,
+      "identical_kernel_and_rollback": true,
+      "lit_candidate_sha256": "062f031e3c0a6cbb53762114ee00f7e7dd04d0822dfcc8bbeb35d06de7271bf5",
+      "native_lifecycle_records": [
+        "3f6143348000f93b851968f8f85c5b0dbaba29597b8ee642cc45a569ee3d12cb",
+        "102f82cbab915a16446a477e56b0b93d784433b973b58dc63ea3bde79024b3b6",
+        "a5555a69d6a783ef618ee3d5f57a6c94163f92e72f64c765b1ed0d29218fa585"
+      ],
+      "native_saved_sha256": "5b08699e4e568d1670d42b28b0e3ea6d7c6e301dbf4c988ff2916716c100b79a",
+      "same_logical_destination": true,
+      "unlit_candidate_sha256": "9f78d8297e58d47f8a632905116052f8d0a4655ffd7853438803103f53a7c7fb"
+    },
+    "RectangularBare": {
+      "authored_light_checks": 116,
+      "authored_light_fresh_reopen_warning": 0,
+      "authored_light_warning": 0,
+      "changed_logical_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "empty_light_warning": 32,
+      "identical_kernel_and_rollback": true,
+      "lit_candidate_sha256": "223d391a990a503db14572960cf32e4ab5e8bf0f9d4b6cade38fb9fcc58d2eb2",
+      "native_lifecycle_records": [
+        "2367c7911f755d4348285f1062be23c0153878fd450acfdb9d38cbde331918d7",
+        "2f480d1bd6cf7551041c29c35630bf9b1be6db6d977ba32e705a3f0820cad884",
+        "35805469338aedaf5cfeb657609356cd764bb5dd2652effda4de7f4910251e03"
+      ],
+      "native_saved_sha256": "376fa0a703ec02aeb9778dbeda23d87a2eaf2b75f66dc9454cff0723dcafea6e",
+      "same_logical_destination": true,
+      "unlit_candidate_sha256": "f348205f2b115f76cb0ec27316ab511ef7943e8b16cb0be2d20c754bf512cf4c"
+    },
+    "RectangularOwned": {
+      "authored_light_checks": 116,
+      "authored_light_fresh_reopen_warning": 0,
+      "authored_light_warning": 0,
+      "changed_logical_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "empty_light_warning": 32,
+      "identical_kernel_and_rollback": true,
+      "lit_candidate_sha256": "1512d13be2a358d2d1d4850b1428d18fa622694b784641e9c93725d466d1fd35",
+      "native_lifecycle_records": [
+        "eb93cfe8456ee4a592a2795feb55f9538b78acffcc6903a82495516226cc0240",
+        "9881138465990c6765a9bbf04ff062bf422bd989daff6383e1f6daa4040eaab0",
+        "e437259cf77102d571fcfa353d8e6997aa2024248f35134caf73a43dd2f2a014"
+      ],
+      "native_saved_sha256": "ea22f785c914dc5073022bd0997afd4c204b58d62ba83bc100669b02f67e3791",
+      "same_logical_destination": true,
+      "unlit_candidate_sha256": "38891856f84fe72a48994228dc7fe2ef469214469ba3886e71724a797c74a78d"
+    }
+  },
+  "distinct_native_processes": 18,
+  "heldout_cases": 0,
+  "lit_build_sha256": "72b38e613eee5d05aeef3172b72b3f685d99b36359e3a5fb5d8bcba0c7da64c4",
+  "lit_job_sha256": "6fdc3b3868337f9967a56c9401da890bd4df26dfee9bc75d26c8a780b9d57523",
+  "lit_native_receipt_sha256": "0a84627dfeb1fd8dbc42bc13dd821e1b3aeb3477a2824ea66163ebae71a5030f",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer_qualified": false,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.same-locator-local-import-lighting.v1",
+  "unlit_build_sha256": "a7b42f39a95c44422d919d2b8c0ffcc100894fe537fa422eaf11b6c24d4bf6ee",
+  "unlit_job_sha256": "26290f5185b3e63e4640d49cc17debbeae602fbdaeb613f87b9b7ac1abecea89",
+  "unlit_native_receipt_sha256": "51347e1a69e277ab599e79dfaf75a633895192b40796e0bee0646858260a0213",
+  "writer_revision": "35f3d11f21b597a7c6343529950162dcaea0a691"
+}

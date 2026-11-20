@@ -75,6 +75,9 @@ KFeaturesStream = "swXmlContents/Features"
 # this binding exists because shared behavior needs one stable value
 KResolvedFeaturesStream = "Contents/Config-0-ResolvedFeatures"
 
+# configuration zero stores the local feature body in a separate group stream
+KLocalBodyStream = "Config-0-FeatureBodies/LocalBodies"
+
 # this binding exists because shared behavior needs one stable value
 KConfigStream = "Contents/Config-0"
 

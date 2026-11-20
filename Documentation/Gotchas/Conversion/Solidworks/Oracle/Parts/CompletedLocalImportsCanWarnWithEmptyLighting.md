@@ -10,3 +10,8 @@ also passes clean open, rebuild, save and fresh reopen. Measure any
 lighting change with identical inputs and locators, including a trailing
 control.
 [Native warning receipt](../../../../../../re/solidworks/measurements/2026/GeneratedLocalImportWithoutLight01.json)
+
+At the same logical paths, an explicit ambient light clears warning 32
+for all four measured parts. Geometry and rollback streams stay identical.
+The ordinary default-light construction still needs qualification.
+[Same-locator contrast](../../../../../../re/solidworks/measurements/2026/GeneratedLocalImportLightingContrast01.json)
