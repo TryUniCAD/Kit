@@ -10,10 +10,8 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteFieldsMut import (
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteSchemaMut import (
     WriteSchemaMut,
 )
-from convert.adapters.solidworks.Archive.Bodies.Writing.WriteTagMut import (
-    WriteTagMut,
-    WriteTypeMut,
-)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteTagMut import WriteTagMut
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteTypeMut import WriteTypeMut
 from convert.adapters.solidworks.Archive.Header.HeaderClasses import KHeaderClasses
 from convert.adapters.solidworks.Archive.Header.WriteHeaderBody import StoreHeaderBody
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
