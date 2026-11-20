@@ -37,3 +37,8 @@ schemas. Only the 88 VisualStates qualification rows changed from the
 previous full report. Each source identity, byte length, stream digest
 and map counter remained equal. The other 1,240 stream results are
 identical. [Integrated receipt](../measurements/2026/BinaryArchiveAfterVisualProfiles01.json)
+
+The complete replay after typed Definition appearance admission
+at `125a9af15e1063811e14ef32038c13dfbe700f18` preserves all 88
+case reports and stream-group counts. Its full report SHA-256 is
+`a3693e2f957d4e07f3111fd4439db8e09a73f1e88e9e3273a97a1d140c6001d5`.

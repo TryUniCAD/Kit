@@ -8,7 +8,7 @@
 | Inputs | Historical `H03MidPlane` and `H04TwoDirections` |
 | Dependencies | Current shared SDK circle constructor and reader, original pre-writer source locks, unchanged recursive circle observer and comparator |
 | Exit | Immutable generated predictions, strict original SDK admission, clean paired native lifecycle and exact saved-output SDK readback |
-| State | Both guarded predictions and strict source attachments pass. The corrected native packet passes. Two generated mid-plane saves need separate SDK readback diagnosis. |
+| State | Both guarded predictions and strict source attachments pass. The corrected native packet passes. The separate centre ownership supplement passes all twelve SDK reads. |
 
 ## Independence and source identities
 
@@ -133,11 +133,49 @@ The frozen SDK replay passed ten of the twelve readbacks with 20 exact
 linked Config and Resolved stream comparisons. Both generated mid-plane
 saves stopped on an exact fixed-point versus circle-centre comparison.
 The two-direction candidate and both original reference lanes passed
-all three readbacks. The native pass remains separate from that SDK
-boundary and public qualification remains open.
+all three readbacks. The original partial readback receipt has SHA-256
+`35fa6556f82f7312cceeb8ba689416ce8d36de7be185de795c54a1e1a67973a5`.
 [Paired case measurements](../measurements/2026/SdkPairedEndConditionsNative01.json)
 
+## Shared centre readback supplement
+
+Both generated H03 saves store the same raw X and Y for one native centre.
+The actual `sgArc.fdc` selector and the code-17 fixed relation's
+`sgPointHandle.idx` target the same point row. The point marker's preceding
+u32 matches that row's `f0c` identity. Its raw metre coordinates match the
+typed row bit for bit. The separate diameter handle targets the sole arc.
+The radial display handle refers to the same `sgSketch` object.
+
+The public circle follows the typed centre in metres multiplied by 1000.
+The saved point marker rounds to 12 places in millimetres and cleans
+near-zero values. For H03's generated saves, the two X projections read
+`4.971000000000001` and `4.971` mm. They differ by one binary64 step,
+`8.881784197001252e-16` mm. Y agrees exactly. The H03 reference and
+all H04 readback states give exact public coordinate equality.
+
+The [separate reader](../../tooling/sw2026/ReadSdkEndConditionCentres.py)
+checks each public projection against its exact rule and proves the common
+native owner. It executes the frozen worker body with a separate binding
+for that one predicate. The remaining SDK checks run through the original
+worker. All ten previously successful states reproduce their reported
+values. Twelve fresh processes re-emit 24 complete linked Config/Resolved
+streams byte for byte.
+
+H03's primary driver reads `33.971` and `30.91361` mm before and after
+the actual edit. Its second driver is absent. H04 reads primary
+`21.389` and `17.603147` mm and secondary `8.917` and `10.43289` mm
+in both native lanes. The worker checks the actual active slots
+`f818.f18` and `f818.f20` and preserves the bound centre and diameter.
+
+The supplemental method and receipt bind the native result, prior failed
+SDK readback and separately frozen 5,017-file SDK source. Both artifacts
+carry the supplemental code SHA-256. The native observation remains
+evidence for geometry. The host reader requests sketch and feature
+semantics with B-rep and tessellation disabled.
+[Supplemental method](../measurements/2026/SdkEndConditionCentreReadbackMethod01.json)
+[Twelve-case readback](../measurements/2026/SdkEndConditionCentreReadback01.json)
+
 Native appearance, drawing and assembly behavior and additional source
-owners require separate evidence. This protocol makes no public writer
-or full-document qualification claim.
+owners require separate evidence. Full document properties, assigned
+material and public writer qualification remain open.
 [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)

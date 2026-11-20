@@ -17,4 +17,11 @@ outcomes. All original and generated CAD files stay in the guest.
 The declared seam gauge applies to a geometry-only projection.
 Original seam parameterization, provenance, scene and annotation
 transfer require their own qualification.
+
+Both locked cases pass all geometry phases in eight fresh native
+processes. All 456 numeric comparisons pass with two healthy
+controls. Four guarded builds reproduce two stable file hashes
+with zero runtime input-file reads. The geometry-only scope and
+omitted document domains appear in the measurement.
 [Operator procedure](../../../../../../re/tooling/sw2026/imported_body_source/README.md)
+[Native result](../../../../../../re/solidworks/measurements/2026/SealedPeriodicCylinderLocalNative01.json)

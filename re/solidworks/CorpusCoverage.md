@@ -88,12 +88,20 @@ passes strict geometry readback and changes the LocalBodies length.
 Eight unrepresented boundary cases refuse. The sealed originals
 remain in guest custody at this construction checkpoint.
 
+Both [sealed cylinder geometry candidates](measurements/2026/SealedPeriodicCylinderLocalNative01.json)
+pass the paired open, rebuild, save and fresh reopen with all 456
+numeric checks and two healthy controls across eight processes. The
+receipt lists omitted source document domains. These results add
+zero FCStd benchmark conversions.
+
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,
 save and reopen across 14 processes. Strict SDK readback reaches 20
 exact linked streams. Both generated mid-plane saves stop on the
-exact centre comparison. These remain native SOLIDWORKS sources
-outside the FCStd corpus.
+exact centre comparison. The [supplemental centre check](measurements/2026/SdkEndConditionCentreReadback01.json)
+binds both portable values to the same native point and passes all
+twelve reads and 24 linked streams. These are native SOLIDWORKS
+sources outside the FCStd corpus.
 
 Two [sealed native imports](measurements/2026/SealedImportedLocalGeometryNative01.json)
 also pass geometry projection, generation and the full native lifecycle.
