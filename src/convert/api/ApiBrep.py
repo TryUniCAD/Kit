@@ -28,7 +28,7 @@ def ExtractBrep(
             options=ReadOptions(
                 include_brep=True,
                 strict=True,
-                raw_brep_only=True,
+                extract_raw_brep=True,
             ),
         )
     )

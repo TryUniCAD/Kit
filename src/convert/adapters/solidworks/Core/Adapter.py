@@ -329,7 +329,7 @@ def ReadNativePart(
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
-        and not Settings.raw_brep_only
+        and not Settings.extract_raw_brep
         and Model.active_configuration_id == 0
         and len(ConfigValues) == 1
         and not PayloadDiags

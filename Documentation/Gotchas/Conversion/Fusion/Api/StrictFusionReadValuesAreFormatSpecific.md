@@ -5,7 +5,7 @@ Fusion reader permits only `fusion.inflate_zstd` in this map. A generic
 marker in the map causes a qualification error before source bytes are read.
 
 The public `extract_brep` operation uses the separate typed
-`ReadOptions.raw_brep_only` field for its read intent.
+`ReadOptions.extract_raw_brep` field for its read intent.
 SOLIDWORKS uses that field at its local reconstruction boundary.
 Fusion keeps its normal strict read and returns an empty extraction
 when the archive has no detachable B-rep payloads.
