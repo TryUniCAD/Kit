@@ -128,7 +128,7 @@ def ladder_refusals(group):
         refuse("trailing", data + b"\0", seed, role, "trailing data"),
         refuse("wrong_owner", data, seed, KExplViewClass, "unsupported body owner"),
         refuse("wrong_archive_version", data, seed, role, "archive version 19000", 18900),
-        refuse("wrong_map_counter", data, offset_seed, role, "archive object reference"),
+        refuse("wrong_map_counter", data, offset_seed, role, "unresolved external object"),
         refuse("null_backlink", data[:link] + b"\0\0" + data[link + 2:], seed, role, "owning backlink"),
         refuse("inherited_backlink", data[:link] + pack("<H", color) + data[link + 2:], seed, role, "owning backlink"),
         refuse("reused_root", pack("<H", graph.RootValue.IndexValue), graph.MapValue, role, "new root object"),
