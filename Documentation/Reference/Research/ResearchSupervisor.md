@@ -117,7 +117,10 @@ Preserve the supervisor state directory and original installation bytes for [ack
 
 A runner may opt into [group protocol 1](../../Changes/Research/Supervisor/GroupedSmallFileSessions.md) with `group_protocol: 1` and an explicit `group_peak_memory_mib` floor.
 It must also support the existing single-job contract.
-`group_limit_bytes` defaults to 1 MiB; groups contain 2–20 members with identical kind, tool version and rule version, strictly below the aggregate input footprint limit.
+Groups contain 2–20 members with the same kind, tool version and rule version.
+The combined input footprint must be below `group_limit_bytes`, which defaults to 1 MiB.
+Set `group_max_members` from 2 to 20 to lower the member ceiling. The default is 20.
+The catalogue runner uses groups of up to four rescans.
 The supervisor retains single-job fallback when a job cannot group or the group estimate cannot fit.
 
 A grouped worker receives `group.json` with `group_session_version: 1` and ordered member paths such as `jobs/00/job.json`.

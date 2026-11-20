@@ -136,6 +136,8 @@ An explicit value applies to every supervisor stage started by this batch.
 Kit still requires enough available memory for each worker's estimated demand.
 
 Kit automatically runs independent offline jobs in parallel when memory and CPU are available.
+Small compatible rescans can share one worker process in groups of up to four files.
+Each file retains its own result and receipt.
 Use `--workers N` to cap the number of offline workers.
 Set `--workers 1` for a serial offline run. Native CAD workers follow their own supervisor configuration.
 

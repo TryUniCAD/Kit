@@ -16,7 +16,7 @@ It uses the memory above the configured reserve and the workers' measured and es
 
 Use `--workers N` to set an upper bound on offline workers. Use `--workers 1` to run jobs in series.
 The supervisor uses this ceiling for the offline pool. A mixed pipeline shares the controller job capacity.
-Each active offline catalogue worker holds one job claim.
+Each offline worker may hold one claim or a short group of compatible rescan claims.
 The optional native stage uses its supplied worker configuration and CAD application ownership rules.
 
 See the [research command guide](../../../../Tasks/ResearchCommandLine.md#run-a-cad-catalogue-with-optional-advice).

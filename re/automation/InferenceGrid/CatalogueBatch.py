@@ -33,6 +33,10 @@ from Supervisor import read_config
 KMaxBatchWorkers = 64
 
 
+# short groups reuse the sdk while leaving enough work for other workers
+KCatalogueGroupSize = 4
+
+
 # independent routes keep running when another route lacks local prerequisites
 ScopeErrors = (
     OSError,
@@ -68,8 +72,12 @@ def RunCatalogueBatch(
     with HoldCatalogue(Directory):
         WriteRecord(Directory / "CataloguePlan.json", Plan)
         Store = Directory / "Store"
-        Config, _, _ = PilotConfig(Directory, SourceRoot, Workers, GroupRescans=False)
-        ClaimLimit = Workers if Native is None else KMaxBatchWorkers
+        Config, _, _ = PilotConfig(
+            Directory, SourceRoot, Workers, GroupMaxMembers=KCatalogueGroupSize
+        )
+        ClaimLimit = min(KMaxBatchWorkers, Workers * KCatalogueGroupSize)
+        if Native is not None:
+            ClaimLimit = KMaxBatchWorkers
         with Ledger(Store, create=True, max_running=ClaimLimit):
             pass
         if Native is not None:
