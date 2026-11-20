@@ -20,10 +20,14 @@ KThreadMgrClass = RuntimeClass("moCThreadRefMgr_c", 1)
 # the kernel mark has its own schema and position in the same part map
 KPMarkClass = RuntimeClass("moPMarkRecord_c", 1)
 
-# these two bounded roles require concrete owners in the qualified profiles
+# standard part views use a distinct descriptor from annotation and exploded views
+KViewClass = RuntimeClass("moView_c", 1)
+
+# these bounded roles require concrete owners in the qualified profiles
 KRequiredMembers = MappingProxyType(
-    {KRelMgrClass: "relation", KPMarkClass: "partition mark"}
+    {KRelMgrClass: "relation", KPMarkClass: "partition mark", KViewClass: "view"}
 )
+
 
 # the member reader admits only the measured concrete descriptors
 KCfgMemberSchemas = MappingProxyType(
@@ -36,6 +40,7 @@ KCfgMemberSchemas = MappingProxyType(
             KExplViewClass,
             KThreadMgrClass,
             KPMarkClass,
+            KViewClass,
         )
     }
 )

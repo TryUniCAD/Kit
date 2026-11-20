@@ -16,6 +16,13 @@ def IsBranchTaken(
     ModeValue = RuleValue.ModeValue
     if ModeValue == "Nonzero":
         return ReadScopeValue(ScopeValue, RuleValue.NameValue) != 0
+    if ModeValue == "NotEquals":
+        return ReadScopeValue(ScopeValue, RuleValue.NameValue) != RuleValue.MaskValue
+    if ModeValue == "BitsEqual":
+        Value = CastValue(int, ReadScopeValue(ScopeValue, RuleValue.NameValue))
+        return Value & RuleValue.MaskValue == RuleValue.CompareValue
+    if ModeValue == "Context":
+        return bool(FlagsValue.get(RuleValue.NameValue, 0))
     if ModeValue == "Condition":
         return bool(Conditions & RuleValue.MaskValue)
     if ModeValue == "NotContext":
