@@ -8,6 +8,6 @@ persists the resulting values in an embedded record without a class tag.
 
 Supply the preference values as explicit inputs. Preserve the native
 boolean, integer and double domains and the clamp. The
-[definition record](../../../../../re/solidworks/records/AssemblyDefinition2026.md)
+[definition record](../../../../../../re/solidworks/records/AssemblyDefinition2026.md)
 lists the preference keys and distinguishes persisted fields from the
 in-memory copies.

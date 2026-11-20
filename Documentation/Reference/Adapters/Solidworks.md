@@ -474,7 +474,7 @@ MatesList codec now accepts the actual resolved map and holds inherited
 occurrence aliases while reading and writing ordinary empty and planar lists.
 Automatic public mate admission remains open. [Typed mate list](../../Changes/Solidworks/Archive/SolidworksTypedMateListCodec.md)
 
-The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
+The [2026 archive map handoff](../../Changes/Solidworks/Archive/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
 extend the research instruments without establishing writer support.
 The [oracle diagnostic correction](../../Changes/Solidworks/Inspection/SolidworksOracleDiagnostics.md)
@@ -726,7 +726,7 @@ Their process checks do not establish a complete, loadable native document.
 The [fresh profile-reference repair](../../Changes/Solidworks/SolidworksProfileReferenceOwnership.md)
 gives the origin and ordinary sketch separate owned reference objects.
 
-The [2026 archive research](../../Changes/Solidworks/SolidworksArchiveResearch.md)
+The [2026 archive research](../../Changes/Solidworks/Archive/SolidworksArchiveResearch.md)
 adds version-specific class schemas and a byte-identity checker under `re/`.
 Remote process checks use eight redacted, vendor-authored controls.
 These checks measure schema coverage. They do not establish generated output,

@@ -4,7 +4,7 @@ Fresh assembly construction remains in progress and has no target-application ac
 
 The finding distinguishes constructor seeds from accepted saved-model values. It identifies concrete runtime classes, rejects abstract base records as fresh object choices, binds serialized members to native accessors, and closes the assembly model-update predicate. The named part and assembly constructors both reach the active common initializer that supplies a unit self component and relation manager with the actual model as owner. External references, placements, configuration domains, solver state, and derived caches remain active work.
 
-The [concrete-component gotcha](../../Gotchas/Conversion/Solidworks/Archive/AssemblyConcreteComponents.md) explains why an existing base serializer or a class name does not prove that a standalone object can be constructed. The source codec's 14 exact stream round trips are recorded separately and do not establish fresh generation.
+The [concrete-component gotcha](../../Gotchas/Conversion/Solidworks/Archive/Assembly/AssemblyConcreteComponents.md) explains why an existing base serializer or a class name does not prove that a standalone object can be constructed. The source codec's 14 exact stream round trips are recorded separately and do not establish fresh generation.
 
 The research [`Assembly.py`](../../../re/tooling/sw2026/builders/Assembly.py)
 module now computes the ten-double bounding-box record from explicit semantic

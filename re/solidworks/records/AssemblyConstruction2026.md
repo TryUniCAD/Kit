@@ -41,7 +41,7 @@ The runtime descriptor's schema is the u32 member at `+0x0c`; its object factory
 | `moMateNGeoms_c`            | `0x4ce48878`       | null                  | Abstract base only                                              |
 | `moMate2Geoms_c`            | `0x4ce488a8`       | null                  | Abstract base only                                              |
 
-These are native type facts, independent of document surveys. The [concrete-component gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/AssemblyConcreteComponents.md) records the construction consequence.
+These are native type facts, independent of document surveys. The [concrete-component gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Assembly/AssemblyConcreteComponents.md) records the construction consequence.
 
 ## Model root and subclass boundary
 

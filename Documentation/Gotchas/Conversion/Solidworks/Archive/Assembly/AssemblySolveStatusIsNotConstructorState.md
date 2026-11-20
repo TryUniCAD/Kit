@@ -7,5 +7,5 @@ write results from active mate items or an assembly traversal. They can write
 
 Do not emit the allocation seed as a universal saved value. Measure no-mate,
 solved and conflicting source graphs separately. The
-[native trace](../../../../../re/solidworks/records/AssemblySolveStatus2026.md)
+[native trace](../../../../../../re/solidworks/records/AssemblySolveStatus2026.md)
 records the validated call sites and the remaining state gaps.
