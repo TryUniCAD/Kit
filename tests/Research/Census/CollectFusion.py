@@ -5,8 +5,6 @@ import sys as System
 from pathlib import Path as FilePath
 from tempfile import gettempdir as GetTempDir
 
-from convert.Security.PathBoundary import ResolveWithin
-
 
 # the full census needs bounded reader batches so a single subprocess cannot hide partial progress
 def CollectFusion(TargetList: list[FilePath], TempPath: FilePath) -> FilePath:
@@ -33,19 +31,21 @@ def CollectFusion(TargetList: list[FilePath], TempPath: FilePath) -> FilePath:
     assert CensusRun.returncode == 0, CensusRun.stderr
     ExportPath = OsModule.environ.get("KIT_FUSION_CENSUS")
     if ExportPath:
-        Requested = FilePath(ExportPath).absolute()
-        Roots = [FilePath.cwd(), FilePath(GetTempDir())]
-        if OsModule.environ.get("GITHUB_ACTIONS") == "true" and OsModule.environ.get(
-            "RUNNER_TEMP"
-        ):
-            Roots.append(FilePath(OsModule.environ["RUNNER_TEMP"]))
-        Root = next((Value for Value in Roots if Requested.is_relative_to(Value)), None)
-        if Root is None:
+        TargetPath = next(
+            (
+                PathValue
+                for PathValue in (
+                    FilePath.cwd() / "FusionReaderCensus.json",
+                    FilePath(GetTempDir()) / "FusionReaderCensus.json",
+                )
+                if PathValue == FilePath(ExportPath).absolute()
+            ),
+            None,
+        )
+        if TargetPath is None:
             raise ValueError(
-                "census artifact must be inside the workspace or temporary directory"
+                "select FusionReaderCensus.json in the workspace or system temp directory"
             )
-        TargetPath = ResolveWithin(Requested.parent, Root) / Requested.name
-        if TargetPath != CensusPath:
-            with CensusPath.open("rb") as Source, TargetPath.open("xb") as Target:
-                CopyStream(Source, Target)
+        with CensusPath.open("rb") as Source, TargetPath.open("xb") as Target:
+            CopyStream(Source, Target)
     return CensusPath

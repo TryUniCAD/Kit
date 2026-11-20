@@ -49,7 +49,7 @@ This scoped admission does not establish general reverse-extrusion coverage, edi
 
 ## Per-file outcome evidence
 
-The remote corpus process check emits a complete census through `KIT_FUSION_CENSUS`. Set it to an unused path under the working directory, system temporary directory, or GitHub Actions runner temporary directory.
+The remote corpus process check emits a complete census through `KIT_FUSION_CENSUS`. Set it to the unused file `FusionReaderCensus.json` directly in the working directory or system temporary directory.
 The workflow retains it as `FusionReaderCensus-<attempt>`.
 Each entry binds the source path, Git blob, SHA-256 and exact reader outcome.
 The report also records corpus, SDK, tool and runtime identities.
