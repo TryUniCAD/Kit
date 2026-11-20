@@ -67,3 +67,8 @@ This entry now lives in the focused `Solidworks` subdirectory, with its relative
 The parent directory returns to 32 direct tracked files.
 Local verification checks the staged diff and link destinations without running tests.
 Remote PR checks verify the repair; merge-group acceptance remains deferred.
+
+Queue type checking also rejected six intentionally unused return values in the process integration cases.
+The cases now explicitly discard file-write counts and SQLite cursors while preserving every operation and assertion.
+The [queue diagnostic](https://github.com/TryUniCAD/Kit/actions/runs/44792579752/job/136485007439) also reports errors in the preceding Fusion catalogue change.
+Verification of the repair belongs in remote CI; no local tests were run.

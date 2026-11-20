@@ -8,7 +8,7 @@ def CheckKeepOutput(TmpPath: FilePath) -> None:
     OutputPath = TmpPath / "Existing"
     OutputPath.mkdir()
     SentinelPath = OutputPath / "Sentinel.txt"
-    SentinelPath.write_bytes(b"user owned evidence")
+    _ = SentinelPath.write_bytes(b"user owned evidence")
     Result = BuildSaved(OutputPath)
     assert Result.returncode != 0
     assert "Output directory already exists" in Result.stderr

@@ -15,7 +15,7 @@ def CheckTamper(TmpPath: FilePath) -> None:
     )
     OutputPath = CopyTree(SavedRoot, TmpPath / "Tampered")
     ExportPath = OutputPath / "ApiTypes.csv"
-    ExportPath.write_bytes(ExportPath.read_bytes() + b"unexpected,row\n")
+    _ = ExportPath.write_bytes(ExportPath.read_bytes() + b"unexpected,row\n")
     Result = RunCatalog("VerifyCatalog.py", str(OutputPath))
     assert Result.returncode != 0
     assert "Artifact fingerprint differs: ApiTypes.csv" in Result.stderr

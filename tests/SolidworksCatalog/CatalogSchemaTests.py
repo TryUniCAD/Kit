@@ -19,8 +19,8 @@ def CheckSchemaData(TmpPath: FilePath) -> None:
     OutputPath = CopyTree(SavedRoot, TmpPath / "SchemaTampered")
     DatabasePath = OutputPath / "Catalog.sqlite"
     with OpenSqlite(DatabasePath) as Database:
-        Database.execute("DROP VIEW api_feature_types")
-        Database.execute("CREATE VIEW api_feature_types AS SELECT * FROM api_types")
+        _ = Database.execute("DROP VIEW api_feature_types")
+        _ = Database.execute("CREATE VIEW api_feature_types AS SELECT * FROM api_types")
     Database.close()
     ManifestPath = OutputPath / "Manifest.json"
     ManifestData = LoadJson(ManifestPath.read_text(encoding="utf-8"))
@@ -28,7 +28,7 @@ def CheckSchemaData(TmpPath: FilePath) -> None:
         "bytes": DatabasePath.stat().st_size,
         "sha256": ShaDigest(DatabasePath.read_bytes()).hexdigest(),
     }
-    ManifestPath.write_text(DumpJson(ManifestData), encoding="utf-8")
+    _ = ManifestPath.write_text(DumpJson(ManifestData), encoding="utf-8")
     Result = RunCatalog("VerifyCatalog.py", str(OutputPath))
     assert Result.returncode != 0
     assert "Database schema or planner query views differ" in Result.stderr
