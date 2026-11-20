@@ -13,20 +13,18 @@ from convert.adapters.solidworks.Archive.Config.Scene.SceneTypes import (
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
-# the two actual part scenes give bounded positional roles for the allowed light graph
-KSceneShapes = (
-    (KAmbientClass,),
-    (KAmbientClass, KDirectionClass, KDirectionClass, KDirectionClass),
-)
-
 
 # post descent validation must detect borrowed or repeated links that bypass body callbacks
 def CheckCfgScene(RootValue: ArchiveNode, MapValue: ArchiveMaps) -> None:
     LightValues = tuple(
         RequireNewNode(Value, MapValue) for Value in ReadSceneRows(RootValue)
     )
-    ClassShape = tuple(Value.ClassValue for Value in LightValues)
-    if ClassShape not in KSceneShapes or len(set(LightValues)) != len(LightValues):
+    if (
+        not LightValues
+        or LightValues[0].ClassValue != KAmbientClass
+        or any(Value.ClassValue != KDirectionClass for Value in LightValues[1:])
+        or len(set(LightValues)) != len(LightValues)
+    ):
         raise BodyUnsupported("unsupported SOLIDWORKS scene light ownership")
     if any(ReadSceneRows(Value) for Value in LightValues):
         raise BodyUnsupported("SOLIDWORKS light resolved lists require empty owners")

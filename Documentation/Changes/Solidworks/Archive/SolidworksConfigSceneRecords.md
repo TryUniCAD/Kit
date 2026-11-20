@@ -1,8 +1,8 @@
 # SOLIDWORKS configuration scene records
 
 The bounded version-19000 member reader accepts the ordinary
-environment folder with an ambient light or an ambient light followed
-by three directional lights. Supply the exact member bytes and the
+environment folder with an ambient light followed by any count of
+qualified directional light rows. Supply the exact member bytes and the
 owning archive map snapshot with the earlier name class. Names and
 lights keep their native object identities.
 
@@ -13,7 +13,7 @@ outside the admitted profile.
 
 The disclosed L1 and concave parts supply the measured scene intervals,
 actual slot reuse and both light profiles. New guarded process cases
-cover these controls, authored signed-word differences and invalid
-records. Queue execution remains pending.
+cover these controls, one and two directional count contrasts, authored
+signed-word differences and invalid records. Queue execution remains pending.
 [Source and process evidence](../../../../re/solidworks/records/ConfigSceneSlice2026.md)
 · [Light normalization gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/LightResetRetainsWireWord.md)

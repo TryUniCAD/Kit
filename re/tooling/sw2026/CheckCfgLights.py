@@ -148,6 +148,31 @@ def small_refusals(case, data, seed):
     ]
 
 
+def counted_variants(case, data, seed):
+    root, ambient, *directions = case["scene"]
+    start = root["bounds"][0]
+    floor, ceil = (offset - start for offset in case["list_count_span"])
+    row_end = directions[-1]["bounds"][1] - start
+    require(ceil - floor == 2 and ceil == ambient["bounds"][0] - start,
+            "the counted light row boundary changed")
+    variants = []
+    for count in (1, 2):
+        end = directions[count - 1]["bounds"][1] - start
+        variant = data[:floor] + pack("<H", 1 + count) + data[ceil:end] + data[row_end:]
+        graph = ReadCfgMember(variant, 19000, seed, KEnvFolderClass)
+        node = graph.RootValue
+        values = children(node)
+        require(graph.ReportValue["completed"] and node.StartOffset == 0 and node.EndOffset == len(variant)
+                and [light.ClassValue for light in values] == [KAmbientClass, *([KDirectionClass] * count)]
+                and all(a is b for a, b in zip(graph.MapValue.EntriesValue[:len(seed.EntriesValue)],
+                                             seed.EntriesValue, strict=True)),
+                "counted lights changed order, framing or inherited map identities")
+        variants.append({"directional_count": count,
+                         "slots": [light.IndexValue for light in values],
+                         "counter": [seed.CounterValue, graph.MapValue.CounterValue]})
+    return variants
+
+
 def repeated_light(case, data, seed):
     start = case["scene"][0]["bounds"][0]
     earlier, next_light = case["scene"][2:4]
@@ -170,6 +195,7 @@ def run(name):
     if name == "concave":
         report.update(contrasted_words=contrast_words(data, case, seed), refusals=small_refusals(case, data, seed))
     else:
+        report["counted_variants"] = counted_variants(case, data, seed)
         report["refusals"] = [repeated_light(case, data, seed)]
     return report
 

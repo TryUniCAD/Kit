@@ -38,10 +38,10 @@ The existing bounded member reader owns the per-class map and body
 executor. Only the scene role allows light and name children. Its
 inherited feature fields and directional vector use the shared field
 layouts. The reader requires distinct newly allocated light and name
-objects, empty resolved lists in the lights, and empty light user
-property owners. These restrictions preserve the observed presentation
-boundary. The only new runtime normalization mode is the zero
-projection.
+objects, an ambient root entry followed by independently validated
+directional entries, empty resolved lists in the lights, and empty light
+user property owners. Validators register alongside existing bounded
+members. The new runtime normalization retains its own zero projection.
 
 ## Disclosed physical profiles
 
@@ -70,6 +70,15 @@ The independently authored numeric contrast replaces the declared
 Concave light words in memory with signed `-739`, `27` and `-16`.
 The shared normalization retains `-739` on the wire side, records
 zero on the runtime side and preserves both `f384` occurrences.
+Two count contrasts change the declared L1 child count and retain the
+matching leading native child frames. The reader accepts one and two
+directional light cases with counters 69 to 78 and 69 to 80. Both
+retain the actual ambient owner and all inherited identities. The
+post-change guarded reports have SHA-256
+`4f7a8ea1da698be7f0b81af1ba793349f43b550a2424d547b5b3abaf63ae88c9`
+for L1 and `0daf87b3454802d6ae5cea92a234234cd65a259ee359f7bc0320431e8b3eeaa3`
+for Concave.
+
 The malformed controls cover incomplete and trailing records, wrong
 archive version, unsupported root and nested classes, missing class context,
 borrowed or repeated objects, absent required lights and populated

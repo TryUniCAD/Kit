@@ -68,6 +68,10 @@ def TestSceneLadder() -> None:
         [-0.8067, -0.1736, -0.5649],
     ]
     assert all(RowValue["normalization"] == [0, 0] for RowValue in MembersValue[1:])
+    assert ReportValue["counted_variants"] == [
+        {"directional_count": 1, "slots": [73, 76], "counter": [69, 78]},
+        {"directional_count": 2, "slots": [73, 76, 78], "counter": [69, 80]},
+    ]
     assert ReportValue["refusals"] == ["repeated_light"]
 
 
