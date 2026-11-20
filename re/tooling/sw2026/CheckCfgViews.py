@@ -172,6 +172,7 @@ def authored_view(class_slot, *, flag=0, links=(), first_list=0, second_list=0):
 def authored_context(data, seed, class_slot):
     cursor = BinaryReader(data)
     state = TraceFlags(cursor)
+    initial = dict(state)
     context = BodyContext(19000, KMemberLayouts, KMemberVirtuals, KCfgMemberSchemas, FlagsValue=state)
     original = seed.EntriesValue
     mapped = ArchiveMaps(seed.CounterValue, seed)
@@ -186,8 +187,17 @@ def authored_context(data, seed, class_slot):
     assert all(mapped.EntryMap[entry.IndexValue] is entry for entry in original)
     assert node.FieldsValue["f358"] == ("A", "View")
     assert node.FieldsValue["f3c0"] == 23 and node.FieldsValue["f3c8"] == -31
+    bounded = ReadCfgMember(data, 19000, seed, KViewClass, FlagSeed=initial)
+    assert initial == {"conditions": 4096, "ctx3d0": 1, "ctx87c": 9}
+    check_slots(bounded.RootValue, seed, bounded.MapValue, {
+        "row": 10, "counter": [seed.CounterValue, mapped.CounterValue],
+        "class_slot": class_slot, "object_slot": node.IndexValue,
+    })
+    assert bounded.RootValue.FieldsValue == node.FieldsValue and bounded.FlagsValue == state
+    assert bounded.RootValue.StartOffset == 0 and bounded.RootValue.EndOffset == len(data)
     return {"events": state.events, "flags": dict(state), "slot": node.IndexValue,
-            "fields": node.FieldsValue}
+            "fields": node.FieldsValue, "member_context_calls": bounded.ReportValue["field_calls"]["Context"],
+            "member_flags": dict(bounded.FlagsValue)}
 
 
 def refusals(seed, class_slot, first, accepted):

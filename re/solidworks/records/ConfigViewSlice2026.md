@@ -81,9 +81,11 @@ An independently authored view reuses the L1 class and enters at its
 verified end counter with `ctx3d0=1`, `ctx87c=9` and unrelated
 condition bit `0x1000`. The guarded reader verifies all six ordered
 state changes at byte positions 169, 177 and 193, then exits with
-`ctx87c=0` and the unrelated condition still set. This is a
-contrast for archive state dispatch. It supplies no native
-viewport or application acceptance.
+`ctx87c=0` and the unrelated condition still set. The same authored
+bytes go through the bounded member entry with its copied caller context.
+The returned immutable context matches the instrumented field trace, and
+the caller's flag map remains intact. This is an archive state contrast.
+Native viewport and application acceptance remain open.
 
 The negative cases cover incomplete and trailing fields, null or
 borrowed owners, missing class slots, unsupported versions and wrong

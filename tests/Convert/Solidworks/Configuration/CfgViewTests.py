@@ -55,6 +55,8 @@ def AssertViewState(ReportValue: object) -> None:
         ["conditions", 193, 4608, 4096],
     ]
     assert State["flags"] == {"conditions": 4096, "ctx3d0": 1, "ctx87c": 0}
+    assert State["member_context_calls"] == 6
+    assert State["member_flags"] == State["flags"]
 
 
 # unsupported presentation branches must fail while the exact source role stays usable
