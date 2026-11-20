@@ -45,6 +45,12 @@ def CheckFileScope(TmpPath: FilePath) -> None:
         assert Audit["source_sha256"] == FileDigest(Stream, "sha256").hexdigest()
     assert Audit["member_count"] > 0 and Audit["unattributed_stream_ranges"]
     assert "family:extrude:cut-extrude" in Audit["selected_experiments"]
+    Brep = Audit["native_classes"]["classes"]["5662F619-2281-4AD9-93DC-1FCFDA1062E7"]
+    assert Brep["metatypes"] == ["BrepRefMetaType"] and "rRecipe" in Brep["fields"]
+    assert (
+        "5662F619-2281-4AD9-93DC-1FCFDA1062E7"
+        not in Audit["reader_attempts"]["strict"]["message"]
+    )
     assert Audit["whole_file_verified"] is False
     Outcome = LoadJson((RunPath / "CatalogueResult.json").read_bytes())
     assert Outcome["status"] == "coverage_incomplete"

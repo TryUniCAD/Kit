@@ -7,3 +7,5 @@ The source file remains local. Supplying a licensed evidence worker or enabling 
 [Usage](../../../Tasks/ResearchCommandLine.md#start-research-from-a-cad-file)
 
 A local P04 Fusion through-all cut run read 30 container members and found 107 ranges without cited provenance. The partial reader recovered a blind boss and through-all cut. The supervisor dispatched P03 and P04. The existing P03 candidate was refuted and P04 requested the two-body evidence experiment.
+
+The first strict refusal identified segment 0, object 338, class `5662F619-2281-4AD9-93DC-1FCFDA1062E7`. The saved group has `rRecipe`, `bAlwaysRecompute` and `bDirReversedAgainstRefEntity`. The Fusion 2706.1.17 reflection capture identifies it as `BrepRefMetaType`. The graph reader now loads the existing part-feature vocabulary containing its `BrepRef` schema. File-driven research indexes the observed class GUIDs and saved field names against that reflection capture.

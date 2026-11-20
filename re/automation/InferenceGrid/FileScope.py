@@ -102,4 +102,7 @@ def file_scope(path, application, scratch, root):
              "features_without_experiment": unresolved, "selected_experiments": sorted(features),
              "diagnostics": document.get("diagnostics", {}).get("$tuple", []),
              "whole_file_verified": False}
+    if "native" in reports:
+        from InferenceGrid.NativeClassEvidence import native_classes
+        audit["native_classes"] = native_classes(reports["native"], root)
     return {application: {"catalogue_sha256": pin, "features": features}}, (audit, reports)
