@@ -146,6 +146,61 @@ per-phase measurements stay inside the guest. Freeze this source receipt
 before implementing the typed neutral-source writer. Candidate generation
 and acceptance need their own later evidence.
 
+## Evaluate the locked cylindrical geometry
+
+Stage the committed cylinder constructor and evaluation protocol from
+tracked Git objects. The packet also pins the two earlier receipts,
+the pristine rectangle and the existing native comparator.
+
+```sh
+python3 -B "$KIT/re/tooling/sw2026/imported_body_source/StageSealedCylinderEvaluation.py" \
+  "$PACKET" --control "$CONTROL" --writer-revision "$WRITER_SHA" \
+  --protocol-revision "$EVALUATOR_SHA" --guest-root 'C:\KitPeriodicImportEval83'
+python3 -B "$PACKET/Tools/EvaluateSealedCylinder.py" verify "$PACKET/Job.json" \
+  --job-sha256 "$JOB_SHA"
+```
+
+Use an unused evaluation directory on the Windows system drive. The
+oracle owner runs both commands below using the existing current-user
+Parallels transport. Supply the digest printed by the build command
+when starting measurement.
+
+```powershell
+& $GuestPython -B "$GuestPacket\Tools\EvaluateSealedCylinder.py" build "$GuestPacket\Job.json" --job-sha256 $JobSha
+& $GuestPython -B "$GuestPacket\Tools\EvaluateSealedCylinder.py" measure "$GuestPacket\Job.json" --job-sha256 $JobSha --build-lock-sha256 $BuildLockSha
+```
+
+The build uses the hash-locked SI author specification in the original
+private directory. Two isolated SDK processes per case receive only that
+case's geometry and target recipe by standard input. They check for
+runtime file access and produce identical bytes. BuildLock records both
+generated hashes in the new private directory. The measure command
+verifies this lock before it reads either original native file or its
+detailed author records.
+
+The original feature keeps its own name, persistent reference and
+ordered tree. Compare actual original and generated periodic geometry
+after the pristine control. The generated part then rebuilds, saves to
+a separate file and opens read-only in another fresh process. Verify
+topology, signed cap normals, the circular rims, volume, surface area,
+centre of mass and six directional extrema. Use the closing pristine
+control and check all hashes again. Full success requires eight distinct
+native processes.
+
+The neutral radial basis comes from projecting the least-aligned
+positive Cartesian unit vector into the plane perpendicular to the
+authored signed axis. This is a geometry-only reconstruction from the
+original author specification. Original seam parameters, native
+identity, provenance, annotation, scene, material and configuration
+metadata are outside the transfer scope. A native imported body has no
+source driving dimension to edit.
+
+Publish only the aggregate packet Result.json. Keep the signed source
+specifications, originals, generated files, native saved copies, build
+lock and detailed observations in the two guest-local directories.
+The result records geometry life cycles and separate source and
+generated identity checks. It provides no public writer admission.
+
 ## Observe a standalone body in the native kernel
 
 Run [ObserveKernelBodyRestore.py](ObserveKernelBodyRestore.py) from a
