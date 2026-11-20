@@ -26,9 +26,12 @@ provenance and additional presentation owners remain outside this check.
 The native protocol compares each source, rebuilt candidate and independently
 reopened save in fresh processes bracketed by known-good controls on build
 `34.5.2.0604`. Native scene names and ownership are observed cold and after
-rebuild. Typed save readback checks the original semantic light inputs. These
-are disclosed discovery inputs. Held-out and public writer qualification
-remain separate.
+rebuild. All eleven fresh processes passed. Three generated candidates
+passed clean open, rebuild, save and fresh reopen through 348 geometry
+comparisons. Typed save readback preserved all 192 authored light values.
+These are disclosed discovery inputs. Held-out and public writer
+qualification remain separate.
+[Native part scene receipt](../measurements/2026/ImportedLocalSceneNative01.json)
 
 The first frozen packet `893c11258cd5f61f3e50547a76397e089c11c5675327e3f364b90d0e1a2996ae`
 stopped before COM with a manifest-key mismatch. Its host used forward

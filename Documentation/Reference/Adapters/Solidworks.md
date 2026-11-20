@@ -62,6 +62,13 @@ For ordinary version-19000 parts and assemblies, the SDK decodes `Contents/CMgr`
 
 For the compatible ordinary part text profile, the normal reader preserves authored summary fields in `metadata["document_summary"]`, file custom text in `metadata["custom_properties"]`, and configuration custom text in that actual configuration's attributes. Require `metadata["solidworks.part_text_properties"]["status"] == "complete"` when qualifying property support. Unsupported optional properties add an information diagnostic and withhold the text projection while preserving ordinary geometry/history reads. Configuration IDs and names must match the typed manager; its binary value cache can retain earlier text after native save. The measured empty advanced owner also admits this profile, including the ordinary local import variant with an absent cut-list owner. Populated advanced properties, links and other value types remain guarded. [Local import text and names](../../Changes/Solidworks/Generation/SolidworksImportedPartSemanticInputs.md) [Empty advanced property owners](../../Changes/Solidworks/Inspection/Properties/SolidworksEmptyAdvancedPropertyRead.md) [Part text property reader](../../Changes/Solidworks/Inspection/Properties/SolidworksPartTextPropertyRead.md)
 
+The internal local import constructor accepts explicit ambient and
+directional light semantics with their actual names, coefficients and creation
+times. Three disclosed parts retain this scene and their planar solids through
+clean native open, rebuild, save and fresh reopen. The original explicit empty
+property owners require a separate transfer rule.
+[Local import scene](../../Changes/Solidworks/Construction/SolidworksLocalImportScene.md)
+
 For the measured 2026 custom part preference, read `metadata["solidworks.typed_resolved_semantics"]["document_units"]` for millimetres, degrees, grams or kilograms, cubic millimetres and the native decimal counts for length, angle and mass. The reader requires a matching independent density length format in the document's user table. Presets and unqualified custom settings omit the optional entry. [Custom document units](../../Changes/Solidworks/Archive/SolidworksCustomDocumentUnitRead.md)
 
 The internal origin-box recipe reads one independent FreeCAD AdditiveBox from the strict neutral model. FreeCAD 1.0.2 and 1.1.4 profiles retain the named body, three driving lengths, source text and custom kilograms after native edits and fresh reopens. Public export qualification remains open. [Origin-box native result](../../Changes/Solidworks/Generation/Freecad/SolidworksFreecadBoxReleasePersistence.md)

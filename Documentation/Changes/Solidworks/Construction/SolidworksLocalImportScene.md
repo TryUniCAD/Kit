@@ -10,5 +10,7 @@ member lists are rejected before archive construction.
 Three disclosed source projections retain their typed scene values, local
 geometry and feature labels during guarded construction. A same-destination
 contrast changes five graph and header streams and preserves the geometry
-and rollback data. Native checks and the remaining source boundary are
-tracked in the [measurement record](../../../../re/solidworks/records/ImportedLocalScene2026.md).
+and rollback data. All three pass clean native open, rebuild, save and fresh
+reopen, with both controls healthy. The typed native saves preserve the four
+lights on each part. This is the internal disclosed scene profile.
+[Measurement record](../../../../re/solidworks/records/ImportedLocalScene2026.md)
