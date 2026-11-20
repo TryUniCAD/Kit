@@ -82,8 +82,8 @@ driving edits and restorations, archive hashes, and fresh-process evidence.
 The decoder consumes controller-accepted native artifacts. It reads each archive
 twice and compares the neutral output bytes. Unsupported input and unresolved
 fields remain explicit in `CatalogueResult.json`; they do not become successful
-decoding because a native capture succeeded. Neutral outputs are retained as
-controller artifacts. This does not promote a new decoder rule or qualify a
+decoding because a native capture succeeded. Only portably qualified neutral
+outputs are retained as controller artifacts. This does not promote a new decoder rule or qualify a
 cross-format conversion.
 
 Pause and resume use the same directory and source revision. The saved plan,

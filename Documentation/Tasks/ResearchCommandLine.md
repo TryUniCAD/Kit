@@ -171,8 +171,17 @@ To retry a parked native job after its owner restores the application, add `--na
 Add `--author-samples` to a catalogue run to create new native samples before
 decoding them. `--authoring-cases` selects catalogue identities and validated
 parameter overrides. `--prepare-only` writes the plan without launching CAD.
-Discovery uses the executable P01, P03, and P04 builders. Reserved P02 and P05
-authoring require explicit `--capture-mode qualification` or `holdout`.
+Discovery uses P01, P03, P04, and the five registered extrusion recipes.
+Use `--capture-mode qualification` for P02. Use `--capture-mode holdout` for P05
+and the four registered revolution recipes.
+
+Add `--authoring-grid three-values` to vary each exposed parameter independently
+across three legal values. Omit it to retain baseline cases. New SOLIDWORKS
+recipes share native batches of at most three cases, with separate decoder jobs.
+Native execution requires a Windows desktop context outside AppContainer.
+Native outputs persist under the run's `NativeAttempts` directory.
+See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
+for exact identities, limits, and evidence requirements.
 
 SOLIDWORKS needs `--solidworks-host` with installed executable and interop paths.
 Fusion needs its native worker options and `--fusion-lifecycle` for automatic
