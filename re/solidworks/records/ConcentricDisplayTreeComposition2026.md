@@ -35,3 +35,7 @@ python3.14 -I -B re/tooling/sw2026/para/concentric/ProveDisplayTreeComposition.p
 ```
 
 The retained receipt SHA-256 is `aa96f0c82562e578d53561928501e4ad8584011b2bb0639a08b2250b38a25905`.
+
+The [separate parent VisualStates composer](ConcentricVisualStateStore2026.md)
+uses the same authored state intent and actual occurrence IDs for its
+bounded context-flag-zero graph.
