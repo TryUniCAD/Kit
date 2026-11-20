@@ -67,6 +67,7 @@ python -I -B re/tooling/sw2026/CheckCfgHeaderLink.py ladder
 python -I -B re/tooling/sw2026/CheckCfgHeaderLink.py concave
 python -I -B re/tooling/sw2026/CheckCfgHeaderLink.py circle --disclosed-root /path/to/disclosed-controls
 python -I -B re/tooling/sw2026/CheckCfgHeaderLink.py authored
+python -I -B re/tooling/sw2026/CheckCfgHeaderLink.py version-order
 ```
 
 The twelve authored refusals exercise missing or malformed streams,
@@ -102,6 +103,22 @@ header or model body. These are physical container and typed start
 checks. Complete model body consumption remains a separate gate.
 [Process evidence](../measurements/2026/ConfigHeaderLinkReader01.json)
 · [Queue case](../../../tests/Convert/Solidworks/Configuration/HeadAliasTests.py)
+
+### Version guard order with unreadable streams
+
+The guarded version-order process authors two malformed logical streams
+and decodes each physical envelope through the normal format-4
+container reader. ModelHeader contains only its new-class tag
+`ff ff`. Config-0 contains only the wide tag marker `ff 7f`.
+All common stream bytes agree across the logical 18900 and 19000
+envelopes. The 18900 case reports the exact version diagnostic. The
+19000 case reports the truncated ModelHeader descriptor at byte 2.
+A third 19000 envelope keeps those Config-0 bytes and supplies the
+valid authored ModelHeader. It reports the incomplete Config-0
+tag dword. The ordinary version-19000 alias probe and disclosed
+source cases run independently.
+[Version guard process and stream hashes](../measurements/2026/ConfigHeaderLinkReader01.json)
+· [Queue case](../../../tests/Convert/Solidworks/Configuration/HeadVersionTests.py)
 
 ## Remaining physical admission
 

@@ -130,11 +130,13 @@ def replace_lane(archive, name, data):
     return replace(archive, records=records)
 
 
-def refuse(label, archive, expected):
+def refuse(label, archive, expected, *, exact=False):
     try:
         ReadPartStart(archive)
     except (ValueError, SldprtFormatError) as error:
-        require(expected in str(error), f"{label} failed at a different boundary: {error}")
+        detail = str(error)
+        require(detail == expected if exact else expected in detail,
+                f"{label} failed at a different boundary: {detail}")
         return label
     raise ValueError(f"{label} crossed the named part start boundary")
 
@@ -227,6 +229,42 @@ def authored_case():
     }
 
 
+def version_order_case():
+    guard_runtime()
+    valid = authored_lanes()
+    malformed_config = pack("<H", 0x7FFF)
+    malformed_header = pack("<H", 0xFFFF)
+    config_fault = {**valid, CONFIG: malformed_config}
+    paired_fault = {**config_fault, MODEL: malformed_header}
+    cases = (
+        ("wrong_version", 18900, paired_fault,
+         "SOLIDWORKS configuration start requires format 4 at version 19000"),
+        ("current_bad_header", 19000, paired_fault, "truncated SOLIDWORKS archive field at 2"),
+        ("current_bad_config", 19000, config_fault, "archive tag has no complete unsigned dword"),
+    )
+    results = []
+    for label, version, lanes, expected in cases:
+        raw = frame_lanes(lanes, version)
+        archive = SldprtArchive.from_bytes(raw)
+        require(archive.format_version == 4 and ContainerMo(archive.Streams) == version,
+                "version-order container has the wrong physical or logical profile")
+        require(archive.Streams == {**lanes, f"_MO_VERSION_{version}": b""},
+                "version-order container changed the authored fault streams")
+        results.append({
+            "stage": refuse(label, archive, expected, exact=True),
+            "diagnostic": expected,
+            "physical_format": archive.format_version,
+            "logical_version": version,
+            "raw_archive_sha256": digest(raw),
+            "required_lane_sha256": {name: digest(archive.require(name)) for name in (CONFIG, MODEL)},
+        })
+    return {
+        "case": "version-order",
+        "stages": results,
+        "runtime_external_accesses": 0,
+    }
+
+
 def read_case(case, root):
     path, file_sha, config_sha, model_sha, standalone_sha, prefix_sha, end, native_idx, name, config_name = CASES[case]
     source = (root / path).read_bytes()
@@ -290,11 +328,14 @@ def read_case(case, root):
 
 def main():
     parser = ArgumentParser(description="Verify the named ordinary part header alias handoff")
-    parser.add_argument("case", choices=(*CASES, "authored"))
+    parser.add_argument("case", choices=(*CASES, "authored", "version-order"))
     parser.add_argument("--disclosed-root", type=Path)
     args = parser.parse_args()
     if args.case == "authored":
         print(json.dumps(authored_case(), sort_keys=True))
+        return
+    if args.case == "version-order":
+        print(json.dumps(version_order_case(), sort_keys=True))
         return
     if args.case not in TRACKED and args.disclosed_root is None:
         parser.error("the selected control requires its disclosed root")

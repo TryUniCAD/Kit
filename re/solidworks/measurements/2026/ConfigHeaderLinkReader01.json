@@ -416,13 +416,14 @@
   "preparation_base": "fda31a2679995db48aad4fd2ff54d86966fd272d",
   "pristine_originals": true,
   "proof_tool_sha256": {
-    "re/tooling/sw2026/CheckCfgHeaderLink.py": "b597942e883b2831b008d9d9c6d0ce67f93bb04d6c952322e29c359dad6fecb1",
+    "re/tooling/sw2026/CheckCfgHeaderLink.py": "312588cd4651571b5c00ffbb82332502c5cf221ea6b6335854d2107d3d03cc98",
     "re/tooling/sw2026/MakeHeadAliasCase.py": "d3f10efe2f7506b60e16558b88014bbee68e5772e0908d2b705b6c99bfd127fd"
   },
   "python_version": "3.14.7",
   "queue_case_sha256": {
     "tests/Convert/Solidworks/Configuration/HeadAliasTests.py": "e8a3b63807c998beed98c05b29dcc8af87fd715f23936c04800d09b1a103e609",
     "tests/Convert/Solidworks/Configuration/HeadLinkTests.py": "cffca3da0a2f253effff12b97ecfe160604d44eae1dd5e9c007f0a5f320e51b6",
+    "tests/Convert/Solidworks/Configuration/HeadVersionTests.py": "38ed0617d35ce8281d87d0f7e6de2e2846b581d240401a4ab6edfa7e4e680de2",
     "tests/Convert/Solidworks/Configuration/RunHeadLink.py": "0539aeee45bc874a5a06793e85329be33061b2a7413bda3f767fef91f811c6bc"
   },
   "refusals_per_pass": 12,
@@ -851,5 +852,72 @@
     "Contents/Config-0-ModelHeader"
   ],
   "source_manifest_sha256": "8866bc9f5bd2898be1ff1540146a2a9e0a0db7a0ee8b23720bf9acac7d897d72",
-  "source_scope": "current ordinary part root and first section boundary with separately named ModelHeader"
+  "source_scope": "current ordinary part root and first section boundary with separately named ModelHeader",
+  "version_order_verification": {
+    "authored_fault_tag_bytes": {
+      "Contents/Config-0": "ff7f",
+      "Contents/Config-0-ModelHeader": "ffff"
+    },
+    "fresh_processes": 9,
+    "order_sensitivity": {
+      "fresh_processes": 2,
+      "in_memory_order_failures": {
+        "config": "wrong_version failed at a different boundary: archive tag has no complete unsigned dword",
+        "header": "wrong_version failed at a different boundary: truncated SOLIDWORKS archive field at 2"
+      }
+    },
+    "originals_pristine": true,
+    "prepared_head": "ac9c4bd60f9c16cb9c1567f4d5b97ef15f3b593a",
+    "proof_case": {
+      "case": "version-order",
+      "runtime_external_accesses": 0,
+      "stages": [
+        {
+          "diagnostic": "SOLIDWORKS configuration start requires format 4 at version 19000",
+          "logical_version": 18900,
+          "physical_format": 4,
+          "raw_archive_sha256": "1bb578ad0a73adf22bc3f371b5ae4e8f7f2721ffc56f3a16cda048b90f99def7",
+          "required_lane_sha256": {
+            "Contents/Config-0": "8f96c15501bef61baf5bd943201979595736b66b6a7e3b35c353729ab8d9a561",
+            "Contents/Config-0-ModelHeader": "ca2fd00fa001190744c15c317643ab092e7048ce086a243e2be9437c898de1bb"
+          },
+          "stage": "wrong_version"
+        },
+        {
+          "diagnostic": "truncated SOLIDWORKS archive field at 2",
+          "logical_version": 19000,
+          "physical_format": 4,
+          "raw_archive_sha256": "8d53955e736c55b32b2f2bccd740c51f9add6dc7c8f8cd9dc041932a3938abf3",
+          "required_lane_sha256": {
+            "Contents/Config-0": "8f96c15501bef61baf5bd943201979595736b66b6a7e3b35c353729ab8d9a561",
+            "Contents/Config-0-ModelHeader": "ca2fd00fa001190744c15c317643ab092e7048ce086a243e2be9437c898de1bb"
+          },
+          "stage": "current_bad_header"
+        },
+        {
+          "diagnostic": "archive tag has no complete unsigned dword",
+          "logical_version": 19000,
+          "physical_format": 4,
+          "raw_archive_sha256": "7c0aa5f351480282ecd1899f42e1e7e420717922476681cf2691fe04654e3e63",
+          "required_lane_sha256": {
+            "Contents/Config-0": "8f96c15501bef61baf5bd943201979595736b66b6a7e3b35c353729ab8d9a561",
+            "Contents/Config-0-ModelHeader": "8b5e9dd7648c4b69711c4ca4876781e78c00542f88a4d617e775ffb5b373a81f"
+          },
+          "stage": "current_bad_config"
+        }
+      ]
+    },
+    "python_version": "3.14.7",
+    "retained_stdout_sha256": {
+      "authored": "fb7bb783c367b43f7ff3d53e487b0a7f827b4415bc83b2b3653b63b3b6118de5",
+      "circle": "6994ceebd29a6c548971ab9a724c35b605cdec681703a60319425e112786bf7b",
+      "circle_saved": "44348614d166c884632640a316579674eebdd4a206ffac9c51c0f1ef03a2b504",
+      "concave": "d6d7ad2c8c0cfae38b2b15f98602a98db0bc963748c4a533b2b73c6ef5021e6d",
+      "ladder": "15c8e1810a3ee0c26da9a7b17bcaec4eae1d23da60aa26d5ccf378740cdaa2dc",
+      "polygon_saved": "6bc7c6ed77aa01fab357ea85b47255165604c82ece5b5d505ba5367a695ee0d6",
+      "rectangle": "54d3ce1556761e793f602836d6ae739d1dc311ee6d1676835d7a5e84914404a5"
+    },
+    "stdout_sha256": "3ec98a6c5c1e0da1e7de5636091760e6d63dc8d505cc438ed42a75dea95e1676",
+    "version_order_processes": 2
+  }
 }
