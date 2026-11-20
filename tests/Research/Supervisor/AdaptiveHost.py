@@ -16,7 +16,8 @@ def MakeAdaptive(RootPath: FilePath, PoolLimit: int = 2) -> SessionHost:
     RunnerInfo = Registry["runners"]["fixture.decode"]
     RunnerInfo["argv"] = [
         System.executable,
-        str(FilePath(__file__).with_name("AdaptiveRunner.py")),
+        "-m",
+        "tests.Research.Supervisor.AdaptiveRunner",
         "{session}",
     ]
     RunnerInfo["initial_peak_memory_mib"] = 128

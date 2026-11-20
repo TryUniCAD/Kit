@@ -4,6 +4,7 @@ import os as OsLayer
 import sys as System
 import time as TimeClock
 from pathlib import Path as FilePath
+from tests.Research.Supervisor.SessionRoot import SessionRoot
 
 
 # distinct member artifacts expose mixed results and deliberate digest failures during group intake
@@ -48,11 +49,14 @@ def RunBatch(SessionRoot: FilePath) -> None:
         if GroupFile.is_file()
         else None
     )
-    MemberRoots = (
-        [SessionRoot / FilePath(NameText).parent for NameText in GroupInfo["members"]]
-        if GroupInfo
-        else [SessionRoot]
-    )
+    MemberRoots = [SessionRoot]
+    if GroupInfo:
+        Members = GroupInfo["members"]
+        if Members != [f"jobs/{Index:02d}/job.json" for Index in range(len(Members))]:
+            raise ValueError("invalid grouped fixture member roster")
+        MemberRoots = [
+            SessionRoot / "jobs" / f"{Index:02d}" for Index in range(len(Members))
+        ]
     JobRecords = [
         JsonCodec.loads((MemberRoot / "job.json").read_text(encoding="utf-8"))
         for MemberRoot in MemberRoots
@@ -66,9 +70,10 @@ def RunBatch(SessionRoot: FilePath) -> None:
             System.exit(7)
         StartedFile = JobRecords[0]["job"]["options"].get("started_file")
         if StartedFile:
-            _ = FilePath(StartedFile).write_text(
-                str(OsLayer.getpid()), encoding="ascii"
-            )
+            Marker = SessionRoot.parents[2] / "Started.pid"
+            if FilePath(StartedFile).resolve() != Marker:
+                raise ValueError("unexpected group start marker")
+            _ = Marker.write_text(str(OsLayer.getpid()), encoding="ascii")
         MemoryBlock = (
             b"x"
             * max(
@@ -89,4 +94,4 @@ def RunBatch(SessionRoot: FilePath) -> None:
 
 
 if __name__ == "__main__":
-    RunBatch(FilePath(System.argv[1]))
+    RunBatch(SessionRoot(System.argv[1]))

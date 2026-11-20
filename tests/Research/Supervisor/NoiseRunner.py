@@ -1,12 +1,12 @@
 import json as JsonCodec
 import os as OsLayer
 import sys as System
-from pathlib import Path as FilePath
+from tests.Research.Supervisor.SessionRoot import SessionRoot
 
 
 # both output streams need real pressure to expose unbounded capture or pipe stalls
 def WriteNoise() -> None:
-    SessionPath = FilePath(System.argv[1])
+    SessionPath = SessionRoot(System.argv[1])
     for StreamId in (1, 2):
         Content = b"x" * 2097152
         while Content:
