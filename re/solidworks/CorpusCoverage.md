@@ -135,6 +135,12 @@ through the edit, save and fresh reopen. Complete source transfer and
 continuous automatic scope remain open. The case adds zero FCStd
 benchmark conversions.
 
+The [disclosed two-stock scope trial](measurements/2026/ThroughAllMultiStockScopeObserved01.json)
+found the same single native stock owner after the automatic creation
+request and after an edit moved the other solid into the tool. The edited
+solid remained intact in both lifecycles. The explicit authoring arm
+failed at creation and the trial contributes zero benchmark conversions.
+
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,
 save and reopen across 14 processes. Strict SDK readback reaches 20

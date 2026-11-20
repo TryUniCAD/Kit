@@ -84,4 +84,12 @@ probe phase After
 probe summary
 ```
 
-The research packet carries zero held-out and production credit. Complete-source and public write gates require separate evidence. A measured list transition would locate the next typed field and persistence experiment. A fixed outcome would bound this API request to this particular authoring profile and edit.
+## Packet 03 native result
+
+Seven distinct SOLIDWORKS processes ran serially and both D01 controls passed. The automatic request produced a source with SHA-256 `748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3`. Its original save and fresh reopen returned zero errors and warnings. The author and fresh-reopen processes passed 127 and 79 numerical checks. Both changed the real editable `D1@MovingStock` from 10 to 29 mm and retained two solids, the feature tree and signed sketch frames. The edited moving stock matched the intact prediction at 3,248 mm³, 1,500 mm² and centre of mass (14.5, 8, 9) mm. All six of its faces retained `MovingStock` ownership. The stationary stock retained its measured notch.
+
+The automatic request immediately reported `FeatureScope=True, AutoSelect=False`. All ordinary definition reads kept those flags, returned count −1 and an absent body array. The separate initial and edited sessions passed 26 and 53 numerical checks and queried selection access after geometry measurement. Each obtained count 1 and the actual `SteadyStock` owner, released selection access and closed without changing the original save. This establishes fixed membership for this observed model and upstream edit.
+
+The named explicit authoring arm passed the 22 preliminary stock checks, selected the actual `SteadyStock` body at mark 1 and then received a null `FeatureCut4` result. No explicit-scope source was saved. The aggregate packet is partial because that arm failed. The numerical result and exact observed ownership apply to the automatic-request arm. The canonical guest summary is SHA-256 `b0e0eddd721f8beb756cf081100671631815c1fe740804369bb108c817207f77`. The tracked measurement gives the initial and edited forecasts and observations, raw flags, both actual scope queries and the failed explicit request. [Native receipt](../measurements/2026/ThroughAllMultiStockScopeObserved01.json)
+
+The disclosed packet carries zero held-out, production and FCStd credit. The next archive comparison uses the exact automatic-request save to locate the body wrapper and its selected stock producer. Other models and public write qualification remain open.

@@ -6,10 +6,12 @@ The direct body count is `-1` and the body array is absent. Those
 values establish unavailable membership after ordinary definition
 access. They do not identify which body the cut owns.
 
-Keep the geometry observation independent. Query scope after
-`AccessSelections` from a separate fresh read-only open, and release
-the selection access afterward. The selection query can roll back
-the model, so the geometry edit and the scope observation use
-separate processes.
-[Exact native refusal](../../../../../../re/solidworks/measurements/2026/ThroughAllMultiStockScopeRetry01.json)
-· [Protocol](../../../../../../re/solidworks/records/ThroughAllMultiStockScope2026.md)
+Keep the geometry observation independent. In a separate fresh open,
+measure the initial geometry or apply the upstream dimension edit and
+rebuild. Then query scope between `AccessSelections` and
+`ReleaseSelectionAccess`. Selection access can roll back the model.
+Close without saving and verify that the original file hash is intact.
+Both selection-access queries returned the same one-body owner in the
+measured fixture.
+[Direct getter receipt](../../../../../../re/solidworks/measurements/2026/ThroughAllMultiStockScopeRetry01.json)
+· [Selection-access result](../../../../../../re/solidworks/measurements/2026/ThroughAllMultiStockScopeObserved01.json)
