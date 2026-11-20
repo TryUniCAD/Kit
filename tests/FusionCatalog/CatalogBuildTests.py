@@ -4,11 +4,14 @@ from sqlite3 import connect as OpenSqlite
 from subprocess import run as RunProcess
 from sys import executable as PythonPath
 
+from pytest import mark as MarkTests
+
 from tests.FusionCatalog.PrepareApi import PrepareApi
 
 
 # real builder and verifier processes must produce usable fresh inventories without executing input definitions
-def CheckBuildFlow(TmpPath: FilePath) -> None:
+@MarkTests.parametrize("HasCapture", [False, True])
+def CheckBuildFlow(TmpPath: FilePath, HasCapture: bool) -> None:
     RepoRoot = FilePath(__file__).resolve().parents[2]
     CatalogRoot = RepoRoot / "re" / "Fusion" / "PlannerCatalog"
     ModuleRoot = PrepareApi(TmpPath)
@@ -21,8 +24,11 @@ def CheckBuildFlow(TmpPath: FilePath) -> None:
             str(ModuleRoot),
             "--research-root",
             str(RepoRoot),
-            "--commands",
-            str(CatalogRoot / "Sources" / "Commands.json"),
+            *(
+                ["--commands", str(CatalogRoot / "Sources" / "Commands.json")]
+                if HasCapture
+                else []
+            ),
             "--output",
             str(OutputRoot),
             "--all-csv",
@@ -49,10 +55,13 @@ def CheckBuildFlow(TmpPath: FilePath) -> None:
     try:
         assert Database.execute(
             "SELECT COUNT(*) FROM items WHERE source_id='commands:current' AND kind='ui_command'"
-        ).fetchone() == (3151,)
+        ).fetchone() == (3151 if HasCapture else 0,)
         assert Database.execute(
             "SELECT COUNT(*) FROM gaps WHERE source_id='commands:current' AND code='ui_getter_unavailable'"
-        ).fetchone() == (88,)
+        ).fetchone() == (88 if HasCapture else 0,)
+        assert Database.execute(
+            "SELECT COUNT(*) FROM gaps WHERE code='ui_current_capture_missing'"
+        ).fetchone() == (0 if HasCapture else 1,)
         assert Database.execute(
             "SELECT target_id FROM relations WHERE owner_id=? AND relation='property_type'",
             ("api:adsk.fusion.ProbeFeatureInput.mode",),
