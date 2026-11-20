@@ -6,7 +6,7 @@ from typing import cast as CastValue
 
 # each disclosed scene needs a fresh guarded process with its actual native parent
 KSceneProbe = (
-    FilePath(__file__).resolve().parents[4] / "re/tooling/sw2026/CheckCfgLights.py"
+    FilePath(__file__).resolve().parents[5] / "re/tooling/sw2026/CheckCfgLights.py"
 )
 
 

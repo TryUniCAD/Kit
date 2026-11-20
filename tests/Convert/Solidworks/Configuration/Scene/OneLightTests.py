@@ -1,6 +1,6 @@
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Configuration.ReadSceneCase import ReadSceneCase
+from tests.Convert.Solidworks.Configuration.Scene.ReadSceneCase import ReadSceneCase
 
 
 # the original one direction save must supply its own scene and named light graph

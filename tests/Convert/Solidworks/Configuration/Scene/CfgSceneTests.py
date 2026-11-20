@@ -1,6 +1,6 @@
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Configuration.ReadSceneCase import ReadSceneCase
+from tests.Convert.Solidworks.Configuration.Scene.ReadSceneCase import ReadSceneCase
 
 
 # actual directional class reuse must preserve all three distinct objects and vectors

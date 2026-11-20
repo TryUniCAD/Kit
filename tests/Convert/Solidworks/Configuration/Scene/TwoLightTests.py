@@ -1,6 +1,6 @@
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Configuration.ReadSceneCase import ReadSceneCase
+from tests.Convert.Solidworks.Configuration.Scene.ReadSceneCase import ReadSceneCase
 
 
 # the original two direction save must reuse its class while preserving distinct named owners
