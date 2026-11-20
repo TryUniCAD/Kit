@@ -218,7 +218,7 @@ A request contains these fields.
 | `contract.mode`, `contract.target_suffix` | `reader` with an empty suffix, or `writer` with the output extension |
 | `contract.cases` | Two to sixteen objects with tracked `file`, its `sha256`, and an `expect` mapping from decoded document JSON pointers to independently measured scalar values |
 
-For example, an expected value for the first circle sketch entity can be expressed as `{"/document/sketches/$tuple/0/entities/$tuple/0/geometry/$type":"CircleGeometry"}`. Select measurements specific to the proposed change.
+For example, an expected value for the first circle sketch entity can be expressed as `{"/document/sketches/$tuple/0/entities/$tuple/0/geometry/$type":"CircleGeometry"}`. Each case must also check a feature-history value and a parameter value. Select measurements specific to the proposed change. The exporter runs the repository recorded-payload scanner before qualifying a candidate.
 
 When the baseline fails a measurement, Codex receives the selected modules, the reviewed rule and the finding. The default is GPT-6.2-Sol at medium reasoning effort. Keep proprietary contents out of the written rule. Supply `--candidate replacements.json` (or `--codec-candidate` during a catalogue run) to qualify a mapping from each selected path to its complete proposed source without a model call.
 

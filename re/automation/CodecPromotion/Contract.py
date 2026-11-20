@@ -43,6 +43,8 @@ def validate(contract, discovery):
         checks = case["expect"]
         if not isinstance(checks, dict) or not 1 <= len(checks) <= 32:
             raise ValueError("expected independent semantic measurements")
+        if not all(any(path.startswith(prefix) for path in checks) for prefix in ("/document/feature_timeline/", "/document/parameters/")):
+            raise ValueError("each qualification case requires feature history and parameter measurements")
         for path, value in checks.items():
             if not path.startswith("/document/") or len(path) > 512 or not isinstance(value, (str, int, float, bool)) or isinstance(value, float) and not math.isfinite(value):
                 raise ValueError("expected a document pointer and a finite scalar measurement")

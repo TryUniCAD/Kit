@@ -27,7 +27,7 @@ def exercise(work, store, statuses, mode, image):
     def git(*args):
         return subprocess.check_output(["git", "-C", str(repo), *args], text=True).strip()
 
-    git("sparse-checkout", "set", "--no-cone", "/src/", "/Cli/", "/pyproject.toml", "/Documentation/Changes/Research/", "/tests/Research/CodecPromotion/", "/re/automation/*.py",
+    git("sparse-checkout", "set", "--no-cone", "/src/", "/Cli/", "/tools/Donors/", "/pyproject.toml", "/Documentation/Changes/Research/", "/tests/Research/CodecPromotion/", "/re/automation/*.py",
         "/re/automation/CodecPromotion/", "/re/Fusion/LocalOracle/PublicAdapter/", "/re/Playbook/README.md")
     git("checkout", "--detach", "HEAD")
     module = f"src/convert/adapters/json/{mode.title()}.py"
@@ -49,7 +49,9 @@ def exercise(work, store, statuses, mode, image):
             (repo / sample).write_bytes(EmitDocument(DocumentSpec(shape, "height", 17.0, ProfileKind=shape, ConstrainRectangle=True)))
             git("add", sample)
         cases.append({"file": sample, "sha256": hashlib.sha256((repo / sample).read_bytes()).hexdigest(),
-                      "expect": {"/document/sketches/$tuple/0/entities/$tuple/0/geometry/$type": geometry}})
+                      "expect": {"/document/sketches/$tuple/0/entities/$tuple/0/geometry/$type": geometry,
+                                 "/document/parameters/$tuple/0/value/value": 17.0,
+                                 "/document/feature_timeline/$tuple/0/kind/value": "reference"}})
     if mode == "writer":
         git("-c", "user.name=Process Control", "-c", "user.email=control@example.invalid", "commit", "-qm", "Pin dimension-driven native controls")
     name = "Public" + mode.title()

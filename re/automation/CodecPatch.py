@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import sys
 import tarfile
 from tempfile import TemporaryDirectory, TemporaryFile
 
@@ -132,6 +133,11 @@ def produce(args):
             target = tree / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(source, encoding="utf-8", newline="\n")
+        subprocess.run(
+            [sys.executable, "-m", "tools.Donors.CheckReplays", *[str(tree / path) for path in modules]],
+            cwd=ROOT, env={**os.environ, "PYTHONPATH": str(ROOT)},
+            check=True, stdout=subprocess.DEVNULL, timeout=90,
+        )
         for sample, case in inputs:
             if not observe(tree, sample, contract, case, args.image, reference):
                 raise ValueError("candidate failed independent case: " + case["file"])
