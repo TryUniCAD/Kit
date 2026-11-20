@@ -19,6 +19,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.CheckBareImpo
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.FinishImportMut import (
     FinishImportMut,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportKeyInput import (
+    ImportKeyInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import (
     ImportCandidate,
 )
@@ -89,6 +92,7 @@ def MakeBareImport(
     LightValues: tuple[LightInput, ...] = (),
     NotesValue: NotesInput | None = None,
     HasEmptyExplodedView: bool = False,
+    KeywordInput: ImportKeyInput | None = None,
 ) -> ImportCandidate:
     if type(HasEmptyExplodedView) is not bool:
         raise TypeError("part exploded view presence requires an explicit boolean")
@@ -125,7 +129,11 @@ def MakeBareImport(
     FinishImportMut(SystemValue, FeatureValue, HeadersValue, InputValue)
     DefinitionValue = MakePartDef(InputValue.DefinitionValue, InputValue.DensityValue)
     KeywordsValue = MakeImportKeys(
-        SystemValue, FeatureValue, InputValue.HeaderValue.ModifiedAt, NotesGraphValue
+        SystemValue,
+        FeatureValue,
+        InputValue.HeaderValue.ModifiedAt,
+        NotesGraphValue,
+        KeywordInput=KeywordInput,
     )
     StreamsValue, ConfigValue, ResolvedValue = EmitPartArchive(
         SystemValue,

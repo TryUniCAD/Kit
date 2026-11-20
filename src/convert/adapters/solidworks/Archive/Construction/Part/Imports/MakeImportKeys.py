@@ -7,6 +7,12 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature im
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeywords import (
     MakeKeywords,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportKeyInput import (
+    ImportKeyInput,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ReadImpKeyNodes import (
+    ReadImpKeyNodes,
+)
 from convert.adapters.solidworks.Archive.Construction.System.Members.NotesGraph import (
     NotesGraph,
 )
@@ -26,13 +32,33 @@ def MakeImportKeys(
     FeatureValue: ArchiveNode,
     Timestamp: int,
     NotesValue: NotesGraph | None,
+    *,
+    KeywordInput: ImportKeyInput | None = None,
 ) -> bytes:
+    if KeywordInput is not None and type(KeywordInput) is not ImportKeyInput:
+        raise TypeError("native import keywords require a typed index input")
+    ConfigMaterial = KeywordInput.MaterialValue if KeywordInput is not None else ""
     ConfigValues = tuple(
         KeywordConfig(
-            FieldInt(NodeValue.FieldsValue, "f08"), ReadNodeName(NodeValue), ""
+            FieldInt(NodeValue.FieldsValue, "f08"),
+            ReadNodeName(NodeValue),
+            ConfigMaterial,
         )
         for NodeValue in SystemValue.ConfigValues
     )
+    if KeywordInput is not None:
+        _, RowsValue, MaterialValue = ReadImpKeyNodes(
+            SystemValue.RootValue, (*SystemValue.FeatureValues, FeatureValue)
+        )
+        if ConfigMaterial != MaterialValue:
+            raise ValueError("import keyword material differs from its actual folder")
+        return MakeKeywords(
+            KeywordInput.TitleValue,
+            KeywordInput.SavedAt,
+            ConfigValues,
+            RowsValue,
+            CompactTags=True,
+        )
     FeatureValues = tuple(
         KeywordFeature(
             FieldInt(NodeValue.FieldsValue, "f08"),

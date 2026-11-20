@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Core.Native import NativeFeature, NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.HasLocalHelpers import (
     HasLocalHelpers,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalKeys import (
+    ReadLocalKeys,
+)
 
 # reference scaffold classes can accompany an import without adding solid history
 KLocalScaffold = frozenset(
@@ -40,10 +43,27 @@ KDatumScaffold = frozenset(
 def FindLocalOwner(
     ModelValue: NativeModel, Archive: SldprtArchive
 ) -> NativeFeature | None:
-    if ModelValue.operations or not HasLocalHelpers(Archive, ModelValue.features):
+    if ModelValue.operations:
         return None
+    NativeIndex, BoundId = ReadLocalKeys(Archive)
+    if (
+        NativeIndex
+        and BoundId is None
+        or not NativeIndex
+        and not HasLocalHelpers(Archive, ModelValue.features)
+    ):
+        return None
+    FeaturesValue = (
+        tuple(
+            RowValue
+            for RowValue in ModelValue.features
+            if RowValue.object_id == BoundId
+        )
+        if NativeIndex
+        else ModelValue.features
+    )
     ImportValue = None
-    for FeatureValue in ModelValue.features:
+    for FeatureValue in FeaturesValue:
         if FeatureValue.kind in ("Notes", "Exploded Views"):
             continue
         if FeatureValue.kind in KLocalScaffold and FeatureValue.class_name in (
