@@ -303,3 +303,5 @@ See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthE
 [Edited extrusion graph recovery](../Changes/Research/Inference/EditedExtrusionGraph.md) records the candidate feature definition and its driving parameter.
 
 [Derived extrusion readers](../Changes/Research/Inference/DerivedDepthGraphReader.md) capture replayed native-to-graph bindings in Reader.patch.
+
+[Complementary depth discovery](../Changes/Research/Inference/ComplementaryDepthBindings.md) explains the extra controlled variations and independent replays.
