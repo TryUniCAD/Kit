@@ -14,6 +14,7 @@ from time import monotonic as Clock, sleep as WaitFor
 
 from tests.Research.Inference.Scope.FeatureCatalogueTests import KCatalogue
 from tests.Research.Inference.Scope.FeatureHandoffTests import RunAutomation
+from tests.Research.Inference.Scope.ReadReceipts import ReadReceipts
 from tests.Research.SupervisorClient import KRepoRoot
 
 
@@ -55,7 +56,7 @@ def CheckResume(TmpPath: FilePath) -> None:
     ReportPath = RunPath / "CatalogueResult.json"
     Before = DecodeJson(ReportPath.read_bytes())
     assert Before["status"] == "paused"
-    SavedJobs = Receipts(Before)
+    SavedJobs = ReadReceipts(Before)
     assert SavedJobs
     LogLines = [
         DecodeJson(LineText)
@@ -73,20 +74,10 @@ def CheckResume(TmpPath: FilePath) -> None:
     assert "workers active" in Progress and "queued" in Progress
     After = DecodeJson(ReportPath.read_bytes())
     assert After["scopes"]["p03-blind-boss.solidworks"]["status"] == "completed"
-    FinalJobs = Receipts(After)
+    FinalJobs = ReadReceipts(After)
     assert len(FinalJobs) > len(SavedJobs)
     assert SavedJobs.items() <= FinalJobs.items()
     assert not (RunPath / "CataloguePause.json").exists()
-
-
-# settled job attempts and receipt identities must both survive a restart
-def Receipts(Report):
-    return {
-        JobRow["id"]: (JobRow["receipt"], JobRow["attempts"])
-        for Scope in Report["scopes"].values()
-        for JobRow in Scope["jobs"]
-        if JobRow["state"] == "completed"
-    }
 
 
 # a deliberately high reserve exposes a capacity refusal through terminal progress
