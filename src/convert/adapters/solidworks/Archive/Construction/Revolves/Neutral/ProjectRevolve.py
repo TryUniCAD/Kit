@@ -28,6 +28,9 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePl
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
+from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
+    PrincipalFrame,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -35,10 +38,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 def ProjectRevolve(DocumentValue: CadDocument) -> RevolvePlan:
     RequireRevDoc(DocumentValue)
     PlaneValue = CheckPartLinks(DocumentValue)
-    if ReadPrincAxis(PlaneValue.transform) != "z":
-        raise ValueError(
-            "ordinary revolve construction requires canonical Front support"
-        )
+    AxisValue = ReadPrincAxis(PlaneValue.transform)
     Definition, AngleValue = ReadRevFeature(DocumentValue)
     SketchValue = DocumentValue.sketches[0]
     AxisEntityId = ReadRevSelect(DocumentValue, Definition)
@@ -54,11 +54,12 @@ def ProjectRevolve(DocumentValue: CadDocument) -> RevolvePlan:
         ShapeValue.AxisStart,
         ShapeValue.AxisEnd,
         AngleValue,
-        IsRevReverse(Definition, ShapeValue),
+        IsRevReverse(Definition, ShapeValue, PrincipalFrame(AxisValue)),
         SketchValue.id,
         DocumentValue.feature_timeline[0].id,
         DocumentValue.parameters[0].id,
         DocumentValue.bodies[0].id,
         DocumentValue.selections[0].id,
         ShapeValue.AxisEntityId,
+        AxisValue,
     )

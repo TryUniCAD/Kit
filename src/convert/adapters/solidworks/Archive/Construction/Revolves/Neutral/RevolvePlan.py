@@ -20,8 +20,4 @@ class RevolvePlan:
     BodyId: str
     SelectionId: str
     AxisEntityId: str
-
-    # the qualified profile uses its actual canonical front support without accepting another plane by label
-    @property
-    def AxisValue(self) -> str:
-        return "z"
+    AxisValue: str = "z"

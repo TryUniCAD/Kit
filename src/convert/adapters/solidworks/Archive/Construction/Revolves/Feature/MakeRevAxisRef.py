@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Assembly.Bounds.PlacePoint import (
+    PlacePoint,
+)
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.CompRefFields import (
     CompRefFields,
 )
@@ -51,6 +54,10 @@ def MakeRevAxisRef(
         }
     )
     SelectedValue = ArchiveNode(RuntimeClass("moCompSketchEntHandle_c", 1), FieldsValue)
+    StartValue = (*PlanValue.AxisStart, 0.0)
+    FrameValue = ProfileValue.FrameValue
+    if PlanValue.AxisValue != "z":
+        StartValue = PlacePoint(FrameValue, StartValue)
     return ArchiveNode(
         RuntimeClass("moLineRef_w", 1),
         {
@@ -72,8 +79,8 @@ def MakeRevAxisRef(
             "f30": 0,
             "f98": 0,
             "f38": -1,
-            "fc8": {"x": PlanValue.AxisStart[0], "y": PlanValue.AxisStart[1], "z": 0.0},
-            "fe0": {"x": 0.0, "y": 1.0, "z": 0.0},
+            "fc8": dict(zip("xyz", StartValue, strict=True)),
+            "fe0": dict(zip("xyz", FrameValue.AxisV, strict=True)),
             "ff8": 0,
             "fb0": 0.0,
             "fb8": PlanValue.AxisEnd[1] - PlanValue.AxisStart[1],

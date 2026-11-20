@@ -28,7 +28,7 @@ from convert.adapters.solidworks.Archive.Construction.System.PartSystem import (
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
-# the fresh revolve profile must share the actual registered front plane model and allocator with its downstream boss
+# the fresh revolve profile must share the actual registered support model and allocator with its downstream boss
 def MakeRevProfMut(
     SystemValue: PartSystem,
     InputValue: PartBuildInput,
@@ -38,8 +38,8 @@ def MakeRevProfMut(
     ProfileValue = MakeProfileMut(
         PlanValue.SketchName,
         SystemValue.RootValue,
-        SystemValue.SystemValues.PlaneValues["z"],
-        "z",
+        SystemValue.SystemValues.PlaneValues[PlanValue.AxisValue],
+        PlanValue.AxisValue,
         PolygonInput(PlanValue.VerticesValue, 19000),
         InputValue.TargetValue,
         Allocator,
