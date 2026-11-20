@@ -23,6 +23,19 @@ from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream, Pa
 from InferenceInputs import read_file
 
 
+def scalar_copies(data, scalar, end):
+    offsets = set()
+    start = scalar.value_offset
+    limit = min(end, start + 2048)
+    for sign in (1, -1):
+        word = struct.pack("<d", sign * scalar.value)
+        pos = data.find(word, start + 8, limit)
+        while pos != -1:
+            offsets.add((pos - start, sign))
+            pos = data.find(word, pos + 1, limit)
+    return offsets
+
+
 def records(streams, wanted):
     xml = streams.get("swXmlContents/KeyWords")
     if not xml:
@@ -67,7 +80,40 @@ def records(streams, wanted):
             scalar = SelectNamedField(scalars[owner, d.name])
             if scalar is not None and scalar.value_offset + 8 <= end:
                 rows.append((group, owner, expected, scalar, start, end, d.source_text))
-    return stream, data, rows, display
+    declared = {(f.object_id, d.name, d.kind): d.source_text for f in features for d in f.dimensions}
+    if len(declared) != sum(len(f.dimensions) for f in features):
+        declared = None
+    inventory = frozenset((f.object_id, f.kind, f.name) for f in features)
+    return stream, data, rows, display, inventory, declared
+
+
+def single_dimension_change(target, sample):
+    stream, data, rows, units, inventory, declared = target
+    sample_stream, blob, training, other_units, other_inventory, other_declared = sample
+    if (not declared or not other_declared or declared.keys() != other_declared.keys() or inventory != other_inventory
+            or units is None or units != other_units or stream != sample_stream):
+        return None
+    changed = [k for k in declared if declared[k] != other_declared[k]]
+    if len(changed) != 1:
+        return None
+    owner, name, kind = changed[0]
+    if kind not in {"angle", "length"}:
+        return None
+    observations = []
+    for dataset in (rows, training):
+        matches = [r for r in dataset if r[1] == owner and r[0][1:] == (name, kind) and r[3].value != 0
+                   and math.isfinite(r[3].value) and math.isclose(r[2], r[3].value, rel_tol=1e-12, abs_tol=1e-14)]
+        if len(matches) != 1:
+            return None
+        observations.append(matches[0])
+    before, after = observations
+    if before[3].value == after[3].value:
+        return None
+    copies = scalar_copies(data, before[3], before[5]) & scalar_copies(blob, after[3], after[5])
+    return {"key": before[0], "feature_id": owner, "stream": stream, "unit": "rad" if kind == "angle" else "m",
+            "input_value": before[3].value, "control_value": after[3].value,
+            "input_offset": before[3].value_offset, "control_offset": after[3].value_offset,
+            "matching_copies": sorted(copies), "unchanged_declared_dimensions": len(declared)-1}
 
 
 def snapshot_controls(source, paths, scratch):
@@ -141,7 +187,7 @@ def discover_fields(root, streams, document, pin, controls=()):
     target = records(streams, wanted)
     if not target:
         return None
-    stream, data, rows, _ = target
+    stream, data, rows, *_ = target
     if not rows:
         return {"input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": 0,
                 "rules": [], "predictions": [], "unresolved_fields": [
@@ -151,6 +197,7 @@ def discover_fields(root, streams, document, pin, controls=()):
     samples = defaultdict(list)
     anchor_samples = defaultdict(list)
     candidates = {}
+    comparisons = []
     scanned = 0
     for raw in control_parts(root, controls):
         scanned += 1
@@ -163,11 +210,14 @@ def discover_fields(root, streams, document, pin, controls=()):
             continue
         if not sample:
             continue
-        _, blob, training, units = sample
+        _, blob, training, units, *_ = sample
         fingerprint = hashlib.sha256(blob).hexdigest()
         if fingerprint in seen:
             continue
         seen.add(fingerprint)
+        comparison = single_dimension_change(target, sample)
+        if comparison:
+            comparisons.append({**comparison, "control_sha256": digest, "control_stream_sha256": fingerprint})
         for key, owner, expected, scalar, start, end, text in training:
             agreement = "exact" if math.isclose(scalar.value, expected, rel_tol=1e-10, abs_tol=1e-14) else "conflict"
             if (agreement == "conflict" and key[2] == "length" and units and units.UnitName == "mm"
@@ -184,14 +234,7 @@ def discover_fields(root, streams, document, pin, controls=()):
             if expected == 0 or not math.isclose(scalar.value, expected, rel_tol=1e-10, abs_tol=1e-14):
                 continue
             pos = scalar.value_offset
-            signature = set()
-            for sign in (1, -1):
-                word = struct.pack("<d", sign * scalar.value)
-                limit = min(end, pos + 2048)
-                at = blob.find(word, pos + 8, limit)
-                while at != -1:
-                    signature.add((at-pos, sign))
-                    at = blob.find(word, at+1, limit)
+            signature = scalar_copies(blob, scalar, end)
             if key not in candidates:
                 candidates[key] = signature
             else:
@@ -255,8 +298,16 @@ def discover_fields(root, streams, document, pin, controls=()):
             reason = "no_shared_copy_offset"
         else:
             reason = "no_qualified_held_out_match"
-        gaps.append({"key": key, "reason": reason, "training_observations": len(observations)})
-    return {"owner_anchor_predictions": anchored, "owner_anchor_controls": [{"key": key, "samples": anchor_samples[key]}
+        gap = {"key": key, "reason": reason, "training_observations": len(observations)}
+        if reason == "need_a_different_control_value" and key[2] in {"angle", "length"}:
+            gap["variation_targets"] = [
+                {"feature_id": owner, "field": key[1], "current_system_value": scalar.value,
+                 "suggested_system_value": scalar.value / 2, "unit": "rad" if key[2] == "angle" else "m"}
+                for group, owner, expected, scalar, *_ in rows if group == key and owner in unresolved
+                and scalar.value != 0 and math.isfinite(scalar.value) and 0 < abs(scalar.value/2) < abs(scalar.value)
+                and math.isclose(expected, scalar.value, rel_tol=1e-12, abs_tol=1e-14)]
+        gaps.append(gap)
+    return {"single_dimension_comparisons": comparisons, "owner_anchor_predictions": anchored, "owner_anchor_controls": [{"key": key, "samples": anchor_samples[key]}
             for key in sorted({r["key"] for r in anchored})], "unresolved_fields": gaps, "input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": scanned,
             "rules": rules, "predictions": predictions}
 

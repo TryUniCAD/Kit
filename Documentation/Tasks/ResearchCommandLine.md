@@ -271,3 +271,5 @@ For a `verified_native_radius` result, the [referenced circle dimension](../Chan
 The [revolution angle ownership](../Changes/Research/Inference/RevolutionAngleOwnership.md) report includes the axis ID, angle span, end specification and copy offsets for each verified revolution.
 
 Use [local control parts](../Changes/Research/Inference/LocalControlParts.md) to bring independently edited SOLIDWORKS saves into every field-discovery pass with `--control`.
+
+The [single-dimension control experiment](../Changes/Research/Inference/SingleDimensionControlExperiments.md) compares matching saves automatically. Inspect `next_control_edits` for the exact parameter and proposed native value when a distinguishing control is missing.

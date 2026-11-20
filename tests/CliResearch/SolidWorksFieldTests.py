@@ -259,3 +259,26 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
     ]
     assert CutDepth["status"] == "held_out_extrusion_depth"
     assert CutDepth["verified_location"][1] == 158970
+    (Edit,) = Evidence["next_control_edits"]
+    assert (Edit["feature"], Edit["field"], Edit["unit"]) == ("MatrizC2", "D3", "rad")
+    assert abs(Edit["suggested_system_value"] - 3.141592653589793) < 1e-12
+
+
+# reopened angle values challenge the byte correspondence across two independently saved streams
+def CheckSingleDimensionControl(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Source = next(
+        (Root / "re/automation/PairedCaptures/P05").glob(
+            "solidworks-*/*baseline-a.SLDPRT"
+        )
+    )
+    Evidence = ReadDimensionEvidence(Root, Source, TmpPath / "run")
+    Pairs = Evidence["discovered_feature_fields"]["single_dimension_comparisons"]
+    (Angle,) = [
+        Pair for Pair in Pairs if Pair["key"] == ["Revolve", "angle_deg", "angle"]
+    ]
+    assert Angle["input_reopen"]["matches"] and Angle["control_reopen"]["matches"]
+    assert Angle["input_value"] == 4 * Angle["control_value"]
+    assert Angle["unchanged_declared_dimensions"] == 3
+    assert Angle["matching_copies"] == [[538, 1]]
+    assert Angle["input_offset"] != Angle["control_offset"]

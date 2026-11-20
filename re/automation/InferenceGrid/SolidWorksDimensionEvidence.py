@@ -140,6 +140,25 @@ def dimension_evidence(root, source, pin, document, controls=()):
     streams = SldprtArchive.FromBytes(source.read_bytes()).Streams
     from InferenceGrid.SolidWorksFieldDiscovery import discover_fields
     result["discovered_feature_fields"] = discover_fields(root, streams, document, pin, controls)
+    comparisons = (result["discovered_feature_fields"] or {}).get("single_dimension_comparisons", [])
+    if comparisons:
+        names = {f["attributes"].get("native_object_id"): f["name"] for f in document.get("feature_timeline", {}).get("$tuple", [])}
+        witnesses = {}
+        for _, receipt, report, files in sets:
+            reopened = report["observations"].get("reopened_files", {})
+            for filename, row in files.items():
+                observation = reopened.get(filename, {})
+                if observation.get("open_status") == {"errors": 0, "warnings": 0}:
+                    witnesses[row["sha256"]] = (receipt["measurement_receipt_sha256"], dimensions(observation))
+        for paired in comparisons:
+            for side, digest in (("input", pin), ("control", paired["control_sha256"])):
+                if digest not in witnesses:
+                    continue
+                receipt_sha, values = witnesses[digest]
+                matching = [v for f, n, v in values if (f, n) == (names.get(paired["feature_id"]), paired["key"][1])]
+                if len(matching) == 1:
+                    paired[side + "_reopen"] = {"value": matching[0], "measurement_sha256": receipt_sha,
+                                                "matches": math.isclose(matching[0], paired[side + "_value"], rel_tol=1e-12, abs_tol=1e-14)}
     if (len(candidates or []) != 1 or len({s["recipe"] for s in samples}) < 2 or
         len({s["system_value"] for s in samples}) < 2):
         return {**result, "equations": equation_evidence(streams, [], sets, pin), "status": "no_unique_rule"}
@@ -180,6 +199,17 @@ def dimension_evidence(root, source, pin, document, controls=()):
     equations = equation_evidence(streams, predictions, sets, pin)
     from InferenceGrid.SolidWorksKeywordEvidence import keyword_evidence
     keywords = keyword_evidence(streams, discovered, document, root, pin, result["discovered_feature_fields"], controls)
+    remaining = {(row["feature_id"], row["name"]): row for row in keywords.get("dimensions", [])
+                 if row["status"] in {"ambiguous", "no_matching_record"}}
+    requests = []
+    for gap in (result["discovered_feature_fields"] or {}).get("unresolved_fields", []):
+        for target in gap.get("variation_targets", []):
+            row = remaining.get((target["feature_id"], target["field"]))
+            if row:
+                requests.append({**target, "feature": row["feature"], "key": gap["key"],
+                                 "input_sha256": pin, "edit": "vary_one_declared_dimension",
+                                 "baseline_display": row["display_text"]})
+    result["next_control_edits"] = requests
     return {**result, "keyword_evidence": keywords, "equations": equations, "status": "held_out_dimensions_match" if verified else "partial_evidence",
             "measurement_stage": "edited_before_save" if checks else None, "predictions": predictions,
             "discovered_dimension_records": discovered, "measured_count": len(checks), "missing_from_reader": [list(key) for key in measured if key not in requested]}
