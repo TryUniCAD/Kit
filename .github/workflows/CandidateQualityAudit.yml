@@ -417,7 +417,7 @@ jobs:
         run: |
           sudo install -d -o "$USER" /opt/kit-freecad
           "$CONDA/bin/conda" create --yes --override-channels --channel conda-forge --prefix /opt/kit-freecad freecad=1.1.3
-          ls /opt/kit-freecad/bin | rg -i '^freecad'
+          ls /opt/kit-freecad/bin | grep -i '^freecad'
       - name: Recompute save reopen and edit real documents
         env:
           QT_QPA_PLATFORM: offscreen
