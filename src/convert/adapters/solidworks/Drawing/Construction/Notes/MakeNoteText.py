@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeTextFields 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Drawing.Construction.Notes.MakeNoteParagraph import (
-    MakeNoteParagraph,
+    MakeParagraph,
 )
 from convert.adapters.solidworks.Drawing.Construction.Notes.MakeNoteTokens import (
     MakeNoteTokens,
@@ -31,7 +31,7 @@ def MakeNoteText(
             "f158": MakeNoteTokens(NoteValue.TextValue, StyleValue),
             "f160": (1 << 0) | (1 << 10) | (1 << 16) | (1 << 17) | (1 << 18),
             "f170": None,
-            "f188": MakeNoteParagraph(StyleValue, False),
+            "f188": MakeParagraph(StyleValue, False),
         }
     )
     return ArchiveNode(RuntimeClass("moGenericText_c", 1), FieldsValue)

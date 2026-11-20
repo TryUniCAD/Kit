@@ -2,10 +2,10 @@ from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSetting
     ModelDefSettings,
 )
 from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields import (
-    NeedConceptNode as Node,
+    NeedConceptNode as NeedNode,
 )
 from convert.adapters.solidworks.Drawing.Definition.Detailing.NeedDetailText import (
-    NeedDetailText as Text,
+    NeedDetailText as ReadText,
 )
 from convert.adapters.solidworks.Drawing.Reading.Blank.Fields import Fields
 from convert.adapters.solidworks.Drawing.Reading.Blank.Integer import Integer
@@ -22,9 +22,9 @@ def ReadBlankUi(Document: object) -> ModelDefSettings:
         Value["fa64"] in (0, 1) and Value["fa90"] in (0, 1),
         "blank UI has invalid Boolean preference state",
     )
-    Journal = Node(Fields(Value["ffd8"])["f18"], "uoJournal_c")
+    Journal = NeedNode(Fields(Value["ffd8"])["f18"], "uoJournal_c")
     return ModelDefSettings(
-        Node(Value["fba8"]).ClassValue.NameValue,
+        NeedNode(Value["fba8"]).ClassValue.NameValue,
         tuple(Index for Index in range(64) if Flags & (1 << Index)),
         (
             Integer(Value["fa58"]),
@@ -33,6 +33,6 @@ def ReadBlankUi(Document: object) -> ModelDefSettings:
             bool(Value["fa64"]),
         ),
         bool(Value["fa90"]),
-        Text(Journal.FieldsValue["f08"]),
+        ReadText(Journal.FieldsValue["f08"]),
         19000,
     )

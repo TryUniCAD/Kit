@@ -10,9 +10,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 
 # a complete blank projection must retain native intent instead of merely suppressing the layout warning
-def ReadGeneratedBlank(
-    Archive: SldprtArchive, SourceData: bytes, Label: str
-) -> CadDocument:
+def ReadBlankDraw(Archive: SldprtArchive, SourceData: bytes, Label: str) -> CadDocument:
     Value = ReadBlankIntent(Archive, SourceData)
     Input = Value.InputValue
     Document = MakeDrawDoc(

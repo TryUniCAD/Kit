@@ -27,13 +27,11 @@ KDrawingFolderNames = frozenset(
 
 # the native resolved concept must agree with the independent sheet identity
 def MatchSheetNode(RootValue: ArchiveNode, Sheet: DrawingSheet) -> ArchiveNode:
-    return MatchSheetOwners(ReadOwnedNodes(RootValue), Sheet)
+    return MatchDrawOwners(ReadOwnedNodes(RootValue), Sheet)
 
 
 # complete and partial graph readers must compare the same sheet owners against independently indexed paper and scale
-def MatchSheetOwners(
-    Nodes: tuple[ArchiveNode, ...], Sheet: DrawingSheet
-) -> ArchiveNode:
+def MatchDrawOwners(Nodes: tuple[ArchiveNode, ...], Sheet: DrawingSheet) -> ArchiveNode:
     Owners = tuple(
         ItemValue
         for ItemValue in Nodes

@@ -37,7 +37,7 @@ from convert.adapters.solidworks.Drawing.Definition.Linked.FrontLayouts import K
 from convert.adapters.solidworks.Drawing.Definition.Linked.FrontSchemas import KFrontSchemas
 from convert.adapters.solidworks.Drawing.Definition.Linked.FrontVirtuals import KFrontVirtuals
 from convert.adapters.solidworks.Drawing.Definition.Linked.ReadLinkedBody import ReadLinkedBody
-from convert.adapters.solidworks.Drawing.Definition.PlainNotes.ReadNoteDrawing import ResolvePlainNote
+from convert.adapters.solidworks.Drawing.Definition.PlainNotes.ReadNoteDrawing import ReadPlainNote
 from convert.adapters.solidworks.Drawing.Definition.PlainNotes.ReadNoteRows import NeedOneNoteRow
 from convert.adapters.solidworks.Drawing.Definition.PlainNotes.ReadNoteText import ReadNoteText
 from convert.adapters.solidworks.Drawing.Definition.Writing.CheckSheetData import CheckSheetData
@@ -121,7 +121,7 @@ def build(input_value, *, origin_anchor, publish_identity=False):
     ):
         raise ValueError("generated note name or independent display identity differs")
     if origin_anchor and (
-        ResolvePlainNote(read_sheet) is not read_text
+        ReadPlainNote(read_sheet) is not read_text
         or read_display.FieldsValue["f630"] != display.FieldsValue["f630"]
     ):
         raise ValueError("generated origin-anchor note does not preserve its text owner and live distance")

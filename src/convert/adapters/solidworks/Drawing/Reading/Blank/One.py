@@ -7,6 +7,6 @@ KValueType = TypeVar("KValueType")
 
 
 # fresh blank provenance requires one actual owner rather than a preferred member of several
-def One(Values: Sequence[KValueType]) -> KValueType:
+def OnlyItem(Values: Sequence[KValueType]) -> KValueType:
     Require(len(Values) == 1, "blank owner must have exactly one member")
     return Values[0]

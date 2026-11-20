@@ -20,7 +20,7 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
     NeedDrawNumber,
 )
 from convert.adapters.solidworks.Drawing.Definition.Projection.MatchSheetNode import (
-    MatchSheetOwners,
+    MatchDrawOwners,
 )
 from interchange.document.Models.Drawing.DrawingData import DrawingData
 from interchange.document.Models.Drawing.DrawingNote import DrawingNote
@@ -38,12 +38,12 @@ def ReadNoteDrawing(
     ):
         raise BodyUnsupported("plain drawing note requires one unlinked sheet")
     Document, _, _ = ReadLinkedBody(DataValue, VersionValue, "plain note")
-    Root = NeedConceptNode(Document.FieldsValue.get("model"), "moDrawing_c")
+    DrawingRoot = NeedConceptNode(Document.FieldsValue.get("model"), "moDrawing_c")
     SheetValue = LayoutValue.Sheets[0]
-    NativeSheet = MatchSheetOwners(ReadBlankKids(Root), SheetValue)
-    if Root.FieldsValue.get("f1430") is not NativeSheet:
+    NativeSheet = MatchDrawOwners(ReadBlankKids(DrawingRoot), SheetValue)
+    if DrawingRoot.FieldsValue.get("f1430") is not NativeSheet:
         raise BodyUnsupported("drawing note refers to a different active sheet")
-    TextValue = ResolvePlainNote(NativeSheet)
+    TextValue = ReadPlainNote(NativeSheet)
     Point = NeedConceptMap(TextValue.FieldsValue.get("f38"))
     NoteValue = DrawingNote(
         SheetValue.EntityId + "/note/1",
@@ -60,7 +60,7 @@ def ReadNoteDrawing(
 
 
 # only the actual sheet detail folder may supply an unattached plain note
-def ResolvePlainNote(Sheet: ArchiveNode) -> ArchiveNode:
+def ReadPlainNote(Sheet: ArchiveNode) -> ArchiveNode:
     Children = ReadBlankKids(Sheet)
     Folder = NeedConceptNode(Sheet.FieldsValue.get("f390"), "moDetailFolder_c")
     if (

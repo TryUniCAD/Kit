@@ -3,7 +3,7 @@ from collections.abc import Mapping
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Drawing.Construction.Notes.MakeNoteParagraph import (
-    MakeNoteParagraph,
+    MakeParagraph,
 )
 
 
@@ -16,7 +16,7 @@ def MakeNoteLine(LastValue: int, StyleValue: Mapping[str, object]) -> ArchiveNod
             "f0c": LastValue,
             "f14": {"f00": 0.0, "f04": 0.0, "f08": 0.0},
             "f10": 0,
-            "f30": MakeNoteParagraph(StyleValue, True),
+            "f30": MakeParagraph(StyleValue, True),
             "f38": {"f00": 0.0, "f04": 0.0, "f08": 0.0},
             "f48": None,
             "f50": -1,

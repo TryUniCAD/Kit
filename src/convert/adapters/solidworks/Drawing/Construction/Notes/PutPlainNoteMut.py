@@ -9,13 +9,13 @@ from convert.adapters.solidworks.Drawing.Construction.Notes.MakeNoteDisplay impo
     MakeNoteDisplay,
 )
 from convert.adapters.solidworks.Drawing.Construction.Notes.MakeNoteReference import (
-    MakeNoteReference,
+    MakeNoteRef,
 )
 from convert.adapters.solidworks.Drawing.Construction.Notes.MakeNoteText import (
     MakeNoteText,
 )
 from convert.adapters.solidworks.Drawing.Construction.Notes.PublishPlainNoteMut import (
-    PublishPlainNoteMut,
+    PublishNoteMut,
 )
 from convert.adapters.solidworks.Drawing.Construction.Notes.SetNotePointMut import (
     SetNotePointMut,
@@ -45,12 +45,12 @@ def PutPlainNoteMut(
     TextValue = MakeNoteText(NoteValue, StyleValue)
     DataValue = MakeNoteData(TextValue)
     DisplayValue = MakeNoteDisplay(
-        MakeNoteReference(DataValue, VersionValue), StyleValue, VersionValue
+        MakeNoteRef(DataValue, VersionValue), StyleValue, VersionValue
     )
     FolderValue = NeedConceptNode(
         GraphValue.SheetValue.SheetValue.FieldsValue["f390"], "moDetailFolder_c"
     )
     SetNotePointMut(DisplayValue, DataValue, NoteValue.PositionValue)
-    PublishPlainNoteMut(
+    PublishNoteMut(
         ModelValue, FolderValue, DisplayValue, DataValue, TextValue, LanguageId
     )

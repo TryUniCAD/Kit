@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Archive.Construction.Dimensions.MakePoint impor
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Drawing.Construction.Notes.MakeNoteStyleFields import (
-    MakeNoteStyleFields,
+    MakeNoteStyle,
 )
 from convert.adapters.solidworks.Drawing.Construction.Notes.MakeNoteTail import (
     MakeNoteTail,
@@ -23,7 +23,7 @@ def MakeNoteDisplay(
     Points = tuple({"p": MakePoint()} for _ in range(4))
     Vectors = tuple({"v": MakePoint(YValue=1.0)} for _ in range(2))
     FieldsValue = MakeDisplayFields(VersionValue, 0x82 | (1 << 19))
-    FieldsValue.update(MakeNoteStyleFields(StyleValue))
+    FieldsValue.update(MakeNoteStyle(StyleValue))
     FieldsValue.update(MakeNoteTail(StyleValue))
     FieldsValue.update(
         f48=ReferenceValue,

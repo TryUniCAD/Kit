@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
 
 
 # generic text and each line retain independent paragraph owners with actual document spacing
-def MakeNoteParagraph(
+def MakeParagraph(
     StyleValue: Mapping[str, object], LineValue: bool
 ) -> dict[str, object]:
     Spacing = NeedDrawNumber(StyleValue["f78"])

@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
 
 
 # publishing one note binds its actual display data text and folder and consumes the distinct display counter
-def PublishPlainNoteMut(
+def PublishNoteMut(
     ModelValue: ArchiveNode,
     FolderValue: ArchiveNode,
     DisplayValue: ArchiveNode,

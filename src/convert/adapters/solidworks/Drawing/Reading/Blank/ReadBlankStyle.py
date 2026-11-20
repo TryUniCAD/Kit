@@ -5,12 +5,12 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
     NeedDrawNumber as Number,
 )
 from convert.adapters.solidworks.Drawing.Definition.Detailing.NeedDetailText import (
-    NeedDetailText as Text,
+    NeedDetailText as ReadText,
 )
 from convert.adapters.solidworks.Drawing.Reading.Blank.Fields import Fields
 from convert.adapters.solidworks.Drawing.Reading.Blank.Integer import Integer
 from convert.adapters.solidworks.Drawing.Reading.Blank.Require import Require
-from convert.adapters.solidworks.Drawing.Reading.Blank.Rows import Rows
+from convert.adapters.solidworks.Drawing.Reading.Blank.Rows import ReadRecordRows
 from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankLocale import (
     ReadBlankLocale,
 )
@@ -21,19 +21,19 @@ def ReadBlankStyle(Model: object, Language: int) -> StyleInput:
     Value = Fields(Fields(Model)["fae0"])
     Language = ReadBlankLocale(Value, Language)
     Widths = Fields(Value["fb0"])
-    Exclusions = Rows(Value["f58"])
+    Exclusions = ReadRecordRows(Value["f58"])
     Tasks = Fields(Value["fb8"])
-    TaskRows = Rows(Tasks["items"])
+    TaskRows = ReadRecordRows(Tasks["items"])
     Require(Integer(Value["n58"]) == len(Exclusions), "blank style exclusions differ")
     Require(Integer(Tasks["n"]) == len(TaskRows) == 5, "blank style task labels differ")
-    Line = Fields(Fields(Fields(Value["f13b0"])["fe0"])["fd0"])
+    LineValue = Fields(Fields(Fields(Value["f13b0"])["fe0"])["fd0"])
     return StyleInput(
         Integer(Value["f10"]),
-        Text(Fields(Value["f90"])["f08"]),
-        Text(Line["f08"]),
+        ReadText(Fields(Value["f90"])["f08"]),
+        ReadText(LineValue["f08"]),
         Language,
         tuple(Number(Widths[f"f{8+4*Index:x}"]) for Index in range(8)),
-        tuple(Text(Fields(Row)["s"]) for Row in Exclusions),
-        tuple(Text(Fields(Row)["s"]) for Row in TaskRows),
-        tuple(Text(Value[Key]) for Key in ("f200", "f208", "f210")),
+        tuple(ReadText(Fields(RowValue)["s"]) for RowValue in Exclusions),
+        tuple(ReadText(Fields(RowValue)["s"]) for RowValue in TaskRows),
+        tuple(ReadText(Value[FieldName]) for FieldName in ("f200", "f208", "f210")),
     )

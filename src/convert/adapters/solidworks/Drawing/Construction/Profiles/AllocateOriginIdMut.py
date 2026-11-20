@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Drawing.Definition.Profiles.NeedProfileNode imp
 
 
 # display publication must advance the actual owning model counter rather than reuse persistent feature or archive identities
-def AllocateOriginIdMut(ModelValue: ArchiveNode, DisplayValue: ArchiveNode) -> int:
+def AllocOrigIdMut(ModelValue: ArchiveNode, DisplayValue: ArchiveNode) -> int:
     _ = NeedProfileNode(ModelValue, "moDrawing_c")
     _ = NeedProfileNode(DisplayValue, "moDisplayProfileFeature_c")
     ExistingValue = FieldInt(DisplayValue.FieldsValue, "f58")

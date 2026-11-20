@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
 
 
 # explicit note appearance follows the actual document style and keeps frame and leader width owners distinct
-def MakeNoteStyleFields(StyleValue: Mapping[str, object]) -> dict[str, object]:
+def MakeNoteStyle(StyleValue: Mapping[str, object]) -> dict[str, object]:
     FrameValue = FieldInt(StyleValue, "f34")
     WidthValue = (
         dict(NeedConceptMap(StyleValue["f2c"]))

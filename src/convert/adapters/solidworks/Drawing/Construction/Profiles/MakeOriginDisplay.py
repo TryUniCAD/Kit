@@ -1,7 +1,7 @@
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Drawing.Construction.Profiles.OriginVisibility import (
-    OriginVisibility,
+    MakeOriginVis,
 )
 from convert.adapters.solidworks.Drawing.Definition.Profiles.NeedProfileNode import (
     NeedProfileNode,
@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Drawing.Definition.Profiles.NeedProfileNode imp
 
 
 # the ordinary population path needs a complete fresh display object with real folder view and component ownership
-def MakeOriginDisplay(
+def MakeOriginView(
     FolderValue: ArchiveNode, ViewValue: ArchiveNode, Reference: ArchiveNode
 ) -> ArchiveNode:
     _ = NeedProfileNode(FolderValue, "moDetailFolder_c")
@@ -29,7 +29,7 @@ def MakeOriginDisplay(
             "f48": Reference,
             "f54": 0,
             "f11c": 0,
-            "f08": OriginVisibility(),
+            "f08": MakeOriginVis(),
             "f68": {"n": 0, "items": ()},
             "fb0": {"n": 0, "items": ()},
             "f58": 0,

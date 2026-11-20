@@ -6,14 +6,14 @@ from convert.adapters.solidworks.Drawing.Construction.Profiles.CheckOriginLink i
     CheckOriginLink,
 )
 from convert.adapters.solidworks.Drawing.Construction.Profiles.AllocateOriginIdMut import (
-    AllocateOriginIdMut,
+    AllocOrigIdMut,
 )
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 from convert.adapters.solidworks.Drawing.Construction.Profiles.MakeOriginDisplay import (
-    MakeOriginDisplay,
+    MakeOriginView,
 )
 from convert.adapters.solidworks.Drawing.Construction.Profiles.MakeOriginProfile import (
-    MakeOriginProfile,
+    MakeOriginProf,
 )
 from convert.adapters.solidworks.Drawing.Definition.Emission.WalkDrawNodes import (
     WalkDrawNodes,
@@ -43,8 +43,8 @@ def AttachOriginMut(Candidate: LinkedDrawFile) -> ArchiveNode:
         raise ValueError(
             "origin display requires a fresh drawing with no previous display allocations"
         )
-    Reference = MakeOriginProfile(Candidate)
-    DisplayValue = MakeOriginDisplay(FolderValue, Candidate.ViewValue, Reference)
-    _ = AllocateOriginIdMut(Candidate.ModelGraph.ModelValue, DisplayValue)
+    Reference = MakeOriginProf(Candidate)
+    DisplayValue = MakeOriginView(FolderValue, Candidate.ViewValue, Reference)
+    _ = AllocOrigIdMut(Candidate.ModelGraph.ModelValue, DisplayValue)
     FolderValue.FieldsValue["f8f8"] = {"n": 1, "items": ({"o": DisplayValue},)}
     return DisplayValue

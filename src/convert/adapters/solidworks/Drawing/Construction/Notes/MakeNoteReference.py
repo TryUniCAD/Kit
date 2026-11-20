@@ -3,7 +3,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # the note reference resolves actual local data without an external component or selection cache
-def MakeNoteReference(DataValue: ArchiveNode, VersionValue: int) -> ArchiveNode:
+def MakeNoteRef(DataValue: ArchiveNode, VersionValue: int) -> ArchiveNode:
     return ArchiveNode(
         RuntimeClass("moCompNote_c", 1),
         {

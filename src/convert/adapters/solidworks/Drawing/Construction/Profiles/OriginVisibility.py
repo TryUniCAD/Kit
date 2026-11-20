@@ -1,5 +1,5 @@
 # profile display visibility has a distinct native constructor from ordinary sketch entity presentation
-def OriginVisibility() -> dict[str, object]:
+def MakeOriginVis() -> dict[str, object]:
     return {
         "f00": 0xFFFF,
         "f02": 0,

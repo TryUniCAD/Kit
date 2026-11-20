@@ -14,7 +14,7 @@ from convert.adapters.solidworks.Drawing.Construction.Profiles.MakeOriginChain i
     MakeOriginChain,
 )
 from convert.adapters.solidworks.Drawing.Construction.Profiles.RequireOriginChild import (
-    RequireOriginChild,
+    NeedOriginChild,
 )
 from convert.adapters.solidworks.Drawing.Definition.Profiles.NeedProfileNode import (
     NeedProfileNode,
@@ -22,8 +22,8 @@ from convert.adapters.solidworks.Drawing.Definition.Profiles.NeedProfileNode imp
 
 
 # component profile selection must derive both persistent identity and creation time from the same actual child origin
-def MakeOriginProfile(Candidate: LinkedDrawFile) -> ArchiveNode:
-    ProfileValue = RequireOriginChild(Candidate.ChildValue)
+def MakeOriginProf(Candidate: LinkedDrawFile) -> ArchiveNode:
+    ProfileValue = NeedOriginChild(Candidate.ChildValue)
     Reference = NeedProfileNode(
         Candidate.ViewValue.FieldsValue.get("f5d8"), "moReferenceInternal_c"
     )

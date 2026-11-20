@@ -14,7 +14,7 @@ from convert.adapters.solidworks.Drawing.Definition.Profiles.NeedProfileNode imp
 
 
 # origin display selection must use the actual generated child feature before any drawing owner can be changed
-def RequireOriginChild(ChildValue: PartCandidate) -> ArchiveNode:
+def NeedOriginChild(ChildValue: PartCandidate) -> ArchiveNode:
     if type(CastValue(object, ChildValue)) is not PartCandidate:
         raise TypeError("origin display requires the actual generated SDK child")
     OriginValue = ChildValue.SystemValue.OriginValue

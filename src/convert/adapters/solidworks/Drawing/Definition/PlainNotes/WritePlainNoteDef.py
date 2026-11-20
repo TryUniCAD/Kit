@@ -19,7 +19,7 @@ from convert.adapters.solidworks.Drawing.Definition.Linked.FrontVirtuals import 
     KFrontVirtuals,
 )
 from convert.adapters.solidworks.Drawing.Definition.PlainNotes.ReadNoteDrawing import (
-    ResolvePlainNote,
+    ReadPlainNote,
 )
 from convert.adapters.solidworks.Drawing.Definition.PlainNotes.ReadNoteText import (
     ReadNoteText,
@@ -36,7 +36,7 @@ def WriteNoteDef(GraphValue: BlankGraph) -> DefinitionWire:
         GraphValue.DocumentValue.FieldsValue["model"], "moDrawing_c"
     )
     SheetValue = NeedConceptNode(ModelValue.FieldsValue["f1430"], "moDrSheet")
-    TextValue = ResolvePlainNote(SheetValue)
+    TextValue = ReadPlainNote(SheetValue)
     _ = ReadNoteText(TextValue)
     FolderValue = NeedConceptNode(SheetValue.FieldsValue["f390"], "moDetailFolder_c")
     ContextValue = BodyContext(

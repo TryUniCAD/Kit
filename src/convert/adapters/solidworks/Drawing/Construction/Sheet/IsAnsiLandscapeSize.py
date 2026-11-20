@@ -2,7 +2,7 @@ from math import isclose as IsClose, ulp as FloatStep
 
 
 # equivalent paper sizes can come from native inch conversion or the decimal layout index
-def IsAnsiLandscapeSize(Width: float, Height: float) -> bool:
+def IsAnsiLandscape(Width: float, Height: float) -> bool:
     NativeWidth = 11 * 0.0254
     NativeHeight = 8.5 * 0.0254
     return IsClose(

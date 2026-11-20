@@ -18,7 +18,7 @@ from convert.adapters.solidworks.Drawing.Construction.Profiles.AttachOriginMut i
     AttachOriginMut,
 )
 from convert.adapters.solidworks.Drawing.Construction.Profiles.RequireOriginChild import (
-    RequireOriginChild,
+    NeedOriginChild,
 )
 from convert.adapters.solidworks.Drawing.Definition.Named.WriteNamedDef import (
     WriteNamedDef,
@@ -29,7 +29,7 @@ from convert.adapters.solidworks.Drawing.Definition.Named.WriteNamedDef import (
 def MakeOriginFile(
     InputValue: LinkedDrawInput, ChildValue: PartCandidate
 ) -> LinkedDrawFile:
-    _ = RequireOriginChild(ChildValue)
+    _ = NeedOriginChild(ChildValue)
     Candidate = MakeLinkedFile(InputValue, ChildValue)
     _ = AttachOriginMut(Candidate)
     StreamsValue = dict(Candidate.StreamsValue)

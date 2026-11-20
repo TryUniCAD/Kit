@@ -7,8 +7,8 @@ from convert.adapters.solidworks.Drawing.Reading.Blank.Require import Require
 def ReadBlankLocale(Value: object, HistoryLanguage: int) -> int:
     Annotation = Fields(Fields(Value)["f1f18"])
     Selectors = {
-        Integer(Fields(Annotation[Key])["f1c"])
-        for Key in (
+        Integer(Fields(Annotation[FieldName])["f1c"])
+        for FieldName in (
             "f40",
             "fa0",
             "f108",

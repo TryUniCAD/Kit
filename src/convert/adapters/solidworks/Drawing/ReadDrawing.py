@@ -21,7 +21,7 @@ def ReadDrawing(
         raise SldprtFormat("SOLIDWORKS drawing content requires a .SLDDRW source")
     if Settings.strict:
         from convert.adapters.solidworks.Drawing.Reading.ReadGeneratedBlank import (
-            ReadGeneratedBlank,
+            ReadBlankDraw,
         )
 
         if Settings.configuration is not None:
@@ -29,7 +29,7 @@ def ReadDrawing(
                 "drawing configuration selection belongs to the linked model view"
             )
         try:
-            return ReadGeneratedBlank(Archive, DataValue, Label)
+            return ReadBlankDraw(Archive, DataValue, Label)
         except (KeyError, TypeError, ValueError, IndexError) as ErrorValue:
             raise SldprtFormat(
                 "strict generated blank drawing is unsupported: " + str(ErrorValue)
@@ -47,13 +47,13 @@ def ReadDrawing(
         )
 
         from convert.adapters.solidworks.Drawing.Definition.PlainNotes.PlainNoteRequired import (
-            PlainNoteRequired,
+            PlainNoteError,
         )
 
         Version = CheckDrawLane(Archive)
         try:
             Concept = ReadConcept(Archive, Version)
-        except PlainNoteRequired:
+        except PlainNoteError:
             from convert.adapters.solidworks.Drawing.Definition.PlainNotes.ReadNoteDrawing import (
                 ReadNoteDrawing,
             )

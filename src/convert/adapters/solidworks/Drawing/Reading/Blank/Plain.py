@@ -21,11 +21,14 @@ def Plain(Value: object) -> object:
         return Members
     if isinstance(Value, dict):
         MappingValue = CastValue(dict[object, object], Value)
-        if any(type(Key) is not str for Key in MappingValue):
+        if any(type(FieldName) is not str for FieldName in MappingValue):
             raise TypeError("blank intent metadata has a nontext key")
-        return {CastValue(str, Key): Plain(Item) for Key, Item in MappingValue.items()}
+        return {
+            CastValue(str, FieldName): Plain(ItemValue)
+            for FieldName, ItemValue in MappingValue.items()
+        }
     if isinstance(Value, (list, tuple)):
-        return [Plain(Item) for Item in CastValue(Sequence[object], Value)]
+        return [Plain(ItemValue) for ItemValue in CastValue(Sequence[object], Value)]
     if Value is None or type(Value) in (str, int, float, bool):
         return Value
     raise TypeError("blank intent metadata contains an unsupported value")

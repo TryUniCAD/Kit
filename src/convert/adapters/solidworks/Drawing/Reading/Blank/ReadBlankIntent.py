@@ -20,23 +20,23 @@ from convert.adapters.solidworks.Drawing.Layout.ReadDrawLayout import ReadDrawLa
 from interchange.document.Models.Drawing.DrawingData import DrawingData
 from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
 from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields import (
-    NeedConceptNode as Node,
+    NeedConceptNode as NeedNode,
     NeedDrawNumber as Number,
 )
 from convert.adapters.solidworks.Drawing.Definition.Projection.ReadConceptName import (
-    ReadConceptName as Name,
+    ReadConceptName as ReadName,
 )
 from convert.adapters.solidworks.Drawing.Reading.Blank.BlankIntent import BlankIntent
 from convert.adapters.solidworks.Drawing.Reading.Blank.Integer import Integer
 from convert.adapters.solidworks.Drawing.Reading.Blank.Require import Require
 from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankHistory import (
-    ReadBlankHistory,
+    ReadDrawHist,
 )
 from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankHeader import (
     ReadBlankHeader,
 )
 from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankOptions import (
-    ReadBlankOptions,
+    ReadDrawOpts,
 )
 from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankUi import ReadBlankUi
 from convert.adapters.solidworks.Drawing.Reading.Blank.BlankStreamNames import (
@@ -59,8 +59,8 @@ def ReadBlankIntent(Archive: SldprtArchive, SourceData: bytes) -> BlankIntent:
         "blank Definition does not re-emit exactly",
     )
     Document = Definition.DocumentValue
-    Model = Node(Document.FieldsValue["model"], "moDrawing_c")
-    HeaderNode = Node(Model.FieldsValue["fa8"], "moHeader_c")
+    Model = NeedNode(Document.FieldsValue["model"], "moDrawing_c")
+    HeaderNode = NeedNode(Model.FieldsValue["fa8"], "moHeader_c")
     HeaderCopy = ReadHeaderGraph(Archive.require("Header2"), Version)
     Require(
         WriteHeadGraph(HeaderCopy, Version)
@@ -76,12 +76,14 @@ def ReadBlankIntent(Archive: SldprtArchive, SourceData: bytes) -> BlankIntent:
             == Archive.require("_MO_VERSION_19000/" + Label),
             "blank chronology does not re-emit exactly",
         )
-    HistoryInput = ReadBlankHistory(History.RootValue)
+    HistoryInput = ReadDrawHist(History.RootValue)
     HeaderInput, FileInput = ReadBlankHeader(HeaderNode, HistoryInput)
-    Sheet = Node(Model.FieldsValue["f1430"], "moDrSheet")
+    Sheet = NeedNode(Model.FieldsValue["f1430"], "moDrSheet")
     NativeId = Integer(Sheet.FieldsValue["f08"])
     SheetId = "slddrw:sheet:" + str(NativeId)
-    First, Second = (Number(Sheet.FieldsValue[Key]) for Key in ("f3f8", "f400"))
+    First, Second = (
+        Number(Sheet.FieldsValue[FieldName]) for FieldName in ("f3f8", "f400")
+    )
     Require(
         First.is_integer() and Second.is_integer(),
         "blank scale terms are not positive integral native inputs",
@@ -91,7 +93,7 @@ def ReadBlankIntent(Archive: SldprtArchive, SourceData: bytes) -> BlankIntent:
         (
             DrawingSheet(
                 SheetId,
-                Name(Sheet),
+                ReadName(Sheet),
                 Number(Sheet.FieldsValue["f3f0"]),
                 Number(Sheet.FieldsValue["f3e8"]),
                 (First, Second),
@@ -104,24 +106,24 @@ def ReadBlankIntent(Archive: SldprtArchive, SourceData: bytes) -> BlankIntent:
     Require(
         Layout.ActiveSheetId == SheetId
         and len(Layout.Sheets) == 1
-        and Layout.Sheets[0].EntityName == Name(Sheet)
+        and Layout.Sheets[0].EntityName == ReadName(Sheet)
         and not Layout.ModelRefs
         and not Layout.Sheets[0].Views,
         "blank metadata and actual active sheet disagree",
     )
     Input = BlankDrawInput(
         Drawing,
-        ReadBlankOptions(Model, HeaderInput.CreatedAt, HistoryInput.LanguageId),
+        ReadDrawOpts(Model, HeaderInput.CreatedAt, HistoryInput.LanguageId),
         ReadBlankUi(Document),
         HeaderInput,
         FileInput,
         HistoryInput,
     )
     Generated = MakeBlankFile(Input)
-    for Key in KBlankStreamNames:
+    for FieldName in KBlankStreamNames:
         Require(
-            Generated.StreamsValue[Key] == Archive.require(Key),
-            "strict blank profile has an unrepresented owner in " + Key,
+            Generated.StreamsValue[FieldName] == Archive.require(FieldName),
+            "strict blank profile has an unrepresented owner in " + FieldName,
         )
     Require(
         Generated.BytesValue == SourceData,

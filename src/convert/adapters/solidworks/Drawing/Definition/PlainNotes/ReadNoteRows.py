@@ -20,14 +20,14 @@ def ReadNoteRows(Fields: Mapping[str, object]) -> tuple[ArchiveNode, ...]:
     ):
         raise BodyUnsupported("invalid drawing note collection")
     return tuple(
-        NeedConceptNode(NeedConceptMap(Row).get("o"))
-        for Row in CastValue(Sequence[object], Items)
+        NeedConceptNode(NeedConceptMap(RowValue).get("o"))
+        for RowValue in CastValue(Sequence[object], Items)
     )
 
 
 # single note owners must resolve to the declared class in the actual collection
 def NeedOneNoteRow(Parent: ArchiveNode, FieldName: str, ClassName: str) -> ArchiveNode:
-    Rows = ReadNoteRows(NeedConceptMap(Parent.FieldsValue.get(FieldName)))
-    if len(Rows) != 1:
+    RowValues = ReadNoteRows(NeedConceptMap(Parent.FieldsValue.get(FieldName)))
+    if len(RowValues) != 1:
         raise BodyUnsupported("plain drawing note requires one owned item")
-    return NeedConceptNode(Rows[0], ClassName)
+    return NeedConceptNode(RowValues[0], ClassName)

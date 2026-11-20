@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Drawing.Construction.Portable.ReadSheetRatio im
     ReadSheetRatio,
 )
 from convert.adapters.solidworks.Drawing.Construction.Sheet.IsAnsiLandscapeSize import (
-    IsAnsiLandscapeSize,
+    IsAnsiLandscape,
 )
 
 
@@ -39,14 +39,22 @@ def NeedBlankDrawing(DocumentValue: CadDocument) -> DrawingData:
         )
         or set(DocumentValue.metadata) - {"name"}
     ):
-        raise ValueError("native blank drawing requires complete plain metre layout intent")
+        raise ValueError(
+            "native blank drawing requires complete plain metre layout intent"
+        )
     Errors = CheckDrawing(DrawingValue)
     if Errors:
         raise ValueError("invalid native drawing layout: " + ", ".join(Errors))
     if len(DrawingValue.Sheets) != 1 or DrawingValue.ModelRefs:
         raise ValueError("native blank drawing requires one unlinked sheet")
     SheetValue = DrawingValue.Sheets[0]
-    if SheetValue.Views or SheetValue.Notes or not IsAnsiLandscapeSize(SheetValue.SheetWidth, SheetValue.SheetHeight):
-        raise ValueError("native blank drawing requires an empty landscape ANSI A sheet")
+    if (
+        SheetValue.Views
+        or SheetValue.Notes
+        or not IsAnsiLandscape(SheetValue.SheetWidth, SheetValue.SheetHeight)
+    ):
+        raise ValueError(
+            "native blank drawing requires an empty landscape ANSI A sheet"
+        )
     _ = ReadSheetRatio(SheetValue.ScaleRatio)
     return DrawingValue

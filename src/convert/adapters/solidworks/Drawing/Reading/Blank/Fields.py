@@ -10,6 +10,6 @@ def Fields(Value: object) -> Mapping[str, object]:
         return Value.FieldsValue
     if isinstance(Value, dict):
         Dictionary = CastValue(dict[object, object], Value)
-        if all(type(Key) is str for Key in Dictionary):
+        if all(type(FieldName) is str for FieldName in Dictionary):
             return CastValue(dict[str, object], Value)
     raise BodyUnsupported("blank embedded owner has no typed fields")

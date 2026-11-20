@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 from convert.adapters.solidworks.Drawing.Definition.ConceptState import ConceptState
 from convert.adapters.solidworks.Drawing.Definition.FieldScope import FieldScope
 from convert.adapters.solidworks.Drawing.Definition.PlainNotes.PlainNoteRequired import (
-    PlainNoteRequired,
+    PlainNoteError,
 )
 from convert.adapters.solidworks.Drawing.Definition.RunConceptRule import RunMethodMut
 from convert.adapters.solidworks.Drawing.Definition.ShapeClasses import KShapeClasses
@@ -21,9 +21,7 @@ def ReadConceptBody(
     ClassName = ClassValue.NameValue
     Schema = ClassValue.SchemaValue
     if ClassName == "moDisplayNote_c" and Schema == 1:
-        raise PlainNoteRequired(
-            f"unqualified drawing class {ClassName} schema {Schema}"
-        )
+        raise PlainNoteError(f"unqualified drawing class {ClassName} schema {Schema}")
     if KShapeClasses.get(ClassName) != Schema:
         raise ValueError(f"unqualified drawing class {ClassName} schema {Schema}")
     HeaderReader = KHeaderClasses.get((ClassName, Schema))

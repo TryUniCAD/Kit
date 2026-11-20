@@ -12,20 +12,20 @@ from convert.adapters.solidworks.Drawing.Construction.Portable.DrawDocOptions im
 )
 from convert.adapters.solidworks.Drawing.Construction.Sheet.SheetNames import SheetNames
 from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields import (
-    NeedConceptNode as Node,
+    NeedConceptNode as NeedNode,
 )
 from convert.adapters.solidworks.Drawing.Definition.Projection.ReadConceptName import (
-    ReadConceptName as Name,
+    ReadConceptName as ReadName,
 )
 from convert.adapters.solidworks.Drawing.Definition.Detailing.NeedDetailText import (
-    NeedDetailText as Text,
+    NeedDetailText as ReadText,
 )
 from convert.adapters.solidworks.Drawing.Definition.Emission.ReadBlankKids import (
     ReadBlankKids as Children,
 )
 from convert.adapters.solidworks.Drawing.Reading.Blank.Fields import Fields
 from convert.adapters.solidworks.Drawing.Reading.Blank.Integer import Integer
-from convert.adapters.solidworks.Drawing.Reading.Blank.One import One
+from convert.adapters.solidworks.Drawing.Reading.Blank.One import OnlyItem
 from convert.adapters.solidworks.Drawing.Reading.Blank.Require import Require
 from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankStyle import (
     ReadBlankStyle,
@@ -36,15 +36,13 @@ from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankUnits import (
 
 
 # drawing presentation and independent block identity must come from their actual modeled owners
-def ReadBlankOptions(
-    Model: ArchiveNode, CreatedAt: int, Language: int
-) -> DrawDocOptions:
+def ReadDrawOpts(Model: ArchiveNode, CreatedAt: int, Language: int) -> DrawDocOptions:
     Value = Fields(Model)
-    Sheet = Node(Value["f1430"], "moDrSheet")
+    Sheet = NeedNode(Value["f1430"], "moDrSheet")
     SheetFields = Sheet.FieldsValue
     Members = Children(Model)
     Names: dict[str, str] = {}
-    for Kind in (
+    for KindValue in (
         "moDetailCabinet_c",
         "moDocsFolder_c",
         "moCommentsFolder_c",
@@ -52,16 +50,18 @@ def ReadBlankOptions(
         "moInkMarkupFolder_c",
         "moMarkupCommentFolder_c",
     ):
-        Names[Kind] = Name(
-            One(
+        Names[KindValue] = ReadName(
+            OnlyItem(
                 tuple(
-                    Member for Member in Members if Member.ClassValue.NameValue == Kind
+                    Member
+                    for Member in Members
+                    if Member.ClassValue.NameValue == KindValue
                 )
             )
         )
     Supports = Children(Sheet)
     Require(
-        tuple(Item.ClassValue.NameValue for Item in Supports)
+        tuple(ItemValue.ClassValue.NameValue for ItemValue in Supports)
         == ("moRefPlane_c", "moProfileFeature_c", "moDetailFolder_c"),
         "blank sheet support order differs",
     )
@@ -72,7 +72,7 @@ def ReadBlankOptions(
         Integer(SheetFields["f300"]),
         Integer(SheetFields["f301"]),
     )
-    Identity = Node(Value["fe80"], "moSketchBlockMgr_c").FieldsValue["f380"]
+    Identity = NeedNode(Value["fe80"], "moSketchBlockMgr_c").FieldsValue["f380"]
     Require(
         type(Identity) is bytes and len(Identity) == 16,
         "blank block identity is invalid",
@@ -82,13 +82,13 @@ def ReadBlankOptions(
         "blank auto dimension text state has extra flags",
     )
     return DrawDocOptions(
-        Name(Model),
-        Text(SheetFields["f3d0"]),
-        SheetNames(*(Name(Item) for Item in Supports)),
+        ReadName(Model),
+        ReadText(SheetFields["f3d0"]),
+        SheetNames(*(ReadName(ItemValue) for ItemValue in Supports)),
         DrawFolders(
             *(
-                Names[Kind]
-                for Kind in (
+                Names[KindValue]
+                for KindValue in (
                     "moDetailCabinet_c",
                     "moDocsFolder_c",
                     "moCommentsFolder_c",
