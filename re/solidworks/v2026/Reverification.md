@@ -60,6 +60,12 @@ exact 2026 image hashes, the 2025 table export, and the disclosed fixtures at PR
 `960ffde7a866ba94a83043fc8a7d21d0b9edb882`. The 2026 arrays have combined SHA-256
 `315bebe5c09a28ba122f7095cffd53acad52a551956e2bb8c497f593fdb60f3f`.
 
+The pinned 2026 corpus follow-up covers 80 parts and eight assemblies. All
+88 use the same ordinary KeyWords frame and reassemble byte for byte from
+their decoded compact XML trees. All containers report version 4 and archive
+version 19000. The six observed child-list fields each carry one ID.
+[Corpus framing receipt](../records/KeywordCorpusFraming2026.md)
+
 The byte positions above describe the sampled streams. Use the typed
 [configuration fields](../../../src/convert/adapters/solidworks/Archive/Bodies/Layouts/ConfigurationFields.py#L137)
 for the `fb00` row count and the typed
