@@ -151,12 +151,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("source", type=Path)
     parser.add_argument("--member")
+    parser.add_argument("--owners", action="store_true")
     args = parser.parse_args()
     data = read_file(args.source, 128*1024*1024)
     if args.member is not None:
         from convert.adapters.solidworks.Container.Container import SldprtArchive
-        data = SldprtArchive.FromBytes(data).Require(args.member)
-    print(json.dumps(read(data), allow_nan=False))
+        archive = SldprtArchive.FromBytes(data)
+        data = archive.Require(args.member)
+    result = read(data)
+    if args.owners:
+        if not args.member:
+            parser.error("--owners requires --member")
+        from InferenceGrid.RawScalarOwners import associate
+        result = {{"records":result, "ownership":associate(archive,args.member,result)}}
+    print(json.dumps(result, allow_nan=False))
 """
 
 
@@ -390,6 +398,12 @@ def part_scalars(root, source, pin, scratch, controls):
         }
         for (other, _), replay in zip(others, rule["control_replays"]):
             result["members"][other] = replay
+        from InferenceGrid.RawScalarOwners import associate, native_comparisons
+
+        for member, row in result["members"].items():
+            if "records" in row:
+                row["ownership"] = associate(archive, member, row["records"])
+        result["owner_observations"] = native_comparisons(root, pin, result["members"])
         if patch and any("records" not in row for row in result["members"].values()):
             return result, None
         if patch:
@@ -401,6 +415,7 @@ def part_scalars(root, source, pin, scratch, controls):
                         str(source),
                         "--member",
                         member,
+                        "--owners",
                     ],
                     cwd=private,
                     env={
@@ -413,7 +428,10 @@ def part_scalars(root, source, pin, scratch, controls):
                     capture_output=True,
                     timeout=60,
                 )
-                if process.returncode or json.loads(process.stdout) != row["records"]:
+                if process.returncode or json.loads(process.stdout) != {
+                    "records": row["records"],
+                    "ownership": row["ownership"],
+                }:
                     result["status"] = "native_entry_replay_failed"
                     return result, None
             patch = {

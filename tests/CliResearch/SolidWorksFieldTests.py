@@ -207,3 +207,11 @@ def CheckNativePartScalarReader(TmpPath: FilePath) -> None:
     assert Patch["input_sha256"] == Evidence["input_sha256"]
     assert set(Patch["verified_members"]) == set(Evidence["members"])
     assert (Run / "NamedScalarReader.patch").is_file()
+    Owners = Evidence["owner_observations"]
+    assert {(Row["feature"], Row["parameter"]) for Row in Owners} == {
+        ("Revolution", "angle_deg"),
+        ("AnnulusProfile", "height_mm"),
+        ("AnnulusProfile", "inner_radius_mm"),
+        ("AnnulusProfile", "outer_radius_mm"),
+    }
+    assert all(Row["status"] == "native_name_and_value_match" for Row in Owners)
