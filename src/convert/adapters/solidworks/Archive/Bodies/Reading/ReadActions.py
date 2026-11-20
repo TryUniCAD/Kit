@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadArrayMut import Read
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNestedMut import (
     ReadNestedMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import (
+    ReadPresentMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadValueMut import ReadValueMut
 
 # field dispatch admits only the operations with shared body implementations
@@ -16,8 +19,10 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Scalar": ReadValueMut,
             "Text": ReadValueMut,
             "Node": ReadValueMut,
+            "Base": ReadNestedMut,
             "Embed": ReadNestedMut,
             "Array": ReadArrayMut,
+            "Present": ReadPresentMut,
         }
     )
 )
