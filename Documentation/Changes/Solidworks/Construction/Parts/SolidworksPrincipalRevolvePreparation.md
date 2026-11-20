@@ -27,3 +27,10 @@ rebuild, D1 edit, save and fresh reopen, with both controls
 healthy. All reported top-level features and 72 numeric values
 matched the disclosed sources at the measured precision.
 [Native lifecycle](../../../../../re/solidworks/measurements/2026/SdkPrincipalRevolveNative01.json)
+
+The guest-only held-out evaluator pins the same production source
+tree and both original source identities. It prepares both parts
+from authored neutral intent in guarded processes before opening
+native references, then compares recursive feature trees, signed
+geometry and edited reopens between healthy controls.
+[Evaluation method](../../../../../re/solidworks/records/PrincipalRevolveHeldoutProtocol2026.md)
