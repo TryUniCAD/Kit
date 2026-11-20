@@ -301,7 +301,7 @@ accepted scalar, text, object and counted-row codecs. The exit requires
 exact native-directory byte and map replay, independent model-generated
 rows, role and schema refusals, current-revision review and green queue
 acceptance. Full configuration projection and native document writing
-have separate exits. [Field and process evidence](../../re/solidworks/records/ManagerDirectorySlice2026.md)
+have separate exits. [Field and process evidence](https://github.com/TryUniCAD/Kit/blob/5b231edbcf48caa147883804c906faef42564b79/re/solidworks/records/ManagerDirectorySlice2026.md)
 
 ### B08-SW2026-TERMINAL-FIN
 
