@@ -51,6 +51,11 @@ def CheckFileScope(TmpPath: FilePath) -> None:
         "5662F619-2281-4AD9-93DC-1FCFDA1062E7"
         not in Audit["reader_attempts"]["strict"]["message"]
     )
+    Manifest = LoadJson((RunPath / "Input-manifest-text.json").read_bytes())
+    assert Manifest["status"] == "replayed_text_prefix"
+    assert Manifest["shared_codecs"] == ["utf-16le", "utf-16le", "utf-16le", "ascii"]
+    assert all(Check["asset_id_matches"] and Check["snapshot_id_matches"] for Check in Manifest["fusion_manifest_checks"])
+    assert {Control["split"] for Control in Manifest["controls"]} == {"discovery", "qualification", "holdout"}
     Timeline = LoadJson((RunPath / "Input-timeline.json").read_bytes())
     assert Timeline["oracle_fields_match"] is True
     assert [Feature["name"] for Feature in Timeline["components"][0]["features"]] == [
