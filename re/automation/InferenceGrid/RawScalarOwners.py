@@ -10,7 +10,7 @@ from bisect import bisect_right
 from collections import Counter, defaultdict
 import math
 
-from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle
+from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle, SelectNamedField
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars
 from convert.adapters.solidworks.Core.ParseDisplay import (
     KInformationStream,
@@ -67,6 +67,7 @@ def associate(archive, member, records):
     occurrences = Counter(ident for _, ident in markers)
     rows = []
     local_counts = Counter()
+    groups = defaultdict(list)
     for record in records:
         label = record["name"]
         matches = []
@@ -90,15 +91,24 @@ def associate(archive, member, records):
             trailer = {"role": scalar.role, "object_id": scalar.object_id,
                        "operands": [{"offset": operand.offset, "kind_code": operand.kind_code,
                                      "entity_index": operand.entity_index} for operand in scalar.operands]}
+        if index >= 0:
+            groups[(markers[index][1], label)].append(scalar if trailer else None)
         rows.append(
             {**record, "native_trailer": trailer, "candidate_feature_ids": possible, "declaration_matches": matches, "preceding_candidate": local}
         )
+    driving = set()
+    for group in groups.values():
+        if len(group) > 1 and all(item is not None for item in group):
+            selected = SelectNamedField(group)
+            if selected is not None:
+                driving.add(selected.value_offset)
     counts = Counter()
     roles = defaultdict(Counter)
     for row in rows:
         possible, local = row["candidate_feature_ids"], row["preceding_candidate"]
         rounded = any(m["agreement"] == "display_precision" for m in row["declaration_matches"])
-        if local and local_counts[local["id"], row["name"]] == 1:
+        row["selected_among_display_copies"] = bool(local and row["offset"] in driving)
+        if local and (local_counts[local["id"], row["name"]] == 1 or row["selected_among_display_copies"]):
             status = (
                 "rounded_declaration_and_marker_agree" if rounded and len(possible) == 1
                 else "declaration_and_marker_agree"
