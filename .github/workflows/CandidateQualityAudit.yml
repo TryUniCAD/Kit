@@ -228,9 +228,10 @@ jobs:
           from convert.Formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
           from convert.Formats.Fusion.Sketches.SketchQualification import HasSketchRules, IsSketchOwner
           base = Path("re/Fusion/Study")
-          for sample in ("extents-f0f33a9a605f/distance_positive.f3d", "models-97a5e41e2ba7/revolve_full.f3d", "sketches-0ccea2ac0f9c/radius.f3d", "bodyselections-62e42366c722/scale_two_bodies_point.f3d"):
+          for sample in ("extents-f0f33a9a605f/distance_positive.f3d", "models-97a5e41e2ba7/revolve_full.f3d", "sketches-0ccea2ac0f9c/radius.f3d", "bodyselections-62e42366c722/scale_two_bodies_point.f3d","holdouts-f8c508a73323/expression_depth.f3d","dimensions-f83a2edd2f72/dimensions.f3d","scaleshellinputs-97ef1cfd19e4/scale_construction_point.f3d"):
               path = base / sample
               doc = ReadFusionDoc(path)
+              print("timeline",path.name,[(str(s.kind), bool(s.sketch_id), s.provenance.spans[0].record_kind if s.provenance and s.provenance.spans else None) for s in doc.feature_timeline])
               with OpenFusionZip(path.read_bytes(),None) as archive:
                   bulk, spans = archive.ReadDesign()
                   for sketch in doc.sketches:
