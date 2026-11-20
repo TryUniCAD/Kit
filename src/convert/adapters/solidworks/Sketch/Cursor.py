@@ -9,7 +9,6 @@ from convert.adapters.solidworks.Sketch.GeometryTypes import (
     SketchReference,
 )
 from convert.adapters.solidworks.Sketch.MemberSpans import DistanceSpan
-from convert.adapters.solidworks.Sketch.Objects import ReadSketchMut
 
 
 # sketch local operand data shares its ownership map with the enclosing feature
@@ -42,4 +41,6 @@ class SketchArchive(ArchiveCursor):
 
     # layouts outside the normal sketch scope must fail at their typed boundary
     def ReadPayload(self, NameValue: str, ObjectIndex: int) -> None:
+        from convert.adapters.solidworks.Sketch.Objects import ReadSketchMut
+
         ReadSketchMut(self, NameValue, ObjectIndex)

@@ -11,14 +11,16 @@ from pathlib import Path as FilePath
 def GateCommand() -> int:
     GateRoot = FilePath(System.argv[1])
     OwnerPid = int(System.argv[2])
-    HeldCommand = System.argv[3]
     Command = System.argv[5:]
-    Index = Command.index("--store") + 2
+    Controller = FilePath(__file__).resolve().parents[3] / "re/automation/Controller.py"
+    if Command[:3] != [System.executable, str(Controller), "--store"]:
+        raise ValueError("unexpected controller command")
+    Index = 4
     if Command[Index] == "--owner":
         Index += 2
     Operation = Command[Index]
     IsHeld = False
-    if Operation == HeldCommand:
+    if Operation == System.argv[3]:
         try:
             Handle = OsLayer.open(
                 GateRoot / "Held.json",
@@ -48,7 +50,11 @@ def GateCommand() -> int:
             while not (GateRoot / "Release").exists() and TimeClock.monotonic() < Until:
                 TimeClock.sleep(0.02)
     Result = Subprocess.run(
-        Command, capture_output=True, text=True, check=False, timeout=45
+        [System.executable, str(Controller), "--store", *Command[3:]],
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=45,
     )
     RecordResult(GateRoot, OwnerPid, Command, Operation, IsHeld, Result)
     _ = System.stdout.write(Result.stdout)

@@ -40,10 +40,9 @@ def StartChild(Options: dict[str, str]) -> None:
             )["job_object"]
             break
         except (OSError, ValueError):
-            pass
-        if TimeClock.monotonic() >= UntilTime:
-            raise RuntimeError("child did not report readiness")
-        TimeClock.sleep(0.01)
+            if TimeClock.monotonic() >= UntilTime:
+                raise RuntimeError("child did not report readiness") from None
+            TimeClock.sleep(0.01)
     assert ChildProcess.poll() is None
     ProcessIds = BindChild(ChildProcess.pid, OsLayer.getpid(), Observation, JobName)
     _ = FilePath(Options["pid_file"]).write_text(
