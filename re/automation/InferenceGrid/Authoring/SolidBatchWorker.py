@@ -16,6 +16,7 @@ path[:0] = [str(Path(__file__).resolve().parents[2])]
 
 from CaptureTools.Catalogue.SolidWorks.RunSolidBatch import RunSolidBatch
 from InferenceGrid.Authoring.PackNative import PackNative
+from InferenceGrid.Authoring.NativeAttempt import MakeNativePath
 from InferenceGrid.Authoring.SolidSources import ReadSolidPins
 from InferenceInputs import read_json_input
 from InferenceSession import read_session
@@ -59,7 +60,7 @@ def RunBatchJob(SessionPath, HostPath):
     WorkPath = SessionPath / "work"
     Reports = RunSolidBatch(
         [Sample["case"] for Sample in Samples],
-        WorkPath / "Capture",
+        MakeNativePath(SessionPath, HostPath),
         read_record(HostPath),
     )
     if not isinstance(Reports, list) or len(Reports) != len(Samples):

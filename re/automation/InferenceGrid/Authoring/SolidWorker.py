@@ -19,6 +19,7 @@ from InferenceInputs import read_json_input
 from InferenceSession import read_session
 from InferenceGrid.Authoring.SolidSources import ReadSolidPins
 from InferenceGrid.Authoring.PackNative import PackNative
+from InferenceGrid.Authoring.NativeAttempt import MakeNativePath
 from Records import digest, read_record
 from Sessions import write_private
 
@@ -36,7 +37,9 @@ def RunSolidJob(SessionPath, HostPath):
         raise ValueError("capture case differs from its scheduled identity")
     SourcePins = ReadSolidPins(JobValue["tool_version"])
     WorkPath = SessionPath / "work"
-    ReportValue = RunSolid(CaseValue, WorkPath / "Capture", read_record(HostPath))
+    ReportValue = RunSolid(
+        CaseValue, MakeNativePath(SessionPath, HostPath), read_record(HostPath)
+    )
     BundlePath, Manifest = PackNative(WorkPath, ReportValue)
     ReportPath = WorkPath / "NativeReport.json"
     ReportPath.write_text(dumps(ReportValue, sort_keys=True), encoding="utf-8")

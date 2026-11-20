@@ -308,6 +308,7 @@ jobs:
         ^tests/Research/WindowsRecords/
         ^tests/Research/Inference/Authoring/SolidWorks/NativeEnvTests\.py::
         ^tests/Research/Inference/Authoring/SolidWorks/PhaseProcessTests\.py::
+        ^tests/Research/Inference/Authoring/Recipes/
     defaults:
       run:
         shell: bash
