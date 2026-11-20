@@ -1,0 +1,170 @@
+{
+  "freeze": {
+    "authoring_datum_labels_sha256": "3fbbf5c54296619e88432e446f2e4675883ba5af3ea6e05a40b974fecb3f7ac5",
+    "control_trial_sha256": "2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a",
+    "evaluator_revision": "3f55ba4bdacb916698fb047d4c1d97af9af27124",
+    "native_phase_order": [
+      "before",
+      "a-open",
+      "a-reopen",
+      "b-open",
+      "b-reopen",
+      "after",
+      "summary"
+    ],
+    "oracle_build": "34.5.2.0604",
+    "oracle_exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "prior_freeze_sha256": "10660269a55fa4f363ebc5f5d96e3e148a76a7cfdd628f844223a4a631fea8cb",
+    "prior_stage_sha256": "94a0e10010f7f5f30041eb88787cc149557a2ab959e6371dc62f06299a59e258",
+    "schema": "kit.sw2026.two-stock-writer-holdout-evaluation.v2",
+    "sdk_preparer": {
+      "path": "src/convert/adapters/solidworks/Core/Preparation/TwoStock/PrepareStockPart.py",
+      "sha256": "13d5bf2622a4112927de57e688b921da3f3a9d5cc6414eec329641c2eda6a2f9"
+    },
+    "source_lock_sha256": "1c07e988d425da1de7fd53ccdb30f7b18dc6b431236674404bcc1d8f3b21ae2c",
+    "tool_sha256": {
+      "EvaluateTwoStockHoldout01.py": "7916e2be23775a290d7c5141d6df9658a3b44b3ff43d54123ca27e9cd9285010",
+      "FreezeTwoStockSources01.py": "a69911f2e3050c115ed0bf1d3aebcef5d98829a0007bf0fcdc58ac9613b7e0f2",
+      "MeasureTwoStockConstruction01.py": "2d65b7dbfbd3179736b94156a0760980a41673e634928c7c621772bf41760ac9",
+      "ProbeThroughAutoScope01.py": "9d9065ea04a275b77e24371e74c7f98ebbfaa9fa2bc80bf774dd8e908a663f83",
+      "ProbeThroughMultiStock01.py": "b892caa8c228c816bb11cf81a04e2fefea8c9159ed952873b895798f64dabe4e"
+    },
+    "writer_revision": "6fc230fb31c3195ff16da5327d4a872f51e49290",
+    "writer_src_tree": "93f0ef018a2e403a5cf98ba2d832a2db16b362fa",
+    "written_at": 1765500071
+  },
+  "native": {
+    "cases": {
+      "a": {
+        "comparison": {
+          "edited": {
+            "checks": 24,
+            "full_tree_equal": true
+          },
+          "initial": {
+            "checks": 24,
+            "full_tree_equal": true
+          },
+          "reopened": {
+            "checks": 24,
+            "full_tree_equal": true
+          }
+        },
+        "comparison_failures": {},
+        "full_native_tree_equal": true,
+        "generated_sha256": "38ec26ec4786b85e6fa987071afc4ee37084a9136e48ea2a5db1604b82f18203",
+        "lifecycle_passed": true,
+        "native_phases": {
+          "Open": {
+            "open": [
+              true,
+              0,
+              0
+            ],
+            "passed": true,
+            "sha256": "fb33d3d415fa249560b5b3f833facd9b55ad03966f7efa49ded8f1901a2640ae"
+          },
+          "Reopen": {
+            "open": [
+              true,
+              0,
+              0
+            ],
+            "passed": true,
+            "sha256": "25fd6cc11568058e75b02a240afaa381c4778842527c1f7b8b4a05cfd9dd3ad3"
+          }
+        },
+        "source_sha256": "7823a8743b514d4e21b20217bf244c8eb923644e69e50ffc238eef86fe20c76d"
+      },
+      "b": {
+        "comparison": {
+          "edited": {
+            "checks": 24,
+            "full_tree_equal": true
+          },
+          "initial": {
+            "checks": 24,
+            "full_tree_equal": true
+          },
+          "reopened": {
+            "checks": 24,
+            "full_tree_equal": true
+          }
+        },
+        "comparison_failures": {},
+        "full_native_tree_equal": true,
+        "generated_sha256": "8e8aaa954813f77e20c408f9876ecbffd47a622c1b65494e70ecf099a3c9a5f6",
+        "lifecycle_passed": true,
+        "native_phases": {
+          "Open": {
+            "open": [
+              true,
+              0,
+              0
+            ],
+            "passed": true,
+            "sha256": "bc8b5fc931f130800f9efbbc6742655740f569c7ed5938d0f76dc7e6569d79bd"
+          },
+          "Reopen": {
+            "open": [
+              true,
+              0,
+              0
+            ],
+            "passed": true,
+            "sha256": "16292c50016191a7fad64272ebe4b9164fe955a323fe4f8040a6547230883733"
+          }
+        },
+        "source_sha256": "fe90beb7004019d5252b6e38a1898672589021e9cd803447ba512b8d0720ad85"
+      }
+    },
+    "control_sha256": {
+      "After": "b21e79003d9caed70d36d16af35ca8af6aaec29e3a709275202ece968fb2d5ff",
+      "Before": "607a7a6911335a533933f30c09b7350d88b131f9b6434cc228d7512e6277f051"
+    },
+    "controls_passed": true,
+    "evaluator_revision": "3f55ba4bdacb916698fb047d4c1d97af9af27124",
+    "freeze_sha256": "c68c0a1183c4c5820fbfc6533ec066008957e81cd642def3ea5a3c296de64348",
+    "native_candidate_records": 4,
+    "oracle_build": "34.5.2.0604",
+    "oracle_exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "passed": true,
+    "prior_freeze_sha256": "10660269a55fa4f363ebc5f5d96e3e148a76a7cfdd628f844223a4a631fea8cb",
+    "qualified_holdout_cases": 2,
+    "schema": "kit.sw2026.two-stock-writer-holdout-evaluation.v2",
+    "source_lock_sha256": "1c07e988d425da1de7fd53ccdb30f7b18dc6b431236674404bcc1d8f3b21ae2c",
+    "stage_sha256": "1d43f738a227000c7cbef94e1de9ed9e337d084ba4e829f65d24cfcb842dd36f",
+    "writer_revision": "6fc230fb31c3195ff16da5327d4a872f51e49290",
+    "writer_src_tree": "93f0ef018a2e403a5cf98ba2d832a2db16b362fa"
+  },
+  "staged": {
+    "evaluator_revision": "3f55ba4bdacb916698fb047d4c1d97af9af27124",
+    "freeze_sha256": "c68c0a1183c4c5820fbfc6533ec066008957e81cd642def3ea5a3c296de64348",
+    "schema": "kit.sw2026.two-stock-writer-holdout-evaluation.v2",
+    "slots": {
+      "a": {
+        "bytes": 8641,
+        "cold_sdk_body_count": 2,
+        "cold_sdk_guarded_processes": 1,
+        "cold_sdk_semantic_sha256": "0d0107d374038a166a8a3c8ce74dae152a58111dfe45b448da79f99aec8105f6",
+        "generation_guarded_processes": 2,
+        "name": "TwoStockHoldoutA.SLDPRT",
+        "request_sha256": "dc4d3ac46202f0bdbe0b4c8acee2d84375c416e45e8ca4196f28cf7f2fba5228",
+        "runtime_access_attempts": 0,
+        "sha256": "38ec26ec4786b85e6fa987071afc4ee37084a9136e48ea2a5db1604b82f18203"
+      },
+      "b": {
+        "bytes": 8647,
+        "cold_sdk_body_count": 2,
+        "cold_sdk_guarded_processes": 1,
+        "cold_sdk_semantic_sha256": "13fe07972994afdf39e5afd1c350a7461395f79f59a833c4f117d5db5d9b9be0",
+        "generation_guarded_processes": 2,
+        "name": "TwoStockHoldoutB.SLDPRT",
+        "request_sha256": "ce0cb7c98f1854b72679949d058ae387c279fbc36ddf995a42aa991849f70e57",
+        "runtime_access_attempts": 0,
+        "sha256": "8e8aaa954813f77e20c408f9876ecbffd47a622c1b65494e70ecf099a3c9a5f6"
+      }
+    },
+    "writer_revision": "6fc230fb31c3195ff16da5327d4a872f51e49290"
+  }
+}

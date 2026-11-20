@@ -172,9 +172,16 @@ This contributes zero original FCStd benchmark conversions.
 The [combined strict SDK proof](measurements/2026/TwoStockCombinedSdkRead01.json)
 confirms both solid owners and the selected cut through the normal reader
 for the cache-free generated archive and all three native-saved derivatives.
-Twenty-three guarded processes recorded zero external accesses. The two
-pre-writer-locked source comparisons and ordinary writer admission remain
-open. The original FCStd conversion counts remain zero.
+Twenty-three guarded processes recorded zero external accesses.
+
+The [independent two-stock comparison](measurements/2026/TwoStockWriterHoldoutNative02.json)
+qualifies both original locks for the scoped model-only preparer. Both
+full 29-row native trees, the selected cut, editable depths and 144
+numeric checks passed through clean rebuild, save and fresh reopen.
+The identical writer reran with the source authoring tool's pinned datum
+labels after a [first projection mismatch](measurements/2026/TwoStockWriterHoldoutNative01.json).
+Public admission has a separate SDK boundary. The original FCStd
+conversion counts remain zero.
 
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,
