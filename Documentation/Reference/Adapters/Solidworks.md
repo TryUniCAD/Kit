@@ -81,6 +81,12 @@ remain available alongside the decoded rows. The record owner supplies
 the expected descriptor and the live archive map snapshot.
 [Configuration member scope](../../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
 
+The bounded member reader also handles absent or empty sketch block and
+part exploded view managers. Their feature base selects branches and
+concrete virtual targets. The sketch map backlink retains the newly
+allocated manager's identity.
+[Configuration field action scope](../../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
+
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
 of the lightweight section, it inserts the original header objects

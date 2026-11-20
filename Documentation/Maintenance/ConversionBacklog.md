@@ -166,6 +166,17 @@ cases, and current revision review and CI. The remaining configuration
 layouts and complete physical admission have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
 
+### B04-SW2026-CONFIG-FIELD-ACTIONS
+
+The PR #121 takeover team owns the bounded branch, virtual and fixed
+field read extraction on `codex/solidworks-config-field-actions` for
+separate main delivery. It depends on the unit-table and relation and
+color member readers. Exit requires the two disclosed part controls,
+the guarded invalid record cases and current revision queue and review
+evidence. Full configuration admission and write coverage have separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
+
 ### B04-SW2026-CONFIG-HEADER-LINK
 
 The PR #121 takeover team owns the bounded part header handoff on
