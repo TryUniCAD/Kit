@@ -285,11 +285,23 @@ The configuration-manager header and connected body dispatcher have separate exi
 
 ### B03-SW2026-BODY-VALUES
 
-The PR #121 takeover team owns the [body value extraction](https://github.com/TryUniCAD/Kit/pull/177).
-It depends on the accepted counted-row operators and object graph.
-Exit requires independent scalar and text framing, exact alias identity,
-and depth and class refusal checks through fresh process boundaries.
-Configuration-manager headers and native document writing remain separate.
+The [body value extraction](https://github.com/TryUniCAD/Kit/pull/177)
+landed at `e86bb3722f68e96cb5898aa1df06709e13e6a250`. It uses the
+accepted counted rows and object map. The process cases cover independent
+scalar and text framing, inherited alias identity, class and depth
+refusals, and unchanged input prefixes at the nesting boundary.
+[Accepted queue](https://github.com/TryUniCAD/Kit/actions/runs/44699707288)
+[Aggregate audit](../../re/solidworks/measurements/2026/BinaryArchiveAfterBodyValues01.json)
+
+### B04-SW2026-CMGR-HEADER
+
+The takeover team owns the typed configuration directory in
+[PR #178](https://github.com/TryUniCAD/Kit/pull/178). It depends on the
+accepted scalar, text, object and counted-row codecs. The exit requires
+exact native-directory byte and map replay, independent model-generated
+rows, role and schema refusals, current-revision review and green queue
+acceptance. Full configuration projection and native document writing
+have separate exits. [Field and process evidence](../../re/solidworks/records/ManagerDirectorySlice2026.md)
 
 ### B08-SW2026-TERMINAL-FIN
 

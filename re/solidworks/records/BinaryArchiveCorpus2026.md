@@ -85,3 +85,10 @@ After integrating the accepted counted-row codec, all 88 per-file
 reports match the preceding audit. The typed wire forms preserve
 1,328 exact stream comparisons and the same schema boundaries.
 [Counted-row integration receipt](../measurements/2026/BinaryArchiveAfterCountedRows01.json)
+
+After integrating the accepted archive body values in PR #177, the
+same 88 per-file reports agree exactly with the counted-row audit.
+The 1,328 exact binary stream comparisons and 1,240 comparisons without
+provisional schemas remain. A separate scan found zero recorded
+payloads in the 4,962 production Python files of that aggregate snapshot.
+[Body-value integration receipt](../measurements/2026/BinaryArchiveAfterBodyValues01.json)
