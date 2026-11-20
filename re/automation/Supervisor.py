@@ -36,6 +36,14 @@ class Busy(Exception):
     pass
 
 
+# explicit memory limits use the same range in configuration and at launch
+def bound_memory_reserve(value):
+    try:
+        return bounded(value, 0, 1048576)
+    except ValueError:
+        raise ValueError("reserved memory must be set from 0 to 1048576 MiB") from None
+
+
 def read_config(path):
     if sys.platform == "win32" and (sys.version_info < (3, 14) or sys.getwindowsversion().major < 10):
         raise ValueError("Windows supervision requires Windows 10 or newer and Python 3.14 or newer")
@@ -79,7 +87,7 @@ def read_config(path):
         "grace": float(grace), "poll": float(poll),
         "max_log_bytes": bounded(config.get("max_log_bytes", 1048576), 1024, 67108864),
         "reserved_cpus": bounded(config.get("reserved_cpus", 2), 0, 65536),
-        "reserved_memory_mib": bounded(config.get("reserved_memory_mib", 4096), 0, 1048576),
+        "reserved_memory_mib": bound_memory_reserve(config.get("reserved_memory_mib", 4096)),
         "adaptive_limits": adaptive,
     }
 
@@ -147,6 +155,7 @@ class Supervisor:
         self.linux_oom_observer = linux_oom_observer
         self.windows_claims = claiming and sys.platform == "win32" and config["controller"].get("adapter") == "a03"
         self.advice_options = None
+        self.catalogue_handoffs = None
         self.codex_budget = 0
         self.codex_executor = None
         self.claim_error = None
@@ -324,10 +333,21 @@ class Supervisor:
             self.queue_application_rearm(rearm_path, rearm_intent, False)
         elif stale is False and rearm_error is not None:
             self.report("application_rearm_failed", session, {"error": rearm_error})
-        if (stale is False and self.codex_executor is not None
-                and (session.spec["kind"], outcome) in {
-                    ("inference.fields", "completed"), ("inference.paired-gap", "waiting_evidence")
-                }):
+        if (
+            stale is False
+            and outcome == "waiting_evidence"
+            and self.catalogue_handoffs is not None
+        ):
+            self.catalogue_handoffs.Notify(session.spec["id"])
+        if (
+            stale is False
+            and self.codex_executor is not None
+            and (session.spec["kind"], outcome)
+            in {
+                ("inference.fields", "completed"),
+                ("inference.paired-gap", "waiting_evidence"),
+            }
+        ):
             from CodexAdvice.Suggest import decoder_packet
 
             try:
@@ -625,6 +645,8 @@ class Supervisor:
                     self.codex_executor.shutdown()
                 self.acknowledger.shutdown(cancel_futures=True)
                 self.report_application_acks()
+                if self.catalogue_handoffs is not None:
+                    self.catalogue_handoffs.Close(self.report)
 
     def run_sessions(self, idle_seconds, max_seconds):
         signal.signal(signal.SIGTERM, self.shutdown)
@@ -659,7 +681,18 @@ class Supervisor:
             if self.stopping or (max_seconds is not None and time.monotonic() - started >= max_seconds):
                 break
             self.queue_due_application_acks()
-            if self.fill(paused) or self.running or self.application_acks or self.application_ack_retries or settled:
+            native_pending = (
+                self.catalogue_handoffs is not None
+                and self.catalogue_handoffs.Poll(self.report)
+            )
+            if (
+                self.fill(paused)
+                or self.running
+                or self.application_acks
+                or self.application_ack_retries
+                or settled
+                or native_pending
+            ):
                 last_work = time.monotonic()
             elif idle_seconds is not None and time.monotonic() - last_work >= idle_seconds:
                 break
@@ -728,6 +761,8 @@ def main():
     running = commands.add_parser("run")
     running.add_argument("--idle-seconds", type=float)
     running.add_argument("--max-seconds", type=float)
+    running.add_argument("--catalogue-handoffs", type=Path)
+    running.add_argument("--reserved-memory-mib", type=int, metavar="MIB")
     running.add_argument(
         "--codex-on-stall", nargs="?", type=int, const=16, metavar="MAX_CALLS"
     )
@@ -753,7 +788,23 @@ def main():
     try:
         config = read_config(args.config)
         if args.command == "run":
+            if args.reserved_memory_mib is not None:
+                config["reserved_memory_mib"] = bound_memory_reserve(
+                    args.reserved_memory_mib
+                )
             supervisor = Supervisor(config, True)
+            if args.catalogue_handoffs is not None:
+                from InferenceGrid.CatalogueHandoffs import ReadHandoffs
+
+                if config["controller"].get("adapter") != "a03":
+                    raise ValueError(
+                        "catalogue handoffs require the built-in A03 controller"
+                    )
+                supervisor.catalogue_handoffs = ReadHandoffs(
+                    args.catalogue_handoffs,
+                    args.config.resolve(),
+                    supervisor.adapter.store,
+                )
             options = read_options(args)
             if args.codex_on_stall is not None and options is not None:
                 raise ValueError("use either --codex-on-stall or --advisor")

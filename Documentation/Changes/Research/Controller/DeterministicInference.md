@@ -106,9 +106,11 @@ The inventory's original qualification states stay visible.
 ### Run both complete catalogue inventories
 
 From a clean checkout, use one command to prepare every catalogue entry,
-submit all mapped scopes and run their decoder jobs in series. Use a new
-directory outside the source checkout. Either catalogue can be supplied
-independently.
+submit all mapped scopes and run independent decoder jobs in parallel.
+The supervisor chooses concurrency from available memory and CPU.
+Use `--workers 1` for a serial run or a higher value as a ceiling.
+Use a new output directory outside the source checkout.
+You can supply either catalogue independently.
 
 ```shell
 python re/automation/InferenceGrid/RunFeatureCatalogue.py \
@@ -127,8 +129,14 @@ waiting evidence, and exit status 1 indicates a run failure.
 
 For the P04 native evidence step on a configured Fusion host, supply
 `--native-config`, `--native-kind` and `--native-resource`. That supervisor
-configuration must use this run's `Store` directory. It runs after the
-offline assessments and reuses the standard Fusion owner restart procedure.
+configuration must use this run's `Store` directory.
+The catalogue combines the offline and native pools in one local supervisor.
+When the reviewed cut assessment records that it needs evidence, Kit queues the
+native phases while independent offline jobs continue.
+Use `--native-ready` only when the application owner has prepared its worker.
+You can also set the resource available in the controller during the run.
+The phases retain the standard Fusion owner restart procedure.
+Read `PipelineSupervisor.log` and `NativeHandoffResult.json` for the handoff and worker status.
 
 ### Run one discovery scope
 
