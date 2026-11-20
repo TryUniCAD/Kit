@@ -70,7 +70,11 @@ def decode_candidate(
     if process.returncode:
         if process.returncode == 1 and process.stderr.lstrip().startswith(b"{"):
             failure = json.loads(process.stderr)
-            if failure.get("error") and "message" in failure:
+            if (
+                failure.get("error")
+                in {"ValueError", "UsabilityError", "NotImplementedError"}
+                and "message" in failure
+            ):
                 return None
         process.check_returncode()
     return json.loads(read_file(output, 128 * 1024 * 1024))["document"]
