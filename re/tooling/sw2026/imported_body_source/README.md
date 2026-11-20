@@ -104,6 +104,14 @@ the completed packet and `--native-receipt-sha256`. It checks all three
 disclosed source identities, the field and attribute owners, and exact
 re-emission of the seven measured streams for each case.
 
+Use `--cohort topology` with a fresh guest directory to author the
+disclosed +Z and −Y cylindrical solids. The modeler gives each body
+two planar caps and one analytic cylinder. The observer checks the
+actual axis, radius, solid and exact face owner before saving and
+after a separate fresh reopen. The two source variants let the archive
+inspection compare object counts across different geometries.
+[Temporary cylinder API](https://help.solidworks.com/2024/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IModeler~CreateBodyFromCyl.html)
+
 ## Observe a standalone body in the native kernel
 
 Run [ObserveKernelBodyRestore.py](ObserveKernelBodyRestore.py) from a

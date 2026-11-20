@@ -21,7 +21,8 @@ VERSION = "34.5.2.0604"
 OWN_TOOLS = ("RunImportedBodySources.py", "AuthorImportedBody.py")
 CONTROL_TOOLS = ("AuthorRectangleAnchors.py", "AuthorCurves.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py")
 DISCLOSED = {"face_center_m": (0.007, -0.011, 0.004), "size_m": (0.019, 0.027, 0.013)}
-COHORTS = ("disclosed", "sealed", "contrast")
+COHORTS = ("disclosed", "sealed", "contrast", "topology")
+PUBLIC_COHORTS = ("contrast", "topology")
 
 
 def private_destination(value):
@@ -88,6 +89,13 @@ def cases(cohort):
             "OtherShape": {"face_center_m": (-0.018, 0.021, -0.008), "size_m": (0.010, 0.039, 0.021)},
             "RenamedFeature": DISCLOSED | {"feature_name": feature_name},
             "RenamedBody": DISCLOSED | {"feature_name": feature_name, "body_name": "Casting Ω72"},
+        }
+    if cohort == "topology":
+        return {
+            "CylinderZ": {"face_center_m": (-0.008, 0.019, 0.004), "axis": (0.0, 0.0, 1.0),
+                          "radius_m": 0.012, "height_m": 0.031},
+            "CylinderReverseY": {"face_center_m": (0.013, 0.023, -0.017), "axis": (0.0, -1.0, 0.0),
+                                 "radius_m": 0.0075, "height_m": 0.019},
         }
     require(os.name == "nt", "sample held-out inputs only inside the Windows guest")
 
@@ -246,7 +254,7 @@ def run(job_path, expected):
                 if job["cohort"] == "disclosed":
                     data = reopened["cold"]
                     status["disclosed_observation"] = {key: data[key] for key in ("feature", "body_count", "topology", "mass_si")}
-                if job["cohort"] == "contrast":
+                if job["cohort"] in PUBLIC_COHORTS:
                     data = reopened["cold"]
                     status["sources"][name]["observed"] = {key: data[key] for key in
                                                             ("feature", "body_name", "body_count", "topology", "mass_si")}
@@ -278,7 +286,7 @@ def run(job_path, expected):
                         and len(identities) == len(status["phases"]) == 2 * len(private_cases) + 2
                         and not {"failure", "final_control_failure", "custody_failure"} & status.keys())
     status["heldout_sources_locked"] = len(private_cases) if status["passed"] and job["cohort"] == "sealed" else 0
-    if status["passed"] and job["cohort"] == "contrast":
+    if status["passed"] and job["cohort"] in PUBLIC_COHORTS:
         try:
             for name, result in status["sources"].items():
                 destination = job_path.parent / (name + ".SLDPRT")

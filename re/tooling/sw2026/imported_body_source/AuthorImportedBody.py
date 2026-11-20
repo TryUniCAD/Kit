@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from itertools import combinations, product
-from math import isclose, prod
+from math import isclose, pi, prod
 from pathlib import Path
 
 from AuthorCurves import CurveAuthor, digest, require
@@ -30,6 +30,12 @@ def box_expectation(case):
             "com": (x, y, z + height / 2)}
 
 
+def cylinder_expectation(case):
+    base, axis, radius, height = (case[key] for key in ("face_center_m", "axis", "radius_m", "height_m"))
+    return {"volume": pi * radius ** 2 * height, "area": 2 * pi * radius * (radius + height),
+            "com": tuple(point + direction * height / 2 for point, direction in zip(base, axis, strict=True))}
+
+
 class ImportedBodyAuthor(CurveAuthor):
     def exact_object(self, left, right, label):
         require(left is not None and right is not None, f"missing identity: {label}")
@@ -38,6 +44,8 @@ class ImportedBodyAuthor(CurveAuthor):
     def body_topology(self, body, case, *, temporary):
         require(int(self.get(body, "GetType")) == SOLID, "import witness body is not solid")
         require(bool(self.get(body, "IsTemporaryBody")) is temporary, "unexpected temporary body state")
+        if "radius_m" in case:
+            return self.cylinder_topology(body, case)
         target = box_expectation(case)
 
         def vertex_index(vertex):
@@ -72,6 +80,36 @@ class ImportedBodyAuthor(CurveAuthor):
         return {"vertices": len(vertices), "edges": len(edges), "faces": len(faces),
                 "face_edge_incidence": sorted(faces), "analytic_bounds_m": target["bounds"]}, owners
 
+    def cylinder_topology(self, body, case):
+        owners = tuple(self.typed(face, "Face2") for face in self.get(body, "GetFaces") or ())
+        planes, walls = 0, []
+        for face in owners:
+            surface = self.typed(self.get(face, "GetSurface"), "Surface")
+            if bool(self.get(surface, "IsPlane")):
+                planes += 1
+            else:
+                require(bool(self.get(surface, "IsCylinder")), "cylinder has an unexpected face surface")
+                walls.append(surface)
+        require(planes == 2 and len(walls) == 1, "cylinder requires its two caps and one cylindrical face")
+        wall = tuple(float(value) for value in self.get(walls[0], "CylinderParams"))
+        require(len(wall) == 7, "cylinder analytic frame is unavailable")
+        self.rec.close_number("cylinder radius", wall[6], case["radius_m"], absolute=1e-11)
+        self.rec.close_number("cylinder axis alignment",
+                              abs(sum(a * b for a, b in zip(wall[3:6], case["axis"], strict=True))), 1.0)
+        base = case["face_center_m"]
+        axis = case["axis"]
+        offset = tuple(p - q for p, q in zip(wall[:3], base, strict=True))
+        along = sum(a * b for a, b in zip(offset, axis, strict=True))
+        for value, direction in zip(offset, axis, strict=True):
+            self.rec.close_number("cylinder axis transverse offset", value, along * direction, absolute=1e-11)
+        curves = [self.typed(self.get(self.typed(edge, "Edge"), "GetCurve"), "Curve")
+                  for edge in self.get(body, "GetEdges") or ()]
+        circular = sum(bool(self.get(curve, "IsCircle")) for curve in curves)
+        require(circular == 2 and all(self.get(curve, "IsCircle") or self.get(curve, "IsLine") for curve in curves),
+                "cylinder boundary does not have its two circular cap edges")
+        return {"vertices": len(self.get(body, "GetVertices") or ()), "edges": len(curves), "faces": len(owners),
+                "planar_faces": planes, "cylindrical_faces": len(walls), "circular_edges": circular}, owners
+
     def persistent_reference(self, feature):
         raw = self.get(self.get(self.model, "Extension"), "GetPersistReference3", feature)
         require(raw is not None, "native imported feature lacks a persistent reference")
@@ -99,15 +137,20 @@ class ImportedBodyAuthor(CurveAuthor):
         initial_tree = self.feature_tree(required_names=())
         require(not any(item["type"] == IMPORTED for item in initial_tree), "default template already has an import feature")
         self.rec.data["blank_tree"] = initial_tree
-        values = (*case["face_center_m"], 0.0, 0.0, 1.0, *case["size_m"])
+        if "radius_m" in case:
+            values = (*case["face_center_m"], *case["axis"], case["radius_m"], case["height_m"])
+            method = "CreateBodyFromCyl"
+        else:
+            values = (*case["face_center_m"], 0.0, 0.0, 1.0, *case["size_m"])
+            method = "CreateBodyFromBox3"
         kind = self.sw.pythoncom
         request = self.sw.VARIANT(kind.VT_ARRAY | kind.VT_R8, values)
         modeler = self.typed(self.get(self.app, "GetModeler"), "Modeler")
-        solid = self.get(modeler, "CreateBodyFromBox3", request)
+        solid = self.get(modeler, method, request)
         require(solid is not None, "modeler did not create the temporary solid")
         solid = self.typed(solid, "Body2")
         topology, _ = self.body_topology(solid, case, temporary=True)
-        self.rec.data.update(modeler_box_arguments_m=values, temporary_topology=topology)
+        self.rec.data.update(modeler_arguments_m=values, modeler_method=method, temporary_topology=topology)
         self.rec.flush()
         feature = self.get(part, "CreateFeatureFromBody3", solid, False, CHECK_BODY)
         require(feature is not None, "part did not create an imported feature")
@@ -147,7 +190,7 @@ class ImportedBodyAuthor(CurveAuthor):
             require(body_name == case["body_name"], "the authored body name changed")
         topology, body_faces = self.body_topology(body, case, temporary=False)
         feature_faces = tuple(self.get(feature, "GetFaces") or ())
-        require(len(feature_faces) == len(body_faces) == 6, "import face counts differ")
+        require(len(feature_faces) == len(body_faces) == topology["faces"], "import face counts differ")
         for face in body_faces:
             self.exact_object(self.get(face, "GetFeature"), feature, "oldest owning import")
             self.exact_object(self.get(face, "GetBody"), body, "face owning the public solid")
@@ -156,11 +199,11 @@ class ImportedBodyAuthor(CurveAuthor):
             self.exact_object(self.get(face, "GetBody"), body, "feature face owning the public solid")
         mass = self.rec.call("measure native part mass properties", self.sw.mass, self.model)
         require(mass and "error" not in mass, "native part mass properties are unavailable")
-        target = box_expectation(case)
-        self.rec.close_number("box volume", mass["volume"], target["volume"], absolute=1e-22)
-        self.rec.close_number("box area", mass["area"], target["area"], absolute=1e-18)
+        target = cylinder_expectation(case) if "radius_m" in case else box_expectation(case)
+        self.rec.close_number("body volume", mass["volume"], target["volume"], absolute=1e-22)
+        self.rec.close_number("body area", mass["area"], target["area"], absolute=1e-18)
         for axis, (actual, expected) in enumerate(zip(mass["com"], target["com"], strict=True)):
-            self.rec.close_number(f"box centre coordinate {axis}", actual, expected, absolute=1e-11)
+            self.rec.close_number(f"body centre coordinate {axis}", actual, expected, absolute=1e-11)
         return {"feature": {"name": name, "type": kind, "native_id": int(self.get(feature, "GetID"))},
                 "body_name": body_name, "body_count": 1, "topology": topology, "mass_si": mass,
                 "feature_faces": len(feature_faces), "oldest_owner_face_count": len(body_faces), "tree": tree}
