@@ -18,8 +18,14 @@ def ReadExtrude(
     NodeValue: ArchiveNode,
     Features: Mapping[int, ArchiveNode],
     IsCut: bool = False,
+    *,
+    NewSolid: bool = False,
 ) -> ExtrudeOwner:
-    NodeValue = RequireNative(NodeValue, "moICE_c" if IsCut else "moExtrusion_c")
+    NodeValue = RequireNative(
+        NodeValue, "moICE_c" if IsCut or NewSolid else "moExtrusion_c"
+    )
+    if NewSolid and (IsCut or NodeValue.FieldsValue.get("f810") != 0):
+        raise ValueError("independent extrusion requires its actual new solid mode")
     ParentsValue = ReadParents(NodeValue)
     if any(
         Features.get(NativeNodeId(ParentValue)) is not ParentValue

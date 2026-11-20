@@ -1,3 +1,5 @@
+from typing import Literal
+
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadSingleNode import (
     ReadSingleNode,
@@ -10,14 +12,20 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRe
 
 # a saved body selection must agree with the consumed atom without inferring an unstored selection mode
 def CheckCutScope(
-    RootValue: ArchiveNode, BossValue: ArchiveNode, CutValue: ArchiveNode, AtomId: int
+    RootValue: ArchiveNode,
+    BossValue: ArchiveNode,
+    CutValue: ArchiveNode,
+    AtomId: int,
+    *,
+    StockScope: Literal[0] | None = None,
 ) -> int:
     Fields = CutValue.FieldsValue
     ScopeValue = Fields.get("f544")
     if (
         type(ScopeValue) is not int
         or ScopeValue not in (0, 1)
-        or BossValue.FieldsValue.get("f544") != ScopeValue
+        or BossValue.FieldsValue.get("f544")
+        != (ScopeValue if StockScope is None else StockScope)
         or Fields.get("has_f4c0") != 1
         or Fields.get("has_f548") != ScopeValue
     ):
