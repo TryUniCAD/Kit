@@ -8,7 +8,6 @@
 
 import difflib
 import json
-import math
 import os
 import re
 import shutil
@@ -16,6 +15,7 @@ import subprocess
 import sys
 
 from convert.adapters.solidworks.Core.BindMirroredField import KMirroredFields
+from InferenceGrid.SolidWorksFieldDiscovery import mirrored_parameter_matches
 from InferenceInputs import read_file
 
 
@@ -61,14 +61,7 @@ def promote_fields(root, source, scratch, env, document, discovery):
                 return None
             continue
         r = targets[key]
-        angular = r["key"][2] == "angle"
-        expected = math.degrees(r["native_value"]) if angular else r["native_value"] * 1000
-        value = new["value"]
-        if (key in checked or value["unit"] != ("deg" if angular else "mm")
-                or value["kind"]["value"] != ("angle" if angular else "length") or not math.isclose(value["value"], expected, rel_tol=1e-12, abs_tol=1e-12)
-                or new["attributes"]["native_value"] != r["native_value"] or not any(
-                    (s["stream"], s["offset"], s["length"], s["record_kind"]) == (r["stream"], r["scalar_offset"], 8, "dimension-scalar")
-                    for s in new["provenance"]["spans"]["$tuple"])):
+        if key in checked or not mirrored_parameter_matches(new, r):
             return None
         checked.add(key)
     if checked != targets.keys():

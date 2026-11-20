@@ -2,6 +2,7 @@ from dataclasses import replace as Replace
 from math import degrees as Degrees, isclose as IsClose
 from re import fullmatch as FullMatch
 from struct import unpack_from as UnpackFrom
+from typing import Sequence
 
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
@@ -22,6 +23,23 @@ def MatchesAngle(SourceText: str, Displayed: float, Measured: float) -> bool:
     return Match is not None and abs(Displayed - Measured) < 0.5 * 10 ** -len(Match[1])
 
 
+# display copies can repeat a name while one distinct native record owns the driving value
+def SelectNamedField(Named: Sequence[NativeScalar]) -> NativeScalar | None:
+    if len(Named) == 1:
+        return Named[0]
+    if (
+        not Named
+        or any(
+            Item.object_id is None or Item.role not in {"display", "driving"}
+            for Item in Named
+        )
+        or len({Item.object_id for Item in Named}) != len(Named)
+    ):
+        return None
+    Driving = [Item for Item in Named if Item.role == "driving"]
+    return Driving[0] if len(Driving) == 1 else None
+
+
 # a named scalar and every bounded mirror must agree before refining a public measurement
 def BindMirroredField(
     DataValue: bytes,
@@ -33,10 +51,9 @@ def BindMirroredField(
     Copies: tuple[tuple[int, int], ...],
     Display: LinearDisplay | None,
 ) -> NativeDimension:
-    Named = [Item for Item in Candidates if Item.name == Raw.name]
-    if len(Named) != 1 or Raw.value_mm is None:
+    Scalar = SelectNamedField([Item for Item in Candidates if Item.name == Raw.name])
+    if Scalar is None or Raw.value_mm is None:
         return Bound
-    Scalar = Named[0]
     if Scalar.value == 0 or any(
         Scalar.value_offset + Offset + 8 > End
         or UnpackFrom("<d", DataValue, Scalar.value_offset + Offset)[0] * Sign

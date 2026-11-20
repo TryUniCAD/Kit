@@ -160,3 +160,20 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
         Param["provenance"]["spans"]["$tuple"][0]["offset"]
         == Prediction["scalar_offset"]
     )
+    Dimensions = Evidence["keyword_evidence"]["dimensions"]
+    (Angle,) = [
+        Row for Row in Dimensions if Row["status"] == "verified_mirrored_dimension"
+    ]
+    assert Angle["verified_location"] == [
+        Prediction["stream"],
+        Prediction["scalar_offset"],
+    ]
+    Repeated = [
+        Row
+        for Row in Dimensions
+        if Row["display_text"] == "<MOD-DIAM>10.16"
+        and Row["status"] == "verified_profile_radius"
+    ]
+    assert {Row["feature_id"] for Row in Repeated} == {109, 127}
+    assert len({tuple(Row["verified_location"]) for Row in Repeated}) == 2
+    assert all(abs(Row["radius_m"] * 2000 - 10.16) < 1e-9 for Row in Repeated)

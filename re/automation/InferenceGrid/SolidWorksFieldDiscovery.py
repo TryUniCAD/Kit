@@ -15,7 +15,7 @@ import struct
 import subprocess
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle
+from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle, SelectNamedField
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars
 from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream, ParseDisplay
 from InferenceInputs import read_file
@@ -62,9 +62,9 @@ def records(streams, wanted):
                 expected = d.value_mm * (0.0254 if display.UnitName == "in" else 0.001)
             else:
                 continue
-            matches = scalars[owner, d.name]
-            if len(matches) == 1 and matches[0].value_offset + 8 <= end:
-                rows.append((group, owner, expected, matches[0], end, d.source_text))
+            scalar = SelectNamedField(scalars[owner, d.name])
+            if scalar is not None and scalar.value_offset + 8 <= end:
+                rows.append((group, owner, expected, scalar, end, d.source_text))
     return stream, data, rows
 
 
@@ -181,3 +181,16 @@ def discover_fields(root, streams, document, pin):
         gaps.append({"key": key, "reason": reason, "training_observations": len(observations)})
     return {"unresolved_fields": gaps, "input_sha256": pin, "input_stream_sha256": hashlib.sha256(data).hexdigest(), "scanned_files": scanned,
             "rules": rules, "predictions": predictions}
+
+
+def mirrored_parameter_matches(param, prediction):
+    angular = prediction["key"][2] == "angle"
+    native = prediction["native_value"]
+    value = param["value"]
+    span = (prediction["stream"], prediction["scalar_offset"], 8, "dimension-scalar")
+    return (value["unit"] == ("deg" if angular else "mm")
+            and value["kind"]["value"] == ("angle" if angular else "length")
+            and math.isclose(value["value"], math.degrees(native) if angular else native * 1000, rel_tol=1e-12, abs_tol=1e-12)
+            and param["attributes"].get("native_value") == native
+            and any((s["stream"], s["offset"], s["length"], s["record_kind"]) == span
+                    for s in param["provenance"]["spans"]["$tuple"]))

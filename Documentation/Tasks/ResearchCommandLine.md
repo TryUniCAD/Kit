@@ -257,3 +257,5 @@ A strict SOLIDWORKS run can emit `SketchPatternCounts.patch` when it discovers a
 For repeated SOLIDWORKS dimensions, inspect `keyword_evidence.extrusion_depth_evidence` for the training models, mirror locations and held-out predictions. Rows marked `paired_radial_dimension` identify the driving scalar, the separate display copy and the circle referenced by the neutral constraint.
 
 For unresolved SOLIDWORKS features, inspect `discovered_feature_fields` in `Input-dimension-evidence.json`. The decoder searches for mirrored scalar fields for the input's own feature types and dimensions. A successful strict reader replay can produce `MirroredFields.patch` and `Input-mirrored-field-reader.json`.
+
+For repeated SOLIDWORKS diameters, inspect the owning sketch, scalar offset, and measured center and rim in [sketch dimension evidence](../Changes/Research/Inference/SolidWorksProfileDimensionEvidence.md). Rounded angles can also report a verified mirror with its exact reader offset.

@@ -8,6 +8,8 @@
 
 from InferenceGrid.SolidWorksExtrusionDepths import extrusion_depths
 from InferenceGrid.SolidWorksFeatureCounts import feature_counts
+from InferenceGrid.SolidWorksFieldDiscovery import mirrored_parameter_matches
+from InferenceGrid.SolidWorksProfileFields import profile_fields
 from InferenceGrid.SolidWorksPatternCounts import count_matches_parameter, pattern_counts
 
 from bisect import bisect_right
@@ -66,7 +68,7 @@ def ownership_hypotheses(rows, features, data, stream):
             "proposed_dimensions": sum(counts[loc] == 1 for _, loc in proposals)}
 
 
-def keyword_evidence(streams, discovered, document, root, pin):
+def keyword_evidence(streams, discovered, document, root, pin, fields):
     data = streams.get("swXmlContents/KeyWords")
     if not data:
         return {"status": "no_keyword_stream"}
@@ -209,6 +211,25 @@ def keyword_evidence(streams, discovered, document, root, pin):
             row.update(status="paired_radial_dimension", verified_location=(resolved, driving.value_offset),
                        display_offset=next(s.value_offset for s in pair if s.role == "display"), entity_id=circles[0]["id"])
             counts[row["status"]] += 1
+    if resolved in streams:
+        sketches = {s["attributes"].get("native_object_id"): s for s in document.get("sketches", {}).get("$tuple", [])}
+        for row, geometry in profile_fields(streams[resolved], resolved, features, rows, projected, sketches):
+            counts[row["status"]] -= 1
+            row.update(status="verified_profile_radius", **geometry)
+            counts[row["status"]] += 1
+    for prediction in fields["predictions"]:
+        key = prediction["feature_id"], prediction["key"][1]
+        matches, params = keyed_rows[key], projected.get(key, [])
+        if len(matches) != 1 or len(params) != 1 or not prediction["keyword_matches"]:
+            continue
+        row = matches[0]
+        if (row["status"] not in {"no_matching_record", "ambiguous"} or row["display_text"] != prediction["display_text"]
+                or not mirrored_parameter_matches(params[0], prediction)):
+            continue
+        counts[row["status"]] -= 1
+        row.update(status="verified_mirrored_dimension", reader_span_matches=True, copy_offsets=prediction["copy_offsets"],
+                   verified_location=(prediction["stream"], prediction["scalar_offset"]))
+        counts[row["status"]] += 1
     proposals = ownership_hypotheses(rows, features, streams[resolved], resolved) if resolved in streams else None
     extrusions = extrusion_depths(root, streams[resolved], features, pin, rows, projected, resolved) if resolved in streams else None
     for prediction in (extrusions or {}).get("predictions", []):
