@@ -36,3 +36,28 @@ def TestBadKeys(TmpPath: FilePath) -> None:
         assert Outcome.returncode != 0
         assert Diagnostic in Outcome.stderr
         assert not WirePath.exists()
+
+
+# markup with unescaped content must refuse before either framing mode publishes bytes
+def TestBadMarkup(TmpPath: FilePath) -> None:
+    for MarkupValue in ("comment", "instruction"):
+        for CompactMode in (True, False):
+            SourcePath = TmpPath / f"{MarkupValue}{CompactMode}.json"
+            WirePath = TmpPath / f"{MarkupValue}{CompactMode}.bin"
+            _ = SourcePath.write_text(
+                DumpJson(
+                    {
+                        "root": "Keywords",
+                        "compact": CompactMode,
+                        "name": "a",
+                        "text": "b",
+                        "tail": "c",
+                        "markup": MarkupValue,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            Outcome = RunKeywordFrame("write", SourcePath, WirePath)
+            assert Outcome.returncode != 0
+            assert "keyword framing requires named elements" in Outcome.stderr
+            assert not WirePath.exists()

@@ -12,6 +12,8 @@ def FrameKeywords(RootValue: Element, CompactTags: bool) -> bytes:
         raise ValueError(
             "native keyword framing requires content inside the keyword root"
         )
+    if any(not isinstance(NodeValue.tag, str) for NodeValue in RootValue.iter()):
+        raise ValueError("native keyword framing requires named elements")
     PayloadValue = CastValue(
         bytes, XmlBytes(RootValue, encoding="utf-8", short_empty_elements=True)
     )

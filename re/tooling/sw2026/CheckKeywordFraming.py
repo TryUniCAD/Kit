@@ -3,7 +3,7 @@ from hashlib import sha256
 from json import dumps, loads
 from pathlib import Path
 import sys
-from xml.etree.ElementTree import Element, SubElement
+from xml.etree.ElementTree import Comment, Element, ProcessingInstruction, SubElement
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "src"))
@@ -31,6 +31,11 @@ def author_frame(source):
     dimension = SubElement(feature, "Dimension", {"Name": "D1"})
     dimension.text = source["text"]
     dimension.tail = source["tail"]
+    markup = source.get("markup")
+    if markup == "comment":
+        feature.append(Comment("authored\r />"))
+    elif markup == "instruction":
+        feature.append(ProcessingInstruction("example", "authored\r />"))
     return FrameKeywords(root, source["compact"])
 
 
