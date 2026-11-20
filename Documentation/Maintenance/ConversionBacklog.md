@@ -108,6 +108,17 @@ gates on the delivered revision. Class descriptors, object maps and linked
 stream integration have separate exits.
 [Change entry](../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
 
+### B03-SW2026-ARCHIVE-OBJECTS
+
+The PR #121 takeover team owns the typed object and map extraction on
+`codex/solidworks-archive-objects` for separate main-target delivery. It
+depends on the [wire primitive PR](https://github.com/TryUniCAD/Kit/pull/173)
+and the [pinned map evidence](../../re/solidworks/records/ArchiveObjectMapSlice2026.md).
+Exit requires the linked graph process checks and the normal CI and review
+gates on the delivered revision. Actual header and configuration stream
+owners have separate exits.
+[Change entry](../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent owns this active reader compatibility task.
