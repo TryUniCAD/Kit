@@ -98,6 +98,11 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The bounded lightweight material reader handles the part hatch, optional
+density parameter, model data with an absent scene and empty body visual
+counts. Each concrete owner retains its actual archive slot.
+[Lightweight material scope](../../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
 of the lightweight section, it inserts the original header objects
@@ -121,11 +126,11 @@ can reuse those exact objects. The stored unsigned atom state remains
 available alongside its runtime projection.
 [Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
-The shared body reader uses the stored comparison field and archive
-conditions for ordinary branches. A fixed repeat uses its field
-declaration for the row count. Signed normalization retains the
-original word with its runtime projection.
-[Configuration field modes](../../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
+The shared version-19000 body reader has layouts for line fonts, embedded
+widths, character formats, and print width tables in part detail definitions.
+These fields retain their wire values and leave the archive map unchanged.
+Complete detail definitions require the remaining annotation and table owners.
+[Configuration font scope](../../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
 
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
@@ -150,6 +155,12 @@ flowchart LR
 The reader combines available feature, geometry, and assembly information.
 Source metadata and diagnostics qualify the decoded result.
 The cached body geometry and feature history provide different evidence.
+
+The shared body reader uses the stored comparison field and archive
+conditions for ordinary branches. A fixed repeat uses its field
+declaration for the row count. Signed normalization retains the
+original word with its runtime projection.
+[Configuration field modes](../../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
 
 For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid
 reader uses forward fin links and terminal vertices. This preserves outward

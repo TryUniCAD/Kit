@@ -15,6 +15,7 @@ from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
+from interchange.Features.ScopedExtrude import ScopedExtrude
 from interchange.serialization import KTypeRegistry
 from interchange.serialization import from_data as FromData
 from interchange.serialization import to_data as ToData
@@ -260,5 +261,8 @@ def CheckRegistry() -> None:
             PlaneRevolve,
         )
     )
-    assert set(KTypeRegistry.values()) == IntendedTypes
-    assert set(KTypeRegistry) == {ClassType.__name__ for ClassType in IntendedTypes}
+    assert KTypeRegistry["ScopedExtrusionFeature"] is ScopedExtrude
+    assert set(KTypeRegistry.values()) == IntendedTypes | {ScopedExtrude}
+    assert set(KTypeRegistry) == {ClassType.__name__ for ClassType in IntendedTypes} | {
+        "ScopedExtrusionFeature"
+    }

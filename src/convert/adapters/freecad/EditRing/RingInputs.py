@@ -1,3 +1,4 @@
+from convert.adapters.freecad.EditShape.FixedOrigin import IsFixedOrigin
 from convert.adapters.freecad.EditRing.RingEndpoints import CheckRingEnds, ReadRingEnds
 from convert.Geometry.Extrude.Polygon.PrismRing import MeasureRing, ReadPrismRing
 from interchange.brep.Topology.BrepMath import IsFinitePlane
@@ -50,7 +51,7 @@ def ReadRingInput(
         Origin = Entity.provenance
         Geometry = Entity.geometry
         if (
-            Entity.fixed
+            (Entity.fixed and not IsFixedOrigin(Entity))
             or Origin is None
             or Origin.adapter != "fusion.f3d"
             or Identity != f"fusion-sketch-entity-{Origin.native_id}"

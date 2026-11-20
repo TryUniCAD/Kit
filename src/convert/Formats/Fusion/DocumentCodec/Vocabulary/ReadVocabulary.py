@@ -1,3 +1,4 @@
+from functools import lru_cache as CacheValues
 from json import loads as LoadJson
 from pathlib import Path
 from typing import cast as CastValue
@@ -14,9 +15,23 @@ from convert.Formats.Fusion.DocumentCodec.Vocabulary.ReadWireType import ReadFie
 from convert.Formats.Fusion.EntityCodec.Schema.ClassSchema import ClassSchema
 
 
-# the vocabulary operation needs a distinct decoding boundary so model state retains its native feature and ownership relationships
+# vocabulary contents keep decoding current when a research checkout changes between reads
 def ReadVocabulary(Source: Path) -> tuple[NativeSchema, ...]:
-    Values = ReadSeries(CastValue(object, LoadJson(Source.read_text(encoding="utf-8"))))
+    SourceText = Source.read_text(encoding="utf-8")
+    if len(SourceText) > 512 * 1024:
+        return ParseVocab(SourceText)
+    return CachedVocab(SourceText)
+
+
+# bounded immutable vocabulary entries let readers reuse the same validated class definitions
+@CacheValues(maxsize=16)
+def CachedVocab(SourceText: str) -> tuple[NativeSchema, ...]:
+    return ParseVocab(SourceText)
+
+
+# a shared parser keeps cached and oversized vocabulary inputs on the same validation path
+def ParseVocab(SourceText: str) -> tuple[NativeSchema, ...]:
+    Values = ReadSeries(CastValue(object, LoadJson(SourceText)))
     Result: list[NativeSchema] = []
     for Value in Values:
         Fields = ReadObject(Value)
