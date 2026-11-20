@@ -3,6 +3,9 @@ from dataclasses import replace as ReplaceValue
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Equations.TryWidthDepth import (
+    TryWidthDepth,
+)
 from convert.adapters.solidworks.Core.TypedResolved.ProjectTyped import ProjectTyped
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 
@@ -14,6 +17,9 @@ def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
             Model, ReadNativeLink(Archive, Model.active_configuration_id)
         )
     except (ValueError, TypeError, KeyError) as ErrorInfo:
+        Related = TryWidthDepth(Model, Archive)
+        if Related is not None:
+            return Related
         return ReplaceValue(
             Model,
             diagnostics=(

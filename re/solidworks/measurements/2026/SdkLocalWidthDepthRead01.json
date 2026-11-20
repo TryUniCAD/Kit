@@ -1,0 +1,509 @@
+{
+  "heldout_inputs_read": false,
+  "legacy_global_control": {
+    "expression": "10",
+    "parameter_id": "sldprt:parameter:equation:1\u00e75",
+    "parameter_ids": [],
+    "sha256": "a4611e1bebd809d421c49e772de65e75513c013d57e4bc4379e36f65f49b5851",
+    "value": 10.0
+  },
+  "mutated_fixture_files": false,
+  "native_execution": false,
+  "normal_sdk_reads": {
+    "authored_edit": {
+      "depth_id": "sldprt:parameter:34:D1",
+      "geometry_refusal": null,
+      "lengths_mm": [
+        58.3,
+        18.1,
+        29.15
+      ],
+      "maps": [
+        193,
+        320
+      ],
+      "native_brep_payloads": 3,
+      "sha256": "6f576c8aa8badc4209b14c081250bb917086433dccbcc2b25bba6c4b44339880",
+      "typed_relation": {
+        "dependency": {
+          "cloned_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 9835,
+            "field_span": false,
+            "object_index": 83,
+            "offset": 4138,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 4169,
+            "field_span": false,
+            "object_index": 84,
+            "offset": 4164,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 7316,
+            "field_span": false,
+            "object_index": 128,
+            "offset": 7201,
+            "stream": "Contents/Config-0"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 9949,
+            "field_span": false,
+            "object_index": 80,
+            "offset": 4122,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 9895,
+            "field_span": false,
+            "object_index": 81,
+            "offset": 4128,
+            "stream": "Contents/Config-0"
+          }
+        },
+        "relation": {
+          "class": "moRelation_c",
+          "end": 10121,
+          "field_span": false,
+          "object_index": 62,
+          "offset": 3238,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "cloned_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 3921,
+            "field_span": false,
+            "object_index": 70,
+            "offset": 3428,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 3459,
+            "field_span": false,
+            "object_index": 71,
+            "offset": 3454,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 8476,
+            "field_span": false,
+            "object_index": 316,
+            "offset": 8365,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 4031,
+            "field_span": false,
+            "object_index": 66,
+            "offset": 3371,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 3981,
+            "field_span": false,
+            "object_index": 68,
+            "offset": 3397,
+            "stream": "Contents/Config-0"
+          }
+        }
+      },
+      "width_id": "sldprt:parameter:26:D1"
+    },
+    "authored_original": {
+      "depth_id": "sldprt:parameter:34:D1",
+      "geometry_refusal": null,
+      "lengths_mm": [
+        43.7,
+        18.1,
+        21.85
+      ],
+      "maps": [
+        193,
+        320
+      ],
+      "native_brep_payloads": 3,
+      "sha256": "8d79922604aba1816348ae2b62d3601c44a088dccf4b1373dd17ca0e39b02e58",
+      "typed_relation": {
+        "dependency": {
+          "cloned_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 9829,
+            "field_span": false,
+            "object_index": 83,
+            "offset": 4132,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 4163,
+            "field_span": false,
+            "object_index": 84,
+            "offset": 4158,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 7310,
+            "field_span": false,
+            "object_index": 128,
+            "offset": 7195,
+            "stream": "Contents/Config-0"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 9943,
+            "field_span": false,
+            "object_index": 80,
+            "offset": 4116,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 9889,
+            "field_span": false,
+            "object_index": 81,
+            "offset": 4122,
+            "stream": "Contents/Config-0"
+          }
+        },
+        "relation": {
+          "class": "moRelation_c",
+          "end": 10115,
+          "field_span": false,
+          "object_index": 62,
+          "offset": 3232,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "cloned_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 3915,
+            "field_span": false,
+            "object_index": 70,
+            "offset": 3422,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 3453,
+            "field_span": false,
+            "object_index": 71,
+            "offset": 3448,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 8226,
+            "field_span": false,
+            "object_index": 316,
+            "offset": 8115,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 4025,
+            "field_span": false,
+            "object_index": 66,
+            "offset": 3365,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 3975,
+            "field_span": false,
+            "object_index": 68,
+            "offset": 3391,
+            "stream": "Contents/Config-0"
+          }
+        }
+      },
+      "width_id": "sldprt:parameter:26:D1"
+    },
+    "generated_reference": {
+      "depth_id": "sldprt:parameter:21:D1",
+      "geometry_refusal": "SLDPRT contains no readable Parasolid payload",
+      "lengths_mm": [
+        39.125,
+        17.375,
+        19.5625
+      ],
+      "maps": [
+        163,
+        256
+      ],
+      "native_brep_payloads": 0,
+      "sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "typed_relation": {
+        "dependency": {
+          "cloned_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 8432,
+            "field_span": false,
+            "object_index": 74,
+            "offset": 2909,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 2940,
+            "field_span": false,
+            "object_index": 75,
+            "offset": 2935,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 5991,
+            "field_span": false,
+            "object_index": 119,
+            "offset": 5876,
+            "stream": "Contents/Config-0"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 8536,
+            "field_span": false,
+            "object_index": 71,
+            "offset": 2893,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 8492,
+            "field_span": false,
+            "object_index": 72,
+            "offset": 2899,
+            "stream": "Contents/Config-0"
+          }
+        },
+        "relation": {
+          "class": "moRelation_c",
+          "end": 8698,
+          "field_span": false,
+          "object_index": 53,
+          "offset": 2155,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "cloned_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 2680,
+            "field_span": false,
+            "object_index": 61,
+            "offset": 2341,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 2372,
+            "field_span": false,
+            "object_index": 62,
+            "offset": 2367,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 6470,
+            "field_span": false,
+            "object_index": 231,
+            "offset": 6359,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 2796,
+            "field_span": false,
+            "object_index": 57,
+            "offset": 2284,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 2740,
+            "field_span": false,
+            "object_index": 59,
+            "offset": 2310,
+            "stream": "Contents/Config-0"
+          }
+        }
+      },
+      "width_id": "sldprt:parameter:18:D1"
+    },
+    "native_saved_reference": {
+      "depth_id": "sldprt:parameter:21:D1",
+      "geometry_refusal": null,
+      "lengths_mm": [
+        47.875,
+        17.375,
+        23.9375
+      ],
+      "maps": [
+        198,
+        338
+      ],
+      "native_brep_payloads": 3,
+      "sha256": "0c381bd6bb08b18e821a938731faca4608218959d9955c2516313550566a48af",
+      "typed_relation": {
+        "dependency": {
+          "cloned_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 9669,
+            "field_span": false,
+            "object_index": 83,
+            "offset": 4146,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 4177,
+            "field_span": false,
+            "object_index": 84,
+            "offset": 4172,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 7228,
+            "field_span": false,
+            "object_index": 128,
+            "offset": 7113,
+            "stream": "Contents/Config-0"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 9773,
+            "field_span": false,
+            "object_index": 80,
+            "offset": 4130,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 9729,
+            "field_span": false,
+            "object_index": 81,
+            "offset": 4136,
+            "stream": "Contents/Config-0"
+          }
+        },
+        "relation": {
+          "class": "moRelation_c",
+          "end": 9935,
+          "field_span": false,
+          "object_index": 62,
+          "offset": 3238,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "cloned_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 3917,
+            "field_span": false,
+            "object_index": 70,
+            "offset": 3424,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 3455,
+            "field_span": false,
+            "object_index": 71,
+            "offset": 3450,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 8086,
+            "field_span": false,
+            "object_index": 313,
+            "offset": 7975,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 4033,
+            "field_span": false,
+            "object_index": 66,
+            "offset": 3367,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 3977,
+            "field_span": false,
+            "object_index": 68,
+            "offset": 3393,
+            "stream": "Contents/Config-0"
+          }
+        }
+      },
+      "width_id": "sldprt:parameter:18:D1"
+    }
+  },
+  "plain_controls": {
+    "generated_plain": {
+      "lengths_mm": [
+        39.125,
+        17.375,
+        19.5625
+      ],
+      "native_brep_payloads": 0,
+      "sha256": "3b07ce7717313562b6ac3cc91b0d479d59f4e735d64d393d5848e438592317b9"
+    },
+    "native_saved_plain": {
+      "lengths_mm": [
+        47.875,
+        17.375,
+        19.5625
+      ],
+      "native_brep_payloads": 3,
+      "sha256": "c56057700a597bf885d8b43fad2660372c3566125a41fa7d307f3000637efc5e"
+    }
+  },
+  "schema": "kit.sw2026.local-width-depth-reader.v1",
+  "tool_and_reader_sha256": {
+    "re/tooling/sw2026/equations/ProveLocalWidthDepthRead.py": "1c4a0c2c07e77b4a8f7958a721f3ccf75c86fa945ff0ea5621e3bbee2538af1e",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "5cec645da3972b24ac3ebded7002229835bb436a0c6db61a10aa288002862592",
+    "src/convert/adapters/solidworks/Core/ConfigGraphInfo.py": "ef0b75c23163708065fe0346a3cdd96208233cf89f51eaaf90b6a9d583b319ef",
+    "src/convert/adapters/solidworks/Core/ConfigurationInfo.py": "7e7b82ac7d2b5e65142b16b072c4a469b2588e82e3c221a4dd1dbe215c81d873",
+    "src/convert/adapters/solidworks/Core/Native.py": "5ab31d1700b777be60eab2b21fbdc39a7ed8772cd9cdbd508a1ea58707fd14a5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/BindWidthDepth.py": "c9474cf33a1c4c8c46684bcb5cdf2b9b8849cc666d53d2c14e2c8ea4281d5169",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/CheckEqBoss.py": "a85960cc607924a437807fe8889cf4b759c34e9f01937fd6f1b1bb33359415ac",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/CheckEqConfig.py": "4ebcf733cea36113d11e3233b8aac762cc932ec4b025aaf18cc36a4cc40d1dd6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/CheckEqParams.py": "91458a5b1b2e2c69621b63ccb87ce3713654150e816af231dd70061afd2fe5d3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqRef.py": "fafe2916fae9b51ab186147dcd475021805f2d2a84c6fd8f1b0b11ca9db7e90f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqSide.py": "fec4f372bff1f17797758472383a94250f85f3bea007540ac4b40781440e212b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqTokens.py": "a40124783451ac86f2ff99bf28decc05dedc2fe081956f9050259b6777cdd905",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqWidth.py": "50826f20f0a2fc2017cbe118e58dce1d05cf6f36af9be6b4ef95bb0f5086801b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadWidthDepth.py": "92212492fcb2d90a53bfec44b25b3db92792be6b53f48cccbc243bba9a67797f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/TryWidthDepth.py": "fb029b5c44240125097b630052e68304465a66e9595d695e1659b3c26dc588b1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/WidthDepthLink.py": "1715f176a33e77633e3b305a810e8a929f0354ed8d5a82c3bf0160f3a0d407bd",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "2edd9ddd16c07f4830f0337e71f2a69a3445ae4285d561b48b5b1a77dffb6cc2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/WithTypedNative.py": "13e345c57f7d7058e53cff2861f47360b2e7cf065092dddba5f898a29f843619"
+  },
+  "typed_owner_fault_injections": {
+    "cross_to_actual_height": {
+      "legacy_expression_refs": [],
+      "public_status": "unsupported",
+      "source_sha256": "8d79922604aba1816348ae2b62d3601c44a088dccf4b1373dd17ca0e39b02e58",
+      "typed_refusal": "local equation dimension does not alias its exact live owner"
+    },
+    "missing_local_component": {
+      "legacy_expression_refs": [],
+      "public_status": "unsupported",
+      "source_sha256": "8d79922604aba1816348ae2b62d3601c44a088dccf4b1373dd17ca0e39b02e58",
+      "typed_refusal": "typed model expected concrete schema one moUnitComponent_c"
+    }
+  }
+}

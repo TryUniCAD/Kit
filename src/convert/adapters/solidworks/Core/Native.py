@@ -40,6 +40,9 @@ from convert.adapters.solidworks.Core.LinearSketchOwner import (
 from convert.adapters.solidworks.Core.PlaneRefRecord import FindPlaneRef, KHandleVersion
 from convert.adapters.solidworks.Core.HeaderActions import ReadHdrAction
 from convert.adapters.solidworks.Core.RadialValue import MatchRadialVal
+from convert.adapters.solidworks.Core.TypedResolved.Equations.WidthDepthLink import (
+    WidthDepthLink,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
 from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import LocalCircle
 from convert.adapters.solidworks.Core.SketchRelations.CircleCenterRule import (
@@ -1259,6 +1262,7 @@ class NativeModel:
     active_configuration_id: int | None = None
     bounding_box: NativeBoundingBox | None = None
     TypedGraph: Mapping[str, object] = Field(default_factory=dict[str, object])
+    WidthDepth: WidthDepthLink | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

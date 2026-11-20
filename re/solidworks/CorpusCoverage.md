@@ -105,6 +105,13 @@ also passes the generated edit, native save and fresh reopen. Both
 controls pass across four distinct processes. This qualifies the
 scoped neutral-to-native local equation and adds zero FCStd cases.
 
+The [normal SDK reader proof](measurements/2026/SdkLocalWidthDepthRead01.json)
+preserves the resolved width-to-depth dependency and typed provenance in
+four disclosed files, including the native-edited generated part. It
+refuses typed dependency publication for either crossed or missing
+owners. The generated cache-free file uses a geometry-free read for this
+proof. This adds zero FCStd corpus cases.
+
 Two [public SDK blank drawing cases](measurements/2026/SdkPublicBlankDrawingHeldout01.json)
 matched their pre-registration locked native sources through rebuild, scale
 edit, save and fresh reopen. The guarded builds use independently authored

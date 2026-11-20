@@ -112,6 +112,7 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     decode_native_assembly as DecodeNativeAsm,
 )
 from convert.adapters.solidworks.Assembly.Display.DisplayData import DisplayData
+from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import (
     SldprtArchive,
@@ -166,6 +167,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.CircleSketch import 
 )
 from convert.adapters.solidworks.Core.TypedResolved.Ends.BuildTypedEnd import (
     BuildTypedEnd,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Equations.BindWidthDepth import (
+    BindWidthDepth,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
@@ -483,7 +487,13 @@ def ReadNativePart(
         units=UnitSystem.MILLIMETER,
     )
     return FinishPartDoc(
-        DocValue, Archive, Model.active_configuration_id, DerivedValue, DataValue, Label
+        DocValue,
+        Archive,
+        Model.active_configuration_id,
+        DerivedValue,
+        DataValue,
+        Label,
+        Model.WidthDepth.ConfigValue if Model.WidthDepth is not None else None,
     )
 
 
@@ -495,10 +505,11 @@ def FinishPartDoc(
     DerivedValue: PartGeometry | None,
     DataValue: bytes,
     Label: str,
+    GraphValue: ConfigGraph | None = None,
 ) -> CadDoc:
     DocValue = WithColdName(DocValue, DerivedValue)
     DocValue = WithBodyNames(DocValue, Archive, ConfigId)
-    DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive), Archive)
+    DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive, GraphValue), Archive)
     DocValue = BindCutStock(DocValue)
     DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)
     if (
@@ -2232,7 +2243,7 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
     Parameters: list[Param] = []
     DimensionIds: dict[tuple[str, str], str] = {}
     for Feature in Model.features:
-        for Dimension, ParamId in ParamEntries(Feature.object_id, Feature.dimensions):
+        for Dimension, ParamKey in ParamEntries(Feature.object_id, Feature.dimensions):
             NativeValue = (
                 Dimension.native_value
                 if Dimension.native_value is not None
@@ -2240,7 +2251,7 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
             )
             Parameters.append(
                 Param(
-                    id=ParamId,
+                    id=ParamKey,
                     name=Dimension.name,
                     value=DimensionParam(Dimension),
                     role=(
@@ -2285,8 +2296,16 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
                     ),
                 )
             )
-            _ = DimensionIds.setdefault((Feature.name, Dimension.name), ParamId)
-    return ApplyNativeMut(Parameters, Model, DimensionIds)
+            _ = DimensionIds.setdefault((Feature.name, Dimension.name), ParamKey)
+    Relation = Model.WidthDepth
+    if Relation is None:
+        return ApplyNativeMut(Parameters, Model, DimensionIds)
+    return BindWidthDepth(
+        Parameters,
+        ParamId(Relation.WidthFeature, "D1"),
+        ParamId(Relation.DepthFeature, "D1"),
+        Relation,
+    )
 
 
 # this definition exists because focused behavior needs one stable owner
