@@ -54,3 +54,12 @@ The control-phase hash in the native summary identifies the observer record.
 These observations cover the four disclosed candidate files and this control.
 Held-out readback and public imported-body writing still require their own
 qualification.
+
+The completed-update cohort independently passes four native saves and fresh
+reopens. The strict SDK reads one valid solid, the expected face, edge and
+vertex inventories, and the actual `Imported geometry` feature from all four
+generated files and all four native saves. It re-emits Config-0, CMgr,
+ResolvedFeatures and both model header streams byte-for-byte in all eight.
+The shared map advances 94→157 on generated input and 115→183 on native
+saves. [Accepted native lifecycle](../measurements/2026/GeneratedLocalBodyPartCompleted01.json)
+· [Eight SDK readbacks](../measurements/2026/ImportedLocalBodySdkSavedRead01.json)

@@ -1,0 +1,212 @@
+{
+  "cases": {
+    "Aligned": {
+      "complete_native_lifecycle": true,
+      "generated_sha256": {
+        "child": "a122caf8e619869cb85e85e2741290cc81bec13f71f4db9c766c94ad4e2abfb8",
+        "parent": "9e9553af12433e5096465a6724139ce6c14a3ce98a8885aae8288f060b8d5723"
+      },
+      "live_signed_axis_checks": 20,
+      "native_candidate_checks": 140,
+      "native_record_sha256": {
+        "ControlAfter": "24596ad39361e2613fc948218ec15a33211349a42be3a636082ac3396577033d",
+        "ControlBefore": "a172d900b89f717062e88a12da5b6236a228266f6b9e4ecfa370dba21a6581c9",
+        "Generated": "de125a0c2ead23a479af91cc52833270c859bfbe6cc26c971cb0d8703931352e",
+        "Reopen": "939037b3bd6ae436b26a407ec0a8880ea9c0089c7617610e92dd36c7cd5cb267"
+      },
+      "native_result_sha256": "3c4dfe72c531d8d8b06dcaa3b2acec97da02692a96c120028f32ddca233e502b",
+      "native_saved_sha256": {
+        "child": "b45dc1e46c98eca7a6c7786189ecd62d9339fc3f596cae2ac23561b2735957b0",
+        "parent": "bb4ffd0f30f0038bc4c40c1232686818a4b27acbbe7e1a97012dabe86e1475e5"
+      },
+      "postflight_sha256": "c4bcae257e57b5035bfc677f8762c860dfe240c4b95a62a7798edbbfab5f5278",
+      "saved_wrapper_axis_and_extent": {
+        "carrier_sign": -1,
+        "endpoints": [
+          {
+            "entity": "sldasm:mate:2:0:0:entity:0",
+            "generated_axial_bounds_m": [
+              0.0,
+              0.036797010000000005
+            ],
+            "generated_face": "sldprt:brep:face:40",
+            "generated_world_origin_m": [
+              0.043930000000000004,
+              -0.03127,
+              0.05549701000000001
+            ],
+            "local_axis": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "occurrence": "sldasm:instance:4",
+            "reference_number": "1",
+            "source_axial_bounds_m": [
+              0.0,
+              0.036797010000000005
+            ],
+            "source_face": "sldprt:brep:face:40",
+            "stored_world_origin_m": [
+              0.043930000000000004,
+              -0.03127,
+              0.05549701000000001
+            ],
+            "world_axis": [
+              -0.0,
+              -0.0,
+              -1.0
+            ]
+          },
+          {
+            "entity": "sldasm:mate:2:0:0:entity:1",
+            "generated_axial_bounds_m": [
+              0.0,
+              0.036797010000000005
+            ],
+            "generated_face": "sldprt:brep:face:40",
+            "generated_world_origin_m": [
+              0.04393000000000001,
+              -0.031270000000000006,
+              0.29259701000000005
+            ],
+            "local_axis": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "occurrence": "sldasm:instance:7",
+            "reference_number": "2",
+            "source_axial_bounds_m": [
+              0.0,
+              0.03679701000000002
+            ],
+            "source_face": "sldprt:brep:face:40",
+            "stored_world_origin_m": [
+              0.04393000000000001,
+              -0.031270000000000006,
+              0.29259701000000005
+            ],
+            "world_axis": [
+              0.0,
+              -0.0,
+              -1.0
+            ]
+          }
+        ],
+        "saved_real_face": "sldprt:brep:face:40"
+      },
+      "trial_sha256": "8e0feb327fdacd559f9a9a56bcbb24ecf679bb4a40e9bff29f23f3cf7b03ae45"
+    },
+    "AntiLocked": {
+      "complete_native_lifecycle": true,
+      "generated_sha256": {
+        "child": "a17b4a7619173e4b06ec56db7f7fccca3a5aeef1f29ee969587de1b03cd8995d",
+        "parent": "941b113086e31f34e953c2f9d0daff9f3cb9a70b2d9cfe8e7724c7c3e4cd2b18"
+      },
+      "live_signed_axis_checks": 20,
+      "native_candidate_checks": 140,
+      "native_record_sha256": {
+        "ControlAfter": "cf56e8d594d82f22bb4970f41b921068468094613ef52ad808445544af6c3fa4",
+        "ControlBefore": "01f8042a250e2c2df1700ecd143bd6b83455f68437bedbd044d1a1ebdeade3c3",
+        "Generated": "8d0318cdefb7fd3249a164c3738eb4f990784cf0e2fdc2835692018efb39c496",
+        "Reopen": "90c254b7f092c7c9ac0725076fbc0dea419ab9d5f98502d75a37508ea80fa811"
+      },
+      "native_result_sha256": "b4e6c93174cdb8b979ceaca29978442d2c88f452933fc2e55943c8e64422af2c",
+      "native_saved_sha256": {
+        "child": "c3464b097569c7331eccfefbe8b04131332386c9e4c695776d58563581dad59d",
+        "parent": "8ceed25c893824a7dab5fb2087bab5d26b4eadd3504f87e207e7d020c9a2335c"
+      },
+      "postflight_sha256": "84050c21d903a3dfcb8b87b181b85d507e033370f131eec607462e6f935609bb",
+      "saved_wrapper_axis_and_extent": {
+        "carrier_sign": -1,
+        "endpoints": [
+          {
+            "entity": "sldasm:mate:2:0:0:entity:0",
+            "generated_axial_bounds_m": [
+              0.0,
+              0.01874901
+            ],
+            "generated_face": "sldprt:brep:face:40",
+            "generated_world_origin_m": [
+              -0.040838683072723474,
+              0.00023441379682789202,
+              0.035359921905811637
+            ],
+            "local_axis": [
+              6.938893903907228e-18,
+              8.68445940160889e-17,
+              -1.0
+            ],
+            "occurrence": "sldasm:instance:7",
+            "reference_number": "2",
+            "source_axial_bounds_m": [
+              0.0,
+              0.018749010000000003
+            ],
+            "source_face": "sldprt:brep:face:40",
+            "stored_world_origin_m": [
+              -0.040838683072723474,
+              0.00023441379682789462,
+              0.035359921905811637
+            ],
+            "world_axis": [
+              -0.18065529823420398,
+              -0.5144806193887359,
+              0.8382561395500145
+            ]
+          },
+          {
+            "entity": "sldasm:mate:2:0:0:entity:1",
+            "generated_axial_bounds_m": [
+              0.0,
+              0.01874901
+            ],
+            "generated_face": "sldprt:brep:face:40",
+            "generated_world_origin_m": [
+              -0.03790827709317241,
+              0.008579793634320196,
+              0.02176258583129364
+            ],
+            "local_axis": [
+              5.551115123125783e-17,
+              5.551115123125783e-17,
+              -1.0
+            ],
+            "occurrence": "sldasm:instance:4",
+            "reference_number": "1",
+            "source_axial_bounds_m": [
+              0.0,
+              0.01874901
+            ],
+            "source_face": "sldprt:brep:face:40",
+            "stored_world_origin_m": [
+              -0.03790827709317241,
+              0.008579793634320192,
+              0.02176258583129364
+            ],
+            "world_axis": [
+              0.18065529823420398,
+              0.5144806193887359,
+              -0.8382561395500145
+            ]
+          }
+        ],
+        "saved_real_face": "sldprt:brep:face:40"
+      },
+      "trial_sha256": "3ba299ea8e9413aaf82dc3313e5cf8f570ac89f3b50ceb0079a574f5a158d199"
+    }
+  },
+  "controls_healthy": true,
+  "fresh_native_processes": 8,
+  "heldout_acceptance": false,
+  "input_files_immutable": true,
+  "live_signed_axis_checks": 40,
+  "native_candidate_checks": 280,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.concentric-signed-wrapper-native.v1",
+  "whole_source_acceptance": false,
+  "writer_revision": "7e4f6e8d22f3181590e0ab238c0e0a6f4c756d02"
+}

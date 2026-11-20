@@ -25,6 +25,11 @@ meets the same native lifecycle with the true driving radius and four lights. Bo
 The two initial and two native-saved files reproduce all 16 measured linked streams exactly.
 The held-out source bridge remains open and the FCStd conversion counts remain zero.
 
+The [signed wrapper trial](measurements/2026/ConcentricSignedWrapperNative01.json)
+passes two complete disclosed native assembly lifecycles, including the
+tilted anti-aligned mate with rotation locked. The saved archive retains the
+ordered signed axes and rim ranges. These add zero FCStd benchmark cases.
+
 The [generated attached Top-plane box trial](measurements/2026/AttachedTopBoxGeneratedNative01.json)
 derives three editable SOLIDWORKS parts from the disclosed F14c inputs
 under three FreeCAD releases. Eight native processes pass all 1,089 candidate

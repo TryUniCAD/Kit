@@ -1,0 +1,300 @@
+{
+  "cases": {
+    "ConcaveBare-generated": {
+      "actual_import_names": [
+        "Imported geometry"
+      ],
+      "counts": {
+        "bodies": 1,
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12
+      },
+      "exact_linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        },
+        "Contents/Config-0": {
+          "bytes": 22698,
+          "sha256": "8618c1113fe7bcb3cee02229ba374cbedac7ea0114a56ad2b74482f8d8b0cc21"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 783,
+          "sha256": "e11934e55a39997ed76c72e1cec3adad2187c393bd0b5f9fafde0a53ef690f7b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        },
+        "Header2": {
+          "bytes": 783,
+          "sha256": "34362bc1b1a4bab23b12deb69a5805d36e63274e865de4d7c3093d2b54b8cf17"
+        }
+      },
+      "source_sha256": "21867dbe53b94bbfadfc343ed47f8ca3b0af1fb30114f3a921f730c84f087429",
+      "typed_base": 94,
+      "typed_final": 157
+    },
+    "ConcaveBare-saved": {
+      "actual_import_names": [
+        "Imported geometry"
+      ],
+      "counts": {
+        "bodies": 1,
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12
+      },
+      "exact_linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 2391,
+          "sha256": "7c49bd712e8db42165d798ac1171131f305471125f41b7687bdd9039acd201a0"
+        },
+        "Contents/Config-0": {
+          "bytes": 24663,
+          "sha256": "7a4b983c5eee4148411adac02c9cc412170d54398fb335ae1b43232839c78e4d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1007,
+          "sha256": "d00da0615affefcb21a4be8b1a10f70552da01c57a22ef1800d90c9cb1692aec"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5947,
+          "sha256": "d481846b686cd313902a5148ec52bc9b6f425c8bb53f480de40270b4545192f6"
+        },
+        "Header2": {
+          "bytes": 1007,
+          "sha256": "d00da0615affefcb21a4be8b1a10f70552da01c57a22ef1800d90c9cb1692aec"
+        }
+      },
+      "source_sha256": "37095d2362be9fd5035a2d2688db3ae48bd4c271538a266a0b008246d1267585",
+      "typed_base": 115,
+      "typed_final": 183
+    },
+    "ConcaveOwned-generated": {
+      "actual_import_names": [
+        "Imported geometry"
+      ],
+      "counts": {
+        "bodies": 1,
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12
+      },
+      "exact_linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        },
+        "Contents/Config-0": {
+          "bytes": 22700,
+          "sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 789,
+          "sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        },
+        "Header2": {
+          "bytes": 789,
+          "sha256": "0d8551d418c050d4f3d737edac10225af00146037f6eefa2b60511b8db4ad53d"
+        }
+      },
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "typed_base": 94,
+      "typed_final": 157
+    },
+    "ConcaveOwned-saved": {
+      "actual_import_names": [
+        "Imported geometry"
+      ],
+      "counts": {
+        "bodies": 1,
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12
+      },
+      "exact_linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 2397,
+          "sha256": "e4c18ef265257f1837a324f1b6d29c9e7dd6bb4cb24a28583c2889c5456dd3f6"
+        },
+        "Contents/Config-0": {
+          "bytes": 24665,
+          "sha256": "78a3bbe43e1a7796ae74f230c0a9df193adcfda17e1bcfc25fe3b4f7387cf921"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1013,
+          "sha256": "d6560412e176791ee569d6330568874b24fbcba540ec84644c4fd34b195531db"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5947,
+          "sha256": "168432e0306f85969417d9a257f43899400de784318b400afefc28eef55e6c20"
+        },
+        "Header2": {
+          "bytes": 1013,
+          "sha256": "d6560412e176791ee569d6330568874b24fbcba540ec84644c4fd34b195531db"
+        }
+      },
+      "source_sha256": "e63505d39a1408003707ad93b898007a05f0110ffa0dd1f649761223000680a5",
+      "typed_base": 115,
+      "typed_final": 183
+    },
+    "RectangularBare-generated": {
+      "actual_import_names": [
+        "Imported geometry"
+      ],
+      "counts": {
+        "bodies": 1,
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "exact_linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        },
+        "Contents/Config-0": {
+          "bytes": 22706,
+          "sha256": "9b1d79fe0e012e6722c8e8d9faf51c29e17cc11fd57512530a60abe23df071d6"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 807,
+          "sha256": "84212628d391b8c5891fb9b72fccd7b259421c3037c88bedec526af301a03fec"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        },
+        "Header2": {
+          "bytes": 807,
+          "sha256": "865fcaa29422512b4604251af0eacd4f9aa30d001378a27a3b81b8e14c335d24"
+        }
+      },
+      "source_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357",
+      "typed_base": 94,
+      "typed_final": 157
+    },
+    "RectangularBare-saved": {
+      "actual_import_names": [
+        "Imported geometry"
+      ],
+      "counts": {
+        "bodies": 1,
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "exact_linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 2415,
+          "sha256": "fc87f37d32c95fe411d621a14db5715940ab89c645c6fa891da17716e8260ff5"
+        },
+        "Contents/Config-0": {
+          "bytes": 24671,
+          "sha256": "9aa2670f3b283223265dd22da958e6da2d06066acf14d930bd2f61771ce4715f"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1031,
+          "sha256": "71a728adc11cf09250fbb8449c601de3f50b4963d0e7dbe3dff0115fc95f55de"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5947,
+          "sha256": "b7f5effffd824337bf71ed0cebd2760319992fa5408b48e6cf8e09c0a7fed676"
+        },
+        "Header2": {
+          "bytes": 1031,
+          "sha256": "71a728adc11cf09250fbb8449c601de3f50b4963d0e7dbe3dff0115fc95f55de"
+        }
+      },
+      "source_sha256": "6c3bd9562db256fcb79b467cadac754dd158a871081a6884fee2c56f62cd4f1b",
+      "typed_base": 115,
+      "typed_final": 183
+    },
+    "RectangularOwned-generated": {
+      "actual_import_names": [
+        "Imported geometry"
+      ],
+      "counts": {
+        "bodies": 1,
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "exact_linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        },
+        "Contents/Config-0": {
+          "bytes": 22708,
+          "sha256": "065bca5ba86b64917a80df1d1f3624ae7c8bbdd1acf3ad20807674ac207b1958"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 813,
+          "sha256": "4bb72e53d98411ab83eb9b7f1d3697dd151e91b8622abb4037084294e3c1d247"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        },
+        "Header2": {
+          "bytes": 813,
+          "sha256": "485d924b92ac56a329127ee10445656810069cbc11804a3438899044ca87132e"
+        }
+      },
+      "source_sha256": "dafdf93377f504435d3fe62dd9417f7292ac03c2c23ade9d379b4632311f9149",
+      "typed_base": 94,
+      "typed_final": 157
+    },
+    "RectangularOwned-saved": {
+      "actual_import_names": [
+        "Imported geometry"
+      ],
+      "counts": {
+        "bodies": 1,
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "exact_linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 2421,
+          "sha256": "ce7911dc47adab95298a04972f9120241473951c597b21a96080b8b176823131"
+        },
+        "Contents/Config-0": {
+          "bytes": 24673,
+          "sha256": "8e0e5657e6f96a1df3d6def4af73ca581040af7b905a22490c26b3ce26164eec"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1037,
+          "sha256": "b88bd7de9449ceb9509e6b4150cdc1999f6afd9976b43d96bf24532706ea3e8a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5947,
+          "sha256": "9811859560268a1d98b940c327727a65a1c7a1ba7312e0c338b3871fc934b188"
+        },
+        "Header2": {
+          "bytes": 1037,
+          "sha256": "b88bd7de9449ceb9509e6b4150cdc1999f6afd9976b43d96bf24532706ea3e8a"
+        }
+      },
+      "source_sha256": "ab0bf04e2da5532973b5423e46cd995da8755ea30e1be1dc93899567253f4d29",
+      "typed_base": 115,
+      "typed_final": 183
+    }
+  },
+  "disclosed_native_acceptance_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+  "exact_linked_streams": 40,
+  "heldout_files_read": 0,
+  "new_oracle_processes": 0,
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.imported-local-body-sdk-saved-read.v1",
+  "sdk_revision": "a2a8125d136a43f750dafee4f0f4d93d04255301",
+  "valid_brep_models": 8
+}
