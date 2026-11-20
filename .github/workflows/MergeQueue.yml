@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 env:
-  AuditSha: cd1fe8f7e2cf626ad400143ebc56345dc8c32313
+  AuditSha: ${{ github.sha }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.merge_group.head_sha || github.ref }}
