@@ -25,6 +25,12 @@ meets the same native lifecycle with the true driving radius and four lights. Bo
 The two initial and two native-saved files reproduce all 16 measured linked streams exactly.
 The held-out source bridge remains open and the FCStd conversion counts remain zero.
 
+A later [radial visibility contrast](measurements/2026/ConcentricRadialDisplayNative01.json)
+keeps the generated child and the two destination locators fixed. Both
+new mixed display states survive native rebuild, a driving depth edit,
+paired save and fresh reopen. All five fresh processes pass. This adds
+zero original FCStd corpus cases.
+
 The [signed wrapper trial](measurements/2026/ConcentricSignedWrapperNative01.json)
 passes two complete disclosed native assembly lifecycles, including the
 tilted anti-aligned mate with rotation locked. The saved archive retains the

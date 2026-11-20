@@ -50,3 +50,9 @@ The exact previously measured radial/concentric pair provides a model-only refer
 Use fresh processes and bracket healthy controls. Require warning-free cold open with the exact resolved child, both independently named mixed vectors, the correct mate and geometry after restoring the default, and a real depth edit followed by rebuild and fresh reopen of an owned derivative. Keep the fixed child hash through both cold measurements. A pass would show that this generated parent profile's mixed visibility can use the unchanged generated child without a child appearance store. A failure would leave the relevant stream or loader dependency unresolved. This planned trial carries no D01 child appearance, stream precedence, native write or held-out acceptance. [Same-locator synchronization control](ConcentricDisplaySync2026.md) · [Receipt and scope](../measurements/2026/ConcentricChildAppearance01.json)
 
 The receipt binds six snapshot hashes, the earlier native receipts, 15 repository inputs, three 2026 module hashes, exact inspected ranges and the Apple LLVM disassembler. REA PE-resource evidence independently binds the two appearance-related module identities. The recorded archive audit uses `ProveVisualStateStore.replay`, `owner_clocks`, `ReadCmgrMut`, `ReadModelDef`, `ReadEmptyAppr` and `WriteModelDef`. Measured at `3a651f09276a88c33dd2f8463c4516c2a04557bf`. Receipt SHA-256 is `5c70f31c6847f7b805381a39d71cb302ff6b1eca8573fa87d41ef7b9522cf5ce`. [Numeric receipt](../measurements/2026/ConcentricChildAppearance01.json)
+
+The later fixed-child discriminator passed with healthy controls. The
+generated child first opened without its own visual store, and a native
+save after a driving depth edit created one. Original child appearance
+construction remains a separate exit.
+[Generated parent visibility result](../measurements/2026/ConcentricRadialDisplayNative01.json)

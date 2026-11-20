@@ -1,0 +1,221 @@
+{
+  "schema": "kit.sw2026.radial-concentric-visibility-native.v1",
+  "construction_revision": "8bc3b18909c50fd9001033a43ed2dd3e79dae71a",
+  "trial_sha256": "94764278a0a0c424a4bd190f9309311b9d1048f1032e1835592c932125f5afa2",
+  "recipe_sha256": "36cf3f53dbb1ae2e4b6b48a41fc7389669cdd3b8bf19fcf29fe4e8ace4f1d713",
+  "build_sha256": "c63225f5eebf3031f11167133c8ad26346abe7b36b60a8414d345cbc0e644ff8",
+  "native_result_sha256": "37c0549e06d1b2c30203696a862c0b3621b291e15ef1b105aabdee052b87b751",
+  "oracle_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "baseline_parent_sha256": "8bc14f936f1c51b0cbb69fdaed27e6d6453aa6525f0f33f3cc618189df4739f6",
+  "variant_archive_sha256": {
+    "child": "9772dfdc9cbbfa6d48277d0466e208aefabbf947bb59d539b96cec33ed772d26",
+    "parent": "7d38d15a20819126ea4c5a64c7cb5b86a8e8fafa841c57ec933aaf4cb7867b7d"
+  },
+  "saved_archive_sha256": {
+    "parent": "eefdb5262d4d3e684e13b9ee99a398c34db63caad5d9a0c362f190f208d1cc23",
+    "child": "467cad2dc804832324e1cabf1b1cd14fb223cab7597dc4c664cfe02e1df0f66d"
+  },
+  "initial_changed_parent_streams": {
+    "ThirdPtyStore/VisualStates": {
+      "after": 1819,
+      "baseline_sha256": null,
+      "before": 0,
+      "variant_sha256": "3be83cabb804c4972e0de48a839ee920b86813de4f1944fe35e442003bac1487"
+    },
+    "swXmlContents/COMPINSTANCETREE": {
+      "after": 2699,
+      "baseline_sha256": "f9d25099294d9172053ba17f836d163eff6a1dc9869ba01e7c42876dbf3bd52c",
+      "before": 2346,
+      "variant_sha256": "330f569051a3bdc633e3b3645bee7ca4f6740856adbae563ebc2a2d4e03a43c1"
+    }
+  },
+  "initial_identical_parent_streams": 11,
+  "stream_readback": {
+    "child": {
+      "Frozen": {},
+      "Working": {
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1817,
+          "sha256": "dd121918d28144b6c11ab4cab8fb2ba364798ff4a113854f88d0f84b4074eac6"
+        }
+      }
+    },
+    "parent": {
+      "Frozen": {
+        "swXmlContents/COMPINSTANCETREE": {
+          "bytes": 2699,
+          "sha256": "330f569051a3bdc633e3b3645bee7ca4f6740856adbae563ebc2a2d4e03a43c1"
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1819,
+          "sha256": "3be83cabb804c4972e0de48a839ee920b86813de4f1944fe35e442003bac1487"
+        }
+      },
+      "Working": {
+        "swXmlContents/COMPINSTANCETREE": {
+          "bytes": 2847,
+          "sha256": "e078232b5729cdf48802601e2601bbb3403d29eb8e98051680f9758c13e5f96d"
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1819,
+          "sha256": "abd6b606da89a811f2512d927704735cfe5e544a3acb55aa0a491ed9ac83af05"
+        }
+      }
+    }
+  },
+  "cmgr_locator_policy": "ordinary empty f1f8 in both",
+  "occurrence_ids": [
+    17,
+    18
+  ],
+  "controls_healthy": true,
+  "native_processes": 5,
+  "numeric_checks": 168,
+  "candidate_checks": 84,
+  "driving_depth_edit_mm": {
+    "initial": 31.37,
+    "edited": 36.79701
+  },
+  "snapshots_with_matching_applied_states": 6,
+  "runtime_input_file_reads": 0,
+  "heldout_acceptance": false,
+  "source_appearance_acceptance": false,
+  "phases": {
+    "ControlBefore": {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 28,
+      "parameter_edits": 0,
+      "file_saves": 0,
+      "child_stamp_on_open": 134,
+      "record_sha256": "a6848c7535df88d9ba27ba026aa2c1e9a74e01573b7e78d0e0d10b30572fd18c"
+    },
+    "Baseline": {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 28,
+      "parameter_edits": 0,
+      "file_saves": 0,
+      "child_stamp_on_open": 104,
+      "record_sha256": "f5e59be7ed30f027314cbc19c72902f3ce5f86e42f05eea74e26b2ec994a797c"
+    },
+    "Generated": {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 56,
+      "parameter_edits": 1,
+      "file_saves": 2,
+      "child_stamp_on_open": 104,
+      "record_sha256": "498cc69ccaa2aa351e00b4ecf30229c1e041256b045b4265210b7bc82e4b49cb",
+      "wrapper_display_link_flag": false,
+      "named_and_applied_visibility": {
+        "initial": {
+          "Display State-1": [
+            1,
+            1
+          ],
+          "Left occurrence only": [
+            1,
+            0
+          ],
+          "Right occurrence only": [
+            0,
+            1
+          ]
+        },
+        "rebuilt": {
+          "Display State-1": [
+            1,
+            1
+          ],
+          "Left occurrence only": [
+            1,
+            0
+          ],
+          "Right occurrence only": [
+            0,
+            1
+          ]
+        },
+        "edited": {
+          "Display State-1": [
+            1,
+            1
+          ],
+          "Left occurrence only": [
+            1,
+            0
+          ],
+          "Right occurrence only": [
+            0,
+            1
+          ]
+        },
+        "saved_state": {
+          "Display State-1": [
+            1,
+            1
+          ],
+          "Left occurrence only": [
+            1,
+            0
+          ],
+          "Right occurrence only": [
+            0,
+            1
+          ]
+        }
+      }
+    },
+    "Reopen": {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 28,
+      "parameter_edits": 0,
+      "file_saves": 0,
+      "child_stamp_on_open": 146,
+      "record_sha256": "154c9f27d9fc0a7d85fab84786422347d82701ecca9fd53ef41cfaad438cba84",
+      "wrapper_display_link_flag": false,
+      "named_and_applied_visibility": {
+        "initial": {
+          "Display State-1": [
+            1,
+            1
+          ],
+          "Left occurrence only": [
+            1,
+            0
+          ],
+          "Right occurrence only": [
+            0,
+            1
+          ]
+        },
+        "rebuilt": {
+          "Display State-1": [
+            1,
+            1
+          ],
+          "Left occurrence only": [
+            1,
+            0
+          ],
+          "Right occurrence only": [
+            0,
+            1
+          ]
+        }
+      }
+    },
+    "ControlAfter": {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 28,
+      "parameter_edits": 0,
+      "file_saves": 0,
+      "child_stamp_on_open": 134,
+      "record_sha256": "6dc775827bceb923a3b7d528d1844f174704a0e3f5eb3154abc3433e8a92e4b9"
+    }
+  }
+}

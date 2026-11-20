@@ -35,4 +35,19 @@ The construction revision is `8bc3b18909c50fd9001033a43ed2dd3e79dae71a`. The hos
 
 The persistence observer checks zero open, rebuild and save diagnostics, real radius ownership, ordered trees and independently calculated volume, area and centre of mass on the all-visible geometry. The display observer checks all three named visibility vectors and applies them by name, verifying the loaded child, configuration, stable occurrence IDs, poses and fixed flags. It restores the all-visible state after applying the two mixed states. It measures visibility on initial open, rebuild, the driving depth edit from 31.37 to 36.79701 mm, the child-first paired save and a fresh read-only reopen. The final summary records control health separately from the candidate outcome. [Persistence observer](../../tooling/sw2026/para/concentric/ObserveConcentricPersistence.py) · [Display observer](../../tooling/sw2026/para/concentric/ObserveConcentricDisplayOracle.py)
 
-The host evidence qualifies the structural contrast. The native result, cache precedence, full original source appearance, SDK publication and held-out evaluation remain open. A healthy native pass would measure the joint XML and VisualStates intervention with the empty locator policy on this one generated-child fixture.
+## Native result
+
+All five native phases passed, including both controls, with 168 numeric
+checks. The variant opens warning-free with the same generated child and
+stamp 104 as the baseline. Both mixed visibility states apply to the
+correct actual occurrences with the configuration link setting false.
+They survive rebuilding, the real depth edit, the child-first paired
+save and fresh reopen. Candidate phases passed 84 numeric checks.
+
+The initial generated child has no VisualStates stream. SOLIDWORKS
+creates a 1,817-byte child store when saving the edited part. The
+parent retains both display streams on the measured save. This result
+qualifies the initial generated child's omitted store for the scoped
+parent visibility flow. Precedence between the parent stores, original
+source appearance, SDK publication and held-out evaluation remain open.
+[Native result](../measurements/2026/ConcentricRadialDisplayNative01.json)
