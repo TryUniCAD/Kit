@@ -248,6 +248,12 @@ in the configuration, and carries the same update counter in both headers.
 All four completed files and 48 streams stay byte-identical.
 [Shared completed-state regression](../measurements/2026/SharedImportCompletedUpdate01.json)
 
+Four further completed builds with empty lighting retain the correct solids
+before and after rebuild and pass 280 numeric comparisons. Every initial
+open returns warning 32 while all three controls pass in the seven-process
+batch. The native save and reopen gate stays closed for this input state.
+[Empty environment result](../measurements/2026/GeneratedLocalImportWithoutLight01.json)
+
 ## Sealed source geometry
 
 The two independently authored native input files were locked before the
