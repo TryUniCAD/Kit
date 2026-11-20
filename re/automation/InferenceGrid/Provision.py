@@ -132,9 +132,9 @@ def HasScopePlan(ledger, batch):
                 installation,
                 row[0],
             ),
-            "existing P04 scope job or priority has a different definition",
+            "existing inference job or priority has a different definition",
         )
-    require(present in (0, len(jobs)), "only part of the P04 scope schedule exists")
+    require(present in (0, len(jobs)), "only part of the inference schedule exists")
     return bool(present)
 
 

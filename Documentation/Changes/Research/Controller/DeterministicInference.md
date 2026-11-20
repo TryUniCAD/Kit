@@ -72,17 +72,76 @@ dependents, distinct representative archives and distinguishing evidence.
 
 ### Dispatch a SOLIDWORKS catalogue feature
 
-The SOLIDWORKS catalogue's `family:extrude:cut-extrude` ID selects the pinned
-P04 through-all body-selection assessment and its two affected archive rescans.
-From a clean checkout, submit it to an initialized A03 store used by the
-inference supervisor.
+Read the existing [SOLIDWORKS planning catalogue](https://github.com/TryUniCAD/Kit/blob/f8cf67043e4f64c363dbe2add2128f1a58e99ab6/re/solidworks/PlannerCatalog/Sources/FeaturePlan.json).
+Generate plans without a controller store. Keep the catalogue's SHA-256 from
+the output or supply it with `--catalogue-sha256` to require that exact input.
 
 ```shell
-python re/automation/InferenceGrid/FeatureDispatch.py --store STORE \
+python re/automation/InferenceGrid/FeatureDispatch.py --catalogue FeaturePlan.json manifest
+python re/automation/InferenceGrid/FeatureDispatch.py --catalogue FeaturePlan.json \
+  --feature family:extrude:boss-base-extrude plan
+```
+
+Plans have stable feature identities, dependencies, option axes, and recipe
+readiness. An unmapped feature reports its missing recipe and pinned evidence.
+The option axes identify research questions. They carry no claims about native
+option combinations or qualification.
+
+The P01 planar corner rectangle and its linear and driving dimensions share
+one measured assessment and its twelve paired archive rescans. The P03
+one-sided blind boss signed-depth assessment runs for each file format
+separately. The P04 through-all body-selection assessment retains its two
+affected archive rescans. Each route covers its stated discovery scope.
+The circle and diameter entries also display their retained P02 native
+readback evidence and the missing decoder route.
+
+Use the same dispatch workflow with the
+[Fusion planner inventory](https://github.com/TryUniCAD/Kit/tree/82259016c5d4ea92985b0dbff65d035edee0888d/re/Fusion/PlannerCatalog/Data)
+by passing `--fusion-catalogue Catalog.sqlite`. The manifest reads Fusion's
+feature API view and the reviewed two-point rectangle method from the same
+database snapshot. It maps `api:adsk.fusion.ExtrudeFeature` to Fusion P03 and
+`api:adsk.fusion.SketchLines.addTwoPointRectangle` to the shared P01 assessment.
+The inventory's original qualification states stay visible.
+
+### Run both complete catalogue inventories
+
+From a clean checkout, use one command to prepare every catalogue entry,
+submit all mapped scopes and run their decoder jobs in series. Use a new
+directory outside the source checkout. Either catalogue can be supplied
+independently.
+
+```shell
+python re/automation/InferenceGrid/RunFeatureCatalogue.py \
+  --solidworks-catalogue FeaturePlan.json --fusion-catalogue Catalog.sqlite \
+  --directory /private/catalogue-run
+```
+
+The run saves `CataloguePlan.json`, each submission, the controller store,
+and `CatalogueResult.json`. The plan has a row for every feature or API
+entry. It submits a shared assessment once even if multiple rows use it.
+An entry without a reviewed recipe is recorded as unavailable without
+submitting decoder work. An entry with a
+[written recipe](FeatureRecipeSpecs.md) but no captured native files is
+recorded as `awaiting_capture`. Exit status 2 indicates incomplete coverage or
+waiting evidence, and exit status 1 indicates a run failure.
+
+For the P04 native evidence step on a configured Fusion host, supply
+`--native-config`, `--native-kind` and `--native-resource`. That supervisor
+configuration must use this run's `Store` directory. It runs after the
+offline assessments and reuses the standard Fusion owner restart procedure.
+
+### Run one discovery scope
+
+From a clean checkout, submit a mapped feature to an initialized A03 store
+used by the inference supervisor. A mapped feature can also be selected
+without a catalogue.
+
+```shell
+python re/automation/InferenceGrid/FeatureDispatch.py --catalogue FeaturePlan.json --store STORE \
   --feature family:extrude:cut-extrude submit
 ```
 
-On the configured Fusion owner host, point the following command at a
+For P04 evidence, point the following command at a
 supervisor registry with the Fusion worker and its capacity-one installation.
 Use the same A03 store and source revision as the assessment. The command
 waits for the assessment to park, prepares the pinned two-body study, and
