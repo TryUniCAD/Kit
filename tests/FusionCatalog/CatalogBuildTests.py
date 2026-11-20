@@ -21,6 +21,8 @@ def CheckBuildFlow(TmpPath: FilePath) -> None:
             str(ModuleRoot),
             "--research-root",
             str(RepoRoot),
+            "--commands",
+            str(CatalogRoot / "Sources" / "Commands.json"),
             "--output",
             str(OutputRoot),
             "--all-csv",
@@ -45,6 +47,12 @@ def CheckBuildFlow(TmpPath: FilePath) -> None:
         (OutputRoot / "Catalog.sqlite").as_uri() + "?mode=ro", uri=True
     )
     try:
+        assert Database.execute(
+            "SELECT COUNT(*) FROM items WHERE source_id='commands:current' AND kind='ui_command'"
+        ).fetchone() == (3151,)
+        assert Database.execute(
+            "SELECT COUNT(*) FROM gaps WHERE source_id='commands:current' AND code='ui_getter_unavailable'"
+        ).fetchone() == (88,)
         assert Database.execute(
             "SELECT target_id FROM relations WHERE owner_id=? AND relation='property_type'",
             ("api:adsk.fusion.ProbeFeatureInput.mode",),
