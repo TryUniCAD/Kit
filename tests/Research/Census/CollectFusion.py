@@ -1,4 +1,5 @@
 import os as OsModule
+from shutil import copyfileobj as CopyStream
 import subprocess as Subprocess
 import sys as System
 from pathlib import Path as FilePath
@@ -7,9 +8,7 @@ from pathlib import Path as FilePath
 # the full census needs bounded reader batches so a single subprocess cannot hide partial progress
 def CollectFusion(TargetList: list[FilePath], TempPath: FilePath) -> FilePath:
     RootPath = FilePath(__file__).resolve().parents[3]
-    CensusPath = FilePath(
-        OsModule.environ.get("KIT_FUSION_CENSUS", str(TempPath / "census.json"))
-    )
+    CensusPath = TempPath / "census.json"
     CensusRun = Subprocess.run(
         [
             System.executable,
@@ -29,4 +28,8 @@ def CollectFusion(TargetList: list[FilePath], TempPath: FilePath) -> FilePath:
         check=False,
     )
     assert CensusRun.returncode == 0, CensusRun.stderr
+    ExportPath = OsModule.environ.get("KIT_FUSION_CENSUS")
+    if ExportPath and FilePath(ExportPath).absolute() != CensusPath.absolute():
+        with CensusPath.open("rb") as Source, FilePath(ExportPath).open("xb") as Target:
+            CopyStream(Source, Target)
     return CensusPath
