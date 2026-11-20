@@ -142,6 +142,16 @@ coverage, and revision-bound CI and review. Neutral graph projection and
 part and assembly writer qualification have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
 
+### B04-SW2026-CONFIG-ATOM-EMISSION
+
+The PR #121 takeover team owns bounded kind-zero atom manager writing
+on codex/solidworks-config-atom-codec. It uses the accepted atom record
+reader and shared archive maps. Exit requires exact native record emission,
+independent typed row and condition contrasts, guarded malformed cases,
+and current revision queue and review evidence. Complete configuration
+writing and native file admission have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
+
 ### B04-SW2026-CONFIG-UNITS
 
 The PR #121 takeover team owns this unit-table reader on

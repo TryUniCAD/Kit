@@ -6,6 +6,18 @@ from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteArrayMut import (
     WriteArrayMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBranchMut import (
+    WriteBranchMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteLengthMut import (
+    WriteLengthMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNormalMut import (
+    WriteNormalMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteVirtualMut import (
+    WriteVirtualMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNestedMut import (
     WriteNestedMut,
 )
@@ -20,8 +32,14 @@ KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] 
             "Scalar": WriteValueMut,
             "Text": WriteValueMut,
             "Node": WriteValueMut,
+            "Base": WriteNestedMut,
             "Embed": WriteNestedMut,
             "Array": WriteArrayMut,
+            "Branch": WriteBranchMut,
+            "Length": WriteLengthMut,
+            "Repeat": WriteArrayMut,
+            "Normalize": WriteNormalMut,
+            "Virtual": WriteVirtualMut,
         }
     )
 )

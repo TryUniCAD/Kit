@@ -190,6 +190,11 @@ A single flag change is not a general operation converter.
 
 ## Writing
 
+The shared atom manager encoder derives its row count and map allocation
+from typed rows. Its bounded emission preserves native state normalization
+under the actual archive conditions.
+[Atom manager emission](../../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
+
 Kit does not write SOLIDWORKS files.
 A conversion to a `.SLDPRT` or `.SLDASM` destination raises `AdapterNotFoundError` and creates no file.
 
