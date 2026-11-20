@@ -266,6 +266,11 @@ concrete virtual targets. The sketch map backlink retains the newly
 allocated manager's identity.
 [Configuration field action scope](../../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
 
+The bounded configuration member reader also handles the ordinary view
+record with compact transforms and empty presentation lists. Context
+changes govern both optional list windows in the same archive.
+[Configuration view scope](../../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+
 The same member reader accepts a concrete partition mark and an absent
 or empty thread reference manager. The archive slot and kernel mark ID
 remain separate. A present thread manager retains the signed wire word
