@@ -101,6 +101,14 @@ exactly. The current source manifest covers the repaired allocator and
 canonical part suffix. Runtime external accesses remain zero.
 [Revision-bound allocator receipt](../measurements/2026/FreshPartHeadersAllocator02.json)
 
+The queue's Pyright rule requires superclass initialization. Revision
+`3bdeae46811e2af2136e6267e29b827a64c61404` restores that call and reads a
+previously allocated ID in the existing ownership check. The allocator
+passes the scoped steering limit. All nine guarded processes reproduced
+the original observations, including the reservation boundary, with
+zero external accesses.
+[Current allocator receipt](../measurements/2026/FreshPartHeadersAllocator03.json)
+
 ## Remaining scope
 
 The public line-boss baseline bound the same construction family
