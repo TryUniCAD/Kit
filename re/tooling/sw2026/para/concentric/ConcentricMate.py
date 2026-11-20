@@ -1,4 +1,4 @@
-from math import copysign, fsum, isclose, sqrt
+from math import copysign, fsum, isclose, isfinite, sqrt
 
 from para.concentric.CylinderFace import make_face, make_face_ref, make_facet, make_feature_file, node
 from convert.adapters.solidworks.Archive.Construction.Assembly.Bounds.PlacePoint import PlacePoint
@@ -28,7 +28,30 @@ def world_axis(frame, axis):
     return tuple(dot(axis, column) for column in zip(frame.AxisU, frame.AxisV, frame.NormalValue, strict=True))
 
 
-def axial_bounds(face, frame, origin, axis):
+def selected_local_axes(carrier_axis, endpoint_axes):
+    if endpoint_axes is None:
+        return carrier_axis, carrier_axis
+    if type(endpoint_axes) is not tuple or len(endpoint_axes) != 2:
+        raise ValueError("concentric mate requires two ordered child-local axes")
+    axes = []
+    for axis in endpoint_axes:
+        if type(axis) is not tuple or len(axis) != 3 or any(
+            type(value) not in (int, float) or not isfinite(value) for value in axis
+        ):
+            raise ValueError("concentric child-local axis requires three finite scalars")
+        sign = -1.0 if dot(axis, carrier_axis) < 0.0 else 1.0
+        if not isclose(dot(axis, axis), 1.0, rel_tol=1e-10, abs_tol=1e-12) or not all(
+            isclose(value, sign * carrier, rel_tol=1e-10, abs_tol=1e-12)
+            for value, carrier in zip(axis, carrier_axis, strict=True)
+        ):
+            raise ValueError("concentric child-local axis must be a unit direction on the actual carrier")
+        axes.append(tuple(float(value) for value in axis))
+    if dot(*axes) <= 0.0:
+        raise ValueError("concentric endpoint axes disagree on the same child cylinder")
+    return tuple(axes)
+
+
+def axial_bounds(face, frame, origin, axis, *, signed=False):
     distances = []
     for rim in face.rim_centres:
         difference = tuple(value - start for value, start in zip(PlacePoint(frame, rim), origin, strict=True))
@@ -36,7 +59,7 @@ def axial_bounds(face, frame, origin, axis):
         delta = tuple(distance * value for value in axis)
         distances.append(copysign(sqrt(dot(delta, delta)), distance))
     lower, upper = distances
-    if lower != 0.0 or upper <= 0.0:
+    if lower != 0.0 or not isfinite(upper) or upper == 0.0 or (upper < 0.0 and not signed):
         raise ValueError("selected circular rims do not bound the ordinary rooted axial interval")
     return lower, upper
 
@@ -52,7 +75,7 @@ def make_wrapper(component, origin, axis, radius):
     }
 
 
-def make_active(parent, child, occurrence, pose, face, feature_file, origin, axis):
+def make_active(parent, child, occurrence, pose, face, feature_file, origin, axis, local_axis, *, signed):
     chain = MakeMateChain(parent, occurrence)
     placement = occurrence.FieldsValue["f360"]
     stamp = child.HeaderValue.FieldsValue["f40"]
@@ -62,11 +85,11 @@ def make_active(parent, child, occurrence, pose, face, feature_file, origin, axi
         "alias": 0, "fe8": make_face_ref(face, feature_file), "ff0": None,
     })
     values = make_wrapper(component, origin, axis, face.radius)
-    lower, upper = axial_bounds(face, pose, origin, axis)
+    lower, upper = axial_bounds(face, pose, origin, axis, signed=signed)
     values.update(
         f08=SignedStamp(stamp), f0c=child.CurrentConfig.FieldsValue["f08"],
         has_f10=1, f10=CopyPlacement(placement), has_f18=1, f18=CopyPlacement(placement),
-        f50=2, fb0=lower, fb8=upper, has_f108=1, f108=xyz(face.axis),
+        f50=2, fb0=lower, fb8=upper, has_f108=1, f108=xyz(local_axis),
     )
     return node("moCylinderRef_w", values)
 
@@ -111,7 +134,7 @@ def valid_alignment(positions, directions, expected):
             and all(isclose(value, 0.0, abs_tol=1e-12) for value in radial))
 
 
-def make_concentric(state, settings, headers, references, poses, attachment, name, alignment, lock, fixed):
+def make_concentric(state, settings, headers, references, poses, attachment, name, alignment, lock, fixed, *, endpoint_axes=None):
     if (len(references) != 2 or references[0] is references[1] or len(poses) != 2
             or type(fixed) is not int or fixed not in (0, 1)
             or type(alignment) is not int or alignment not in (1, 2) or type(lock) is not bool):
@@ -121,13 +144,15 @@ def make_concentric(state, settings, headers, references, poses, attachment, nam
     for occurrence, pose in zip(references, poses, strict=True):
         verify_placement(occurrence, pose, child)
     face = make_face(attachment)
+    local_axes = selected_local_axes(face.axis, endpoint_axes)
     positions = tuple(PlacePoint(pose, face.origin) for pose in poses)
-    directions = tuple(world_axis(pose, face.axis) for pose in poses)
+    directions = tuple(world_axis(pose, axis) for pose, axis in zip(poses, local_axes, strict=True))
     if not valid_alignment(positions, directions, 1 if alignment == 1 else -1):
         raise ValueError("explicit prepositioned cylinder axes do not satisfy the selected alignment")
     shared = make_feature_file(child)
-    active = [make_active(parent, child, occurrence, pose, face, shared, origin, axis)
-              for occurrence, pose, origin, axis in zip(references, poses, positions, directions, strict=True)]
+    active = [make_active(parent, child, occurrence, pose, face, shared, origin, axis, local_axis,
+                          signed=endpoint_axes is not None)
+              for occurrence, pose, origin, axis, local_axis in zip(references, poses, positions, directions, local_axes, strict=True)]
     support = [make_support(state, headers[0], settings.TargetValue, occurrence, face, origin, axis)
                for occurrence, origin, axis in zip(references, positions, directions, strict=True)]
     mate = node("moMateConcentric", {})

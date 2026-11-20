@@ -1,0 +1,716 @@
+{
+  "authored_offset_axis_anti_aligned_locked": {
+    "changed_streams": [
+      "Contents/Config-0-MatesList"
+    ],
+    "child_bytes": 10607,
+    "implicit": {
+      "active_intervals": [
+        [
+          0.0,
+          0.014763000000000004
+        ],
+        [
+          0.0,
+          0.014763
+        ]
+      ],
+      "alignment": 2,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "6d7777d67eb70f45a349baa16c092e94ff896442b84d7de44ab54f81be74ac43",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        false,
+        true
+      ],
+      "kernel_node_id": 5,
+      "maps": [
+        133,
+        186
+      ],
+      "mate_bytes": 3832,
+      "mate_sha256": "6465de15a6af22d4cbe644fe065f20ba5130674b31e35006995a621bf17a0a9c",
+      "occurrence_names": [
+        "Cylinder-2",
+        "Cylinder-1"
+      ],
+      "occurrences": [
+        18,
+        17
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": true,
+      "round_tripped_linked_streams": 3,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.18065529823420398,
+          0.5144806193887359,
+          -0.8382561395500145
+        ],
+        [
+          -0.18065529823420398,
+          -0.5144806193887359,
+          0.8382561395500145
+        ]
+      ],
+      "world_origins": [
+        [
+          -0.044225791065869546,
+          -0.009411588480897709,
+          0.05107639464879625
+        ],
+        [
+          -0.03452116910002634,
+          0.018225795912045796,
+          0.006046113088309022
+        ]
+      ]
+    },
+    "legacy_parent_bytes": 10420,
+    "legacy_parent_sha256": "605afb45e9c11ba96eab426a96d8a3588441bb8ecd2574c25caaa3db52e89e58",
+    "rejected": {},
+    "runtime_io_attempts": 0,
+    "same_process_repeated_pair_bytes_exact": true,
+    "signed": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.014763000000000004
+        ],
+        [
+          0.0,
+          -0.014763
+        ]
+      ],
+      "alignment": 2,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "6d7777d67eb70f45a349baa16c092e94ff896442b84d7de44ab54f81be74ac43",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        false,
+        true
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        133,
+        186
+      ],
+      "mate_bytes": 3832,
+      "mate_sha256": "2c0c0c02e7756ebaeb5e2da71566837262bb345c2abd35cf4fcb6f455286a510",
+      "occurrence_names": [
+        "Cylinder-2",
+        "Cylinder-1"
+      ],
+      "occurrences": [
+        18,
+        17
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": true,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          -0.18065529823420398,
+          -0.5144806193887359,
+          0.8382561395500145
+        ],
+        [
+          0.18065529823420398,
+          0.5144806193887359,
+          -0.8382561395500145
+        ]
+      ],
+      "world_origins": [
+        [
+          -0.044225791065869546,
+          -0.009411588480897709,
+          0.05107639464879625
+        ],
+        [
+          -0.03452116910002634,
+          0.018225795912045796,
+          0.006046113088309022
+        ]
+      ]
+    },
+    "signed_parent_bytes": 10421,
+    "signed_parent_sha256": "0139fe2de67ae5bab8b173ef1c0721d7d5a803d02c53c01d22776be8289f5d6c"
+  },
+  "comparison_base": "163309ad92afaff6eeeb7ba434fed8e3ce0dd6b8",
+  "d01_lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+  "disclosed": {
+    "Edited": {
+      "child_source_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "emission": {
+        "changed_streams": [
+          "Contents/Config-0-MatesList"
+        ],
+        "child_bytes": 10533,
+        "implicit": {
+          "active_intervals": [
+            [
+              0.0,
+              0.04691000000000001
+            ],
+            [
+              0.0,
+              0.04691000000000001
+            ]
+          ],
+          "alignment": 1,
+          "body_atom_id": 101,
+          "caps_follow_generated_lateral_loops": true,
+          "child_sha256": "36e0201e5091d5618e85eb83868629d69d774b5f99a5215d8b6e3918f3093c78",
+          "detached_defaults_preserved": true,
+          "face_tags": [
+            6,
+            6
+          ],
+          "fixed_flags": [
+            true,
+            false
+          ],
+          "kernel_node_id": 5,
+          "maps": [
+            133,
+            186
+          ],
+          "mate_bytes": 3546,
+          "mate_sha256": "2d2ed4027e66f442f884bae4e86b8694ad60b7a0d304c823053e11b1ee2dcfd6",
+          "occurrence_names": [
+            "D01SignedChild-1",
+            "D01SignedChild-2"
+          ],
+          "occurrences": [
+            17,
+            18
+          ],
+          "root_recipe": "neutral document",
+          "rotation_locked": false,
+          "round_tripped_linked_streams": 3,
+          "solved_reader_refused_presolve": true,
+          "world_axes": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "world_origins": [
+            [
+              0.043930000000000004,
+              -0.03127,
+              0.018700000000000005
+            ],
+            [
+              0.04393000000000001,
+              -0.03126999999999999,
+              0.26817
+            ]
+          ]
+        },
+        "legacy_parent_bytes": 9902,
+        "legacy_parent_sha256": "34d192ae71194deb7d9d61e62ed580111845460a71d869c4a31e65babea70625",
+        "rejected": {},
+        "runtime_io_attempts": 0,
+        "same_process_repeated_pair_bytes_exact": true,
+        "signed": {
+          "active_intervals": [
+            [
+              0.0,
+              -0.04691000000000001
+            ],
+            [
+              0.0,
+              -0.04691000000000001
+            ]
+          ],
+          "alignment": 1,
+          "body_atom_id": 101,
+          "caps_follow_generated_lateral_loops": true,
+          "child_sha256": "36e0201e5091d5618e85eb83868629d69d774b5f99a5215d8b6e3918f3093c78",
+          "detached_defaults_preserved": true,
+          "face_tags": [
+            6,
+            6
+          ],
+          "fixed_flags": [
+            true,
+            false
+          ],
+          "kernel_node_id": 5,
+          "local_axes": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "maps": [
+            133,
+            186
+          ],
+          "mate_bytes": 3546,
+          "mate_sha256": "5cee1f6aca7c1b2a9451c2fff0d862599ec1ef15ce7966bd6f381a8b236a6489",
+          "occurrence_names": [
+            "D01SignedChild-1",
+            "D01SignedChild-2"
+          ],
+          "occurrences": [
+            17,
+            18
+          ],
+          "root_recipe": "neutral document",
+          "rotation_locked": false,
+          "round_tripped_linked_streams": 3,
+          "signed_rim_bounds_verified": true,
+          "solved_reader_refused_presolve": true,
+          "world_axes": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "world_origins": [
+            [
+              0.043930000000000004,
+              -0.03127,
+              0.018700000000000005
+            ],
+            [
+              0.04393000000000001,
+              -0.03126999999999999,
+              0.26817
+            ]
+          ]
+        },
+        "signed_parent_bytes": 9897,
+        "signed_parent_sha256": "52b66d831143ff815eeba705c60e8efdb21025552d3a49bed9074778f6d9eb20"
+      },
+      "endpoint_correspondence": [
+        {
+          "entity": "sldasm:mate:2:0:0:entity:0",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.046910000000000014
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:4",
+          "reference_number": "1",
+          "source_axial_bounds_m": [
+            0.0,
+            0.04691
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.06561
+          ],
+          "world_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "entity": "sldasm:mate:2:0:0:entity:1",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.046910000000000014
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.04393000000000001,
+            -0.03126999999999999,
+            0.26817
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:7",
+          "reference_number": "2",
+          "source_axial_bounds_m": [
+            0.0,
+            0.04691000000000001
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.31508
+          ],
+          "world_axis": [
+            0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ],
+      "parent_source_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "scoped_neutral_request_sha256": "84140eea5bcb029ae8ff5acacddc8165b1df096178fb2626fed9d62313281b7b"
+    },
+    "Source": {
+      "child_source_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "emission": {
+        "changed_streams": [
+          "Contents/Config-0-MatesList"
+        ],
+        "child_bytes": 10536,
+        "implicit": {
+          "active_intervals": [
+            [
+              0.0,
+              0.031369999999999995
+            ],
+            [
+              0.0,
+              0.03137000000000001
+            ]
+          ],
+          "alignment": 1,
+          "body_atom_id": 101,
+          "caps_follow_generated_lateral_loops": true,
+          "child_sha256": "3cb278df64514a82475a5490b3472f2481c2dd0b017608d38ddef1e74427effe",
+          "detached_defaults_preserved": true,
+          "face_tags": [
+            6,
+            6
+          ],
+          "fixed_flags": [
+            true,
+            false
+          ],
+          "kernel_node_id": 5,
+          "maps": [
+            133,
+            186
+          ],
+          "mate_bytes": 3546,
+          "mate_sha256": "e80cd3ae30de98a8cd7fa1bd131760fe7a6a94e799938073e8773b0c175be007",
+          "occurrence_names": [
+            "D01SignedChild-1",
+            "D01SignedChild-2"
+          ],
+          "occurrences": [
+            17,
+            18
+          ],
+          "root_recipe": "neutral document",
+          "rotation_locked": false,
+          "round_tripped_linked_streams": 3,
+          "solved_reader_refused_presolve": true,
+          "world_axes": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "world_origins": [
+            [
+              0.043930000000000004,
+              -0.03127,
+              0.018700000000000005
+            ],
+            [
+              0.04393000000000001,
+              -0.031270000000000006,
+              0.2558
+            ]
+          ]
+        },
+        "legacy_parent_bytes": 9900,
+        "legacy_parent_sha256": "f568510d50ff4bd2bb755f2fa732cfc747d3e6b3172d22ac68d4df201e0dddaf",
+        "rejected": {
+          "axis_count": "concentric mate requires two ordered child-local axes",
+          "boolean_scalar": "concentric child-local axis requires three finite scalars",
+          "duplicate_occurrence": "concentric mate requires two actual occurrences, explicit alignment and one fixed anchor",
+          "foreign_axis": "concentric child-local axis must be a unit direction on the actual carrier",
+          "mixed_local_signs": "concentric endpoint axes disagree on the same child cylinder",
+          "nonfinite_axis": "concentric child-local axis requires three finite scalars",
+          "nonunit_axis": "concentric child-local axis must be a unit direction on the actual carrier",
+          "stale_occurrence_pose": "mate occurrence is outside the actual generated child and placement",
+          "unexpected_local_sign": "emitted local axis differs from the ordered signed request",
+          "wrong_alignment": "explicit prepositioned cylinder axes do not satisfy the selected alignment",
+          "wrong_emitted_extent": "emitted signed extent differs from the actual transformed rims",
+          "wrong_emitted_local": "concentric cylinder geometry or local axis differs from its actual child and occurrence",
+          "wrong_emitted_order": "concentric endpoint and support state differs",
+          "wrong_emitted_support_axis": "concentric endpoint and support state differs",
+          "zero_axis": "concentric child-local axis must be a unit direction on the actual carrier"
+        },
+        "runtime_io_attempts": 0,
+        "same_process_repeated_pair_bytes_exact": true,
+        "signed": {
+          "active_intervals": [
+            [
+              0.0,
+              -0.031369999999999995
+            ],
+            [
+              0.0,
+              -0.03137000000000001
+            ]
+          ],
+          "alignment": 1,
+          "body_atom_id": 101,
+          "caps_follow_generated_lateral_loops": true,
+          "child_sha256": "3cb278df64514a82475a5490b3472f2481c2dd0b017608d38ddef1e74427effe",
+          "detached_defaults_preserved": true,
+          "face_tags": [
+            6,
+            6
+          ],
+          "fixed_flags": [
+            true,
+            false
+          ],
+          "kernel_node_id": 5,
+          "local_axes": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "maps": [
+            133,
+            186
+          ],
+          "mate_bytes": 3546,
+          "mate_sha256": "521f7a531a76ada68272584308a3acb8feaa52d6b36c11e4af62017ea72896f6",
+          "occurrence_names": [
+            "D01SignedChild-1",
+            "D01SignedChild-2"
+          ],
+          "occurrences": [
+            17,
+            18
+          ],
+          "root_recipe": "neutral document",
+          "rotation_locked": false,
+          "round_tripped_linked_streams": 3,
+          "signed_rim_bounds_verified": true,
+          "solved_reader_refused_presolve": true,
+          "world_axes": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "world_origins": [
+            [
+              0.043930000000000004,
+              -0.03127,
+              0.018700000000000005
+            ],
+            [
+              0.04393000000000001,
+              -0.031270000000000006,
+              0.2558
+            ]
+          ]
+        },
+        "signed_parent_bytes": 9899,
+        "signed_parent_sha256": "11d6d532f3dea1281e6d422ce0830a5a59dbc31739601757e5dcbb353e2fa467"
+      },
+      "endpoint_correspondence": [
+        {
+          "entity": "sldasm:mate:2:0:0:entity:0",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.03137
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:4",
+          "reference_number": "1",
+          "source_axial_bounds_m": [
+            0.0,
+            0.03137
+          ],
+          "source_face": "sldprt:brep:face:42",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.05007
+          ],
+          "world_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "entity": "sldasm:mate:2:0:0:entity:1",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.03137
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.2558
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:7",
+          "reference_number": "2",
+          "source_axial_bounds_m": [
+            0.0,
+            0.03137000000000001
+          ],
+          "source_face": "sldprt:brep:face:42",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.28717000000000004
+          ],
+          "world_axis": [
+            0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ],
+      "parent_source_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "scoped_neutral_request_sha256": "1229d6d0c66a56892cb05b1cca40514a653abb593c3deb5ac891553a00f375b5"
+    }
+  },
+  "legacy": [
+    {
+      "alignment": 1,
+      "fixture": "ConcentricFeatureNeutral01.json",
+      "full_archive_sha256": {
+        "ConcentricNeutralAlphaDerived.SLDASM": "c13378f6876be09b2d102b52d84c1cb3661ea4711485598f13b484f6b1afab7a",
+        "NeutralCylinderAlphaDerived.SLDPRT": "615e14358679180c4c07dceca47b1683dc57b909528b5b73075ba66b016038a6"
+      },
+      "input_sha256": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3",
+      "locked": false,
+      "ordered_occurrences": [
+        "Cylinder-1",
+        "Cylinder-2"
+      ],
+      "same_receipt_and_archive_bytes": true
+    },
+    {
+      "alignment": 2,
+      "fixture": "ConcentricBrepNeutral01.json",
+      "full_archive_sha256": {
+        "ConcentricNeutralBetaAuthored.SLDASM": "301e9ffedf9f3860f730c4ba67b302346db7a395810162952e088144fa09fe5f",
+        "NeutralCylinderBetaAuthored.SLDPRT": "1d7ba96b077cd192724f10e780fbabba5136e3b8549b7e8457a730c1955c8398"
+      },
+      "input_sha256": "2b00d988374d26b39d6edfd2752fe488d7ad9a527a3d1913bdd384ee614fbf63",
+      "locked": true,
+      "ordered_occurrences": [
+        "Cylinder-2",
+        "Cylinder-1"
+      ],
+      "same_receipt_and_archive_bytes": true
+    }
+  ],
+  "native_processes": 0,
+  "passed": true,
+  "prior_face_receipt_sha256": "897147f4a84c27049138a7e65e5eed0c427c203f61f9c680702492a5494c3915",
+  "public_writer_enabled": false,
+  "schema": "kit.sw2026.signed-concentric-wrapper-construction.v1",
+  "sealed_inputs_read": 0,
+  "source_closures": {
+    "after": {
+      "paths": 6067,
+      "sha256": "496ee5e32785f5fb0bfb2fc16cf753453d77bfb6f6ad995ae9a79e6172035c70"
+    },
+    "before": {
+      "paths": 6066,
+      "sha256": "b04c887cb361975b98c70495e8089344cdb571a00e6a8fc341983145f0ecb416"
+    }
+  },
+  "source_tool_sha256": {
+    "CheckConcentricAssembly.py": "63da5ad8668bfa42e46a920df443c6952a5a87df270286cd6514065bf97ab08c",
+    "ConcentricMate.py": "9041970ca12f06245fc81d6af093753c391f5e76d5bc0d6ef72fb69555c54637",
+    "ProveSignedConcentricWriter.py": "10b567768f4a30f399ab5f3316d70d834844e5481112c357d81667322d0073ce"
+  },
+  "whole_source_admitted": false
+}

@@ -1,6 +1,6 @@
 from dataclasses import replace
 from hashlib import sha256
-from math import isclose
+from math import dist, fsum, isclose
 from pathlib import Path, PureWindowsPath
 import argparse
 import codecs
@@ -10,10 +10,15 @@ import sys
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Mates.ReadMatesMut import ReadMatesMut
 from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteMatesMut
+from convert.adapters.solidworks.Archive.Partition.ReadXmtVector import ReadXmtVector
+from convert.adapters.solidworks.Archive.Partition.RequireXmt import RequireXmt
+from convert.adapters.solidworks.Archive.Partition.WalkXmtChain import WalkXmtChain
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Assembly.Assembly import DecodeNativeAsm
 from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import ReadFileKey
+from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import RequireNode
 from convert.adapters.solidworks.Assembly.PlanarMates.PlanarContext import PlanarContext
+from convert.adapters.solidworks.Assembly.PlanarMates.ReadPlane import ReadVector
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.TypedMates.CheckMateIds import CheckMateIds
 from convert.adapters.solidworks.Core.TypedMates.CheckMateMode import CheckMateMode
@@ -28,6 +33,7 @@ from convert.adapters.solidworks.Core.TypedMates.Cylinders.ReadCylEnd import Rea
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.ReadCylNodes import ReadCylNodes
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.ReadCylOwner import ReadCylOwner
 from convert.adapters.solidworks.Core.TypedMates.ReadFixedFlags import ReadFixedFlags
+from convert.adapters.solidworks.Core.TypedMates.ReadMateFrame import ReadMateFrame
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 
 from convert.adapters.base.WritePolicy import GetDocumentCaps
@@ -58,7 +64,42 @@ def read_child(attachment):
     return CylChild(link, nodes, face, geometry, feature, arc, atom, sha256(child_bytes).hexdigest())
 
 
-def verify_emission(raw, attachment, alignment, locked, fixed, occurrence_names):
+def read_rim_centers(child):
+    nodes, side = child.NodesValue, child.FaceValue
+    loops = WalkXmtChain(nodes, side.Integer("loop"), 15, PreviousField=None,
+                         OwnerField="face", OwnerValue=side.IndexValue)
+    assert len(loops) == 2
+    centers = []
+    for index in loops:
+        fin = RequireXmt(nodes, nodes[index].Integer("halfedge"), 17)
+        edge = RequireXmt(nodes, fin.Integer("edge"), 16)
+        circle = RequireXmt(nodes, edge.Integer("curve"), 31)
+        centers.append(ReadXmtVector(circle, "centre"))
+    return tuple(centers)
+
+
+def check_signed_extent(endpoint, local_axis, rims, active, support):
+    assert endpoint.LocalAxisValue == local_axis, "emitted local axis differs from the ordered signed request"
+    matrix = ReadMateFrame(endpoint.ItemValue.transform)
+    centers = tuple(tuple(matrix[12 + i] + fsum(value * matrix[4 * axis + i]
+                                                 for axis, value in enumerate(point))
+                          for i in range(3)) for point in rims)
+    anchor, other = centers
+    assert dist(anchor, endpoint.OriginValue) <= 1e-12 and dist(other, endpoint.OriginValue) > 1e-12
+    delta = tuple(value - origin for value, origin in zip(other, endpoint.OriginValue, strict=True))
+    span = fsum(value * direction for value, direction in zip(delta, endpoint.AxisValue, strict=True))
+    assert active["f50"] == 2 and active["fb0"] == 0.0 and isclose(active["fb8"], span, rel_tol=1e-12, abs_tol=1e-12), (
+        "emitted signed extent differs from the actual transformed rims"
+    )
+    assert ReadVector(support["fd0"]) == endpoint.OriginValue and ReadVector(support["fe8"]) == endpoint.AxisValue, (
+        "detached support does not retain the signed active carrier"
+    )
+    component = RequireNode(support["f58"], "moCompRefCylinder_c")
+    cylinder = RequireNode(component.FieldsValue["ff8"], "moRefCylinder_c").FieldsValue
+    assert ReadVector(cylinder["f6f8"]) == endpoint.OriginValue and ReadVector(cylinder["f710"]) == endpoint.AxisValue
+
+
+def verify_emission(raw, attachment, alignment, locked, fixed, occurrence_names, *, expected_local_axes=None):
     archive = SldprtArchive.from_bytes(raw)
     linked = ReadNativeLink(archive, 0)
     cfg, resol = linked.ConfigValue, linked.ResolvedValue
@@ -96,10 +137,16 @@ def verify_emission(raw, attachment, alignment, locked, fixed, occurrence_names)
     keeper_files = []
     tags = []
     intervals = []
-    for wrapper in active:
+    if expected_local_axes is not None:
+        assert len(expected_local_axes) == len(selected) == 2
+        rims = read_rim_centers(child)
+    for index, wrapper in enumerate(active):
         fields = wrapper.FieldsValue
         lower, upper = fields["fb0"], fields["fb8"]
-        assert lower == 0.0 and isclose(upper, attachment.candidate.PlanValue.DepthValue, rel_tol=1e-12)
+        if expected_local_axes is None:
+            assert lower == 0.0 and isclose(upper, attachment.candidate.PlanValue.DepthValue, rel_tol=1e-12)
+        else:
+            check_signed_extent(selected[index], expected_local_axes[index], rims, fields, support[index].FieldsValue)
         assert (fields["fc0"], fields["fc8"]) == (1.0, -1.0)
         intervals.append((lower, upper))
         face = fields["f58"].FieldsValue["fe8"].FieldsValue
@@ -129,6 +176,8 @@ def verify_emission(raw, attachment, alignment, locked, fixed, occurrence_names)
         "world_origins": [item.OriginValue for item in selected], "world_axes": [item.AxisValue for item in selected],
         "round_tripped_linked_streams": 3, "solved_reader_refused_presolve": True,
         "root_recipe": "neutral document", "caps_follow_generated_lateral_loops": True,
+        **({"local_axes": [item.LocalAxisValue for item in selected], "signed_rim_bounds_verified": True}
+           if expected_local_axes is not None else {}),
     }
 
 
