@@ -1,0 +1,663 @@
+{
+  "admitted_readbacks": {
+    "D01Edited-default": {
+      "cad_input_reads": [
+        "ConcentricD01AlignedFree.SLDASM",
+        "ConcentricD01Child.SLDPRT"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "e0dfda321e855f1634c1ac86a1edbcafaed04444b2578aa863f92c9178f05e19",
+      "document_sha256": "78fa69476af2b386f3473934816dacf21444b7086f651b8bba1072f2b3bc2264",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:11",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "11",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "Concentric1",
+          "order": 0,
+          "rotation_locked": false
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    },
+    "D01Edited-metadata": {
+      "cad_input_reads": [
+        "ConcentricD01AlignedFree.SLDASM",
+        "ConcentricD01Child.SLDPRT"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "0c5ecc0b6eab2203bce08891e67f1805aabbfd5b2f0fa5ecc4ef7591210f20a7",
+      "document_sha256": "3229dfcfb9c5f4d3713eba4f2151d9258691e97556f32dc08bdd76358617546f",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:11",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "11",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "Concentric1",
+          "order": 0,
+          "rotation_locked": false
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    },
+    "D01Source-default": {
+      "cad_input_reads": [
+        "ConcentricD01AlignedFree.SLDASM",
+        "ConcentricD01Child.SLDPRT"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "b0c3bf9fa73a0fea57778dfde00f2a65b7540177dd2995d285e492442f0c3473",
+      "document_sha256": "77f785c28a8a5382702498a5dd0aab87eb1651b73c65a0c4ae5d56042d7d1365",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:11",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "11",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "Concentric1",
+          "order": 0,
+          "rotation_locked": false
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    },
+    "D01Source-metadata": {
+      "cad_input_reads": [
+        "ConcentricD01AlignedFree.SLDASM",
+        "ConcentricD01Child.SLDPRT"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "b50e546259b5332938b6d5399b02481d1ca4476f26c3e30335ae4e161d1aa28a",
+      "document_sha256": "9db8b87e2e7b0177d42c48a222b6234cec7c7bdc902546bedf9cfdcba24b180b",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:11",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "11",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "Concentric1",
+          "order": 0,
+          "rotation_locked": false
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    },
+    "D02Edited-default": {
+      "cad_input_reads": [
+        "ConcentricD02AlignedLocked.SLDASM",
+        "ConcentricD02Child.SLDPRT"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "cad492d9db818bfff141e2721656ccdab947c4748d55665ce49e022a05357360",
+      "document_sha256": "fc409caa350f377906c5943b87281db0102840d41ac4ef7022a18eaa16d54580",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:11",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "11",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "Concentric1",
+          "order": 0,
+          "rotation_locked": true
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    },
+    "D02Source-default": {
+      "cad_input_reads": [
+        "ConcentricD02AlignedLocked.SLDASM",
+        "ConcentricD02Child.SLDPRT"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "7ae6c0262a83abe86589a2ad14de4a1e7b74bcf5daa16e671632593e56431f0e",
+      "document_sha256": "996d360889acb06e926d1dcfb836ab981babe1433d66446e08cb1531bd6f9a5f",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:11",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "11",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "Concentric1",
+          "order": 0,
+          "rotation_locked": true
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    },
+    "D03Edited-default": {
+      "cad_input_reads": [
+        "ConcentricD03AntiFree.SLDASM",
+        "ConcentricD03Child.SLDPRT"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "55ee57898fcd7d693a59720cacbe48e1f92dc245ffb2fd568cd3d4fd33ad4ad5",
+      "document_sha256": "18fb47fe30e5d9ba3e25030653fbe5021d2d6921f600fd0d260f317c2b35efb8",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:11",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "11",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "anti_aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "Concentric1",
+          "order": 0,
+          "rotation_locked": false
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    },
+    "D03Source-default": {
+      "cad_input_reads": [
+        "ConcentricD03AntiFree.SLDASM",
+        "ConcentricD03Child.SLDPRT"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "f712a773243a75ac07c56e92a77f5143962d86d8793a1307da88881330ff3a32",
+      "document_sha256": "3ec5a3ce8850c9160111437a0bc82d67f796f20d050e0871a0d19e2572787d78",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:11",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "11",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "anti_aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "Concentric1",
+          "order": 0,
+          "rotation_locked": false
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    },
+    "NativeSaved-default": {
+      "cad_input_reads": [
+        "DisclosedRadialSceneProbe.SLDPRT",
+        "RadialConcentricProbe.SLDASM"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "854c0445d4959f91c87c8c73b39caa0f5378512cc107aade04c227f9f025487a",
+      "document_sha256": "942d5c8adabc628a4554b4553fdd8759e9b70ca0759bc53283a9736b044b7107",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:16",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "16",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "ConcentricRadialProbe",
+          "order": 0,
+          "rotation_locked": false
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    },
+    "NativeSaved-metadata": {
+      "cad_input_reads": [
+        "DisclosedRadialSceneProbe.SLDPRT",
+        "RadialConcentricProbe.SLDASM"
+      ],
+      "comparison_without_groups_or_derived_seal_sha256": "b635cb52797084d9cb9c5becb8072377fd88b238150102fa91515b92795bcbe0",
+      "document_sha256": "3d71cdb8b58303b921bdc725ff73969cea6f598cbe7df53f3849df9d2e61a50b",
+      "forbidden_events": [],
+      "groups": [
+        {
+          "id": "sldasm:definition:2:mate-group:16",
+          "mates": [
+            "sldasm:mate:2:0:0"
+          ],
+          "name": "Mates",
+          "order": 0,
+          "parent": "",
+          "provenance": "16",
+          "root": "sldasm:definition:2",
+          "streams": [
+            [
+              "Contents/Config-0-ResolvedFeatures",
+              5101,
+              194
+            ]
+          ]
+        }
+      ],
+      "mates": [
+        {
+          "alignment": "aligned",
+          "id": "sldasm:mate:2:0:0",
+          "name": "ConcentricRadialProbe",
+          "order": 0,
+          "rotation_locked": false
+        }
+      ],
+      "oracle_modules": [],
+      "root": "sldasm:definition:2",
+      "typed_diagnostic": null,
+      "typed_status": "admitted"
+    }
+  },
+  "base_revision": "f9008df5ed3317980718b3478044b62c01f7e991",
+  "bound_native_groups": {
+    "D01Edited": {
+      "group_id_count": 0,
+      "group_name": "Mates",
+      "linked_group_span": [
+        5101,
+        194
+      ],
+      "manager_count": 0,
+      "mate_name": "Concentric1",
+      "mate_stream_sha256": "f7fd14d3312cdf480300e207e2f6b5b67576ce77f761282bc78c8aa24caef3bc",
+      "native_group": 11,
+      "native_mate": 26,
+      "native_observed_mate_parent": "Mates",
+      "native_observed_root_group": "Mates",
+      "resolved_root_ordinal": 15,
+      "wire_children": 0
+    },
+    "D01Source": {
+      "group_id_count": 0,
+      "group_name": "Mates",
+      "linked_group_span": [
+        5101,
+        194
+      ],
+      "manager_count": 0,
+      "mate_name": "Concentric1",
+      "mate_stream_sha256": "1c3c24062e7af587d8538815832eba6fb4472212ba46f0c8c0c7ccf6f0cf8ea4",
+      "native_group": 11,
+      "native_mate": 26,
+      "native_observed_mate_parent": "Mates",
+      "native_observed_root_group": "Mates",
+      "resolved_root_ordinal": 15,
+      "wire_children": 0
+    },
+    "D02Edited": {
+      "group_id_count": 0,
+      "group_name": "Mates",
+      "linked_group_span": [
+        5101,
+        194
+      ],
+      "manager_count": 0,
+      "mate_name": "Concentric1",
+      "mate_stream_sha256": "7d5099ba273439586cc8a767a1ea89ad09c9a6e7dd1474e244bae03e97aec7a5",
+      "native_group": 11,
+      "native_mate": 26,
+      "native_observed_mate_parent": "Mates",
+      "native_observed_root_group": "Mates",
+      "resolved_root_ordinal": 15,
+      "wire_children": 0
+    },
+    "D02Source": {
+      "group_id_count": 0,
+      "group_name": "Mates",
+      "linked_group_span": [
+        5101,
+        194
+      ],
+      "manager_count": 0,
+      "mate_name": "Concentric1",
+      "mate_stream_sha256": "640f1f615dc913868a63a7a96c7fea579d5cf4284b90b9db439cf867667b6026",
+      "native_group": 11,
+      "native_mate": 26,
+      "native_observed_mate_parent": "Mates",
+      "native_observed_root_group": "Mates",
+      "resolved_root_ordinal": 15,
+      "wire_children": 0
+    },
+    "D03Edited": {
+      "group_id_count": 0,
+      "group_name": "Mates",
+      "linked_group_span": [
+        5101,
+        194
+      ],
+      "manager_count": 0,
+      "mate_name": "Concentric1",
+      "mate_stream_sha256": "7dc8bf8acde8b4b673f8f73355d3a0ad5a687031bf131055ee0f2fb81617351d",
+      "native_group": 11,
+      "native_mate": 26,
+      "native_observed_mate_parent": "Mates",
+      "native_observed_root_group": "Mates",
+      "resolved_root_ordinal": 15,
+      "wire_children": 0
+    },
+    "D03Source": {
+      "group_id_count": 0,
+      "group_name": "Mates",
+      "linked_group_span": [
+        5101,
+        194
+      ],
+      "manager_count": 0,
+      "mate_name": "Concentric1",
+      "mate_stream_sha256": "c2b6582181e6140ccbe1fe5cf2502febfb1d49c4ca71d8083769580a78c4fbd6",
+      "native_group": 11,
+      "native_mate": 26,
+      "native_observed_mate_parent": "Mates",
+      "native_observed_root_group": "Mates",
+      "resolved_root_ordinal": 15,
+      "wire_children": 0
+    },
+    "NativeSaved": {
+      "group_id_count": 0,
+      "group_name": "Mates",
+      "linked_group_span": [
+        5101,
+        194
+      ],
+      "manager_count": 0,
+      "mate_name": "ConcentricRadialProbe",
+      "mate_stream_sha256": "799cad9a2d3590aa0babc814115b413f165711634b37c588b28ee0c9ffa2532c",
+      "native_group": 16,
+      "native_mate": 19,
+      "native_observed_mate_parent": "Mates",
+      "native_observed_root_group": "Mates",
+      "resolved_root_ordinal": 15,
+      "wire_children": 0
+    }
+  },
+  "cad_processes_started": 0,
+  "diagnostic_source_files_changed": 0,
+  "fallbacks": {
+    "D01Source-disabled": {
+      "after": null,
+      "before": null,
+      "diagnostic": null,
+      "identical_complete_document": true
+    },
+    "Generated-default": {
+      "after": "unsupported",
+      "before": "unsupported",
+      "diagnostic": "concentric mate is outside the ordinary solved position profile",
+      "identical_complete_document": true
+    },
+    "PendingGroup-default": {
+      "after": "unsupported",
+      "before": "admitted",
+      "diagnostic": "concentric mate group has unsupported native state or contents"
+    },
+    "StaleChildStamp-default": {
+      "after": "unsupported",
+      "before": "unsupported",
+      "diagnostic": "mate wrapper child update is stale",
+      "identical_complete_document": true
+    },
+    "UnexpectedGroupId-default": {
+      "after": "unsupported",
+      "before": "admitted",
+      "diagnostic": "concentric mate group has unsupported native state or contents"
+    },
+    "WrongAlignment-default": {
+      "after": "unsupported",
+      "before": "unsupported",
+      "diagnostic": "concentric cylinders disagree with the solved coaxial alignment",
+      "identical_complete_document": true
+    }
+  },
+  "file_hashes": {
+    "After": {
+      "Core/Adapter.py": "1a92b982050c4200bbd2a2d96f4dd63749ccf969b72a93efa994c8f339d625cc",
+      "Core/TypedMates/Cylinders/ReadCylGroup.py": "747774b23e08a6635aeb4ee93c3e5fedae7d9a49cfd0111287a93c28b6e141aa",
+      "Core/TypedMates/Cylinders/ReadPublicCyl.py": "b5ab97093b5212732f4ad7392fcd5a669ede66c938dfa4810b66eb8ab295895f",
+      "Core/TypedMates/ReadPublicMates.py": "480027e5e0f8eb47a5262a5d9607a3c47d512af2c7d5148ca6786860f62944b5",
+      "Core/TypedMates/WithTypedMates.py": "8a0a1780a0aefcd12bc06705f6fe49bbf71d2edd87dc1c4a0ee9df18ed8e458e"
+    },
+    "Before": {
+      "Core/Adapter.py": "c1f1e7e999e926e5e8ce0189bfbef0fa1eccfc730b0db8b8b3976436b506262d",
+      "Core/TypedMates/Cylinders/ReadPublicCyl.py": "1b6d8ed9ee5fc23ac1e3b401a07d1d4397a9f2ffac38d7ded2cb2c7014998d62",
+      "Core/TypedMates/ReadPublicMates.py": "8380f5857e1ed2dd156343c7593743a9bb492831f5c0b7c81c586651596fd715",
+      "Core/TypedMates/WithTypedMates.py": "e749c78e8dc96b950ceb98121b54c72334bd78372e641c99a7f02eebfc059249"
+    }
+  },
+  "fresh_host_sdk_processes": 32,
+  "heldout_files_read": 0,
+  "in_memory_diagnostics": 2,
+  "next_body_owner": {
+    "body_atom": 101,
+    "producer_native_feature_id": 33,
+    "public_label": "Solid Bodies",
+    "typed_archive_authored_label": null,
+    "typed_explicit_kernel_label": null,
+    "typed_implicit_kernel_label": "CurveBoss"
+  },
+  "opened_native_inputs": {
+    "D01Edited": {
+      "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52"
+    },
+    "D01Source": {
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2"
+    },
+    "D02Edited": {
+      "child_sha256": "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527",
+      "parent_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf"
+    },
+    "D02Source": {
+      "child_sha256": "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9",
+      "parent_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf"
+    },
+    "D03Edited": {
+      "child_sha256": "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f",
+      "parent_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d"
+    },
+    "D03Source": {
+      "child_sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
+      "parent_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039"
+    },
+    "Generated": {
+      "child_sha256": "699be1addf4b644f1ebdeecc6862f65610155d294e10fa6d7cbcf3d6a224f1cd",
+      "parent_sha256": "9474ca54466a450eec3ba5e49703053fe160e0a221647b2bcc984d8d3672dc74"
+    },
+    "NativeSaved": {
+      "child_sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416",
+      "parent_sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3"
+    },
+    "PendingGroup": {
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "diagnostic_sha256": "c41b42d87d7e5a58f2ac95bec3f43011af9f33c19202862e64e6f63c71383fa5",
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2"
+    },
+    "StaleChildStamp": {
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "parent_sha256": "92742d1517ceb1c0cf10952b01213c0fa816d35fd584604bdfc99215476dbd71"
+    },
+    "UnexpectedGroupId": {
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "diagnostic_sha256": "303dba81480e878978047e32d1bac739d5d0de3fb1b58a384e6523eb02fdac61",
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2"
+    },
+    "WrongAlignment": {
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "parent_sha256": "6a65c51a134c30bed148ea0f0dc6a4a33f64dcd425a84bf60dd838101e27c975"
+    }
+  },
+  "schema": "kit.sw2026.concentric-mate-group-read.v1"
+}

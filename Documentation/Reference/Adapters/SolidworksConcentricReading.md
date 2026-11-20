@@ -8,6 +8,8 @@ When a SOLIDWORKS 2026 component index repeats the assembly filename in both mod
 
 The mate entities have `kind == "cylinder"`, a radius in millimetres, their actual instance paths and a source face ID present in the resolved child B-rep. `MateConstraint.alignment` retains aligned or anti-aligned intent. Its `attributes["rotation_locked"]` retains the actual Boolean lock choice. The instance `fixed` flags and selected configuration names come from the native owners.
 
+The admitted saved mate also belongs to its actual top-level `MateGroup`. The group uses the resolved feature's stored label and provenance and contains the public mate ID. The check requires a single resolved group without additional group-owned state. [Saved mate group evidence](../../Changes/Solidworks/Reading/Assembly/SolidworksConcentricMateGroup.md)
+
 The entity frame remains absent. Actual stored world points in metres and unit axes are available as `stored_origin_m` and `stored_axis` attributes. No unproved reference-direction convention is introduced.
 
 The signed direction belongs to the selected mate wrapper. Its child-local direction must be collinear with the actual kernel cylinder axis and must transform to the stored world direction. A native save can store the kernel axis in the opposite direction. The reader uses the ordered wrapper directions to validate the authored alignment. [Saved orientation evidence](../../../re/solidworks/records/ConcentricSavedAxis2026.md)

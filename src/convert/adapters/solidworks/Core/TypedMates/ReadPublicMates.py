@@ -17,7 +17,7 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNa
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.ReadPublicCyl import (
     ReadPublicCyl,
 )
-from interchange import MateConstraint, MateEntity
+from interchange import MateConstraint, MateEntity, MateGroup
 
 
 # public typed mates require the complete linked stream and independently loaded child configurations
@@ -25,7 +25,13 @@ def ReadPublicMates(
     EnvValue: PublicMateEnv,
     LegacyEntities: tuple[MateEntity, ...],
     LegacyRules: tuple[MateConstraint, ...],
-) -> tuple[tuple[MateEntity, ...], tuple[MateConstraint, ...], Mapping[str, object]]:
+    LegacyGroups: tuple[MateGroup, ...],
+) -> tuple[
+    tuple[MateEntity, ...],
+    tuple[MateConstraint, ...],
+    tuple[MateGroup, ...],
+    Mapping[str, object],
+]:
     LinkValue = ReadNativeLink(EnvValue.ArchiveValue, 0)
     BufferValue = EnvValue.ArchiveValue.require("Contents/Config-0-MatesList")
     GraphValue = ReadMatesMut(BufferValue, LinkValue.ResolvedValue)
@@ -38,7 +44,7 @@ def ReadPublicMates(
         raise ValueError("typed mate stream bytes or complete inventory differ")
     if GraphValue.RootsValue[0].ClassValue.NameValue == "moMateConcentric":
         return ReadPublicCyl(
-            EnvValue, LinkValue, GraphValue, LegacyEntities, LegacyRules
+            EnvValue, LinkValue, GraphValue, LegacyEntities, LegacyRules, LegacyGroups
         )
     Native = EnvValue.NativeValue
     Items = {Value.feature_id: Value for Value in Native.occurrences}
@@ -60,6 +66,7 @@ def ReadPublicMates(
     return (
         Entities,
         Rules,
+        LegacyGroups,
         {
             "status": "admitted",
             "scope": ScopeValue,

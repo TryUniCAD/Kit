@@ -20,10 +20,13 @@ from convert.adapters.solidworks.Core.TypedMates.Cylinders.MakeCylContext import
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.ReadCylChild import (
     ReadCylChild,
 )
+from convert.adapters.solidworks.Core.TypedMates.Cylinders.ReadCylGroup import (
+    ReadCylGroup,
+)
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.ReadCylRows import (
     ReadCylRows,
 )
-from interchange import MateConstraint, MateEntity
+from interchange import MateConstraint, MateEntity, MateGroup
 
 
 # the public cylinder route must bind complete linked records to the already resolved real child before replacing legacy semantics
@@ -33,7 +36,13 @@ def ReadPublicCyl(
     GraphValue: MatesGraph,
     LegacyEntities: tuple[MateEntity, ...],
     LegacyRules: tuple[MateConstraint, ...],
-) -> tuple[tuple[MateEntity, ...], tuple[MateConstraint, ...], Mapping[str, object]]:
+    LegacyGroups: tuple[MateGroup, ...],
+) -> tuple[
+    tuple[MateEntity, ...],
+    tuple[MateConstraint, ...],
+    tuple[MateGroup, ...],
+    Mapping[str, object],
+]:
     Context = MakeCylContext(EnvValue, LinkValue)
     (NodeValue,) = GraphValue.RootsValue
     CheckCylMode(NodeValue)
@@ -49,9 +58,12 @@ def ReadPublicCyl(
     Entities, RuleValue = ReadCylRows(
         NodeValue, Context, ChildValue, LegacyEntities, LegacyRules[0]
     )
+    if LegacyGroups:
+        raise ValueError("ordinary concentric mate has additional legacy group owners")
     return (
         Entities,
         (RuleValue,),
+        (ReadCylGroup(LinkValue, GraphValue, RuleValue),),
         {
             "status": "admitted",
             "scope": "ordinary_concentric_single_mate_two_direct_part_occurrences",

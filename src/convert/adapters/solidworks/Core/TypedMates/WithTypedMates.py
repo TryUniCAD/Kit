@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Container.Container import (
 from convert.adapters.solidworks.Core.TypedMates.CanReadMates import CanReadMates
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 from convert.adapters.solidworks.Core.TypedMates.ReadPublicMates import ReadPublicMates
-from interchange import ComponentDocument, MateConstraint, MateEntity
+from interchange import ComponentDocument, MateConstraint, MateEntity, MateGroup
 
 
 # unqualified typed profiles must leave the established reader and its validation behavior available
@@ -21,8 +21,12 @@ def WithTypedMates(
     Documents: tuple[ComponentDocument, ...],
     Entities: tuple[MateEntity, ...],
     RulesValue: tuple[MateConstraint, ...],
+    GroupsValue: tuple[MateGroup, ...],
 ) -> tuple[
-    tuple[MateEntity, ...], tuple[MateConstraint, ...], Mapping[str, object] | None
+    tuple[MateEntity, ...],
+    tuple[MateConstraint, ...],
+    tuple[MateGroup, ...],
+    Mapping[str, object] | None,
 ]:
     DocumentMap = {Value.id: Value.document for Value in Documents}
     EnvValue = PublicMateEnv(
@@ -36,9 +40,9 @@ def WithTypedMates(
         },
     )
     if not CanReadMates(EnvValue):
-        return Entities, RulesValue, None
+        return Entities, RulesValue, GroupsValue, None
     try:
-        return ReadPublicMates(EnvValue, Entities, RulesValue)
+        return ReadPublicMates(EnvValue, Entities, RulesValue, GroupsValue)
     except (OSError, ValueError, TypeError, KeyError) as ErrorInfo:
         if any(not Value.entity_ids for Value in RulesValue):
             raise SldprtFormatError(
@@ -47,6 +51,7 @@ def WithTypedMates(
         return (
             Entities,
             RulesValue,
+            GroupsValue,
             {
                 "status": "unsupported",
                 "diagnostic": str(ErrorInfo),

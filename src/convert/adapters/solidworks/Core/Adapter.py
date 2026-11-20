@@ -788,8 +788,15 @@ def AsmDoc(
         Native, Archive, Label, Index, Settings
     )
     MatePayloads, MateEntities, Mates, MateGroups = AsmMates(Native, MateSourceValues)
-    MateEntities, Mates, TypedMates = WithTypedMates(
-        Native, Archive, ResolvedPaths, DocIds, Documents, MateEntities, Mates
+    MateEntities, Mates, MateGroups, TypedMates = WithTypedMates(
+        Native,
+        Archive,
+        ResolvedPaths,
+        DocIds,
+        Documents,
+        MateEntities,
+        Mates,
+        MateGroups,
     )
     Instances = WithTypedFixed(Instances, TypedMates)
     FlatMateValues = FlattenedMates(Native, Mates)
