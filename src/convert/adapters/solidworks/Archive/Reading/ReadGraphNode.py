@@ -1,6 +1,5 @@
 from functools import partial as PartialValue
 
-from convert.adapters.solidworks.Archive.Maps.ClassIndex import ClassIndex
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
 from convert.adapters.solidworks.Archive.Objects.ObjectRead import ObjectRead
@@ -27,7 +26,13 @@ def ReadNodeMut(ReaderValue: GraphReader) -> ArchiveNode | None:
             KMaxNestedNodes,
             RequireCanonicalTags=ReaderValue.RequireCanonicalTags,
         ),
-        PartialValue(ReadDeclMut, ReaderValue),
+        PartialValue(
+            ReadTypeDescMut,
+            Cursor,
+            CanonicalMap=(
+                ReaderValue.MapValue if ReaderValue.RequireCanonicalTags else None
+            ),
+        ),
         PartialValue(ReadNodeBodyMut, ReaderValue),
         MakeArchiveNode if ReaderValue.NodeFactory is None else ReaderValue.NodeFactory,
         Cursor.GetOffset,
@@ -36,17 +41,6 @@ def ReadNodeMut(ReaderValue: GraphReader) -> ArchiveNode | None:
     if NodeValue is not None and not isinstance(NodeValue, ArchiveNode):
         raise ValueError("SOLIDWORKS stream has an unresolved external object")
     return NodeValue
-
-
-# exact graph replay needs canonical first declarations to retain native map slots
-def ReadDeclMut(ReaderValue: GraphReader) -> RuntimeClass:
-    ClassValue = ReadTypeDescMut(ReaderValue.Cursor)
-    if (
-        ReaderValue.RequireCanonicalTags
-        and ClassIndex(ReaderValue.MapValue, ClassValue) is not None
-    ):
-        raise ValueError("SOLIDWORKS archive repeats a canonical class declaration")
-    return ClassValue
 
 
 # object identities require a separate field owner as soon as a tag allocates one
