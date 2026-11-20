@@ -193,20 +193,24 @@ def worker(root, action):
     request = json.load(sys.stdin)
     sys.path[:0] = [str(root / 'Code/src'), str(HERE.parent)]
     from convert import open_document
+    from convert.api.ApiContext import GetRegistry
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.solidworks.Container.Container import SldprtArchive
     from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import PrepareRevolve
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
     from convert.adapters.solidworks.Core.TypedResolved.Revolves.ReadRevOwners import ReadRevOwners
+    from interchange.Features.FeatureAngleRev import AngularRevolve
     from MakeRevolveRequest01 import make_request
 
     for name in ('ascii', 'utf-8', 'utf-8-sig', 'utf-16-le', 'utf-16-be', 'latin-1'):
         codecs.lookup(name)
-    for name in ('interchange.brep.Validation.BrepValidate', 'interchange.document.Models.DocumentProvenance',
+    for name in ('interchange.brep.Validation.BrepValidate', 'interchange.document.Behavior.DocumentIo',
+                 'interchange.document.Models.DocumentProvenance', 'interchange.document.Models.DocumentWalk',
                  'interchange.document.Validation.AngleRevValidate', 'interchange.document.Validation.DocumentAssemblyValidate',
                  'interchange.document.Validation.DocumentFeatureValidate', 'interchange.document.Validation.DocumentReferenceValidate',
                  'interchange.document.Validation.PlaneRevValidate', 'interchange.document.Validation.DistExtValidate'):
         import_module(name)
+    GetRegistry()
 
     def audit(event, _arguments):
         if event.startswith(('subprocess.', 'socket.', 'ctypes.')) or event in {
@@ -232,9 +236,13 @@ def worker(root, action):
             and isclose(owner.AngleValue.RadiansValue, expected['angle'], rel_tol=1e-12, abs_tol=1e-14), 'typed angle or reversal differs')
     document = open_document(data, source_format='solidworks.sldprt', strict=True, include_tessellation=False)
     document.assert_valid()
+    revolutions = [row for row in document.feature_timeline if isinstance(row.definition, AngularRevolve)]
     require(document.metadata['solidworks.typed_revolve_semantics']['status'] == 'projected'
-            and document.brep is not None and len(document.bodies) == 1 and len(document.feature_timeline) == 1,
+            and document.brep is not None and len(document.bodies) == len(revolutions) == 1,
             'default strict SDK read lacks complete geometry or revolve ownership')
+    feature = revolutions[0]
+    require(document.bodies[0].final_feature_id == feature.id and len(feature.parameter_ids) == 1
+            and len(feature.selection_ids) == 1, 'public solid or angular driver is unbound')
     result = {'payload_sha256': digest(data), 'runtime_external_attempts': 0,
               'typed_angle': owner.AngleValue.RadiansValue, 'body_label': document.bodies[0].name}
     if action == 'build':
@@ -243,7 +251,7 @@ def worker(root, action):
 
 
 def child(private, action, request):
-    result = subprocess.run([sys.executable, '-I', '-B', str(HERE), 'worker', str(private), action], input=encode(request),
+    result = subprocess.run([sys.executable, '-I', '-S', '-B', str(HERE), 'worker', str(private), action], input=encode(request),
                             capture_output=True, check=False)
     if result.returncode:
         lines = result.stderr.decode(errors='replace').splitlines()

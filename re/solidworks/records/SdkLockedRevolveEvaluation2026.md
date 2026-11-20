@@ -54,4 +54,12 @@ The wrapper uses the previously measured `AuthorRevolveSources.py` (`1190f61d115
 
 The numeric comparator derives signed centroid, volume and area from the locked authored rectangle and angle. Forward transverse sign is negative and reverse is positive. Relative tolerance is `2e-7`, with `1e-10 m` absolute for centroid coordinates. It also requires actual system-unit COM mass and compares the source and candidate directly in all three states. The material-free COM density convention is one, as independently observed in all twelve disclosed candidate states at this build. The constructor's document density field is a separate owner. A different observed material or mass convention needs its own qualification. Both sources must keep their exact hashes and both owned derivative saves must return `(true, 0, 0)`.
 
-This prospective method was inspected on the host without unsealing inputs, launching SOLIDWORKS or running the guest stages. Read-only editing and `SaveAs3` through the wrapper are part of the measurement, as are the original's recursive native tree and its actual mass and body-label equivalence. Those checks are still unmeasured. A passing scoped result leaves unsupported whole-source owner transfer and public writer registration open.
+The initial guest preparation stopped before any native process or
+original-file read. The operation guard identified a lazy import of the
+frozen SDK's `DocumentIo.py`. The controlled diagnostic also required
+selecting the actual angular feature from the public timeline rather
+than treating other presentation rows as competing operations. A new
+disclosed isolated Windows build initializes the SDK and then creates
+and reads the complete part with zero guarded external attempts. Its
+hash is `ddf7a719a1540222fe6d8394f3f789ed6bfea155d82b3378ac3eaabf8faf17a1`.
+The production SDK source remains pinned to the original freeze. Read-only editing and `SaveAs3` through the wrapper are part of the measurement, as are the original's recursive native tree and its actual mass and body-label equivalence. Those checks are still unmeasured. A passing scoped result leaves unsupported whole-source owner transfer and public writer registration open.
