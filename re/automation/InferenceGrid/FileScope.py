@@ -19,7 +19,7 @@ from InferenceInputs import read_file
 from Records import digest
 
 
-def file_scope(path, application, scratch, root):
+def file_scope(path, application, scratch, root, control_paths=()):
     data = read_file(path, 128 * 1024 * 1024)
     if not data:
         raise ValueError("input is empty")
@@ -32,6 +32,10 @@ def file_scope(path, application, scratch, root):
     del data
     env = {**os.environ, "PYTHONPATH": os.pathsep.join(map(str, (root / "src", root / "Cli")))}
     format_id = "fusion.f3d" if application == "fusion" else "solidworks" + suffix
+    controls = []
+    if control_paths:
+        from InferenceGrid.SolidWorksFieldDiscovery import snapshot_controls
+        controls = snapshot_controls(source, control_paths, scratch)
     command = [sys.executable, "-m", "KitCli", "decode", str(source), "--from", format_id]
     attempts = {}
     reports = {}
@@ -120,10 +124,12 @@ def file_scope(path, application, scratch, root):
              "whole_file_verified": False}
     if application == "solidworks" and suffix == ".sldprt" and reports.get("container", {}).get("members"):
         from InferenceGrid.SolidWorksDimensionEvidence import dimension_evidence
-        reports["dimension-evidence"] = dimension_evidence(root, source, pin, document)
+        reports["dimension-evidence"] = dimension_evidence(root, source, pin, document, controls)
+        if controls:
+            audit["supplied_control_sha256"] = [p.stem for p in controls]
         if "strict" in reports:
             from InferenceGrid.ReaderPass import reader_passes
-            reports.update(reader_passes(root, source, scratch, env, document, reports["dimension-evidence"]))
+            reports.update(reader_passes(root, source, scratch, env, document, reports["dimension-evidence"], controls))
     if "native" in reports:
         from InferenceGrid.BodyCorrespondence import capture_names
         reports["body-correspondence"] = capture_names(root, pin, source.stat().st_size, reports["native"])

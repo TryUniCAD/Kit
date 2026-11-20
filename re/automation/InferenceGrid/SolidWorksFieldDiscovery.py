@@ -18,7 +18,7 @@ import subprocess
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.BindMirroredField import MatchesAngle, SelectNamedField
-from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars
+from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars, ParseXml
 from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream, ParseDisplay
 from InferenceInputs import read_file
 
@@ -70,9 +70,42 @@ def records(streams, wanted):
     return stream, data, rows, display
 
 
-def control_parts(root):
-    folder = "re/solidworks/examples"
-    files = subprocess.check_output(["git", "-C", root, "ls-tree", "-rz", "--name-only", "HEAD", "--", folder])
+def snapshot_controls(source, paths, scratch):
+    if len(paths) > 32:
+        raise ValueError("supply at most 32 control parts")
+    budget = 64 * 1024 * 1024
+    snapshots = []
+    seen = set()
+    for index, path in enumerate([source, *paths]):
+        raw = read_file(path, min(16 * 1024 * 1024, budget)) if index else read_file(source, 128 * 1024 * 1024)
+        streams = SldprtArchive.FromBytes(raw).Streams
+        header = ParseXml(streams.get("swXmlContents/Features", b""))
+        doc_types = [part.get("swDocType") for part in header.findall("./{*}swHeader/{*}swFile")]
+        if doc_types != ["PART"]:
+            raise ValueError("controlled comparison requires native SOLIDWORKS part metadata")
+        configs, features = ParseKeywords(streams.get("swXmlContents/KeyWords", b""))
+        if len(configs) != 1 or not features:
+            raise ValueError("controlled comparison requires a part with one named feature configuration")
+        blob = streams.get("Contents/Config-" + str(configs[0].configuration_id) + "-ResolvedFeatures")
+        if not blob:
+            raise ValueError("controlled comparison requires resolved feature records")
+        fingerprint = hashlib.sha256(blob).digest()
+        if fingerprint in seen:
+            raise ValueError("control resolved stream duplicates the input or another supplied control")
+        seen.add(fingerprint)
+        if index:
+            budget -= len(raw)
+            target = scratch / (hashlib.sha256(raw).hexdigest() + ".sldprt")
+            target.write_bytes(raw)
+            snapshots.append(target)
+    return snapshots
+
+
+def control_parts(root, controls):
+    for path in controls:
+        yield read_file(path, 16 * 1024 * 1024)
+    files = subprocess.check_output(["git", "-C", root, "ls-tree", "-rz", "--name-only", "HEAD", "--",
+                                     "re/solidworks/examples", "re/automation/PairedCaptures", "re/solidworks/v2026/corpus"])
     budget = 64 * 1024 * 1024
     scanned = 0
     for item in files.split(b"\0"):
@@ -87,7 +120,7 @@ def control_parts(root):
         yield raw
 
 
-def discover_fields(root, streams, document, pin):
+def discover_fields(root, streams, document, pin, controls=()):
     unresolved = {f["attributes"].get("native_object_id") for f in document.get("feature_timeline", {}).get("$tuple", [])
                   if (f.get("definition") or {}).get("$type") == "NativeFeatureDefinition"}
     xml = streams.get("swXmlContents/KeyWords")
@@ -119,7 +152,7 @@ def discover_fields(root, streams, document, pin):
     anchor_samples = defaultdict(list)
     candidates = {}
     scanned = 0
-    for raw in control_parts(root):
+    for raw in control_parts(root, controls):
         scanned += 1
         digest = hashlib.sha256(raw).hexdigest()
         if digest == pin:

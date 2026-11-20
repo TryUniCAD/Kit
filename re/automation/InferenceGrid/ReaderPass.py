@@ -51,7 +51,7 @@ stages = {
 }
 
 
-def reader_passes(root, source, scratch, env, document, evidence):
+def reader_passes(root, source, scratch, env, document, evidence, controls=()):
     reader = root
     current = document
     history = []
@@ -78,6 +78,7 @@ def reader_passes(root, source, scratch, env, document, evidence):
                 str(source),
                 str(folder),
                 str(output),
+                *map(str, controls),
             ]
             child_env = {
                 **env,
@@ -175,9 +176,9 @@ def reader_passes(root, source, scratch, env, document, evidence):
 
 
 if __name__ == "__main__":
-    root, reader, source, folder, output = map(Path, sys.argv[1:])
+    root, reader, source, folder, output, *controls = map(Path, sys.argv[1:])
     document = json.loads(read_file(output, 128 * 1024 * 1024))["document"]
-    evidence = dimension_evidence(root, source, document["source"]["sha256"], document)
+    evidence = dimension_evidence(root, source, document["source"]["sha256"], document, controls)
     (folder / "evidence.json").write_text(json.dumps(evidence, allow_nan=False))
     proposal = next(
         reader_patches(root, reader, source, folder, os.environ, document, evidence),

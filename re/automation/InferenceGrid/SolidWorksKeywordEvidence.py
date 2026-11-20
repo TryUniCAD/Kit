@@ -69,7 +69,7 @@ def ownership_hypotheses(rows, features, data, stream):
             "proposed_dimensions": sum(counts[loc] == 1 for _, loc in proposals)}
 
 
-def keyword_evidence(streams, discovered, document, root, pin, fields):
+def keyword_evidence(streams, discovered, document, root, pin, fields, controls=()):
     data = streams.get("swXmlContents/KeyWords")
     if not data:
         return {"status": "no_keyword_stream"}
@@ -266,7 +266,7 @@ def keyword_evidence(streams, discovered, document, root, pin, fields):
             row.update(status="verified_revolve_angle", reader_span_matches=True, **offsets)
             counts[row["status"]] += 1
     proposals = ownership_hypotheses(rows, features, streams[resolved], resolved) if resolved in streams else None
-    extrusions = extrusion_depths(root, streams[resolved], features, pin, rows, projected, resolved) if resolved in streams else None
+    extrusions = extrusion_depths(root, streams[resolved], features, pin, rows, projected, resolved, controls) if resolved in streams else None
     for prediction in (extrusions or {}).get("predictions", []):
         matched = keyed_rows[prediction["feature_id"], prediction["name"]]
         if len(matched) == 1 and prediction["reader_span_matches"]:

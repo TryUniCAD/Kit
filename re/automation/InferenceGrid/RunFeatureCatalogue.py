@@ -36,6 +36,7 @@ def MainRun():
         allow_abbrev=False,
     )
     Parser.add_argument("--input", type=Path, help="Inspect this CAD file and schedule feature experiments from its decoded structure")
+    Parser.add_argument("--control", type=Path, action="append", default=[], help="Additional local SOLIDWORKS part for field inference (repeatable)")
     Parser.add_argument("--directory", required=True, type=Path)
     Parser.add_argument("--solidworks-catalogue", type=Path)
     Parser.add_argument("--solidworks-sha256")
@@ -80,12 +81,14 @@ def MainRun():
         if Advice is not None and os.name != "posix":
             raise ValueError("decoder advice requires macOS or Linux")
         FileAudit = None
+        if Args.control and (not Args.input or Args.batch_format != "solidworks" or Args.input.suffix.lower() != ".sldprt"):
+            raise ValueError("--control requires a SOLIDWORKS part --input")
         if Args.input:
             from InferenceGrid.FileScope import file_scope
             if not Args.batch_format or any((Args.catalogue, Args.solidworks_catalogue, Args.fusion_catalogue, Args.fusion_sha256, Args.solidworks_sha256)):
                 raise ValueError("use --input with one kit run format and no catalogue options")
             with TemporaryDirectory() as Scratch:
-                Catalogues, FileAudit = file_scope(Args.input, Args.batch_format, Path(Scratch), Path(__file__).resolve().parents[3])
+                Catalogues, FileAudit = file_scope(Args.input, Args.batch_format, Path(Scratch), Path(__file__).resolve().parents[3], Args.control)
         else:
             Catalogues = ReadRunInputs(Args)
         Native = ReadNativeOptions(Args)

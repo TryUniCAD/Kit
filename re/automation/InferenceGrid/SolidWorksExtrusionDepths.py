@@ -29,13 +29,13 @@ def extrusion_records(data, features):
     return intervals, ParseScalars(data, names)
 
 
-def extrusion_depths(root, data, features, pin, dimensions, projected, stream):
+def extrusion_depths(root, data, features, pin, dimensions, projected, stream, controls=()):
     ambiguous = {(r["feature_id"], r["name"]): r for r in dimensions if r["status"] == "ambiguous"}
     if not any(f.kind == "Extrusion" and any((f.object_id, d.name) in ambiguous for d in f.dimensions) for f in features):
         return None
     seen = {hashlib.sha256(data).hexdigest()}
     groups = defaultdict(list)
-    for raw in control_parts(root):
+    for raw in control_parts(root, controls):
         digest = hashlib.sha256(raw).hexdigest()
         if digest == pin:
             continue

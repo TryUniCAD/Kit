@@ -1,3 +1,4 @@
+from hashlib import sha256 as Sha256
 from json import loads as LoadJson
 from os import environ as ProcessEnvironment, pathsep as PathSeparator
 from pathlib import Path as FilePath
@@ -25,6 +26,7 @@ def CheckSuccessiveReaderPasses(TmpPath: FilePath) -> None:
             "/Cli/",
             "/re/automation/",
             "/re/solidworks/examples/",
+            "!/re/solidworks/examples/**/CUBIERTA.SLDPRT",
             "/re/Fusion/Study/*.py",
             "!/re/Fusion/Study/*/",
             "/pyproject.toml",
@@ -63,6 +65,7 @@ def CheckSuccessiveReaderPasses(TmpPath: FilePath) -> None:
     Source = next(
         (Checkout / "re/solidworks/examples").glob("*/RUEDA DE TURBINA.SLDPRT")
     )
+    Control = next((Root / "re/solidworks/examples").glob("*/CUBIERTA.SLDPRT"))
     Output = TmpPath / "run"
     Environment = {
         **ProcessEnvironment,
@@ -80,6 +83,8 @@ def CheckSuccessiveReaderPasses(TmpPath: FilePath) -> None:
             "solidworks",
             "--input",
             str(Source),
+            "--control",
+            str(Control),
             "--directory",
             str(Output),
             "--workers",
@@ -93,6 +98,19 @@ def CheckSuccessiveReaderPasses(TmpPath: FilePath) -> None:
         timeout=300,
     )
     assert Result.returncode == 2, Result.stderr
+    assert not (Checkout / Control.relative_to(Root)).exists()
+    ControlPin = Sha256(Control.read_bytes()).hexdigest()
+    assert LoadJson((Output / "FileScope.json").read_bytes())[
+        "supplied_control_sha256"
+    ] == [ControlPin]
+    FinalFields = LoadJson(
+        (Output / "Input-candidate-dimension-evidence.json").read_bytes()
+    )["discovered_feature_fields"]
+    assert any(
+        Row["file_sha256"] == ControlPin
+        for Group in FinalFields["owner_anchor_controls"]
+        for Row in Group["samples"]
+    )
     assert (Output / "MirroredFields.patch").is_file()
     assert (Output / "SketchPatternCounts.patch").is_file()
     Passes = LoadJson((Output / "Input-reader-passes.json").read_bytes())

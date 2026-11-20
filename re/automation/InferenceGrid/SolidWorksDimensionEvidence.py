@@ -102,7 +102,7 @@ def encoding_hits(data, end, value):
     return hits
 
 
-def dimension_evidence(root, source, pin, document):
+def dimension_evidence(root, source, pin, document, controls=()):
     sets = capture_sets(root)
     held = {receipt["recipe_id"] for _, receipt, _, files in sets if any(row["sha256"] == pin for row in files.values())}
     samples, absent, checks, requested = [], [], [], {}
@@ -139,7 +139,7 @@ def dimension_evidence(root, source, pin, document):
     from InferenceGrid.SolidWorksEquationEvidence import equation_evidence
     streams = SldprtArchive.FromBytes(source.read_bytes()).Streams
     from InferenceGrid.SolidWorksFieldDiscovery import discover_fields
-    result["discovered_feature_fields"] = discover_fields(root, streams, document, pin)
+    result["discovered_feature_fields"] = discover_fields(root, streams, document, pin, controls)
     if (len(candidates or []) != 1 or len({s["recipe"] for s in samples}) < 2 or
         len({s["system_value"] for s in samples}) < 2):
         return {**result, "equations": equation_evidence(streams, [], sets, pin), "status": "no_unique_rule"}
@@ -179,7 +179,7 @@ def dimension_evidence(root, source, pin, document):
         row.get("vendor_value_matches") and row.get("reader_span_matches") and row.get("neutral_value_matches") for row in predictions)
     equations = equation_evidence(streams, predictions, sets, pin)
     from InferenceGrid.SolidWorksKeywordEvidence import keyword_evidence
-    keywords = keyword_evidence(streams, discovered, document, root, pin, result["discovered_feature_fields"])
+    keywords = keyword_evidence(streams, discovered, document, root, pin, result["discovered_feature_fields"], controls)
     return {**result, "keyword_evidence": keywords, "equations": equations, "status": "held_out_dimensions_match" if verified else "partial_evidence",
             "measurement_stage": "edited_before_save" if checks else None, "predictions": predictions,
             "discovered_dimension_records": discovered, "measured_count": len(checks), "missing_from_reader": [list(key) for key in measured if key not in requested]}

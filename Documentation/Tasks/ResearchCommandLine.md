@@ -269,3 +269,5 @@ A `paired_sketch_length` result records the driving and display offsets for a [f
 For a `verified_native_radius` result, the [referenced circle dimension](../Changes/Research/Inference/ReferencedCircleDimension.md) entry explains how to inspect the saved center and rim.
 
 The [revolution angle ownership](../Changes/Research/Inference/RevolutionAngleOwnership.md) report includes the axis ID, angle span, end specification and copy offsets for each verified revolution.
+
+Use [local control parts](../Changes/Research/Inference/LocalControlParts.md) to bring independently edited SOLIDWORKS saves into every field-discovery pass with `--control`.
