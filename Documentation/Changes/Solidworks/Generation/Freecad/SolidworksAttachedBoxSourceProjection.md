@@ -13,6 +13,7 @@ The comparison process checks nine projected fields against the research
 projector for each of the three disclosed F14c records, both with and without
 the shape cache. The property comparison requires both values and their
 serialized field order. All six comparisons pass with zero runtime input file reads.
+[Custom property ordering](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/CustomPropertyOrderChangesBytes.md)
 Both projectors reject ten unsupported variants. The port also rejects an
 unowned neutral plane and a primitive record which differs from its object
 table owner. [Comparison procedure](../../../../../re/tooling/sw2026/VerifyAttachedBoxSource.py)
