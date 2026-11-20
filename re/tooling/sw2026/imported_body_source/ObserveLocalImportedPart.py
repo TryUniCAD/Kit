@@ -7,7 +7,7 @@ from shutil import copyfile
 from time import time
 
 from AuthorCurves import Recorder, digest, require, write_json
-from AuthorImportedBody import IMPORTED, SHEET, SOLID, ImportedBodyAuthor
+from AuthorImportedBody import IMPORTED, OBJECT_SAME, SHEET, SOLID, ImportedBodyAuthor
 from AuthorRectangleAnchors import CONTROL, ORACLE, control
 from ObserveKernelBodyRestore import expected_box, measure_body
 from RunImportedBodySources import oracle_identity
@@ -19,7 +19,7 @@ TOOLS = {"ObserveLocalImportedPart.py", "AuthorCurves.py", "AuthorImportedBody.p
          "RunImportedBodySources.py", "ObserveKernelBodyRestore.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py"}
 
 
-def snapshot(observer, expected, name, persistent, scene=None, note_names=()):
+def snapshot(observer, expected, name, persistent, scene=None, note_names=(), *, measure_shape=measure_body):
     feature = observer.get(observer.model, "FeatureByName", name)
     require(feature is not None and observer.get(feature, "GetTypeName2") == IMPORTED, "imported feature is absent")
     tree = observer.feature_tree(required_names=(name,))
@@ -31,7 +31,7 @@ def snapshot(observer, expected, name, persistent, scene=None, note_names=()):
     require(len(solids) == 1 and not observer.get(part, "GetBodies2", SHEET, False), "expected one owned solid")
     body = observer.typed(solids[0], "Body2")
     require(observer.get(body, "Name") == name, "implicit imported body label differs")
-    measured = measure_body(observer, body, expected, temporary=False)
+    measured = measure_shape(observer, body, expected, temporary=False)
     faces = tuple(observer.get(body, "GetFaces") or ())
     feature_faces = tuple(observer.get(feature, "GetFaces") or ())
     require(len(faces) == len(feature_faces) == expected["faces"], "native import face inventories disagree")
@@ -47,6 +47,17 @@ def snapshot(observer, expected, name, persistent, scene=None, note_names=()):
              "update_stamp": int(observer.get(observer.model, "GetUpdateStamp"))}
     result = {"shape": measured, "feature": name, "feature_id": int(observer.get(feature, "GetID")),
               "persistent_reference": token, "feature_faces": len(feature_faces), "application_state": state}
+    if measure_shape is not measure_body:
+        slots = set()
+        for value in feature_faces:
+            matches = [index for index, face in enumerate(faces)
+                       if int(observer.get(observer.app, "IsSame", value, face)) == OBJECT_SAME]
+            require(len(matches) == 1 and matches[0] not in slots, "feature does not own the actual solid face inventory")
+            slots.add(matches[0])
+        configuration = observer.get(observer.model, "GetActiveConfiguration")
+        result["configuration"] = str(observer.get(configuration, "Name"))
+        result["configurations"] = tuple(str(item) for item in observer.get(observer.model, "GetConfigurationNames") or ())
+        result["tree_signature"] = [(row["name"], row["type"], row["parent"], row["suppressed"]) for row in tree]
     if scene is not None:
         observed = tuple((row["name"], row["type"], row["parent"]) for row in tree
                          if row["type"] in ("AmbientLight", "DirectionLight"))
@@ -62,7 +73,8 @@ def snapshot(observer, expected, name, persistent, scene=None, note_names=()):
     return result
 
 
-def phase(directory, label, source, source_sha, expected, feature_name, *, save=None, reference=None, scene=None, note_names=()):
+def phase(directory, label, source, source_sha, expected, feature_name, *, save=None, reference=None, scene=None, note_names=(),
+          measure_shape=measure_body):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -79,18 +91,28 @@ def phase(directory, label, source, source_sha, expected, feature_name, *, save=
             observer.model, error, warning = record.call("open native container", controller.open, source, read_only=save is None)
             result["open"] = {"returned_document": observer.model is not None, "error": error, "warning": warning}
             require(observer.model is not None and error == 0, "native container could not open")
+            if measure_shape is not measure_body:
+                location = Path(observer.get(observer.model, "GetPathName"))
+                require(location.is_absolute() and location.samefile(source), "native container opened a different locator")
+                result["input_path"] = str(location)
+                result["read_only"] = bool(observer.get(observer.model, "IsOpenedReadOnly"))
+                require(result["read_only"] is (save is None), "actual document access differs from the requested phase")
             try:
-                result["cold"] = snapshot(observer, expected, feature_name, reference, scene, note_names)
+                result["cold"] = snapshot(observer, expected, feature_name, reference, scene, note_names, measure_shape=measure_shape)
             except Exception as problem:
                 result["cold_failure"] = repr(problem)
             observer.rebuild()
             result["rebuilt"] = snapshot(observer, expected, feature_name,
-                                         result.get("cold", {}).get("persistent_reference", reference), scene, note_names)
+                                         result.get("cold", {}).get("persistent_reference", reference), scene, note_names,
+                                         measure_shape=measure_shape)
             if save is not None and warning == 0 and "cold" in result:
                 require(not save.exists(), "fresh generated save target already exists")
                 status = tuple(record.call("save to a separate local file", controller.save_as, observer.model, save))
                 require(status == (True, 0, 0) and save.is_file(), "generated native imported part did not save cleanly")
                 result["saved_sha256"] = digest(save)
+                if measure_shape is not measure_body:
+                    result["save"] = status
+                    result["saved_path"] = str(save)
             result["passed"] = warning == 0 and "cold" in result and (save is None or "saved_sha256" in result)
         except Exception as error:
             record.failure(error)
@@ -103,6 +125,9 @@ def phase(directory, label, source, source_sha, expected, feature_name, *, save=
                     result["controller_diagnostics"] = controller.diagnostics
                 except Exception as error:
                     record.failure(error, cleanup=True)
+    if measure_shape is not measure_body:
+        result["dialogs"] = dialogs.log
+        result["progress_windows"] = dialogs.progress
     result["first_failure"] = record.data["first_failure"]
     result["numeric_checks"] = len(record.data["checks"])
     result["passed"] = result["passed"] and not dialogs.log and not record.data["cleanup_errors"] \
