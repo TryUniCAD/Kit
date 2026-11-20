@@ -51,7 +51,9 @@ def CheckMemDrop(TmpPath: FilePath) -> None:
     try:
         ReserveMib = RequireRoom() - 224
     except (OSError, ValueError) as Error:
-        Pytest.skip(f"ambient reserve crossing unmeasured: {Error}")
+        raise Pytest.skip.Exception(
+            f"ambient reserve crossing unmeasured: {Error}"
+        ) from Error
     Harness = MakeReserveHost(TmpPath, ReserveMib)
     Running = Harness.StartRun("--idle-seconds", "2", "--max-seconds", "70")
     try:

@@ -8,6 +8,7 @@
 
 from collections.abc import Callable
 from typing import TYPE_CHECKING as TypeChecking, cast as CastValue
+from importlib import import_module as ImportModule
 from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
 from sqlite3 import connect as OpenDatabase
@@ -413,10 +414,10 @@ def VerifyRelease(
 
 # null security attributes preserve the process default descriptor for the named mutex
 def OpenNamedMutex(NameValue: str) -> "MutexHandle":
-    import win32event as EventApi
+    EventApi = ImportModule("win32event")
 
     Create = CastValue(
         "Callable[[None, bool, str], MutexHandle]",
-        EventApi.CreateMutex,  # pyright: ignore[reportUnknownMemberType]
+        EventApi.CreateMutex,
     )
     return Create(None, False, NameValue)
