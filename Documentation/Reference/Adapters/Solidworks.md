@@ -85,11 +85,12 @@ The cached body geometry and feature history provide different evidence.
 
 For the compatible version-19000 part profile, strict reads project
 literal native summary, document custom text and active configuration
-text. Configuration text is bound to the saved configuration directory
-and its physical streams. Unsupported property variants leave the
-ordinary geometry and feature result available with a diagnostic.
-Strict cross-format conversion requires qualified text or a verified
-empty legacy scope.
+text. Configuration text uses the saved configuration directory and
+requires the corresponding streams. Unsupported property variants leave
+the ordinary geometry and feature result available with a diagnostic.
+The registry refuses conversion and direct writes of parts with an
+explicit property refusal. A verified empty legacy scope remains
+eligible for conversion.
 [Literal part properties](../../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
 
 For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid

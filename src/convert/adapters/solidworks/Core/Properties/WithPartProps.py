@@ -12,7 +12,7 @@ from interchange.Records.RecordDiagnostic import Diagnostic
 # unsupported optional properties retain geometry and history while withholding every unqualified text projection
 def WithPartProps(Document: CadDocument, Archive: SldprtArchive) -> CadDocument:
     if not any(
-        NameValue in ("docProps/core.xml", "docProps/custom.xml")
+        NameValue in ("Contents/CusProps", "docProps/core.xml", "docProps/custom.xml")
         or NameValue.startswith("docProps/Config-")
         for NameValue in Archive.streams
     ):

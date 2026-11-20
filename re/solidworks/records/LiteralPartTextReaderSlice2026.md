@@ -1,4 +1,4 @@
-# Compatible part text projection on main
+# Main-target compatible part text projection
 
 Task `B04-SW2026-PARTPROPS`. The main-target reader reuses the
 version-19000 configuration directory and body codec from PR #178 on
@@ -28,7 +28,7 @@ decoding and rejection of NUL and other encoding declarations. Its
 document-type guard runs before interpretation. The text projection
 keeps explicit names and values and refuses unmeasured variants,
 expressions, populated managers and conflicting owners. Scope admission
-is atomic. The output scheme keeps the same geometry and feature
+is atomic. Inspection keeps the same geometry and feature
 semantics when optional properties are unavailable.
 
 [Native property owner evidence](https://github.com/TryUniCAD/Kit/blob/8302c824a15830b837c72db75f79cabe5693d200/re/solidworks/records/PartPropertySources2026.md)
@@ -92,30 +92,21 @@ embedded executable, installer or packaged attachment signatures.
 | --- | --- |
 | [Native CAD fixture](../v2026/corpus/part-properties/CircularProperties.SLDPRT), 66,367 bytes | `1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23` |
 | [Native advanced-manager control](../v2026/corpus/ladder/L1_boss.SLDPRT), 56,249 bytes | `55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6` |
-| [Public SDK worker](../../../tests/Convert/Solidworks/Properties/ReadLiteralPart.py) | `17ee722aaa83b21798e2412b3245faf8cbb9833c134431aaa8b5d661cebd57f2` |
-| [Queue test](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py) | `f8d8ef7c8f76dcf8fb0d9a8a1a97da1fbe391a7fa5bbc99ce1db55aff07ca36c` |
+| [Original SDK worker](https://github.com/TryUniCAD/Kit/blob/57ad014680b71273557b3635125ee004bedec29d/tests/Convert/Solidworks/Properties/ReadLiteralPart.py) | `17ee722aaa83b21798e2412b3245faf8cbb9833c134431aaa8b5d661cebd57f2` |
+| [Original queue test](https://github.com/TryUniCAD/Kit/blob/57ad014680b71273557b3635125ee004bedec29d/tests/Convert/Solidworks/Properties/LiteralTextTests.py) | `f8d8ef7c8f76dcf8fb0d9a8a1a97da1fbe391a7fa5bbc99ce1db55aff07ca36c` |
 
-The positive test starts a fresh interpreter through the existing
-integration suite. It checks all eight values, active configuration ID 0
-and the single solid through the normal strict SDK read. The negative
-test opens the ladder boss through the same boundary. Its 138-byte
+The positive queue test checks all eight values, active configuration
+ID 0 and the single solid through the normal strict SDK read. The
+original negative test opened the ladder boss. Its 138-byte
 `Contents/CusProps` has SHA-256
 `9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036`.
-It requires the original active `Default` configuration and solid B-rep,
-the property diagnostic, and absence of all three text bags. The same
-child calls strict SDK conversion to JSON and asserts that the refused
-destination retains its original bytes and position. Queue execution
-remains pending.
+The original process checked the active `Default` configuration and
+solid B-rep, the property diagnostic and absence of all three text bags.
+It verified strict conversion refusal with the destination intact.
 
-A host process checked strict conversion through the public and
-compatibility entrypoints and implicit `.json` path selection. The
-diagnostic reader retained the solid. Both explicit conversions left the
-destination bytes and position intact. The implicit conversion created no
-destination. The non-strict native conversion and a strict neutral JSON
-conversion retained the diagnostic. The qualified circular control
-preserved all eight text values through a strict JSON conversion and
-readback. The six original property verification subprocesses reproduced
-the prior output SHA-256
+Before the shared registry preflight, non-strict native conversion could
+publish a document carrying the diagnostic. The earlier six-process
+property receipt records its then-current scope using stdout SHA-256
 `a82e966679a5c4b3471bc89993f14535fc9b300355bfd6889b45b978720694d7`.
 
 ## Legacy empty text compatibility
@@ -140,14 +131,55 @@ classes can open bodies.
 The scoped legacy path preserves a strict SDK open with one solid,
 one configuration and no optional text report. Older files with
 authored text or unknown managers fail the optional projection.
-The queue process uses the existing wheel source for a strict JSON
-conversion and injects one title and an invalid nested owner into two
-separate inputs. Both must refuse before changing the destination
-stream. The second verifies that body geometry remains visible.
-The original wheel
-cross-format conversion stays in its existing CI scope. Modern literal
-value projection still depends on complete physical configuration
-validation.
+The legacy queue case uses the exact wheel input for a strict JSON
+conversion and adds one authored title to a separate in-memory input.
+The wheel conversion succeeds with the prior model. The authored
+title preserves the inspection model and produces the expected
+write refusal. A separate binary case covers the malformed owner.
+[Legacy queue case](../../../tests/Convert/Solidworks/Properties/LegacyTextTests.py)
+
+## Binary-only owners and registry write policy
+
+The reader validates a present `Contents/CusProps` independently of
+XML. A proven empty binary-only manager leaves the document eligible
+for ordinary conversion. An unsupported binary-only manager preserves
+geometry and feature history with the optional text diagnostic.
+
+The focused binary case replaces the legacy keyed container's runtime
+class in a temporary in-memory package. The diagnostic retains the
+`moCusPropMgr_c` schema path, fields `f20` and `f20/o`, byte offset 56
+and the underlying unsupported-owner placement cause. The other two
+variants preserve their original 138-byte and 33-byte binary managers
+and omit all property XML. The advanced case refuses and the compatible
+empty case converts. Each variant matches its original B-rep, bodies,
+features, parameters, sketches and support planes.
+[Binary queue case](../../../tests/Convert/Solidworks/Properties/BinaryTextTests.py)
+· [Binary-only gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Properties/PropertyManagerCanStandAlone.md)
+
+The shared registry write preflight rejects SOLIDWORKS part documents
+with the explicit unsupported-text status. Strict and non-strict
+conversion, compatibility conversion, public document writing and
+direct registry writing agree. The error includes the original cause.
+The stream probes keep their initial bytes and cursor. The implicit
+path case creates no destination. The registry's ordinary target
+transfer and carrier checks continue to apply to eligible documents.
+[Write queue case](../../../tests/Convert/Solidworks/Properties/WriteTextTests.py)
+
+The current host verification also reruns all six disclosed property
+cases. Its fully absent control removes both the XML and binary
+property owners. The advanced rectangle retains its real binary-only
+manager in a separate refusal case. It repeats the byte-offset-103
+owner-path diagnostic already present at review head
+`57ad014680b71273557b3635125ee004bedec29d`. The older receipt records
+the broader diagnostic before the owner-depth check. The other recorded
+values and model comparisons reproduce.
+
+The qualified circular part also succeeds through direct writes with
+either carrier setting. Both results carry 11 transfer records and
+preserve the three property bags, B-rep and feature timeline through
+JSON readback. The neutral control continues through the same registry
+preflight.
+[Current revision-bound receipt](../measurements/2026/LiteralPartTextWriteScope01.json)
 
 ## Physical configuration validation remains open
 
@@ -182,7 +214,8 @@ outer byte count can detect a short stream while a complete decode also
 checks the classes, field rules, backlinks and exact cursor exhaustion.
 
 The direct aggregate read and ModelHeader imports span 170 SOLIDWORKS
-modules. Main lacks 99 of them and their 11,089 lines. Excluding the
+modules. The measured base `76877b1c8b223f11ddf38c79dc10a2a878fc019e`
+lacks 99 of them and their 11,089 lines. Excluding the
 optional `Archive/Config/UsePartRelationsMut.py` mode and its resolved
 sketch dependencies leaves 150 modules, 79 missing paths and 5,652 missing
 lines. That narrower profile still needs the observed 142 layouts and

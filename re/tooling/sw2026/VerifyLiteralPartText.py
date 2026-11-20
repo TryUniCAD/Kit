@@ -320,7 +320,7 @@ def inspect(root, case):
         actual = read(path)
         baseline = old_read(read, path)
         compare_document(actual, baseline)
-        absent = repack({SUMMARY: None, DOCUMENT: None, CONFIG: None})
+        absent = repack({SUMMARY: None, DOCUMENT: None, CONFIG: None, MANAGER: None})
         unchanged = read(absent)
         require(
             unchanged == old_read(read, absent) and STATUS not in unchanged.metadata,
@@ -341,6 +341,10 @@ def inspect(root, case):
         )
         if expected is None:
             row["diagnostic"] = check_refusal(actual, baseline)
+            binary_only = repack({SUMMARY: None, DOCUMENT: None, CONFIG: None})
+            row["binary_only_diagnostic"] = check_refusal(
+                read(binary_only), old_read(read, binary_only)
+            )
         if case == "CircleAuthored":
             row["refusals"] = exercise_mutations(archive, read, repack)
     row["status"] = actual.metadata[STATUS]["status"]

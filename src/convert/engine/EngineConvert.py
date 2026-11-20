@@ -7,7 +7,6 @@ from convert.adapters.base.ContractTypes import (
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.engine.EngineResult import ConversionResult as ConvertResult
-from convert.Formats.CheckSourceText import CheckSourceText
 from convert.Formats.SourceFormat import ResolveFormat
 
 
@@ -26,17 +25,11 @@ class EngineConvert:
         WriteOpts: WriteOptions | None = None,
     ) -> ConvertResult:
         RegistryData = getattr(self, "registry")
-        ReadPolicy = ReadOpts or ReadOptions()
         DocumentData, ReaderData = RegistryData.read_with_adapter(
             SourceData,
             format_id=SourceFormat,
-            options=ReadPolicy,
+            options=ReadOpts or ReadOptions(),
         )
-        SourceName = ResolveFormat(DocumentData, ReaderData)
-        if ReadPolicy.StrictMode:
-            CheckSourceText(
-                DocumentData, SourceName, TargetData, DestFormat, RegistryData
-            )
         OutputResult = RegistryData.write(
             DocumentData,
             TargetData,
@@ -46,6 +39,6 @@ class EngineConvert:
         return ConvertResult(
             document=DocumentData,
             output=OutputResult,
-            source_format=SourceName,
+            source_format=ResolveFormat(DocumentData, ReaderData),
             destination_format=OutputResult.adapter,
         )

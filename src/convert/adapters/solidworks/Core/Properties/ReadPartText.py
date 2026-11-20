@@ -7,7 +7,9 @@ from convert.adapters.solidworks.Core.Properties.PartTextData import PartTextDat
 from convert.adapters.solidworks.Core.Properties.ReadConfigProps import ReadConfigProps
 from convert.adapters.solidworks.Core.Properties.ReadCoreProps import ReadCoreProps
 from convert.adapters.solidworks.Core.Properties.ReadCustomProps import ReadCustomProps
-from convert.adapters.solidworks.Core.Properties.ReadLegacyEmptyProps import ReadLegacyProps
+from convert.adapters.solidworks.Core.Properties.ReadLegacyEmptyProps import (
+    ReadLegacyProps,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -24,8 +26,11 @@ def ReadPartText(Document: CadDocument, Archive: SldprtArchive) -> PartTextData 
         ReadPropManager(ManagerValue, VersionValue)
     SummaryValue = Archive.get("docProps/core.xml")
     DocumentValue = Archive.get("docProps/custom.xml")
-    return PartTextData(
-        None if SummaryValue is None else ReadCoreProps(SummaryValue),
-        None if DocumentValue is None else ReadCustomProps(DocumentValue, False),
-        ReadConfigProps(Document, Archive, VersionValue),
+    SummaryFields = None if SummaryValue is None else ReadCoreProps(SummaryValue)
+    DocumentFields = (
+        None if DocumentValue is None else ReadCustomProps(DocumentValue, False)
     )
+    ConfigFields = ReadConfigProps(Document, Archive, VersionValue)
+    if SummaryFields is None and DocumentFields is None and not ConfigFields:
+        return None
+    return PartTextData(SummaryFields, DocumentFields, ConfigFields)
