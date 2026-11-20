@@ -15,6 +15,9 @@ from convert.adapters.solidworks.Archive.Config.Members.CheckCfgMember import (
 from convert.adapters.solidworks.Archive.Config.Members.MemberLayouts import (
     KMemberLayouts,
 )
+from convert.adapters.solidworks.Archive.Config.Members.MemberVirtuals import (
+    KMemberVirtuals,
+)
 from convert.adapters.solidworks.Archive.Config.Members.ReadMemBodyMut import (
     ReadMemBodyMut,
 )
@@ -39,7 +42,9 @@ def ReadCfgMember(
         )
     if MemberClass.SchemaValue not in KCfgMemberSchemas.get(MemberClass.NameValue, ()):
         raise BodyUnsupported("SOLIDWORKS configuration member has an unsupported role")
-    ContextValue = BodyContext(VersionValue, KMemberLayouts, {}, KCfgMemberSchemas)
+    ContextValue = BodyContext(
+        VersionValue, KMemberLayouts, KMemberVirtuals, KCfgMemberSchemas
+    )
     MapValue = ArchiveMaps(SeedValue.CounterValue, SeedValue)
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),

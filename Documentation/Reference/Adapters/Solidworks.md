@@ -258,6 +258,12 @@ remain available alongside the decoded rows. The record owner supplies
 the expected descriptor and the live archive map snapshot.
 [Configuration member scope](../../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
 
+The bounded member reader also handles absent or empty sketch block and
+part exploded view managers. Their feature base selects branches and
+concrete virtual targets. The sketch map backlink retains the newly
+allocated manager's identity.
+[Configuration field action scope](../../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)

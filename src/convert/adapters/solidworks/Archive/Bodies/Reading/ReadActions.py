@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadArrayMut import Read
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBooleanMut import (
     ReadBooleanMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBranchMut import (
+    ReadBranchMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBytesMut import ReadBytesMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadCachesMut import (
     ReadCachesMut,
@@ -44,6 +47,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadValidateMut import (
     ReadValidMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadValueMut import ReadValueMut
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadVirtualMut import (
+    ReadVirtualMut,
+)
 
 # shared field handlers keep native owner registries declarative as the graph grammar grows
 KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = (
@@ -57,10 +63,10 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Array": ReadArrayMut,
             "Boolean": ReadBooleanMut,
             "Present": ReadPresentMut,
-            "Branch": ReadControlMut,
+            "Branch": ReadBranchMut,
             "Context": ReadControlMut,
             "Mask": ReadControlMut,
-            "Virtual": ReadControlMut,
+            "Virtual": ReadVirtualMut,
             "Validate": ReadValidMut,
             "Section": ReadSectionMut,
             "Direct": ReadDirectMut,
