@@ -144,6 +144,8 @@ The capture still needs its prerequisite assessment and a licensed application s
 Once the application owner has prepared its worker, use `--native-ready` to allow dispatch.
 See the [catalogue native handoff](../Changes/Research/Controller/DeterministicInference.md#run-both-complete-catalogue-inventories).
 
+Kit shows active workers, queued jobs, and waits in the terminal while it runs.
+Progress uses standard error. The final JSON remains on standard output.
 Read `CatalogueResult.json` for completed and blocked entries. Exit status 2 means coverage remains incomplete.
 Read `State/decoder-advice/<receipt>/Advice.json` for suggestions produced during the offline batch stage.
 A suggestion requires an independently checked experiment before it can become a decoder rule.

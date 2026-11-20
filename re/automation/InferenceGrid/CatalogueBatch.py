@@ -10,6 +10,7 @@ import sqlite3
 import subprocess
 import sys
 
+from InferenceGrid.CatalogueProgress import ObserveCatalogue
 from InferenceGrid.CatalogueRunPlan import BuildRunPlan, RunOutcome
 from InferenceGrid.CatalogueRuntime import (
     HoldCatalogue,
@@ -269,32 +270,32 @@ def RunSupervisor(
     AdviceSeconds = 90 * Advice.calls if Advice else 0
     PauseArgs = ["--catalogue-pause-file", str(Directory / "CataloguePause.json")]
     try:
-        with (Directory / f"{Stage}Supervisor.log").open(
-            "ab" if Resume else "xb"
-        ) as Log:
-            Process = subprocess.run(
-                [
-                    sys.executable,
-                    "-B",
-                    str(SourceRoot / "re/automation/Supervisor.py"),
-                    "--config",
-                    str(Config),
-                    "run",
-                    "--idle-seconds",
-                    "8",
-                    "--max-seconds",
-                    str(MaxSeconds),
-                    *AdviceArgs,
-                    *MemoryArgs,
-                    *HandoffArgs,
-                    *PauseArgs,
-                ],
-                cwd=SourceRoot,
-                stdout=Log,
-                stderr=subprocess.STDOUT,
-                timeout=MaxSeconds + AdviceSeconds + 90,
-                check=False,
-            )
+        LogPath = Directory / f"{Stage}Supervisor.log"
+        with LogPath.open("ab" if Resume else "xb") as Log:
+            with ObserveCatalogue(Directory, LogPath, Log.tell()):
+                Process = subprocess.run(
+                    [
+                        sys.executable,
+                        "-B",
+                        str(SourceRoot / "re/automation/Supervisor.py"),
+                        "--config",
+                        str(Config),
+                        "run",
+                        "--idle-seconds",
+                        "8",
+                        "--max-seconds",
+                        str(MaxSeconds),
+                        *AdviceArgs,
+                        *MemoryArgs,
+                        *HandoffArgs,
+                        *PauseArgs,
+                    ],
+                    cwd=SourceRoot,
+                    stdout=Log,
+                    stderr=subprocess.STDOUT,
+                    timeout=MaxSeconds + AdviceSeconds + 90,
+                    check=False,
+                )
         if Process.returncode:
             return {"stage": Stage, "exit_code": Process.returncode}
     except (OSError, subprocess.TimeoutExpired) as Error:

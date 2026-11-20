@@ -67,9 +67,10 @@ def CheckResume(TmpPath: FilePath) -> None:
         if Event.get("event") == "catalogue_paused"
     )
     assert all(Event.get("event") != "started" for Event in LogLines[Cutoff + 1 :])
-    _ = RunAutomation(
+    Progress = RunAutomation(
         ToolPath, *SavedArgs, "--resume", "--max-seconds", "35", Expected=2
     )
+    assert "workers active" in Progress and "queued" in Progress
     After = DecodeJson(ReportPath.read_bytes())
     assert After["scopes"]["p03-blind-boss.solidworks"]["status"] == "completed"
     FinalJobs = Receipts(After)
@@ -86,3 +87,24 @@ def Receipts(Report):
         for JobRow in Scope["jobs"]
         if JobRow["state"] == "completed"
     }
+
+
+# a deliberately high reserve exposes a capacity refusal through terminal progress
+def CheckProgress(TmpPath: FilePath) -> None:
+    RunPath = TmpPath / "BlockedCatalogue"
+    Progress = RunAutomation(
+        "InferenceGrid/RunFeatureCatalogue.py",
+        "--directory",
+        RunPath,
+        "--solidworks-catalogue",
+        KCatalogue,
+        "--reserved-memory-mib",
+        "1048576",
+        "--max-seconds",
+        "1",
+        Expected=2,
+    )
+    assert "0 workers active" in Progress
+    assert "RAM below reserve" in Progress
+    Report = DecodeJson((RunPath / "CatalogueResult.json").read_bytes())
+    assert all(Scope["status"] == "queued" for Scope in Report["scopes"].values())
