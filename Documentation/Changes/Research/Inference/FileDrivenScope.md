@@ -25,3 +25,5 @@ The runner now compares two default-name rules against the independently identif
 Five local feature controls exposed typed native records missing from the semantic-state registry. The file-driven runner can now identify field-only frozen journal records in the parsed model and propose explicit registry patches after isolated replay and model equality checks.
 
 On separate Sweep and FilletRim controls, both isolated runs at `a461dcb43` generated the same explicit TorusNode registry patch. Both passed full semantic-state model equality and public native decode. The patch was applied to the reader. The fillet body's geometry independently matched its capture. The sweep's geometry correspondence remained unresolved.
+
+On the Loft control at `d998c09de`, the runner independently discovered 13 missing spline, curve and surface record types. Applying the generated candidate in isolation restored native CLI decoding and exact state model equality. The smaller LoftRects control already decoded on that revision.

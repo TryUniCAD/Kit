@@ -113,8 +113,10 @@ def capture_names(root, pin, size, native):
                 candidates = []
                 for idx, value in enumerate(measured):
                     center = value.get("center_cm")
-                    if (isinstance(center, list) and len(center) == 3 and
-                        all(near(a, b, 1e-6) for a, b in zip(center, body["center_cm"])) and
+                    single_without_centroid = len(comparable) == len(measured) == 1 and "center_cm" not in value
+                    center_matches = isinstance(center, list) and len(center) == 3 and all(
+                        near(a, b, 1e-6) for a, b in zip(center, body["center_cm"]))
+                    if ((single_without_centroid or center_matches) and
                         all(near(body[key], value.get(key), 1e-6) for key in ("volume_cm3", "area_cm2"))):
                         candidates.append(idx)
                 matches.append(candidates)
@@ -124,7 +126,9 @@ def capture_names(root, pin, size, native):
             if bijective:
                 for body, index in zip(comparable, ids):
                     aligned.append({"object": body["object"], "segment": body["segment"], "stored_name": body["stored_name"],
-                                    "creation_index": body["creation_index"], "collection_ordinal": body["collection_ordinal"], "vendor_name": measured[index]["name"]})
+                                    "creation_index": body["creation_index"], "collection_ordinal": body["collection_ordinal"],
+                                    "geometry_fields": ["volume_cm3", "area_cm2"] + (["center_cm"] if "center_cm" in measured[index] else []),
+                                    "vendor_name": measured[index]["name"]})
             witnesses.append({"capture": blob, "sha256": hashlib.sha256(raw).hexdigest(), "case": case["name"],
                               "unique_geometry_match": bijective, "candidate_indices": matches, "matches": aligned})
     return {"input_sha256": pin, "bodies": bodies, "witnesses": witnesses, "default_name_rules": default_name_rules(witnesses)}

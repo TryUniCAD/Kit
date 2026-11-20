@@ -116,3 +116,53 @@ def CheckPatternBodyIdentity(TmpPath: FilePath) -> None:
         (Body["stored_name"], Body["collection_ordinal"], Body["vendor_name"])
         for Body in Witness["matches"]
     } == {("", Index, f"Body{Index}") for Index in range(1, 7)}
+
+
+# spline records must survive serialization through the public native reader
+def CheckLoftState(TmpPath: FilePath) -> None:
+    RootPath = ResearchRoot()
+    SourcePath = RootPath / "re/Fusion/LocalOracle/FeatureAuthoring/Controls/Loft.f3d"
+    RunPath = TmpPath / "loft"
+    Result = RunProcess(
+        [
+            PythonPath,
+            "-m",
+            "KitCli",
+            "run",
+            "--root",
+            str(RootPath),
+            "fusion",
+            "--input",
+            str(SourcePath),
+            "--directory",
+            str(RunPath),
+            "--workers",
+            "1",
+            "--reserved-memory-mib",
+            "512",
+        ],
+        capture_output=True,
+        text=True,
+        timeout=300,
+    )
+    assert Result.returncode == 2, Result.stderr
+    assert (
+        b"Journal.Spline.SplineNode.SplineNode"
+        in (RunPath / "Input-native.json").read_bytes()
+    )
+    Audit = LoadJson((RunPath / "FileScope.json").read_bytes())
+    if (
+        Audit["reader_attempts"]["native"].get("message")
+        == "Unsupported Fusion semantic-state value"
+    ):
+        Evidence = LoadJson((RunPath / "Input-state-repair.json").read_bytes())
+        assert Evidence["state_round_trip"] is True
+        Patch = RunPath / "BrepTypes.patch"
+        assert Patch.read_text() == Evidence["patch"]
+        Applicable = RunProcess(
+            ["git", "apply", "--check", str(Patch)],
+            cwd=RootPath,
+            capture_output=True,
+            text=True,
+        )
+        assert Applicable.returncode == 0, Applicable.stderr
