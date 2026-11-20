@@ -12,7 +12,7 @@ KLinearControl = (
 
 
 # separated reader and writer processes must preserve the complete compact native index
-def TestNativeLinearKeywords() -> None:
+def TestNativeKeys() -> None:
     Projected = RunKeyModel("project-linear", KLinearControl.read_bytes())
     assert Projected.returncode == 0, Projected.stderr
     Emitted = RunKeyModel("write", Projected.stdout)
