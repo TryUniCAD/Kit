@@ -8,8 +8,8 @@ units. The encoder preserves the order and checks that each child ID appears
 in the feature rows.
 
 A linear cut row carries one profile ID and either its live `D1` value or
-no dimension. The ordinary revolve profile uses a degree suffix and compact
-empty tags. The separate [KeyWords framer](SolidworksKeywordFraming.md)
+no dimension. The ordinary revolve profile requires one `D1` dimension in
+degrees and uses compact empty tags. The separate [KeyWords framer](SolidworksKeywordFraming.md)
 handles the XML and stream envelope.
 
 The emitter is an internal stream component. Full document construction,

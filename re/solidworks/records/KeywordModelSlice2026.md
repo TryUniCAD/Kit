@@ -10,12 +10,12 @@
 
 ## Source boundary
 
-The eight new source files match
+The eight extracted source files originally matched
 [the aggregate](https://github.com/TryUniCAD/Kit/commit/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f)
 and [the local-import native trial generator](https://github.com/TryUniCAD/Kit/commit/67b2fa8b2aee19bade296f764bf7267afcbc72ca).
-The source manifest SHA-256 is
+The original source manifest SHA-256 is
 `b73bb83021ead2ce7c35df3cad172814434831844c31c671e2ac1d30dacd0535`.
-It covers 277 lines in `Metadata/{KeywordConfig,KeywordDim,KeywordFeature,MakeKeyDimMut,MakeKeyFeatMut,MakeKeywords}.py`
+It covers `Metadata/{KeywordConfig,KeywordDim,KeywordFeature,MakeKeyDimMut,MakeKeyFeatMut,MakeKeywords}.py`
 and `Styles/{ReadStyleNum,ReadStyleText}.py` under
 `src/convert/adapters/solidworks/Archive/Construction/`.
 The manifest hashes the sorted repository-relative paths, each followed
@@ -23,8 +23,14 @@ by a NUL, its lowercase SHA-256 and a newline.
 
 The eight files use the standard library and the existing
 [`FrameKeywords`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py).
-Including the eleven files from the accepted framing component and its XML boundaries
-makes the nineteen-file source manifest `69d1335a739df92c85071c4fe6c64a532561ecc7ea9b307e5f00d894e99db7c0`.
+Current review tightens `MakeKeyFeatMut` to require the ordinary revolve
+feature to have exactly one degree-valued `D1` dimension. The other seven
+emitter files are unchanged. The current eight-file manifest is
+`5c1c70251bef129afe1791e0bdad1f5b1188c4d4da9b78b13377b74d5e3d51b6`.
+Including the eleven accepted framing and XML boundary files gives
+`4d4219f88acee64d4fd7da9d717bd064b54a6a7d45d319f15140e552e09c3292`.
+The first main-based nineteen-file manifest was
+`69d1335a739df92c85071c4fe6c64a532561ecc7ea9b307e5f00d894e99db7c0`.
 The historical nine-file manifest before the framing repair was
 `aeefcf90569fa878348122c972135d67b6001ebde636d53a7edee6094c2088f9`.
 [Framing provenance](KeywordFrameSlice2026.md)
@@ -113,7 +119,9 @@ authors a consumed sketch and a `147.5°` driver. Each compares complete
 independently specified wire bytes and uses a separate interpreter with
 the existing XML parser to check the emitted rows. The
 [refusal case](../../../tests/Convert/Solidworks/KeywordModels/KeywordRefusalTests.py)
-checks ten invalid row or dimension forms and requires empty output.
+checks fourteen invalid row or dimension forms and requires empty
+output. Angular controls reject an absent dimension, unitless `D1`,
+a degree-valued `D2`, and a second dimension on the ordinary revolve.
 
 The process cases use authored metadata and no source CAD files. Scoped Black,
 Ruff, Mypy, Pyright and steering checks passed for 13 Python files. The donor

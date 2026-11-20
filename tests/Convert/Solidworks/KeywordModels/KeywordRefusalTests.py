@@ -58,10 +58,33 @@ KValueRejects: tuple[tuple[list[dict[str, object]], bytes], ...] = (
     ),
 )
 
+# ordinary angular rows must bind the one authored angle to its actual driver name and unit
+KAngularFeature: dict[str, object] = {
+    "id": 18,
+    "name": "Revolved boss",
+    "kind": "Revolve",
+    "tag": "Feature",
+}
+
+# a typed sketch leaves the angular owner responsible for rejecting malformed drivers
+KAngularDimensions: tuple[list[dict[str, object]], ...] = (
+    [],
+    [{"name": "D1", "value": 47.25}],
+    [{"name": "D2", "value": 47.25, "unit": "degree"}],
+    [{"name": "D1", "value": 47.25, "unit": "degree"}, {"name": "D2", "value": 2}],
+)
+
 
 # the separate writer must expose the diagnostic without publishing a partial index
 def TestKeyRejects() -> None:
-    for FeatureValues, Diagnostic in (*KShapeRejects, *KValueRejects):
+    AngularRejects = tuple(
+        (
+            [KPlainFeature, {**KAngularFeature, "dimensions": DimensionValues}],
+            b"ordinary revolve keyword requires its single D1 degree driver",
+        )
+        for DimensionValues in KAngularDimensions
+    )
+    for FeatureValues, Diagnostic in (*KShapeRejects, *KValueRejects, *AngularRejects):
         InputValue = {
             "name": "Malformed keyword case",
             "timestamp": 1423956723,
