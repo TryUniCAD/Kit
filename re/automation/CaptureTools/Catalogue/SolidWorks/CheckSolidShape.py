@@ -8,9 +8,15 @@
 
 from math import cos, isclose, pi, radians, sin
 
+from CaptureTools.Catalogue.SolidWorks.ValidateSolid import ValidateSolid
+from CaptureTools.Catalogue.SolidWorks.CheckProgramShape import CheckProgramShape
+
 
 # source measurements must match the requested geometry rather than merely contain a body
 def CheckSolidShape(CaseValue, Observed):
+    CaseValue = ValidateSolid(CaseValue)
+    if "program" in CaseValue["options"]:
+        return CheckProgramShape(CaseValue, Observed)
     RecipeKey = CaseValue["recipe"]
     Params = CaseValue["parameters"]
     Options = CaseValue["options"]

@@ -13,7 +13,8 @@ param(
     [Parameter(Mandatory)] [string]$InteropAssembly,
     [Parameter(Mandatory)] [string]$ExecutablePath,
     [Parameter(Mandatory)] [ValidateSet('first', 'second')] [string]$Phase,
-    [switch]$CompileOnly
+    [switch]$CompileOnly,
+    [switch]$Batch
 )
 
 $ErrorActionPreference = 'Stop'
@@ -41,10 +42,12 @@ if ($Destination.StartsWith($Repository + [IO.Path]::DirectorySeparatorChar, [St
 }
 $WebExtensions = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
 Add-Type -Path $Interop.FullName
-Add-Type -Path @((Join-Path $PSScriptRoot '../../SolidWorksAuthoring/SolidWorksCapture.cs'),
+$ProgramSources = @(Get-ChildItem -LiteralPath (Join-Path $PSScriptRoot 'Programs') -Filter '*.cs' -File -Recurse | Sort-Object FullName | ForEach-Object FullName)
+Add-Type -Path (@((Join-Path $PSScriptRoot '../../SolidWorksAuthoring/SolidWorksCapture.cs'),
     (Join-Path $PSScriptRoot 'ConfiguredCapture.cs'),
-    (Join-Path $PSScriptRoot 'SolidOwner.cs')) -ReferencedAssemblies @($Interop.FullName, 'System.Core.dll', $WebExtensions)
-[SolidWorksCapture]::CheckConfigured($CaseFile)
+    (Join-Path $PSScriptRoot 'SolidOwner.cs')) + $ProgramSources) -ReferencedAssemblies @($Interop.FullName, 'System.Core.dll', $WebExtensions)
+if ($Batch) { [SolidWorksCapture]::CheckBatch($CaseFile, $Destination) }
+else { [SolidWorksCapture]::CheckConfigured($CaseFile) }
 if ($CompileOnly) {
     Write-Output 'Compiled configured SOLIDWORKS authoring without starting an application'
     return
@@ -67,7 +70,8 @@ try {
         $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Created) {
         throw 'The application identity changed before authoring.'
     }
-    [SolidOwner]::RunOwned($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase)
+    if ($Batch) { [SolidOwner]::RunBatch($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
+    else { [SolidOwner]::RunOwned($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
 } catch { $Failure = $_ } finally {
     if ($null -ne $Native) {
         $ExitObserved = $Native.WaitForExit(30000)

@@ -33,6 +33,17 @@ public sealed partial class SolidWorksCapture
             && value.ContainsKey("parameters") && value.ContainsKey("options"), "Invalid configured authoring fields");
         var parameters=value["parameters"] as Dictionary<string, object>;
         var options=value["options"] as Dictionary<string, object>;
+        if(options!=null && options.ContainsKey("program")) {
+            string written=value["recipe"] as string;
+            Check(new[]{"extrude-two-direction","extrude-midplane","extrude-offset-start","extrude-thin","extrude-up-to",
+                "revolve-two-direction","revolve-midplane","revolve-thin","revolve-cut"}.Contains(written),"Unsupported written native recipe");
+            Check(parameters!=null && options.Count==4 && options.ContainsKey("basis") && options.ContainsKey("direction")
+                && options.ContainsKey("variant"),"Invalid written native case options");
+            Check(new[]{"XY","YZ","XZ"}.Contains(options["basis"] as string),"Invalid written native basis");
+            Check(options["direction"] is int && ((int)options["direction"]==1 || (int)options["direction"]==-1),"Invalid written native direction");
+            CheckProgram(MapValue(options["program"]));
+            return value;
+        }
         var names=new Dictionary<string, string[]> {
             {"P01",new[]{"width_mm","height_mm"}}, {"P02",new[]{"diameter_mm"}},
             {"P03",new[]{"width_mm","height_mm","depth_mm"}},
@@ -116,20 +127,21 @@ public sealed partial class SolidWorksCapture
         bool preference=owned.GetUserPreferenceToggle(10);
         owned.SetUserPreferenceToggle(10,false);
         try {
-            var specification=run.ConfiguredRecipe(recipe);
+            var specification=run.IsProgram()?null:run.ConfiguredRecipe(recipe);
             if(phase=="first") {
-                run.First(specification);
+                if(run.IsProgram()) run.ProgramFirst(); else run.First(specification);
                 var first=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(firstPath));
                 first["configuration_sha256"]=pin;
                 first["configured_case"]=configured;
                 Write(firstPath,first);
             } else {
-                run.Second(specification);
+                if(run.IsProgram()) run.ProgramSecond(); else run.Second(specification);
                 string measurements=Path.Combine(directory,"measurements.json"), receipt=Path.Combine(directory,"receipt.json");
                 var report=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(measurements));
                 report["configuration_sha256"]=pin;
                 report["configured_case"]=configured;
-                report["authoring_origin"]="Independently authored through the SOLIDWORKS API from the configured paired recipe";
+                report["authoring_origin"]=run.IsProgram()?"Independently authored through typed native operations from the source pinned written recipe"
+                    :"Independently authored through the SOLIDWORKS API from the configured paired recipe";
                 Write(measurements,report);
                 var received=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(receipt));
                 received["measurement_receipt_sha256"]=Hash(measurements);

@@ -13,6 +13,7 @@ from pathlib import Path
 
 from CaptureTools.Catalogue.SolidWorks.CheckSolidReads import CheckSolidReads
 from CaptureTools.Catalogue.SolidWorks.ValidateSolid import ValidateSolid
+from CaptureTools.Catalogue.Recipes.RecipeRegistry import KRecipeBuilders
 
 
 # native measurements need immutable archive and independent process witnesses before admission
@@ -25,6 +26,19 @@ def VerifySolid(CaseValue, OutputDirectory):
     Receipt = loads((RecipePath / "receipt.json").read_bytes())
     Measurements = (RecipePath / "measurements.json").read_bytes()
     Report = loads(Measurements)
+    if "program" in CaseValue["options"] and (
+        Report["written_recipe_sha256"]
+        != CaseValue["options"]["program"]["recipe_sha256"]
+        or Report["specifications_sha256"]
+        != sha256(
+            (
+                Path(__file__).resolve().parents[3] / "FeatureRecipeSpecs.json"
+            ).read_bytes()
+        ).hexdigest()
+    ):
+        raise ValueError(
+            "SOLIDWORKS written recipe source differs from its native receipt"
+        )
     if (
         Receipt["recipe_id"] != RecipeKey
         or Receipt["errors"] != 0
@@ -113,7 +127,7 @@ def VerifySolid(CaseValue, OutputDirectory):
                 "SOLIDWORKS native archive differs from its accepted receipt"
             )
         Archives.append({**NativeFile, "path": str(NativePath)})
-    return {
+    Accepted = {
         "application": "solidworks",
         "case": CaseValue,
         "configuration_sha256": CasePin,
@@ -123,3 +137,11 @@ def VerifySolid(CaseValue, OutputDirectory):
         "native_owners": Owners,
         "native_lifetimes": Lifetimes,
     }
+    if "program" in CaseValue["options"]:
+        Descriptor = KRecipeBuilders[RecipeKey]
+        Accepted["recipe_scope"] = {
+            "supported_variants": list(Descriptor["supported_variants"]),
+            "unsupported_variants": list(Descriptor["unsupported_variants"]),
+            "all_written_variations_verified": not Descriptor["unsupported_variants"],
+        }
+    return Accepted

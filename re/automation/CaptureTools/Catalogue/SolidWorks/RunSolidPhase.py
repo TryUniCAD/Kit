@@ -13,7 +13,7 @@ from CaptureTools.Catalogue.SolidWorks.NativeSolidEnv import NativeSolidEnv
 
 
 # a dedicated job bounds native descendants without touching other application sessions
-def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName):
+def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName, IsBatch=False):
     from WindowsProcess import WindowsProcess
 
     SourceRoot = Path(__file__).resolve().parents[5]
@@ -41,6 +41,8 @@ def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName):
         "-Phase",
         PhaseName,
     ]
+    if IsBatch:
+        Command.append("-Batch")
     Environment = NativeSolidEnv(HostConfig)
     with (
         (OutputPath / (PhaseName + ".log")).open("xb") as Output,

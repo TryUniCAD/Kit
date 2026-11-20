@@ -7,10 +7,15 @@
 # to you under it immediately and permanently.
 
 from CaptureTools.Catalogue.SolidWorks.CheckSolidShape import CheckSolidShape
+from CaptureTools.Catalogue.SolidWorks.CheckProgramReads import CheckProgramReads
+from CaptureTools.Catalogue.SolidWorks.ValidateSolid import ValidateSolid
 
 
 # every saved edit and variant needs an independently measured native reopen
 def CheckSolidReads(CaseValue, Observed):
+    CaseValue = ValidateSolid(CaseValue)
+    if "program" in CaseValue["options"]:
+        return CheckProgramReads(CaseValue, Observed)
     RecipeKey = CaseValue["recipe"]
     Params = CaseValue["parameters"]
     Options = CaseValue["options"]

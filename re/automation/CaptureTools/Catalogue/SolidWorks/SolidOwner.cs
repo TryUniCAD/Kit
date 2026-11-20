@@ -98,6 +98,18 @@ public static class SolidOwner
     public static void RunOwned(Process process, string executable, string repository,
         string output, string configuration, string phase)
     {
+        RunOwnedCore(process,executable,repository,output,configuration,phase,false);
+    }
+
+    public static void RunBatch(Process process, string executable, string repository,
+        string output, string configuration, string phase)
+    {
+        RunOwnedCore(process,executable,repository,output,configuration,phase,true);
+    }
+
+    static void RunOwnedCore(Process process, string executable, string repository,
+        string output, string configuration, string phase, bool batch)
+    {
         ISldWorks application=null;
         Exception failure=null;
         var record=new Dictionary<string,object> {
@@ -115,7 +127,8 @@ public static class SolidOwner
             if(!(bool)record["background_control"])
                 throw new InvalidOperationException("The owned application did not retain background lifetime control");
             application.Visible=false;
-            SolidWorksCapture.RunConfigured(application,repository,output,configuration,phase);
+            if(batch) SolidWorksCapture.RunBatch(application,repository,output,configuration,phase);
+            else SolidWorksCapture.RunConfigured(application,repository,output,configuration,phase);
         } catch(Exception error) {
             failure=error;
             record["failure"]=error.ToString();

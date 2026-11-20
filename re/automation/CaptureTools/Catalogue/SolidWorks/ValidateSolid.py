@@ -8,6 +8,8 @@
 
 from math import isfinite
 
+from CaptureTools.Catalogue.Recipes.CompileRecipe import CompileRecipe
+
 # the reviewed builders expose these driving quantities and no inferred controls
 KDefaultParams = {
     "P01": {"width_mm": 40, "height_mm": 20},
@@ -40,7 +42,7 @@ def ValidateSolid(CaseValue):
         raise ValueError("invalid SOLIDWORKS authoring case fields")
     RecipeKey = CaseValue.get("recipe")
     if not isinstance(RecipeKey, str) or RecipeKey not in KDefaultParams:
-        raise ValueError("SOLIDWORKS authoring requires a reviewed P01 to P05 recipe")
+        return CompileRecipe(CaseValue)
     Overrides = CaseValue.get("parameters", {})
     if (
         not isinstance(Overrides, dict)
