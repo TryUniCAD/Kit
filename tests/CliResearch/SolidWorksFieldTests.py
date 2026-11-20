@@ -219,3 +219,8 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
         and Row["display_text"] == "1.91"
         for Row in LengthGroup["samples"]
     )
+    Passes = LoadJson((Run / "Input-reader-passes.json").read_bytes())
+    assert Passes["input_sha256"] == Evidence["input_sha256"]
+    assert Passes["passes"] == []
+    assert Passes["stop"] == "no_verified_patch"
+    assert not (Run / "Reader.patch").exists()

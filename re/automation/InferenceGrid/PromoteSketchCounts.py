@@ -18,12 +18,13 @@ from InferenceInputs import read_file
 from InferenceGrid.SolidWorksPatternCounts import count_matches_parameter
 
 
-def promote_counts(root, source, scratch, env, document, evidence):
+def promote_counts(root, source, scratch, env, document, evidence, reader_root=None):
     keywords = evidence.get("keyword_evidence", {})
     rows = []
     additions = {}
     path = "src/convert/adapters/solidworks/Core/Native.py"
-    original = (root / path).read_text()
+    reader_root = root if reader_root is None else reader_root
+    original = (reader_root / path).read_text()
     updated = original
     sketches = keywords.get("pattern_counts", [])
     if sketches and all(row["keyword_count_matches"] for row in sketches):
@@ -50,14 +51,20 @@ def promote_counts(root, source, scratch, env, document, evidence):
     if not rows:
         return None
     stage = scratch / "pattern-candidate"
-    shutil.copytree(root / "src", stage / "src", ignore=shutil.ignore_patterns("__pycache__"))
+    shutil.copytree(reader_root / "src", stage / "src", ignore=shutil.ignore_patterns("__pycache__"),
+                    copy_function=shutil.copy2 if reader_root == root else os.link)
+    (stage / path).unlink()
     (stage / path).write_text(updated)
     output = stage / "decoded.json"
     result = subprocess.run([sys.executable, "-m", "KitCli", "decode", str(source), "--from", "solidworks.sldprt",
-                             "-o", str(output)], cwd=stage, env={**env, "PYTHONPATH": os.pathsep.join(map(str, (stage / "src", root / "Cli")))},
+                             "-o", str(output)], cwd=stage, env={**env, "PYTHONDONTWRITEBYTECODE": "1", "PYTHONPATH": os.pathsep.join(map(str, (stage / "src", root / "Cli")))},
                             capture_output=True, timeout=180)
     if result.returncode:
-        return None
+        if result.returncode == 1 and result.stderr.lstrip().startswith(b"{"):
+            error = json.loads(result.stderr)
+            if error.get("error") and "message" in error:
+                return None
+        result.check_returncode()
     replay = json.loads(read_file(output, 128 * 1024 * 1024))["document"]
     if replay["source"] != document["source"] or replay["source"]["sha256"] != evidence["input_sha256"]:
         return None

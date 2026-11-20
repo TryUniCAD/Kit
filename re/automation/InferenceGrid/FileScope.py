@@ -122,15 +122,8 @@ def file_scope(path, application, scratch, root):
         from InferenceGrid.SolidWorksDimensionEvidence import dimension_evidence
         reports["dimension-evidence"] = dimension_evidence(root, source, pin, document)
         if "strict" in reports:
-            from InferenceGrid.PromoteMirroredFields import promote_fields
-            discovery = reports["dimension-evidence"].get("discovered_feature_fields")
-            field_patch = promote_fields(root, source, scratch, env, document, discovery)
-            if field_patch:
-                reports["mirrored-field-reader"] = field_patch
-            from InferenceGrid.PromoteSketchCounts import promote_counts
-            promotion = promote_counts(root, source, scratch, env, document, reports["dimension-evidence"])
-            if promotion:
-                reports["pattern-count-reader"] = promotion
+            from InferenceGrid.ReaderPass import reader_passes
+            reports.update(reader_passes(root, source, scratch, env, document, reports["dimension-evidence"]))
     if "native" in reports:
         from InferenceGrid.BodyCorrespondence import capture_names
         reports["body-correspondence"] = capture_names(root, pin, source.stat().st_size, reports["native"])

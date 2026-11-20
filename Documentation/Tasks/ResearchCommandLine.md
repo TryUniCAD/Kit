@@ -261,3 +261,5 @@ For unresolved SOLIDWORKS features, inspect `discovered_feature_fields` in `Inpu
 For repeated SOLIDWORKS diameters, inspect the owning sketch, scalar offset, and measured center and rim in [sketch dimension evidence](../Changes/Research/Inference/SolidWorksProfileDimensionEvidence.md). Rounded angles can also report a verified mirror with its exact reader offset.
 
 For dimensions with repeated values across different features, [owner anchors](../Changes/Research/Inference/SolidWorksOwnerAnchors.md) record the independently observed relationship used to select a source span.
+
+When a SOLIDWORKS run generates multiple reader changes, apply the cumulative `Reader.patch` to its recorded base. The [successive reader passes](../Changes/Research/Inference/SuccessiveReaderPasses.md) report shows which parameters each pass verified.

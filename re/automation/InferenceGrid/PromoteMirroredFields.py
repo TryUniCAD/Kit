@@ -19,7 +19,7 @@ from InferenceGrid.SolidWorksFieldDiscovery import native_parameter_matches
 from InferenceInputs import read_file
 
 
-def promote_fields(root, source, scratch, env, document, discovery):
+def promote_fields(root, source, scratch, env, document, discovery, reader_root=None):
     if not discovery or not discovery["predictions"]:
         return None
     rows = discovery["predictions"]
@@ -31,20 +31,27 @@ def promote_fields(root, source, scratch, env, document, discovery):
     if not additions:
         return None
     path = "src/convert/adapters/solidworks/Core/BindMirroredField.py"
-    original = (root / path).read_text()
+    reader_root = root if reader_root is None else reader_root
+    original = (reader_root / path).read_text()
     start = original.index(" = {", original.index("KMirroredFields:")) + 3
     end = original.index("\n\n", start)
     lines = [f"    {key!r}: {offsets!r}," for key, offsets in sorted((KMirroredFields | additions).items())]
     updated = original[:start] + "{\n" + "\n".join(lines) + "\n}" + original[end:]
     stage = scratch / "field-rule-candidate"
-    shutil.copytree(root / "src", stage / "src", ignore=shutil.ignore_patterns("__pycache__"))
+    shutil.copytree(reader_root / "src", stage / "src", ignore=shutil.ignore_patterns("__pycache__"),
+                    copy_function=shutil.copy2 if reader_root == root else os.link)
+    (stage / path).unlink()
     (stage / path).write_text(updated)
     output = stage / "document.json"
     result = subprocess.run([sys.executable, "-m", "KitCli", "decode", str(source), "--from", "solidworks.sldprt", "-o", str(output)],
-                            cwd=stage, env={**env, "PYTHONPATH": os.pathsep.join(map(str, (stage / "src", root / "Cli")))},
+                            cwd=stage, env={**env, "PYTHONDONTWRITEBYTECODE": "1", "PYTHONPATH": os.pathsep.join(map(str, (stage / "src", root / "Cli")))},
                             capture_output=True, timeout=180)
     if result.returncode:
-        return None
+        if result.returncode == 1 and result.stderr.lstrip().startswith(b"{"):
+            error = json.loads(result.stderr)
+            if error.get("error") and "message" in error:
+                return None
+        result.check_returncode()
     replay = json.loads(read_file(output, 128 * 1024 * 1024))["document"]
     if replay["source"] != document["source"] or replay["source"]["sha256"] != discovery["input_sha256"]:
         return None
