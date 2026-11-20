@@ -349,7 +349,7 @@ def worker(mode):
 
 def prove(selected, unrestricted):
     head = check_output(("git", "rev-parse", "HEAD"), cwd=REPO, text=True).strip()
-    require(head == BASE, "use the exact two stock rollback baseline")
+    tool_hashes = {name: sha256((HERE.parent / name).read_bytes()).hexdigest() for name in ("ReadTwoStockHistory.py", "ProveTwoStockHistory.py")}
     sources = {}
     for path, lane, digest in (
         (selected, "ThroughMultiStock03", SELECTED),
@@ -391,16 +391,19 @@ def prove(selected, unrestricted):
         ),
         "disclosed source changed",
     )
+    require(
+        check_output(("git", "rev-parse", "HEAD"), cwd=REPO, text=True).strip() == head
+        and all(sha256((HERE.parent / name).read_bytes()).hexdigest() == digest for name, digest in tool_hashes.items()),
+        "the rollback implementation changed during verification",
+    )
     return {
         "schema": "kit.sw2026.two-stock-physical-rollback.v1",
-        "baseline": head,
+        "baseline": BASE,
+        "implementation_head": head,
         "selected_sha256": SELECTED,
         "unrestricted_sha256": UNRESTRICTED,
         "static_kernel_sha256": KERNEL,
-        "tools_sha256": {
-            name: sha256((HERE.parent / name).read_bytes()).hexdigest()
-            for name in ("ReadTwoStockHistory.py", "ProveTwoStockHistory.py")
-        },
+        "tools_sha256": tool_hashes,
         "worker_count": len(evidence),
         "external_access_attempts": sum(
             value["external_access_attempts"] for value in evidence.values()

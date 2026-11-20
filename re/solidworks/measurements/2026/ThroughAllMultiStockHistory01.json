@@ -517,12 +517,13 @@
   "external_access_attempts": 0,
   "generated_files": 0,
   "heldout_sources": 0,
+  "implementation_head": "6b7039429a6efe9377b6320774ae5b3d40ff9130",
   "native_processes_run": 0,
   "schema": "kit.sw2026.two-stock-physical-rollback.v1",
   "selected_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
   "static_kernel_sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
   "tools_sha256": {
-    "ProveTwoStockHistory.py": "449d7c3211766cdd6c2b4b295862fd219ff448795ffcfb0cdfcfa34e766f080a",
+    "ProveTwoStockHistory.py": "0c37ed8d731f6cb723d920928faf89665c3860e4112da68deeab005fa0542c3e",
     "ReadTwoStockHistory.py": "42f7d6f1f1a9b77a134a46fa5230629879791cdef3ae4a1bd74a107a64a8f46f"
   },
   "unrestricted_sha256": "f87568db0dfa361ea44c42def01063c8ed07ea57c8270098cf3c60995e3e3b22",
