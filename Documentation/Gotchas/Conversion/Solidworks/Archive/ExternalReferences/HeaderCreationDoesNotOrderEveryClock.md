@@ -6,4 +6,4 @@ They are a narrower construction policy. In SOLIDWORKS 2026, `setCreationTime` c
 
 Preserve each actual typed owner when reading. For new output, retain current admission guards until independently chosen split-clock candidates have controlled native evidence. Do not replace an origin's actual creation event with the header or version-history clock, or turn a saved example into a default.
 
-The [source epoch record](../../../../../../re/solidworks/records/DrawingSourceEpochOwnership2026.md) binds the native functions, disclosed observations and remaining caller gaps. The [sentinel-year gotcha](../../HeaderModificationTimeHasSentinelYear.md) covers that repair separately.
+The [source epoch record](../../../../../../re/solidworks/records/DrawingSourceEpochOwnership2026.md) binds the native functions, disclosed observations and remaining caller gaps. The [sentinel-year gotcha](../Header/HeaderModificationTimeHasSentinelYear.md) covers that repair separately.

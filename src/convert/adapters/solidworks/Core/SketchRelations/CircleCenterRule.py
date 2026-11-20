@@ -2,7 +2,7 @@ from math import isclose as IsClose
 from struct import Struct as RecordStruct
 
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
-from convert.adapters.solidworks.Core.LinearSketchOwner import KEntityIdentity
+from convert.adapters.solidworks.Core.NativeRecords.LinearSketchOwner import KEntityIdentity
 from convert.adapters.solidworks.Core.SketchRelations.DimensionFields import (
     RadialAnchor,
     ReadFixedMut,

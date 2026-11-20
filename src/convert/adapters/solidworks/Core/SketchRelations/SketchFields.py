@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
 from convert.adapters.solidworks.Archive.Reading.ReadNativeTag import ReadTagMut
 from convert.adapters.solidworks.Archive.Reading.ReadTypeDescMut import ReadTypeDescMut
-from convert.adapters.solidworks.Core.LinearSketchOwner import (
+from convert.adapters.solidworks.Core.NativeRecords.LinearSketchOwner import (
     KEntityIdentity,
     KOrdinaryEntity,
 )

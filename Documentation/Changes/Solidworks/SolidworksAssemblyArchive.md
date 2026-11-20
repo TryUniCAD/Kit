@@ -4,9 +4,9 @@ The research archive codec now registers typed 2026 assembly, configuration, com
 
 Use `re/tooling/sw2026/serial/RoundTrip.py` with an assembly glob and explicit stream names in remote CI. `tests/Convert/Solidworks/Research/AssemblyRoundTests.py` invokes that command as a subprocess and requires identical output with no unread tail for 14 streams across the two committed assembly parser controls.
 
-The [field and evidence finding](../../../re/solidworks/records/AssemblyArchive2026.md) records native module hashes, serializer addresses, field order, variable record boundaries, and unresolved branches. [Decompiler type ownership](../../Gotchas/Conversion/Solidworks/AssemblyDecompilerTypes.md) explains why inferred parameter types cannot identify the registered class by themselves.
+The [field and evidence finding](../../../re/solidworks/records/AssemblyArchive2026.md) records native module hashes, serializer addresses, field order, variable record boundaries, and unresolved branches. [Decompiler type ownership](../../Gotchas/Conversion/Solidworks/Assembly/AssemblyDecompilerTypes.md) explains why inferred parameter types cannot identify the registered class by themselves.
 
-[Condition-bit mutations](../../Gotchas/Conversion/Solidworks/AssemblyConditionBits.md) records the native add/remove sequence used by a config-object list; it clears the named bit rather than restoring a previous mask.
+[Condition-bit mutations](../../Gotchas/Conversion/Solidworks/Assembly/AssemblyConditionBits.md) records the native add/remove sequence used by a config-object list; it clears the named bit rather than restoring a previous mask.
 
 [Configuration child lists](../../Gotchas/Conversion/Solidworks/Archive/ConfigurationConceptChildList.md) records the constructor predicate behind a fieldless resolved dispatch. The second remote run passed 12 of 14 streams, including exact CMgr reproduction for both controls. Resolved features now reach a missing component-history record; its native node-base and pointer grammar is recovered, with a read-only archive context guard.
 

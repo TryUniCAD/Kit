@@ -77,7 +77,7 @@ The CLI preserves stale-lease status `3` and the controller's integrity checks.
 
 ## Run configured sessions
 
-Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/ResearchSupervisor.md).
+Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](../Reference/Research/ResearchSupervisor.md).
 Use only trusted configuration and runner programs.
 
 ```sh
@@ -98,9 +98,56 @@ Supervisor contention retains status `4`.
 
 No production decode runner or model-provider registry is supplied by this bridge.
 Models remain disabled by default.
-Optional Codex/Claude runners, escalation, budgets, and private-data controls remain A10 work under the plan's authorization rules.
+To request GPT-6.2-Sol advice automatically on inference stalls, add `--codex-on-stall` to the supervisor's `run` command. See [automatic decoder advice](../Changes/Research/Advice/AutomaticDecoderAdvice.md).
+
+The separate [Codex advice command](../Changes/Research/Advice/CodexFallback.md) can watch an approved parked inference job.
+It uses the local Codex login and writes proposals for independent verification.
 Application workers remain separate isolated research oracles.
 See [session output lifetime](../Gotchas/Research/SupervisorSessionOutputLifetime.md) before implementing a persistent decode runner.
+
+## Run a CAD catalogue with optional advice
+
+Use a clean checkout with the catalogue runner and install Kit from that revision with
+`uv tool install --python 3.14 .`. Obtain [Fusion Catalog.sqlite](https://github.com/TryUniCAD/Kit/pull/163)
+or [SOLIDWORKS FeaturePlan.json](https://github.com/TryUniCAD/Kit/pull/164).
+Choose an unused output directory outside the checkout.
+
+```sh
+kit run --root . fusion --catalogue /path/to/Catalog.sqlite --directory /tmp/KitFusionRun --advisor codex
+kit run --root . solidworks --catalogue /path/to/FeaturePlan.json --directory /tmp/KitSolidworksRun --advisor codex
+```
+
+| Options                                       | What runs                                                                        |
+| --------------------------------------------- | -------------------------------------------------------------------------------- |
+| `--advisor codex --auth login`                | Installed Codex CLI with saved sign-in. Run `codex login` first if needed.       |
+| `--advisor claude --auth login`               | Installed Claude Code CLI with saved sign-in. Sign in through Claude Code first. |
+| `--advisor codex --auth api`                  | Installed Codex CLI with `CODEX_API_KEY` or `OPENAI_API_KEY`.                    |
+| `--advisor claude --auth api`                 | Installed Claude Code CLI with `ANTHROPIC_API_KEY`.                              |
+| `--advisor ollama --auth local --model MODEL` | Ollama at `127.0.0.1:11434` with an installed local model.                       |
+
+Cloud providers default to login mode. The installed CLI selects the model unless you supply `--model`.
+For Ollama, start the server with `OLLAMA_NO_CLOUD=1` and supply an installed model tag.
+Omit `--advisor` to run deterministic research alone. Advice requires macOS or Linux.
+Use `--advice-calls N` to set the limit for the batch. The default is four calls.
+
+Kit reserves 4096 MiB of available memory for the system during the offline stage by default.
+Use `--reserved-memory-mib 1024` to reserve 1 GiB, or `--reserved-memory-mib 0` for zero reserve.
+An explicit value applies to every supervisor stage started by this batch.
+Kit still requires enough available memory for each worker's estimated demand.
+
+Kit automatically runs independent offline jobs in parallel when memory and CPU are available.
+Use `--workers N` to cap the number of offline workers.
+Set `--workers 1` for a serial offline run. Native CAD workers follow their own supervisor configuration.
+
+With a configured native worker, a reviewed capture can start while independent offline jobs run.
+The capture still needs its prerequisite assessment and a licensed application session.
+Once the application owner has prepared its worker, use `--native-ready` to allow dispatch.
+See the [catalogue native handoff](../Changes/Research/Controller/DeterministicInference.md#run-both-complete-catalogue-inventories).
+
+Read `CatalogueResult.json` for completed and blocked entries. Exit status 2 means coverage remains incomplete.
+Read `State/decoder-advice/<receipt>/Advice.json` for suggestions produced during the offline batch stage.
+A suggestion requires an independently checked experiment before it can become a decoder rule.
+Use `kit run --root . fusion --help` for all options.
 
 ## Keep the interfaces distinct
 
@@ -132,12 +179,13 @@ Conversion and inspection do not import its process launcher dependencies.
 | Runner unavailable                | Configure an implemented runner or retain the blocked prerequisite |
 
 Tests execute only in remote CI.
+The Linux and Windows [compatibility jobs](../Changes/Commands/ResearchCandidateCompatibility.md) install the CLI from the workflow candidate and select a separate research checkout at the same revision.
 See [the change record](../Changes/Research/DeterministicResearchCli.md) for compatibility coverage and limits.
 
 ## Related information
 
 - [General CLI](CommandLine.md)
-- [Research plan](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/AutomationPlan.md)
-- [Step register](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/AutomationSteps.md)
-- [SOLIDWORKS reader](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/SolidworksResearchReader.md)
-- [Fusion reader](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/FusionResearchReader.md)
+- [Research plan](../Reference/Research/AutomationPlan.md)
+- [Step register](../Reference/Research/AutomationSteps.md)
+- [SOLIDWORKS reader](../Reference/Research/SolidworksResearchReader.md)
+- [Fusion reader](../Reference/Research/FusionResearchReader.md)

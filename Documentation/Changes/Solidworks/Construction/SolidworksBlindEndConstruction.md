@@ -12,7 +12,7 @@ It validates concrete classes, live values, local handles and distinct dimension
 The caller supplies the dimension, display, style, feature and history graphs.
 The caller also allocates the actual dimension IDs through its header allocator.
 The transient `D19` graph remains required even when its branch emits no display bytes.
-See the [identity rule](../../../Gotchas/Conversion/Solidworks/DimensionAndParameterIds.md)
+See the [identity rule](../../../Gotchas/Conversion/Solidworks/Model/Dimensions/DimensionAndParameterIds.md)
 and [transient-dimension rule](../../../Gotchas/Conversion/Solidworks/TransientDimensionsConsumeIds.md).
 
 The primitive reads no file, source saved bytes or research data.

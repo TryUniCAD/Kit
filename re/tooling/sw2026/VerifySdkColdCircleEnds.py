@@ -356,8 +356,13 @@ def existing_routes():
     def observe(key, tool, data, exit_code=0, args=()):
         current = call(tool, (ROOT, "read", *args), data, exit_code)
         previous = old[key]["result"]
-        require({k: v for k, v in current.items() if k != "source_module_reads"} ==
-                {k: v for k, v in previous.items() if k != "source_module_reads"},
+        observed = {k: v for k, v in current.items() if k != "source_module_reads"}
+        if key == "Compatpocketcandidate":
+            require(observed.pop("support_source") == "plane-reference" and
+                    observed["document_sha256"] != previous["document_sha256"],
+                    "the attached cut did not add its new support provenance")
+            observed["document_sha256"] = observed.pop("prior_shape_sha256")
+        require(observed == {k: v for k, v in previous.items() if k != "source_module_reads"},
                 key + " changed an existing process observation")
         results[key] = current
     circle = "ProbeColdCircleRead.py"
@@ -371,7 +376,8 @@ def existing_routes():
     legacy = "ProbeColdCircleLegacy.py"
     for kind in ("prism", "pocket", "revolve"):
         control = call(legacy, (ROOT, "input", "--kind", kind))
-        observe("Compat" + kind + "candidate", legacy, control)
+        observe("Compat" + kind + "candidate", legacy, control,
+                args=("--compare-pocket-support",) if kind == "pocket" else ())
     return results
 
 

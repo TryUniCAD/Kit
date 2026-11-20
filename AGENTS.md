@@ -19,6 +19,8 @@ key boundaries with the REA MCP server or the `npx rea-agents` CLI, generating a
 of extreme models through the vendor API, correlating that corpus to locate every field, and only
 then building the writer. Put both documents in every sub-agent brief for CAD work.
 
+For decoding challenges, agents MUST use the research automation pipeline for supported capture, deterministic comparison, inference and evidence tracking. Investigate unresolved findings and implement decoder rules from the recorded evidence. Validate changes through deterministic checks; a detected pattern alone is not a proven rule. Report missing automation capabilities explicitly
+
 ## Documentation and gotchas
 
 Read the [completion roadmap](Roadmap.md) and [conversion backlog](Documentation/Maintenance/ConversionBacklog.md)

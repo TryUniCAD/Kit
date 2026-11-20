@@ -79,6 +79,15 @@ the changes with the original dependency IDs and Fusion archive bytes. In
 the product control, changing the width to 8 mm produced 21 mm. After
 re-export, changing the scalar to 3.25 produced 27 mm.
 
+Validated native sketch dimensions can establish a bound parameter's driving role.
+The document reader promotes uniquely used distance, axis-distance, radius, and
+diameter parameters only when the typed dimension binding and source driving
+flag validate. Reference, shared, unsupported, ambiguous, and dimension-diagnostic
+cases remain reference parameters; angular promotion remains unqualified.
+The [linear-role change](../../../Documentation/Changes/Fusion/Adapter/FusionLinearDrivingRoles.md)
+and [native decoder/codec controls](../../../tests/Convert/Api/Fusion/Native/DimensionRoleTests.py)
+record the P01/P03 discovery evidence without claiming A06b qualification.
+
 ## Numeric parameter field map
 
 This map covers the payload of native class
@@ -87,19 +96,19 @@ Offsets start at the numeric body, four bytes after the SDK's
 `RecordSpan.PayloadOffset`. Integers and binary64 values are little-endian. A counted string has a 4-byte unsigned UTF-16 code
 unit count followed by twice that many bytes of UTF-16LE text.
 
-| Field                  | Byte offset              | Width in bytes | Type           | Interpretation                                                                                         |
-| ---------------------- | ------------------------ | -------------: | -------------- | ------------------------------------------------------------------------------------------------------ |
-| Header                 | 0                        |             12 | bytes          | Seven zero bytes, `06`, then four zero bytes.                                                          |
-| Comment                | 12                       |       variable | counted string | May be empty. The reader accepts CR, LF and TAB here.                                                  |
-| Native parameter index | End of comment           |              4 | u32            | Stored index compared with the binding index for bound parameters.                                     |
-| Binding reference      | End of index             |        1 or 11 | tagged field   | `00` for an unbound user parameter. A bound parameter stores `01`, a u64 object ID and two zero bytes. |
-| Expression             | End of binding reference |       variable | counted string | Saved expression text.                                                                                 |
-| Numeric metadata       | `M`, end of expression   |       10 or 11 | bytes          | See the layout comparison below.                                                                       |
-| Role                   | `M + 10` or `M + 11`     |       variable | counted string | For example, a feature binding role or `User Parameter`.                                               |
-| Reserved text          | End of role              |              4 | counted string | Empty for numeric records.                                                                             |
-| Display unit           | End of reserved text     |       variable | counted string | Display label such as `mm` or `deg`.                                                                   |
-| Parameter name         | End of display unit      |       variable | counted string | Stored parameter identifier.                                                                           |
-| Cached value           | End of name              |              8 | binary64       | Finite value. Lengths use centimetres, angles use radians, and scalars are unitless.                   |
+| Field                  | Byte offset              | Width in bytes | Type            | Interpretation                                                                                           |
+| ---------------------- | ------------------------ | -------------: | --------------- | -------------------------------------------------------------------------------------------------------- |
+| Header                 | 0                        |             12 | bytes           | Seven zero bytes, `06`, then four zero bytes.                                                            |
+| Comment                | 12                       |       variable | counted string  | May be empty. The reader accepts CR, LF and TAB here.                                                    |
+| Native parameter index | End of comment           |              4 | u32             | Stored index compared with the binding index for bound parameters.                                       |
+| Binding reference      | End of index             |        1 or 11 | tagged field    | `00` for an unbound user parameter. A bound parameter stores `01`, a u64 object ID and two zero bytes.   |
+| Expression             | End of binding reference |       variable | counted string  | Saved expression text.                                                                                   |
+| Numeric metadata       | `M`, end of expression   |       10 or 11 | bytes           | See the layout comparison below.                                                                         |
+| Role                   | `M + 10` or `M + 11`     |       variable | counted string  | For example, a feature binding role or `User Parameter`.                                                 |
+| Reserved text          | End of role              |              4 | counted string  | Empty for numeric records.                                                                               |
+| Display unit           | End of reserved text     |       variable | counted string  | Display label such as `mm` or `deg`.                                                                     |
+| Parameter name         | End of display unit      |       variable | counted string  | Stored parameter identifier.                                                                             |
+| Cached value           | End of name              |              8 | binary64        | Finite value. Lengths use centimetres, angles use radians, and scalars are unitless.                     |
 | Collection footer      | End of cached value      |             12 | local reference | Zero separator, `01`, owning collection u64, and two zero bytes. Collection 16 is common, not mandatory. |
 
 | Metadata field  | Byte offset | Width in bytes | Type  | 10-byte layout                                                                     | 11-byte layout                                      |

@@ -26,7 +26,7 @@ The deep typed read of each disclosed native part gives the same plane ID as its
 | Generated Top polygon | 18 → 15 | 6990 within `[5379, 7163)` | `2592000`, explicit Top basis |
 | Generated Right polygon | 18 → 16 | 6990 within `[5379, 7163)` | `2592000`, explicit Right basis |
 
-The two independently authored parts had previously used the Front plane as a stream-order fallback. The generated Top and Right parts produced the same wrong association even after both XML role labels were corrected. The fixed public `open_document(include_brep=False, include_tessellation=False)` returns the archived plane IDs and validates on all three freshly generated canonical-role cases and both vendor parts. [Disclosed authoring manifest](../v2026/corpus/curves-discovery/Manifest.json) and [public reader regression](../../../tests/Convert/Solidworks/Core/SolidworksPrincipalTests.py).
+The two independently authored parts had previously used the Front plane as a stream-order fallback. The generated Top and Right parts produced the same wrong association even after both XML role labels were corrected. The fixed public `open_document(include_brep=False, include_tessellation=False)` returns the archived plane IDs and validates on all three freshly generated canonical-role cases and both vendor parts. [Disclosed authoring manifest](../v2026/corpus/curves-discovery/Manifest.json) and [public reader regression](../../../tests/Convert/Solidworks/Core/Readers/SolidworksPrincipalTests.py).
 
 Two in-memory negative probes through the native model decoder duplicated a complete candidate within one D17 sketch span and changed its axis kind while preserving its actual plane ID. The decoder rejected both inputs with the expected ambiguity and frame disagreement errors.
 

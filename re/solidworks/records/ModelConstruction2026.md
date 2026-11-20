@@ -335,7 +335,7 @@ update call at `0x4c1c88ba`, conditional on its update work and prior status.
 These paths explain why visible-feature counts cannot determine either counter.
 No fixed increment count is inferred for fresh generation.
 See [initial update normalization](../../../Documentation/Gotchas/Conversion/Solidworks/InitialUpdateStampIsNormalized.md)
-and [the header clock](../../../Documentation/Gotchas/Conversion/Solidworks/HeaderClockIsWallTime.md).
+and [the header clock](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Header/HeaderClockIsWallTime.md).
 
 The parent-owned native authoring observation `polygon-api-authoring.json`
 has SHA-256 `1561ff585126fe22975aec7ecdcf8fe07c92059bbf214c6e46c83aaf3ee2928d`.

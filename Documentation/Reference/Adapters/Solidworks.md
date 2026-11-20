@@ -277,6 +277,11 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The bounded lightweight material reader handles the part hatch, optional
+density parameter, model data with an absent scene and empty body visual
+counts. Each concrete owner retains its actual archive slot.
+[Lightweight material scope](../../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
 of the lightweight section, it inserts the original header objects

@@ -89,7 +89,7 @@ The primitive checks assigned and distinct IDs; the shared scalar serializer
 retains the field-width domain checks for those caller-owned values.
 The parameter's `f08` remains unassigned. The from-end type must be zero and its
 retained display must carry the actual zero-valued `D19` graph.
-See [dimension identities](../../../Documentation/Gotchas/Conversion/Solidworks/DimensionAndParameterIds.md)
+See [dimension identities](../../../Documentation/Gotchas/Conversion/Solidworks/Model/Dimensions/DimensionAndParameterIds.md)
 and [omitted dimensions](../../../Documentation/Gotchas/Conversion/Solidworks/TransientDimensionsConsumeIds.md).
 
 ## Process integration and proof boundary

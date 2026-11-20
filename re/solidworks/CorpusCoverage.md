@@ -141,6 +141,11 @@ request and after an edit moved the other solid into the tool. The edited
 solid remained intact in both lifecycles. The explicit authoring arm
 failed at creation and the trial contributes zero benchmark conversions.
 
+The [two-stock writer source lock](v2026/heldout/TwoStockWriterSourceLock01.json)
+pins two independent 2026-authored source parts ahead of writer
+implementation. Both controls and both source edit lifecycles passed.
+The generated-output total remains zero for this lock.
+
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,
 save and reopen across 14 processes. Strict SDK readback reaches 20

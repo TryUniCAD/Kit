@@ -77,7 +77,7 @@ The complete native part graph and target acceptance remain unfinished.
 Constructor seeds do not prove that an application save accepts a neutral cache.
 The production adapter stays read-only.
 The [configuration id gotcha](../../../Gotchas/Conversion/Solidworks/ConfigurationIdsAreLocal.md)
-and [plane-wrapper gotcha](../../../Gotchas/Conversion/Solidworks/PlaneWrapperGeometry.md)
+and [plane-wrapper gotcha](../../../Gotchas/Conversion/Solidworks/Model/Planes/PlaneWrapperGeometry.md)
 describe separate graph constraints.
 The [transform schema gotcha](../../../Gotchas/Conversion/Solidworks/ProvisionalTransformFieldNames.md)
 records the active registry vocabulary found by remote construction.
@@ -85,7 +85,7 @@ The [folder timestamp gotcha](../../../Gotchas/Conversion/Solidworks/FolderFeatu
 describes the separate native feature-constructor variant.
 The [test helper gotcha](../../../Gotchas/Ci/ProcessChecks/CheckPrefixCollectsTests.md) records the
 repository's additional pytest collection prefix.
-The [dimension id gotcha](../../../Gotchas/Conversion/Solidworks/DimensionAndParameterIds.md)
+The [dimension id gotcha](../../../Gotchas/Conversion/Solidworks/Model/Dimensions/DimensionAndParameterIds.md)
 records the header allocator's separate object-field binding for feature dimensions.
 The [transient dimension gotcha](../../../Gotchas/Conversion/Solidworks/TransientDimensionsConsumeIds.md)
 explains why a native object omitted by storage can still advance that allocator.
@@ -101,9 +101,9 @@ The [system-folder binding gotcha](../../../Gotchas/Conversion/Solidworks/System
 records the model's required pointer relationships and the shared-stream alias.
 The [initial update gotcha](../../../Gotchas/Conversion/Solidworks/InitialUpdateStampIsNormalized.md)
 records the native loader's separate counter fixup.
-The [header clock gotcha](../../../Gotchas/Conversion/Solidworks/HeaderClockIsWallTime.md)
+The [header clock gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Header/HeaderClockIsWallTime.md)
 records wall time behind the misleading vendor method name.
-The [modification-time gotcha](../../../Gotchas/Conversion/Solidworks/HeaderModificationTimeHasSentinelYear.md)
+The [modification-time gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Header/HeaderModificationTimeHasSentinelYear.md)
 records the conditional save-time sentinel rule.
 The [model offset gotcha](../../../Gotchas/Conversion/Solidworks/Model/ModelOffsetsAreTypeSpecific.md)
 records the boundary between shared model and concrete-root fields.

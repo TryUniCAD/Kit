@@ -58,6 +58,8 @@ def CircleSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
         attributes={
             "native_object_id": SketchValue.object_id,
             "support_plane_native_id": SketchValue.support_plane_id,
+            "support_plane_source": SketchValue.support_source,
+            "unframed_support_plane_native_id": SketchValue.unframed_support_plane_id,
             "native_profile_count": 1,
             "typed_archive_owner": CircleValue.OwnerValue,
         },

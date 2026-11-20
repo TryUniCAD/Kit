@@ -14,7 +14,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.AnnotationTablesF
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.AnnotationViewFields import (
     KAnnotationViewFields as KAnnotationViewRules,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.AssemblyFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Assemblies.AssemblyFields import (
     KAssemblyFields as KAssemblyRules,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.BaseAnnotationFields import (

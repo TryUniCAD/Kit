@@ -15,3 +15,5 @@
 re/solidworks/v2026/heldout/EndConditionSourceLock.json binary
 
 /re export-ignore
+
+re/automation/Corpus.json linguist-generated=true

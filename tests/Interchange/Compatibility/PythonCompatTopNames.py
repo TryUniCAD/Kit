@@ -96,6 +96,7 @@ KPythonCompatTopNames = (
     "DomeFeature",
     "ExtrusionEndCondition",
     "ExtrusionFeature",
+    "ScopedExtrusionFeature",
     "FeatureConfigurationState",
     "FeatureDefinition",
     "FeatureStep",

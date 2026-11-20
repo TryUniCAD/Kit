@@ -5,6 +5,11 @@ from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.registry.EquationWrite import CheckEquations
+from convert.adapters.registry.InchWrite import CheckInchWrite
+from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.registry.ResearchWrite import CheckResearch
+from convert.adapters.registry.SupportWrite import CheckSupports
 from convert.adapters.solidworks.Container.Format import KPartSuffix
 from convert.adapters.solidworks.Core.AssemblyWriting.CanWriteAsm import CanWriteAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.EmitAsmMut import EmitAsmMut
@@ -62,6 +67,11 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        CheckResearch(document)
+        CheckInchWrite(document)
+        CheckEquations(document)
+        CheckSupports(document)
+        CheckNative(document)
         if document.DrawingValue is not None:
             return EmitBlankMut(document, destination, options)
         if document.assembly is not None:
