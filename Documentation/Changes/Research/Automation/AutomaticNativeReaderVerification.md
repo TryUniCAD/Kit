@@ -60,7 +60,8 @@ An unavailable API returns setup instructions and leaves verification incomplete
 | `5`                | Native verification failed or its batch was invalid      |
 
 Direct research scripts retain offline decoding unless passed `--native-verify`.
-The launcher checks the selected reader's advertised options before forwarding that option.
+The launcher inspects the selected reader's declared parser options before forwarding that option.
+This bounded source inspection does not spawn a capability process or depend on terminal encoding.
 Older checkouts still decode their pinned inputs.
 They return status `4` after successful decoding and explicitly report that verification was not performed.
 Their existing artifacts and Fusion partial-result status remain intact.
