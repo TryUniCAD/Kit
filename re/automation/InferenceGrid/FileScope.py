@@ -121,6 +121,11 @@ def file_scope(path, application, scratch, root):
     if application == "solidworks" and suffix == ".sldprt" and reports.get("container", {}).get("members"):
         from InferenceGrid.SolidWorksDimensionEvidence import dimension_evidence
         reports["dimension-evidence"] = dimension_evidence(root, source, pin, document)
+        if "strict" in reports:
+            from InferenceGrid.PromoteSketchCounts import promote_counts
+            promotion = promote_counts(root, source, scratch, env, document, reports["dimension-evidence"])
+            if promotion:
+                reports["pattern-count-reader"] = promotion
     if "native" in reports:
         from InferenceGrid.BodyCorrespondence import capture_names
         reports["body-correspondence"] = capture_names(root, pin, source.stat().st_size, reports["native"])

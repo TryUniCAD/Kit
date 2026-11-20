@@ -2318,6 +2318,7 @@ def Parameters(
                             **(
                                 {KUnresolvedInchDimension: True}
                                 if Dimension.value_mm is None
+                                and Dimension.kind != "sketch_pattern_count"
                                 else {}
                             ),
                             "native_role": Dimension.native_role or "unresolved",
@@ -2347,6 +2348,8 @@ def Parameters(
 
 # this definition exists because focused behavior needs one stable owner
 def DimensionParam(Dimension: NativeDimension) -> ParamValue:
+    if Dimension.kind == "sketch_pattern_count" and Dimension.native_value is not None:
+        return ParamValue(int(Dimension.native_value), ValueKind.INTEGER)
     if Dimension.value_mm is None:
         if Dimension.inch_display_value is not None:
             return ParamValue(Dimension.inch_display_value, ValueKind.LENGTH, "in")
