@@ -177,6 +177,17 @@ evidence. Full configuration admission and write coverage have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
 
+### B04-SW2026-CONFIG-THREAD-MARK
+
+The PR #121 takeover team owns this bounded thread and mark read
+extraction on `codex/solidworks-config-thread-action` for separate main
+delivery after the configuration field-action slice. Exit requires
+the exact native record and map handoffs, guarded signed-word and
+invalid record cases, and current revision queue and review evidence.
+Populated thread maps and complete configuration support have separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
+
 ### B04-SW2026-CONFIG-CACHES
 
 The PR #121 takeover team owns the bounded part cache reader on

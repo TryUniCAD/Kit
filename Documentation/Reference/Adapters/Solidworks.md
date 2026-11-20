@@ -87,6 +87,12 @@ concrete virtual targets. The sketch map backlink retains the newly
 allocated manager's identity.
 [Configuration field action scope](../../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
 
+The same member reader accepts a concrete partition mark and an absent
+or empty thread reference manager. The archive slot and kernel mark ID
+remain separate. A present thread manager retains the signed wire word
+and its runtime Boolean.
+[Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
+
 The bounded version-19000 part cache reader keeps zero through two mass
 slots, each slot's atom rows and attached mass properties, and the
 signed trailer when two slots are stored. The measured bounds field
