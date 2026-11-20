@@ -20,9 +20,9 @@ Its one-file manifest SHA-256 is
 The delivered single production file
 [`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
-`9ecf11e86f0e101ec84bccc78e29c5351c917a61fcc31a829644eecf0bf233bd`
+`8f3db0df6487060a6f6f0acadf22edb8cc25d20caf6b4a181c6dc177cbe15d7b`
 and its one-file manifest SHA-256 is
-`bc773705e3d734a7e3e771bbf5954044b909728ba7a73b69db34cc91aecf1cab`.
+`0a2a0c2ab9f7b955ee6e3b2caef904dbe85ad208aa164f1e4aae1e1aecb77e67`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. Production imports use
 the Python standard library.
@@ -103,3 +103,13 @@ acceptance have separate exits.
 Scoped Black, Ruff, Mypy, Pyright and steering checks passed. The
 donor scan found no recorded payloads across 3,270 production
 sources. The fresh-process declarations were parsed as source.
+
+The first merge candidate failed strict Pyright on its runtime tag
+guard and dlint on the XML writer imports. The guard checks the
+runtime tag as an object because the element type annotation does not
+cover comments and processing instructions. The import exception
+covers only `QName` and `tostring`, which construct names and serialize
+an existing element tree. Scoped Pyright and dlint pass on the repair.
+[Pyright run](https://github.com/TryUniCAD/Kit/actions/runs/44710841579)
+[Scan job](https://github.com/TryUniCAD/Kit/actions/runs/44710841788/job/136201809268)
+[XML serialization gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordXmlScannerDistinguishesWriter.md)
