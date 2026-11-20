@@ -250,7 +250,7 @@ def IsProcessGone(ProcessId: int) -> bool:
     StatFile = FilePath(f"/proc/{ProcessId}/stat")
     try:
         StatText = StatFile.read_text(encoding="ascii")
-    except FileNotFoundError:
+    except (FileNotFoundError, ProcessLookupError):
         return FilePath("/proc/self/stat").is_file()
     return StatText[StatText.rindex(")") + 2] == "Z"
 
