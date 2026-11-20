@@ -400,3 +400,30 @@ jobs:
           for fields, count in changes.items():
               print(count, fields)
           PY
+
+  freecad-application:
+    name: Reopen editable exports in FreeCAD
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
+        with:
+          version: "0.12.5"
+      - run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+      - name: Install the FreeCAD command line application
+        run: |
+          sudo install -d -o "$USER" /opt/kit-freecad
+          "$CONDA/bin/conda" create --yes --override-channels --channel conda-forge --prefix /opt/kit-freecad freecad=1.0.2
+          ls /opt/kit-freecad/bin | rg -i '^freecad'
+      - name: Recompute save reopen and edit real documents
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          set -eu
+          app=$(find /opt/kit-freecad/bin -maxdepth 1 -iname freecadcmd -print -quit)
+          test -n "$app"
+          KIT_FREECAD_ORACLE="$app" /opt/kit-freecad/bin/python --version
+          KIT_FREECAD_ORACLE="$app" .venv/bin/python -m pytest -q -rs --tb=line tests/Convert/Freecad/{FusionAxisRevolveTests,FusionBodyRevTests,FusionEditTests,FusionPlaneRevolveTests,FusionRevolveTests,FusionScaleWriteTests,FusionSketchRuleTests,EditReadTests,ProfileReadTests,RingReadTests}.py
