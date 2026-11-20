@@ -63,3 +63,5 @@ Independent runs on the P04 boss-depth and cut-depth edits inferred subtraction 
 The SOLIDWORKS runner now searches for mutually unique matches between displayed dimensions in the keyword stream and named binary dimension records. It uses the feature ID only to check the reader's chosen span after matching.
 
 The engine-block run found 51 mutually unique keyword/binary matches. Repeated names and values left 52 ambiguous. The runner now measures a feature-order hypothesis using distinct other owners of the same kind. The connecting rod also exposed a string-valued end condition that interrupted file-driven routing; both string and enum representations are accepted.
+
+When a displayed positive whole number has no matching floating-point measurement, the decoder compares unsigned integer encodings at the learned named-field displacement. The report retains every matching width, byte order, and location as a hypothesis. A separate edit changing the number is needed to establish the field's meaning. Feature-order proposals now account for competing rows even when the competing row has multiple possible locations.

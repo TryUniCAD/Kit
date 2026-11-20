@@ -9,6 +9,7 @@
 from bisect import bisect_right
 from collections import Counter, defaultdict
 import math
+import struct
 
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames
 from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream, ParseDisplay
@@ -44,13 +45,14 @@ def ownership_hypotheses(rows, features, data, stream):
             continue
         owner = row["feature_id"]
         group = by_id[owner].kind
+        locations = row["candidate_locations"]
         if failures[group] or len(supports[group] - {owner}) < 2:
+            counts.update(locations)
             continue
-        matches = [location for location in row["candidate_locations"] if preceding(location) == owner]
-        if len(matches) != 1:
-            continue
-        proposals.append((row, matches[0]))
-        counts[matches[0]] += 1
+        matches = [location for location in locations if preceding(location) == owner]
+        counts.update(matches or locations)
+        if len(matches) == 1:
+            proposals.append((row, matches[0]))
     for row, location in proposals:
         if counts[location] == 1:
             row["proposed_owner_location"] = location
@@ -97,9 +99,22 @@ def keyword_evidence(streams, discovered, document):
             matches = [(r["stream"], r["offset"]) for r in candidates
                        if r["stream"] in (base, base + "-ResolvedFeatures") and
                        math.isclose(r["system_value"], expected, rel_tol=1e-12, abs_tol=tolerance)]
+            integer_candidates = []
+            if not matches and dim.source_text.strip().isascii() and dim.source_text.strip().isdecimal() and 0 < dim.value_mm < 2**32 and dim.value_mm.is_integer():
+                for record in candidates:
+                    stream, offset = record["stream"], record["offset"]
+                    if stream not in (base, base + "-ResolvedFeatures"):
+                        continue
+                    data = streams[stream]
+                    formats = [fmt for fmt in ("<B", "<H", "<I", "<Q", ">H", ">I", ">Q")
+                               if struct.unpack_from(fmt, data, offset)[0] == dim.value_mm]
+                    if formats:
+                        integer_candidates.append({"stream": stream, "offset": offset, "formats": formats})
             uses.update(matches)
             rows.append({"feature_id": feature.object_id, "feature": feature.name, "name": dim.name,
                          "display_text": dim.source_text, "candidate_locations": matches})
+            if integer_candidates:
+                rows[-1]["integer_encoding_hypotheses"] = integer_candidates
     counts = Counter()
     for row in rows:
         locations = row["candidate_locations"]
