@@ -17,6 +17,7 @@ from typing import TypeGuard
 
 import xml.etree.ElementTree as XmlTree  # noqa: DUO107
 import zipfile as Zipfile
+from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchFeature
 from convert.adapters.base import (
     AdapterInfo,
     CarrierReason,
@@ -444,11 +445,34 @@ def HasExtrudeShape(DocValue: CadDocument, Feature: FeatureStep) -> bool:
     )
 
 
+# verified native sketch steps are realized by the emitted editable sketch and its solver rows
+def HasSketchOutput(
+    DocValue: CadDocument, Feature: FeatureStep, SketchNative: Mapping[str, bool]
+) -> bool:
+    Origin = Feature.provenance
+    return (
+        Feature.definition is None
+        and Feature.operation is None
+        and Origin is not None
+        and Origin.adapter == "fusion.f3d"
+        and any(SpanValue.record_kind == KSketchFeature for SpanValue in Origin.spans)
+        and SketchNative.get(Feature.sketch_id or "", False)
+        and any(
+            SketchValue.id == Feature.sketch_id
+            and SketchValue.attributes.get("fusion.geometry_partial") is False
+            and bool(SketchValue.attributes.get("fusion.geometry_child_ids"))
+            for SketchValue in DocValue.sketches
+        )
+    )
+
+
 # this definition identifies feature kinds that the native writer can reconstruct
 def CanWriteFeature(
     DocValue: CadDocument, Feature: FeatureStep, SketchNative: Mapping[str, bool]
 ) -> bool:
     KindValue = EnumText(Feature.EntityKind)
+    if not Feature.IsSuppressed and KindValue == FeatureKind.REFERENCE.value:
+        return HasSketchOutput(DocValue, Feature, SketchNative)
     if Feature.IsSuppressed or KindValue not in KFeatureWriteValues:
         return False
     if KindValue == FeatureKind.EXTRUSION.value:
