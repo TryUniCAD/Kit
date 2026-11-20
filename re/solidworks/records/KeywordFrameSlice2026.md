@@ -23,9 +23,9 @@ adds the carriage-return rule and guards the outer document boundary. Its source
 `efa0548895dcbc356f5039cb359f5dfbaa92ae306e783c46bd10b6b4eedf8aad`.
 The named-tree serializer sits beside the existing hardened reader in
 [`Core/Native.py`](../../../src/convert/adapters/solidworks/Core/Native.py),
-SHA-256 `2713f3b59b8c19791fe4aaffca5da691371b40613ede314f59c33c6120a4823c`.
+SHA-256 `29adaa4f0ea993815bc15f04f13425dc70c4a623a3aeb624b26825b0a416ac9e`.
 The two-file manifest SHA-256 is
-`9f34e06f0ae5d7298fde4b04707853da71928992f96cf0b3a9aa54657f9f2274`.
+`90ff36ab9815aa97fee1936aadff0d577e0a86833260589151ed4af641d7e690`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. XML serialization uses
 the Python standard library through the existing SOLIDWORKS XML

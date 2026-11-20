@@ -1883,7 +1883,7 @@ def ParseXml(DataValue: bytes) -> XmlTree.Element:
         ) from ErrorInfo
 
 
-# the keyword XML emitter only accepts ordinary named element content because its native framing rewrites literal delimiters
+# the keyword xml emitter only accepts ordinary named element content because its native framing rewrites literal delimiters
 def SerializeKeywordXml(RootValue: XmlTree.Element) -> bytes:
     if any(
         not isinstance(CastValue(object, NodeValue.tag), (str, XmlTree.QName))
