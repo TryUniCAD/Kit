@@ -222,13 +222,17 @@
       "runtime_external_accesses": 0,
       "sha256": "ce84871771f4ecc697daeed84a365def09c5847324deb994e29c88b1cbd32aa1"
     },
+    "edited": {
+      "runtime_external_accesses": 0,
+      "sha256": "38fb46a16f7b7ba2123ef0fa353fb943143e34f21fce77d6151a3c331cf6fdb5"
+    },
     "ladder": {
       "runtime_external_accesses": 0,
       "sha256": "c158115ceb35ab4e947e7b5f086f66ed208976c4afc6faaa631ab4f0b0608317"
     }
   },
   "guarded_source_sha256": {
-    "re/tooling/sw2026/CheckHistory.py": "ea6b53791b1f4df81295dad17e782acec3af35ce2920f4ccd8d2f3f24f9b2030",
+    "re/tooling/sw2026/CheckHistory.py": "b69d648798714bbd0d56b84d0d68f76230444fba26d4f534980edd5a11317f68",
     "src/convert/adapters/solidworks/Archive/Construction/Metadata/HistoryInput.py": "fe725f478d0b950ae352f22b7d9daf8a31a5127305d41c23e07de8fd4d2c4060",
     "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeBiography.py": "7afe5cc7a6d86c7bf1000b23b4386da8cab607a951ef339c36066c5c364282fd",
     "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeFreshHist.py": "eb21500b68700e08aa0b54ff429c1bfb2511f41b781a72e92884d730cc55d41e",
@@ -242,13 +246,14 @@
     "src/convert/adapters/solidworks/Archive/History/MakeHistCtx.py": "da3fee9e7ff26d99f2f2fb7d963b3dd5d69ffd08f04cba1546bf166dd12f6bda",
     "src/convert/adapters/solidworks/Archive/History/ReadHistBodyMut.py": "6a5b7dfeae6ec98e027c4ba99f311c6bcced71a4f533caaaac7640aed2bf3f9b",
     "src/convert/adapters/solidworks/Archive/History/ReadHistGraph.py": "5123ccdcd00f7127b7928cb4a95ef16384367bbd0fea1c114a25e16b9d9188d1",
-    "src/convert/adapters/solidworks/Archive/History/WriteHistGraph.py": "9b33ebfeb5e8acc05baf8e104d8b6288f6489f30f89e62843a019d219704027e",
+    "src/convert/adapters/solidworks/Archive/History/WriteHistGraph.py": "47549438113573df607101df209899c6df224efc8ed9976b51845565be214d73",
+    "tests/Convert/Solidworks/Archive/HistoryEditTest.py": "923a686d12be39040a2563f4ec4dc9102d1fe3ea7335d681f5f78caa85be4dc5",
     "tests/Convert/Solidworks/Archive/HistoryTests.py": "e03c7489240976a8cd2eba81e85bdf3908fc8917322d51e0c1a02226dba421ff",
     "tests/Convert/Solidworks/Archive/HistoryWireTest.py": "5bf18ad4869604057fdeb2e8a5ba19c971f6f66d753dcf9522b33c878f2d25dc",
     "tests/Convert/Solidworks/Archive/RunHistoryCase.py": "bb6bf33de2949d9d27364c100286040f774f374c60dbd12877ee0fb5c98a9304"
   },
   "heldout_cases": 0,
-  "independently_framed_authored_streams": 4,
+  "independently_framed_authored_streams": 6,
   "new_native_trials": 0,
   "physical_format": 4,
   "prepared_base": "6a7a542393913c09b923e4032b3329c41ec8562c",

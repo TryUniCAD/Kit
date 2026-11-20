@@ -64,19 +64,29 @@ truncated telemetry row, a foreign date-role or alias, trailing
 data and a malformed authored owner.
 [Part construction and native lifecycle evidence](https://github.com/TryUniCAD/Kit/blob/df25ff93a08d05ddba0f64e2dd7e5eba82e8bdd2/re/solidworks/measurements/2026/SdkDefaultPartNative01.json)
 
+The comment-edit probe starts with an independently framed History archive
+and replaces its stamp text with a longer Unicode comment. The re-emitted
+root span is `[0, 135)` and its date-code span is `[80, 113)`.
+The original graph retains `[0, 111)` and `[56, 89)`.
+Both maps bind their own date-code object at slot 4. The returned graph
+comes from typed readback of the emitted buffer.
+
 ```sh
 python -I -B re/tooling/sw2026/CheckHistory.py ladder
 python -I -B re/tooling/sw2026/CheckHistory.py annulus
 python -I -B re/tooling/sw2026/CheckHistory.py concave
 python -I -B re/tooling/sw2026/CheckHistory.py authored
+python -I -B re/tooling/sw2026/CheckHistory.py edited
 ```
 
-All four host processes reported zero external accesses after
-input loading. The manifest records their digests. The production
-codec uses the typed fields and shared scalar, string and map
-primitives. This change supplies internal stream read and write
-coverage, with zero new native trials, held-out cases or public
-writer coverage. Earlier version lanes and additional archive
-owners have separate exits.
+All five host processes reported zero external accesses after
+input loading. The manifest records their digests.
+The internal codec uses typed fields and shared scalar, string and map
+primitives. The source fixtures are disclosed controls. This tranche
+records zero new native trials and zero held-out cases.
+Public document admission requires independently authored and hash-locked
+native controls for these streams that did not inform the format rules.
+Earlier version lanes and additional archive owners have separate exits.
 [Disclosed queue cases](../../../tests/Convert/Solidworks/Archive/HistoryTests.py)
 · [Authored queue case](../../../tests/Convert/Solidworks/Archive/HistoryWireTest.py)
+· [Output coordinates queue case](../../../tests/Convert/Solidworks/Archive/HistoryEditTest.py)

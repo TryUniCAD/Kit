@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from codecs import lookup
+from dataclasses import replace
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -23,7 +24,7 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 VERSION = 19000
 PREFIX = "_MO_VERSION_19000/"
 MANIFEST = ROOT / "re/solidworks/measurements/2026/HistoryStreamSources01.json"
-CASES = ("ladder", "annulus", "concave", "authored")
+CASES = ("ladder", "annulus", "concave", "authored", "edited")
 
 
 def require(valid, message):
@@ -81,9 +82,9 @@ def verify_control(streams, control):
         report = describe(graph, data, role)
         require(report == expected, f"{role} physical bytes or map differ")
         output, reissued = WriteHistGraph(graph.RootValue, VERSION)
-        require(output == data and reissued.RootValue is graph.RootValue
-                and reissued.ReportValue["completed"] and reissued.MapValue == graph.MapValue,
-                f"{role} typed re-emission changed bytes or identities")
+        require(output == data and reissued.RootValue is not graph.RootValue
+                and describe(reissued, output, role) == report,
+                f"{role} typed re-emission changed bytes or output map")
         reports[role] = report | {"exact_reemission": True}
     return {"source_sha256": control["sha256"], "streams": reports}
 
@@ -113,12 +114,44 @@ def history_wire(spec):
 
 def check_emitted(root, expected):
     actual, graph = WriteHistGraph(root, VERSION)
-    require(actual == expected and graph.RootValue is root and graph.ReportValue["completed"],
+    require(actual == expected and graph.RootValue is not root and graph.ReportValue["completed"],
             "generated history differs from the independently framed record")
-    decoded = ReadHistGraph(actual, VERSION)
-    require(decoded.MapValue.CounterValue == graph.MapValue.CounterValue,
-            "generated history changes the number of mapped entries")
-    return decoded
+    return graph
+
+
+def history_spans(spec, data):
+    date_start = len(new_class("moVersionHistory_c")) + 4 + len(version_stamp(spec.CreatedAt, spec.CommentText)) + 4
+    return [[0, len(data)], [date_start, len(data) - len(history_tail(spec))]]
+
+
+def edited():
+    original = HistoryInput(1881802743, "short", 2031447, 0, 1033, False)
+    revised = replace(original, CommentText="longer \U0001d11e comment")
+    source = history_wire(original)
+    source_graph = ReadHistGraph(source, VERSION)
+    root = source_graph.RootValue
+    state = root.FieldsValue["states"][0]["st"]
+    date = state["f38"]
+    state["f08"]["f20"] = revised.CommentText
+    output, emitted_graph = WriteHistGraph(root, VERSION)
+    emitted_root = emitted_graph.RootValue
+    emitted_state = emitted_root.FieldsValue["states"][0]["st"]
+    emitted_date = emitted_state["f38"]
+    source_spans = [[node.StartOffset, node.EndOffset] for node in (root, date)]
+    emitted_spans = [[node.StartOffset, node.EndOffset] for node in (emitted_root, emitted_date)]
+    require(output == history_wire(revised) and emitted_state["f08"]["f20"] == revised.CommentText,
+            "comment edit did not emit the independent longer wire")
+    require(source_spans == history_spans(original, source) and state["f38"] is date
+            and source_graph.MapValue.EntriesValue[3].EntryValue is date,
+            "history emission changed source coordinate or owner identity")
+    require(emitted_spans == history_spans(revised, output)
+            and emitted_root is not root and emitted_date is not date
+            and date.IndexValue == emitted_date.IndexValue == 4,
+            "history emission returned stale coordinates or the wrong map owner")
+    describe(emitted_graph, output, "History")
+    return {"source_spans": source_spans, "emitted_spans": emitted_spans,
+            "date_slot": emitted_date.IndexValue, "source_sha256": digest(source),
+            "output_sha256": digest(output)}
 
 
 def fresh_history(spec):
@@ -207,11 +240,14 @@ def main():
     parser = ArgumentParser(description="Check the ordinary version 19000 History and Biography streams")
     parser.add_argument("case", choices=CASES)
     case = parser.parse_args().case
-    control = None if case == "authored" else load_control(case)
+    control = load_control(case) if case in ("ladder", "annulus", "concave") else None
     for encoding in ("ascii", "utf-16-le", "latin-1", "cp1252"):
         lookup(encoding)
     sys.addaudithook(audit_run)
-    result = authored() if control is None else verify_control(*control)
+    if control is not None:
+        result = verify_control(*control)
+    else:
+        result = authored() if case == "authored" else edited()
     print(json.dumps(result | {"case": case, "runtime_external_accesses": 0}, sort_keys=True, ensure_ascii=True))
 
 
