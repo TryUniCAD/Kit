@@ -211,6 +211,16 @@ Complete configuration admission and the property owner's physical
 link remain separate work.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
+### B04-SW2026-FRESH-PART-HEADERS
+
+The PR #121 takeover team owns the fresh ordinary part header graphs
+on `codex/solidworks-fresh-part-headers` for separate main delivery.
+The slice uses the accepted standalone Header, CMgrHdr2 and direct
+ModelHeader map rules. Exit requires independent wire and ownership
+comparisons, existing fixture parity, review and queue evidence.
+Linked part emission and public writer admission have separate exits.
+[Construction evidence](../../re/solidworks/records/FreshPartHeaders2026.md)
+
 ### B04-SW2026-CONFIG-LW-MATERIAL
 
 The PR #121 takeover team owns the ordinary material and model-data
