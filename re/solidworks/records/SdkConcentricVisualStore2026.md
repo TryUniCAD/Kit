@@ -39,7 +39,7 @@ python3.14 -I -B re/tooling/sw2026/para/concentric/VerifySdkVisualStore.py \
   verify "$report_dir/Result.json"
 ```
 
-The guarded result SHA-256 is `e811c03a9bdbdfdd650f91228d7c6a77cc65ff82e640b66ea0c442508d606c3f`. The 5,041-file SDK manifest is `fd35c4403cb83659cd751b77f4530646f481ace21187ce06e01892c966b7d45e`, based on `97656af81560dc37f3fd10a176afa39a69e05b02`. The verifier SHA-256 is `e466895eccc3f60aa678f72826c14582667807d8601495e7df3e2c0e00e788ba`.
+The [guarded result](../measurements/2026/SdkConcentricVisualStore01.json) has SHA-256 `e811c03a9bdbdfdd650f91228d7c6a77cc65ff82e640b66ea0c442508d606c3f`. The 5,041-file SDK manifest is `fd35c4403cb83659cd751b77f4530646f481ace21187ce06e01892c966b7d45e`, based on `97656af81560dc37f3fd10a176afa39a69e05b02`. The verifier SHA-256 is `e466895eccc3f60aa678f72826c14582667807d8601495e7df3e2c0e00e788ba`.
 
 ## Original source boundary
 

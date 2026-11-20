@@ -127,7 +127,7 @@ The normal reader now projects the measured ordinary solved concentric profile b
 
 The assembly reader exposes display-state names in `CadDocument.assembly.attributes["display_states"]`. It reads `swDisplayStateName` and accepts `swName` when the display-state attribute is absent. [Display-state names](../../Changes/Solidworks/Reading/Assembly/SolidworksAssemblyDisplayStateNames.md)
 
-For the measured SOLIDWORKS 2026 profile, `assembly.attributes["typed_display_states"]` also exposes the selected configuration, XML list and state IDs, and ordered visibility for one or two direct visible occurrences. Each entry binds its XML occurrence ID to its persistent feature ID. The typed view is optional for source reads. Native writing and the precedence of the separate VisualStates store remain unqualified. [Typed display-state reading](../../Changes/Solidworks/Research/Mates/SolidworksConcentricDisplayRead.md)
+For the measured SOLIDWORKS 2026 profile, `assembly.attributes["typed_display_states"]` also exposes the selected configuration, XML list and state IDs, and ordered visibility for one or two direct visible occurrences. Each entry binds its XML occurrence ID to its persistent feature ID. The typed view is optional for source reads. [Typed display-state reading](../../Changes/Solidworks/Research/Mates/SolidworksConcentricDisplayRead.md)
 
 Two opposite native-authored occurrence states are present in the saved
 instance tree and VisualStates graphs. The cold open returned warning 32
@@ -139,6 +139,8 @@ Saving the owned child with the matching update stamp clears warning 32
 while the parent bytes and paired paths stay fixed. The cold reader verifies
 both mixed visibility states through the named and active native APIs.
 [Child synchronization comparison](../../../re/solidworks/records/ConcentricDisplaySync2026.md)
+
+For the measured internal radial concentric profile, the assembly compositor can generate two mixed visibility states in the binary VisualStates owner. Its authored states bind to the actual occurrence names. The complete output matches the previously native-tested store-only parent and child. Public display-state writing remains open. [Binary display-state construction](../../Changes/Solidworks/Archive/Assembly/SolidworksAssemblyBinaryDisplayStates.md)
 
 The public writer accepts one initially satisfied principal-plane perpendicular between two direct occurrences of one owned dimensioned rectangular part. Both pre-writer locked assembly and child pairs pass the standard registry recipe, a live child depth edit, valid reorientation, synchronized save and fresh reopen. Both retain the ordered mate references, geometry and three driver values. [Perpendicular writer qualification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
 
