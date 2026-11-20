@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: cd1fe8f7e2cf626ad400143ebc56345dc8c32313
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Set up uv
@@ -37,7 +37,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: cd1fe8f7e2cf626ad400143ebc56345dc8c32313
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Set up uv
@@ -61,7 +61,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: cd1fe8f7e2cf626ad400143ebc56345dc8c32313
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Set up uv
@@ -92,7 +92,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: cd1fe8f7e2cf626ad400143ebc56345dc8c32313
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Set up uv
@@ -131,7 +131,7 @@ jobs:
       - name: Checkout candidate CLI source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: cd1fe8f7e2cf626ad400143ebc56345dc8c32313
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Checkout candidate research tools separately
@@ -140,7 +140,7 @@ jobs:
           path: ResearchCheckout
           fetch-depth: 0
           filter: blob:none
-          ref: cd1fe8f7e2cf626ad400143ebc56345dc8c32313
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Set up uv
@@ -170,7 +170,7 @@ jobs:
       - name: Checkout candidate CLI source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: cd1fe8f7e2cf626ad400143ebc56345dc8c32313
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Checkout candidate research tools separately
@@ -179,7 +179,7 @@ jobs:
           path: ResearchCheckout
           fetch-depth: 0
           filter: blob:none
-          ref: cd1fe8f7e2cf626ad400143ebc56345dc8c32313
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Set up uv
