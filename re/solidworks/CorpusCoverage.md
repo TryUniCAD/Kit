@@ -45,8 +45,10 @@ provenance and round-trip metadata.
 The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
 loads two model-generated, independently measured solid payloads with
 healthy controls. This verifies kernel geometry for those disclosed
-shapes. An imported SOLIDWORKS part archive and original FCStd benchmark
-conversions remain open.
+shapes. All four [completed imported part probes](measurements/2026/GeneratedLocalBodyPartCompleted01.json)
+also pass native cold open, rebuild, save and fresh reopen with their actual
+owned solids. These disclosed inputs contribute zero original FCStd
+benchmark conversions.
 
 The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
 preserve a live sketch-dimension dependency across edits, saves and fresh reopens.

@@ -219,6 +219,21 @@ four opens still report warning 32. The local body ownership and the model
 load status require separate checks.
 [Authored ambient retry](../measurements/2026/GeneratedLocalBodyPartAmbient01.json)
 
+The completed-update retry keeps the same authored light and local geometry.
+The generator publishes the modeled origin and import update events, each
+feature's update stamp and target version, the active configuration's stamp
+and body count, and the corresponding completed part state. The same-path
+pending comparison changes five streams. LocalBodies and the active partition
+remain byte-identical. The complete intervention is measured as a group.
+
+All four disclosed candidates open and rebuild with zero errors or warnings,
+one correctly owned solid, a clear rebuild flag and stable persistent feature
+ownership. Each saves cleanly and reopens in a fresh process with the same
+body geometry, topology and feature reference. The 11-process batch passes
+560 candidate comparisons and all three native controls. The two sealed
+source evaluations and public writer admission remain separate.
+[Completed-update native receipt](../measurements/2026/GeneratedLocalBodyPartCompleted01.json)
+
 The source protocol writes vendor-authored control and source files.
 The Kit writer, generated native fallback and public capability-loss
 report remain open.

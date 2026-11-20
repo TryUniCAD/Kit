@@ -15,10 +15,16 @@ original probes pass 280 geometry comparisons across healthy control processes.
 SOLIDWORKS reports load warning 32 on all four. A separate authored ambient
 comparison reproduces the warning and all 280 geometry checks, with local
 body and active partition bytes unchanged in each same-path comparison.
+Publishing the completed origin and import update state makes all four
+disclosed candidates open, rebuild, save and freshly reopen with zero
+diagnostics. The 11 fresh processes pass all three controls and 560 geometry
+comparisons, with identical kernel and active partition bytes against the
+same-locator pending builds.
 The public writer and original held-out source qualification remain open.
 [Composer](../../../../re/tooling/sw2026/imported_body_source/BuildImportedLocalPart.py)
 · [Frozen staging tool](../../../../re/tooling/sw2026/imported_body_source/StageLocalPartProbe.py)
 · [Native observer](../../../../re/tooling/sw2026/imported_body_source/ObserveLocalImportedPart.py)
 · [First native measurement](../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartNative01.json)
 · [Authored ambient measurement](../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartAmbient01.json)
+· [Completed update measurement](../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartCompleted01.json)
 · [Load warning gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Partition/ImportedPartWarningSurvivesAuthoredAmbient.md)
