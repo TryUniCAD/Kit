@@ -98,6 +98,8 @@ Supervisor contention retains status `4`.
 
 No production decode runner or model-provider registry is supplied by this bridge.
 Models remain disabled by default.
+To request GPT-6.2-Sol advice automatically on inference stalls, add `--codex-on-stall` to the supervisor's `run` command. See [automatic decoder advice](../Changes/Research/Advice/AutomaticDecoderAdvice.md).
+
 The separate [Codex advice command](../Changes/Research/Advice/CodexFallback.md) can watch an approved parked inference job.
 It uses the local Codex login and writes proposals for independent verification.
 Application workers remain separate isolated research oracles.
