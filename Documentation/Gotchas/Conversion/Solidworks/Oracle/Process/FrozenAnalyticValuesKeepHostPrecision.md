@@ -9,4 +9,4 @@ native process was launched.
 Freeze the model, predictions and tools on the host. Verify the exact
 manifest hash in the guest and use its recorded predictions for
 native comparisons at the established geometry tolerance.
-[Disclosed scope contrast](../../../../../re/solidworks/records/ThroughAllMultiStockScope2026.md#unrestricted-scope-contrast)
+[Disclosed scope contrast](../../../../../../re/solidworks/records/ThroughAllMultiStockScope2026.md#unrestricted-scope-contrast)
