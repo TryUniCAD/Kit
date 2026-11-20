@@ -70,7 +70,13 @@ try {
         $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Created) {
         throw 'The application identity changed before authoring.'
     }
-    if ($Batch) { [SolidOwner]::RunBatch($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
+    if ($Batch) {
+        [SolidOwner]::RunBatch($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase)
+        [GC]::Collect()
+        [GC]::WaitForPendingFinalizers()
+        [GC]::Collect()
+        [GC]::WaitForPendingFinalizers()
+    }
     else { [SolidOwner]::RunOwned($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
 } catch { $Failure = $_ } finally {
     if ($null -ne $Native) {
