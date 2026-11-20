@@ -7,16 +7,12 @@
 # to you under it immediately and permanently.
 
 import difflib
-import json
-import os
 import re
-import shutil
 import subprocess
-import sys
 
 from convert.adapters.solidworks.Core.BindMirroredField import KMirroredFields
 from InferenceGrid.SolidWorksFieldDiscovery import native_parameter_matches
-from InferenceInputs import read_file
+from InferenceGrid.CandidateReader import decode_candidate
 
 
 def promote_fields(root, source, scratch, env, document, discovery, reader_root=None):
@@ -37,22 +33,9 @@ def promote_fields(root, source, scratch, env, document, discovery, reader_root=
     end = original.index("\n\n", start)
     lines = [f"    {key!r}: {offsets!r}," for key, offsets in sorted((KMirroredFields | additions).items())]
     updated = original[:start] + "{\n" + "\n".join(lines) + "\n}" + original[end:]
-    stage = scratch / "field-rule-candidate"
-    shutil.copytree(reader_root / "src", stage / "src", ignore=shutil.ignore_patterns("__pycache__"),
-                    copy_function=shutil.copy2 if reader_root == root else os.link)
-    (stage / path).unlink()
-    (stage / path).write_text(updated)
-    output = stage / "document.json"
-    result = subprocess.run([sys.executable, "-m", "KitCli", "decode", str(source), "--from", "solidworks.sldprt", "-o", str(output)],
-                            cwd=stage, env={**env, "PYTHONDONTWRITEBYTECODE": "1", "PYTHONPATH": os.pathsep.join(map(str, (stage / "src", root / "Cli")))},
-                            capture_output=True, timeout=180)
-    if result.returncode:
-        if result.returncode == 1 and result.stderr.lstrip().startswith(b"{"):
-            error = json.loads(result.stderr)
-            if error.get("error") and "message" in error:
-                return None
-        result.check_returncode()
-    replay = json.loads(read_file(output, 128 * 1024 * 1024))["document"]
+    replay = decode_candidate(root, reader_root, source, scratch, env, "field-rule-candidate", "document.json", path, updated)
+    if replay is None:
+        return None
     if replay["source"] != document["source"] or replay["source"]["sha256"] != discovery["input_sha256"]:
         return None
     targets = {(r["feature_id"], r["key"][1]): r for r in rows if tuple(r["key"]) in additions}

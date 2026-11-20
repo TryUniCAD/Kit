@@ -8,13 +8,10 @@
 
 import difflib
 import json
-import os
-import shutil
 import subprocess
-import sys
 
 from convert.adapters.solidworks.Core.Native import KFeatureCountCopies, KSketchCountOffsets
-from InferenceInputs import read_file
+from InferenceGrid.CandidateReader import decode_candidate
 from InferenceGrid.SolidWorksPatternCounts import count_matches_parameter
 
 
@@ -50,22 +47,9 @@ def promote_counts(root, source, scratch, env, document, evidence, reader_root=N
                 additions["feature_count_copies"] = offsets
     if not rows:
         return None
-    stage = scratch / "pattern-candidate"
-    shutil.copytree(reader_root / "src", stage / "src", ignore=shutil.ignore_patterns("__pycache__"),
-                    copy_function=shutil.copy2 if reader_root == root else os.link)
-    (stage / path).unlink()
-    (stage / path).write_text(updated)
-    output = stage / "decoded.json"
-    result = subprocess.run([sys.executable, "-m", "KitCli", "decode", str(source), "--from", "solidworks.sldprt",
-                             "-o", str(output)], cwd=stage, env={**env, "PYTHONDONTWRITEBYTECODE": "1", "PYTHONPATH": os.pathsep.join(map(str, (stage / "src", root / "Cli")))},
-                            capture_output=True, timeout=180)
-    if result.returncode:
-        if result.returncode == 1 and result.stderr.lstrip().startswith(b"{"):
-            error = json.loads(result.stderr)
-            if error.get("error") and "message" in error:
-                return None
-        result.check_returncode()
-    replay = json.loads(read_file(output, 128 * 1024 * 1024))["document"]
+    replay = decode_candidate(root, reader_root, source, scratch, env, "pattern-candidate", "decoded.json", path, updated)
+    if replay is None:
+        return None
     if replay["source"] != document["source"] or replay["source"]["sha256"] != evidence["input_sha256"]:
         return None
     before = document["parameters"]["$tuple"]

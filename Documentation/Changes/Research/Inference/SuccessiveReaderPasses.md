@@ -5,3 +5,5 @@ For a SOLIDWORKS part with a strict decode, `kit run solidworks --input <part> -
 `Reader.patch` contains the cumulative source diff against the recorded base commit. `Input-reader-passes.json` records the affected parameter IDs and stop reason. `Input-candidate-dimension-evidence.json` contains evidence from the accepted reader. The original strict decode remains available for comparison.
 
 In a detached checkout with the previously published mirrored-field and count tables held back, the turbine wheel yielded its precise angle on pass one and both circular pattern counts on pass two. Applying the cumulative patch and decoding the part again produced byte-identical strict JSON to the final candidate. This verifies recovery of known fields. Unsupported fields still require other experiments.
+
+The private passes share unchanged source files as described in [temporary space for reader passes](../../../Gotchas/Research/Readers/SuccessiveReaderTemporarySpace.md).
