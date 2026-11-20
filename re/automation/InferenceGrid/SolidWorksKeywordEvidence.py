@@ -154,6 +154,16 @@ def keyword_evidence(streams, discovered, document, root, pin, fields):
         record["public_reader_matches"] = len(params) == 1 and count_matches_parameter(record, params[0])
         row["pattern_count_status"] = "verified_pattern_count" if record["public_reader_matches"] else "pattern_count_reader_mismatch"
         row["reader_span_matches"] = record["public_reader_matches"]
+    count_slots = {(resolved, record["parameter_offset"]) for record in (feature_rule or {}).get("counts", [])
+                   if record.get("public_reader_matches") and record["keyword_count_matches"]}
+    for row in rows:
+        if "pattern_count_status" in row:
+            continue
+        excluded = [location for location in row["candidate_locations"] if location in count_slots]
+        if excluded:
+            row["excluded_count_locations"] = excluded
+            row["candidate_locations"] = [location for location in row["candidate_locations"] if location not in count_slots]
+            uses.subtract(excluded)
     counts = Counter()
     for row in rows:
         locations = row["candidate_locations"]

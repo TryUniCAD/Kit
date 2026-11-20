@@ -243,3 +243,9 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
     assert (Circle["center_offset"], Circle["rim_offset"]) == (218336, 218478)
     assert Circle["verified_location"][1] == 219738
     assert abs(2 * Circle["radius_m"] - 0.01778) < 1e-12
+    (Zero,) = [
+        Row for Row in Dimensions if Row["feature_id"] == 319 and Row["name"] == "D1"
+    ]
+    assert Zero["reader_span_matches"] and Zero["status"] == "unique_cross_stream_match"
+    assert Zero["excluded_count_locations"] == [[Prediction["stream"], 38918]]
+    assert Zero["candidate_locations"] == [[Prediction["stream"], 266936]]
