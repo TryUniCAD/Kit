@@ -47,3 +47,15 @@ def CheckCutFields(TmpPath: FilePath) -> None:
     assert Records["cut_height_mm"][0]["stream"] == "Contents/Config-0"
     assert Records["cut_height_mm"][0]["system_value"] == 0.01
     assert Records["cut_depth_mm"][0]["stream"] == "Contents/Config-0-ResolvedFeatures"
+    Equations = {Row["target"]: Row for Row in Evidence["equations"]}
+    Left = Equations["cut_left_mm@CutSketch"]
+    Bottom = Equations["cut_bottom_mm@CutSketch"]
+    assert Left["status"] == "independently_varied_and_held_out"
+    assert (
+        Bottom["status"] == "saved_expression_replayed"
+        and Bottom["vendor_edit_matches"]
+    )
+    assert Bottom["predicted_system_value"] == 0.005
+    assert Bottom["candidate_operations"] == [["-", 2]]
+    assert Bottom["manager_count"] == Bottom["scanned_count"] == 2
+    assert Evidence["input_sha256"] not in Bottom["training_sha256"]

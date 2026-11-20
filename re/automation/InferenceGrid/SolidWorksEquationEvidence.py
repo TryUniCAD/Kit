@@ -73,9 +73,10 @@ def equation_evidence(streams, predictions, sets, pin):
     training, held = trials(sets, pin)
     results = []
     for eq in equations:
-        native = {r["name"] + "@" + r["owner"]: r["system_value"] for r in predictions
+        local = {r["name"] + "@" + r["owner"]: r for r in predictions
                   if r.get("owner") and r.get("reader_span_matches") and r.get("neutral_value_matches") and
                   r["stream"] in (eq.native_stream, eq.native_stream + "-ResolvedFeatures")}
+        native = {key: row["system_value"] for key, row in local.items()}
         declared, found = counts.get(eq.native_stream, (None, None))
         end = eq.native_offset + eq.native_length
         trailer = streams[eq.native_stream][end:end + 6] == bytes.fromhex("000200000000")
@@ -116,6 +117,9 @@ def equation_evidence(streams, predictions, sets, pin):
                       candidate_operations=sorted(candidates))
         if any(k not in native for k in (left, right, eq.lhs)):
             result["status"] = "missing_native_dimension"
+            continue
+        if len({local[k]["system_unit"] for k in (left, right, eq.lhs)}) != 1:
+            result["status"] = "incompatible_operand_units"
             continue
         predicted = (native[left] + native[right] if operator == "+" else native[left] - native[right]) / int(divisor)
         result.update(predicted_system_value=predicted, saved_target=native[eq.lhs],

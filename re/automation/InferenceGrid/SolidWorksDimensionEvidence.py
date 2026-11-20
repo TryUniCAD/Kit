@@ -136,14 +136,15 @@ def dimension_evidence(root, source, pin, document):
             samples.append(sample)
     result = {"training": samples, "absent_training_names": absent, "held_out_recipes": sorted(held),
               "input_sha256": pin, "candidates": sorted(candidates or [])}
+    from InferenceGrid.SolidWorksEquationEvidence import equation_evidence
+    streams = SldprtArchive.FromBytes(source.read_bytes()).Streams
     if (len(candidates or []) != 1 or len({s["recipe"] for s in samples}) < 2 or
         len({s["system_value"] for s in samples}) < 2):
-        return {**result, "status": "no_unique_rule"}
+        return {**result, "equations": equation_evidence(streams, [], sets, pin), "status": "no_unique_rule"}
     fmt, offset = next(iter(candidates))
-    streams = SldprtArchive.FromBytes(source.read_bytes()).Streams
     discovered, truncated = observed_records(streams, fmt, offset)
     if truncated:
-        return {**result, "status": "dimension_record_limit", "record_limit": 16384}
+        return {**result, "equations": equation_evidence(streams, [], sets, pin), "status": "dimension_record_limit", "record_limit": 16384}
     features = {row["id"]: row["name"] for row in document.get("feature_timeline", {}).get("$tuple", [])}
     for row in document.get("parameters", {}).get("$tuple", []):
         requested.setdefault((features.get(row.get("owner_id")), row["name"]), []).append(row)
@@ -162,6 +163,7 @@ def dimension_evidence(root, source, pin, document):
                                                              (match["stream"], match["offset"], struct.calcsize(fmt)) for s in spans))
             neutral = rows[0].get("value") or {}
             source_unit = rows[0].get("attributes", {}).get("native_unit")
+            prediction["system_unit"] = source_unit
             scale = {("m", "mm"): 1000.0, ("rad", "deg"): 180 / math.pi, ("m", "m"): 1.0,
                      ("rad", "rad"): 1.0}.get((source_unit, neutral.get("unit")))
             amount = neutral.get("value")
@@ -173,7 +175,6 @@ def dimension_evidence(root, source, pin, document):
         predictions.append(prediction)
     verified = bool(checks) and len(predictions) == len(checks) and all(
         row.get("vendor_value_matches") and row.get("reader_span_matches") and row.get("neutral_value_matches") for row in predictions)
-    from InferenceGrid.SolidWorksEquationEvidence import equation_evidence
     equations = equation_evidence(streams, predictions, sets, pin)
     return {**result, "equations": equations, "status": "held_out_dimensions_match" if verified else "partial_evidence",
             "measurement_stage": "edited_before_save" if checks else None, "predictions": predictions,
