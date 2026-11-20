@@ -1,6 +1,6 @@
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Configuration.RunModeCase import RunModeCase
+from tests.Convert.Solidworks.Configuration.FieldModes.RunModeCase import RunModeCase
 
 # the same native views start at different offsets and counters across independent parts
 KRepeatSpans = (

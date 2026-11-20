@@ -1,6 +1,6 @@
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Configuration.RunModeCase import RunModeCase
+from tests.Convert.Solidworks.Configuration.FieldModes.RunModeCase import RunModeCase
 
 # the two physical part controls retain distinct mode values and map counters
 KNativeModes = (("ladder", 12, 1, 97, 108, 80), ("concave", 10, 0, 90, 94, None))

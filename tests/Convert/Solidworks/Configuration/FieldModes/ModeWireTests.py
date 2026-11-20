@@ -1,6 +1,6 @@
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Configuration.RunModeCase import RunModeCase
+from tests.Convert.Solidworks.Configuration.FieldModes.RunModeCase import RunModeCase
 
 # authored modes must still refuse unsupported field calibration and malformed records
 KModeRefusals = [

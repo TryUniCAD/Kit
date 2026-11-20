@@ -6,7 +6,7 @@ from typing import cast as CastValue
 
 # the archive field boundary must run in a fresh guarded process
 KModeProbe = (
-    FilePath(__file__).resolve().parents[4] / "re/tooling/sw2026/CheckCfgFieldModes.py"
+    FilePath(__file__).resolve().parents[5] / "re/tooling/sw2026/CheckCfgFieldModes.py"
 )
 
 
