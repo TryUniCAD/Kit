@@ -33,8 +33,14 @@ from InferenceInputs import read_file
 
 
 if __name__ == "__main__":
-    data = read_file(Path(sys.argv[1]), 128 * 1024 * 1024)
-    result = reconcile_depths(data, depth_edits(data), ''' + repr(dict(sorted(bindings.items()))) + ''')
+    if len(sys.argv) != 2:
+        raise SystemExit("supply one native FreeCAD part")
+    try:
+        data = read_file(Path(sys.argv[1]), 128 * 1024 * 1024)
+        result = reconcile_depths(data, depth_edits(data), ''' + repr(dict(sorted(bindings.items()))) + ''')
+    except (OSError, ValueError, KeyError, TypeError, OverflowError) as error:
+        print(str(error), file=sys.stderr)
+        raise SystemExit(2)
     if result["status"] != "candidate_matches_native_graph":
         raise SystemExit(2)
     print(json.dumps(result))
