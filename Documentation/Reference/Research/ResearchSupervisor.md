@@ -1,0 +1,338 @@
+# Research session supervisor
+
+## Purpose
+
+A08a adds a local supervisor under `re/automation/`.
+It claims jobs for named pools, runs each attempt in a private session directory and finishes the job through a controller adapter.
+Use this page to configure the supervisor, register runners and read its receipts.
+The [parallel-session design](ParallelSessions.md) explains the full architecture.
+The [step register](AutomationSteps.md) records the status of A08a and the later A08b and A08c steps.
+
+The supervisor does not decode CAD files, launch CAD applications or call models.
+Registered runner programs do that work.
+Production conversion must not import this research code.
+
+## Before you start
+
+You need Python 3.11 or later on Linux or macOS.
+Windows requires Windows 10 or newer, Python 3.14 and the existing locked `pywin32` development extra.
+The Windows path uses private Job Objects, restricted handle inheritance and process creation-time fencing.
+An owned built-in A03 supervisor reuses one bounded Windows helper for single-job claims. [Warm Windows claim helper](../../Changes/Research/Supervisor/WindowsWarmClaim.md)
+Linux and macOS retain their process-group and `wait4` paths.
+The hosted Linux research fixture observes a bounded cgroup OOM through the normal supervisor settlement path. [Hosted Linux supervisor witness](../../Changes/Research/Supervisor/HostedSupervisorOom.md)
+See [Windows supervision](../../Changes/Research/Supervisor/WindowsResearchSupervisor.md) for the exact process contract and verification limits.
+Actual application authoring workers remain A08c work.
+Initialize an [A03 controller store](ResearchController.md#commands), or supply another adapter.
+Choose a private state directory on a local disk.
+
+## Configuration
+
+The configuration is one JSON object.
+Relative paths resolve against the directory of the configuration file.
+This example uses example paths:
+
+```json
+{
+  "state": "/var/tmp/KitSupervisor",
+  "controller": { "adapter": "a03", "store": "/var/tmp/KitResearchState" },
+  "registry": "Runners.json",
+  "worker": "supervisor:workstation",
+  "pools": { "decode": { "max_sessions": 4 } },
+  "resources": { "provider:fixture": 2 },
+  "stop_grace_seconds": 10,
+  "poll_seconds": 0.2
+}
+```
+
+| Field                 | Required | Meaning                                                                              |
+| --------------------- | -------- | ------------------------------------------------------------------------------------ |
+| `state`               | Yes      | Private state directory with the lock, sessions, claims and pause file               |
+| `controller`          | Yes      | `{"adapter": "a03", "store": ...}`, or `module`, `class` and `options`               |
+| `registry`            | Yes      | Runner registry file                                                                 |
+| `pools`               | Yes      | Each pool's `max_sessions`, 1–64; must match the pools in the registry               |
+| `worker`              | No       | Worker label recorded on each claim; default `supervisor:local`                      |
+| `resources`           | No       | Counted controller resources and their capacity, 1–64, set at each start             |
+| `stop_grace_seconds`  | No       | Time between `SIGTERM` and `SIGKILL`, 0.1–60 seconds; default 10                     |
+| `poll_seconds`        | No       | Time between supervision passes, 0.05–5 seconds; default 0.2                         |
+| `reserved_cpus`       | No       | Logical CPUs kept outside the session budget, 0–65,536; default 2                    |
+| `reserved_memory_mib` | No       | Available memory kept outside the session budget, 0–1,048,576 MiB; default 4,096 MiB |
+| `max_log_bytes`       | No       | Retained bytes per output stream, 1 KiB–64 MiB; default 1 MiB                        |
+
+The supervisor sets only the capacity of a configured resource.
+Mark a resource available with the controller command after you verify it.
+
+## Recorded claim occupancy
+
+For an existing capacity-one A03 resource, use a past Unix-time window to inspect which portion of it had a controller claim.
+
+```sh
+python3 re/automation/Supervisor.py --config /absolute/path/Supervisor.json \
+  status --claim-occupancy application:fusion:local 1730000000 1730003600
+```
+
+The report labels its scope as A03 claim occupancy. The union of recorded claim intervals is clipped to the requested window. Closed claims use their immutable attempt receipt and original resource declaration. A current open claim contributes through the requested end of the window. Readback gives the observed resource availability and the number of intersecting closed and open claims. The ordinary status command keeps its existing response.
+
+A controller claim includes worker setup, waiting and settlement while the resource is held. The application busy-time target requires separate native measurements.
+
+## Runner registry
+
+The registry maps each job kind to one runner.
+
+```json
+{
+  "runners": {
+    "decode.fixture": {
+      "pool": "decode",
+      "argv": ["python3", "re/automation/runners/Example.py", "{session}"],
+      "result_schema": "re/automation/schemas/Example.json",
+      "threads": 1,
+      "initial_peak_memory_mib": 2048
+    }
+  }
+}
+```
+
+The runner and schema paths in this example are placeholders.
+The repository does not ship a registry, because no production runner exists yet.
+
+| Field                     | Required | Meaning                                                                                                         |
+| ------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `pool`                    | Yes      | Pool that runs this job kind                                                                                    |
+| `argv`                    | Yes      | 1–64 arguments; a whole `{session}` argument is the only substitution                                           |
+| `result_schema`           | Yes      | JSON Schema for the `records` value; relative paths resolve from the root                                       |
+| `threads`                 | No       | Threads per session, 1–256; recorded for A08b capacity limits                                                   |
+| `max_memory_mib`          | No       | Sampled group-memory stop threshold, 1–1,048,576 MiB; default twice the initial estimate, capped at the maximum |
+| `initial_peak_memory_mib` | No       | First memory estimate, 1–1,048,576 MiB; recorded for A08b capacity limits                                       |
+| `application_installation` | No     | Owner-controlled application installation for [acknowledging accepted output](../../Changes/Research/Workers/SupervisedApplicationAcceptance.md). Relative paths resolve from the registry directory. Requires the built-in A03 adapter and a single-job runner. |
+
+The schema checker accepts `type`, `properties`, `required`, `additionalProperties`, `items`, `enum`, `const`, `minLength`, `maxLength`, `minimum`, `maximum`, `minItems` and `maxItems`.
+It refuses a schema that uses any other keyword.
+The registry rejects `model.*` runner declarations while A10 execution is disabled.
+An A03 job of that kind can remain queued while a supervisor with a deterministic registry runs its configured pools. Model execution requires separate A10 authorization.
+An application runner's configured installation must match the installation it uses for dispatch.
+Keep the installation file in a private directory controlled by the supervisor owner.
+Preserve the supervisor state directory and original installation bytes for [acknowledgement recovery](../../Changes/Research/Workers/ApplicationAckRecovery.md) across process restart.
+
+## Optional grouped sessions
+
+A runner may opt into [group protocol 1](../../Changes/Research/Supervisor/GroupedSmallFileSessions.md) with `group_protocol: 1` and an explicit `group_peak_memory_mib` floor.
+It must also support the existing single-job contract.
+`group_limit_bytes` defaults to 1 MiB; groups contain 2–20 members with identical kind, tool version and rule version, strictly below the aggregate input footprint limit.
+The supervisor retains single-job fallback when a job cannot group or the group estimate cannot fit.
+
+A grouped worker receives `group.json` with `group_session_version: 1` and ordered member paths such as `jobs/00/job.json`.
+Each member has its own inputs, private `work/` directory and `result.json`.
+Tokens remain outside the worker manifests.
+A03 renews all member leases in one controller invocation and renews remaining members during bounded output intake.
+The controller counts every logical job and resource while CPU and memory count one physical process tree.
+The total declared output limit is 256 MiB for the group.
+
+Failed or invalid members retry singly using durable generation/fingerprint markers.
+Restart recovery preserves this decision.
+At least one current member must settle before the group can affect adaptive capacity. [Group settlement and adaptive capacity](../../Changes/Research/Supervisor/GroupedAdaptiveSettlement.md)
+Group memory histories are separate by actual member count, and single-job observations cannot reduce the explicit group memory floor.
+See [the accounting gotcha](../../Gotchas/Research/Supervisor/GroupedLeaseAndMemoryAccounting.md) before setting group limits.
+Calibration and native application acceptance remain separate steps.
+
+## Session contract
+
+The supervisor starts each runner without a shell, in a new process group, with the repository root as its working directory.
+The environment contains only `PATH`, the locale variables, `TZ`, `KIT_SESSION`, and `HOME` and `TMPDIR` set to `work/`.
+
+On POSIX, an isolated bootstrap waits for the supervisor to write and sync process recovery metadata before it executes the configured worker.
+The parent releases it through a private pipe; parent death before release exits the bootstrap without running the worker.
+See [the launch-gate contract](../../Changes/Research/Supervisor/PosixWorkerLaunchGate.md) for identity, timeout and verification limits.
+
+The built-in Windows A03 adapter stages inputs through a read-only store lookup bound to the current supervisor owner. The existing content checks apply before and during the private copy. [Windows artifact staging](../../Changes/Research/Supervisor/WindowsArtifactStaging.md)
+
+| Path           | Writer     | Content                                                                |
+| -------------- | ---------- | ---------------------------------------------------------------------- |
+| `job.json`     | Supervisor | Job definition, attempt, generation, fingerprint, inputs and `stop_at` |
+| `inputs/`      | Supervisor | Copies of the bound input artifacts, named by SHA-256 and verified     |
+| `work/`        | Runner     | Temporary files                                                        |
+| `result.json`  | Runner     | `outcome`, `reason` and `records`                                      |
+| `stdout.log`   | Supervisor | Standard output of the runner                                          |
+| `stderr.log`   | Supervisor | Standard error of the runner                                           |
+| `session.json` | Supervisor | Process identifier and process start time for restart fencing          |
+| `receipt.json` | Supervisor | Exit status, signal, stop reason, duration and peak memory             |
+| `finish.json`  | Supervisor | The receipt, the validated result, the error and the `stderr` tail     |
+
+`job.json` never contains the lease token.
+Claim files stay in the private `claims/` directory, which runners do not receive.
+The runner selects `completed`, `rejected`, `waiting_evidence`, `waiting_ci` or `waiting_application`.
+
+| Runner end                   | Controller outcome | Reason                                   |
+| ---------------------------- | ------------------ | ---------------------------------------- |
+| Exit `0` with a valid result | Runner's outcome   | Runner's reason                          |
+| Exit `0` with a bad result   | `retry`            | `invalid result: ...`                    |
+| Exit status other than `0`   | `retry`            | `runner exited with status N`            |
+| Signal                       | `retry`            | `runner ended by signal N`               |
+| Stopped by the supervisor    | `retry`            | `session stopped: deadline`, for example |
+| Stale lease                  | No finish          | The controller has already requeued it   |
+
+A completed runner may include an optional `artifacts` map from role to relative `work` path, SHA-256 and byte count.
+The A03 adapter accepts up to 64 regular files and 256 MiB in aggregate before session cleanup.
+It rejects traversal, symbolic links, reparse points, hardlinks, duplicate file identities and mismatched bytes.
+Accepted results replace private paths with durable digest/size references.
+The existing controller `artifact` operation retrieves those bytes; status and dependency checks verify them.
+Custom adapters must declare `OutputArtifactsVersion = 1`; otherwise only the existing metadata result protocol is accepted.
+See [durable worker outputs](../../Changes/Research/Workers/DurableWorkerOutputs.md) for the wire format, lease fences and remaining verification limits.
+
+The [local application dispatcher](../../Changes/Research/Workers/LocalApplicationDispatch.md) submits pinned Fusion phases to an owner-controlled add-in queue.
+Its fresh main-thread control probe, restart handoff and private spool protocol remain separate from native qualification.
+Windows ordinary Phase A requires an explicit owner opt-in and a pre-provisioned private endpoint. The hosted case checks the open-document refusal through the real queue. Licensed Windows capture and restart evidence are still pending. [Windows Fusion configuration and limits](../../Changes/Research/Workers/WindowsFusionPhaseA.md)
+Automatic restart and downstream input binding remain open.
+
+`finish.json` becomes the controller result for every finished attempt.
+After the controller accepts it, the supervisor removes the session directory and the claim file.
+
+POSIX startup now blocks the configured worker until `session.json` and its directory are synced and current leases pass renewal.
+A private pipe makes an unreleased bootstrap exit if the supervisor dies; the process identity remains stable across worker execution.
+See the [launch gate change](../../Changes/Research/Supervisor/PosixWorkerLaunchGate.md) for the 30-second bootstrap bound and pending process evidence.
+
+Each output stream retains its first `max_log_bytes` bytes.
+The supervisor continues draining additional output so a full log does not block the runner.
+Receipts record each stream's limit, observed bytes, retained bytes and dropped bytes.
+These counters measure drained output, not bytes a killed process never wrote.
+See [bounded session logs](../../Changes/Research/Supervisor/BoundedSessionLogs.md).
+
+## Resource admission and memory stops
+
+The supervisor checks CPU and memory headroom before claiming a job.
+Running sessions reserve their configured threads across all pools.
+New and growing sessions reserve memory beyond the last host measurement.
+The largest registered runner estimate and any higher learned estimate determine admission for each pool.
+Running sessions use the estimate for their exact job kind and tool version.
+Use separate pools for runners with materially different estimates.
+Denied jobs stay queued without consuming a lease or attempt.
+An `admission` event records changes to a pool's blocking reason.
+
+Linux uses `MemAvailable` and available CPU affinity.
+macOS uses free pages plus the larger of inactive or purgeable pages from `vm_stat`.
+Windows uses available physical memory from `GlobalMemoryStatusEx` and the supervisor's process affinity mask.
+These measurements do not enforce container quotas.
+Each supervision pass samples resident memory for the whole process group.
+An exceeded `max_memory_mib` stops that group with reason `memory_limit` through the existing retry protocol.
+Receipts retain `sampled_group_peak_memory_bytes` and `memory_limit_bytes`.
+This sampled threshold is not an operating-system allocation limit.
+A missing required measurement stops active sessions and exits after cleanup.
+See [resource headroom](../../Changes/Research/Supervisor/ResearchResourceHeadroom.md) for bounds and remaining limits.
+
+## Versioned memory learning
+
+Accepted completions with a positive sampled process-group peak enter private `state/memory-history.json`.
+The history keeps the last 50 observations per job kind and `tool_version`, with at most 128 recently updated groups.
+Before five observations the registry estimate applies; afterward the nearest-rank 95th percentile receives a 25 percent margin, rounded up to a byte.
+A new tool version starts with its registry estimate.
+Retried, rejected, stale and unmeasured sessions contribute no sample.
+An accepted, verified Linux kernel OOM doubles the applicable reservation estimate and stores it as a separate minimum. [Kernel OOM memory estimate](../../Changes/Research/Supervisor/KernelOomMemoryEstimate.md)
+
+The controller exposes the next job's version only after a claim.
+Pre-claim admission therefore keeps the registry estimate and any higher learned version estimate.
+It never uses an older version's smaller footprint to admit an unknown version.
+Invalid stored history blocks claims; a history write failure preserves the prior cache and disables learning until restart while leaving the accepted job complete.
+See [versioned memory estimates](../../Changes/Research/Supervisor/VersionedMemoryEstimates.md) and [the version boundary](../../Gotchas/Research/Supervisor/PreclaimVersionsAreUnknown.md).
+Adaptive concurrency is enabled by default through the strict boolean `adaptive_limits` field.
+Each pool starts at half its calculated capacity, with a minimum of one when capacity exists.
+After the first actual start, healthy increases are bounded to one slot per 60 seconds and require measured load, available memory and applicable Linux PSI guards.
+Missing metrics block upward increases explicitly; Windows has no load-average equivalent yet.
+Memory-limit stops, independently matched Linux memory-cgroup OOM receipts, two deadline stops within 600 seconds and below-reserve memory episodes reduce the target conservatively. [Hosted Linux OOM evidence](../../Changes/Research/Supervisor/HostedSupervisorOom.md)
+Existing sessions drain normally when the target falls.
+Set `adaptive_limits` to `false` to use the measured capacity directly.
+See [adaptive pool limits](../../Changes/Research/Supervisor/AdaptivePoolLimits.md) for evidence events and branch limits.
+The deadline-pair event records both physical session IDs and the elapsed time between their accepted stop observations. [Deadline backoff evidence](../../Changes/Research/Supervisor/AdaptiveDeadlineEvidence.md)
+The matched Windows offline sweep sustained sixteen decoders for 5.681 seconds and completed all applicable comparisons. Every measured throughput gain exceeded the recommendation threshold. [Offline calibration](OfflineCalibration.md) [Matched Windows sweep](../../Changes/Research/Supervisor/SixteenWorkerCalibration.md#windows-sweep-with-the-warm-claim-helper) [Grouped session evidence](../../Changes/Research/Supervisor/GroupedSmallFileSessions.md)
+
+## Stops, pauses and stale leases
+
+The supervisor renews each lease at one third of `lease_seconds`.
+It stops a session at the execution deadline minus the smaller of `stop_grace_seconds` + 2 and half of `timeout_seconds`.
+That margin lets the job finish before the controller deadline.
+A stop sends `SIGTERM` to the process group, then `SIGKILL` after the grace period.
+
+A renewal that returns a stale lease stops the session at once and does not finish the job.
+The A03 controller reports a stale lease with exit status `3`.
+
+Pause a pool with `pause <pool> --reason <text>`.
+The supervisor stops that pool's sessions, finishes them with `retry` and claims no new jobs for the pool.
+A stopped attempt counts against the job's attempt budget.
+Use `resume <pool>` to remove the pause.
+
+## Restart fencing
+
+The supervisor takes an exclusive lock on `state/supervisor.lock` and on the adapter's lock path.
+For A03 that path is `supervisor.lock` in the store.
+A second supervisor exits with status `4` and a `supervisor busy` message.
+
+At startup, the supervisor reads each remaining session directory.
+It stops the recorded process group only when the process identifier and the process start time both match.
+On Linux the start time comes from `/proc/<pid>/stat`; on macOS it comes from `ps -o lstart=`.
+Windows records the creation time before resuming the initial thread and retains the private Job Object name.
+It checks both creation time and job membership before stopping a live recorded process.
+Closing the last supervisor Job Object handle terminates contained descendants after a supervisor crash.
+It writes an orphan receipt and finishes the job with `retry` if the claim file is still present.
+A stale lease is accepted, because the controller has already expired or replaced that attempt.
+
+## Commands
+
+Replace `Supervisor.json` with your configuration file.
+
+```shell
+python3 re/automation/Supervisor.py --config Supervisor.json run --idle-seconds 30
+python3 re/automation/Supervisor.py --config Supervisor.json status
+python3 re/automation/Supervisor.py --config Supervisor.json pause decode --reason "operator hold"
+python3 re/automation/Supervisor.py --config Supervisor.json resume decode
+python3 re/automation/Supervisor.py --config Supervisor.json submit Batch.json
+python3 re/automation/Supervisor.py --config Supervisor.json bind evidence:example Example.bin
+python3 re/automation/Supervisor.py --config Supervisor.json jobs --job example
+```
+
+`run` prints one JSON event per line and a final `summary`.
+`status` shows the live owner's last eligible local admission decision for each pool in `capacity`. [Capacity status and freshness](../../Changes/Research/Supervisor/LiveSupervisorCapacity.md)
+When a current A03 sample is available, `capacity.decision.controller_capacity` also reports the shared running-job maximum, running and available logical jobs, and the pool's physical session count and controller-adjusted limits.
+The sample is at most five seconds old. An unverified owner, a pending reconciliation, or an expired lease or execution deadline makes the sample unavailable.
+Each grouped job uses a logical slot. One group uses a single physical session, and more than one pool can observe the same free logical slots. [A03 controller capacity](../../Changes/Research/Supervisor/ControllerCapacitySnapshot.md)
+An observed A03 claim refusal for its logical concurrency limit appears in the pool decision. [Controller refusal evidence](../../Changes/Research/Supervisor/ControllerCapacityRefusal.md)
+Without `--idle-seconds` or `--max-seconds`, it runs until it receives `SIGTERM` or `SIGINT`.
+Processing a completed application acknowledgement or rearm resets the idle interval. Controller retry backoff continues to govern when the next claim is eligible. [SOLIDWORKS timeout rearm](../../Changes/Research/Workers/SolidWorks/TimeoutRearm.md)
+At shutdown it stops its sessions and finishes them with `retry`.
+`submit`, `bind` and `jobs` go through the configured adapter, so they work with any adapter.
+
+## Controller adapters
+
+The supervisor calls only these adapter operations: `LockPath`, `DefinePool`, `DefineResource`, `SubmitJobs`, `BindInput`, `ClaimJob`, `RenewLease`, `FinishJob`, `FetchInput` and `ReadStatus`.
+`RenewLease` and `FinishJob` return `{"stale": true}` for a stale lease instead of raising an error.
+`ClaimJob` writes the lease to the claim file and returns the claim without its token.
+The `a03` adapter calls the [controller commands](ResearchController.md#commands) as argument lists.
+After installing its owner, the adapter resolves artifacts through a read-only store transaction.
+It verifies the owner and copies each artifact to the private session under its input digest.
+See [decoder performance](../../Changes/Research/Supervisor/DeterministicDecoderPerformance.md#stage-inputs-and-read-fusion-files).
+Another adapter is a Python class loaded from `module` and `class`, with `options` passed to its constructor.
+Load only an adapter module that you trust, because the supervisor executes it.
+
+## Limits
+
+These limits are intentional for A08a:
+
+- A08b adds adaptive pool limits, optional grouped sessions and [standalone offline calibration](OfflineCalibration.md). Their tested checkpoints and remaining qualification belong in the [step register](AutomationSteps.md).
+- Output files are bounded. Memory stops use sampled process-group RSS and cannot contain children that leave the group.
+- Restart cleanup checks surviving process-group members after leader termination. Failed cleanup prevents releasing the job.
+- An expired A03 attempt still marks its resources unavailable, also for counted provider resources.
+- Application workers belong to A08c, and model runners belong to A10.
+- Windows uses Job Objects for descendant cleanup. Its receipt records a Windows exit code and no POSIX signal number.
+
+## If the task fails
+
+| Symptom                                   | Action                                                                       |
+| ----------------------------------------- | ---------------------------------------------------------------------------- |
+| Exit status `4`, `supervisor busy`        | Stop the other supervisor for this state directory or store                  |
+| `registry and configuration pools differ` | Make the `pools` keys match the registry pools                               |
+| `pool has no registered job kinds`        | Start `run` once, or define the pool with the controller `pool` command      |
+| A job stays `queued`                      | Check that a registry pool includes its kind and that the pool is not paused |
+| Repeated `renew_error` events             | Check the controller store; the lease expires if renewals keep failing       |
+
+## Related information
+
+- [Parallel research sessions](ParallelSessions.md)
+- [Durable research controller](ResearchController.md)
+- [Step register](AutomationSteps.md)

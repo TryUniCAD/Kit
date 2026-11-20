@@ -1,0 +1,85 @@
+# Windows research supervisor
+
+A08e adds Windows process supervision without a CAD runtime dependency.
+The Windows path requires Windows 10 or newer, Python 3.14 and the existing locked `pywin32==312` development extra.
+Linux and macOS retain their process-group and `wait4` paths.
+
+## Process containment
+
+The supervisor creates each Windows runner suspended inside its private job object.
+`PROC_THREAD_ATTRIBUTE_JOB_LIST` assigns containment during creation, before the initial thread can execute.
+The supervisor publishes `session.json`, renews every session lease, and checks the execution deadline before it resumes that thread.
+An expired lease, replaced owner, invalid renewal, or failed metadata write stops the held process before worker execution.
+See [Windows launch authorization](WindowsLaunchAuthorization.md) for the A08g process evidence.
+The job permits no breakaway and sets `JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE`.
+Closing the supervisor therefore terminates contained descendants, including descendants in separate console process groups.
+A successful leader exit also terminates remaining job processes before result publication.
+
+Windows process creation uses an explicit executable and a standard-handle inheritance list.
+Only the input, output and error handles enter the runner.
+The job handle remains owned by the supervisor.
+Private home and temporary paths remain inside the session directory.
+The environment also preserves the Windows system variables needed to start executables.
+
+The session record includes the random job name and exact process creation time.
+Restart recovery checks creation time and job membership before stopping a live recorded process.
+A mismatched process identity never authorizes termination.
+An unavailable containment or resource API fails the affected operation explicitly.
+
+## Resource and stop behavior
+
+`GlobalMemoryStatusEx` supplies available physical memory.
+The process affinity mask bounds the logical CPU count.
+Each sample sums working sets for the job's current process roster.
+The existing headroom, memory-stop and bounded-log settings apply without new configuration fields.
+
+A graceful stop requests `CTRL_BREAK_EVENT` for the initial console process group.
+The grace deadline terminates the full job when that request cannot stop every process.
+The Windows receipt records an exit code instead of a POSIX signal number.
+The sampled group peak and leader peak working set remain separate observations.
+
+Windows byte-range locks enforce exclusive supervisor and adapter ownership.
+Python 3.14 supplies nonblocking pipe reads for bounded log collection.
+Application authoring workers and native acceptance remain separate A08c and A13 work.
+
+## Verification
+
+The new process coverage runs on an actual Windows runner:
+
+```shell
+uv run --frozen --no-default-groups --extra dev --python 3.14 python -m pytest -q tests/Research/Windows
+```
+
+The scenarios cover bounded output, private paths, leader exit, descendant cleanup, headroom, memory stops, lock contention, crash recovery and stale identities.
+Source inspection and AST syntax checks ran locally.
+No local tests, Windows emulation or CAD process ran.
+The macOS gate at `35080cec` passed eleven POSIX process cases in 75.81 seconds.
+At `91d90628`, the expanded macOS gate passed fourteen cases in 132.47 seconds, including versioned memory learning.
+The Windows gate at `30707236` passed five cases and retried descendant completion after an exit status of 1.
+The source-proven launcher fixture repair passed all six Windows cases at `91d90628` in 20.22 seconds.
+See [the exact-head Windows job](https://github.com/TryUniCAD/Kit/actions/runs/43667302609/job/132669500211).
+Application-worker execution remains open independently.
+Linux resource controls passed eleven supervisor scenarios at `b86f30c7`; current-head regression remains separate.
+
+The child fixture also handles the separate launcher PID used by Windows virtual environments.
+It records the interpreter's parent chain and verifies each distinct process against the supervisor's job object.
+The [launcher identity gotcha](../../../Gotchas/Research/Supervisor/WindowsVenvLaunchers.md) records the source evidence and the launcher/interpreter diagnostic boundary.
+
+The implementation follows [job-object containment](https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects), [atomic job and handle assignment](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute), [creation-time measurement](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes) and [physical-memory measurement](https://learn.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-globalmemorystatusex).
+The [Python subprocess reference](https://docs.python.org/3.14/library/subprocess.html) defines the Windows environment and handle-inheritance requirements.
+
+The first Windows job at `3a432ea0` passed five cases and left the descendant
+cleanup case queued rather than completed. The assertion now retains the job
+reason, attempts and event history for the next remote run; that diagnostic
+change does not establish a repaired lifecycle. Windows fixture liveness uses
+the typed Win32 process-handle API. Windows-only signal and subprocess flags
+are converted at the runtime attribute boundary so Linux static analysis can
+check the fixtures without suppressions.
+
+At source checkpoint `22a59e68c839354f3e6672eec6f67aa647aa1dce`, the [Windows selection](https://github.com/TryUniCAD/Kit/actions/runs/43678423785/job/132703622723) passed all 22 cases in 77.49 seconds, including the actual launcher/interpreter ownership checks, descendant cleanup, owner recovery, output intake and immutable file records. Both application parking cases passed; no Windows native CAD worker ran.
+
+## Native Job Object membership
+
+The supervisor now reads PID lists through the same checked native buffer as [offline calibration](WindowsOfflineCalibration.md). Session memory sampling grows the buffer to the reported membership and uses only a complete snapshot. Normal finish and orphan recovery keep their existing process identity and timeout checks and require native proof that the owned job is empty.
+
+A separate Windows process witness verified two owned processes in nested jobs, their drained state, and the handling of an incomplete one-slot query. Simulated count responses verified that a supervisor query grows from 64 to 73 members and that calibration retains its 64-member ceiling.

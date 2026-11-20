@@ -98,6 +98,11 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The bounded lightweight material reader handles the part hatch, optional
+density parameter, model data with an absent scene and empty body visual
+counts. Each concrete owner retains its actual archive slot.
+[Lightweight material scope](../../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
 of the lightweight section, it inserts the original header objects
@@ -120,6 +125,12 @@ with their signed IDs and existing map context. Later feature links
 can reuse those exact objects. The stored unsigned atom state remains
 available alongside its runtime projection.
 [Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+
+The shared version-19000 body reader has layouts for line fonts, embedded
+widths, character formats, and print width tables in part detail definitions.
+These fields retain their wire values and leave the archive map unchanged.
+Complete detail definitions require the remaining annotation and table owners.
+[Configuration font scope](../../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
 
 The configuration scene reader keeps the environment folder, its actual
 name and the observed ambient and directional light children. The

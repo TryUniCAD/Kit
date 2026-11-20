@@ -1,0 +1,420 @@
+{
+  "archive_version": 19000,
+  "format_version": 4,
+  "model_header": "Contents/Config-0-ModelHeader",
+  "native_controls": {
+    "concave": {
+      "complete_pinned_graph": true,
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "layout_calls": {
+        "uiLFConfig_c": 20,
+        "utCharFormat_c": 81,
+        "utLineWidthPrintData_c": 1,
+        "utLineWidth_c.Serialize.2.0": 20
+      },
+      "model_header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "next_label_width": {
+        "interval": [
+          11330,
+          11336
+        ],
+        "owner_fields": [
+          "moPart_c.FUN_4c2378b0",
+          "Section",
+          "moModel_c.FUN_4c234150",
+          "fae0",
+          "f2750",
+          "f18",
+          "moDrViewLabelData_c",
+          "f30"
+        ],
+        "wire_sha256": "ca425c8b2ebe10b3c92f5b6ba0b58feebeef930a450f5cdd7b6455c73258487b"
+      },
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "pinned_config_counter": 94,
+      "records": {
+        "uiLFConfig_c": {
+          "conditions": 0,
+          "header_alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "interval": [
+            3558,
+            3590
+          ],
+          "layout": "uiLFConfig_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "native_map_slot_range": [
+            1,
+            54
+          ],
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f13b0",
+            "fe0",
+            "moBaseDimDef_c",
+            "fd0"
+          ],
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c",
+            "moDimDefs_c",
+            "moLinearDimDef_c",
+            "moBaseDimDef_c"
+          ],
+          "wire_sha256": "5e26de6d242c88f98455cc93c149e40703fe16e73b95e88a7b21645c5ec85793"
+        },
+        "utCharFormat_c": {
+          "conditions": 0,
+          "header_alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "interval": [
+            11130,
+            11230
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "native_map_slot_range": [
+            1,
+            54
+          ],
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f18",
+            "moDrViewLabelData_c",
+            "f98"
+          ],
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c",
+            "moLabelDefs_c",
+            "moDetailLabelData_c",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "10e972c3beea43eb38d3a1100aec00ef4f38d3f0b8ef363a01a21850a12d4921"
+        },
+        "utLineWidthPrintData_c": {
+          "conditions": 0,
+          "header_alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "interval": [
+            18375,
+            18407
+          ],
+          "layout": "utLineWidthPrintData_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "native_map_slot_range": [
+            1,
+            54
+          ],
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "fb0"
+          ],
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c"
+          ],
+          "wire_sha256": "5812ff5081a220789b909031a058d46ad3d2ffa730f778a732d1963ab8651769"
+        },
+        "utLineWidth_c.Serialize.2.0": {
+          "conditions": 0,
+          "header_alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "interval": [
+            3582,
+            3588
+          ],
+          "layout": "utLineWidth_c.Serialize.2.0",
+          "map_base": 4,
+          "map_counter": 54,
+          "native_map_slot_range": [
+            1,
+            54
+          ],
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f13b0",
+            "fe0",
+            "moBaseDimDef_c",
+            "fd0",
+            "f10"
+          ],
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c",
+            "moDimDefs_c",
+            "moLinearDimDef_c",
+            "moBaseDimDef_c",
+            "uiLFConfig_c"
+          ],
+          "wire_sha256": "ca425c8b2ebe10b3c92f5b6ba0b58feebeef930a450f5cdd7b6455c73258487b"
+        }
+      },
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    "ladder": {
+      "complete_pinned_graph": true,
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "layout_calls": {
+        "uiLFConfig_c": 20,
+        "utCharFormat_c": 81,
+        "utLineWidthPrintData_c": 1,
+        "utLineWidth_c.Serialize.2.0": 20
+      },
+      "model_header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "next_label_width": {
+        "interval": [
+          12881,
+          12887
+        ],
+        "owner_fields": [
+          "moPart_c.FUN_4c2378b0",
+          "Section",
+          "moModel_c.FUN_4c234150",
+          "fae0",
+          "f2750",
+          "f18",
+          "moDrViewLabelData_c",
+          "f30"
+        ],
+        "wire_sha256": "ca425c8b2ebe10b3c92f5b6ba0b58feebeef930a450f5cdd7b6455c73258487b"
+      },
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "pinned_config_counter": 110,
+      "records": {
+        "uiLFConfig_c": {
+          "conditions": 0,
+          "header_alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "interval": [
+            4647,
+            4679
+          ],
+          "layout": "uiLFConfig_c",
+          "map_base": 4,
+          "map_counter": 62,
+          "native_map_slot_range": [
+            1,
+            62
+          ],
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f13b0",
+            "fe0",
+            "moBaseDimDef_c",
+            "fd0"
+          ],
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c",
+            "moDimDefs_c",
+            "moLinearDimDef_c",
+            "moBaseDimDef_c"
+          ],
+          "wire_sha256": "5b98a55188911dd75a140595609f4d824036fd5071f1027ab84be9845ebae601"
+        },
+        "utCharFormat_c": {
+          "conditions": 0,
+          "header_alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "interval": [
+            12681,
+            12781
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "native_map_slot_range": [
+            1,
+            69
+          ],
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f18",
+            "moDrViewLabelData_c",
+            "f98"
+          ],
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c",
+            "moLabelDefs_c",
+            "moDetailLabelData_c",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "2a8a082b2b6cc3ceeb6e7e730a1eb5c98f4a8c10356acf0f7999857fb1614512"
+        },
+        "utLineWidthPrintData_c": {
+          "conditions": 0,
+          "header_alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "interval": [
+            19734,
+            19766
+          ],
+          "layout": "utLineWidthPrintData_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "native_map_slot_range": [
+            1,
+            69
+          ],
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "fb0"
+          ],
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c"
+          ],
+          "wire_sha256": "5812ff5081a220789b909031a058d46ad3d2ffa730f778a732d1963ab8651769"
+        },
+        "utLineWidth_c.Serialize.2.0": {
+          "conditions": 0,
+          "header_alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "interval": [
+            4671,
+            4677
+          ],
+          "layout": "utLineWidth_c.Serialize.2.0",
+          "map_base": 4,
+          "map_counter": 62,
+          "native_map_slot_range": [
+            1,
+            62
+          ],
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f13b0",
+            "fe0",
+            "moBaseDimDef_c",
+            "fd0",
+            "f10"
+          ],
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c",
+            "moDimDefs_c",
+            "moLinearDimDef_c",
+            "moBaseDimDef_c",
+            "uiLFConfig_c"
+          ],
+          "wire_sha256": "ca425c8b2ebe10b3c92f5b6ba0b58feebeef930a450f5cdd7b6455c73258487b"
+        }
+      },
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    }
+  },
+  "pinned_archive_reader": "9f0ccb5389c121e750ca3b73f8e5d248b34d2e15",
+  "runtime_external_accesses": 0,
+  "stream": "Contents/Config-0"
+}

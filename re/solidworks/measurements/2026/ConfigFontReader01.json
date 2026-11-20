@@ -1,0 +1,372 @@
+{
+  "archive_version": 19000,
+  "compared_production_base": "b7206312cbdd4ef7b0966263e08ec84bb52ea0df",
+  "complete_config_admission": false,
+  "format_version": 4,
+  "fresh_guarded_processes": 3,
+  "native_launches": 0,
+  "production_manifest_sha256": "bad41782fe178aae0b5c26525f5fbad921665c89b929372d333e87bada2d0eb2",
+  "production_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/FontFields.py": "70d65ab8082c9dd02630df0bdcd94f63021acc923414c58fc97d836bf1fff16f",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/FormatAnnotationFields.py": "22890d0b79fb70ade2ff91df49bf152aff13a48dccb8132ca6dde4d3c293b798"
+  },
+  "results": [
+    {
+      "anchor_slots": [
+        1,
+        2,
+        3
+      ],
+      "case": "ladder",
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "header_alias": [
+        "moExtObject_c",
+        1,
+        69
+      ],
+      "model_header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "part": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "records": {
+        "uiLFConfig_c": {
+          "bytes": 32,
+          "fields": {
+            "f08": "CONTINUOUS",
+            "f10": {
+              "f00": -1.0,
+              "f06": 0
+            },
+            "f18": 0
+          },
+          "fields_sha256": "26c312d5dcb06c19beefd2cc77a52d65075d1f6081ed45b9209462eac8f77d08",
+          "interval": [
+            4647,
+            4679
+          ],
+          "layouts": {
+            "uiLFConfig_c": 1,
+            "utLineWidth_c.Serialize.2.0": 1
+          },
+          "map_base": 4,
+          "map_counter": 62,
+          "wire_sha256": "5b98a55188911dd75a140595609f4d824036fd5071f1027ab84be9845ebae601"
+        },
+        "utCharFormat_c": {
+          "bytes": 100,
+          "fields": {
+            "f08": "Century Gothic",
+            "f10": 0.003175,
+            "f18": 0,
+            "f20": 0.0,
+            "f28": 0.001,
+            "f30": 0,
+            "f38": 1.0,
+            "f40": 0.0,
+            "f48": 0.0,
+            "f50": 1.0,
+            "f58": 400
+          },
+          "fields_sha256": "8e510b2375965cdf1e0d66726b626d91be8aef35202037b64f4927cac3133a38",
+          "interval": [
+            12681,
+            12781
+          ],
+          "layouts": {
+            "utCharFormat_c": 1
+          },
+          "map_base": 4,
+          "map_counter": 69,
+          "wire_sha256": "2a8a082b2b6cc3ceeb6e7e730a1eb5c98f4a8c10356acf0f7999857fb1614512"
+        },
+        "utLineWidthPrintData_c": {
+          "bytes": 32,
+          "fields": {
+            "f10": 0.0003499999875202775,
+            "f14": 0.0005000000237487257,
+            "f18": 0.000699999975040555,
+            "f1c": 0.0010000000474974513,
+            "f20": 0.00139999995008111,
+            "f24": 0.0020000000949949026,
+            "f8": 0.00018000000272877514,
+            "fc": 0.0002500000118743628
+          },
+          "fields_sha256": "2cb0939bad43ad7292a46eb8dcabf7c343613c0d92d898efb56e68864bf8aa25",
+          "interval": [
+            19734,
+            19766
+          ],
+          "layouts": {
+            "utLineWidthPrintData_c": 1
+          },
+          "map_base": 4,
+          "map_counter": 69,
+          "wire_sha256": "5812ff5081a220789b909031a058d46ad3d2ffa730f778a732d1963ab8651769"
+        },
+        "utLineWidth_c.Serialize.2.0": {
+          "bytes": 6,
+          "fields": {
+            "f00": -1.0,
+            "f06": 0
+          },
+          "fields_sha256": "a6eb00a7dde34e1ce122e9538c7bc8f91feb5cbd1c50b8ad6a4f882e57759172",
+          "interval": [
+            4671,
+            4677
+          ],
+          "layouts": {
+            "utLineWidth_c.Serialize.2.0": 1
+          },
+          "map_base": 4,
+          "map_counter": 62,
+          "wire_sha256": "ca425c8b2ebe10b3c92f5b6ba0b58feebeef930a450f5cdd7b6455c73258487b"
+        }
+      },
+      "runtime_external_accesses": 0,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    {
+      "anchor_slots": [
+        1,
+        2,
+        3
+      ],
+      "case": "concave",
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "header_alias": [
+        "moExtObject_c",
+        1,
+        15
+      ],
+      "model_header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "part": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "records": {
+        "uiLFConfig_c": {
+          "bytes": 32,
+          "fields": {
+            "f08": "Continuous",
+            "f10": {
+              "f00": -1.0,
+              "f06": 0
+            },
+            "f18": 0
+          },
+          "fields_sha256": "ab5166f2f370f78288f1b58f0a79eaf35e10953c9b83cf312847048a9ca645ee",
+          "interval": [
+            3558,
+            3590
+          ],
+          "layouts": {
+            "uiLFConfig_c": 1,
+            "utLineWidth_c.Serialize.2.0": 1
+          },
+          "map_base": 4,
+          "map_counter": 54,
+          "wire_sha256": "5e26de6d242c88f98455cc93c149e40703fe16e73b95e88a7b21645c5ec85793"
+        },
+        "utCharFormat_c": {
+          "bytes": 100,
+          "fields": {
+            "f08": "Century Gothic",
+            "f10": 0.0035,
+            "f18": 0,
+            "f20": 0.0,
+            "f28": 0.0,
+            "f30": 0,
+            "f38": 1.0,
+            "f40": 0.0,
+            "f48": 0.0,
+            "f50": 1.0,
+            "f58": 400
+          },
+          "fields_sha256": "c3d5d5beaa51d986d043940f5c7ab57c284c8743ea1d5c415f57a7040554bfc4",
+          "interval": [
+            11130,
+            11230
+          ],
+          "layouts": {
+            "utCharFormat_c": 1
+          },
+          "map_base": 4,
+          "map_counter": 54,
+          "wire_sha256": "10e972c3beea43eb38d3a1100aec00ef4f38d3f0b8ef363a01a21850a12d4921"
+        },
+        "utLineWidthPrintData_c": {
+          "bytes": 32,
+          "fields": {
+            "f10": 0.0003499999875202775,
+            "f14": 0.0005000000237487257,
+            "f18": 0.000699999975040555,
+            "f1c": 0.0010000000474974513,
+            "f20": 0.00139999995008111,
+            "f24": 0.0020000000949949026,
+            "f8": 0.00018000000272877514,
+            "fc": 0.0002500000118743628
+          },
+          "fields_sha256": "2cb0939bad43ad7292a46eb8dcabf7c343613c0d92d898efb56e68864bf8aa25",
+          "interval": [
+            18375,
+            18407
+          ],
+          "layouts": {
+            "utLineWidthPrintData_c": 1
+          },
+          "map_base": 4,
+          "map_counter": 54,
+          "wire_sha256": "5812ff5081a220789b909031a058d46ad3d2ffa730f778a732d1963ab8651769"
+        },
+        "utLineWidth_c.Serialize.2.0": {
+          "bytes": 6,
+          "fields": {
+            "f00": -1.0,
+            "f06": 0
+          },
+          "fields_sha256": "a6eb00a7dde34e1ce122e9538c7bc8f91feb5cbd1c50b8ad6a4f882e57759172",
+          "interval": [
+            3582,
+            3588
+          ],
+          "layouts": {
+            "utLineWidth_c.Serialize.2.0": 1
+          },
+          "map_base": 4,
+          "map_counter": 54,
+          "wire_sha256": "ca425c8b2ebe10b3c92f5b6ba0b58feebeef930a450f5cdd7b6455c73258487b"
+        }
+      },
+      "runtime_external_accesses": 0,
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    {
+      "case": "wire",
+      "map_base": 4,
+      "map_counter": 62,
+      "records": {
+        "uiLFConfig_c": {
+          "bytes": 14,
+          "fields": {
+            "f08": [
+              "A",
+              "Kit \u00c7"
+            ],
+            "f10": {
+              "f00": 0.046875,
+              "f06": -269
+            },
+            "f18": -17131
+          },
+          "layouts": {
+            "uiLFConfig_c": 1,
+            "utLineWidth_c.Serialize.2.0": 1
+          },
+          "wire_sha256": "ab21acf472e96032e1e97752a1e46042292406364b5dc4c07adfbfdf4a23118b"
+        },
+        "utCharFormat_c": {
+          "bytes": 88,
+          "fields": {
+            "f08": "\u00c5\ud801\udc37 text",
+            "f10": -0.375,
+            "f18": -19373,
+            "f20": 0.8125,
+            "f28": -13.5,
+            "f30": 3509868385,
+            "f38": 4.25,
+            "f40": -2.0,
+            "f48": 3.0,
+            "f50": -8.5,
+            "f58": 4204260611
+          },
+          "layouts": {
+            "utCharFormat_c": 1
+          },
+          "wire_sha256": "4beedf04dc06eec3c5908c071d452b72b02f63b06b71967dc24b3667ebdf6d51"
+        },
+        "utLineWidthPrintData_c": {
+          "bytes": 32,
+          "fields": {
+            "f10": -0.0625,
+            "f14": 0.5,
+            "f18": 3.25,
+            "f1c": 74.375,
+            "f20": -11.75,
+            "f24": 2.125,
+            "f8": -13.25,
+            "fc": 22.875
+          },
+          "layouts": {
+            "utLineWidthPrintData_c": 1
+          },
+          "wire_sha256": "d1fea89ae0bc1971ad0319c8ddcb9ea5ef69dad7c3521a688563b65ee4b6c34e"
+        },
+        "utLineWidth_c.Serialize.2.0": {
+          "bytes": 6,
+          "fields": {
+            "f00": 0.046875,
+            "f06": -269
+          },
+          "layouts": {
+            "utLineWidth_c.Serialize.2.0": 1
+          },
+          "wire_sha256": "20202fea52c34fe2ca4fb71b6771beae91260594ff9879833e1fda3b10f85ffd"
+        }
+      },
+      "refusals": [
+        {
+          "case": "truncated_font_text",
+          "diagnostic": "SOLIDWORKS body uiLFConfig_c field f08 at 0: archive string payload is truncated",
+          "offset": 0
+        },
+        {
+          "case": "overlong_font_text",
+          "diagnostic": "SOLIDWORKS body uiLFConfig_c field f08 at 0: SOLIDWORKS body text has a noncanonical length prefix",
+          "offset": 0
+        },
+        {
+          "case": "truncated_font_width",
+          "diagnostic": "SOLIDWORKS body uiLFConfig_c field f10 at 8: SOLIDWORKS body uiLFConfig_c/utLineWidth_c.Serialize.2.0 field f10/f00 at 8: truncated SOLIDWORKS archive field at 8",
+          "offset": 8
+        },
+        {
+          "case": "truncated_character",
+          "diagnostic": "SOLIDWORKS body utCharFormat_c field f58 at 84: truncated SOLIDWORKS archive field at 84",
+          "offset": 84
+        },
+        {
+          "case": "truncated_print_width",
+          "diagnostic": "SOLIDWORKS body utLineWidthPrintData_c field f24 at 28: truncated SOLIDWORKS archive field at 28",
+          "offset": 28
+        },
+        {
+          "case": "trailing_font_data",
+          "diagnostic": "bounded formatting record has trailing data",
+          "offset": 14
+        },
+        {
+          "case": "wrong_archive_version",
+          "diagnostic": "SOLIDWORKS typed body grammar requires archive version 19000",
+          "offset": 0
+        },
+        {
+          "case": "unknown_width_layout",
+          "diagnostic": "unsupported SOLIDWORKS body schema utLineWidth_c.Serialize.1.0",
+          "offset": 0
+        }
+      ],
+      "runtime_external_accesses": 0
+    }
+  ],
+  "source_receipt_sha256": "2e1ddf09e35186c80ebe223603b0809f4b5ac891b86b2c8f12100af632af25f5",
+  "tool_sha256": {
+    "CheckCfgFonts.py": "9a2b724f2d67d26009945f6275d5484b0a363e9cdf15a23dd72fe8a9b60f7e0b",
+    "CheckCfgMembers.py": "d7aa8fcd744ffcc09df8f7297867dbcb3f5f0b8f7b5caf56c120dfe88c6303f4",
+    "CheckCfgOwners.py": "a25c4a45c7da0d54cef240b58e3ac2b5628023949004472c793b504602360894",
+    "ReadWireCfgFont.py": "69a091999d9c13a80a84046f3811009548013a9c5fa2298c1be397b388577de7",
+    "TraceCfgFont.py": "66a16f3b3f1e0465b6e2e2f06bb705273f6bf585a3cdca3c894357f20c0008a3"
+  }
+}
