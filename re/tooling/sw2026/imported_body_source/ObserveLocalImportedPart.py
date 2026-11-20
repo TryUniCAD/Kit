@@ -19,7 +19,7 @@ TOOLS = {"ObserveLocalImportedPart.py", "AuthorCurves.py", "AuthorImportedBody.p
          "RunImportedBodySources.py", "ObserveKernelBodyRestore.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py"}
 
 
-def snapshot(observer, expected, name, persistent):
+def snapshot(observer, expected, name, persistent, scene=None):
     feature = observer.get(observer.model, "FeatureByName", name)
     require(feature is not None and observer.get(feature, "GetTypeName2") == IMPORTED, "imported feature is absent")
     tree = observer.feature_tree(required_names=(name,))
@@ -45,11 +45,18 @@ def snapshot(observer, expected, name, persistent):
     state = {"needs_rebuild": int(observer.get(extension, "NeedsRebuild2")),
              "save_flag": bool(observer.get(observer.model, "GetSaveFlag")),
              "update_stamp": int(observer.get(observer.model, "GetUpdateStamp"))}
-    return {"shape": measured, "feature": name, "feature_id": int(observer.get(feature, "GetID")),
-            "persistent_reference": token, "feature_faces": len(feature_faces), "application_state": state}
+    result = {"shape": measured, "feature": name, "feature_id": int(observer.get(feature, "GetID")),
+              "persistent_reference": token, "feature_faces": len(feature_faces), "application_state": state}
+    if scene is not None:
+        observed = tuple((row["name"], row["type"], row["parent"]) for row in tree
+                         if row["type"] in ("AmbientLight", "DirectionLight"))
+        require(observed == scene and any(row["type"] == "EnvFolder" and row["name"] == scene[0][2]
+                                          for row in tree), "native light inventory or environment owner differs")
+        result["light_tree"] = observed
+    return result
 
 
-def phase(directory, label, source, source_sha, expected, feature_name, *, save=None, reference=None):
+def phase(directory, label, source, source_sha, expected, feature_name, *, save=None, reference=None, scene=None):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -67,12 +74,12 @@ def phase(directory, label, source, source_sha, expected, feature_name, *, save=
             result["open"] = {"returned_document": observer.model is not None, "error": error, "warning": warning}
             require(observer.model is not None and error == 0, "native container could not open")
             try:
-                result["cold"] = snapshot(observer, expected, feature_name, reference)
+                result["cold"] = snapshot(observer, expected, feature_name, reference, scene)
             except Exception as problem:
                 result["cold_failure"] = repr(problem)
             observer.rebuild()
             result["rebuilt"] = snapshot(observer, expected, feature_name,
-                                         result.get("cold", {}).get("persistent_reference", reference))
+                                         result.get("cold", {}).get("persistent_reference", reference), scene)
             if save is not None and warning == 0 and "cold" in result:
                 require(not save.exists(), "fresh generated save target already exists")
                 status = tuple(record.call("save to a separate local file", controller.save_as, observer.model, save))

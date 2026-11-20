@@ -235,8 +235,8 @@ def measure():
     lit_bytes = (ROOT / LIT_RECEIPT).read_bytes()
     unlit_bytes = (ROOT / UNLIT_RECEIPT).read_bytes()
     paths = (
-        *(f"{IMPORTS}/{name}.py" for name in ("BindAmbientMut", "BindImportMut", "CheckBareImport", "FinishImportMut",
-                                              "ImportCandidate", "LogImportMut", "MakeBareImport", "MakeImportKeys")),
+        *(f"{IMPORTS}/{name}.py" for name in ("BindImportScene", "BindImportMut", "CheckBareImport", "FinishImportMut",
+                                              "ImportCandidate", "LogImportMut", "MakeBareImport", "MakeImportKeys", "ReadImportScene")),
         f"{RESEARCH}/BuildImportedLocalPart.py", f"{RESEARCH}/VerifyBareImportPackage.py",
         "src/convert/adapters/solidworks/Archive/Construction/System/Members/MakeLightMut.py",
         "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartArchive.py",

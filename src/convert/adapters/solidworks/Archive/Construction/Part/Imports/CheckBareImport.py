@@ -78,7 +78,7 @@ def CheckBareImport(
     DocumentValue: CadDocument,
     InputValue: PartBuildInput,
     LabelsValue: PartLabels,
-    AmbientValue: LightInput | None,
+    LightValues: tuple[LightInput, ...],
 ) -> BrepModel:
     ModelValue = ReadBareModel(DocumentValue)
     if len(DocumentValue.configurations) != 1:
@@ -113,12 +113,7 @@ def CheckBareImport(
         raise ValueError(
             "bare local import needs printable part configuration and feature names"
         )
-    if AmbientValue is not None and (
-        type(CastValue(object, AmbientValue)) is not LightInput
-        or AmbientValue.KindValue != "ambient"
-    ):
-        raise ValueError("bare local import admits only a typed authored ambient light")
-    LightNames = () if AmbientValue is None else (AmbientValue.NameValue,)
+    LightNames = tuple(LightValue.NameValue for LightValue in LightValues)
     CheckPartInput(DocumentValue, InputValue, LabelsValue, LightNames)
     if InputValue.DesignIntent or InputValue.SelectedLeader:
         raise ValueError("bare local import has no boss presentation owner")

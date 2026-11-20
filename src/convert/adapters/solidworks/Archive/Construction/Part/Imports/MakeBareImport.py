@@ -7,8 +7,8 @@ from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartArchive import (
     EmitPartArchive,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Imports.BindAmbientMut import (
-    BindAmbientMut,
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.BindImportScene import (
+    BindImportScene,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.BindImportMut import (
     BindImportMut,
@@ -27,6 +27,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.LogImportMut 
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.MakeImportKeys import (
     MakeImportKeys,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ReadImportScene import (
+    ReadImportScene,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartBaseMut import (
     MakePartBaseMut,
@@ -71,8 +74,10 @@ def MakeBareImport(
     LabelsValue: PartLabels,
     *,
     AmbientValue: LightInput | None = None,
+    LightValues: tuple[LightInput, ...] = (),
 ) -> ImportCandidate:
-    ModelValue = CheckBareImport(DocumentValue, InputValue, LabelsValue, AmbientValue)
+    Selected = ReadImportScene(AmbientValue, LightValues)
+    ModelValue = CheckBareImport(DocumentValue, InputValue, LabelsValue, Selected)
     LocalValue = EncodeLocalBody(LabelsValue.FeatureName, MakeLocalPrism(ModelValue))
     Allocator = PersistentIds()
     SystemValue = MakePartBaseMut(InputValue, LabelsValue, Allocator)
@@ -87,8 +92,8 @@ def MakeBareImport(
         LabelsValue.FeatureName,
         HistoryValue.MarkIds,
     )
-    if AmbientValue is not None:
-        BindAmbientMut(SystemValue, AmbientValue, TargetValue, Allocator)
+    if Selected:
+        BindImportScene(SystemValue, Selected, TargetValue, Allocator)
     SetCfgStampMut(SystemValue.ConfigValues[0], Allocator)
     HeadersValue = MakePartHeaders(SystemValue, InputValue, Allocator)
     _ = LogImportMut(FeatureValue, HeadersValue, InputValue.HeaderValue)
