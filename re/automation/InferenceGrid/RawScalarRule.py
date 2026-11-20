@@ -345,6 +345,51 @@ def raw_scalars(root, data, pin, scratch, controls, exclude_archives=()):
     }
 
 
+def measured_controls(root, pin, scratch):
+    for folder, receipt, report, files in capture_sets(root):
+        reopened = report["observations"].get("reopened_files", {})
+        readings = {}
+        for name in files:
+            observation = reopened.get(name, {})
+            if observation.get("open_status") != {"errors": 0, "warnings": 0}:
+                continue
+            values = dimensions(observation)
+            fields = {(feature, parameter): value for feature, parameter, value in values}
+            if fields and len(fields) == len(values):
+                readings[name] = fields
+        matches = [name for name in readings if files[name]["sha256"] == pin]
+        if len(matches) != 1:
+            continue
+        before = readings[matches[0]]
+        controls = {}
+        budget = 64 * 1024 * 1024
+        for name, after in sorted(readings.items()):
+            if Path(name).name != name or before.keys() != after.keys():
+                continue
+            changed = [key for key in before if before[key] != after[key]]
+            if len(changed) != 1:
+                continue
+            path = folder / name
+            if not path.is_file() or path.stat().st_size > min(budget, 16 * 1024 * 1024):
+                continue
+            raw = read_file(path, min(budget, 16 * 1024 * 1024))
+            digest = hashlib.sha256(raw).hexdigest()
+            if digest != files[name]["sha256"] or digest in controls:
+                continue
+            key = changed[0]
+            snapshot = scratch / (digest + ".sldprt")
+            snapshot.write_bytes(raw)
+            controls[digest] = (snapshot, {
+                "feature": key[0], "parameter": key[1], "input_value": before[key],
+                "control_value": after[key], "measurement_sha256": receipt["measurement_receipt_sha256"],
+            })
+            budget -= len(raw)
+            if len(controls) == 32:
+                break
+        return controls
+    return {}
+
+
 def part_scalars(root, source, pin, scratch, controls):
     import re
 
@@ -372,7 +417,8 @@ def part_scalars(root, source, pin, scratch, controls):
         return result, None
     private = scratch / "part-scalars"
     private.mkdir()
-    excluded = {pin, *(path.stem for path in controls)}
+    pairs = {path.stem: (path, None) for path in controls} if controls else measured_controls(root, pin, private)
+    excluded = {pin, *pairs}
     for i, (name, blob) in enumerate(selected):
         others = [(k, b) for j, (k, b) in enumerate(selected) if i != j]
         rule, patch = raw_scalars(
@@ -436,13 +482,19 @@ def part_scalars(root, source, pin, scratch, controls):
                 }:
                     result["status"] = "native_entry_replay_failed"
                     return result, None
-            for path in controls:
+            for digest, (path, measured) in pairs.items():
                 for member, row in result["members"].items():
                     if not row.get("ownership", {}).get("records"):
                         continue
                     proc = run_reader(path, member)
                     comparison = changed_owner(row, json.loads(proc.stdout)) if not proc.returncode else {"status": "control_reader_refused"}
-                    row.setdefault("paired_changes", []).append({"control_sha256": path.stem, **comparison})
+                    if measured:
+                        comparison["native_edit"] = measured
+                        comparison["matches_measured_change"] = comparison.get("parameter") == measured["parameter"] and all(
+                            math.isclose(comparison[key], measured[key], rel_tol=1e-12, abs_tol=1e-14)
+                            for key in ("input_value", "control_value")
+                        )
+                    row.setdefault("paired_changes", []).append({"control_sha256": digest, **comparison})
             patch = {
                 **patch,
                 "input_sha256": pin,

@@ -289,3 +289,5 @@ For an extracted native configuration stream, use [raw scalar reader inference](
 Use [scalar feature associations](../Changes/Research/Inference/ScalarFeatureAssociations.md) to distinguish measured feature names from candidates that depend on the preceding serialized marker.
 
 Use a single-parameter edit to [compare generated scalar readings across two native parts](../Changes/Research/Inference/PairedScalarChanges.md).
+
+For known native captures, the single-input command [selects measured controls automatically](../Changes/Research/Inference/AutomaticScalarControls.md).
