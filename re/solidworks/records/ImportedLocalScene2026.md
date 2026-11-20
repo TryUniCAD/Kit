@@ -67,3 +67,12 @@ persistent identity. Their save allocation can move its archive map
 index. Both controls pass across eleven processes, with 348 candidate
 geometry checks and matching cold trees.
 [Disclosed manager result](../measurements/2026/ImportedPartExplodedNative01.json)
+
+The annotation profile repeated that comparison against both original
+inputs in the pre-writer locked cohort. Each generated and native-saved
+part has the same ordered 24-row cold tree as its source, both note
+owners with their recorded chronology, the empty exploded manager, and
+the previously qualified lights and property owners. Both controls pass
+across eight fresh processes and all 232 candidate checks pass.
+Complete original-source transfer and public writer qualification remain
+open. [Locked annotation result](../measurements/2026/SealedImportedAnnotationManagers01.json)

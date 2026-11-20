@@ -1,0 +1,100 @@
+{
+  "schema": "kit.sw2026.sealed-import-annotation-managers.v1",
+  "job_sha256": "02c0a6a255247cfa7a503c80c0514bef0b47c7e3f0b9944e9ba37899df9f3936",
+  "source_lock_receipt_sha256": "1a5a4993881c967682496c90924c262c7954fddd67dd9d1ee3e105186deed281",
+  "writer_revision": "1b70d67b854814cb5066f44028439c43f2b4a632",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_file_version": "34.5.2.0604",
+  "cases": {
+    "Slot01": {
+      "input_sha256": "27de26139590fe292ae420212af7515660fdb48d8f4f1830fae739cb3799b93a",
+      "candidate_sha256": "bfbf51df97e20bedaf4146ffe9cc1a9b40cb5c3b580af0e7dc7489c06453a1ff",
+      "saved_candidate_sha256": "732ca792e8b44a71c82aab64de9a7c0835b81217e5af16b176439286907cba28",
+      "model_generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "saved_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "source_unchanged": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": [
+        "4bb7b1e9f0daeec3b4d7912d307a3267dabe098e81a4daed4a7946b5dd1f44b7",
+        "a616e7aeeb9d8a9d7844c6229e2baf57a15df98e400fd600c977cb279f19e400",
+        "4dfe6c6d5aea0bec2ee470da897ec218618a7bbc0e535da720005fde33b36572"
+      ],
+      "file_property_owner": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      },
+      "saved_notes": {
+        "count": 2,
+        "chronology_equal": true
+      },
+      "complete_tree_equal": true,
+      "saved_exploded_view": {
+        "persistent_id": 25,
+        "archive_index": 121
+      },
+      "cold_native_tree_rows": 24
+    },
+    "Slot02": {
+      "input_sha256": "db9a9dc8cdaec057421ad7934ab8a55680d6e50b1e966e61887c56a43bbe755d",
+      "candidate_sha256": "bd65ef32b372308ef32d050a54e13ed169f731a14ef440631ae64ecb45b5a78a",
+      "saved_candidate_sha256": "991f28f6eb1240f1819a4392bcdc56f4a8d0e39801c1270f8ce7f90c8eed1931",
+      "model_generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "saved_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "source_unchanged": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": [
+        "c64de4ba32f640f97579a6ad15f1232f328ddd8c03ec04e562d8cab0394dff66",
+        "4441911b2da988f243cab59d36d8864d7834b7b6a137f25948d5efd44627cf89",
+        "ea0b7b2a36dc9202d6cdd4f361f617dcc56ee945f37fa429170f4519e55e8dee"
+      ],
+      "file_property_owner": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      },
+      "saved_notes": {
+        "count": 2,
+        "chronology_equal": true
+      },
+      "complete_tree_equal": true,
+      "saved_exploded_view": {
+        "persistent_id": 25,
+        "archive_index": 121
+      },
+      "cold_native_tree_rows": 24
+    }
+  },
+  "heldout_payloads_shared": 0,
+  "complete_original_source_conversions": 0,
+  "public_writer_qualified": false,
+  "controls_healthy": true,
+  "unqualified_source_domains": [
+    "source tracking and provenance",
+    "archived payload and system attributes"
+  ],
+  "control_receipts": {
+    "before": "7ea1a73bb3944fd2b1eeb956138c87c2853ac118fd4d77bdf2aca8c28dfd6807",
+    "after": "b6e9a842d2319183f83098ae2ee07529668e58eac23ba333a67538f49b8b67e5"
+  },
+  "distinct_accepted_processes": 8,
+  "complete_heldout_geometry_lifecycles": 2,
+  "complete_heldout_scene_text_lifecycles": 2,
+  "complete_heldout_file_property_owner_lifecycles": 2,
+  "complete_heldout_annotation_manager_lifecycles": 2,
+  "faults": {},
+  "raw_native_receipt_sha256": "a0896debcbe829e7572738a9b50de7c1b966c52b7dbf5c11ffc37d9e92d799a3",
+  "frozen_evaluators": {
+    "BuildImportedLocalPart.py": "c3ee3c787a67baaeff3110d594258e1a93d407d0470016ccebdb044cbd7cde54",
+    "BuildLocalBodyKernel.py": "e738c2e96719c3e6164efa38f8dfd7d3f6221fea194382db3cba66677036e247",
+    "EvaluateSealedImportedGeometry.py": "49774f2d48b6b30414917068b4ea5f3a8d49794628199be8e2ce7ddf1bd78d36",
+    "LocalBodyKernel.py": "e1a9bb70e0cbf76ff13327574e713e03e4a2701f782ce48cb0f5f9241cff46d6",
+    "ObserveLocalImportedPart.py": "9a4c3b0756688aea9e8ba5560b0ce500387f03199cabcc84c960a607b860b506",
+    "ProbeImportedPartScene.py": "d1e9bc393e3792c0c88e131e36144c74093dca69db54e5bd50168622d5a9c850",
+    "ProjectDisclosedImport.py": "c6a5b3b9899b0a3e1bd89f9b4784647e97721704d25e579b8c0c3ff4df36b08c",
+    "ProjectImportedSemantics.py": "4ecea9266afd8ba428171e96f0ca14facdf68febd396ca241a31683c9010b398",
+    "VerifyBareImportPackage.py": "de1e410b9f7d5b8dffea73bfffa184fcfbc09a8ad23d41ee94e63dc27be8b921"
+  }
+}

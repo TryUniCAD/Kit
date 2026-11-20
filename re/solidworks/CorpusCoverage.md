@@ -74,6 +74,12 @@ the supplied scene and the generated property owners. Both controls
 pass across eleven native processes. These disclose presentation coverage
 for the scoped local import and add zero FCStd benchmark cases.
 
+The [locked annotation comparison](measurements/2026/SealedImportedAnnotationManagers01.json)
+extends the same two sealed native imports. Both preserve the original
+ordered native cold tree and the saved empty notes and exploded-view
+owners through all 232 candidate checks. These are native source cases
+outside the FCStd benchmark.
+
 The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
 preserve a live sketch-dimension dependency across edits, saves and fresh reopens.
 The original and edited guest-only inputs are locked before writer implementation.
