@@ -1,0 +1,72 @@
+{
+  "schema": "kit.sw2026.config-thread-source.v1",
+  "aggregate_layout_revision": "f4fc8744235448c0ff6048e4447440bb7927a6d1",
+  "reference_checkout_revision": "5e0d5127e09de3b1646b9c662757e783cf7b4f3c",
+  "preparation_base": "0cd540e298655e091bcfb4a984ba50e793d67c53",
+  "archive_version": 19000,
+  "native_file_version": "34.5.2.0604",
+  "stream": "Contents/Config-0",
+  "earlier_owner_manifest_sha256": "df8e03d58a909fb3cd74cc7fd416b478d06336a8cdf705490d8e01cc9fe6f7a0",
+  "method": "full aggregate configuration reads on the two disclosed tracked controls with scoped field and map cursor observations",
+  "new_reader_queue_run_recorded": false,
+  "native_application_run": false,
+  "unchanged_aggregate_files": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/RecordFields.py": "3d7a24c9b39cbda0df74707adaae154d0140958f1907bbcc52cc93fd3bd34704",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadBooleanMut.py": "f308b8271b481492aa01d1aff4155731d49ed41c0b1a357af808874705bad4d4"
+  },
+  "controls": {
+    "ladder": {
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "part_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "owners": [
+        {
+          "field": "fe38",
+          "interval": [25016, 25041],
+          "sha256": "c794980ae0c8d13b33a35605b34199f1acd3e5dec34a683da5c50f8d32895c4e",
+          "counter": [103, 105],
+          "new_class_slot": 103,
+          "object_slot": 104,
+          "mark_wire": [25037, 25041],
+          "mark_id": 3
+        },
+        {
+          "field": "f12d0",
+          "interval": [25101, 25132],
+          "sha256": "d52958726c06925727ed38661d8db86a050edb80f1abfc383c1758f1412cb9d1",
+          "counter": [106, 108],
+          "new_class_slot": 106,
+          "object_slot": 107,
+          "count_wire": [25124, 25128],
+          "boolean_wire": [25128, 25132],
+          "boolean_wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        }
+      ]
+    },
+    "concave": {
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "part_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "owners": [
+        {
+          "field": "fe38",
+          "interval": [22548, 22573],
+          "sha256": "3e5d2499083f26e04a8ca95de0357fa77b1ced99266ead201933251fb1856494",
+          "counter": [91, 93],
+          "new_class_slot": 91,
+          "object_slot": 92,
+          "mark_wire": [22569, 22573],
+          "mark_id": 2
+        },
+        {
+          "field": "f12d0",
+          "interval": [22633, 22635],
+          "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "counter": [94, 94],
+          "new_class_slot": null,
+          "object_slot": null
+        }
+      ]
+    }
+  }
+}

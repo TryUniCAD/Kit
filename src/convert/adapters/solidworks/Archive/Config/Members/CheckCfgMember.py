@@ -2,13 +2,18 @@ from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsup
 from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
     KExplViewClass,
     KRelMgrClass,
+    KRequiredMembers,
     KSketchBlockClass,
+    KThreadMgrClass,
 )
 from convert.adapters.solidworks.Archive.Config.Members.CheckCfgOwner import (
     CheckCfgOwner,
 )
 from convert.adapters.solidworks.Archive.Config.Members.CheckRelMember import (
     CheckRelMember,
+)
+from convert.adapters.solidworks.Archive.Config.Members.CheckThreadMap import (
+    CheckThreadMap,
 )
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.ObjectIndex import ObjectIndex
@@ -21,9 +26,10 @@ def CheckCfgMember(
     RootValue: ArchiveNode | None, MemberClass: RuntimeClass, MapValue: ArchiveMaps
 ) -> None:
     if RootValue is None:
-        if MemberClass == KRelMgrClass:
+        RoleName = KRequiredMembers.get(MemberClass)
+        if RoleName is not None:
             raise BodyUnsupported(
-                "SOLIDWORKS relation member requires its concrete root"
+                f"SOLIDWORKS {RoleName} member requires its concrete root"
             )
         return
     IndexValue = ObjectIndex(MapValue, RootValue)
@@ -39,3 +45,5 @@ def CheckCfgMember(
         CheckRelMember(RootValue)
     elif MemberClass in (KSketchBlockClass, KExplViewClass):
         CheckCfgOwner(RootValue)
+    elif MemberClass == KThreadMgrClass:
+        CheckThreadMap(RootValue)

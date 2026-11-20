@@ -87,6 +87,12 @@ concrete virtual targets. The sketch map backlink retains the newly
 allocated manager's identity.
 [Configuration field action scope](../../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
 
+The same member reader accepts a concrete partition mark and an absent
+or empty thread reference manager. The archive slot and kernel mark ID
+remain separate. A present thread manager retains the signed wire word
+and its runtime Boolean.
+[Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
+
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
 of the lightweight section, it inserts the original header objects
