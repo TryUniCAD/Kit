@@ -444,4 +444,12 @@ def CheckReversedSavedPrism(TmpPath: FilePath) -> None:
     assert Geometry["embedded_stations_mm"] == [-11.0, 5.0]
     assert Geometry["saved_depths_match"] is True
     assert Geometry["embedded_depths_match"] is False
-    assert LoadJson((Run / "FileStall.json").read_bytes())["focus"] == "edited_graph_reconciliation"
+    Graph = LoadJson((Run / "Input-edited-graph.json").read_bytes())
+    assert Graph["status"] == "candidate_matches_native_graph"
+    Update, = Graph["updates"]
+    assert Update["parameter_id"] == "depth:forward"
+    assert Update["definition_field"] == "length"
+    Step, = (Item for Item in Graph["candidate"]["feature_timeline"]["$tuple"] if Item["id"] == Update["feature_id"])
+    assert Step["definition"]["length"]["value"] == 14.0
+    assert Step["definition"]["second_length"]["value"] == 5.0
+    assert LoadJson((Run / "FileStall.json").read_bytes())["focus"] == "edited_graph_reopen"

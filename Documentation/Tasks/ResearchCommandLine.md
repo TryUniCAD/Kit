@@ -299,3 +299,5 @@ For an unrecognized ZIP package, inspect [member structure and cross-file refere
 See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthEdits.md) when the embedded model is stale.
 
 [Edited prism evidence](../Changes/Research/Inference/EditedPrismEvidence.md) compares the predicted solid with its saved shape member.
+
+[Edited extrusion graph recovery](../Changes/Research/Inference/EditedExtrusionGraph.md) records the candidate feature definition and its driving parameter.

@@ -98,3 +98,47 @@ def depth_edits(data):
             row["saved_geometry"] = geometry
             changes.append(row)
     return changes
+
+
+def reconcile_depths(data, changes):
+    import json
+    from convert.adapters.freecad.InlineRead.CheckInline import GuardInline
+    from convert.adapters.freecad.InlineRead.ReadInline import ReadInlineScope
+    from interchange.document.Models.DocumentModel import CadDocument
+
+    if not changes or any(row.get("status") != "resolved_native_dependency"
+                          or row.get("saved_geometry", {}).get("status") != "edited_prism_confirmed"
+                          for row in changes):
+        return {"status": "insufficient_edit_evidence"}
+    archive = LoadNative(data, LoadEntries=False)
+    graph = ExtractManifest(data)
+    expected = ReadExpected(graph)
+    metadata, = (obj for obj in expected if obj.name == "KitMetadata")
+    sheet, = (obj for obj in expected if obj.type_id == "Spreadsheet::Sheet")
+    aliases = json.loads(EditScalar(metadata, "ParameterAliasesJSON", "App::PropertyString", "String"))
+    updates = []
+    for row in changes:
+        key, field = row["kit_feature_id"], row["field"]
+        original = RequireEditObj(expected, key, "Part::Extrusion")
+        expression = row["expression"]
+        if ReadInlineExpr(original).get(field) != expression:
+            raise ValueError("saved expression differs from original end binding")
+        ident, = (ident for ident, alias in aliases.items() if sheet.name + "." + alias == expression)
+        step, = (step for step in graph["feature_timeline"]["$tuple"] if step["id"] == key)
+        parameter, = (p for p in graph["parameters"]["$tuple"] if p["id"] == ident)
+        if (parameter["owner_id"] != key or step["parameter_ids"]["$tuple"].count(ident) != 1
+                or parameter.get("expression") or parameter["role"]["value"] != "driving"):
+            raise ValueError("embedded driving parameter ownership differs")
+        slot = {"LengthFwd": "length", "LengthRev": "second_length"}[field]
+        for value in (parameter["value"], step["definition"][slot]):
+            if not value or value["kind"]["value"] != "length" or value["unit"] != "mm" or value["value"] != row["embedded_mm"]:
+                raise ValueError("embedded parameter or extrusion distance differs")
+            value["value"] = row["saved_mm"]
+        updates.append({"parameter_id": ident, "feature_id": key, "definition_field": slot,
+                        "before_mm": row["embedded_mm"], "after_mm": row["saved_mm"]})
+    document = CadDocument.from_dict(graph)
+    document.assert_valid()
+    if ReadInlineScope(document, graph) is None:
+        raise ValueError("candidate falls outside inline graph verification")
+    GuardInline(document, graph, archive.root, RetainedRoute=False)
+    return {"status": "candidate_matches_native_graph", "updates": updates, "candidate": graph}

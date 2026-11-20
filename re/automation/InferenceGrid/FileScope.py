@@ -141,13 +141,19 @@ def file_scope(path, application, scratch, root, control_paths=()):
     if application == "freecad":
         message = attempts.get("strict", {}).get("message", "")
         if not document and message.startswith("FreeCAD inline native controls require unsupported edit reconciliation:"):
-            from InferenceGrid.FreeCadDepthEdits import depth_edits
+            from InferenceGrid.FreeCadDepthEdits import depth_edits, reconcile_depths
             try:
-                changes = depth_edits(read_file(source, 128 * 1024 * 1024))
+                raw = read_file(source, 128 * 1024 * 1024)
+                changes = depth_edits(raw)
             except ValueError as error:
                 reports["native-edits"] = {"status": "unresolved", "reason": str(error)[:512]}
             else:
                 reports["native-edits"] = {"status": "compared", "changes": changes, "source_sha256": pin}
+                try:
+                    graph = reconcile_depths(raw, changes)
+                except (KeyError, TypeError, ValueError, OverflowError) as error:
+                    graph = {"status": "unresolved", "reason": str(error)[:512]}
+                reports["edited-graph"] = {"source_sha256": pin, **graph}
         from runpy import run_path
         cases = run_path(str(root / "re/FreeCad/Verification/Cases.py"))["KCases"]
         for case in cases.values():
