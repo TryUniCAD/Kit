@@ -1,0 +1,782 @@
+{
+  "aggregate_rule_revision": "f4fc8744235448c0ff6048e4447440bb7927a6d1",
+  "archive_version": 19000,
+  "branch": "codex/solidworks-config-model-header-link",
+  "candidate_queue_run_recorded": false,
+  "changed_source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Config/Link/CfgPartStart.py": "55b061305e72131ed1c4ee9f3c07423378f8c9bee6124b733d4ec38f6a05733e",
+    "src/convert/adapters/solidworks/Archive/Config/Link/CheckPartRoot.py": "562c2dd6608c23de78bb3d75c22b65aebaeebbde30e054c7f62a1bc6dd92e6a0",
+    "src/convert/adapters/solidworks/Archive/Config/Link/ReadModelHead.py": "0e69e2390bf0367b63f4fb6869c7371e897d3a3cbc17ff7d2bfd2f65d4c4507c",
+    "src/convert/adapters/solidworks/Archive/Config/Link/ReadPartStart.py": "cc619458c65a54dd888ded22c7c8259dd94a665a9683fd5d8f996e218d47f747"
+  },
+  "direct_cursor_order": [
+    "offset",
+    "map_base",
+    "next_map_slot"
+  ],
+  "direct_owner_path": [
+    "moPart_c",
+    "moPart_c.FUN_4c2309d0",
+    "moModel_c.FUN_4c22ec80",
+    "moModel_c.FUN_4c17aa00"
+  ],
+  "fresh_processes": 12,
+  "full_reference_dependency_census": {
+    "active_layout_declarations": {
+      "Bodies/Layouts/Config/AnnotationDetailFields.py": [
+        "moDetailDefs_c"
+      ],
+      "Bodies/Layouts/Config/AnnotationFrameFields.py": [
+        "moGTolDlgDataFrame_c"
+      ],
+      "Bodies/Layouts/Config/AnnotationTablesFields.py": [
+        "moBOMTableDefs_c",
+        "moBendTableDefs_c",
+        "moFamilyTableDefs_c",
+        "moGeneralTableDefs_c",
+        "moHoleTableDefs_c",
+        "moPunchTableDefs_c",
+        "moRevisionTableDefs_c",
+        "moTableDefs_c",
+        "moTitleBlockTableDefs_c",
+        "moWeldTableDefs_c"
+      ],
+      "Bodies/Layouts/Config/AnnotationViewFields.py": [
+        "moAnnotationView_c"
+      ],
+      "Bodies/Layouts/Config/BaseAnnotationFields.py": [
+        "moAnnotationDefs_c",
+        "moBalloonDefs_c",
+        "moBaseAnnotationDefs_c",
+        "moBendNoteDefs_c",
+        "moDatumDefs_c",
+        "moGtolDefs_c",
+        "moNoteDefs_c",
+        "moRevCloudDefs_c",
+        "moSFDefs_c",
+        "moViewLocationLabelDefs_c",
+        "moWeldDefs_c"
+      ],
+      "Bodies/Layouts/Config/CommonFields.py": [
+        "moCThreadRefMgr_c",
+        "moEnvFolder_c",
+        "moFeatColorTab_c",
+        "moPrtExplViewManager_c",
+        "moRefIdToSketchBlockListMap_c.FUN_4c9080f0",
+        "moSketchBlockMgr_c",
+        "moSwiftGtsOptions_c",
+        "su_CMapWordToOb.Serialize"
+      ],
+      "Bodies/Layouts/Config/DimAnnotationFields.py": [
+        "moAngOrdinateDimDef_c",
+        "moAngleDimDef_c",
+        "moArcLengthDimDef_c",
+        "moBaseDimDef_c",
+        "moChamferDimDef_c",
+        "moDiameterDimDef_c",
+        "moDimDefs_c",
+        "moHoleCalloutDimDef_c",
+        "moLinearDimDef_c",
+        "moOrdinateDimDef_c",
+        "moRadialDimDef_c"
+      ],
+      "Bodies/Layouts/Config/ExternalFields.py": [
+        "mgBBox_c.restore"
+      ],
+      "Bodies/Layouts/Config/FeatureFields.py": [
+        "moConcept_c.SerializeResolvedData",
+        "moFeature_c.FUN_4bb2b240",
+        "moFolder_c",
+        "moMassPropCache_c.Serialize",
+        "moModelFeature_c",
+        "moNodeList_c.Serialize",
+        "moSheetMetalMaster_c",
+        "rf.suObList"
+      ],
+      "Bodies/Layouts/Config/FontFields.py": [
+        "uiLFConfig_c",
+        "utLineWidth_c.Serialize.2.0"
+      ],
+      "Bodies/Layouts/Config/FormatAnnotationFields.py": [
+        "utCharFormat_c",
+        "utLineWidthPrintData_c"
+      ],
+      "Bodies/Layouts/Config/GeometryFields.py": [
+        "mgMatrix_c.restore",
+        "mgXform_c.restore"
+      ],
+      "Bodies/Layouts/Config/HelperAnnotationFields.py": [
+        "moAnnotationDataHelper_c",
+        "moCenterMarkSymDataHelper_c",
+        "moDatumFeatureDataHelper_c",
+        "moDatumTargetDataHelper_c",
+        "moGTolDataHelper_c",
+        "moNoteDataHelper_c",
+        "moSFDataHelper_c",
+        "moWeldDataHelper_c"
+      ],
+      "Bodies/Layouts/Config/LabelAnnotationFields.py": [
+        "moAuxLabelData_c",
+        "moDetailLabelData_c",
+        "moDrViewLabelData_c",
+        "moLabelDefs_c",
+        "moMiscLabelData_c",
+        "moOrthoLabelData_c",
+        "moSectionLabelData_c"
+      ],
+      "Bodies/Layouts/Config/MaterialFields.py": [
+        "utLineWidth_c.Serialize0"
+      ],
+      "Bodies/Layouts/Config/ModelFields.py": [
+        "RelCacheDimValueMap_c.Serialize",
+        "gcCurvatureObject_c",
+        "gcXhatch_c",
+        "moAmbientLight_c",
+        "moAtomManager_c.FUN_4bcef8d0",
+        "moAtom_c",
+        "moBodyVizProps_c.FUN_4c240300",
+        "moDensityParameter_c",
+        "moDirectionLight_c",
+        "moFaceVizProps_c.restore",
+        "moForwardedFeatRefsList_c.FUN_4bb5ced0",
+        "moGhostBodyIdManager_c.FUN_4bf050e0",
+        "moLightFeature_c.FUN_4bc0b030",
+        "moMaterial_c",
+        "moModel_c.FUN_4c17aa00",
+        "moModel_c.FUN_4c210610",
+        "moModel_c.FUN_4c216d80",
+        "moModel_c.FUN_4c22ec20",
+        "moModel_c.FUN_4c22ec80",
+        "moModel_c.FUN_4c234150",
+        "moParameter_c.FUN_4c17a330",
+        "moPart_c",
+        "moPart_c.FUN_4c2309d0",
+        "moPart_c.FUN_4c2378b0",
+        "moRelMgr_c",
+        "moTransRefPlaneData_c",
+        "moUnitComponent_c",
+        "su_CMapStringToOb.Serialize",
+        "uoModelData_c"
+      ],
+      "Bodies/Layouts/Config/RecordFields.py": [
+        "moPMarkRecord_c"
+      ],
+      "Bodies/Layouts/Config/UnitFields.py": [
+        "moAngleUserUnits_c",
+        "moDensityUnits_c",
+        "moEnergyUnits_c",
+        "moFloatNumberUserUnits_c",
+        "moForceUnits_c",
+        "moFrequencyUserUnits_c",
+        "moGravityUnits_c",
+        "moLengthUserUnits_c",
+        "moLinearMotorUnits_c",
+        "moNumberUserUnits_c",
+        "moPowerUnits_c",
+        "moRotaryMotorUnits_c",
+        "moSpringConstantUnits_c",
+        "moStressUnits_c",
+        "moTimeUnits_c",
+        "moUnitSysUnits_c",
+        "moUnitsTable_c",
+        "moUserUnits_c.Serialize"
+      ],
+      "Bodies/Layouts/Config/ViewFields.py": [
+        "moView_c"
+      ],
+      "Bodies/Layouts/ConfigurationFields.py": [
+        "moMassProp_c",
+        "moNodeName_c",
+        "moUserProperty_c.restore",
+        "moVisualProperties_c",
+        "moVisualProperties_c.restore",
+        "uoMaterialProperties.restore",
+        "uoRVAppearanceProperties.restore"
+      ],
+      "Bodies/Layouts/ContainerFields.py": [
+        "suObList",
+        "su_CObArray",
+        "su_CStringArray"
+      ],
+      "Bodies/Layouts/FeatureFields.py": [
+        "moConcept_c.SerializeLWData",
+        "moEntVisProp_c",
+        "moFeature_c",
+        "moFeature_c.SerializeXmlData",
+        "moNode_c.SerializeLWData",
+        "moNode_c.SerializeNode",
+        "moVisProp_c",
+        "utLineWidth_c.Serialize2"
+      ],
+      "Bodies/Layouts/GeometryFields.py": [
+        "mgVector_c.restore"
+      ],
+      "Bodies/Layouts/MaterialFields.py": [
+        "uoDSPBRProperties_c.restore"
+      ],
+      "Bodies/Layouts/ReferenceFields.py": [
+        "moComponent_c"
+      ]
+    },
+    "active_layouts_without_standalone_declaration": [],
+    "advanced_additions": [
+      "moGhostBodyObject_c.FUN_4bf05390"
+    ],
+    "literal_positive_cases": [
+      "circle",
+      "circle_saved",
+      "polygon_saved"
+    ],
+    "literal_positive_layout_count": 142,
+    "ordinary_property_action_modes": {
+      "Array": [
+        "",
+        "Positive",
+        "SignedPositive",
+        "Unsigned"
+      ],
+      "BBoxCache": [
+        ""
+      ],
+      "Base": [
+        ""
+      ],
+      "Boolean": [
+        ""
+      ],
+      "Branch": [
+        "BitsEqual",
+        "Class",
+        "Condition",
+        "Context",
+        "Equals",
+        "Greater",
+        "Nonzero",
+        "NotCondition",
+        "NotContext",
+        "NotEquals",
+        "PeNoise"
+      ],
+      "Bytes": [
+        ""
+      ],
+      "Context": [
+        "Assign"
+      ],
+      "Direct": [
+        ""
+      ],
+      "DirectNode": [
+        ""
+      ],
+      "Embed": [
+        ""
+      ],
+      "GhostCount": [
+        ""
+      ],
+      "Length": [
+        ""
+      ],
+      "MassCaches": [
+        ""
+      ],
+      "Node": [
+        ""
+      ],
+      "Normalize": [
+        "AtLeast",
+        "AtomState",
+        "Identity",
+        "Zero"
+      ],
+      "Present": [
+        "",
+        "ObjectPresence"
+      ],
+      "Repeat": [
+        "",
+        "Fixed",
+        "Positive",
+        "SignedPositive"
+      ],
+      "Scalar": [
+        ""
+      ],
+      "Section": [
+        ""
+      ],
+      "Text": [
+        ""
+      ],
+      "Virtual": [
+        "",
+        "Flag"
+      ]
+    },
+    "path_root": "src/convert/adapters/solidworks/Archive",
+    "static_archive_source_count": 158,
+    "static_paths_absent_on_preparation_base": [
+      "Bodies/ChangeContext.py",
+      "Bodies/CheckBaseCtx.py",
+      "Bodies/CheckConfigLink.py",
+      "Bodies/CheckConfigMut.py",
+      "Bodies/CheckExtFields.py",
+      "Bodies/CheckExtShape.py",
+      "Bodies/CheckPacked.py",
+      "Bodies/IsFieldBranch.py",
+      "Bodies/Layouts/AssemblyFields.py",
+      "Bodies/Layouts/BodyLayouts.py",
+      "Bodies/Layouts/Config/AnnotationDetailFields.py",
+      "Bodies/Layouts/Config/AnnotationFrameFields.py",
+      "Bodies/Layouts/Config/AnnotationTablesFields.py",
+      "Bodies/Layouts/Config/AnnotationViewFields.py",
+      "Bodies/Layouts/Config/AssemblyFields.py",
+      "Bodies/Layouts/Config/BaseAnnotationFields.py",
+      "Bodies/Layouts/Config/CommonFields.py",
+      "Bodies/Layouts/Config/ConfigLayouts.py",
+      "Bodies/Layouts/Config/ConfigSchemas.py",
+      "Bodies/Layouts/Config/ConfigVirtuals.py",
+      "Bodies/Layouts/Config/DimAnnotationFields.py",
+      "Bodies/Layouts/Config/ExternalFields.py",
+      "Bodies/Layouts/Config/FeatureFields.py",
+      "Bodies/Layouts/Config/FontFields.py",
+      "Bodies/Layouts/Config/FormatAnnotationFields.py",
+      "Bodies/Layouts/Config/GeometryFields.py",
+      "Bodies/Layouts/Config/HelperAnnotationFields.py",
+      "Bodies/Layouts/Config/LabelAnnotationFields.py",
+      "Bodies/Layouts/Config/MaterialFields.py",
+      "Bodies/Layouts/Config/ModelFields.py",
+      "Bodies/Layouts/Config/PartRelationFields.py",
+      "Bodies/Layouts/Config/ViewFields.py",
+      "Bodies/Layouts/ConfigurationFields.py",
+      "Bodies/Layouts/ExternalFields.py",
+      "Bodies/Layouts/HeaderBodyFields.py",
+      "Bodies/Layouts/MaterialFields.py",
+      "Bodies/Layouts/PropertyFields.py",
+      "Bodies/Layouts/ReferenceFields.py",
+      "Bodies/Layouts/Resolved/AnchorFields.py",
+      "Bodies/Layouts/Resolved/AssemblyFields.py",
+      "Bodies/Layouts/Resolved/BodyFields.py",
+      "Bodies/Layouts/Resolved/ComponentFields.py",
+      "Bodies/Layouts/Resolved/CoreFields.py",
+      "Bodies/Layouts/Resolved/DimensionFields.py",
+      "Bodies/Layouts/Resolved/FeatureFields.py",
+      "Bodies/Layouts/Resolved/FolderFields.py",
+      "Bodies/Layouts/Resolved/GeometryFields.py",
+      "Bodies/Layouts/Resolved/ImportFields.py",
+      "Bodies/Layouts/Resolved/MaterialFields.py",
+      "Bodies/Layouts/Resolved/ProfileFields.py",
+      "Bodies/Layouts/Resolved/ReferenceFields.py",
+      "Bodies/Layouts/Resolved/ResolvedLayouts.py",
+      "Bodies/Layouts/Resolved/ResolvedSchemas.py",
+      "Bodies/Layouts/Resolved/ResolvedVirtuals.py",
+      "Bodies/Layouts/Resolved/RevolveFields.py",
+      "Bodies/Layouts/Resolved/SketchFields.py",
+      "Bodies/NewBodyUsage.py",
+      "Bodies/NormalizeWord.py",
+      "Bodies/Reading/ReadCachesMut.py",
+      "Bodies/Reading/ReadControlMut.py",
+      "Bodies/Reading/ReadDirectMut.py",
+      "Bodies/Reading/ReadGhostMut.py",
+      "Bodies/Reading/ReadHistRefMut.py",
+      "Bodies/Reading/ReadNormalizeMut.py",
+      "Bodies/Reading/ReadOwnedMut.py",
+      "Bodies/Reading/ReadPackedMut.py",
+      "Bodies/Reading/ReadSectionMut.py",
+      "Bodies/Reading/ReadValidateMut.py",
+      "Bodies/RequireHistRef.py",
+      "Bodies/ValidateFields.py",
+      "Config/ConfigGraph.py",
+      "Config/MakeConfigCtx.py",
+      "Config/ReadConfigMut.py",
+      "Config/RequireConfig.py",
+      "Config/UsePartRelationsMut.py",
+      "Expressions/ExprBinary.py",
+      "Expressions/ExprCollection.py",
+      "Expressions/ExprCompare.py",
+      "Expressions/ExprFrame.py",
+      "Expressions/ExprLogic.py",
+      "Expressions/ExprLookup.py",
+      "Expressions/ExprMath.py",
+      "Expressions/ExprSpecial.py",
+      "Expressions/ExprUnary.py",
+      "Expressions/GetRepeatSize.py",
+      "Expressions/IsValueCompared.py",
+      "Expressions/ReadExpression.py"
+    ],
+    "static_sources_in_preparation_base": 71,
+    "with_tracked_layout_count": 144
+  },
+  "native_processes_started": 0,
+  "native_reference_archive_module_sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+  "native_reference_build": "SOLIDWORKS 2026 SP05.2 34.5.2.0604",
+  "native_reference_model_module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "physical_file_version": 4,
+  "preparation_base": "fda31a2679995db48aad4fd2ff54d86966fd272d",
+  "pristine_originals": true,
+  "proof_tool_sha256": {
+    "re/tooling/sw2026/CheckCfgHeaderLink.py": "56804a715c9c490ad05c2a479712d660950f63a9c044cca27ed1d934c3b1a65d"
+  },
+  "python_version": "3.14.7",
+  "queue_case_sha256": {
+    "tests/Convert/Solidworks/Configuration/HeadLinkTests.py": "cffca3da0a2f253effff12b97ecfe160604d44eae1dd5e9c007f0a5f320e51b6",
+    "tests/Convert/Solidworks/Configuration/RunHeadLink.py": "0539aeee45bc874a5a06793e85329be33061b2a7413bda3f767fef91f811c6bc"
+  },
+  "refusals_per_pass": 12,
+  "schema": "Kit.SolidworksConfigHeaderLinkReader.1",
+  "scoped_cases": {
+    "circle": {
+      "base": 4,
+      "config_index": 3,
+      "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+      "configuration_bytes": 26055,
+      "counter": 4,
+      "file_identity": [
+        "CircularInput",
+        2,
+        "modeled default"
+      ],
+      "file_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "header_index": 25,
+      "independent_repeat_exact": true,
+      "lightweight_span": [
+        18,
+        3058
+      ],
+      "map_slots": [
+        1,
+        2,
+        3
+      ],
+      "model_header_bytes": 1231,
+      "model_header_sha256": "dbff4fc3e0c22cc292d30541648df2aef7e7e193c513d005ceb3cbc88e962a9a",
+      "model_words": [
+        0,
+        19000
+      ],
+      "prefix_sha256": "277cd89e2f0099a102379a1c773135997325f5e9580baf3465ad91f7f748de9e",
+      "reference_config_terminal_map_counter": 122,
+      "reference_direct_after": [
+        18,
+        4,
+        4
+      ],
+      "reference_direct_before": [
+        18,
+        1,
+        3
+      ],
+      "reference_exercised_layout_count": 142,
+      "refusals": [],
+      "relative_locator": "PartPropertySource01/Inspection/CircularPropertiesAuthor/CircularProperties.SLDPRT",
+      "root": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "runtime_external_accesses": 0,
+      "source_scope": "disclosed",
+      "standalone_header_sha256": "dbff4fc3e0c22cc292d30541648df2aef7e7e193c513d005ceb3cbc88e962a9a",
+      "stdout_sha256": "6994ceebd29a6c548971ab9a724c35b605cdec681703a60319425e112786bf7b"
+    },
+    "circle_saved": {
+      "base": 4,
+      "config_index": 3,
+      "config_sha256": "94e7079c568be9d3b6adf5b16215cf23d668f5f8dafe86462df218da86f9a8b4",
+      "configuration_bytes": 26083,
+      "counter": 4,
+      "file_identity": [
+        "PropertyCircleDiscovery",
+        2,
+        "modeled default"
+      ],
+      "file_sha256": "8007d21df3db5fc58c23d3fe589cfc15cf274ac83d9b2daa4878ee792e104e30",
+      "header_index": 25,
+      "independent_repeat_exact": true,
+      "lightweight_span": [
+        18,
+        3078
+      ],
+      "map_slots": [
+        1,
+        2,
+        3
+      ],
+      "model_header_bytes": 1175,
+      "model_header_sha256": "beed1d3222c13d77d850506edb98607c272ffe5943b39929e1f2babe15b53f3d",
+      "model_words": [
+        0,
+        19000
+      ],
+      "prefix_sha256": "2dda18577f152322175a418e10cdfd4aac68b5343bdae407355b0908b2c4a30c",
+      "reference_config_terminal_map_counter": 122,
+      "reference_direct_after": [
+        18,
+        4,
+        4
+      ],
+      "reference_direct_before": [
+        18,
+        1,
+        3
+      ],
+      "reference_exercised_layout_count": 142,
+      "refusals": [],
+      "relative_locator": "SdkPartPropertiesNative02/Inspection/circleEdit/PropertyCircleDiscoveryEdited.SLDPRT",
+      "root": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "runtime_external_accesses": 0,
+      "source_scope": "disclosed",
+      "standalone_header_sha256": "beed1d3222c13d77d850506edb98607c272ffe5943b39929e1f2babe15b53f3d",
+      "stdout_sha256": "44348614d166c884632640a316579674eebdd4a206ffac9c51c0f1ef03a2b504"
+    },
+    "concave": {
+      "base": 4,
+      "config_index": 3,
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "configuration_bytes": 22700,
+      "counter": 4,
+      "file_identity": [
+        "ConcaveOwned",
+        2,
+        "Default"
+      ],
+      "file_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "header_index": 15,
+      "independent_repeat_exact": true,
+      "lightweight_span": [
+        18,
+        2105
+      ],
+      "map_slots": [
+        1,
+        2,
+        3
+      ],
+      "model_header_bytes": 789,
+      "model_header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "model_words": [
+        0,
+        0
+      ],
+      "prefix_sha256": "e980ccad98c6d452f498a58c9a76a3ec5e83060ac8543c04137cf3a0a1947ce0",
+      "reference_config_terminal_map_counter": 94,
+      "reference_direct_after": [
+        18,
+        4,
+        4
+      ],
+      "reference_direct_before": [
+        18,
+        1,
+        3
+      ],
+      "reference_exercised_layout_count": 126,
+      "refusals": [
+        "missing_model_header",
+        "malformed_model_header",
+        "header_tail",
+        "missing_configuration",
+        "one_byte_configuration",
+        "null_root",
+        "other_root",
+        "other_root_schema",
+        "truncated_light_header",
+        "small_light_frame",
+        "oversized_light_frame",
+        "other_container_version"
+      ],
+      "relative_locator": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "root": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "runtime_external_accesses": 0,
+      "source_scope": "tracked",
+      "standalone_header_sha256": "0d8551d418c050d4f3d737edac10225af00146037f6eefa2b60511b8db4ad53d",
+      "stdout_sha256": "d6d7ad2c8c0cfae38b2b15f98602a98db0bc963748c4a533b2b73c6ef5021e6d"
+    },
+    "ladder": {
+      "base": 4,
+      "config_index": 3,
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "configuration_bytes": 25390,
+      "counter": 4,
+      "file_identity": [
+        "Part1",
+        2,
+        "Default"
+      ],
+      "file_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "header_index": 69,
+      "independent_repeat_exact": true,
+      "lightweight_span": [
+        18,
+        3052
+      ],
+      "map_slots": [
+        1,
+        2,
+        3
+      ],
+      "model_header_bytes": 2315,
+      "model_header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "model_words": [
+        0,
+        19000
+      ],
+      "prefix_sha256": "f73c4aef96c343796797ec2d05d2309eb8535ad1cd8d0add127ef78bbe1c2d48",
+      "reference_config_terminal_map_counter": 110,
+      "reference_direct_after": [
+        18,
+        4,
+        4
+      ],
+      "reference_direct_before": [
+        18,
+        1,
+        3
+      ],
+      "reference_exercised_layout_count": 141,
+      "refusals": [],
+      "relative_locator": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "root": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "runtime_external_accesses": 0,
+      "source_scope": "tracked",
+      "standalone_header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "stdout_sha256": "15c8e1810a3ee0c26da9a7b17bcaec4eae1d23da60aa26d5ccf378740cdaa2dc"
+    },
+    "polygon_saved": {
+      "base": 4,
+      "config_index": 3,
+      "config_sha256": "0c18e5880e64c1ff1fef5560cd16e2b57c94a2545ad8ee73371ac79cc0bec631",
+      "configuration_bytes": 26085,
+      "counter": 4,
+      "file_identity": [
+        "PropertyPolygonDiscovery",
+        2,
+        "modeled default"
+      ],
+      "file_sha256": "e311ba0626114291e62aacd26f705c8d304baa5d0315f89972fdde66bdee1f14",
+      "header_index": 25,
+      "independent_repeat_exact": true,
+      "lightweight_span": [
+        18,
+        3080
+      ],
+      "map_slots": [
+        1,
+        2,
+        3
+      ],
+      "model_header_bytes": 1181,
+      "model_header_sha256": "42523f3d74f6ec041b06f5b3012c178627c626c82a9ac3d13faf492848906487",
+      "model_words": [
+        0,
+        19000
+      ],
+      "prefix_sha256": "81c9fd0dc8ad5e73e211fd6cee48623fcd34dbaf80dab51776a6a57703112ae8",
+      "reference_config_terminal_map_counter": 122,
+      "reference_direct_after": [
+        18,
+        4,
+        4
+      ],
+      "reference_direct_before": [
+        18,
+        1,
+        3
+      ],
+      "reference_exercised_layout_count": 142,
+      "refusals": [],
+      "relative_locator": "SdkPartPropertiesNative02/Inspection/polygonEdit/PropertyPolygonDiscoveryEdited.SLDPRT",
+      "root": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "runtime_external_accesses": 0,
+      "source_scope": "disclosed",
+      "standalone_header_sha256": "42523f3d74f6ec041b06f5b3012c178627c626c82a9ac3d13faf492848906487",
+      "stdout_sha256": "6bc7c6ed77aa01fab357ea85b47255165604c82ece5b5d505ba5367a695ee0d6"
+    },
+    "rectangle": {
+      "base": 4,
+      "config_index": 3,
+      "config_sha256": "a77890c040efaa9792d0b151c5d38c8b9458301781c399a4a52b9b4a9d003d3a",
+      "configuration_bytes": 25714,
+      "counter": 4,
+      "file_identity": [
+        "RectangleInput",
+        2,
+        "Default"
+      ],
+      "file_sha256": "4377bf5680f30d1c9de52227928911e55604a75d30ceb987240df00d6b1b1805",
+      "header_index": 70,
+      "independent_repeat_exact": true,
+      "lightweight_span": [
+        18,
+        3070
+      ],
+      "map_slots": [
+        1,
+        2,
+        3
+      ],
+      "model_header_bytes": 2545,
+      "model_header_sha256": "c3fd32646c92282433f0d265e0ee767256f869489c88efc0bdf41b925b9c058b",
+      "model_words": [
+        0,
+        19000
+      ],
+      "prefix_sha256": "2f9067bb0518f546083ee2d5491c0bd6cf530fdf75658ffb68bcd15c23993895",
+      "reference_config_terminal_map_counter": 110,
+      "reference_direct_after": [
+        18,
+        4,
+        4
+      ],
+      "reference_direct_before": [
+        18,
+        1,
+        3
+      ],
+      "reference_exercised_layout_count": 144,
+      "refusals": [],
+      "relative_locator": "PartPropertySource01/Inspection/RectanglePropertiesAuthor/RectangleProperties.SLDPRT",
+      "root": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "runtime_external_accesses": 0,
+      "source_scope": "disclosed",
+      "standalone_header_sha256": "c3fd32646c92282433f0d265e0ee767256f869489c88efc0bdf41b925b9c058b",
+      "stdout_sha256": "54d3ce1556761e793f602836d6ae739d1dc311ee6d1676835d7a5e84914404a5"
+    }
+  },
+  "selected_inherited_source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Header/HeaderRefNodes.py": "a6792564852e0e46cbb147abc700147bfda23bbac5b40c2e48a1dfa02f7c6910",
+    "src/convert/adapters/solidworks/Archive/Header/ReadNativeHeader.py": "58ce33b0c360f522d80c7cff7a9f6933bf44be266085f00c0710beb912d63ec1",
+    "src/convert/adapters/solidworks/Archive/Maps/BindNodesMut.py": "e8fe8be7929caaf606977e44dd64921edaaeb90fb21973d5eb2be7f7fd1d369b",
+    "src/convert/adapters/solidworks/Archive/Maps/FindObject.py": "a772341da8f423e6ece816082caaf7e54e7d052993968f47c67fa550c0c8a56c",
+    "src/convert/adapters/solidworks/Archive/Objects/ReadObjectMut.py": "3f0b2e3565ed9a44f54f5840ca2cd2816fb540a4038c3b2ab863ec1926999a73",
+    "src/convert/adapters/solidworks/Archive/Reading/ReadGraphNode.py": "ba816587dae766eca628e2945af666fbe2850ba2f2c111f6116924ba30e99dd6",
+    "src/convert/adapters/solidworks/Archive/Tags/ReadTag.py": "0a3dec0525cec4978adef4ac7b71e79396ce8c150cd04a41792b39e0f0be12db"
+  },
+  "selected_stream_roles": [
+    "Contents/Config-0",
+    "Contents/Config-0-ModelHeader"
+  ],
+  "source_manifest_sha256": "8866bc9f5bd2898be1ff1540146a2a9e0a0db7a0ee8b23720bf9acac7d897d72",
+  "source_scope": "current ordinary part root and first section boundary with separately named ModelHeader"
+}

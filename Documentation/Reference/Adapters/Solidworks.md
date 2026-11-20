@@ -81,6 +81,13 @@ remain available alongside the decoded rows. The record owner supplies
 the expected descriptor and the live archive map snapshot.
 [Configuration member scope](../../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
 
+The internal part-start reader loads the named
+`Contents/Config-0-ModelHeader` and the current part root. At the start
+of the lightweight section, it inserts the original header objects
+into the part's map while preserving their standalone identities.
+Complete configuration admission requires the remaining model body.
+[Configuration header link scope](../../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
