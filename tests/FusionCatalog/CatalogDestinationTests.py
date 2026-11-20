@@ -8,7 +8,7 @@ def CheckFreshDest(TmpPath: FilePath) -> None:
     RepoRoot = FilePath(__file__).resolve().parents[2]
     CatalogRoot = RepoRoot / "re" / "Fusion" / "PlannerCatalog"
     OwnerPath = TmpPath / "Owned.txt"
-    OwnerPath.write_text("preserve this file\n")
+    _ = OwnerPath.write_text("preserve this file\n")
     Result = RunProcess(
         [
             PythonPath,

@@ -9,8 +9,8 @@ def CheckTamperFail(TmpPath: FilePath) -> None:
     RepoRoot = FilePath(__file__).resolve().parents[2]
     CatalogRoot = RepoRoot / "re" / "Fusion" / "PlannerCatalog"
     SourcePath = CatalogRoot / "Data"
-    CopyTree(SourcePath, TmpPath, dirs_exist_ok=True)
-    (TmpPath / "ApiTypes.csv").write_text("changed inventory\n")
+    _ = CopyTree(SourcePath, TmpPath, dirs_exist_ok=True)
+    _ = (TmpPath / "ApiTypes.csv").write_text("changed inventory\n")
     Result = RunProcess(
         [PythonPath, str(CatalogRoot / "VerifyCatalog.py"), str(TmpPath)],
         capture_output=True,

@@ -34,14 +34,14 @@ def CheckBundleRead() -> None:
     try:
         Property = Database.execute(
             "SELECT json_extract(details,'$.writable') FROM api_effective_members "
-            "WHERE type_id=? AND name='operation' AND kind='api_property'",
+            + "WHERE type_id=? AND name='operation' AND kind='api_property'",
             ("api:adsk.fusion.ExtrudeFeatureInput",),
         ).fetchone()
         assert Property == (1,)
         assert Database.execute(
             "SELECT json_extract(details,'$.availability_status'),json_extract(details,'$.retired'),"
-            "json_extract(details,'$.documentation_mentions.retirement') "
-            "FROM items WHERE id='api:adsk.fusion.Occurrence.transform2'"
+            + "json_extract(details,'$.documentation_mentions.retirement') "
+            + "FROM items WHERE id='api:adsk.fusion.Occurrence.transform2'"
         ).fetchone() == ("unverified", None, 1)
         assert Database.execute(
             "SELECT target_id FROM relations WHERE owner_id=? AND relation='property_type'",
