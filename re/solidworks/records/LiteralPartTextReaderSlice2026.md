@@ -92,8 +92,8 @@ embedded executable, installer or packaged attachment signatures.
 | --- | --- |
 | [Native CAD fixture](../v2026/corpus/part-properties/CircularProperties.SLDPRT), 66,367 bytes | `1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23` |
 | [Native advanced-manager control](../v2026/corpus/ladder/L1_boss.SLDPRT), 56,249 bytes | `55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6` |
-| [Public SDK worker](../../../tests/Convert/Solidworks/Properties/ReadLiteralPart.py) | `c6c63c2b646292e5b35c5314007e32a52a4aaa3ce5609c8be7dac45c686d4871` |
-| [Queue test](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py) | `3890b86f7f843c4dcbfcd9f3eb5ff1689921495413761d872f4b9e5c363b642f` |
+| [Public SDK worker](../../../tests/Convert/Solidworks/Properties/ReadLiteralPart.py) | `17ee722aaa83b21798e2412b3245faf8cbb9833c134431aaa8b5d661cebd57f2` |
+| [Queue test](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py) | `f8d8ef7c8f76dcf8fb0d9a8a1a97da1fbe391a7fa5bbc99ce1db55aff07ca36c` |
 
 The positive test starts a fresh interpreter through the existing
 integration suite. It checks all eight values, active configuration ID 0
@@ -133,13 +133,18 @@ keyed property container, file owner and cut-list owner. Every
 legacy proof consumes the actual object bytes and validates the
 empty owner graph and XML scopes. The rule requires the full wire
 structure and does not depend on sample paths, lengths or hashes.
+The reader checks concrete owner depth before reading fields. Only
+the manager root, its keyed container and the two actual child
+classes can open bodies.
 
 The scoped legacy path preserves a strict SDK open with one solid,
 one configuration and no optional text report. Older files with
 authored text or unknown managers fail the optional projection.
 The queue process uses the existing wheel source for a strict JSON
-conversion and injects one title into a separate input. The latter
-must refuse before changing the destination stream. The original wheel
+conversion and injects one title and an invalid nested owner into two
+separate inputs. Both must refuse before changing the destination
+stream. The second verifies that body geometry remains visible.
+The original wheel
 cross-format conversion stays in its existing CI scope. Modern literal
 value projection still depends on complete physical configuration
 validation.

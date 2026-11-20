@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Core.Properties.ReadCustomProps import ReadCust
 
 
 # legacy conversion can preserve text absence only after confirming all physical property owners
-def ReadLegacyEmptyProps(Archive: SldprtArchive) -> None:
+def ReadLegacyProps(Archive: SldprtArchive) -> None:
     SeenNames: set[str] = set()
     for RecordValue in Archive.records:
         NameValue, DataValue = RecordValue.name, RecordValue.data

@@ -1,7 +1,6 @@
 from functools import partial as PartialValue
 
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
-from convert.adapters.solidworks.Archive.Bodies.ReadBodyMut import ReadBodyMut
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Properties.CheckEmptyProps import (
@@ -10,6 +9,9 @@ from convert.adapters.solidworks.Archive.Properties.CheckEmptyProps import (
 from convert.adapters.solidworks.Archive.Properties.ManagerFields import (
     KManagerFields,
     KManagerSchemas,
+)
+from convert.adapters.solidworks.Archive.Properties.ReadPropNodeMut import (
+    ReadPropNodeMut,
 )
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
 from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
@@ -32,7 +34,7 @@ def ReadPropManager(BufferValue: bytes, VersionValue: int) -> None:
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
         ArchiveMaps(1),
-        PartialValue(ReadBodyMut, ContextValue),
+        PartialValue(ReadPropNodeMut, ContextValue),
     )
     RootValue = ReadNodeMut(ReaderValue)
     if (

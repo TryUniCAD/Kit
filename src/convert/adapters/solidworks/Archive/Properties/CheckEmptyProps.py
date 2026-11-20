@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # an empty proof must bind each actual concrete scope rather than treating an absent row as an owner
-def RequirePropOwner(NodeValue: object, ClassName: str) -> Mapping[str, object]:
+def RequireOwner(NodeValue: object, ClassName: str) -> Mapping[str, object]:
     if not isinstance(NodeValue, ArchiveNode) or NodeValue.ClassValue != RuntimeClass(
         ClassName, 1
     ):
@@ -23,9 +23,9 @@ def CheckEmptyProps(RootValue: ArchiveNode) -> None:
         return
     if StateValue != (-1, 1, 0) or len(RowsValue) != 1 or RowsValue[0]["key"] != 0:
         raise ValueError("part property manager policy is outside the empty profile")
-    Container = RequirePropOwner(RowsValue[0]["o"], "moCusPropContainer_c")
-    FileValue = RequirePropOwner(Container["f08"], "moFilePropContainer_c")
-    CutValue = RequirePropOwner(Container["f10"], "moCutListPropContainer_c")
+    Container = RequireOwner(RowsValue[0]["o"], "moCusPropContainer_c")
+    FileValue = RequireOwner(Container["f08"], "moFilePropContainer_c")
+    CutValue = RequireOwner(Container["f10"], "moCutListPropContainer_c")
     if (
         FileValue["f08"] is not None
         or FileValue["f10"] is not None

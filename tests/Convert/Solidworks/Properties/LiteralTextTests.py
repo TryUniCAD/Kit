@@ -86,7 +86,7 @@ def TestTextRefusal() -> None:
 
 
 # the strict path must preserve the legacy wheel route and refuse an actual authored legacy value
-def TestEmptyLegacyText() -> None:
+def TestLegacyText() -> None:
     Outcome = StartTextRead(KLegacyFixture, "--legacy-empty")
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
     ReportValue = LoadJson(Outcome.stdout)
@@ -98,4 +98,8 @@ def TestEmptyLegacyText() -> None:
     assert ReportValue["status"] is None
     assert ReportValue["unsupported"] == (
         "SOLIDWORKS part text properties are unavailable for strict cross-format conversion"
+    )
+    assert ReportValue["binary_refusal"] == ReportValue["unsupported"]
+    assert ReportValue["binary_diagnostic"] == (
+        "part property manager has unsupported owner placement"
     )

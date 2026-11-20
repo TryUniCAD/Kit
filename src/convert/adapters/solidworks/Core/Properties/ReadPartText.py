@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Core.Properties.PartTextData import PartTextDat
 from convert.adapters.solidworks.Core.Properties.ReadConfigProps import ReadConfigProps
 from convert.adapters.solidworks.Core.Properties.ReadCoreProps import ReadCoreProps
 from convert.adapters.solidworks.Core.Properties.ReadCustomProps import ReadCustomProps
-from convert.adapters.solidworks.Core.Properties.ReadLegacyEmptyProps import ReadLegacyEmptyProps
+from convert.adapters.solidworks.Core.Properties.ReadLegacyEmptyProps import ReadLegacyProps
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -15,7 +15,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 def ReadPartText(Document: CadDocument, Archive: SldprtArchive) -> PartTextData | None:
     VersionValue = ContainerMo(Archive.streams)
     if VersionValue == 18000:
-        ReadLegacyEmptyProps(Archive)
+        ReadLegacyProps(Archive)
         return None
     if VersionValue != 19000:
         raise ValueError("part text properties require ordinary archive version 19000")
