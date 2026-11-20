@@ -84,12 +84,12 @@ def publish(path, data):
     return digest(payload)
 
 
-def tracked_extract(revision, folder, archive):
+def tracked_extract(revision, folder, archive, *, extra=()):
     for tree, prefix, paths in (
         (revision, "", ("src", *TEST_SUPPORT)),
         (
             f"{revision}:{RESEARCH}", f"{RESEARCH}/",
-            (*SUPPORT, "serial", TOOL, *(f"{IMPORT}/{name}" for name in (*BUILD_TOOLS, *OBSERVERS))),
+            (*SUPPORT, "serial", TOOL, *(f"{IMPORT}/{name}" for name in (*BUILD_TOOLS, *OBSERVERS)), *extra),
         ),
         (
             f"{revision}:re/solidworks/measurements/2026", "re/solidworks/measurements/2026/",
@@ -200,15 +200,13 @@ def build(packet, code, checksum, verify_only):
             "job_sha256": checksum, "candidate": proof["windows_disclosed"]["part"]}
 
 
-def measure(packet, job, checksum, build_hash):
+def measure_lifecycle(packet, job, checksum, build_hash, directory, name, measure_shape, expected):
     require(os.name == "nt", "native execution belongs to the Windows guest")
     from AuthorRectangleAnchors import control
-    from ObserveLocalCylinderPart import periodic_shape
     from ObserveLocalImportedPart import phase
 
     lock = json.loads(file_bytes(packet / "Build.json", build_hash))
-    directory = Path(GUEST)
-    candidate = directory / "Candidate" / NAME
+    candidate = directory / "Candidate" / name
     require(lock["job_sha256"] == checksum and Path(lock["destination"]) == candidate,
             "the published candidate belongs to a different job")
     identity = lock["result"]["windows_disclosed"]["part"]["sha256"]
@@ -219,17 +217,16 @@ def measure(packet, job, checksum, build_hash):
     publish(seed, file_bytes(packet / seed.name, CONTROL))
     saves = directory / "NativeSave"
     saves.mkdir()
-    saved = saves / NAME
-    expected = {"faces": 3, "model": job["authored_boundary_si"]}
+    saved = saves / name
     before = control(directory, "ControlBefore", seed)
     require(before["passed"], "the preflight native control did not pass")
     opened = phase(directory, "Candidate", candidate, identity, expected, "Imported geometry",
-                   save=saved, measure_shape=periodic_shape)
+                   save=saved, measure_shape=measure_shape)
     reopened = None
     if opened["passed"]:
         reopened = phase(
             directory, "FreshReopen", saved, opened["saved_sha256"], expected, "Imported geometry",
-            reference=opened["cold"]["persistent_reference"], measure_shape=periodic_shape,
+            reference=opened["cold"]["persistent_reference"], measure_shape=measure_shape,
         )
     after = control(directory, "ControlAfter", seed)
     rows = [row for row in (before, opened, reopened, after) if row is not None]
@@ -256,10 +253,10 @@ def measure(packet, job, checksum, build_hash):
     )
     file_bytes(candidate, identity)
     result = {
-        "schema": SCHEMA, "passed": passed, "writer_revision": job["revision"],
+        "schema": job["schema"], "passed": passed, "writer_revision": job["revision"],
         "oracle_version": job["oracle_version"], "oracle_sha256": ORACLE,
         "job_sha256": checksum, "build_sha256": build_hash,
-        "candidate": lock["result"]["windows_disclosed"], "authored_boundary_si": OBLIQUE,
+        "candidate": lock["result"]["windows_disclosed"], "authored_boundary_si": job["authored_boundary_si"],
         "controls_healthy": before["passed"] and after["passed"],
         "distinct_native_processes": len(process_ids),
         "candidate_numeric_checks": sum(row["numeric_checks"] for row in (opened, reopened) if row),
@@ -270,6 +267,15 @@ def measure(packet, job, checksum, build_hash):
     return {"result_sha256": publish(result_path, result), "passed": passed,
             "candidate_numeric_checks": result["candidate_numeric_checks"],
             "controls_healthy": result["controls_healthy"]}
+
+
+def measure(packet, job, checksum, build_hash):
+    from ObserveLocalCylinderPart import periodic_shape
+
+    return measure_lifecycle(
+        packet, job, checksum, build_hash, Path(GUEST), NAME,
+        periodic_shape, {"faces": 3, "model": job["authored_boundary_si"]},
+    )
 
 
 def main():

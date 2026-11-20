@@ -9,10 +9,10 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.CheckBareImpo
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.ReadBareConfig import (
     ReadBareConfig,
 )
-from convert.adapters.solidworks.Archive.Partition.LocalCylinder.ReadCylShape import (
-    ReadCylShape,
-)
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.Preparation.Imports.CheckImportGeo import (
+    CheckImportGeo,
+)
 from convert.adapters.solidworks.Core.Preparation.Imports.ImportPartPlan import (
     ImportPartPlan,
 )
@@ -50,5 +50,5 @@ def PlanImportPart(
         for NameValue in (PathValue.stem, ConfigValue.name)
     ):
         raise ValueError("native periodic import requires printable names")
-    _ = ReadCylShape(ModelValue)
+    CheckImportGeo(ModelValue)
     return ImportPartPlan(PathValue.stem, ConfigValue.name)
