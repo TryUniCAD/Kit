@@ -68,6 +68,9 @@ from convert.adapters.solidworks.Archive.Partition.ImportHistory.ImportEvent imp
 from convert.adapters.solidworks.Archive.Partition.ImportHistory.MakeImportHist import (
     MakeImportHist,
 )
+from convert.adapters.solidworks.Archive.Partition.LocalCylinder.MakeLocalCyl import (
+    MakeLocalCyl,
+)
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.MakeLocalPrism import (
     MakeLocalPrism,
 )
@@ -79,10 +82,11 @@ from convert.adapters.solidworks.Container.Format import (
     KLocalBodyStream,
     KPartitionStream,
 )
+from interchange.brep.Surfaces.BrepSurfaces import CylinderSurface
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# a local prism needs one fresh part graph whose feature and kernel owners share the same modeled events
+# a local solid needs one fresh part graph whose feature and kernel owners share the same modeled events
 def MakeBareImport(
     DocumentValue: CadDocument,
     InputValue: PartBuildInput,
@@ -98,7 +102,12 @@ def MakeBareImport(
         raise TypeError("part exploded view presence requires an explicit boolean")
     Selected = ReadImportScene(AmbientValue, LightValues)
     ModelValue = CheckBareImport(DocumentValue, InputValue, LabelsValue, Selected)
-    LocalValue = EncodeLocalBody(LabelsValue.FeatureName, MakeLocalPrism(ModelValue))
+    NodesValue = (
+        MakeLocalCyl(ModelValue)
+        if any(isinstance(Surface, CylinderSurface) for Surface in ModelValue.surfaces)
+        else MakeLocalPrism(ModelValue)
+    )
+    LocalValue = EncodeLocalBody(LabelsValue.FeatureName, NodesValue)
     Allocator = PersistentIds()
     SystemValue = MakePartBaseMut(InputValue, LabelsValue, Allocator)
     TargetValue = InputValue.TargetValue

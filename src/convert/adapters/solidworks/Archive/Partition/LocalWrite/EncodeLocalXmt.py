@@ -13,6 +13,9 @@ from convert.adapters.solidworks.Archive.Partition.LocalWrite.WriteXmtNodeMut im
     WriteXmtNodeMut,
 )
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckCylGraph import (
+    CheckCylGraph,
+)
 
 
 # generated imports need a native local transmit from model owned node fields alone
@@ -44,7 +47,10 @@ def EncodeLocalXmt(
             OutputValue, RecordValue, KLocalShapes[RecordValue.KindValue], SeenKinds
         )
         NodesValue[IndexValue] = RecordValue
-    CheckLocalXmt(NodesValue)
+    if any(NodeValue.KindValue in (31, 51) for NodeValue in NodesValue.values()):
+        CheckCylGraph(NodesValue)
+    else:
+        CheckLocalXmt(NodesValue)
     OutputValue.extend(PackValue(">H", 1))
     WritePointerMut(OutputValue, 0)
     return ParaStream(bytes(OutputValue), SchemaValue, KLocalDescription)

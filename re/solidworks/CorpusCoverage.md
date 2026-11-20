@@ -81,6 +81,13 @@ Windows before implementation of the typed neutral B-rep constructor.
 All eight periodic source observations and both controls pass in six
 fresh processes. These originals contribute zero generated outputs.
 
+The [neutral cylinder constructor](measurements/2026/SdkBareCylinderComposition01.json)
+reproduces both disclosed native-tested archives and two planar
+controls from typed boundaries. The signed oblique radius contrast
+passes strict geometry readback and changes the LocalBodies length.
+Eight unrepresented boundary cases refuse. The sealed originals
+remain in guest custody at this construction checkpoint.
+
 Two [sealed native imports](measurements/2026/SealedImportedLocalGeometryNative01.json)
 also pass geometry projection, generation and the full native lifecycle.
 The receipt records the omitted source domains. [Supplemental SDK readback](measurements/2026/SealedImportedLocalGeometryReadback01.json)

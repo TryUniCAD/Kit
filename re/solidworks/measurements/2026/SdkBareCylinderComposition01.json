@@ -1,0 +1,564 @@
+{
+  "disclosed_exact": {
+    "ReverseY": {
+      "counts": {
+        "bodies": 1,
+        "coedges": 4,
+        "curves": 2,
+        "edges": 2,
+        "faces": 3,
+        "loops": 4,
+        "regions": 1,
+        "shells": 1,
+        "surfaces": 3,
+        "vertices": 2
+      },
+      "exact_full_turn_intervals": 2,
+      "local_kernel": {
+        "bytes": 1414,
+        "sha256": "85c47d7beb3b2c4a9e01d98341197e62f345601fcc4e813afb976cccc2b79852"
+      },
+      "measured": {
+        "area_mm2": 839.0997628197488,
+        "bounds_mm": [
+          [
+            -15.75,
+            4.25,
+            -9.5
+          ],
+          [
+            -6.5,
+            28.5,
+            -0.25
+          ]
+        ],
+        "centroid_mm": [
+          -11.125,
+          16.375,
+          -4.875
+        ],
+        "volume_mm3": 1629.6152861255837
+      },
+      "owned_archive": {
+        "activation_mark": 2,
+        "atom_body_tag": 0,
+        "atom_display_mode": 6,
+        "atom_id": 101,
+        "atom_map_index": 51,
+        "body_stamp": 102,
+        "configured_body_count": 1,
+        "feature_id": 18,
+        "local_group": "Imported geometry",
+        "model_update": 103,
+        "selected_mark": 3,
+        "typed_stream_replay": [
+          "Contents/CMgr",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2"
+        ]
+      },
+      "part": {
+        "bytes": 8992,
+        "sha256": "ff0054be16d0b08d888ea6299f209f59cdc286b894cdb48c0a83203b38b6272d"
+      },
+      "projected_endpoint_intervals": [
+        [
+          0.0,
+          6.283185307179586
+        ],
+        [
+          0.0,
+          6.283185307179586
+        ]
+      ],
+      "resident_nodes": 23,
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 824,
+          "sha256": "b33f8eb1cad6d36fd84b3e8df7e1ce49cb94871e02807360d3a06158b7494006"
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 22692,
+          "sha256": "dcdbde5cdb90682ff12172c4c5ed2126830f5c64baee948a460856782f722353"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 763,
+          "sha256": "8a25bad891a8029abcdb3b25c06eb385021c1d92fb620a8f66afd96885d30a35"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 606,
+          "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 763,
+          "sha256": "3732261b033f76d4b8530531fd883024f8a1ee55d87a5770acb6ddc1cb63bb3f"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1302,
+          "sha256": "6f509413aec4cd158bb0bd8d831f3130be529dbe9ea04eeb7508df364e5065a8"
+        }
+      }
+    },
+    "TranslatedZ": {
+      "counts": {
+        "bodies": 1,
+        "coedges": 4,
+        "curves": 2,
+        "edges": 2,
+        "faces": 3,
+        "loops": 4,
+        "regions": 1,
+        "shells": 1,
+        "surfaces": 3,
+        "vertices": 2
+      },
+      "exact_full_turn_intervals": 2,
+      "local_kernel": {
+        "bytes": 1414,
+        "sha256": "20f764878d7ef568f01a9df61b276522f71a16aa7b13e2a2e121fd6ebf410b44"
+      },
+      "measured": {
+        "area_mm2": 1012.5745821601602,
+        "bounds_mm": [
+          [
+            9.5,
+            -15.25,
+            3.375
+          ],
+          [
+            23.0,
+            -1.75,
+            20.5
+          ]
+        ],
+        "centroid_mm": [
+          16.25,
+          -8.5,
+          11.9375
+        ],
+        "volume_mm3": 2451.252211656042
+      },
+      "owned_archive": {
+        "activation_mark": 2,
+        "atom_body_tag": 0,
+        "atom_display_mode": 6,
+        "atom_id": 101,
+        "atom_map_index": 51,
+        "body_stamp": 102,
+        "configured_body_count": 1,
+        "feature_id": 18,
+        "local_group": "Imported geometry",
+        "model_update": 103,
+        "selected_mark": 3,
+        "typed_stream_replay": [
+          "Contents/CMgr",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2"
+        ]
+      },
+      "part": {
+        "bytes": 8995,
+        "sha256": "ffb0d3f587387500ebd774c18272cfb5abff377b278ba42c54b63df9b4e4bda1"
+      },
+      "projected_endpoint_intervals": [
+        [
+          0.0,
+          6.283185307179586
+        ],
+        [
+          0.0,
+          6.283185307179586
+        ]
+      ],
+      "resident_nodes": 23,
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 820,
+          "sha256": "62590bc987b5c78a2f536cf0f9a8db136a6e5e24960777119479bf6a256e9af7"
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 22698,
+          "sha256": "8dcc30e8b83c1345218985cc75ae1e3ff48f004df244cd9abde9ad36d8baa959"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 781,
+          "sha256": "a6d7f7c617ecab507f0a9fb57767352b08b10685dc3bc3c68a3ec53d10394172"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 606,
+          "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 781,
+          "sha256": "f1013d79ce27ebfaebd5a3cca16fd15c5a156fb1204d8bff8653f30171791cfa"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1305,
+          "sha256": "a7c5bc891a3cef8af6e869ae9600bb595761bf34fc1d592aa28bf5ef937abfde"
+        }
+      }
+    }
+  },
+  "guest_private_sources_read": 0,
+  "independent_oblique": {
+    "altered_radius": {
+      "counts": {
+        "bodies": 1,
+        "coedges": 4,
+        "curves": 2,
+        "edges": 2,
+        "faces": 3,
+        "loops": 4,
+        "regions": 1,
+        "shells": 1,
+        "surfaces": 3,
+        "vertices": 2
+      },
+      "exact_full_turn_intervals": 2,
+      "local_kernel": {
+        "bytes": 1414,
+        "sha256": "81466659f717573f447ee7ab1bb81df68fc326c37dc30e08f6f37c24bfe0d58b"
+      },
+      "measured": {
+        "area_mm2": 1610.6798272799228,
+        "bounds_mm": [
+          [
+            -12.01639870078079,
+            -3.6455176687156197,
+            19.73360129921921
+          ],
+          [
+            19.43306536744745,
+            19.56218433538229,
+            51.183065367447455
+          ]
+        ],
+        "centroid_mm": [
+          3.708333333333332,
+          7.958333333333334,
+          35.45833333333333
+        ],
+        "volume_mm3": 4397.155928474189
+      },
+      "owned_archive": {
+        "activation_mark": 2,
+        "atom_body_tag": 0,
+        "atom_display_mode": 6,
+        "atom_id": 101,
+        "atom_map_index": 51,
+        "body_stamp": 102,
+        "configured_body_count": 1,
+        "feature_id": 18,
+        "local_group": "Imported geometry",
+        "model_update": 103,
+        "selected_mark": 3,
+        "typed_stream_replay": [
+          "Contents/CMgr",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2"
+        ]
+      },
+      "part": {
+        "bytes": 9011,
+        "sha256": "1dde90e5f5100ad070630728b417a9c06a2d6c14ef7a264ec22603b9c4b79426"
+      },
+      "projected_endpoint_intervals": [
+        [
+          -3.383536836952858e-17,
+          6.283185307179586
+        ],
+        [
+          0.0,
+          6.283185307179586
+        ]
+      ],
+      "resident_nodes": 23,
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 846,
+          "sha256": "cf639cd758e2805bf6d9f180cb9a241c62aabb7d75674637fccda846674ae9cc"
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 22690,
+          "sha256": "248f21eb37c4bd16864b42e006fcedd25cbf3d77db3261dc880e8d698c255536"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 757,
+          "sha256": "d0c3211885c17ddd7356bb2391cb40dbbe288c5b504eac58ee6408ddd8e11cb7"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 606,
+          "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 757,
+          "sha256": "91d335363067e838ce459c94bd1f31d6d4dcccde99aec7339651a3c9867dff35"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1301,
+          "sha256": "204678e09135e4272191c90fdc3348c772a4cf6fad6de291b320627b23e8f35e"
+        }
+      }
+    },
+    "bare_local_only_changed": true,
+    "original": {
+      "counts": {
+        "bodies": 1,
+        "coedges": 4,
+        "curves": 2,
+        "edges": 2,
+        "faces": 3,
+        "loops": 4,
+        "regions": 1,
+        "shells": 1,
+        "surfaces": 3,
+        "vertices": 2
+      },
+      "exact_full_turn_intervals": 2,
+      "local_kernel": {
+        "bytes": 1414,
+        "sha256": "d3911cf38e097442f1cccab12c385572addb20d1a83a8b75abed68ba29011740"
+      },
+      "measured": {
+        "area_mm2": 1433.9652405154973,
+        "bounds_mm": [
+          [
+            -11.550551205468334,
+            -3.05626201772683,
+            20.199448794531666
+          ],
+          [
+            18.967217872134995,
+            18.9729286843935,
+            50.717217872134995
+          ]
+        ],
+        "centroid_mm": [
+          3.708333333333332,
+          7.958333333333334,
+          35.45833333333333
+        ],
+        "volume_mm3": 3599.485918773657
+      },
+      "owned_archive": {
+        "activation_mark": 2,
+        "atom_body_tag": 0,
+        "atom_display_mode": 6,
+        "atom_id": 101,
+        "atom_map_index": 51,
+        "body_stamp": 102,
+        "configured_body_count": 1,
+        "feature_id": 18,
+        "local_group": "Imported geometry",
+        "model_update": 103,
+        "selected_mark": 3,
+        "typed_stream_replay": [
+          "Contents/CMgr",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2"
+        ]
+      },
+      "part": {
+        "bytes": 9013,
+        "sha256": "34ab8aca182eb75edb1c450b52f0ad40f7376f5daf5636d95affce964d363520"
+      },
+      "projected_endpoint_intervals": [
+        [
+          0.0,
+          6.283185307179586
+        ],
+        [
+          0.0,
+          6.283185307179586
+        ]
+      ],
+      "resident_nodes": 23,
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 848,
+          "sha256": "b30cbedfa7e5d12d9d8301256d54ca25a36fd62c416e92a536ddbdf355477467"
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 22690,
+          "sha256": "248f21eb37c4bd16864b42e006fcedd25cbf3d77db3261dc880e8d698c255536"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 757,
+          "sha256": "d0c3211885c17ddd7356bb2391cb40dbbe288c5b504eac58ee6408ddd8e11cb7"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 606,
+          "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 757,
+          "sha256": "91d335363067e838ce459c94bd1f31d6d4dcccde99aec7339651a3c9867dff35"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1301,
+          "sha256": "204678e09135e4272191c90fdc3348c772a4cf6fad6de291b320627b23e8f35e"
+        }
+      }
+    }
+  },
+  "native_disclosed_lifecycle": {
+    "bytes": 7570,
+    "sha256": "eb1c2d29be5fae22d02f54b57aec0e733cc98c4cd44a45cc3dff30b93cab97de"
+  },
+  "native_processes_started": 0,
+  "prior_planar_reference": {
+    "bytes": 14054,
+    "sha256": "1c8798cd7550a9e65ffd85ca96e6ad960daac3282c6e2903f9ac6a57ad9d896e"
+  },
+  "public_writer_admitted": false,
+  "refused": {
+    "extra_configuration": "bare local import requires one selected configuration",
+    "other_seam_frame": "local cylinder cap or rim uses a noncanonical authored frame",
+    "partial_trim": "local cylinder requires one full circle trim with a shared seam",
+    "shifted_seam": "local cylinder seam is noncanonical or unrepresentable",
+    "unowned_carrier": "local cylinder requires its solid mantle and two caps",
+    "unowned_source_metadata": "bare local import has unowned neutral document fields",
+    "wrong_mantle_radius": "local cylinder cap or rim uses a noncanonical authored frame",
+    "wrong_rim_owner_sense": "local cylinder rim is missing its oriented cap or circle"
+  },
+  "runtime_reads": 0,
+  "same_locator_planar": {
+    "ReverseY": {
+      "bytes": 9894,
+      "sha256": "6dadac71dbd4ea1e229454074e272b2abd390d41cde1cd3b33b0e1acbcea8898"
+    },
+    "TranslatedZ": {
+      "bytes": 9901,
+      "sha256": "2cc75b837b835cf620369e4e7b247202077549a9c6e94a158c79a4f60159e948"
+    }
+  },
+  "schema": "kit.sw2026.model-to-local-cylinder.v1",
+  "serializers": {
+    "re/tooling/sw2026/imported_body_source/VerifyLocalCylinderWrite.py": "61a0d6655ed7542b7dfa00734cbe3bee409e0b7fb486fac3d7d979efffcca839",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeBareImport.py": "923401d30686c110abb843a206e7a92e10dc3092b88a3d50d532cd689d99c78b",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/CheckCylSource.py": "169bdaef8fd655c10f8fbac3b49b5df9654515bb790d06596ce48dcad461d9e0",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/CheckCylTrim.py": "cbf00419ae03eeaa00fe311548988521f2181e857a2c00cfeebfda62d34db78a",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/CylRim.py": "2b6556ca66f9dad87bd0e98efb4eac9e0f5b17cf368a43e9ff40ec29caf2d21b",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/LocalCylShape.py": "f4afa8dcd6bbfc00217b5ba81c224b0c62ee67db26be39e27bf5970890e7d00a",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/MakeCylFaces.py": "a63188bcaa9c38142ae4e628257295964b3984e4f2e5cf7561e3ec005d1975d4",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/MakeCylRim.py": "116461787ffd97e58b1f7ffc899527da85d9181acf77225f3be8fe02a40e5c3d",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/MakeCylSide.py": "4e41b525e3d79a0d40e10d233808bac37098354108ba669d977d1de87e236c57",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/MakeLocalCyl.py": "c53edfef3bfdfeafed3fd6b5ff39399479ea602acd6d4047b3bc96c91ca0ab93",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/ReadCylRim.py": "87980206b104bb2608bce6be79e0d0658765250a62fe8da6c837dd90c7220be7",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalCylinder/ReadCylShape.py": "a5e4ad991abf0b27dd43212a062349f8d13981a70a8c59c2af9d00187325242f",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalPrism/MakeBoundRoot.py": "6e6e2804aa3e1dea0d1a05865d89300cabbfcad59842ffa55741333f7b623dd6",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalPrism/MakePrismRoot.py": "d80d067fe96a08f4bb3272dbbf325eefbd79014e3dd07642f49306429d4b1858",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalPrism/PrismNullFields.py": "5367a1ae9535a916bc6082f133a13368b6a9ff362e13edc3568cbe9bb6cfd761",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalWrite/EncodeLocalXmt.py": "606669365e2aada739e4d53b69951cb0257a04951b99063621b14eaea5508e87",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalWrite/LocalXmtProfile.py": "d81d3607e4aa20be69d33814e00f18e8ecf6cb5a8df117542f28a8631902ac65",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/Cylinder/ReadLocalCyl.py": "eaae3d3f35cb2eb77342c5a309310a58b31ee74d42625828d6d68c5ff1b26891"
+  },
+  "source_lock": {
+    "bytes": 4179,
+    "sha256": "ee905a2264c80dc4d3c78643caf465c8696fe448e0324c104737a767bc2a9f63"
+  }
+}

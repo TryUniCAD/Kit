@@ -1,6 +1,6 @@
 from types import MappingProxyType
 
-# current bare prisms omit optional attachments and carry no historical or attribute links
+# bare local cells omit optional attachments and carry no historical or attribute links
 KPrismNullFields = MappingProxyType(
     {
         12: (
@@ -37,6 +37,8 @@ KPrismNullFields = MappingProxyType(
         19: ("attributes_features", "frame", "owner"),
         29: ("attributes_features",),
         30: ("attributes_features", "geometric_owner"),
+        31: ("attributes_features", "geometric_owner"),
         50: ("attributes_features", "geometric_owner"),
+        51: ("attributes_features", "geometric_owner"),
     }
 )

@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Partition.KernelShapes import KKernelShapes
 
-# local synthesis requires the resident planar kinds with proven generated ownership
+# local synthesis needs only resident kinds with proven planar or periodic ownership
 KLocalShapes = MappingProxyType(
     {
         KindValue: KKernelShapes[KindValue]
@@ -17,7 +17,9 @@ KLocalShapes = MappingProxyType(
             19,
             29,
             30,
+            31,
             50,
+            51,
             70,
             74,
             79,

@@ -1,4 +1,6 @@
 from collections.abc import Mapping
+from dataclasses import replace as Replace
+from math import tau as FullTurn
 
 from convert.Geometry.Parasolid import BuildPartModel
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
@@ -17,7 +19,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.MakeLocal
 from interchange.brep.Topology.BrepModel import BrepModel
 
 
-# the bare analytic boundary supplies geometry when the active world contains no body
+# the proved vertex free rings own complete periods independent of reconstructed seam rounding
 def ReadLocalCyl(
     NodesValue: Mapping[int, XmtNode], OffsetsValue: Mapping[int, int]
 ) -> BrepModel:
@@ -27,5 +29,12 @@ def ReadLocalCyl(
         if NodeValue.KindValue in (31, 51):
             AddCylGeomMut(TablesValue, NodeValue)
     ModelValue = BuildPartModel(TablesValue)
+    ModelValue = Replace(
+        ModelValue,
+        edges=tuple(
+            Replace(EdgeValue, start_parameter=0.0, end_parameter=FullTurn)
+            for EdgeValue in ModelValue.edges
+        ),
+    )
     CheckCylBrep(ModelValue)
     return ModelValue
