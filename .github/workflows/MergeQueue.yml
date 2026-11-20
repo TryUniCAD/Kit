@@ -11,10 +11,10 @@ permissions:
   contents: read
 
 env:
-  AuditSha: ${{ github.sha }}
+  AuditSha: 5973b9662976a7681dd5750dde3d220856cda652
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.merge_group.head_sha || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.merge_group.head_sha || github.sha }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
 
 jobs:
