@@ -30,6 +30,24 @@ The typed reader retains populated line styles, fonts and environment objects wh
 
 The disclosed L1 and D19Annulus saves each include a present renderer wrapper with two signed words `(6, 0)` and an empty object list. The reader and re-emitter preserve those saved fields. This narrow profile accepts only that empty wrapper or an absent branch. The values `6` and `0` select the measured saved profile and do not become fresh defaults. The fresh constructor derives branch absence from the absence of authored rendering content. The scope guards reject populated rendering, alternate flags and optional scene, sketch, OLE or variation objects. [Renderer scope guard](../../../src/convert/adapters/solidworks/Archive/Definition/CheckDefRender.py) · [Saved empty renderer gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/EmptyDefinitionRendererWrapper.md)
 
+## Canonical tag boundary
+
+The ordinary Definition reader requires the canonical store width of each
+tag. The shared native parser also recognizes an escaped small map
+reference and escaped null. Without a width check the typed graph would
+discard information and re-emission would shorten those tags. The check
+runs before cursor advance and map application. The policy belongs to
+Definition and leaves native widths at and above the escape threshold valid.
+[Exact tag grammar](https://github.com/TryUniCAD/Kit/blob/a93bb38bb3e51529c57872028f606588a5c54c61/re/solidworks/records/ArchiveTagGrammar2026.md)
+
+The queue cases run all twelve original guarded profile refusals. They
+also use separate processes to author a mapped line-style reference
+and reject independent escaped alternatives to its low-index object
+and class references. The receiver requires the original compact tags
+to replay exactly and verifies each expanded tag's underlying reference
+with the shared compatibility decoder. These cases await queue evidence.
+[Width gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/DefinitionTagWidths.md)
+
 ## Guarded measurement
 
 | Case | Stream size (bytes) | Next map index | Status |
@@ -41,7 +59,7 @@ The disclosed L1 and D19Annulus saves each include a present renderer wrapper wi
 
 Two author workers receive explicit values on stdin. Two separate reader workers recover those values and reproduce the bytes and map. Another author worker repeats the Unicode case independently. A sixth worker records twelve explicit refusals, including assembly root, alternate schema or version, trailing bytes, renderer scope, scene owner, zero density and an out-of-range display bit. Only then does the supervisor obtain the two hash-pinned disclosed files from Git and hand them to separate readers. Each saved stream contains seven line styles, forty fonts and splitter grids of `1×1` and `2×1`. All eight isolated workers recorded zero guarded external access attempts after imports. The source blobs and exact stream digests are in the receipt. [Guarded proof](../../tooling/sw2026/definition/ProveOrdinaryPartDef.py) · [Numeric and digest receipt](../measurements/2026/SdkOrdinaryPartDefinition01.json)
 
-The receipt SHA-256 is `12ffb0f2b69543367634e8dda7028cc0b951016816e755452eb0e04c63a6d891`. Scoped Black, repository steering and Mypy checks passed for all 28 source paths. The recorded-payload scan passed across `src`.
+The original receipt SHA-256 is `12ffb0f2b69543367634e8dda7028cc0b951016816e755452eb0e04c63a6d891`. It binds the pre-review implementation and worker at `e6540b325e056a820009c3d52752a9d994423a48`. [Pinned receipt and source manifest](https://github.com/TryUniCAD/Kit/blob/e6540b325e056a820009c3d52752a9d994423a48/re/solidworks/measurements/2026/SdkOrdinaryPartDefinition01.json) Scoped Black, repository steering and Mypy checks passed for all 28 source paths. The recorded-payload scan passed across `src`.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/definition/ProveOrdinaryPartDef.py

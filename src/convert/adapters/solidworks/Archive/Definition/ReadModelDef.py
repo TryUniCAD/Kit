@@ -24,7 +24,10 @@ def ReadModelDef(DataValue: bytes, VersionValue: int) -> ModelDefRead:
     ContextValue = ModelDefContext(VersionValue)
     CursorValue = BinaryReader(DataValue)
     ReaderValue = GraphReader(
-        CursorValue, ArchiveMaps(1), PartialValue(ReadBodyMut, ContextValue)
+        CursorValue,
+        ArchiveMaps(1),
+        PartialValue(ReadBodyMut, ContextValue),
+        RequireCanonicalTags=True,
     )
     Prefix: dict[str, object] = {
         RuleValue.NameValue: ReadScalarMut(CursorValue, RuleValue.TypeValue)

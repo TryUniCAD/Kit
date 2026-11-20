@@ -19,7 +19,13 @@ def ReadNodeMut(ReaderValue: GraphReader) -> ArchiveNode | None:
     Cursor = ReaderValue.Cursor
     NodeReader = ObjectRead(
         ReaderValue.MapValue,
-        PartialValue(ReadNodeTagMut, Cursor, ReaderValue.NestingDepth, KMaxNestedNodes),
+        PartialValue(
+            ReadNodeTagMut,
+            Cursor,
+            ReaderValue.NestingDepth,
+            KMaxNestedNodes,
+            RequireCanonicalTags=ReaderValue.RequireCanonicalTags,
+        ),
         PartialValue(ReadTypeDescMut, Cursor),
         PartialValue(ReadNodeBodyMut, ReaderValue),
         MakeArchiveNode if ReaderValue.NodeFactory is None else ReaderValue.NodeFactory,

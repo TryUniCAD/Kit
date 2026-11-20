@@ -292,6 +292,66 @@ def refusals():
     }
 
 
+def emit_references():
+    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import (
+        WriteModelDef,
+    )
+    from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+    from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+
+    model = authored(AUTHORED["ordinary"])
+    style_class = RuntimeClass("moLineStyle_c", 1)
+    shared = ArchiveNode(
+        style_class, {"f08": "Shared", "f10": "S01", "f18": [], "f20": 0}
+    )
+    separate = ArchiveNode(
+        style_class, {"f08": "Distinct", "f10": "S02", "f18": [], "f20": 0}
+    )
+    model.DocumentValue.FieldsValue["f878"] = {
+        "styles": [{"o": node} for node in (shared, shared, separate)]
+    }
+    return WriteModelDef(model).OutputValue
+
+
+def refuse_reference_widths(data):
+    from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
+    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
+    from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
+
+    typed = ReadModelDef(data, 19000)
+    styles = typed.GraphValue.DocumentValue.FieldsValue["f878"]["styles"]
+    first, repeated, separate = (row["o"] for row in styles)
+    require(
+        first is repeated and first is not separate
+        and first.ClassValue is separate.ClassValue
+        and first.IndexValue == 4 and separate.IndexValue == 5
+        and typed.MapValue.CounterValue == 10
+        and WriteModelDef(typed.GraphValue).OutputValue == data,
+        "authored reference control did not preserve its two mapped style owners",
+    )
+    require(
+        first.EndOffset is not None and separate.StartOffset == first.EndOffset + 2,
+        "authored sibling tag boundaries do not match the shared style",
+    )
+    cases = (
+        ("ObjectRef", first.EndOffset, 4, 4, 4),
+        ("ClassRef", separate.StartOffset, 0x8003, 0x80000003, 3),
+    )
+    output = {}
+    for kind, offset, short, wide, index in cases:
+        require(data[offset:offset + 2] == pack("<H", short), "wrong short reference tag")
+        altered = data[:offset] + pack("<HI", 0x7FFF, wide) + data[offset + 2:]
+        permissive, end = ReadTag(altered, offset)
+        require(
+            (permissive.KindValue, permissive.IndexValue, end) == (kind, index, offset + 6),
+            "wide contrast did not retain its valid structural tag meaning",
+        )
+        output[kind] = refusal(
+            lambda: ReadModelDef(altered, 19000), "archive tag uses a noncanonical width"
+        )
+    return output
+
+
 def worker(mode):
     sys.path.insert(0, str(REPO / "src"))
     from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import (
@@ -330,6 +390,10 @@ def worker(mode):
         output = readback(raw)
     elif mode == "refusals":
         output = refusals()
+    elif mode == "author_refs":
+        output = emit_references()
+    elif mode == "wide_refs":
+        output = refuse_reference_widths(raw)
     elif mode in NATIVE:
         output = native_readback(raw, mode)
     else:
