@@ -3,7 +3,7 @@ from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 
 
-# the creation-order record links each component to its saved timeline in execution order
+# the creation order record links each component to its saved timeline in execution order
 def OrderedFeatures(
     Graph: NativeGraph, Component: NativeNode
 ) -> tuple[NativeNode, tuple[NativeNode, ...]]:

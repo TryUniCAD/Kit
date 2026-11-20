@@ -57,6 +57,25 @@ def cached_bodies(native):
     return result
 
 
+def default_name_rules(witnesses):
+    observations = [body for witness in witnesses for body in witness["matches"] if body["stored_name"] == ""]
+    rules = {}
+    for field in ("creation_index", "collection_ordinal"):
+        compared = [row for row in observations if type(row[field]) is int and row[field] > 0]
+        failures = [{"segment": row["segment"], "object": row["object"], "observed": row["vendor_name"],
+                     "predicted": f"Body{row[field]}"} for row in compared if f"Body{row[field]}" != row["vendor_name"]]
+        rules[field] = {"compared": len(compared), "counterexamples": failures}
+    if not observations:
+        status = "no_measured_default_names"
+    elif any(rule["compared"] < len(observations) for rule in rules.values()):
+        status = "incomplete_native_fields"
+    else:
+        surviving = sum(not rule["counterexamples"] for rule in rules.values())
+        status = ("both_refuted", "distinguished_on_input", "needs_distinguishing_control")[surviving]
+    return {"status": status, "rules": rules,
+            "next_capture": "RemoveFirstDefaultBody" if status == "needs_distinguishing_control" else None}
+
+
 def capture_names(root, pin, size, native):
     bodies = cached_bodies(native)
     search = subprocess.run(["git", "-C", root, "grep", "-l", "-F", "-e", pin, "HEAD", "--",
@@ -96,4 +115,4 @@ def capture_names(root, pin, size, native):
                                     "creation_index": body["creation_index"], "collection_ordinal": body["collection_ordinal"], "vendor_name": measured[index]["name"]})
             witnesses.append({"capture": blob, "sha256": hashlib.sha256(raw).hexdigest(), "case": case["name"],
                               "unique_geometry_match": bijective, "candidate_indices": matches, "matches": aligned})
-    return {"input_sha256": pin, "bodies": bodies, "witnesses": witnesses}
+    return {"input_sha256": pin, "bodies": bodies, "witnesses": witnesses, "default_name_rules": default_name_rules(witnesses)}
