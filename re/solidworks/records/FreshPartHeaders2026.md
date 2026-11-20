@@ -16,8 +16,10 @@ configuration directory for an ordinary part. It takes the actual part
 and manager nodes, the live persistent-ID allocator, explicit
 creation, modification, update and save events, and a Windows part
 locator. The manager's two selectors must alias the same sole
-configuration row owned by the part. Configuration ancestry,
-excluded state and comment sidecars have separate grammar.
+independent configuration row owned by the part. A second manager
+row, a derived configuration, excluded state and comment sidecars
+are explicit refusals. Multi-configuration construction remains a
+separate part composer requirement.
 
 | Owner | Source of emitted values |
 | --- | --- |
@@ -90,6 +92,14 @@ The process commands observe internal stream boundaries. The
 [`kit research` workflow](../../../Documentation/Tasks/ResearchCommandLine.md)
 handles pinned whole-document decode and its qualification metadata.
 The internal stream observations leave that qualification intact.
+
+The allocator initialization repair at
+`4934ebb439bdcab3beb4fe13daf59bf42245cd37` repeated all nine guarded
+processes. The three neutral models, nine generated streams, six
+disclosed streams and all twelve refusals match the original observations
+exactly. The current source manifest covers the repaired allocator and
+canonical part suffix. Runtime external accesses remain zero.
+[Revision-bound allocator receipt](../measurements/2026/FreshPartHeadersAllocator02.json)
 
 ## Remaining scope
 

@@ -9,7 +9,8 @@ The existing archive codecs write the three graphs.
 The two standalone roles use their own logs and share the same
 self-file node. The directory derives its stamps and text from the
 selected configuration and its part. Foreign owners, conflicting
-selections and unsupported configuration states raise an error.
+selections, multiple or derived configurations and unsupported
+configuration states raise an error.
 
 Three guarded authored cases match all nine independently framed
 streams. Consecutive reservations after the last allocation advance
