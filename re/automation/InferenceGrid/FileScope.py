@@ -155,6 +155,10 @@ def file_scope(path, application, scratch, root):
                     for witness in reports["body-correspondence"]["witnesses"]
                     if witness["parameters"] is not None and "parameters" in components[0]
                 ]
+                from InferenceGrid.ParameterProjection import fit_projection
+                projection = fit_projection(root, scratch, timeline_env, components[0], reports["body-correspondence"]["witnesses"], pin)
+                if projection:
+                    recovered["parameter_projection"] = projection
             oracle = comparison and comparison.get("oracle_timeline")
             if oracle and len(components) == 1:
                 actual = components[0]["features"]

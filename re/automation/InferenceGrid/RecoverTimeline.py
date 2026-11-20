@@ -72,6 +72,16 @@ def recover(path, registry=None):
             name = name or fields.get("featureBaseName")
             timeline.append({"index": i, "id": node.Identity, "name": name if isinstance(name, str) else None,
                              "native_class": node.ClassName, "suppressed": fields.get("isSuppressed")})
+            if any(field.FieldName.endswith(("Type", "Mode")) for field in node.Groups[0].Fields):
+                shape = {}
+                for field in node.Groups[0].Fields:
+                    key, value = field.FieldName, field.Value
+                    if type(value) in (int, bool) or value is None:
+                        shape[key] = value
+                    elif key.startswith("r") and hasattr(value, "ObjectId"):
+                        target = graph.Resolve(value, node.SegmentId)
+                        shape[key] = target.ClassName
+                timeline[-1]["parameter_context"] = {"class_guid": node.Groups[0].ClassGuid, "fields": shape}
             if possible:
                 timeline[-1]["name_candidates"] = possible
             if node.ClassName == "DcExtrudeFeature":
