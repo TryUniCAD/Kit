@@ -7,6 +7,7 @@ from importlib.util import (
 from json import dumps as EncodeJson, loads as ParseJson
 from os import environ as ProcessEnv
 from pathlib import Path as FilePath
+from tempfile import TemporaryDirectory as TempDirectory
 from subprocess import run as RunProcess
 import sys as System
 from typing import Callable, Protocol, cast as CastValue
@@ -224,14 +225,13 @@ def ObserveMode(RootPath: FilePath, ModeName: str) -> dict[str, object]:
 
 # restrictive parent stdout must not turn a successful unicode controller operation into a lost acknowledgement
 @MarkValue.parametrize("ModeName", ("cli", "adapter"))
-def CheckTransport(TmpPath: FilePath, ModeName: str) -> None:
+def CheckTransport(ModeName: str) -> None:
     Process = RunProcess(
         [
             System.executable,
             "-B",
             "-m",
             "tests.Research.Archives.Controller.ControllerUtfEightTests",
-            str(TmpPath),
             ModeName,
         ],
         cwd=KRepoRoot,
@@ -247,8 +247,7 @@ def CheckTransport(TmpPath: FilePath, ModeName: str) -> None:
 
 
 if __name__ == "__main__":
-    print(
-        EncodeJson(
-            ObserveMode(FilePath(System.argv[1]), System.argv[2]), ensure_ascii=True
+    with TempDirectory() as Folder:
+        print(
+            EncodeJson(ObserveMode(FilePath(Folder), System.argv[1]), ensure_ascii=True)
         )
-    )

@@ -63,5 +63,7 @@ def ObserveReplay(SourcePath: FilePath, CaseName: str) -> dict[str, object]:
 
 if __name__ == "__main__":
     print(
-        EncodeJson(ObserveReplay(FilePath(Arguments[1]), Arguments[2]), sort_keys=True)
+        EncodeJson(
+            ObserveReplay(FilePath.cwd() / "Source.FCStd", Arguments[1]), sort_keys=True
+        )
     )

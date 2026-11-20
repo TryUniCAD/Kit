@@ -10,17 +10,24 @@ from tests.Research.Windows.BindChild import BindChild
 
 
 # tree cleanup checks need a bound descendant that stays alive until the owner retires it
-def StartChild(Options: dict[str, str]) -> None:
+def StartChild(SessionPath: FilePath, Options: dict[str, str]) -> None:
     if System.platform != "win32":
         raise OSError("Windows child fixture requires a Windows host")
     _ = Signals.signal(int(getattr(Signals, "SIGBREAK")), Signals.SIG_IGN)
+    if (
+        SessionPath.parent.name != "sessions"
+        or SessionPath.parents[1].name != "SupervisorState"
+    ):
+        raise ValueError("unexpected Windows fixture session layout")
+    RecordPath = SessionPath.parents[2] / "ProcessIds.json"
+    if FilePath(Options["pid_file"]) != RecordPath:
+        raise ValueError("unexpected Windows fixture process record")
     ChildProcess = Subprocess.Popen(
         [
             System.executable,
             "-m",
             "tests.Research.Windows.WindowsRunner",
             "child",
-            Options["pid_file"] + ".ready",
             str(OsLayer.getpid()),
         ],
         creationflags=int(getattr(Subprocess, "CREATE_NEW_PROCESS_GROUP")),
@@ -31,12 +38,10 @@ def StartChild(Options: dict[str, str]) -> None:
     while True:
         try:
             Observation = JsonCodec.loads(
-                FilePath(Options["pid_file"] + ".ready").read_text(encoding="utf-8")
+                (SessionPath / "work/ChildReady.json").read_text(encoding="utf-8")
             )
             JobName = JsonCodec.loads(
-                (FilePath(OsLayer.environ["KIT_SESSION"]) / "session.json").read_text(
-                    encoding="utf-8"
-                )
+                (SessionPath / "session.json").read_text(encoding="utf-8")
             )["job_object"]
             break
         except (OSError, ValueError):
@@ -45,8 +50,6 @@ def StartChild(Options: dict[str, str]) -> None:
             TimeClock.sleep(0.01)
     assert ChildProcess.poll() is None
     ProcessIds = BindChild(ChildProcess.pid, OsLayer.getpid(), Observation, JobName)
-    _ = FilePath(Options["pid_file"]).write_text(
-        JsonCodec.dumps(ProcessIds), encoding="utf-8"
-    )
+    _ = RecordPath.write_text(JsonCodec.dumps(ProcessIds), encoding="utf-8")
     if Options["mode"] == "hold":
         TimeClock.sleep(120)
