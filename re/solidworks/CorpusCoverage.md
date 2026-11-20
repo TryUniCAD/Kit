@@ -1,8 +1,8 @@
 # FCStd to SOLIDWORKS corpus coverage
 
 Status: **0 of 165 FCStd parts and 0 of five FCStd assemblies qualified**.
-Kit's generative public writer accepts the scoped neutral line-loop and the
-two qualified fixed-centre circle blind bosses. Its held-out native
+PR #121's generative public writer accepts the scoped neutral line-loop and
+the two qualified fixed-centre circle blind bosses. Its held-out native
 SOLIDWORKS examples are separate from the FCStd benchmark. The earlier writer measured below re-emitted a recorded
 vendor stream per family, so it was removed from production.
 See the [native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md).
@@ -35,7 +35,12 @@ passes two independent signed boxes and both controls in six fresh processes.
 Both articles retain three independently editable dimensions, the signed
 solid and the feature history through save and reopen. Public writer
 registration and original FCStd benchmark membership remain open. The native
-holdouts and disclosed trials add zero benchmark conversion credits.
+holdouts and disclosed trials add zero benchmark conversion credits. The
+[shared FreeCAD projection and constructor](measurements/2026/FreecadAttachedBoxSharedBuild01.json)
+reproduce six exact containers and 72 stream digests with zero runtime input
+reads. The public SDK refuses all three full FreeCAD inputs before publishing
+any bytes. The remaining transfer requirements are B-rep, native payloads,
+provenance and round-trip metadata.
 
 The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
 loads two model-generated, independently measured solid payloads with

@@ -36,7 +36,7 @@ The 49,188-byte disclosed source has SHA-256
 `13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325`.
 Its public SDK read recovers one boundary with the six faces, twelve
 edges and eight vertices, as well as the `Imported1` history row. The
-typed linked read stops at `moBaseBody_c` schema 1. The legacy read reports
+initial typed linked read stopped at `moBaseBody_c` schema 1. The legacy read reported
 the typed refusal and a separate property-manager ownership diagnostic.
 The class spelling appears at byte 5,725 of the 6,080-byte
 ResolvedFeatures stream. The disclosed Config-0 stream is 25,190 bytes
@@ -88,6 +88,8 @@ hash and the measured context. The
 records hashes and lengths for all five streams. The subclass fields
 are classified below for the ordinary local-body branch. Other
 version and mode branches remain open.
+The [shared typed layout](ImportedBaseBodyTypedLayout2026.md) now supplies
+the same grammar to the SDK reader and archive writer.
 
 ## Separate local body storage
 
@@ -154,6 +156,37 @@ Unicode label. This agrees with the ordinary part
 
 The compatibility-name projection, full generated body tracking and
 public writer qualification remain open.
+
+## Analytic topology contrast
+
+Two independently specified cylinders use translated locations and
+different signed principal axes. The exact oracle authored and freshly
+reopened both native `BaseBody` sources. All six independent application
+processes passed, including the before and after controls. Each source had
+one solid, two planar caps, one analytic cylindrical face, two circular
+boundary edges and no vertices. The native checks verified the axis, radius,
+mass properties, feature ownership and persistent reference.
+
+Both cylinder saves match seven typed archive and kernel frames byte for
+byte. Each local transmit occupies 3,525 bytes and contains 91 resident
+nodes and 19 attributes. Each separate active partition has a body-free
+WORLD and selects mark 7. The box reference has 172 resident nodes and
+27 attributes. In all three sources the linked feature and configuration
+manager share one atom with ID 101, and its producer is native feature 26.
+
+| Field | Disclosed box | Two cylinders |
+| --- | ---: | ---: |
+| Atom display mode `f19c` | 6 | 6 |
+| Atom body tag `f180` and `f1b0` | 536 | 316 |
+| Local `BODY_MATCH` | absent | 316 |
+| `ENT_TIME_STAMP_2001` and saved header `f44` | 102 | 102 |
+| Nonresident `ATTRIB_DEF.next` references | 12 | 13 |
+
+The box and both cylinders confirm distinct roles for the atom display
+mode, tracking tag and face count. The reason for the different local
+`BODY_MATCH` presence and fresh native tag allocation remains open.
+[Topology receipt](../measurements/2026/ImportedBodyTopologyNative01.json)
+· [Replay procedure](../../tooling/sw2026/imported_body_source/InspectImportedTopology.py)
 
 ## Kernel intake
 

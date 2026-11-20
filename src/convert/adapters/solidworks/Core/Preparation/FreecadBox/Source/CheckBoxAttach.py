@@ -116,7 +116,7 @@ def CheckBoxAttach(
         float(ReadPropText(Properties, "MapPathParameter", "Float", "Float")) == 0.0,
         "FreeCAD attachment has an active path coordinate",
     )
-    return ReadAttachText(Properties, Release) | {
+    return {
         "FreeCAD Attachment Support Id": PlaneId,
         "FreeCAD Attachment Map Mode": MapMode,
-    }
+    } | ReadAttachText(Properties, Release)

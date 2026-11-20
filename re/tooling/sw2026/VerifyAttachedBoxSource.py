@@ -66,7 +66,10 @@ def compare(document):
     candidate = ReadBoxSource(document)
     fields = {
         "lowered_model": original.model == candidate.ModelValue,
-        "properties": original.properties == candidate.PropertiesValue,
+        "properties": all(
+            tuple(getattr(original.properties, name).items()) == tuple(getattr(candidate.PropertiesValue, name).items())
+            for name in ("SummaryFields", "DocumentFields", "ConfigurationFields")
+        ),
         "dimensions": original.dimensions_mm == candidate.DimensionsValue,
         "creation_epoch": original.creation_epoch == candidate.CreationEpoch,
         "parameter_bindings": original.parameter_bindings == candidate.ParameterBindings,

@@ -66,10 +66,10 @@ def LowerBoxSource(DocumentValue: CadDocument) -> BoxSource:
     PlaneValue = ReadTopPlane(DocumentValue.support_planes, Objects)
     Properties = ReadBoxProps(FeatureData, ReadBoxString(BodyData["name"]), Release)
     Flags = (
-        ReadBoxOrigin(Objects, Release)
-        | CheckBoxBody(
+        CheckBoxBody(
             NativeRecord(BodyData["properties"]), BodyValue.name, PartName, Release
         )
+        | ReadBoxOrigin(Objects, Release)
         | CheckBoxAttach(Properties, Feature.name, PlaneValue.id, Release)
     )
     (Length, Width, Height), Sizes = ReadBoxParams(
