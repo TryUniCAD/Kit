@@ -206,7 +206,7 @@ def TestDepthEdit(TmpPath: FilePath, DistanceMm: float, ChangeMode: str) -> None
 def TestStaleEdit(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
     Document = OpenDocument(KSourcePath, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
-    _ = WriteDocument(Document, Output)
+    _ = CodecRebuild(Document, Output)
     Stale = ChangeEditFile(Output, 25.0, None, ChangeMode)
     with Pytest.raises(FreeCadAdapterA, match=Reason):
         _ = OpenDocument(Stale)
