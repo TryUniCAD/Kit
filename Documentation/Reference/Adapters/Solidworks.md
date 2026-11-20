@@ -121,11 +121,6 @@ can reuse those exact objects. The stored unsigned atom state remains
 available alongside its runtime projection.
 [Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
-The shared atom manager encoder derives its row count and map allocation
-from typed rows. Its bounded emission preserves native state normalization
-under the actual archive conditions.
-[Atom manager emission](../../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
-
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
@@ -183,6 +178,11 @@ Boss and cut behavior can depend on several related records.
 A single flag change is not a general operation converter.
 
 ## Writing
+
+The shared atom manager encoder derives its row count and map allocation
+from typed rows. Its bounded emission preserves native state normalization
+under the actual archive conditions.
+[Atom manager emission](../../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
 
 Kit does not write SOLIDWORKS files.
 A conversion to a `.SLDPRT` or `.SLDASM` destination raises `AdapterNotFoundError` and creates no file.
