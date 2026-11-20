@@ -39,10 +39,19 @@ def exercise(work, store, statuses, mode, image):
     git("add", module)
     git("-c", "user.name=Process Control", "-c", "user.email=control@example.invalid", "commit", "-qm", "Seed public CLI regression")
     cases = []
-    for shape, geometry in (("circle", "CircleGeometry"), ("rectangle", "PointGeometry")):
+    shapes = (("circle", "CircleGeometry"), ("rectangle", "PointGeometry")) if mode == "reader" else (("rectangle", "PointGeometry"), ("cuboid", "PointGeometry"))
+    for shape, geometry in shapes:
         sample = f"re/Fusion/LocalOracle/PublicAdapter/{shape}.authoring.json"
+        if mode == "writer":
+            from convert.Formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
+            from convert.Formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
+            sample = f"re/Fusion/LocalOracle/PublicAdapter/{shape}.control.f3d"
+            (repo / sample).write_bytes(EmitDocument(DocumentSpec(shape, "height", 17.0, ProfileKind=shape, ConstrainRectangle=True)))
+            git("add", sample)
         cases.append({"file": sample, "sha256": hashlib.sha256((repo / sample).read_bytes()).hexdigest(),
                       "expect": {"/document/sketches/$tuple/0/entities/$tuple/0/geometry/$type": geometry}})
+    if mode == "writer":
+        git("-c", "user.name=Process Control", "-c", "user.email=control@example.invalid", "commit", "-qm", "Pin dimension-driven native controls")
     name = "Public" + mode.title()
     request = {"name": name, "base": git("rev-parse", "HEAD"), "scope": SCOPE,
                "reference": "re/Playbook/README.md", "rule": "Restore sketch entity geometry for this seeded process control.",
