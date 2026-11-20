@@ -23,12 +23,12 @@ by a NUL, its lowercase SHA-256 and a newline.
 
 The eight files use the standard library and the existing
 [`FrameKeywords`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py).
-Current review tightens `MakeKeyFeatMut` to require the ordinary revolve
-feature to have exactly one degree-valued `D1` dimension. The other seven
-emitter files are unchanged. The current eight-file manifest is
-`5c1c70251bef129afe1791e0bdad1f5b1188c4d4da9b78b13377b74d5e3d51b6`.
-Including the eleven accepted framing and XML boundary files gives
-`4d4219f88acee64d4fd7da9d717bd064b54a6a7d45d319f15140e552e09c3292`.
+The scoped review tightens `MakeKeyFeatMut` to require one degree-valued
+`D1` on the ordinary revolve. `MakeKeywords` preserves that profile
+and accepts the native dimensioned, dissectable linear sketch with explicit
+compact framing. The other six files remain unchanged. The current
+eight-file manifest is `cd618ade027ec2e4c13d801b4072d51f7fefd691c053abed14bfd196a52fea67`. Including the eleven
+accepted framing and XML boundary files gives `cba703c96fe447cc4033fdef8c012208ddb9d9e9a9a001e87a331b41cbfc7d67`.
 The first main-based nineteen-file manifest was
 `69d1335a739df92c85071c4fe6c64a532561ecc7ea9b307e5f00d894e99db7c0`.
 The historical nine-file manifest before the framing repair was
@@ -50,7 +50,7 @@ Neutral document and native graph resolution belong to the caller.
 | `DissectableChildren` | Bounded derived index | The emitter permits one positive decimal feature ID and checks its membership. The cut composer derives it from the actual selected profile node. The wire component assumes the caller has checked graph roles and relationships. |
 | Linear dimension name and text | Input and numeric encoding | The sketch projection reads the actual parameter name and `f58` length in metres, then divides by the document length-unit scale. The emitter receives the result in presentation units. It emits no unit suffix for a linear value. |
 | Omitted cut type and depth | Bounded profile vocabulary | An `Extrusion` without `Type` requires one child. A blind cut supplies the actual depth as `D1`. A through-all cut can omit depth when it has no distance owner. |
-| Angle text, sketch type and empty tags | Bounded profile vocabulary | The revolve projection converts the authored angle from radians to degrees. The `Feature` of type `Revolve` gets the degree suffix. The generated sketch can omit type with `Dissectable=true`. The angular generated profile selects compact tags. The initial linear and local-import profiles use spaced tags. |
+| Angle text, sketch type and empty tags | Bounded profile vocabulary | The revolve projection converts the authored angle from radians to degrees. The `Feature` of type `Revolve` has one degree-valued `D1`. A dissectable sketch can omit its type when it has dimensions or appears in the angular profile. The angular profile selects compact tags. The caller chooses compact tags for observed native linear profiles. The initial generated linear and local-import profiles use spaced tags. |
 
 Configuration and feature IDs have independent uniqueness checks. The emitter
 formats integers directly and floats with `.17g`. Duplicate dimension names
@@ -81,6 +81,17 @@ spaced tags and have zero dimension rows and child references.
 | --- | --- | --- | ---: |
 | [ConcaveOwned](../v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT) | `fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33` | `067f823ee629cb6477d074d1177f65d5b8ca93843bb13c979b0a11ba02e55b28` | 1,306 |
 | [RectangularBare](../v2026/corpus/local-import-readback/RectangularBare.SLDPRT) | `302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357` | `6b9d298647fccf2baa908f65d5cc86ad36e14a17b9bbea12554042f1bb27d425` | 1,309 |
+
+The [native L1 boss](../v2026/corpus/ladder/L1_boss.SLDPRT), SHA-256
+`55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6`,
+has a compact 1,739-byte index with SHA-256
+`507f9c7c1b6c4a70ea1ab7fe4c3e66b4cbab6f46168dc5e1338c5710499a69ef`.
+Its sketch 26 carries two linear dimensions and no type. The same
+index has an empty name on the exploded views row and a literal
+unassigned material on its configuration. The new guarded queue
+case projects the source rows as typed model values, emits the stream
+in a separate process and compares its exact size and digest.
+[Native linear queue case](../../../tests/Convert/Solidworks/KeywordModels/KeywordNativeLinearTests.py)
 
 The [blind boss receipt](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/measurements/2026/SdkBlindPartNative01.json)
 binds a generated 1,420-byte index with a live depth. The
@@ -119,9 +130,10 @@ authors a consumed sketch and a `147.5°` driver. Each compares complete
 independently specified wire bytes and uses a separate interpreter with
 the existing XML parser to check the emitted rows. The
 [refusal case](../../../tests/Convert/Solidworks/KeywordModels/KeywordRefusalTests.py)
-checks fourteen invalid row or dimension forms and requires empty
+checks fifteen invalid row or dimension forms and requires empty
 output. Angular controls reject an absent dimension, unitless `D1`,
-a degree-valued `D2`, and a second dimension on the ordinary revolve.
+a degree-valued `D2`, a second dimension and a revolve with the
+sketch tag despite a valid degree driver.
 
 The process cases use authored metadata and no source CAD files. Scoped Black,
 Ruff, Mypy, Pyright and steering checks passed for 13 Python files. The donor

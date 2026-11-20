@@ -9,7 +9,9 @@ in the feature rows.
 
 A linear cut row carries one profile ID and either its live `D1` value or
 no dimension. The ordinary revolve profile requires one `D1` dimension in
-degrees and uses compact empty tags. The separate [KeyWords framer](SolidworksKeywordFraming.md)
+degrees and uses compact empty tags. A dissectable linear sketch with
+dimensions can omit its type. Pass `CompactTags=True` for the compact
+linear profile. The separate [KeyWords framer](SolidworksKeywordFraming.md)
 handles the XML and stream envelope.
 
 The emitter is an internal stream component. Full document construction,
@@ -23,4 +25,7 @@ process cases compare independent expected bytes and read the emitted XML
 in a separate interpreter. The
 [refusal case](../../../../tests/Convert/Solidworks/KeywordModels/KeywordRefusalTests.py)
 checks diagnostics and empty output. Process execution awaits remote CI.
+[Native linear control](../../../../tests/Convert/Solidworks/KeywordModels/KeywordNativeLinearTests.py)
+projects the tracked native L1 boss metadata and regenerates its complete
+1,739-byte index in a separate process.
 [Pinned source and measurements](../../../../re/solidworks/records/KeywordModelSlice2026.md)

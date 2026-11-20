@@ -83,6 +83,18 @@ def TestKeyRejects() -> None:
             b"ordinary revolve keyword requires its single D1 degree driver",
         )
         for DimensionValues in KAngularDimensions
+    ) + (
+        (
+            [
+                KPlainFeature,
+                {
+                    **KAngularFeature,
+                    "tag": "Sketch",
+                    "dimensions": [{"name": "D1", "value": 47.25, "unit": "degree"}],
+                },
+            ],
+            b"ordinary revolve keyword requires its single D1 degree driver",
+        ),
     )
     for FeatureValues, Diagnostic in (*KShapeRejects, *KValueRejects, *AngularRejects):
         InputValue = {

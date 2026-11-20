@@ -22,8 +22,12 @@ def MakeKeywords(
     Timestamp: int,
     ConfigValues: tuple[KeywordConfig, ...],
     FeatureValues: tuple[KeywordFeature, ...],
+    *,
+    CompactTags: bool = False,
 ) -> bytes:
     _ = ReadStyleText(NameValue, "keyword document name")
+    if type(CompactTags) is not bool:
+        raise TypeError("keyword framing requires an explicit compact mode")
     if type(Timestamp) is not int or not 0 <= Timestamp <= 0xFFFFFFFF:
         raise ValueError("keyword timestamp must fit unsigned unix seconds")
     if (
@@ -71,10 +75,14 @@ def MakeKeywords(
         for DimValue in ItemValue.DimensionValues
     )
     if not HasDegrees and any(
-        ItemValue.TagValue == "Sketch" and ItemValue.KindValue is None
+        ItemValue.TagValue == "Sketch"
+        and ItemValue.KindValue is None
+        and not ItemValue.DimensionValues
         for ItemValue in FeatureValues
     ):
-        raise ValueError("omitted sketch type requires its native revolve angle")
+        raise ValueError(
+            "undimensioned sketch type omission requires its native revolve angle"
+        )
     for FeatureValue in FeatureValues:
         MakeKeyFeatMut(RootValue, FeatureValue)
-    return FrameKeywords(RootValue, HasDegrees)
+    return FrameKeywords(RootValue, HasDegrees or CompactTags)
