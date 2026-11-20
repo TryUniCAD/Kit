@@ -33,6 +33,7 @@ import FreeCAD as App
 def measures(doc):
     (feature,) = [obj for obj in doc.Objects if obj.TypeId == 'Part::Revolution']
     shape = feature.Shape
+    print('KIT_PLANE_STATE', feature.Visibility, shape.isNull(), feature.State, feature.Angle, flush=True)
     assert feature.Visibility and shape.isValid() and len(shape.Solids) == 1
     assert 'Invalid' not in feature.State and abs(feature.Angle - 80) < 1e-7
     print('KIT_PLANE_REVOLVE', shape.Volume, *shape.Solids[0].CenterOfMass)
@@ -165,11 +166,12 @@ def TestPlaneEdit(TmpPath: FilePath) -> None:
             "KIT_ORACLE_PATH": str(Output),
             "KIT_ORACLE_SAVED": str(Saved),
         },
-        check=True,
+        check=False,
         capture_output=True,
         text=True,
         timeout=120,
     )
+    assert Result.returncode == 0, (Result.stdout, Result.stderr)
     Loaded, Rebuilt, Edited, Reopened = (
         tuple(map(float, LineValue.split()[1:]))
         for LineValue in Result.stdout.splitlines()
