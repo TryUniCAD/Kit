@@ -70,6 +70,23 @@ def records(streams, wanted):
     return stream, data, rows, display
 
 
+def control_parts(root):
+    folder = "re/solidworks/examples"
+    files = subprocess.check_output(["git", "-C", root, "ls-tree", "-rz", "--name-only", "HEAD", "--", folder])
+    budget = 64 * 1024 * 1024
+    scanned = 0
+    for item in files.split(b"\0"):
+        if not item.lower().endswith(b".sldprt") or scanned >= 128:
+            continue
+        p = root / os.fsdecode(item)
+        if not p.is_file() or p.stat().st_size > min(4 * 1024 * 1024, budget):
+            continue
+        raw = read_file(p, min(4 * 1024 * 1024, budget))
+        budget -= len(raw)
+        scanned += 1
+        yield raw
+
+
 def discover_fields(root, streams, document, pin):
     unresolved = {f["attributes"].get("native_object_id") for f in document.get("feature_timeline", {}).get("$tuple", [])
                   if (f.get("definition") or {}).get("$type") == "NativeFeatureDefinition"}
@@ -101,18 +118,8 @@ def discover_fields(root, streams, document, pin):
     samples = defaultdict(list)
     anchor_samples = defaultdict(list)
     candidates = {}
-    folder = "re/solidworks/examples"
-    files = subprocess.check_output(["git", "-C", root, "ls-tree", "-rz", "--name-only", "HEAD", "--", folder])
-    budget = 64 * 1024 * 1024
     scanned = 0
-    for item in files.split(b"\0"):
-        if not item.lower().endswith(b".sldprt") or scanned >= 128:
-            continue
-        p = root / os.fsdecode(item)
-        if not p.is_file() or p.stat().st_size > min(4 * 1024 * 1024, budget):
-            continue
-        raw = read_file(p, min(4 * 1024 * 1024, budget))
-        budget -= len(raw)
+    for raw in control_parts(root):
         scanned += 1
         digest = hashlib.sha256(raw).hexdigest()
         if digest == pin:

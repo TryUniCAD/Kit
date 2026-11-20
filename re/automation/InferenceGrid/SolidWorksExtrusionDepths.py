@@ -14,7 +14,7 @@ import struct
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars
 from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream, ParseDisplay
-from InferenceInputs import read_file
+from InferenceGrid.SolidWorksFieldDiscovery import control_parts
 
 
 def extrusion_records(data, features):
@@ -35,21 +35,21 @@ def extrusion_depths(root, data, features, pin, dimensions, projected, stream):
         return None
     seen = {hashlib.sha256(data).hexdigest()}
     groups = defaultdict(list)
-    folder = root / "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024"
-    for name in ("CULATA_DERECHO", "RODAMIENTO DE BANDA", "CARTER", "BLOQUE V8", "BIELA"):
-        path = folder / (name + ".SLDPRT")
-        if not path.exists():
-            continue
-        raw = read_file(path, 16 * 1024 * 1024)
+    for raw in control_parts(root):
         digest = hashlib.sha256(raw).hexdigest()
         if digest == pin:
             continue
-        streams = SldprtArchive.FromBytes(raw).Streams
-        configs, fs = ParseKeywords(streams["swXmlContents/KeyWords"])
+        try:
+            streams = SldprtArchive.FromBytes(raw).Streams
+            configs, fs = ParseKeywords(streams.get("swXmlContents/KeyWords", b""))
+        except ValueError:
+            continue
         display = ParseDisplay(streams.get(KInformationStream, b""))
         if len(configs) != 1 or not display or display.UnitName != "mm":
             continue
-        control = streams["Contents/Config-" + str(configs[0].configuration_id) + "-ResolvedFeatures"]
+        control = streams.get("Contents/Config-" + str(configs[0].configuration_id) + "-ResolvedFeatures")
+        if not control:
+            continue
         fingerprint = hashlib.sha256(control).hexdigest()
         if fingerprint in seen:
             continue

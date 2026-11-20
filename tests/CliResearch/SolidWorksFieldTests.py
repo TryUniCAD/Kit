@@ -249,3 +249,13 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
     assert Zero["reader_span_matches"] and Zero["status"] == "unique_cross_stream_match"
     assert Zero["excluded_count_locations"] == [[Prediction["stream"], 38918]]
     assert Zero["candidate_locations"] == [[Prediction["stream"], 266936]]
+    Revolves = [Row for Row in Dimensions if Row["status"] == "verified_revolve_angle"]
+    assert {Row["feature_id"] for Row in Revolves} == {99, 156, 192}
+    assert {Row["axis_id"] for Row in Revolves} == {46}
+    assert len({tuple(Row["verified_location"]) for Row in Revolves}) == 3
+    assert all(len(Row["copy_offsets"]) == 2 for Row in Revolves)
+    (CutDepth,) = [
+        Row for Row in Dimensions if Row["feature_id"] == 174 and Row["name"] == "D1"
+    ]
+    assert CutDepth["status"] == "held_out_extrusion_depth"
+    assert CutDepth["verified_location"][1] == 158970

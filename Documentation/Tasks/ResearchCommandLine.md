@@ -267,3 +267,5 @@ When a SOLIDWORKS run generates multiple reader changes, apply the cumulative `R
 A `paired_sketch_length` result records the driving and display offsets for a [full-precision sketch length](../Changes/Research/Inference/PairedSketchLengthPrecision.md).
 
 For a `verified_native_radius` result, the [referenced circle dimension](../Changes/Research/Inference/ReferencedCircleDimension.md) entry explains how to inspect the saved center and rim.
+
+The [revolution angle ownership](../Changes/Research/Inference/RevolutionAngleOwnership.md) report includes the axis ID, angle span, end specification and copy offsets for each verified revolution.

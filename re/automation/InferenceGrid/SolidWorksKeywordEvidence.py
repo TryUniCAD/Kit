@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from InferenceGrid.SolidWorksExtrusionDepths import extrusion_depths
+from InferenceGrid.SolidWorksRevolveEvidence import revolve_angles
 from InferenceGrid.SolidWorksFeatureCounts import feature_counts
 from InferenceGrid.SolidWorksFieldDiscovery import native_parameter_matches
 from InferenceGrid.SolidWorksProfileFields import paired_sketch_lengths, profile_fields
@@ -259,6 +260,10 @@ def keyword_evidence(streams, discovered, document, root, pin, fields):
         for row, offsets in paired_sketch_lengths(streams[resolved], resolved, features, rows, projected):
             counts[row["status"]] -= 1
             row.update(status="paired_sketch_length", reader_span_matches=True, **offsets)
+            counts[row["status"]] += 1
+        for row, offsets in revolve_angles(streams[resolved], resolved, document, keyed_rows, projected):
+            counts[row["status"]] -= 1
+            row.update(status="verified_revolve_angle", reader_span_matches=True, **offsets)
             counts[row["status"]] += 1
     proposals = ownership_hypotheses(rows, features, streams[resolved], resolved) if resolved in streams else None
     extrusions = extrusion_depths(root, streams[resolved], features, pin, rows, projected, resolved) if resolved in streams else None
