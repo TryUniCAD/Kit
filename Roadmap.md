@@ -18,7 +18,7 @@ No replacement percentage is claimed without a complete acceptance matrix.
 
 | Family                  | Production position at this revision                                                                       | Remaining product requirement                                                                       |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| SOLIDWORKS              | Part and assembly reader, partial drawing reader, and a generative writer for one line-loop blind boss.     | Native assembly and drawing output, broader semantic reads and qualified editable routes.           |
+| SOLIDWORKS              | Part and assembly reader and partial drawing reader.                                                    | Native part, assembly and drawing output, broader semantic reads and qualified editable routes.     |
 | Fusion                  | Public reader and writer for qualified parameter, circle, rectangle, cylinder, cuboid and frustum graphs.  | General portable feature graphs, broader schemas, configurations and qualified cross-format routes. |
 | FreeCAD                 | Archive reader and writer with geometry, feature and assembly paths.                                       | Per-version semantic coverage and measured acceptance for each claimed conversion direction.        |
 | CATIA V5                | Part/product adapter with bounded native interpretation and preservation paths.                            | Complete geometry, parametric history and independently measured native conversion.                 |
@@ -32,12 +32,14 @@ No replacement percentage is claimed without a complete acceptance matrix.
 Registration, same-format reconstruction and retained native bytes do not establish cross-format editability.
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
 The [SOLIDWORKS guide](Documentation/Reference/Adapters/Solidworks.md) documents the production write restriction.
-PR #121 adds normal writer support for two independently qualified fixed-centre circle profiles. [Circle writer evidence](Documentation/Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md)
+PR #121 adds the generative line-loop blind boss writer and normal writer support for two independently qualified fixed-centre circle profiles. [Line-loop writer evidence](Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md) · [Circle writer evidence](Documentation/Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md)
 PR #121 also registers a bounded native assembly writer for two or three direct occurrences of one dimensioned rectangular part and ordinary principal-plane mates. [Assembly writer evidence](Documentation/Changes/Solidworks/Construction/Assembly/SolidworksPublicAssemblyWriting.md)
 It also qualifies the normal writer for one initially satisfied perpendicular between two occurrences of the same owned rectangular part. [Perpendicular assembly evidence](Documentation/Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
 The SDK writes one neutral, unlinked ANSI A landscape drawing with measured native scale edits, saves and fresh reopens on two independently locked inputs. The strict reader reconstructs the exact generated container and its typed layout and settings. The SDK and CLI regenerate a canonical generated blank at a new destination, with two held-out native rewrite lifecycles. [Canonical rewrite evidence](re/solidworks/measurements/2026/BlankRewriteHeldoutNative01.json) [Public blank drawing evidence](Documentation/Changes/Solidworks/Construction/SolidworksPublicBlankDrawingWriter.md) · [Strict reader evidence](re/solidworks/measurements/2026/SdkGeneratedBlankStrictRead01.json)
 It adds typed readback for a solved perpendicular mate, native part properties with a verified empty advanced owner, and guarded prism geometry recovery. [Perpendicular read](Documentation/Changes/Solidworks/Archive/Assembly/SolidworksPerpendicularReaderOwnership.md) [Empty property owner](Documentation/Changes/Solidworks/Inspection/Properties/SolidworksEmptyAdvancedPropertyRead.md) [Typed prism read](Documentation/Changes/Solidworks/Inspection/Parts/Geometry/SolidworksTypedPrismReconstruction.md)
 The scoped native part reader also binds one cache-backed solid to its actual name and design-body identity. [Native body read](Documentation/Changes/Solidworks/Reading/Names/SolidworksNativeBodyNames.md)
+
+FreeCAD sketch visibility and verified legacy-carrier replay reached main at `533970231`. [FreeCAD sketch changes](Documentation/Changes/Freecad/FreecadHiddenSketchesStayActive.md)
 
 ## Destination
 

@@ -151,6 +151,22 @@ Unicode label. This agrees with the ordinary part
 The compatibility-name projection, full generated body tracking and
 public writer qualification remain open.
 
+## Kernel intake
+
+Both out-of-process stream restore probes fail in their native controls
+with `0x80004002` and open zero candidates. The separately calibrated
+binary exchange route imports the extracted native local-body payload,
+then imports the model-generated rectangular and concave solids. Both
+generated bodies return exact topology and matching mass properties in
+cold and rebuilt states. The [exchange receipt](../measurements/2026/GeneratedLocalKernelExchangeNative01.json)
+records 140 candidate comparisons, seven fresh processes and all passing
+controls. Each lane restores the original preference.
+
+This result qualifies the binary kernel geometry for the disclosed
+inputs. The native imported-feature writer still needs the complete
+atom and tracking publication, container generation, and independent
+cold part acceptance.
+
 The source protocol writes vendor-authored control and source files.
 The Kit writer, generated native fallback and public capability-loss
 report remain open.

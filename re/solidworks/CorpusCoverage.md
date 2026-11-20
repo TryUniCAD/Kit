@@ -37,6 +37,12 @@ solid and the feature history through save and reopen. Public writer
 registration and original FCStd benchmark membership remain open. The native
 holdouts and disclosed trials add zero benchmark conversion credits.
 
+The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
+loads two model-generated, independently measured solid payloads with
+healthy controls. This verifies kernel geometry for those disclosed
+shapes. An imported SOLIDWORKS part archive and original FCStd benchmark
+conversions remain open.
+
 The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
 preserve a live sketch-dimension dependency across edits, saves and fresh reopens.
 The original and edited guest-only inputs are locked before writer implementation.

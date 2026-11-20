@@ -8,5 +8,10 @@ original 3D Interconnect preference and restores it after each phase.
 
 Both application and native-export controls bracket the candidate lanes.
 The source-built and generated bare-body samples have distinct roles.
-The first exchange observation is pending. Native archive acceptance
-requires separate measurement of generated part containers.
+The [native receipt](../../../../../re/solidworks/measurements/2026/GeneratedLocalKernelExchangeNative01.json)
+records seven healthy processes. The native archive's local body and
+two generated bodies import successfully. Both generated bodies retain
+their topology, volume, area and centre of mass before and after rebuild
+through 140 candidate comparisons. Native archive acceptance requires
+separate measurement of generated part containers.
+[Preference readback gotcha](../../../../Gotchas/Conversion/Solidworks/Oracle/Parts/ExchangePreferenceNeedsReadback.md)
