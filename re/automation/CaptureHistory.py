@@ -1,10 +1,12 @@
 import argparse
 import hashlib
+from http.client import HTTPSConnection
 import json
 import re
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 from Corpus import asset_kind, git, read_tree
 
@@ -141,7 +143,7 @@ def input_blobs(root, revision):
     }
     if any(Path(path).suffix.lower() not in allowed for path in original):
         raise ValueError("historical input roster contains an unsupported artifact")
-    blobs = {entry["git_blob"] for entry in original.values()}
+    blobs = {entry["git_blob"]: (revision, path) for path, entry in original.items()}
     for path in original:
         if not path.startswith(INPUT_PATHS[0]) or not path.endswith("/receipt.json"):
             continue
@@ -163,7 +165,7 @@ def input_blobs(root, revision):
             raise ValueError("capture has no unique original introduction")
         for name, entry in input_tree(root, introductions[0]).items():
             if name.startswith(INPUT_PATHS[0]) and Path(name).suffix in {".py", ".cs"}:
-                blobs.add(entry["git_blob"])
+                blobs.setdefault(entry["git_blob"], (introductions[0], name))
     manifest_blob = original["re/automation/Corpus.json"]["git_blob"]
     manifest_raw = git(root, "cat-file", "blob", manifest_blob)
     if len(manifest_raw) > 32 * 1024 * 1024:
@@ -200,13 +202,35 @@ def input_blobs(root, revision):
             (b"MZ", b"\x7fELF", b"\xcf\xfa\xed\xfe", b"\xfe\xed\xfa\xcf")
         ):
             raise ValueError("runtime software is not an allowed historical input")
-        blobs.add(checksum)
+        blobs.setdefault(checksum, (manifest["source_revision"], asset["path"]))
     if len(blobs) > 4096:
         raise ValueError("historical input object roster exceeds its limit")
-    return sorted(blobs)
+    return blobs
+
+
+def fetch_pinned_blob(root, contract, revision, path, checksum):
+    repository = contract["source_repository"].removeprefix("https://github.com/").removesuffix(".git")
+    connection = HTTPSConnection("raw.githubusercontent.com", timeout=30)
+    try:
+        connection.request("GET", f"/{repository}/{revision}/{quote(path)}")
+        response = connection.getresponse()
+        if response.status != 200:
+            raise ValueError(f"sealed input {checksum} download returned HTTP {response.status}")
+        data = response.read(100 * 1024 * 1024 + 1)
+    finally:
+        connection.close()
+    if len(data) > 100 * 1024 * 1024:
+        raise ValueError("sealed input exceeds the GitHub single file limit")
+    observed = git(root, "hash-object", "--stdin", input_data=data).decode("ascii").strip()
+    if observed != checksum:
+        raise ValueError(f"sealed input {checksum} failed content verification")
+    stored = git(root, "hash-object", "-w", "--stdin", input_data=data).decode("ascii").strip()
+    if stored != checksum:
+        raise ValueError("sealed input changed while storing its verified blob")
 
 
 def hydrate_blobs(root, contract, blobs):
+    blobs = dict(sorted(blobs.items()))
     result = (
         git(
             root,
@@ -231,18 +255,17 @@ def hydrate_blobs(root, contract, blobs):
         if fields[1] == "missing":
             missing.append(checksum)
     for offset in range(0, len(missing), 64):
-        git(
-            root,
-            "-c",
-            "protocol.version=2",
-            "fetch",
-            "--filter=blob:none",
-            "--no-tags",
-            "--no-write-fetch-head",
-            "--recurse-submodules=no",
-            contract["source_repository"],
-            *missing[offset : offset + 64],
-        )
+        batch = missing[offset : offset + 64]
+        try:
+            git(
+                root, "-c", "protocol.version=2", "fetch", "--filter=blob:none",
+                "--no-tags", "--no-write-fetch-head", "--recurse-submodules=no",
+                contract["source_repository"], *batch,
+            )
+        except subprocess.CalledProcessError:
+            for checksum in batch:
+                revision, path = blobs[checksum]
+                fetch_pinned_blob(root, contract, revision, path, checksum)
     observed = (
         git(
             root,
@@ -261,7 +284,7 @@ def hydrate_blobs(root, contract, blobs):
 def hydrate_inputs(root, contract):
     original = input_tree(root, contract["source_revision"])
     hydrated = hydrate_blobs(
-        root, contract, [original["re/automation/Corpus.json"]["git_blob"]]
+        root, contract, {original["re/automation/Corpus.json"]["git_blob"]: (contract["source_revision"], "re/automation/Corpus.json")}
     )
     return hydrated + hydrate_blobs(
         root, contract, input_blobs(root, contract["source_revision"])
