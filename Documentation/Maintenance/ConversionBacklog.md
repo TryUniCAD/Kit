@@ -188,6 +188,16 @@ Populated thread maps and complete configuration support have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+### B04-SW2026-CONFIG-ATOMS
+
+The PR #121 takeover team owns this bounded part atom reader on
+`codex/solidworks-config-atom-manager`. It uses the typed maps, header
+objects and accepted concept fields. Exit requires both disclosed
+manager and producer identities, guarded signed state and rejection
+cases, and current revision queue and review evidence. Inline bodies,
+handle modes and full configuration admission retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent owns this active reader compatibility task.

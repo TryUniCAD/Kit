@@ -93,6 +93,12 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The embedded part atom manager keeps concrete kind-zero archive atoms
+with their signed IDs and existing map context. Later feature links
+can reuse those exact objects. The stored unsigned atom state remains
+available alongside its runtime projection.
+[Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
