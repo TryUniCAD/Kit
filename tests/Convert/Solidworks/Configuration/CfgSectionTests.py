@@ -1,28 +1,9 @@
-from json import loads as LoadJson
-from pathlib import Path as FilePath
-from subprocess import run as RunProcess
-from sys import executable as PythonExec
-from typing import cast as CastValue
-
-# each native source needs an isolated guarded configuration reader process
-KSectionProbe = (
-    FilePath(__file__).resolve().parents[4] / "re/tooling/sw2026/CheckCfgSection.py"
-)
+from tests.Convert.Solidworks.Configuration.RunSecCase import RunSecCase
 
 
 # verified framing must keep the actual header alias and distinguish incomplete ownership
 def ReadSecCase(CaseName: str) -> dict[str, object]:
-    Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(KSectionProbe), CaseName),
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        check=False,
-        timeout=60,
-    )
-    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-    ReportValue = CastValue(dict[str, object], LoadJson(Outcome.stdout))
-    assert ReportValue["runtime_external_accesses"] == 0
+    ReportValue = RunSecCase(CaseName)
     assert ReportValue["root_completed"] is False
     assert ReportValue["config_slot"] == 3 and ReportValue["base"] == 4
     return ReportValue

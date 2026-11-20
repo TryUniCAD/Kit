@@ -10,6 +10,8 @@ bytes. The empty embedded ghost manager retains its signed flags and count
 separately. The disclosed L1 and ConcaveOwned configuration controls supply
 the physical spans, direct alias and map observations. Guarded process cases
 exercise those controls and malformed framing through the shared reader.
+An authored sibling pair verifies that the later section resolves the
+exact header object registered in the first section.
 
 The scope covers section framing and the listed ordinary records. Full
 configuration admission, populated ghost owners, alternate section modes

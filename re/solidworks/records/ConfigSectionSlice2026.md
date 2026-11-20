@@ -101,7 +101,24 @@ contrast checks a negative high nibble without adopting it as a default.
 ```sh
 python -I -B re/tooling/sw2026/CheckCfgSection.py ladder
 python -I -B re/tooling/sw2026/CheckCfgSection.py concave
+python -I -B re/tooling/sw2026/CheckCfgSection.py siblings
 ```
+
+The independent sibling frame authors 32 bytes from the ordinary tag,
+length and scalar rules. It obtains the original L1 header object
+through the typed ModelHeader reader. The first section at [18, 22)
+registers that exact node in configuration slot 3 and advances the
+map base and counter to 4. The later section at [26, 32) resolves an
+ordinary object tag to the same node. Both sections complete with the
+shared map and the outer cursor ends at 32. The header node retains
+standalone index 69 and its original offsets.
+
+With the same authored bytes and an absent header alias, the first
+section completes at 22. The second section stops after its tag at 28
+with an unresolved object diagnostic. Its failure restores the outer
+cursor to 22. Base and counter stay at 3 and slot 3 remains absent.
+[Sibling process evidence](../measurements/2026/ConfigSectionSiblings01.json)
+· [Sibling queue case](../../../tests/Convert/Solidworks/Configuration/SectAliasTests.py)
 
 The new [guarded process cases](../../../tests/Convert/Solidworks/Configuration/CfgSectionTests.py)
 await the merge queue. Complete section-body traversal still needs the

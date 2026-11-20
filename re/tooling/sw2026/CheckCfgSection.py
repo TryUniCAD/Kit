@@ -25,6 +25,7 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadSchemaMut import Rea
 from convert.adapters.solidworks.Archive.Header.HeaderRefNodes import HeaderRefNodes
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
+from convert.adapters.solidworks.Archive.Maps.FindObject import FindObject
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
@@ -207,6 +208,103 @@ def authored_graph():
     return [node.StartOffset, node.EndOffset, reader.MapValue.CounterValue]
 
 
+def sibling_reader(data, version, aliases):
+    context = BodyContext(version, {}, {}, {}, DirectNodes=aliases)
+    cursor = BinaryReader(data)
+    maps = ArchiveMaps(1)
+    windows = []
+    layout = (
+        section_rule(DIRECT, NativeField("Scalar", "first", "u32")),
+        section_rule(NativeField("Node", "link"), NativeField("Scalar", "last", "u32")),
+    )
+
+    def observe_window(frame, rules):
+        child = frame.ReaderValue.Cursor
+        require(child is not cursor and child.BytesValue is cursor.BytesValue
+                and frame.ReaderValue.MapValue is maps, "sibling lost its shared archive state")
+        start, end = child.GetOffset(), child.GetEnd()
+        require(cursor.GetOffset() == start - 4, "sibling window moved the outer cursor early")
+        before = [maps.BaseValue, maps.CounterValue]
+        try:
+            ReadFieldsMut(frame, rules)
+        finally:
+            require(cursor.GetOffset() == start - 4, "sibling body consumed the outer cursor")
+            slot = maps.EntryMap.get(3)
+            selected = None if slot is None else slot.EntryValue
+            require(selected is (aliases[0] if aliases else None),
+                    "sibling window lost the original header alias")
+            windows.append({"body": [start, end], "cursor": child.GetOffset(),
+                            "map_before": before, "map_after": [maps.BaseValue, maps.CounterValue]})
+
+    def read_part(reader, node):
+        require(node.ClassValue == PART, "authored sibling root has the wrong class")
+        frame = replace(make_frame(context, reader, node), FieldsReader=observe_window)
+        try:
+            ReadFieldsMut(frame, layout)
+        finally:
+            require(reader.Cursor is cursor, "section action did not restore the active outer cursor")
+
+    return GraphReader(cursor, maps, read_part), windows
+
+
+def missing_sibling(data, version):
+    reader, windows = sibling_reader(data, version, ())
+    outer = reader.Cursor
+    try:
+        ReadNodeMut(reader)
+    except ValueError as error:
+        reason = "unresolved archive object reference 3"
+        require(reason in str(error), f"missing header alias failed at a different boundary: {error}")
+        require(reader.Cursor is outer and outer.GetOffset() == 22,
+                "failed second section moved the outer cursor past its prefix")
+        require(windows == [
+            {"body": [18, 22], "cursor": 22, "map_before": [1, 3], "map_after": [3, 3]},
+            {"body": [26, 32], "cursor": 28, "map_before": [3, 3], "map_after": [3, 3]},
+        ] and 3 not in reader.MapValue.EntryMap, "missing alias changed the shared map or child cursor")
+        return {"diagnostic": reason, "outer_cursor": outer.GetOffset(), "windows": windows}
+    raise ValueError("the second sibling resolved an absent header alias")
+
+
+def authored_siblings():
+    _, header, version, case = load_case("ladder")
+    guard_runtime()
+    header_graph = ReadHeaderGraph(header, version)
+    (alias,) = HeaderRefNodes(header_graph, version)
+    source_span = (alias.IndexValue, alias.StartOffset, alias.EndOffset)
+    require(alias is header_graph.FieldsValue["f38"] and alias.IndexValue == case["header_self_slot"],
+            "wrong header authority for the authored sibling frame")
+    data = new_object(PART, sized(pack("<I", 41)) + sized(pack("<HI", 3, 73)))
+    reader, windows = sibling_reader(data, version, (alias,))
+    outer = reader.Cursor
+    root = ReadNodeMut(reader)
+    require(windows == [
+        {"body": [18, 22], "cursor": 22, "map_before": [1, 3], "map_after": [4, 4]},
+        {"body": [26, 32], "cursor": 32, "map_before": [4, 4], "map_after": [4, 4]},
+    ], "sibling bodies did not consume their exact windows in the shared map")
+    require(root.FieldsValue == {"first": 41, "link": alias, "last": 73}
+            and root.FieldsValue["link"] is alias and FindObject(reader.MapValue, 3) is alias,
+            "later sibling did not resolve the exact original header object")
+    require((alias.IndexValue, alias.StartOffset, alias.EndOffset) == source_span,
+            "configuration traversal changed the standalone header owner")
+    require(reader.Cursor is outer and outer.GetOffset() == root.EndOffset == len(data)
+            and reader.MapValue.BaseValue == reader.MapValue.CounterValue == 4,
+            "authored root did not complete at the expected cursor and map boundary")
+    return {
+        "case": "siblings",
+        "runtime_external_accesses": 0,
+        "wire_sha256": digest(data),
+        "wire_bytes": len(data),
+        "header_sha256": digest(header),
+        "windows": windows,
+        "header_slot": alias.IndexValue,
+        "config_slot": 3,
+        "outer_cursor": outer.GetOffset(),
+        "map_base": reader.MapValue.BaseValue,
+        "map_counter": reader.MapValue.CounterValue,
+        "missing_alias": missing_sibling(data, version),
+    }
+
+
 def author_frame(data, context, owner=PART):
     reader = GraphReader(BinaryReader(data), ArchiveMaps(1), partial(ReadBodyMut, context))
     return make_frame(context, reader, ArchiveNode(owner, {}))
@@ -263,11 +361,15 @@ def signed_ghost():
     return ghost
 
 
-def run(name):
-    config, header, version, case = load_case(name)
+def guard_runtime():
     for codec in ("ascii", "utf-16-le", "latin-1", "cp1252"):
         lookup(codec)
     sys.addaudithook(audit_run)
+
+
+def run(name):
+    config, header, version, case = load_case(name)
+    guard_runtime()
     result = inspect_native(config, header, version, case)
     result["runtime_external_accesses"] = 0
     if name == "ladder":
@@ -278,8 +380,10 @@ def run(name):
 
 def main():
     parser = ArgumentParser(description="Verify disclosed ordinary model section and ghost bounds")
-    parser.add_argument("case", choices=("ladder", "concave"))
-    print(json.dumps(run(parser.parse_args().case), sort_keys=True))
+    parser.add_argument("case", choices=("ladder", "concave", "siblings"))
+    name = parser.parse_args().case
+    result = authored_siblings() if name == "siblings" else run(name)
+    print(json.dumps(result, sort_keys=True))
 
 
 if __name__ == "__main__":
