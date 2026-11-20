@@ -1,31 +1,3 @@
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
-    ChoiceValue,
-)
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
-    LoftSubdata,
-)
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
-    SubtypeNode,
-)
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Spline.BsSurface import BsSurface
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import (
-    ExpParCur,
-)
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.LoftRecords import LoftPiece
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.LoftRecords import (
-    LoftSection,
-)
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.LoftRecords import (
-    LoftSplSur,
-)
-from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.SurfaceRecords import (
-    SplineCommon,
-)
-from convert.Formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
-from convert.Formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
-from convert.Formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
-from convert.Formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.ConeFrame import ConeFrame
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumFrame import FrustumFrame
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumHistory import (
@@ -33,12 +5,33 @@ from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumHistory import (
 )
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.RimFrame import RimFrame
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.AttribLinks import AttribLinks
+from convert.Formats.Fusion.BrepCodec.Journal.Attributes.NestedTag import NestedTag
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
     SketchAttrib,
 )
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TrackAttrib import TrackAttrib
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
+    ChoiceValue,
+    LoftSubdata,
+    SubtypeNode,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Spline.BsSurface import BsSurface
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import (
+    CurveContext,
+    ExactIntCur,
+    ExpParCur,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.LoftRecords import (
+    LoftPiece,
+    LoftSection,
+    LoftSplSur,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.SurfaceRecords import (
+    SplineCommon,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.AsmRoot import AsmRoot
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.BodyNode import BodyNode
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.CoedgeNode import CoedgeNode
@@ -58,9 +51,14 @@ from convert.Formats.Fusion.BrepCodec.Journal.Geometry.TransformNode import (
 )
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.VertexNode import VertexNode
 from convert.Formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
+from convert.Formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.GeometryState import (
     GeometryState,
 )
+from convert.Formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import IntcurveNode
+from convert.Formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
+from convert.Formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
+from convert.Formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
 from convert.Formats.Fusion.BrepCodec.Journal.States.BulletinBoard import BulletinBoard
 from convert.Formats.Fusion.BrepCodec.Journal.States.BulletinChange import (
     BulletinChange,
@@ -86,6 +84,9 @@ from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismTags import PrismTags
 
 # the boundary representation types order must stay explicit so public document claims remain grounded in native records
 KBrepTypes: tuple[type[object], ...] = (
+    CurveContext,
+    ExactIntCur,
+    IntcurveNode,
     ChoiceValue,
     LoftSubdata,
     SubtypeNode,
@@ -105,6 +106,7 @@ KBrepTypes: tuple[type[object], ...] = (
     FrustumHistory,
     RimFrame,
     AttribLinks,
+    NestedTag,
     SketchAttrib,
     TagAttrib,
     TimeAttrib,
