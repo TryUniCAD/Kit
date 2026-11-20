@@ -9,20 +9,26 @@ import sys
 
 
 HERE = Path(__file__).resolve()
-PACKET = 'ThroughMultiStock01'
-SCHEMA = 'kit.sw2026.disclosed-through-all-multistock.v1'
+PACKET = 'ThroughMultiStock02'
+SCHEMA = 'kit.sw2026.disclosed-through-all-multistock.v2'
 SHARED = Path('/Users/odin/Documents/UniCAD/Oracle121Takeover')
 GUEST = PureWindowsPath(r'\\Mac\Home\Documents\UniCAD\Oracle121Takeover') / PACKET
 DISCLOSED = 'GeneratedThroughAllSelected01'
 TRIAL = '2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a'
 CONTROL = 'ProbeThroughAutoScope01.py'
-PHASES = ('Before', 'ExplicitAuthor', 'ExplicitReopen', 'AutoAuthor', 'AutoReopen', 'After')
+PHASES = ('Before', 'AutoAuthor', 'AutoReopen', 'ExplicitAuthor', 'ExplicitReopen', 'After')
 BUILD = '34.5.2.0604'
 ORACLE = '3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe'
 STEADY, MOVING, CUT = 'SteadyStock', 'MovingStock', 'ThroughFeature'
 PROFILES = ('SteadyProfile', 'MovingProfile', 'ThroughProfile')
 PART = 'ThroughMultiStock.SLDPRT'
 CUT_MARK = 1
+PREVIOUS = {
+    'packet': 'ThroughMultiStock01',
+    'freeze_sha256': 'e5dc2ec85f2cb44d22d5736b6bda3eb9002706b0e6db6b1868b5aa4a8bbb5188',
+    'explicit_author_failure_sha256': '43e921c1783cab8f30e42cd3f95c4a0fe309e5ecb208b6b10d06ba04bed11ab4',
+    'native_summary_sha256': 'edd3cc4e2b1c835bd87f7ae8db980b486f590e4117565cf876174c15d138f3b0',
+}
 
 DESIGN = {
     'stationary_m': [[.012, -.012, 0], [.030, -.004, .012]],
@@ -105,6 +111,14 @@ def freeze():
     from ProbeThroughAutoScope01 import disclosed
 
     trial = disclosed(SHARED / DISCLOSED)
+    previous_root = SHARED / PREVIOUS['packet']
+    previous = json.loads(checked(previous_root / 'Freeze.json', PREVIOUS['freeze_sha256']))
+    for name, pin in previous['tool_sha256'].items():
+        checked(previous_root / name, pin)
+    values = predictions()
+    need(previous['design'] == DESIGN and previous['predictions'] == values
+         and previous['disclosed_control_sha256'] == trial['files_sha256'][trial['control_file']],
+         'the selection-method retry must preserve the original geometry, predictions and control')
     root = SHARED / PACKET
     root.mkdir(mode=0o700, exist_ok=False)
     hashes = {}
@@ -115,8 +129,8 @@ def freeze():
         hashes[path.name] = digest(source)
     plan = {'schema': SCHEMA, 'guest': str(GUEST), 'phase_order': PHASES,
             'disclosed_trial_sha256': TRIAL, 'disclosed_control_sha256': trial['files_sha256'][trial['control_file']],
-            'tool_sha256': hashes, 'design': DESIGN, 'predictions': predictions(), 'oracle_exe_sha256': ORACLE,
-            'oracle_build': BUILD}
+            'tool_sha256': hashes, 'design': DESIGN, 'predictions': values, 'oracle_exe_sha256': ORACLE,
+            'oracle_build': BUILD, 'previous_attempt': PREVIOUS}
     return {'freeze_sha256': publish(root / 'Freeze.json', plan), 'tool_sha256': hashes,
             'native_processes_started': 0, 'sealed_payloads_read': 0, 'predictions': plan['predictions']}
 
@@ -127,12 +141,11 @@ def installed_api():
     extras = {
         'IExtrudeFeatureData2': ('FeatureScope', 'AutoSelect', 'FeatureScopeBodies', 'GetFeatureScopeBodiesCount'),
         'IModelDoc2': ('GetPathName', 'GetActiveConfiguration', 'GetConfigurationNames'),
-        'IModelDocExtension': ('GetWhatsWrongCount',),
+        'IModelDocExtension': ('GetWhatsWrongCount', 'SelectByID2'),
         'IPartDoc': ('GetBodies2',),
-        'IBody2': ('Select2', 'GetFaces', 'GetMassProperties', 'GetExtremePoint'),
+        'IBody2': ('Name', 'GetFaces', 'GetMassProperties', 'GetExtremePoint'),
         'IFace2': ('GetFeature',),
-        'ISelectionMgr': ('CreateSelectData', 'GetSelectedObjectCount2', 'GetSelectedObjectType3', 'GetSelectedObject6'),
-        'ISelectData': ('Mark',),
+        'ISelectionMgr': ('GetSelectedObjectCount2', 'GetSelectedObjectType3', 'GetSelectedObject6'),
     }
     api.MEMBERS = {**api.MEMBERS, **{key: tuple(dict.fromkeys((*api.MEMBERS.get(key, ()), *members)))
                                     for key, members in extras.items()}}
@@ -145,6 +158,12 @@ def installed_api():
          == {'FeatureScope': 34, 'AutoSelect': 35}, 'registered scope getter identity differs')
     need(any(row['names'][0] == 'FeatureScopeBodies' and row['invoke_kind'] == 2 for row in getters),
          'registered selected-body property has no getter')
+    selector = ('selectbyid2', 'name', 'type', 'x', 'y', 'z', 'append', 'mark', 'callout', 'selectoption')
+    need(any(tuple(name.casefold() for name in row['names']) == selector and row['invoke_kind'] == 1
+             for row in value['interfaces']['IModelDocExtension']['members']),
+         'registered named-body selection signature differs')
+    need(any(row['names'][0] == 'Name' and row['invoke_kind'] == 2 for row in value['interfaces']['IBody2']['members']),
+         'registered native body name has no getter')
     return value
 
 
@@ -326,16 +345,21 @@ def build(author, controller, automatic, values):
     plane, method, coordinates = specs[PROFILES[2]]
     author.create_profile({'plane': plane}, PROFILES[2], method, coordinates)
     selection = author.get(author.model, 'SelectionManager')
+    selected_name = None
     if not automatic:
-        body = active_bodies(author)[STEADY][0]
-        data = author.typed(author.get(selection, 'CreateSelectData'), 'SelectData')
-        author.set(data, 'Mark', CUT_MARK)
-        need(bool(author.get(body, 'Select2', True, data)), 'explicit native cut body selection failed')
+        names = {role: author.get(body, 'Name') for role, (body, _) in active_bodies(author).items()}
+        need(all(isinstance(name, str) and name.strip() for name in names.values())
+             and len({name.casefold() for name in names.values()}) == 2, 'the two actual stock body names are ambiguous')
+        selected_name = names[STEADY]
+        extension = author.get(author.model, 'Extension')
+        need(bool(author.get(extension, 'SelectByID2', selected_name, 'SOLIDBODY', 0., 0., 0.,
+                             True, CUT_MARK, author.sw.nothing(), 0)), 'explicit named native cut body selection failed')
         need(int(author.get(selection, 'GetSelectedObjectCount2', CUT_MARK)) == 1
              and int(author.get(selection, 'GetSelectedObjectType3', 1, CUT_MARK)) == 76,
              'explicit selected role is not exactly one marked solid')
-        selected = author.get(selection, 'GetSelectedObject6', 1, CUT_MARK)
-        need(body_owners(author, selected)[0] == STEADY, 'the explicitly selected native solid belongs to another producer')
+        selected = author.typed(author.get(selection, 'GetSelectedObject6', 1, CUT_MARK), 'Body2')
+        need(author.get(selected, 'Name') == selected_name and body_owners(author, selected)[0] == STEADY,
+             'the explicitly selected native solid differs from the requested stock')
     need(int(author.get(selection, 'GetSelectedObjectCount2', -1)) == (1 if automatic else 2)
          and int(author.get(selection, 'GetSelectedObjectCount2', 0)) == 1
          and int(author.get(selection, 'GetSelectedObjectType3', 1, 0)) == 9, 'wrong native through-all profile or additional selection')
@@ -343,6 +367,7 @@ def build(author, controller, automatic, values):
             False, False, False, False, False, True, automatic, False, False, False, 0, 0.0, False, False)
     author.rec.data['cut_request'] = {'arguments': list(args), 'profile_mark': 0,
                                      'body_mark': None if automatic else CUT_MARK,
+                                     'selected_body_name': selected_name,
                                      'preselected_producer': None if automatic else STEADY}
     author.rec.flush()
     feature = author.get(manager, 'FeatureCut4', *args)
@@ -505,7 +530,8 @@ def main():
         need(root == Path(GUEST) and plan['guest'] == str(root) and HERE == root / HERE.name
              and plan['schema'] == SCHEMA and plan['phase_order'] == list(PHASES)
              and plan['disclosed_trial_sha256'] == TRIAL and plan['oracle_exe_sha256'] == ORACLE
-             and plan['oracle_build'] == BUILD and plan['design'] == DESIGN, 'freeze identity or scope changed')
+             and plan['oracle_build'] == BUILD and plan['design'] == DESIGN
+             and plan['previous_attempt'] == PREVIOUS, 'freeze identity or scope changed')
         for name in (HERE.name, CONTROL):
             checked(root / name, plan['tool_sha256'][name])
         sys.path.insert(0, str(root))
