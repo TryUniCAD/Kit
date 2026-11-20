@@ -215,3 +215,14 @@ def CheckNativePartScalarReader(TmpPath: FilePath) -> None:
         ("AnnulusProfile", "outer_radius_mm"),
     }
     assert all(Row["status"] == "native_name_and_value_match" for Row in Owners)
+    Changes = Evidence["members"]["Contents/Config-0-ResolvedFeatures"][
+        "paired_changes"
+    ]
+    assert any(
+        Row["matches_measured_change"]
+        and Row["native_edit"]["feature"] == "Revolution"
+        and Row["parameter"] == "angle_deg"
+        and abs(Row["input_value"] - 1.5707963267948966) < 1e-14
+        and abs(Row["control_value"] - 6.283185307179586) < 1e-14
+        for Row in Changes
+    )

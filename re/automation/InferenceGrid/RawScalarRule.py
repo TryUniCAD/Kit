@@ -419,6 +419,13 @@ def part_scalars(root, source, pin, scratch, controls):
     private.mkdir()
     pairs = {path.stem: (path, None) for path in controls} if controls else measured_controls(root, pin, private)
     excluded = {pin, *pairs}
+    for path, _ in pairs.values():
+        control_archive = SldprtArchive.FromBytes(read_file(path, 16 * 1024 * 1024))
+        excluded.update(
+            hashlib.sha256(record.data).hexdigest()
+            for record in control_archive.records
+            if record.name.startswith("Contents/Config-")
+        )
     for i, (name, blob) in enumerate(selected):
         others = [(k, b) for j, (k, b) in enumerate(selected) if i != j]
         rule, patch = raw_scalars(
