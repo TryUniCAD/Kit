@@ -20,4 +20,4 @@ Both controls passed across eleven fresh processes.
 
 [Native probe](../../../../../re/tooling/sw2026/imported_body_source/ProbeImportedPartScene.py)
 · [Native result](../../../../../re/solidworks/measurements/2026/ImportedPartNotesNative01.json)
-· [Cabinet ownership](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/LocalNotesFollowCabinetMembers.md)
+· [Cabinet ownership](../../../../Gotchas/Conversion/Solidworks/Model/Presentation/LocalNotesFollowCabinetMembers.md)
