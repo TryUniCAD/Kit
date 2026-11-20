@@ -281,3 +281,5 @@ Use [local control parts](../Changes/Research/Inference/LocalControlParts.md) to
 The [single-dimension control experiment](../Changes/Research/Inference/SingleDimensionControlExperiments.md) compares matching saves automatically. Inspect `next_control_edits` for the exact parameter and proposed native value when a distinguishing control is missing.
 
 For standalone spheres and tori, see [analytic solid reader generation](../Changes/Research/Inference/AnalyticSolidReaderGeneration.md) for the generated script, its required Python paths and the native comparisons that gate the patch.
+
+For standalone planar shells and geometry journals, [planar journal replay](../Changes/Research/Inference/PlanarJournalReplay.md) describes state reconstruction and comparison with a measured snapshot.

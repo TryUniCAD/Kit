@@ -330,3 +330,37 @@ def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
         timeout=60,
     )
     assert Refusal.returncode != 0
+
+
+# a standalone journal must retain the prior empty state and independently match its companion snapshot
+def CheckPlacedPlanarJournal(TmpPath: FilePath) -> None:
+    Root = ResearchRoot()
+    Source = Root / "re/Fusion/LocalOracle/PlanarTopology/PlacedTetrahedron.smbh"
+    Output = TmpPath / "journal"
+    Result = RunProcess(
+        [
+            PythonPath,
+            "-m",
+            "KitCli",
+            "run",
+            "--root",
+            str(Root),
+            "auto",
+            "--input",
+            str(Source),
+            "--directory",
+            str(Output),
+        ],
+        capture_output=True,
+        timeout=180,
+    )
+    assert Result.returncode == 2, Result.stderr
+    Report = LoadJson((Output / "Input-raw-structure.json").read_bytes())
+    assert Report["profile"] == "PlanarJournal"
+    assert Report["paired_geometry"]["oriented_boundaries_match"]
+    assert Report["native_witness"]["geometry_matches"]
+    States = {Row["state_id"]: Row for Row in Report["model"]["states"]}
+    assert States[2]["bodies"] == [] and States[4]["active"]
+    (Body,) = States[4]["bodies"]
+    assert (Body["faces"], Body["edges"], Body["vertices"]) == (4, 6, 4)
+    assert abs(Body["volume_cm3"] - 3.945638020833335) < 1e-10

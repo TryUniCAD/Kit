@@ -85,6 +85,14 @@ def raw_scope(data, path, pin, application, root, scratch):
             candidate, reason, patch = round_reader(root, data, pin, scratch)
             if candidate is None:
                 report["readers"]["round_surface"] = {"status": "refused", "reason": reason}
+                from InferenceGrid.PlanarFile import planar_file
+                try:
+                    decoded = planar_file(data, pin, root)
+                except ValueError as error:
+                    report["readers"]["planar_shell"] = {"status": "refused", "reason": str(error)[:250]}
+                else:
+                    report["readers"]["planar_shell"] = {"status": "decoded"}
+                    report.update(decoded)
             else:
                 report["readers"]["round_surface"] = {"status": "decoded"}
                 report.update(candidate)
