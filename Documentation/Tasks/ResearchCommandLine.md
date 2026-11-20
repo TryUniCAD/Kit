@@ -313,3 +313,5 @@ See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthE
 [Pattern count encoding evidence](../Changes/Research/Inference/NamedPatternCountEvidence.md) records competing interpretations at named scalar offsets.
 
 [Counted text discovery](../Changes/Research/Inference/CountedTextDiscovery.md) generates a prefix reader for related raw streams.
+
+[Resuming text decoding after a gap](../Changes/Research/Inference/ManifestTextGaps.md) describes the bounded search and held-out replay.

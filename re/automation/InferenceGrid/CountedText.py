@@ -77,6 +77,36 @@ def text_reader(root, scratch, data, pin, controls):
     if not any(tuple(r["value"] for r in entries[:len(codecs)]) != tuple(r["value"] for r in rows[:len(codecs)])
                for _, entries in samples[2:]):
         return report, None
+    steps = [(0, codec) for codec in codecs]
+    expected = [list(entries[:len(codecs)]) for _, entries in samples]
+    for _ in range(64 - len(steps)):
+        choice = None
+        for gap in range(65):
+            hits = []
+            for codec in ("ascii", "utf-16le", "utf-16be"):
+                pair = [field(blob, entries[-1]["end"] + gap, width, order, codec)
+                        for (blob, _), entries in zip(samples[:2], expected[:2])]
+                if all(row and len(row["value"]) >= 3 for row in pair):
+                    hits.append((gap, codec))
+            if hits:
+                if len(hits) == 1:
+                    choice = hits[0]
+                break
+        if choice is None:
+            break
+        gap, codec = choice
+        replay = [field(blob, entries[-1]["end"] + gap, width, order, codec)
+                  for (blob, _), entries in zip(samples[:2], expected[:2])]
+        steps.append(choice)
+        for entries, row in zip(expected[:2], replay):
+            entries.append(row)
+    for (blob, _), entries in zip(samples[2:], expected[2:]):
+        for gap, codec in steps[len(codecs):]:
+            row = field(blob, entries[-1]["end"] + gap, width, order, codec)
+            if not row or len(row["value"]) < 3:
+                report["status"] = "later_text_layout_refuted"
+                return report, None
+            entries.append(row)
     code = '''import json
 from pathlib import Path
 import sys
@@ -91,14 +121,14 @@ if __name__ == "__main__":
     data = read_file(Path(sys.argv[1]), 128 * 1024 * 1024)
     rows = []
     pos = 0
-    for codec in CODECS:
-        row = field(data, pos, WIDTH, ORDER, codec)
+    for gap, codec in STEPS:
+        row = field(data, pos + gap, WIDTH, ORDER, codec)
         if row is None:
             raise SystemExit(2)
         rows.append(row)
         pos = row["end"]
     print(json.dumps(rows))
-'''.replace("CODECS", repr(tuple(codecs))).replace("WIDTH", str(width)).replace("ORDER", repr(order))
+'''.replace("STEPS", repr(tuple(steps))).replace("WIDTH", str(width)).replace("ORDER", repr(order))
     digest = hashlib.sha256(code.encode()).hexdigest()
     path = "re/DerivedReaders/CountedText" + digest[:12] + ".py"
     if (root / path).exists():
@@ -107,14 +137,17 @@ if __name__ == "__main__":
     script = scratch / "CountedTextReader.py"
     script.write_text(code)
     probe = scratch / "counted-text.bin"
-    for blob, entries in samples:
+    for (blob, _), entries in zip(samples, expected):
         probe.write_bytes(blob)
         process = subprocess.run([sys.executable, script, probe], cwd=scratch,
                                  env={**os.environ, "PYTHONPATH": str(root / "re/automation")},
                                  capture_output=True, timeout=30)
-        if process.returncode or json.loads(process.stdout) != entries[:len(codecs)]:
+        if process.returncode or json.loads(process.stdout) != entries:
             return report, None
-    report.update(status="replayed_text_prefix", shared_codecs=codecs)
+    report.update(status="replayed_text_prefix", shared_codecs=codecs, recovered_records=expected[0],
+                  decoded_bytes=sum(r["end"] - r["offset"] for r in expected[0]),
+                  opaque_ranges=[(a["end"], b["offset"]) for a, b in zip(expected[0], expected[0][1:]) if a["end"] < b["offset"]]
+                  + ([(expected[0][-1]["end"], len(data))] if expected[0][-1]["end"] < len(data) else []))
     from convert.Formats.Fusion.SourceProof.Auxiliary.Manifest.ReadAssetMeta import ReadAssetMeta
     checks = []
     for blob, entries in samples:
