@@ -17,8 +17,11 @@ from convert.adapters.solidworks.Sketch.CircularRecords import (
     CircularPoint,
     RadialPrefix,
 )
-from convert.adapters.solidworks.Sketch.Cursor import KCircleHandle, SketchArchive
-from convert.adapters.solidworks.Sketch.DimFields import ReadDimFields
+from convert.adapters.solidworks.Sketch.Cursor import (
+    KCircleHandle,
+    SketchArchive,
+    ReadDimFields,
+)
 from convert.adapters.solidworks.Sketch.DisplayOpen import ReadDisplayBase
 from convert.adapters.solidworks.Sketch.Displays import TakeShownClass
 from convert.adapters.solidworks.Sketch.Members import (
