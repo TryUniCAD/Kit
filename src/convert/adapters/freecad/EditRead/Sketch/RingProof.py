@@ -31,6 +31,7 @@ def ReadRingProfile(
     ExpectedCount = (
         2 * len(Original.closed_profile_entity_ids[0]) if AllowProfile else 0
     )
+    ExpectedCount += sum(Entity.fixed for Entity in Original.entities)
     if (
         Expressions
         or Dependencies

@@ -65,7 +65,7 @@ def ReadSketchInput(
     Planes: dict[str, SupportPlane],
 ) -> EditSketchInput | None:
     if (
-        StepValue.kind != FeatureKind.KNative
+        StepValue.kind not in (FeatureKind.KNative, FeatureKind.KReference)
         or StepValue.operation is not None
         or StepValue.definition is not None
         or StepValue.input_feature_ids

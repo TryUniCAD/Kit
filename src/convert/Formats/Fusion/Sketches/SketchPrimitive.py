@@ -77,6 +77,7 @@ def ReadPrimitive(
         else:
             Geometry, Extras = ReadSketchCurve(BodyValue, Offset, Points, KindValue)
         Fixed, Construction = ReadCurveFlags(BodyValue)
+        Extras["fusion.geometry_is_projected"] = bool(BodyValue[-53] or BodyValue[-49])
     return SketchEntity(
         id=f"fusion-sketch-entity-{SpanValue.ObjectId}",
         kind=KindValue,
@@ -99,7 +100,12 @@ def ReadPointState(
     return (
         PointGeometry(ReadPoint(BodyValue, Offset + 19)),
         bool(BodyValue[Offset + 14]),
-        {"fusion.point_is_origin": bool(BodyValue[Offset + 16])},
+        {
+            "fusion.point_is_origin": bool(BodyValue[Offset + 16]),
+            "fusion.geometry_is_projected": bool(
+                BodyValue[Offset + 11] or BodyValue[Offset + 17]
+            ),
+        },
     )
 
 
