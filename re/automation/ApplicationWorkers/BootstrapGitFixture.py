@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[3]
 
 # the real bootstrap must load every early helper from its exact committed source
 SOURCES = (
-    "re/automation/PairedCaptures/Runner/KitCaptureRunner/KitCaptureRunner.py",
+    "re/automation/CaptureTools/Runner/KitCaptureRunner/KitCaptureRunner.py",
     "re/automation/ApplicationWorkers/ApplicationProtocol.py",
     "re/automation/ApplicationWorkers/WindowsIdentity.py",
     "re/automation/ApplicationWorkers/WindowsRecords.py",
@@ -82,6 +82,7 @@ def exercise(root, variant):
     root.mkdir(exist_ok=True)
     checkout = root / "Checkout"
     checkout.mkdir()
+    (checkout / "re/automation/PairedCaptures").mkdir(parents=True)
     for relative in SOURCES:
         destination = checkout / relative
         destination.parent.mkdir(parents=True, exist_ok=True)

@@ -45,7 +45,7 @@ def ReplayRepo(TmpPath: FilePath) -> Iterator[FilePath]:
         timeout=30,
     )
     SourcePaths = ["re/automation/PairedEvidenceManifest.py"] + [
-        f"re/automation/PairedCaptures/{FileName}"
+        f"re/automation/CaptureTools/PairedCaptures/{FileName}"
         for FileName in (
             "FusionRunEvidence.py",
             "FusionRunReadbacks.py",
@@ -53,6 +53,7 @@ def ReplayRepo(TmpPath: FilePath) -> Iterator[FilePath]:
         )
     ]
     for SourcePath in SourcePaths:
+        (TargetRoot / SourcePath).parent.mkdir(parents=True, exist_ok=True)
         _ = CopyFile(SourceRoot / SourcePath, TargetRoot / SourcePath)
     _ = RunProcess(
         ["git", "-C", str(TargetRoot), "add", "--", *SourcePaths],
