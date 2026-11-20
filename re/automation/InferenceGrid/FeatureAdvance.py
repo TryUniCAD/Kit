@@ -15,7 +15,7 @@ from InferenceGrid.Evidence import KScopeGap
 from InferenceGrid.Resume import AttachQueuedGrid, ParkedGrid, ReadAttachedGrid
 from Ledger import Ledger
 from PairedCaptureIntake import require
-from PairedCaptures.ScopeControl.FusionScopeControl import prepare
+from CaptureTools.ScopeControl.FusionScopeControl import prepare
 from QueueFusionPhases import bind_pair, prepare_pair, queue_configuration
 from Records import digest
 

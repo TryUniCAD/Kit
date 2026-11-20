@@ -89,7 +89,11 @@ def pinned_capture(snapshot, revision, plan):
         plan["recipe"] == "P02" and set(plan["existing_captures"]) == {"P02"},
         "not a P02 plan",
     )
+    authoring = AUTHORING
+    if plan["collector"]["path"] == "re/automation/CaptureTools/SolidWorksAuthoring/P04Readback.cs":
+        authoring = "re/automation/CaptureTools/SolidWorksAuthoring"
     for role, path in SOURCE_PATHS.items():
+        path = path.replace(AUTHORING, authoring)
         source_pin(
             snapshot,
             revision,
@@ -98,7 +102,7 @@ def pinned_capture(snapshot, revision, plan):
             {"control": CONTROL, "specification": SPEC}.get(role),
         )
     if "progress_collector" in plan:
-        source_pin(snapshot, revision, f"{AUTHORING}/ReadbackProgress.cs", plan["progress_collector"])
+        source_pin(snapshot, revision, f"{authoring}/ReadbackProgress.cs", plan["progress_collector"])
     for name in ("executable", "interop", "constants"):
         require(
             re.fullmatch(r"[0-9a-f]{64}", plan[f"installed_{name}_sha256"]),

@@ -45,7 +45,7 @@ if (@($exe, $interop, $constants).Where({ $_.VersionInfo.FileVersion -cne $build
     throw 'The installation and interops must match the licensed witness build.'
 }
 $web = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
-$collectors = @('P04Readback.cs', 'P02Readback.cs', 'ReadbackProgress.cs', 'BossWitnessReadback.cs') | ForEach-Object {
+$collectors = @('P04Readback.cs', 'P02Readback.cs', 'BossWitnessReadback.cs') | ForEach-Object {
     Join-Path $PSScriptRoot $_
 }
 Add-Type -Path $constants.FullName
