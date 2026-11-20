@@ -219,3 +219,5 @@ When the Fusion native model parses but its state encoder rejects a journal reco
 Body correspondence keeps historical body records in the inventory. A body missing from its recorded parent's complete, unambiguous collection is excluded from the current-body comparison only when no other decoded collection lists it.
 
 Older captures sometimes omit centroid. When both inventories have exactly one current body, the runner can compare volume and area alone. Each accepted correspondence records the measurements it used. Multiple bodies still require all three centroid coordinates.
+
+Every successfully parsed Fusion native model is eligible for timeline recovery. The report uses typed graph links to recover construction-plane and sketch names, and checks ordered names against a digest-matched captured timeline when available. A graph refusal is recorded in FileScope.json so the remaining analyses can finish.

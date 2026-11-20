@@ -126,15 +126,24 @@ def file_scope(path, application, scratch, root):
         proposal = advance_names(reports["native"], attempts["strict"].get("message", ""), source, root, scratch)
         if proposal is not None:
             reports["design-names"] = proposal
-        diagnosis = proposal["next_result"] if proposal else attempts["strict"].get("message")
-        if diagnosis == "Native Fusion projection requires a sketch followed by one extrusion":
-            timeline_env = env.copy()
-            if proposal:
-                timeline_env["PYTHONPATH"] = os.pathsep.join(map(str, (scratch / "candidate/src", root / "Cli")))
-            timeline = subprocess.run([sys.executable, str(Path(__file__).with_name("RecoverTimeline.py")), source],
-                                      cwd=scratch, env=timeline_env, capture_output=True, timeout=180, check=True)
+        timeline_env = env.copy()
+        if proposal:
+            timeline_env["PYTHONPATH"] = os.pathsep.join(map(str, (scratch / "candidate/src", root / "Cli")))
+        timeline = subprocess.run([sys.executable, str(Path(__file__).with_name("RecoverTimeline.py")), source],
+                                  cwd=scratch, env=timeline_env, capture_output=True, timeout=180)
+        if timeline.returncode == 2:
+            audit["timeline_refusal"] = json.loads(timeline.stdout)["refusal"]
+        else:
+            timeline.check_returncode()
             components = json.loads(timeline.stdout)
             recovered = {"components": components, "oracle_fields_match": None}
+            if len(components) == 1:
+                names = [row["name"] for row in components[0]["features"]]
+                recovered["capture_name_checks"] = [
+                    {"capture": witness["capture"], "sha256": witness["sha256"], "case": witness["case"],
+                     "expected": witness["timeline_names"], "ordered_names_match": names == witness["timeline_names"]}
+                    for witness in reports["body-correspondence"]["witnesses"] if witness["timeline_names"] is not None
+                ]
             oracle = comparison and comparison.get("oracle_timeline")
             if oracle and len(components) == 1:
                 actual = components[0]["features"]

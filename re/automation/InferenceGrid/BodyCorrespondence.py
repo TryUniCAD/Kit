@@ -129,6 +129,9 @@ def capture_names(root, pin, size, native):
                                     "creation_index": body["creation_index"], "collection_ordinal": body["collection_ordinal"],
                                     "geometry_fields": ["volume_cm3", "area_cm2"] + (["center_cm"] if "center_cm" in measured[index] else []),
                                     "vendor_name": measured[index]["name"]})
-            witnesses.append({"capture": blob, "sha256": hashlib.sha256(raw).hexdigest(), "case": case["name"],
+            timeline = case.get("observed", {}).get("timeline")
+            names = [row["name"] for row in timeline] if isinstance(timeline, list) and all(
+                isinstance(row, dict) and isinstance(row.get("name"), str) for row in timeline) else None
+            witnesses.append({"timeline_names": names, "capture": blob, "sha256": hashlib.sha256(raw).hexdigest(), "case": case["name"],
                               "unique_geometry_match": bijective, "candidate_indices": matches, "matches": aligned})
     return {"input_sha256": pin, "bodies": bodies, "witnesses": witnesses, "default_name_rules": default_name_rules(witnesses)}

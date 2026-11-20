@@ -28,6 +28,8 @@ def recover(path):
             name = fields.get("featureUserName")
             if not name and node.ClassName == "DcSketch":
                 name = ResolveField(graph, node, "rSketch", "MSketch").Fields.get("userName")
+            if not name and node.ClassName == "DcWorkPlane":
+                name = ResolveField(graph, node, "rWorkPlane", "WorkPlane").Fields.get("userName")
             name = name or fields.get("featureBaseName")
             timeline.append({"index": i, "id": node.Identity, "name": name if isinstance(name, str) else None,
                              "native_class": node.ClassName, "suppressed": fields.get("isSuppressed")})
@@ -41,4 +43,8 @@ def recover(path):
 
 
 if __name__ == "__main__":
-    print(json.dumps(recover(Path(sys.argv[1]))))
+    try:
+        print(json.dumps(recover(Path(sys.argv[1]))))
+    except ValueError as error:
+        print(json.dumps({"refusal": str(error)[:1024]}))
+        sys.exit(2)
