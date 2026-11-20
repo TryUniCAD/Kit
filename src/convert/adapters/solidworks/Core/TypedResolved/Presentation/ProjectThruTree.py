@@ -2,6 +2,9 @@ from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.Native import NativeFeature, NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ColdStockOwners import (
+    ColdStockOwners,
+)
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckThruRows import (
     CheckThruRows,
@@ -25,9 +28,16 @@ def ProjectThruTree(
     HelpersValue: tuple[Mapping[str, object], ...],
     *,
     TwoStocks: bool = False,
+    ColdValue: ColdStockOwners | None = None,
 ) -> TreeProjection:
     CheckThruRows(
-        Model, LinkValue, RootsValue, MembersValue, HelpersValue, TwoStocks=TwoStocks
+        Model,
+        LinkValue,
+        RootsValue,
+        MembersValue,
+        HelpersValue,
+        TwoStocks=TwoStocks,
+        ColdValue=ColdValue,
     )
     return TreeProjection(
         tuple(Features[Value.object_id] for Value in Model.features),

@@ -2,8 +2,14 @@ from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ColdStockOwners import (
+    ColdStockOwners,
+)
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
+from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckColdRows import (
+    CheckColdRows,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckTreeAlias import (
     CheckTreeAlias,
 )
@@ -19,7 +25,13 @@ def CheckThruRows(
     HelpersValue: tuple[Mapping[str, object], ...],
     *,
     TwoStocks: bool = False,
+    ColdValue: ColdStockOwners | None = None,
 ) -> None:
+    if ColdValue is not None:
+        CheckColdRows(
+            Model, LinkValue, RootsValue, MembersValue, HelpersValue, ColdValue
+        )
+        return
     FieldsValue = LinkValue.ConfigValue.RootValue.FieldsValue
     HelperKinds: tuple[str, ...] = ("moPrtExplViewManager_c",)
     if TwoStocks and FieldsValue.get("f1014") == 1:

@@ -3,6 +3,9 @@ from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ColdStockOwners import (
+    ColdStockOwners,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockCutLineage import (
     StockCutLineage,
 )
@@ -15,7 +18,9 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNo
 
 # selected dependencies must belong to this projection graph and precede the through cut
 def StockOpsMap(
-    Model: NativeModel, NodesValue: Mapping[int, ArchiveNode], Lineage: StockCutLineage
+    Model: NativeModel,
+    NodesValue: Mapping[int, ArchiveNode],
+    Lineage: StockCutLineage | ColdStockOwners,
 ) -> tuple[dict[int, ExtrudeOwner], dict[str, object]]:
     StockValues = Lineage.StockValues
     CutValue = Lineage.CutValue
@@ -37,13 +42,30 @@ def StockOpsMap(
         raise ValueError(
             "selected two stock timeline differs from its linked producers"
         )
-    AtomsValue = Lineage.AtomsValue
-    Selected = StockValues[AtomsValue.SelectedIndex].NodeValue
-    Untouched = StockValues[1 - AtomsValue.SelectedIndex].NodeValue
+    SelectedIndex = (
+        Lineage.SelectedIndex
+        if isinstance(Lineage, ColdStockOwners)
+        else Lineage.AtomsValue.SelectedIndex
+    )
+    Selected = StockValues[SelectedIndex].NodeValue
+    Untouched = StockValues[1 - SelectedIndex].NodeValue
     CutId = NativeNodeId(CutValue.NodeValue)
     OwnersValue[CutId] = ReplaceValue(
         CutValue, ParentsValue=(Selected, CutValue.ProfileValue)
     )
+    if isinstance(Lineage, ColdStockOwners):
+        return OwnersValue, {
+            "binding": "cold_two_stock_explicit_wrapper",
+            "feature_scope_code": 1,
+            "producer_feature_id": NativeNodeId(Selected),
+            "untouched_producer_feature_id": NativeNodeId(Untouched),
+            "consumer_feature_id": CutId,
+            "selected_stock_atom_id": Lineage.SelectedAtomId,
+            "untouched_stock_atom_id": ReadCutAtomId(
+                Lineage.StockAtoms[1 - SelectedIndex], Untouched
+            ),
+        }
+    AtomsValue = Lineage.AtomsValue
     MergeTolerance = StockValues[1].NodeValue.FieldsValue.get("f838")
     return OwnersValue, {
         "binding": "saved_two_stock_atom_alias",

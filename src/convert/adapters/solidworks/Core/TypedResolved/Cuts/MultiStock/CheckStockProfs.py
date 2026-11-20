@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Core.Native import (
     NativeModel,
     NativeSketch,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ColdStockOwners import (
+    ColdStockOwners,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockCutLineage import (
     StockCutLineage,
 )
@@ -26,7 +29,7 @@ from interchange.geometry.Models.VectorSpace import SpaceVector
 def CheckStockProfs(
     Model: NativeModel,
     LinkValue: NativeLink,
-    Lineage: StockCutLineage,
+    Lineage: StockCutLineage | ColdStockOwners,
     Features: Mapping[int, NativeFeature],
     LinesValue: Mapping[int, NativeSketch],
     CirclesValue: Mapping[int, NativeSketch],

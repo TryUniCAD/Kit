@@ -19,6 +19,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.BindLocalCirc import
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.CheckStockProfs import (
     CheckStockProfs,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ColdStockOwners import (
+    ColdStockOwners,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockCutLineage import (
     StockCutLineage,
 )
@@ -78,8 +81,11 @@ def ProjectTyped(
     Model: NativeModel,
     LinkValue: NativeLink,
     *,
-    StockValue: StockCutLineage | None = None,
+    StockValue: StockCutLineage | ColdStockOwners | None = None,
 ) -> NativeModel:
+    ColdValue = StockValue if isinstance(StockValue, ColdStockOwners) else None
+    if ColdValue is not None and ColdValue.LinkValue is not LinkValue:
+        raise ValueError("cold two stock projection requires its actual linked archive")
     NodesValue = IndexFeatures(LinkValue)
     Features = {
         Feature.object_id: (
@@ -138,7 +144,12 @@ def ProjectTyped(
     if StockValue is not None:
         CheckStockProfs(Model, LinkValue, StockValue, Features, Lines, Circles)
     TreeValue = ProjectTree(
-        Model, LinkValue, NodesValue, Features, TwoStocks=StockValue is not None
+        Model,
+        LinkValue,
+        NodesValue,
+        Features,
+        TwoStocks=StockValue is not None,
+        ColdValue=ColdValue,
     )
     if (
         StockValue is not None

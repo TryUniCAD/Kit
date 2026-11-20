@@ -67,7 +67,12 @@ def ReportTyped(
         + (("closed_circle",) if CircleIds or FreeCircleIds else ())
         + (("radial_dimension", "fixed_circle_center") if CircleIds else ())
         + (("closed_line_loop", "line_endpoints", "line_handles") if LineIds else ())
-        + (("consumed_body_producer", "cut_body_scope") if BodyEvidence else ()),
+        + (
+            ("selected_body_producer", "cut_body_scope")
+            if BodyEvidence
+            and BodyEvidence.get("binding") == "cold_two_stock_explicit_wrapper"
+            else ("consumed_body_producer", "cut_body_scope") if BodyEvidence else ()
+        ),
         **({"line_loop_profiles": LineIds} if LineIds else {}),
         **(
             {"circle_profiles": (*CircleIds, *FreeCircleIds)}

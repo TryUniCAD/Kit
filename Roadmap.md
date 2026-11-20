@@ -41,6 +41,7 @@ The SDK writes one neutral, unlinked ANSI A landscape drawing with measured nati
 It adds typed readback for a solved perpendicular mate, native part properties with a verified empty advanced owner, and guarded prism geometry recovery. [Perpendicular read](Documentation/Changes/Solidworks/Archive/Assembly/SolidworksPerpendicularReaderOwnership.md) [Empty property owner](Documentation/Changes/Solidworks/Inspection/Properties/SolidworksEmptyAdvancedPropertyRead.md) [Typed prism read](Documentation/Changes/Solidworks/Inspection/Parts/Geometry/SolidworksTypedPrismReconstruction.md)
 The scoped native part reader also binds one cache-backed solid to its actual name and design-body identity. [Native body read](Documentation/Changes/Solidworks/Reading/Names/SolidworksNativeBodyNames.md)
 The scoped saved two-stock reader retains two independent blind bosses and their live D1s, one explicitly selected through-all cut, and two atom-linked final solids. [Saved two-stock read](Documentation/Changes/Solidworks/Reading/Parts/SolidworksSavedTwoStockRead.md)
+The cache-free reader reconstructs the corresponding two solids for the proven Front and Right rectangular profile and explicit circular through cut. [Cache-free two-stock read](Documentation/Changes/Solidworks/Reading/Parts/SolidworksColdTwoStockRead.md)
 
 FreeCAD sketch visibility and verified legacy-carrier replay reached main at `533970231`. [FreeCAD sketch changes](Documentation/Changes/Freecad/FreecadHiddenSketchesStayActive.md)
 

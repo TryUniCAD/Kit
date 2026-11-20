@@ -150,9 +150,6 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.BindStockDoc
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockDesigns import (
     StockDesigns,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.TryStockPart import (
-    TryStockPart,
-)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.WithCutSelection import (
     BindCutStock,
 )
@@ -207,8 +204,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.Display.ReadGeomPar
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
     PartGeometry,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadNoCache import (
-    ReadNoCache,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPartShape import (
+    ReadPartShape,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.WithColdName import (
     WithColdName,
@@ -421,13 +418,8 @@ def ReadNativePart(
     Label: str,
     Settings: ReadOptions,
 ) -> CadDoc:
-    Model, StockValue = TryStockPart(
-        Archive, NativePartModel(Archive, Settings.configuration), Settings
-    )
-    DerivedValue = (
-        ReadNoCache(Archive, Model, KPartBodyId)
-        if StockValue is None and Settings.include_brep
-        else None
+    Model, StockValue, ColdValue, DerivedValue = ReadPartShape(
+        Archive, NativePartModel(Archive, Settings.configuration), Settings, KPartBodyId
     )
     if StockValue is None and DerivedValue is None:
         Model = LegacyPartModel(Model, Archive)
@@ -447,6 +439,8 @@ def ReadNativePart(
     )
     if StockValue is not None:
         Bodies = StockDesigns(StockValue, TimeValues, Payloads)
+    elif ColdValue is not None:
+        Bodies = ColdValue.BodiesValue
     else:
         SolidOpIds = frozenset(
             (
@@ -569,10 +563,13 @@ def ReadNativePart(
     if StockValue is None and DerivedValue is None:
         DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
     return FinishPartDoc(
-        (
-            BindStockDoc(DocValue, StockValue.LineageValue)
-            if StockValue is not None
-            else DocValue
+        BindStockDoc(
+            DocValue,
+            (
+                StockValue.LineageValue
+                if StockValue is not None
+                else ColdValue.OwnersValue if ColdValue is not None else None
+            ),
         ),
         Archive,
         Model.active_configuration_id,
