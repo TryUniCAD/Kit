@@ -15,7 +15,7 @@ REPO = HERE.parents[5]
 SW2026 = HERE.parents[2]
 sys.path[:0] = [str(HERE.parent), str(REPO), str(REPO / 'src'), str(SW2026), str(SW2026 / 'serial')]
 
-from ObserveChildAppearanceContrast import AUTHORING_PROTOCOL, BUILD, MEMBERS, MODULES, PART_NAME, PHASES, ROUGHNESS, SCHEMA, STOCK_COLOR, STOCK_RGB, appearance_signature
+from ObserveChildAppearanceContrast import AUTHORING_PROTOCOL, BUILD, GETTER_CALLS, GETTER_PROTOCOL, GETTER_ROUGHNESS, MEMBERS, MODULES, PART_NAME, PHASES, ROUGHNESS, SCHEMA, STOCK_COLOR, STOCK_RGB, appearance_signature
 from ConcentricNativeContract import checked, digest, require
 
 HOME_PATH = Path('/Users/odin')
@@ -175,7 +175,9 @@ def preceding_failure():
     }
 
 
-def prepare(name, installed_path, installed_sha):
+def prepare(name, installed_path, installed_sha, *, getter_probe=False):
+    roughness = GETTER_ROUGHNESS if getter_probe else ROUGHNESS
+    protocol = GETTER_PROTOCOL if getter_probe else AUTHORING_PROTOCOL
     require(re.fullmatch(r'ConcentricChildAppearanceContrast[0-9]{2}', name), 'use a numbered disclosed packet')
     root = MANAGED / name
     require(not root.exists() and root.resolve() == root and MANAGED.resolve(strict=True) == MANAGED, 'packet path already exists or is redirected')
@@ -240,18 +242,20 @@ def prepare(name, installed_path, installed_sha):
                                'PrecedingNativeFailures.json': preceding,
                                'AppearanceInputs.json': {'owner': 'native part self', 'asset_sha256': installed['asset']['sha256'],
                                                          'stock_rgb': list(STOCK_RGB), 'authored_properties': ['Roughness'],
-                                                         'roughness': ROUGHNESS,
-                                                         'authoring_protocol': AUTHORING_PROTOCOL}}.items():
+                                                         'roughness': roughness,
+                                                         'authoring_protocol': protocol}}.items():
             files['Evidence/' + filename] = publish(root / 'Evidence' / filename, data)
     trial = root / 'Trial.json'
     job = {'schema': SCHEMA, 'guest_root': guest(root), 'files_sha256': files, 'controls': controls, 'installed': installed,
-           'baseline_sha256': frozen['Frozen'], 'part_name': PART_NAME, 'stock_rgb': list(STOCK_RGB), 'roughness': ROUGHNESS,
+           'baseline_sha256': frozen['Frozen'], 'part_name': PART_NAME, 'stock_rgb': list(STOCK_RGB), 'roughness': roughness,
            'radial': {key: radial_trial[key] for key in ('case', 'lights')}, 'prediction_control': prediction['control'],
            'phases': list(PHASES), 'heldout_inputs_read': False, 'source_evidence_only': True,
-           'authoring_protocol': AUTHORING_PROTOCOL,
+           'authoring_protocol': protocol,
            'revision': {'writer': WRITER, 'auditor': AUDITOR, 'preparer_sha256': digest(HERE), 'writer_epoch': EPOCH}}
     require(job['radial'] == preceding_job['radial'] and job['controls'] == preceding_job['controls']
             and all(job['baseline_sha256'] != old['baseline_sha256'] for old in preceding.values()), 'new native path or scoped source controls differ')
+    if getter_probe:
+        job['presave_material_enumerations'] = GETTER_CALLS
     trial_sha = publish(trial, job)
     prefix = ['prlctl', 'exec', 'Windows 11', '--current-user', runtime['executable'], '-B', guest(root / 'Tools' / observer.name)]
     tail = [guest(trial), trial_sha]
@@ -473,6 +477,7 @@ def main():
     prep.add_argument('name')
     prep.add_argument('installed', type=Path)
     prep.add_argument('installed_sha256')
+    prep.add_argument('--getter-probe', action='store_true')
     for name in ('audit', '_collect'):
         compare = commands.add_parser(name)
         compare.add_argument('trial', type=Path)
@@ -484,7 +489,7 @@ def main():
         commands.add_parser(name)
     args = parser.parse_args()
     if args.mode == 'prepare':
-        value = prepare(args.name, args.installed, args.installed_sha256)
+        value = prepare(args.name, args.installed, args.installed_sha256, getter_probe=args.getter_probe)
     elif args.mode in ('audit', '_collect'):
         trial = args.trial
         require(trial.name == 'Trial.json' and trial.parent.parent == MANAGED and trial.resolve(strict=True) == trial

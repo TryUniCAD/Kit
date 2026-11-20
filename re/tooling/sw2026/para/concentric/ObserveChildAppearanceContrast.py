@@ -39,6 +39,9 @@ STOCK_RGB = (229, 229, 229)
 ROUGHNESS = {"A": 0.3125, "B": 0.6875}
 STOCK_COLOR = sum(channel << (8 * index) for index, channel in enumerate(STOCK_RGB))
 AUTHORING_PROTOCOL = "installed-stock-color-roughness-only"
+GETTER_PROTOCOL = "stock-roughness-before-and-after-material-enumeration"
+GETTER_ROUGHNESS = {"A": 0.3141592653589793, "B": 0.3141592653589793}
+GETTER_CALLS = {"A": 0, "B": 1}
 PART_NAME = "DisclosedRadialSceneProbe.SLDPRT"
 
 
@@ -105,12 +108,16 @@ def verify(packet, expected):
     packet = checked(packet, expected).resolve(strict=True)
     root = packet.parent
     job = json.loads(packet.read_bytes())
+    protocol = job["authoring_protocol"]
+    require(protocol in (AUTHORING_PROTOCOL, GETTER_PROTOCOL), "unexpected appearance experiment")
+    roughness = GETTER_ROUGHNESS if protocol == GETTER_PROTOCOL else ROUGHNESS
+    require(protocol != GETTER_PROTOCOL or job["presave_material_enumerations"] == GETTER_CALLS,
+            "the material getter intervention was not frozen")
     require(job["schema"] == SCHEMA and job["phases"] == list(PHASES)
             and packet.name == "Trial.json" and root == Path(job["guest_root"])
             and HERE == root / "Tools" / HERE.name
             and job["part_name"] == PART_NAME
-            and job["authoring_protocol"] == AUTHORING_PROTOCOL
-            and job["stock_rgb"] == list(STOCK_RGB) and job["roughness"] == ROUGHNESS and job["heldout_inputs_read"] is False,
+            and job["stock_rgb"] == list(STOCK_RGB) and job["roughness"] == roughness and job["heldout_inputs_read"] is False,
             "wrong disclosed appearance packet")
     for relative, wanted in job["files_sha256"].items():
         path = root / relative
@@ -198,7 +205,7 @@ def require_intent(evidence, color, roughness, stage):
             f"{stage} did not retain the bound colour and roughness: {evidence['primary_color']}, {evidence['roughness']}")
 
 
-def appearance(author, model, asset, job, roughness, editing, checkpoints, stage):
+def appearance(author, model, asset, job, roughness, editing, checkpoints, stage, *, getter_probe=None):
     sw = author.sw
     extension = author.typed(author.get(model, "Extension"), "ModelDocExtension")
     manager = author.typed(author.get(model, "ConfigurationManager"), "ConfigurationManager")
@@ -224,14 +231,22 @@ def appearance(author, model, asset, job, roughness, editing, checkpoints, stage
         published = [int(first.value), int(second.value)]
         require(published != [-1, -1], "published material lacks its explicit ID pair")
         checkpoints["creator_after_publication"] = render_values(author, creator) | {"published_ids": published}
-        target, observed = acquire_material(author, extension, model, selector, names, asset, data_root)
-        checkpoints[stage] = observed | selected | {"same_creator_iunknown": same_identity(author, target, creator)}
+        if getter_probe is False:
+            observed = render_values(author, creator) | {"ids": published}
+            checkpoints[stage] = observed | selected
+        else:
+            target, observed = acquire_material(author, extension, model, selector, names, asset, data_root)
+            checkpoints[stage] = observed | selected | {"same_creator_iunknown": same_identity(author, target, creator)}
     else:
         published = None
         _, observed = acquire_material(author, extension, model, selector, names, asset, data_root)
         checkpoints[stage] = observed | selected
     require(published is None or published == observed["ids"], "the published material and selected state returned different IDs")
-    require_intent(observed, STOCK_COLOR, roughness, stage)
+    if getter_probe is None:
+        require_intent(observed, STOCK_COLOR, roughness, stage)
+    else:
+        require(observed["primary_color"] == STOCK_COLOR and 0 <= observed["roughness"] <= 1,
+                "stock material publication did not return an actual roughness")
     return observed | selected | {"published_ids": published}
 
 
@@ -297,16 +312,34 @@ def phase(packet, expected, role):
                 author.model = model
                 result["initial"] = circle.initial_state(author, job["radial"]["case"])
                 require(result["initial"]["passed"], "initial part lacks its body and requested feature owners")
-                if editing:
-                    result["geometry"] = radial.capture(author, job["radial"], 1.0)
                 checkpoints = result["appearance_checkpoints"] = {}
-                initial_stage = "published_reacquired" if editing else "cold_reopen"
-                result["appearance"] = appearance(author, model, asset, job, ROUGHNESS[lane], editing, checkpoints, initial_stage)
-                result["rebuild_geometry"] = radial.capture(author, job["radial"], 1.0)
-                refreshed = appearance(author, model, asset, job, ROUGHNESS[lane], False, checkpoints, "rebuilt_reacquired")
-                result["rebuilt_appearance"] = refreshed
-                require(appearance_signature(refreshed) == appearance_signature(result["appearance"]),
-                        "appearance changed on rebuild")
+                probe = job["authoring_protocol"] == GETTER_PROTOCOL
+                if probe:
+                    result["rebuild_geometry"] = radial.capture(author, job["radial"], 1.0)
+                    if editing:
+                        result["geometry"] = result["rebuild_geometry"]
+                    enumerate_material = not editing or GETTER_CALLS[lane] == 1
+                    appearance_stage = "cold_reopen" if not editing else ("one_getter" if enumerate_material else "creator_only")
+                    result["appearance"] = appearance(
+                        author, model, asset, job, job["roughness"][lane], editing, checkpoints,
+                        appearance_stage, getter_probe=enumerate_material,
+                    )
+                    methods = [entry["method"] for entry in rec.data["api_calls"]]
+                    result["material_enumerations"] = methods.count("GetRenderMaterials2")
+                    result["roughness_setters"] = methods.count("set Roughness")
+                    require(result["material_enumerations"] == int(enumerate_material)
+                            and result["roughness_setters"] == int(editing),
+                            "the phase crossed its material intervention boundary")
+                else:
+                    if editing:
+                        result["geometry"] = radial.capture(author, job["radial"], 1.0)
+                    initial_stage = "published_reacquired" if editing else "cold_reopen"
+                    result["appearance"] = appearance(author, model, asset, job, ROUGHNESS[lane], editing, checkpoints, initial_stage)
+                    result["rebuild_geometry"] = radial.capture(author, job["radial"], 1.0)
+                    refreshed = appearance(author, model, asset, job, ROUGHNESS[lane], False, checkpoints, "rebuilt_reacquired")
+                    result["rebuilt_appearance"] = refreshed
+                    require(appearance_signature(refreshed) == appearance_signature(result["appearance"]),
+                            "appearance changed on rebuild")
                 if editing:
                     require(result["rebuild_geometry"]["tree"] == result["geometry"]["tree"], "appearance changed the actual feature tree")
                     err, warn = (Swapp.byref_long() for _ in range(2))
@@ -316,9 +349,14 @@ def phase(packet, expected, role):
                     result["save_count"] = 1
                 else:
                     prior = predecessor(root, expected, "Author" + lane)
-                    require(prior["rebuild_geometry"]["tree"] == result["rebuild_geometry"]["tree"]
-                            and appearance_signature(prior["rebuilt_appearance"]) == appearance_signature(result["appearance"]),
-                            "fresh reopen did not retain the authored source intent")
+                    require(prior["rebuild_geometry"]["tree"] == result["rebuild_geometry"]["tree"],
+                            "fresh reopen did not retain the same feature tree")
+                    if probe:
+                        require(prior["appearance"]["published_ids"] == result["appearance"]["ids"],
+                                "fresh reopen did not retain the published material identity")
+                    else:
+                        require(appearance_signature(prior["rebuilt_appearance"]) == appearance_signature(result["appearance"]),
+                                "fresh reopen did not retain the authored source intent")
             result["passed"] = True
         except Exception as error:
             rec.failure(error)
