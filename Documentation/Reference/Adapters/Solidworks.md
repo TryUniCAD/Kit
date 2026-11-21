@@ -128,6 +128,11 @@ declared lightweight or resolved length and keeps their shared map. Its scoped
 ordinary records include direct model-header aliases and an empty ghost manager.
 [Configuration section scope](../../Changes/Solidworks/Archive/SolidworksConfigSections.md)
 
+The matching ordinary part emitter derives section lengths, allocates direct
+model-header map slots and packs a signed empty ghost count. It accepts
+the evidenced current archive profile and refuses populated ghost rows.
+[Configuration section emission](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigSectionEmission.md)
+
 The bounded version-19000 part cache reader keeps zero through two mass
 slots, each slot's atom rows and attached mass properties, and the
 signed trailer when two slots are stored. The measured bounds field
