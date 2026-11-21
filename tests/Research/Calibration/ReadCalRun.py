@@ -2,7 +2,8 @@ import json as JsonCodec
 import subprocess as Subprocess
 from pathlib import Path as FilePath
 
-from tests.Research.Calibration.CalRunDetails import FailureDetails, ReadEvidence
+from tests.Research.Calibration.Diagnostics.FailureDetails import FailureDetails
+from tests.Research.Calibration.Diagnostics.ReadEvidence import ReadEvidence
 
 
 # hosted calibration checks must verify the real exit and show saved evidence on a mismatch
