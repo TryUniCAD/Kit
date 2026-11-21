@@ -12,3 +12,8 @@ checking its full file key and configuration. Use the owning assembly's
 global occurrence index alone cannot identify a typed owner.
 
 [Disclosed readback](../../../../../re/solidworks/records/SdkNestedColdReadback2026.md)
+
+The normal resolved reader now applies this rule to ordinary nested
+version-19000 graphs after every physical dependency and direct placement
+passes these checks. Distinct stored captions and the original index
+attributes remain available. [Reader change](../../../../Changes/Solidworks/Reading/Assembly/SolidworksNestedIndexOwnerReadback.md)

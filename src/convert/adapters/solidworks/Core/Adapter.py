@@ -118,6 +118,9 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     decode_native_assembly as DecodeNativeAsm,
 )
 from convert.adapters.solidworks.Assembly.Display.DisplayData import DisplayData
+from convert.adapters.solidworks.Assembly.NestedIndex.WithNestedIndex import (
+    WithNestedIndex,
+)
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Config.OrdinaryMap import ReadOrdinaryMap
 from convert.adapters.solidworks.Config.RootLayout import KConfigGen
@@ -1067,16 +1070,32 @@ def AsmDoc(
     Documents, DocIds, ResolvedPaths, DocDiagnostics = AsmDocuments(
         Adapter, Native, Index if ResolveComponents else {}, Settings
     )
+    LinkedDocuments = {DocValue.id: DocValue.document for DocValue in Documents}
     Definitions = AsmDefinitions(
         Native,
         DocIds,
         ResolvedPaths,
-        {DocValue.id: DocValue.document for DocValue in Documents},
+        LinkedDocuments,
         MeshIds,
         Label,
         ResolveComponents=ResolveComponents,
     )
     Instances = AsmInstances(Native)
+    if (
+        ResolveComponents
+        and Native.application_version == 19000
+        and any(Value.depth > 0 for Value in Native.occurrence_paths)
+    ):
+        Definitions, Instances = WithNestedIndex(
+            Archive,
+            Native,
+            {
+                Identity: LinkedDocuments[DocId].metadata.get(KSourceBytesKey)
+                for Identity, DocId in DocIds.items()
+            },
+            Definitions,
+            Instances,
+        )
     MateSourceValues, SourceDiagnostics = MateSources(
         Native, Archive, Label, Index, Settings
     )
@@ -1131,7 +1150,6 @@ def AsmDoc(
         + SourceDiagnostics
     )
     PathRecords = Flattened(Native)
-    LinkedDocuments = {DocValue.id: DocValue.document for DocValue in Documents}
     LinkedPartDocuments = tuple(
         (
             DocValue

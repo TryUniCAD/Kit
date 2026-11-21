@@ -121,3 +121,20 @@ python3.14 -I -B re/tooling/sw2026/nested_publication/MeasureNestedReadback.py \
   --workspace /path/to/disclosed/Oracle121Takeover \
   --output /tmp/SdkNestedColdReadback.json
 ```
+
+## Verified nested index ownership
+
+The normal resolved reader now binds the complete index to the physical header
+keys, typed active configurations and actual reciprocal occurrence features.
+The four nested root reads recover five mirrored captions and eight local
+placement ordinals. The disclosed sources include two original SOLIDWORKS
+2026 native saves, with healthy prior controls, and two generated bundles.
+
+The before-and-after comparison changes only the measured definition names,
+placement ordinals and their dependent source semantic fingerprint. The four
+standalone assemblies and all deferred reads match the baseline. Each root
+refuses missing and crossed physical child data, a foreign selected
+configuration and feature ID, and an inconsistent local placement. All
+eight resolved inputs still refuse original-source writing without output.
+[Change entry](../../../Documentation/Changes/Solidworks/Reading/Assembly/SolidworksNestedIndexOwnerReadback.md) ·
+[Guarded result](../measurements/2026/SdkNestedIndexOwnerReadback01.json)

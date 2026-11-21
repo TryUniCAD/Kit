@@ -4,6 +4,7 @@ from subprocess import run as RunProcess
 from sys import executable as PythonExec
 from typing import cast as CastValue
 
+from convert import open_document as OpenDocument
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 from tests.Convert.Solidworks.Research.Construction.Nesting.MakeNestedCase import (
     MakeNestedCase,
@@ -46,6 +47,22 @@ def TestPublicNestedWriting(TmpPath: FilePath) -> None:
         "SdkNestedPlate.SLDPRT",
         "SdkGaugePlate.SLDPRT",
     }
+    Readback = OpenDocument(TmpPath / "registry" / "SdkFrame.SLDASM")
+    Assembly = Readback.assembly
+    assert Assembly is not None
+    Definitions = {Value.name: Value for Value in Assembly.definitions}
+    assert set(Definitions) == {
+        "SdkFrame",
+        "SdkModule",
+        "SdkNestedPlate",
+        "SdkGaugePlate",
+    }
+    assert tuple(
+        Value.order for Value in Assembly.GetChildren(Definitions["SdkFrame"].id)
+    ) == (0, 1, 2)
+    assert tuple(
+        Value.order for Value in Assembly.GetChildren(Definitions["SdkModule"].id)
+    ) == (0, 1)
     Failure = CheckPublicNested(Request, TmpPath / "fixed", "adapter", "fixed")
     assert Failure["refused"] == "AdapterNotFoundError"
     assert Failure["output_unchanged"] is True
