@@ -86,6 +86,10 @@ def CheckPhaseSkip(CheckName: str, ExitCode: int, TmpPath: FilePath) -> None:
         timeout=20,
     )
     assert Result.returncode == ExitCode, Result.stderr
+    if ExitCode:
+        assert f"CI failed: {CheckName}" in Result.stderr
+    else:
+        assert "CI passed" in Result.stdout
 
 
 # process execution verifies trusted base phase selection and rejects unreadable markers
