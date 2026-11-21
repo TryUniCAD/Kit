@@ -20,7 +20,7 @@ env:
   AuditSha: ${{ inputs.audit_sha || github.sha }}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.merge_group.head_sha || inputs.audit_sha || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && format('audit-{0}', inputs.audit_sha) || github.event.merge_group.head_sha || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
 
 jobs:
@@ -35,6 +35,17 @@ jobs:
     outputs:
       shards: ${{ steps.plan.outputs.shards }}
     steps:
+      - &AuditSource
+        name: Validate the requested audit source
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        env:
+          RequestedSha: ${{ inputs.audit_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$RequestedSha" =~ ^[0-9a-f]{40}$ ]]
+          test "$RequestedSha" = "$AuditSha"
+
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -45,14 +56,8 @@ jobs:
 
       - name: Confirm the pinned audit revision
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        env:
-          RequestedSha: ${{ inputs.audit_sha }}
         run: |
           set -euo pipefail
-          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
-            test "$AuditSha" = "$RequestedSha"
-          fi
-          [[ "$AuditSha" =~ ^[0-9a-f]{40}$ ]]
           test "$(git rev-parse HEAD)" = "$AuditSha"
           echo "Auditing source revision ${AuditSha} with every test scheduled fresh" >> "$GITHUB_STEP_SUMMARY"
 
@@ -193,6 +198,7 @@ jobs:
       matrix:
         shard: ${{ fromJSON(needs.test-plan.outputs.shards) }}
     steps:
+      - *AuditSource
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -322,6 +328,7 @@ jobs:
       run:
         shell: bash
     steps: &ResearchPlatformSteps
+      - *AuditSource
       - name: Checkout exact candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -428,6 +435,7 @@ jobs:
     permissions:
       contents: read
     steps:
+      - *AuditSource
       - name: Checkout exact candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -499,6 +507,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
+      - *AuditSource
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -610,6 +619,7 @@ jobs:
             queries: ""
             config: ./.github/CodeQL/JavaResearch.yml
     steps:
+      - *AuditSource
       - name: Checkout repository
         # yamllint disable-line rule:comments
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -695,6 +705,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -721,6 +732,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -750,6 +762,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -778,6 +791,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -806,6 +820,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -832,6 +847,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -858,6 +874,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -893,6 +910,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -924,6 +942,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -953,6 +972,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -999,6 +1019,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -1049,6 +1070,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -1079,6 +1101,7 @@ jobs:
     permissions:
       contents: read
     steps:
+      - *AuditSource
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -1130,6 +1153,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -1164,6 +1188,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -1195,7 +1220,11 @@ jobs:
           (^|/)modules/
           (^|/)re/
           EOF
-          "${RUNNER_TEMP}/trufflehog" git file://. \
+          ScanArgs=()
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
+            ScanArgs+=(--branch "$AuditSha")
+          fi
+          "${RUNNER_TEMP}/trufflehog" git file://. "${ScanArgs[@]}" \
             --only-verified \
             --exclude-paths="${RUNNER_TEMP}/TrufflehogExcludes"
 
