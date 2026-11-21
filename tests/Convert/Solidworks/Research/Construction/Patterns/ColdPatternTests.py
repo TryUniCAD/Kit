@@ -19,4 +19,5 @@ def TestColdPatRead() -> None:
     Report: dict[str, object] = LoadJson(Outcome.stdout)
     assert Report["isolated_processes"] == 12
     assert Report["ordinary_path_and_stream_reads"] == 12
+    assert Report["neutral_json_roundtrips"] == 6
     assert Report["native_processes_started"] == Report["heldout_payloads_read"] == 0

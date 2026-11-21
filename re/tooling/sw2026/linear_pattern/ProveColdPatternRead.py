@@ -1,6 +1,5 @@
 from argparse import ArgumentParser
 from collections import Counter
-from dataclasses import replace
 from hashlib import sha256
 from io import BytesIO
 from math import isclose
@@ -24,6 +23,34 @@ def require(condition, reason):
 
 def encode(value):
     return (json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False) + "\n").encode()
+
+
+def datum_summary(doc, datum_step):
+    from interchange.Features.FeatureBoundPlane import BoundDatum
+    from interchange.Features.FeaturePlaneAxis import PlaneAxis
+
+    plane = datum_step.definition
+    require(type(plane) is BoundDatum and plane.Method == "angle", "missing portable angle datum")
+    params = {value.id: value for value in doc.parameters}
+    offset = params[plane.OffsetParameterId]
+    require(offset.owner_id == datum_step.id and offset.role.value == "derived"
+            and offset.value.value == 0.0 and offset.value.unit == "mm",
+            "hinge coincidence created an independent offset")
+    targets = {value.id: value for value in doc.feature_timeline}
+    hinge = targets[datum_step.input_feature_ids[1]]
+    axis = hinge.definition
+    require(type(axis) is PlaneAxis, "missing portable finite hinge")
+    picks = {value.id: value for value in doc.selections}
+    frames = {value.id: value for value in doc.support_planes}
+    refs = tuple(picks[key].path[0] for key in hinge.selection_ids)
+    names = [frames[value.entity_id].name for value in refs]
+    require(names == ["Top Plane", "Right Plane"] and all(value.entity_kind == "support_plane" for value in refs)
+            and (axis.FirstPlaneSelectionId, axis.SecondPlaneSelectionId) == hinge.selection_ids
+            and picks[datum_step.selection_ids[1]].path[0].entity_id == hinge.id,
+            "portable angle and hinge no longer reach their actual typed owners")
+    return {"planes": names, "angle_support": frames[plane.SupportPlaneId].name,
+            "ends_mm": [tuple(getattr(value, dimension) for dimension in "xyz") for value in (axis.StartMm, axis.EndMm)],
+            "derived_offset_mm": offset.value.value}
 
 
 def summary(doc):
@@ -68,6 +95,7 @@ def summary(doc):
         "count": feature.definition.instance_count, "pitch_mm": feature.definition.spacing.value,
         "reversed": feature.definition.reversed, "angle_rad": angle.value.value,
         "parents": [feature_names[key] for key in feature.input_feature_ids],
+        "portable_datum": datum_summary(doc, datum_step),
         "atoms": state["native_atom_lineage"], "kernel_payload_count": len(doc.brep_payloads),
     }
 
@@ -77,6 +105,7 @@ def read_worker(input_path=None):
     from convert import open_document
     from convert.adapters.base.ReadOptions import ReadOptions
     from convert import registry
+    from interchange.serialization import dumps, loads
 
     raw = sys.stdin.buffer.read()
 
@@ -85,7 +114,9 @@ def read_worker(input_path=None):
                 "normal reader attempted an external CAD process")
 
     sys.addaudithook(deny_launch)
-    report = summary(open_document(BytesIO(raw), source_format=FORMAT, strict=True))
+    document = open_document(BytesIO(raw), source_format=FORMAT, strict=True)
+    report = summary(document)
+    require(summary(loads(dumps(document))) == report, "ordinary neutral JSON lost the recovered axis or plane")
     if input_path is not None:
         require(summary(open_document(input_path, strict=True)) == report,
                 "native path and stream reading disagree")
@@ -115,6 +146,10 @@ def compare(report, fixture, request):
         "parents": [request["seed"]["seed"]["feature"], request["plane"]["name"]],
         "atoms": [101, 102, 103], "kernel_payload_count": 0,
     }
+    datum = report["portable_datum"]
+    expected_ends = [[value * 1000 for value in point] for point in fixture["observed"]["angle_owner"]["selected_endpoints_m"]]
+    require(datum["ends_mm"] == expected_ends and datum["angle_support"] == request["plane"]["name"],
+            "typed public datum differs from the actual solved hinge")
     require(all(report[key] == value for key, value in expected_counts.items()),
             "reconstructed root, sketch ownership, count or explicit configuration differs")
     for key, value in expected.items():
@@ -152,7 +187,7 @@ def measure(exact_hashes):
             results[name] = result
     require(len(results) == 2 and all(len(value) == 3 for value in results.values()), "incomplete pattern contrast")
     return {"schema": "kit.sw2026.public-cold-oblique-pattern-read.v1", "cases": results, "isolated_processes": 12,
-            "ordinary_path_and_stream_reads": 12, "exact_generated_hashes_required": exact_hashes,
+            "ordinary_path_and_stream_reads": 12, "neutral_json_roundtrips": 6, "exact_generated_hashes_required": exact_hashes,
             "heldout_payloads_read": 0, "native_processes_started": 0}
 
 

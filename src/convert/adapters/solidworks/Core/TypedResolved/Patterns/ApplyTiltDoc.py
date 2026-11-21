@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.BuildTiltModel import (
+    BuildTiltModel,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.PatternDatum import (
     PatternDatum,
 )
@@ -89,23 +92,47 @@ def ApplyTiltDoc(
         ),
         provenance=TypedProvenance(ProofValue, DriverId),
     )
-    BoundSteps = {
-        HingeId: BindTiltStep(
+    Projection = BuildTiltModel(
+        Document,
+        LinkValue,
+        BindTiltStep(
             Hinge, TiltValue.HingeValue, (TiltValue.TopValue, TiltValue.RightValue)
         ),
-        PlaneId: BindTiltStep(
+        BindTiltStep(
             Plane, DatumValue.PlaneValue, (TiltValue.RightValue, TiltValue.HingeValue)
         ),
-    }
+        DatumValue.PlaneValue,
+        TiltValue,
+        DriverId,
+    )
+    BoundSteps = {HingeId: Projection.HingeValue, PlaneId: Projection.PlaneValue}
+    PreviousPicks = frozenset((*Hinge.selection_ids, *Plane.selection_ids))
+    NewPickIds = {Value.id for Value in Projection.PicksValue}
+    if any(
+        NewPickIds.intersection(Value.selection_ids)
+        or PreviousPicks.intersection(Value.selection_ids)
+        for Value in Document.feature_timeline
+        if Value.id not in BoundSteps
+    ):
+        raise ValueError("angular datum selection is shared with another feature")
     ResultValue = ReplaceValue(
         Document,
         feature_timeline=tuple(
             BoundSteps.get(Value.id, Value) for Value in Document.feature_timeline
         ),
+        support_planes=tuple(
+            Projection.SupportValue if Value.id == Projection.SupportValue.id else Value
+            for Value in Document.support_planes
+        ),
+        selections=tuple(
+            Value for Value in Document.selections if Value.id not in PreviousPicks
+        )
+        + Projection.PicksValue,
         parameters=tuple(
             BoundAngle if Value is DriverValue else Value
             for Value in Document.parameters
-        ),
+        )
+        + (Projection.OffsetValue,),
     )
     ResultValue.assert_valid()
     return ResultValue
