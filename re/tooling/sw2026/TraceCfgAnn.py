@@ -18,7 +18,8 @@ def capture(reader, body, data, version, header):
 
     def trace(frame, layout):
         if layout not in LAYOUTS:
-            return read_schema(frame, layout)
+            read_schema(frame, layout)
+            return
         usage = frame.ContextValue.UsageValue
         cursor, maps = frame.ReaderValue.Cursor, frame.ReaderValue.MapValue
         start, before, fields = cursor.GetOffset(), maps.Snapshot(), list(usage.FieldPath)
