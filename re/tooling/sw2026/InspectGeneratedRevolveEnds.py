@@ -10,7 +10,7 @@ import time
 import Swapp
 from AuthorCurves import digest, require, write_json
 from AuthorRevolveEnds import RevolveEndAuthor, read_constants, validate_cases
-from AuthorRevolveSources import run_phase
+from AuthorRevolveSources import BOSS, PLANES, PROFILE, run_phase
 from InspectFresh import healthy, inspect
 
 
@@ -26,11 +26,17 @@ def compare_state(actual, source):
     actual_tree = [tuple(row[key] for key in fields) for row in actual["features"]]
     source_tree = [tuple(row[key] for key in fields) for row in source["features"]]
     require(actual_tree == source_tree, "native ordered feature tree differs")
+    tree_rows = len(actual_tree)
+    if "complete_tree" in source:
+        require(actual["complete_tree"] == source["complete_tree"], "native recursive tree differs")
+        require(actual["body_names"] == source["body_names"], "native body name differs")
+        require(actual["profile_relations"] == source["profile_relations"], "native profile relation count differs")
+        tree_rows = len(actual["complete_tree"])
     for key in ("volume", "area", "mass"):
         require(format(actual["mass"][key], ".6g") == format(source["mass"][key], ".6g"), "native property differs in " + key)
     for value, expected in zip(actual["mass"]["com"], source["mass"]["com"], strict=True):
         require(abs(value) <= 1e-12 and abs(expected) <= 1e-12 or format(value, ".6g") == format(expected, ".6g"), "native centre of mass differs")
-    return {"tree_rows": len(actual_tree), "mass_checks": 6, "actual": actual["mass"], "source": source["mass"]}
+    return {"tree_rows": tree_rows, "mass_checks": 6, "actual": actual["mass"], "source": source["mass"]}
 
 
 def compare_edits(actual, source):
@@ -43,30 +49,53 @@ def compare_edits(actual, source):
             require(isclose(left[key], right[key], rel_tol=1e-13), "native edit value differs")
 
 
-def run_candidate(case, files, directory, oracle):
+class FullRevolveEndObserver(RevolveEndAuthor):
+    def snapshot(self, case, label, angle_degrees):
+        feature = super().snapshot(case, label, angle_degrees)
+        tree = self.feature_tree(required_names=(PROFILE, BOSS, PLANES[case["plane"]]))
+        bodies = self.get(self.model, "GetBodies2", 0, False) or ()
+        names = [str(self.get(body, "Name")) for body in bodies]
+        require(len(names) == 1 and names[0], "missing live native body name")
+        manager = self.get(self.sketch, "RelationManager")
+        relations = int(self.get(manager, "GetRelationsCount", 0))
+        require(relations == 4, "rectangular revolve lost its four authored relations")
+        self.rec.data[label].update(complete_tree=tree, body_names=names, profile_relations=relations)
+        self.rec.flush()
+        return feature
+
+
+def run_cycle(case, path, known, directory, oracle, author_type):
     name = case["name"]
     directory.mkdir()
+    edited_path = directory / (name + "-edited.SLDPRT")
+    first, r1 = run_phase(case, "reopen", path, oracle, known, inspect_before_rebuild=True, inspect_profile=True,
+                          record_path=directory / "Initial.json", save_edited=edited_path, author_type=author_type)
+    rows = [first]
+    receipts = [r1]
+    if first["passed"] and first.get("edit", {}).get("passed"):
+        edited = dict(case, angle_deg=case["edit_angle_deg"], second_deg=case["edit_second_deg"])
+        second, r2 = run_phase(edited, "edited-reopen", edited_path, oracle, first["edited_derivative"]["sha256"],
+                               inspect_before_rebuild=True, inspect_profile=True, record_path=directory / "FreshReopen.json",
+                               author_type=author_type)
+        rows.append(second)
+        receipts.append(r2)
+    return rows, receipts
+
+
+def run_candidate(case, files, directory, oracle, author_type=RevolveEndAuthor):
+    name = case["name"]
     path = Path(files["candidate"])
     known = files["candidate_sha256"]
     references = []
     for key in ("original", "edited"):
         source = Path(files[key])
-        require(digest(source) == files[key + "_sha256"], "disclosed native reference receipt changed")
+        require(digest(source) == files[key + "_sha256"], "native reference receipt changed")
         receipt = json.loads(source.read_bytes())
-        require(receipt["passed"] and receipt["source_immutable"], "disclosed native reference receipt is incomplete")
+        require(receipt["passed"] and receipt["source_immutable"], "native reference receipt is incomplete")
         references.append(receipt)
-    edited_path = directory / (name + "-edited.SLDPRT")
-    first, r1 = run_phase(case, "reopen", path, oracle, known, inspect_before_rebuild=True, inspect_profile=True,
-                          record_path=directory / "Initial.json", save_edited=edited_path, author_type=RevolveEndAuthor)
-    rows = [first]
-    result = {"name": name, "candidate_sha256": known, "native_phase_sha256": [r1], "passed": False, "comparisons": {}}
-    if first["passed"] and first.get("edit", {}).get("passed"):
-        edited = dict(case, angle_deg=case["edit_angle_deg"], second_deg=case["edit_second_deg"])
-        second, r2 = run_phase(edited, "edited-reopen", edited_path, oracle, first["edited_derivative"]["sha256"],
-                               inspect_before_rebuild=True, inspect_profile=True, record_path=directory / "FreshReopen.json",
-                               author_type=RevolveEndAuthor)
-        rows.append(second)
-        result["native_phase_sha256"].append(r2)
+    rows, receipts = run_cycle(case, path, known, directory, oracle, author_type)
+    first = rows[0]
+    result = {"name": name, "candidate_sha256": known, "native_phase_sha256": receipts, "passed": False, "comparisons": {}}
     try:
         for row in rows:
             require(row["passed"], "native candidate phase did not complete")

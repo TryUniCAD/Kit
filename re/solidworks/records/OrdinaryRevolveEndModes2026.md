@@ -148,7 +148,26 @@ at zero. Use the actual signed interval and real line incidence in
 any future owner-driven geometry.
 [Independent line-incidence limitation](../../../Documentation/Gotchas/Conversion/Solidworks/Model/Revolve/RevolveContoursNeedLineIncidence.md)
 
-The complete sweep, metadata ownership and native holdout
-acceptance must be checked against independent locked sources
-before any production admission. This record does not contain
-new mode writer code.
+## Generative construction and disclosed native proof
+
+The shared writer consumes the one total driver or both independent
+positive drivers and uses the rules above to write the end spec. Each
+active display receives its own parameter, value and retaining handle.
+The display cache at `f5b0` is derived from its own live radian value.
+The primary angular display retains base `f1018=0x18`. The secondary
+branch adds bit `0x4`, observed on both reversal senses of the matching
+native saves. For the same pair, the keyword index has D2 then D1 in
+forward orientation and D1 then D2 in reverse. These are derived
+display and index values. The active end slots define the ordered
+driver ownership independently. [Guarded writer receipt](../measurements/2026/SdkOrdinaryRevolveEndBuild01.json)
+
+Four model-only candidates re-emit all 40 typed streams exactly and
+the path and named-stream preparations agree. The native evaluation
+opens each cold with one solid, changes each active angle independently,
+saves and reopens the edited derivative. Fourteen paired observations
+match 19 ordered top-level feature rows and 84 mass-property values
+to six significant figures. Both controls pass across ten distinct
+processes. [Native disclosure](../measurements/2026/SdkOrdinaryRevolveEndNative01.json)
+
+The independent locked lifecycle and recursive tree comparison govern
+registration of the new end modes. [Pre-writer source lock](../measurements/2026/RevolveEndHeldoutSourceLock01.json)
