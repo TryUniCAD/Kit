@@ -1,0 +1,3 @@
+# Model-derived angular datum arc state
+
+The SOLIDWORKS research tools derive 19 angular-display fields from the ordered Right-plane and finite hinge geometry. The fields include the live text parameter, actual ray intersection and ordered local witness projections. Two distinct neutral models round-trip the field slice through the typed codec in four isolated processes with zero runtime input reads. Four earlier disclosed saves match the model within documented floating-point tolerances. Complete angular feature output and native qualification remain pending. [Method, limits and measurements](../../../../../re/solidworks/records/LocalLinearPatternAngularArc2026.md)
