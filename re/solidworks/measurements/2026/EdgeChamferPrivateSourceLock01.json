@@ -1,0 +1,43 @@
+{
+  "controls": {
+    "after": "3c040e2cfbe6301c24f2d35fcc4c26e329bb936376c86100435d1bfb13309846",
+    "before": "48b2b45f175e82d9ade8b89c0a3ce94f36fe3947984a4a61858f4496bb378dcc"
+  },
+  "disclosed_lock_sha256": "a696a97d73129ef7ffd7e829dfff7d1729000309e1273c0bef70b5f2ceedddb8",
+  "distinct_native_processes": 8,
+  "heldout_writer_acceptance": false,
+  "method_job_sha256": "a90de3a50474d2f460a3a60bf2227896ac31f7d4bbd3103ce00e4fc535d01cb6",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "prediction_sha256": "573bd82a7898069ecf22a807e7c68de49aec32b9739e7835f32c68035e7f184b",
+  "registered_api_sha256": "b0c845676ecb453057c8a53daced0fb8101cdc93a11511c973f17ebdfda55408",
+  "schema": "kit.sw2026.edge-chamfer-prewriter-lock.v1",
+  "slots": [
+    {
+      "edited_sha256": "ed9de7534f2ade83f29b0b6244e5ad344d87593e1e9cbd33091076ad893b56ee",
+      "original_sha256": "a935f7fc82eab969e20ccd7b248754fe788c3fea383eae8c6f69e1a1800bdcc7",
+      "phase_receipt_sha256": [
+        "f99e5a7982ea45791323db9eabb002fb75709a3137aa7c50e190c77b1df52849",
+        "8c950bc055b155e8b578a28af5cb17e15ab9cc8dd5340c33223502f54a317bda",
+        "276bfab016e7579282a41ac40674cbbb53a6511563e7974b11bee04bef8d138d"
+      ],
+      "slot": "Slot01"
+    },
+    {
+      "edited_sha256": "33ce927872733ae06eb7e0eb20af17b856d689f0d43b6b4b88177e47c53983fa",
+      "original_sha256": "838ef2219ea067cfde6ed4a1247b24b07f126fa3e290c4801aaf54a1d79720a1",
+      "phase_receipt_sha256": [
+        "cf2026a925981559afcb8fa048b2a4442e1a85e37f33f0372fec8a2c919fb939",
+        "d9b5e5d88e4ceb939ad436f736dd8825eaf57203386b3c7e529bb392b70f4e5b",
+        "84cef451cb78d5a6786ccffb87893186a718ef8f5fa07376258ceaea3354cd9e"
+      ],
+      "slot": "Slot02"
+    }
+  ],
+  "source_job_sha256": "0061b4fce283023548f8f01f8b66e757cb88099d50f323f0834fc2aa2e0fb2e5",
+  "source_lock_sha256": "71e701e7595d1bf7fbafef3cd1c9118eff2ab8386dee2b743c4bafe616a5b189",
+  "source_revision": "5326f67a8c13b37e037caffb6ca8f0ea1cdbf011",
+  "source_tree": "3ad2a4909a0272d5d8cb3365f3adf34ceca8c734",
+  "spec_sha256": "c1fb85eed9c2c1255933a32939788a955e11275fedb655157d0567822cd89046",
+  "writer_output_count": 0
+}
