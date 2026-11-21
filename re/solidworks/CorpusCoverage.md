@@ -38,6 +38,15 @@ precision and the 80 observed streams replay exactly. The two
 source shapes are authored native controls for the principal-frame
 writer rule. The FCStd conversion count remains unchanged.
 
+The [ordinary end-mode source trials](records/RevolveEndSources2026.md)
+measure actual Mid Plane and Two Directions owners on the pinned native
+2026 build. They provide no new generated writer or FCStd cases.
+
+The [planar assembly root projection](records/SdkPlanarRootSourceProjection2026.md)
+composes both disclosed source root/mate graphs in guarded research builds.
+The independent model/file names and visual state store still block complete
+original-source writing. Neither assembly counts toward the FCStd benchmark.
+
 The default planar assembly trial opens the generated parent and child,
 applies a mate dimension edit,
 saves both files and opens them again in a fresh process. Four native
