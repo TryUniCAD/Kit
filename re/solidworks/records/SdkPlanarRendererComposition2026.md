@@ -29,3 +29,5 @@ python3.14 -I -B re/tooling/sw2026/planar_registry/ProvePlanarRenderer.py \
 ```
 
 The retained receipt SHA-256 is `b86210a7e84994637e0a32fdb32e6b33b8f38c3e08a1c10eeed97e285ca0b754`. The runtime uses the measured independent data alias as neutral metadata. Saved inputs stay in their original custody. Only the sanitized receipt enters the repository.
+
+The paired native comparison packet is independently frozen on the same SDK source tree. Its host preflight confirms both strict source/generated reader paths, 52 linked core stream replays and the unchanged explicit admission refusals. The native trial uses real child depth edits and checks default density regeneration after saves. [Paired oracle method](PlanarRendererNativeMethod2026.md)

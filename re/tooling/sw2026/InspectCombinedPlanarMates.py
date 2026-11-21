@@ -101,7 +101,8 @@ def native_save(author, model, assembly, parent, child, count, recorder):
     return {"parent": digest(parent), "child": owned, "parent_status": status}
 
 
-def phase(job, edit, role, parent, child, target, *, editing=False, reopened=None, observe=None):
+def phase(job, edit, role, parent, child, target, *, editing=False, reopened=None, observe=None,
+          child_depth_edit=None, observe_edited=None):
     import Swapp
     from AssemblyMateEvidence import mate_features
     from AuthorAssemblySources import bound_child
@@ -139,7 +140,27 @@ def phase(job, edit, role, parent, child, target, *, editing=False, reopened=Non
             result["rebuilt"] = capture(author, model, assembly, child, case, mass, "rebuilt")
             if observe is not None:
                 result["rebuilt_options"] = observe(author, model, loaded_child)
-            if editing:
+            if editing and child_depth_edit is not None:
+                name, depth = child_depth_edit
+                require(name == "D1@Boss-Extrude1" and math.isfinite(depth) and 0 < depth != job["child_size_m"][2]
+                        and edit == case and observe_edited is not None,
+                        "child depth edit needs a changed blind length and the same ordered mates")
+                parameter = author.get(loaded_child, "Parameter", name)
+                require(parameter is not None and author.get(parameter, "DrivenState") == 2
+                        and not author.get(parameter, "ReadOnly"), "the child has no actual editable blind depth")
+                recorder.close_number("child blind depth before edit", author.get(parameter, "SystemValue"),
+                                      job["child_size_m"][2])
+                status = int(author.get(parameter, "SetSystemValue3", depth, 1, author.sw.nothing()))
+                require(status == 0 and author.get(loaded_child, "ForceRebuild3", False)
+                        and author.get(model, "ForceRebuild3", False), "the live child depth edit failed")
+                result["edit_status"] = status
+                updated = mass_prediction({**job, "child_size_m": [*job["child_size_m"][:2], depth]})
+                result["edited"] = capture(author, model, assembly, child, case, updated, "edited child depth")
+                result["edited_options"] = observe_edited(author, model, bound_child(author, assembly, child, count))
+                require(result["edited"]["child_mass"]["volume"] != result["rebuilt"]["child_mass"]["volume"],
+                        "the live child depth edit did not change the solid")
+                result["saved"] = native_save(author, model, assembly, parent, child, count, recorder)
+            elif editing:
                 drive = driving_request(case)["name"]
                 feature, = [value for value in mate_features(author, model) if author.get(value, "Name") == drive]
                 display = author.get(feature, "GetFirstDisplayDimension")

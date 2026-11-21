@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from base64 import b64encode
 from codecs import lookup
 from collections import Counter
 from dataclasses import replace
@@ -95,7 +96,7 @@ def make_guard():
     return audit
 
 
-def compose(root, request):
+def compose(root, request, deliver=False):
     bind_sdk(root)
     from CheckOriginalPlanarMethod import no_recorded_state
     from PlanarAssemblyIdentity import observe, xml_display
@@ -176,6 +177,9 @@ def compose(root, request):
         result["renderer"] = confirm(child_file, reg, rendered)
     require(bundle.ChildValue is child and not audit.DeniedReads and not excluded_modules(),
             "composition did not keep its actual neutral child and zero-runtime-input boundary")
+    if deliver:
+        result["generated_bytes"] = {"parent": b64encode(bundle.BytesValue).decode("ascii"),
+                                     "child": b64encode(child.BytesValue).decode("ascii")}
     return {"pid": os.getpid(), "runtime_input_reads": len(audit.DeniedReads), "identity": identity,
             "occurrences": root_owners["occurrences"], "ordered_mates": root_owners["ordered_mates"],
             "mate_ids": root_owners["mate_ids"],
@@ -385,13 +389,14 @@ def prove(disclosed, output):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument("mode", choices=("build", "prove"))
+    parser.add_argument("mode", choices=("build", "deliver", "prove"))
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--disclosed", type=Path)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    if args.mode == "build":
-        print(json.dumps(compose(args.root.resolve(strict=True), json.load(sys.stdin)), sort_keys=True, allow_nan=False))
+    if args.mode in ("build", "deliver"):
+        print(json.dumps(compose(args.root.resolve(strict=True), json.load(sys.stdin), args.mode == "deliver"),
+                         sort_keys=True, allow_nan=False))
     else:
         require(args.disclosed is not None and args.output is not None, "disclosed input and unused private output are required")
         output, disclosed = args.output.resolve(), args.disclosed.resolve(strict=True)
