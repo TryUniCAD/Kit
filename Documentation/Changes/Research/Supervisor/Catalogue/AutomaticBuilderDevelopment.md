@@ -20,6 +20,11 @@ and offsets from 1 to 60 mm on the fixed 40 Ã— 20 Ã— 10 mm block prerequis
 Qualification establishes this bounded research scope on the exact installed build;
 it does not establish exhaustive feature support, complete decoding or conversion.
 
+New Codex builder jobs default to `gpt-6.1-terra`. The selected model is pinned in
+the saved job for generation and repair calls. An explicit `--model` overrides
+the default; resuming a saved job preserves its original model. See
+[Terra builder generation](TerraBuilderGeneration.md).
+
 ## Integration and trust boundaries
 
 PR #207 was inspected while open and unmerged at

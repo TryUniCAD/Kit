@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from dataclasses import replace
 from pathlib import Path
 from time import time
 
@@ -148,6 +149,8 @@ def PrepareRun(Args, SourceRoot):
         )
     Directory.mkdir(mode=0o700, parents=True)
     Advice = read_options(Args)
+    if Advice is not None and Advice.provider == "codex" and Args.model is None:
+        Advice = replace(Advice, model="gpt-6.1-terra")
     Job, Blocker = BuildJob(Args, SourceRoot, Advice)
     if Blocker:
         return None, None, None, BlockedResult(Directory, Blocker)
