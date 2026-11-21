@@ -56,7 +56,7 @@ from convert.adapters.solidworks.Container.Container import BuildSldprt
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# each stock allocates its active profile, feature and live body before any downstream consumer
+# each stock allocates its active profile feature and live body before any downstream consumer
 def MakeSelectedStock(
     System: PartSystem,
     InputValue: PartBuildInput,
@@ -75,7 +75,7 @@ def MakeSelectedStock(
     return Profile.ProfileValue, Feature, Atom
 
 
-# the complete selected-stock part allocates two body atoms and the cut from the same neutral ownership graph
+# the complete selected stock part allocates two body atoms and the cut from the same neutral ownership graph
 def MakeSelectedRevolvePart(
     DocumentValue: CadDocument, InputValue: PartBuildInput
 ) -> RevolvePart:

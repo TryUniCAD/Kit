@@ -25,7 +25,7 @@ def ReadAnnularBounds(PlanValue: RevolvePlan) -> tuple[float, float, float, floa
     return XValues[0] - Axis, XValues[1] - Axis, Axial[0], Axial[1]
 
 
-# only measured disjoint full stocks and a partial cutter that opens one wall of each can use this body-scope graph
+# the measured body scope requires disjoint full stocks and a partial cutter opening one wall of each
 def CheckSelectedRevolveBands(
     First: RevolvePlan, Second: RevolvePlan, Cut: RevolvePlan
 ) -> None:

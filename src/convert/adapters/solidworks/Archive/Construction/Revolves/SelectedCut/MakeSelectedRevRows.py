@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Part.MakeRevKeys 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
-# the measured selected-cut keyword index lists three driving features before their consumed sketches
+# the measured selected cut keyword index lists three driving features before their consumed sketches
 def MakeSelectedRevRows(
     SystemNodes: tuple[ArchiveNode, ...],
     Profiles: tuple[ArchiveNode, ...],

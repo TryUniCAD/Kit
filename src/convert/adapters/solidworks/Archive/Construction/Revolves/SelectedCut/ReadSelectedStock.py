@@ -4,7 +4,7 @@ from interchange.geometry.Models.Selection import SelectPathElem
 from interchange.Records.RecordTopology import TopologyCounts
 
 
-# the native scope requires the same unique earlier stock in the dependency, selection path and final body history
+# the native scope requires the same earlier stock in the dependency selection path and final body history
 def ReadSelectedStock(DocumentValue: CadDocument) -> int:
     First, Second, Cut = DocumentValue.feature_timeline
     Stocks = (First.id, Second.id)

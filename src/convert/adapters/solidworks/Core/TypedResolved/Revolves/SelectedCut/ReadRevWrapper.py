@@ -17,7 +17,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckTreeAlias 
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 
 
-# a revolve selector couples the consumed body history to the result, which may omit its paired cache words even with a live face
+# a revolve selector couples the consumed body history to the result even when its live face has no paired cache words
 def ReadRevWrapper(
     LinkValue: NativeLink,
     Selected: ArchiveNode,

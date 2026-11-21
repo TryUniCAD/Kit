@@ -26,7 +26,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 )
 
 
-# standard feature rows take their names, stored classes and IDs from the allocated system graph
+# standard feature rows preserve the allocated system names classes and identifiers
 def MakeRevSystemRows(
     FeatureValues: tuple[ArchiveNode, ...],
 ) -> tuple[KeywordFeature, ...]:
