@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from hashlib import sha256 as HashBytes
 from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
@@ -23,7 +25,7 @@ def PublishFixture(SessionPath: FilePath) -> None:
         or Descriptor["path"] != "inputs/" + Descriptor["sha256"]
     ):
         raise ValueError("invalid fixture source binding")
-    Content = (SessionPath / Descriptor["path"]).read_bytes()
+    Content = ResolveTemp(SessionPath / Descriptor["path"]).read_bytes()
     if (
         len(Content) > 64 * 1024 * 1024
         or HashBytes(Content).hexdigest() != Descriptor["sha256"]
@@ -74,4 +76,4 @@ def PublishFixture(SessionPath: FilePath) -> None:
 
 
 if __name__ == "__main__":
-    PublishFixture(FilePath(ArgValues[1]).resolve())
+    PublishFixture(ResolveTemp(ArgValues[1]))

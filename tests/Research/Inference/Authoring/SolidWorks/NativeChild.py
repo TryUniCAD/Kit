@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from json import dumps, loads
 from importlib import import_module as ImportModule
 from typing import Callable, cast as CastValue
@@ -43,14 +45,14 @@ def RunNativeChild() -> None:
                     "profile": environ.get("USERPROFILE"),
                     "roaming": environ.get("APPDATA"),
                     "temp": environ.get("TEMP"),
-                    "secret": environ.get("KIT_PRIVATE_SECRET"),
+                    "secret_absent": "KIT_PRIVATE_SECRET" not in environ,
                     "pythonpath": environ.get("PYTHONPATH"),
                 }
             )
         )
         return
-    Settings = loads(Path(argv[1]).read_bytes())
-    OutputPath = Path(argv[2])
+    Settings = loads(ResolveTemp(argv[1]).read_bytes())
+    OutputPath = ResolveTemp(argv[2])
     Environment = KNativeSolidEnv(Settings)
     with (
         (OutputPath / "Child.stdout").open("xb") as Output,

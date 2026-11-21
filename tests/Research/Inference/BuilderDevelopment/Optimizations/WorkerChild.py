@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from collections.abc import Callable
 from contextlib import AbstractContextManager as ContextScope
 from json import dumps as EncodeJson
@@ -24,7 +26,7 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.LoadSymbol import
 
 # independent workers must cross real file locks and sockets before reusing a generation result
 def MainWorker() -> None:
-    ConfigValue = ReadConfig(FilePath(CliArgs[1]).read_text(encoding="utf-8"))
+    ConfigValue = ReadConfig(ResolveTemp(CliArgs[1]).read_text(encoding="utf-8"))
     RepoRoot = FilePath(__file__).resolve().parents[5]
     SourceRoot = FilePath(ConfigValue["source_root"])
     SearchPaths[:0] = [

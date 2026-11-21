@@ -21,4 +21,5 @@ class SessionMaker(Protocol):
         *,
         Command: list[str],
         AllowPersonalInstructions: bool,
-    ) -> object: ...
+    ) -> object:
+        pass

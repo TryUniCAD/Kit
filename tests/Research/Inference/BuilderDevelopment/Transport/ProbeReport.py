@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
 from time import monotonic as MonoTime, sleep as WaitBriefly
@@ -30,7 +32,7 @@ def WriteReport(
     assert LiveStart(ServerPid) is None
     Children = [
         ReadRecord(DecodeJson(LogLine))["descendant"]
-        for LogLine in (WorkPath / "Calls.jsonl").read_text().splitlines()
+        for LogLine in ResolveTemp(WorkPath / "Calls.jsonl").read_text().splitlines()
         if "descendant" in ReadRecord(DecodeJson(LogLine))
     ]
     for ChildPid in Children:

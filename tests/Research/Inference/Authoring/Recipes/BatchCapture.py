@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
 from sys import argv as ArgValues, path as ImportPaths
@@ -52,4 +54,4 @@ def PublishBatch(SessionPath: FilePath) -> None:
 
 
 if __name__ == "__main__":
-    PublishBatch(FilePath(ArgValues[1]).resolve())
+    PublishBatch(ResolveTemp(ArgValues[1]))

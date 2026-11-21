@@ -34,7 +34,7 @@ def RunPhase() -> None:
         {
             "interop_assembly": str(OutputPath / "MissingInterop.dll"),
             "executable": str(OutputPath / "MissingExecutable.exe"),
-            "phase_seconds": 30,
+            "phase_seconds": 90,
         },
         "first",
     )

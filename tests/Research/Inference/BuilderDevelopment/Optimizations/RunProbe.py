@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from pathlib import Path as FilePath
 from sys import argv as CliArgs, path as SearchPaths
 
@@ -17,7 +19,7 @@ def MainProbe() -> None:
         ReadConfig,
     )
 
-    ConfigValue = ReadConfig(FilePath(CliArgs[1]).read_bytes())
+    ConfigValue = ReadConfig(ResolveTemp(CliArgs[1]).read_bytes())
     if ConfigValue["action"] == "broker":
         from tests.Research.Inference.BuilderDevelopment.Optimizations.BrokerChild import (
             MainBroker,

@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp, ValidateLabel
+
 from hashlib import sha256 as HashBytes
 from pathlib import Path as FilePath
 from zipfile import ZIP_STORED as KStoredZip, ZipFile as NativeBundle
@@ -20,7 +22,7 @@ def WriteBundle(
     SessionPath: FilePath, Label: str, Content: bytes, Fault: str
 ) -> tuple[dict[str, MemberData], ArtifactData]:
     FileName = Label + ".f3d"
-    BundlePath = SessionPath / "work" / (Label + ".zip")
+    BundlePath = ResolveTemp(SessionPath / "work" / (ValidateLabel(Label) + ".zip"))
     with NativeBundle(BundlePath, "x", compression=KStoredZip) as Bundle:
         Bundle.writestr(
             FileName, Content + b"tampered" if Fault == "tamper" else Content

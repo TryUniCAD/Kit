@@ -16,7 +16,8 @@ from typing import Protocol
 class SessionMaker(Protocol):
 
     # provider construction stays separate from caller controlled protocol requests
-    def __call__(self, Options: object, *, Command: list[str]) -> object: ...
+    def __call__(self, Options: object, *, Command: list[str]) -> object:
+        pass
 
 
 # controllers expose context ownership without making research implementation details static test dependencies
@@ -28,11 +29,13 @@ class BrokerMaker(Protocol):
         Options: object,
         Directory: FilePath,
         SessionFactory: Callable[[object], object],
-    ) -> ContextScope[object]: ...
+    ) -> ContextScope[object]:
+        pass
 
 
 # process inspection retains the runtime boolean flags used by the ownership assertion
 class LiveProbe(Protocol):
 
     # the live flag excludes exited processes while preserving the original inspection boundary
-    def __call__(self, ProcessId: int, **Flags: bool) -> str | None: ...
+    def __call__(self, ProcessId: int, **Flags: bool) -> str | None:
+        pass

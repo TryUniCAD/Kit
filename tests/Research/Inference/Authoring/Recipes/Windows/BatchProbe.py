@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from json import dumps as EncodeJson, loads as DecodeJson
 from importlib import import_module as ImportModule
 from typing import Callable, cast as CastValue
@@ -40,9 +42,9 @@ KPrepareBatch = CastValue(
 
 # native disk preparation can cross its real process boundary without entering an application runner
 def PrepareInput() -> None:
-    Payload = DecodeJson(FilePath(ArgValues[1]).read_bytes())
+    Payload = DecodeJson(ResolveTemp(ArgValues[1]).read_bytes())
     Cases = [KCompileRecipe(CaseValue) for CaseValue in Payload["cases"]]
-    Prepared = KPrepareBatch(Cases, Payload["directory"])
+    Prepared = KPrepareBatch(Cases, ResolveTemp(Payload["directory"]))
     print(
         EncodeJson(
             {

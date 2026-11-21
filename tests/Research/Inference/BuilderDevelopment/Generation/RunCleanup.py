@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from json import dumps as EncodeJson, loads as DecodeJson
 from os import environ as ProcessEnv
 from importlib import import_module as ImportModule
@@ -27,7 +29,7 @@ def MainProbe() -> int:
         ).RunProvider,
     )
 
-    OutputPath = FilePath(ArgValues[1])
+    OutputPath = ResolveTemp(ArgValues[1])
     ModeName = ArgValues[2]
     _ = (OutputPath / "Prompt.txt").write_text("", encoding="utf-8")
     CommandArgs = [

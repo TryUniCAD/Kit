@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from json import dumps as EncodeJson, loads as DecodeJson
 from os import getpid as ProcessId
 from pathlib import Path as FilePath
@@ -22,7 +24,7 @@ from tests.Research.Inference.BuilderDevelopment.Transport.FixtureTurn import Se
 
 # an independent process implements the documented protocol without simulating model or native qualification
 def MainServer() -> None:
-    ModeName, LogPath = CliArgs[1], FilePath(CliArgs[2])
+    ModeName, LogPath = CliArgs[1], ResolveTemp(CliArgs[2])
     ThreadCount = 0
     ThreadId = ""
     Reply: dict[str, object]

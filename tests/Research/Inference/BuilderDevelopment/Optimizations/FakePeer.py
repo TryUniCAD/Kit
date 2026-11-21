@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from collections.abc import Callable
 from json import dumps as EncodeJson
 from typing import cast as TypeCast
@@ -24,7 +26,7 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.LoadSymbol import
 
 # a live unrelated process reproduces a reused local port without receiving an authorized generation request
 def MainPeer() -> None:
-    ConfigValue = ReadConfig(FilePath(CliArgs[1]).read_bytes())
+    ConfigValue = ReadConfig(ResolveTemp(CliArgs[1]).read_bytes())
     RepoRoot = FilePath(__file__).resolve().parents[5]
     SearchPaths[:0] = [str(RepoRoot / "re/automation"), str(RepoRoot)]
     OwnerIdentity = TypeCast(

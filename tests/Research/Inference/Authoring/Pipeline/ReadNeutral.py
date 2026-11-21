@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from pathlib import Path
 from sys import argv, path, stdout
 
@@ -17,7 +19,7 @@ from convert import open_document
 # a fresh public reader process supplies the actual neutral bytes for retained evidence comparison
 def ReadNeutral() -> None:
     Document = open_document(
-        Path(argv[1]).read_bytes(),
+        ResolveTemp(argv[1]).read_bytes(),
         source_format="fusion.f3d",
         strict=False,
         include_brep=False,

@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from hashlib import sha256 as HashBytes
 from pathlib import Path as FilePath
 from re import fullmatch as MatchText
@@ -20,7 +22,7 @@ def ReadFixture(SessionPath: FilePath, Descriptor: ArtifactData) -> bytes:
         or Descriptor["path"] != "inputs/" + Digest
     ):
         raise ValueError("invalid fixture source binding")
-    Content = (SessionPath / Descriptor["path"]).read_bytes()
+    Content = ResolveTemp(SessionPath / Descriptor["path"]).read_bytes()
     if len(Content) > 64 * 1024 * 1024 or HashBytes(Content).hexdigest() != Digest:
         raise ValueError("fixture source differs from its immutable input")
     return Content

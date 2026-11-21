@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from json import dumps as EncodeJson, loads as DecodeJson
 from contextlib import AbstractContextManager
 from importlib import import_module as ImportModule
@@ -46,7 +48,7 @@ def ProbeWorker() -> None:
         ImportModule("Ledger").Ledger,
     )
     RecordDigest = CastValue(Callable[[object], str], ImportModule("Records").digest)
-    TmpPath = FilePath(ArgValues[1])
+    TmpPath = ResolveTemp(ArgValues[1])
     ModeName = ArgValues[2]
     RunPath = TmpPath / "Run"
     JobValue = DecodeJson((RunPath / "BuilderJob.json").read_bytes())

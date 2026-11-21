@@ -1,6 +1,5 @@
 from ApplicationProtocol import require, sha256, windows_process
 from FusionCounterpart import scope_process
-from CaptureTools.Catalogue.Fusion.FusionBatch import NormalizeCases, PhasePaths
 
 SCOPE = "two-body-through-all-discovery"
 CASES = ("automatic", "explicit_a", "explicit_ab")
@@ -23,6 +22,8 @@ def phase_options(scope, phase):
 def phase_identity(plan):
     scope = plan_scope(plan)
     if scope == "catalogue-parametric-fusion":
+        from CaptureTools.Catalogue.Fusion.FusionBatch import NormalizeCases
+
         return {
             "scope": scope,
             "cases": NormalizeCases(plan["cases"], plan["mode"]),
@@ -44,6 +45,8 @@ def phase_rule(scope):
 def phase_paths(identity, phase):
     scope = plan_scope(identity)
     if scope == "catalogue-parametric-fusion":
+        from CaptureTools.Catalogue.Fusion.FusionBatch import PhasePaths
+
         return PhasePaths(identity, phase)
     directory = f"phase-{phase}"
     report = "measurements" if scope is None else "report"

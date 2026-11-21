@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from json import dumps as EncodeJson
 from pathlib import Path as FilePath
 from subprocess import DEVNULL as NullStream, Popen as StartProcess
@@ -19,5 +21,5 @@ def StartChild(LogPath: FilePath) -> None:
         stdout=NullStream,
         stderr=NullStream,
     )
-    with LogPath.open("a", encoding="utf-8") as LogFile:
+    with ResolveTemp(LogPath).open("a", encoding="utf-8") as LogFile:
         _ = LogFile.write(EncodeJson({"descendant": ChildProc.pid}) + "\n")

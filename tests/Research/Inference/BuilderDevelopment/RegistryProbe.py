@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from json import loads as DecodeJson
 from importlib import import_module as ImportModule
 from typing import Callable, cast as CastValue
@@ -25,7 +27,7 @@ def ProbeRegistry() -> int:
         Callable[[dict[str, object], dict[str, object], object], dict[str, object]],
         ImportModule("InferenceGrid.BuilderDevelopment.Registry").ValidateRegistration,
     )
-    RootPath = FilePath(ArgValues[1])
+    RootPath = ResolveTemp(ArgValues[1])
     JobValue = DecodeJson((RootPath / "Run/BuilderJob.json").read_bytes())
     Manifest = DecodeJson((RootPath / "Manifest.json").read_bytes())
     try:

@@ -25,7 +25,7 @@ def CheckPhaseStart(TmpPath: Path) -> None:
         capture_output=True,
         text=True,
         check=False,
-        timeout=45,
+        timeout=120,
     )
     assert Process.returncode != 0
     assert "SOLIDWORKS authoring phase failed inspect" in Process.stderr

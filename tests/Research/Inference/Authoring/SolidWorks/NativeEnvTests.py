@@ -66,7 +66,7 @@ def CheckNativeEnv(TmpPath: Path) -> None:
         "profile": str(Profile),
         "roaming": str(Roaming),
         "temp": str(Scratch),
-        "secret": None,
+        "secret_absent": True,
         "pythonpath": None,
     }
     assert (TmpPath / "Child.stderr").read_bytes() == b""

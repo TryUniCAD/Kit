@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from functools import partial as BindCall
 from collections.abc import Callable
 from typing import cast as TypeCast
@@ -29,7 +31,7 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.FactoryTypes impo
 
 # a separate controller process exercises the real authenticated broker and provider process lifecycle
 def MainBroker() -> None:
-    ConfigValue = ReadConfig(FilePath(CliArgs[1]).read_text(encoding="utf-8"))
+    ConfigValue = ReadConfig(ResolveTemp(CliArgs[1]).read_text(encoding="utf-8"))
     RepoRoot = FilePath(__file__).resolve().parents[5]
     SourceRoot = FilePath(ConfigValue["source_root"])
     SearchPaths[:0] = [
