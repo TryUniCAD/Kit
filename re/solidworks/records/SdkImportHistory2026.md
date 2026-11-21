@@ -17,7 +17,7 @@ indices count backward from the selected mark through the retained chain.
 Transmission emits selected index 3, initial index 5 and activation index 4.
 Forward and preceding links follow chronological order.
 [Allocation and transmit grammar](EmptyPartitionGrammar2026.md#delta-records)
-· [Independent handle allocation](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/ParasolidDeltaHandlesFollowSessionAllocation.md)
+· [Independent handle allocation](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/History/ParasolidDeltaHandlesFollowSessionAllocation.md)
 
 Each retained rollback writes empty new and deleted node lists and one
 preceding WORLD. Its pointer and counter fields are zero. The preceding

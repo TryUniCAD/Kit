@@ -23,11 +23,12 @@ SOURCE = "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/SelectedCu
 def reverse_projection(raw, frame):
     from convert import open_document
     from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import PrincipalFrame
+    from interchange.Enums.EnumFeatures import BooleanOp
     from interchange.Features.FeatureAngleRev import AngularRevolve
 
     document = open_document(raw, source_format="solidworks.sldprt", strict=True)
     cut, = (step for step in document.feature_timeline
-            if step.operation.value == "cut" and isinstance(step.definition, AngularRevolve))
+            if step.operation is BooleanOp.KCutOperation and isinstance(step.definition, AngularRevolve))
     vector = cut.definition.AxisDirection
     axis = (vector.x, vector.y, vector.z)
     expected = tuple(-value for value in PrincipalFrame(frame).AxisV)

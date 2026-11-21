@@ -10,4 +10,4 @@ allocations in the source session.
 Supply the current delta handle from the generated history or its allocator
 when building a rollback stream. Keep the mark ID as a separate input.
 Native blank byte comparisons can use the source's explicit history input
-for verification. [Field positions, native allocation, and comparisons](../../../../../../re/solidworks/records/EmptyPartitionGrammar2026.md)
+for verification. [Field positions, native allocation, and comparisons](../../../../../../../re/solidworks/records/EmptyPartitionGrammar2026.md)

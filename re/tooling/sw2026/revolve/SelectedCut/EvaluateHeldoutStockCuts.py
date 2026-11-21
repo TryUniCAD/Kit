@@ -19,12 +19,22 @@ SCHEMA = "kit.sw2026.selected-revolve-heldout-evaluation.v1"
 LOCK = "re/solidworks/measurements/2026/RevolveCutHeldoutSourceLock01.json"
 LOCK_SHA = "67c1aeca25817846925f18e5b6b7b9319bdba216835e685988961e0db8832f68"
 LOCK_REVISION = "642b20cc65d14262ecc1e78e478af5ab48ca59b0"
-BUILDER = "8953acb4be7f72230ea71de1935f3392df0378e9"
+FORWARD_BUILDER = "8953acb4be7f72230ea71de1935f3392df0378e9"
+BUILDER = "877b49b1e31eecd671bd1107455d8d70e9b93b38"
 DISCLOSURE = "re/solidworks/measurements/2026/SdkScopedRevolvePrincipalNative01.json"
 DISCLOSURE_SHA = "66300aa22b70a44f0b70e3e45420b426827ed8ea149a8316199bb7ee9f200258"
+REVERSE_DISCLOSURE = "re/solidworks/measurements/2026/SdkScopedRevolveReverseNative01.json"
+REVERSE_DISCLOSURE_SHA = "b310fcd0e0b25305aa2e97b2c9451673b174eac5c0376eb7cd55f4916a0ac292"
 PROBE = "re/solidworks/measurements/2026/SdkScopedRevolvePrincipalPacket01.json"
 PROBE_SHA = "fa54b00919aec9116c36b0d16a2a447d59621a2e20118f67bb0a9c1eaea380e0"
 PROBE_SPEC = SELECTED + "StockCutPrincipalDisclosures01.json"
+REVERSE_PROBE = "re/solidworks/measurements/2026/SdkScopedRevolveReversePacket01.json"
+REVERSE_PROBE_SHA = "36380d1259581b8594f977ca3970239cd7c2bfdb3d06811dc97afddee4bbe59d"
+REVERSE_PROBE_SPEC = SELECTED + "StockCutReverseDisclosures02.json"
+DISCLOSED_PACKETS = (
+    (PROBE, PROBE_SHA, PROBE_SPEC, "ScopedRevolveFrontier02"),
+    (REVERSE_PROBE, REVERSE_PROBE_SHA, REVERSE_PROBE_SPEC, "ScopedRevolveReverse03"),
+)
 PREFIX = PureWindowsPath(r"C:\KitSdkCandidates")
 SPEC = PREFIX / "RevolveCutHeldout01Author" / "Spec.json"
 ORIGINALS = PREFIX / "RevolveCutHeldout01"
@@ -76,24 +86,29 @@ def freeze(output):
         return git("show", f"{revision}:{name}")
 
     revision = git("rev-parse", "HEAD").decode().strip()
-    for ancestor in (LOCK_REVISION, BUILDER):
+    for ancestor in (LOCK_REVISION, FORWARD_BUILDER, BUILDER):
         git("merge-base", "--is-ancestor", ancestor, revision)
-    git("merge-base", "--is-ancestor", LOCK_REVISION, BUILDER)
+    git("merge-base", "--is-ancestor", LOCK_REVISION, FORWARD_BUILDER)
     lock = checked(root / LOCK, LOCK_SHA)
     disclosure = checked(root / DISCLOSURE, DISCLOSURE_SHA)
+    reverse_disclosure = checked(root / REVERSE_DISCLOSURE, REVERSE_DISCLOSURE_SHA)
     require(lock == committed(LOCK) and disclosure == committed(DISCLOSURE)
+            and reverse_disclosure == committed(REVERSE_DISCLOSURE)
             and json.loads(disclosure)["passed"] and json.loads(disclosure)["controls_healthy"]
-            and json.loads(lock)["finished_at"] < int(git("show", "-s", "--format=%ct", BUILDER)),
+            and json.loads(reverse_disclosure)["passed"] and json.loads(reverse_disclosure)["controls_healthy"]
+            and json.loads(lock)["finished_at"] < int(git("show", "-s", "--format=%ct", FORWARD_BUILDER)),
             "the exact disclosed result and earlier independent native lock are required")
     children = git("ls-tree", "-r", "--name-only", revision, TOOLS + "revolve").decode().splitlines()
-    paths = {LOCK, DISCLOSURE, PROBE, PROBE_SPEC, *(name for name in children if name.endswith(".py")),
+    paths = {LOCK, DISCLOSURE, REVERSE_DISCLOSURE, PROBE, PROBE_SPEC, REVERSE_PROBE, REVERSE_PROBE_SPEC,
+             *(name for name in children if name.endswith(".py")),
              *(TOOLS + name for name in TOOL_NAMES)}
     exact = {name: committed(name) for name in sorted(paths)}
     builder = SELECTED + "BuildStockCutSelector.py"
     require(exact[THIS] == HERE.read_bytes()
             and exact[builder] == git("show", f"{BUILDER}:{builder}")
-            and digest(exact[PROBE]) == PROBE_SHA
-            and digest(exact[PROBE_SPEC]) == json.loads(exact[PROBE])["files"]["ModelSpecs.json"]
+            and all(digest(exact[probe]) == probe_sha
+                    and digest(exact[spec_path]) == json.loads(exact[probe])["files"]["ModelSpecs.json"]
+                    for probe, probe_sha, spec_path, _ in DISCLOSED_PACKETS)
             and not git("diff", "--name-only", revision, "--", "src", *paths),
             "construction and evaluation tools must match the committed revision")
 
@@ -111,8 +126,10 @@ def freeze(output):
     manifest = {
         "schema": SCHEMA, "writer_revision": revision,
         "writer_source_tree": git("rev-parse", f"{revision}:src").decode().strip(),
-        "generative_method_revision": BUILDER, "prewriter_source_lock_revision": LOCK_REVISION,
+        "generative_method_revision": BUILDER, "forward_method_revision": FORWARD_BUILDER,
+        "prewriter_source_lock_revision": LOCK_REVISION,
         "prewriter_source_lock_sha256": LOCK_SHA, "disclosure_sha256": DISCLOSURE_SHA,
+        "reverse_disclosure_sha256": REVERSE_DISCLOSURE_SHA,
         "epoch": int(time()), "sealed_inputs_read_by_freeze": 0,
         "packed_code_sha256": digest(code), "files": {name: digest(raw) for name, raw in exact.items()},
         "guest_packet": str(GUEST_SHARE / output.name), "guest_private": str(PREFIX / output.name),
@@ -134,7 +151,9 @@ def verify(packet, freeze_pin, *, create=False):
             and manifest["prewriter_source_lock_sha256"] == LOCK_SHA
             and manifest["prewriter_source_lock_revision"] == LOCK_REVISION
             and manifest["generative_method_revision"] == BUILDER
+            and manifest["forward_method_revision"] == FORWARD_BUILDER
             and manifest["disclosure_sha256"] == DISCLOSURE_SHA
+            and manifest["reverse_disclosure_sha256"] == REVERSE_DISCLOSURE_SHA
             and manifest["sealed_inputs_read_by_freeze"] == 0
             and digest(HERE.read_bytes()) == manifest["files"][THIS],
             "frozen code, paths or pre-writer custody do not match")
@@ -177,25 +196,25 @@ def prepare(packet, pin):
 
     custody = checked(source / LOCK, LOCK_SHA)
     lock = source_lock(custody)
-    probe = json.loads(checked(source / PROBE, PROBE_SHA))
-    disclosed = validate_specs(json.loads(checked(source / PROBE_SPEC, probe["files"][MODEL])))
-    require(len(disclosed) == 2, "the guest preflight needs both disclosed constructor cases")
     host_parity = []
-    for case in disclosed:
-        raw, evidence = make_candidate(case, PureWindowsPath(probe["guest_workspace"]), probe["epoch"])
-        prior = probe["construction"][case["name"]]
-        filename = path_for(case)
-        baseline = Path(GUEST_SHARE / "ScopedRevolveFrontier02" / "Candidates" / filename)
-        old_raw = checked(baseline, prior["sha256"])
-        require(all(evidence[key] == prior[key] for key in
-                    ("zero_runtime_reads", "selector", "active_root_count", "config_counter", "resolved_counter")),
-                "the guest SDK changed the disclosed link or selection")
-        host_parity.append(compare_host_runtime(old_raw, raw))
+    for probe_path, probe_pin, spec_path, folder in DISCLOSED_PACKETS:
+        probe = json.loads(checked(source / probe_path, probe_pin))
+        disclosed = validate_specs(json.loads(checked(source / spec_path, probe["files"][MODEL])))
+        require(len(disclosed) == 2, "the guest preflight needs both disclosed constructor cases")
+        for case in disclosed:
+            raw, evidence = make_candidate(case, PureWindowsPath(probe["guest_workspace"]), probe["epoch"])
+            prior = probe["construction"][case["name"]]
+            baseline = Path(GUEST_SHARE / folder / "Candidates" / path_for(case))
+            old_raw = checked(baseline, prior["sha256"])
+            require(all(evidence[key] == prior[key] for key in
+                        ("zero_runtime_reads", "selector", "active_root_count", "config_counter", "resolved_counter")),
+                    "the guest SDK changed the disclosed link or selection")
+            host_parity.append(compare_host_runtime(old_raw, raw))
     raw_spec = checked(Path(SPEC), lock["spec_sha256"])
     cases = validate_specs(json.loads(raw_spec))
     require(len(cases) == 2 and {case["plane"] for case in cases} == {"top", "right"}
             and all(case["split"] == "heldout" and case["family"] == "cut"
-                    and case["scope"] in ("inner", "outer") and case["reverse"] is False
+                    and case["scope"] in ("inner", "outer")
                     for case in cases), "the sealed source is outside the frozen constructor profile")
     workspace = PREFIX / (private.name + "Work")
     require(not Path(workspace).exists(), "the sealed output workspace already exists")

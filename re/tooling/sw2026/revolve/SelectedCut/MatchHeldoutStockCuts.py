@@ -49,6 +49,8 @@ def contrast(source, candidate):
         "ordered_tree": source["features"] == candidate["features"],
         "cut_parents": source["parents"] == candidate["parents"],
         "feature_type": source["feature_type"] == candidate["feature_type"],
+        "direction_mode": all(source["definition"][key] == candidate["definition"][key]
+                              for key in ("type", "reverse", "is_thin", "is_boss", "axis_type")),
         "body_count": source["body_count"] == candidate["body_count"] == 2,
         "stock_selection": source["definition"]["scope"] == candidate["definition"]["scope"],
         "angular_driver": (
