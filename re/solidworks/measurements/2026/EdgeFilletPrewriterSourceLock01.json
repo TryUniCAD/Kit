@@ -1,0 +1,26 @@
+{
+  "cohort": "heldout",
+  "disclosed_lock_sha256": "1f2652129840582cb663063b08f590dadbaf8dd046f0b96f5a1b99cf5ae47797",
+  "distinct_processes": 8,
+  "healthy_bracket_controls": true,
+  "heldout_writer_acceptance": false,
+  "method_job_sha256": "93f3f6625f9230548f7dbfc8b4184f817034964ace7701a177313e8e66510eb2",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "schema": "kit.sw2026.edge-fillet-prewriter-lock.v1",
+  "source_revision": "7e73aef79b67d117d3c0caa75b3af93d81cd5654",
+  "source_tree": "98da8686a7d2218592ce5d540a84c445616c1e3c",
+  "source_writer_implemented": false,
+  "sources": [
+    {
+      "edited_sha256": "abf5648afe60df6440c3037729799b4684aa0fb9cb5033cf45fdaa047cbf2922",
+      "original_sha256": "bca00cb3456a71b8955bc37b62459020448c4b024cc1a88b0ef049b9e1c0be72"
+    },
+    {
+      "edited_sha256": "e171a69d5c5fe63848537794863a80ebb266a29659d511e39f23b256cbb3773c",
+      "original_sha256": "e1c8bbde672ffc963c51b18af7ce42f5eed0a197a545cb2175f56380aa1e0520"
+    }
+  ],
+  "writer_output_count": 0
+}

@@ -1,0 +1,3805 @@
+{
+  "bracket_receipt_sha256": {
+    "after": "fa64968dd3d378222e5301637e12979904debdc05f8391ff2eb0a0d994d7ddcc",
+    "before": "a7adbca70415ec872ff225b5f63cc37b8643fb2e60db20c8ab1ec003221e7b2b"
+  },
+  "byte_identical_active_kernel_record_sets": 4,
+  "byte_identical_archive_streams": 36,
+  "codec_baseline": "8797d0782d9d5635e004710d462518e88c23b15e",
+  "heldout_cases": 0,
+  "native_processes_started": 0,
+  "native_source_processes_verified": 8,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "registered_api_sha256": "f8bc14e15ee1607deda2a3a2b76e33d7448ed522232e53268286b4da6a25e6d4",
+  "resolved_materialized_classes": {
+    "Fillet_c": [
+      1
+    ],
+    "ParallelPlaneDistanceDim_c": [
+      1
+    ],
+    "ThreeDRadiusDim_c": [
+      1
+    ],
+    "edgeRadiusObject_c": [
+      1
+    ],
+    "gcCurvatureObject_c": [
+      1
+    ],
+    "gcXhatch_c": [
+      1
+    ],
+    "moAmbientLight_c": [
+      1
+    ],
+    "moAngleUserUnits_c": [
+      1
+    ],
+    "moAnnotationView_c": [
+      1
+    ],
+    "moAtom_c": [
+      1
+    ],
+    "moBBoxCenterData_c": [
+      1
+    ],
+    "moCStringHandle_c": [
+      1
+    ],
+    "moCThreadRefMgr_c": [
+      1
+    ],
+    "moCommentsFolder_c": [
+      1
+    ],
+    "moCompEdge_c": [
+      1
+    ],
+    "moCompFace_c": [
+      1
+    ],
+    "moCompFeature_c": [
+      1
+    ],
+    "moCompRefPlane_c": [
+      1
+    ],
+    "moDefaultRefPlnData_c": [
+      1
+    ],
+    "moDensityParameter_c": [
+      1
+    ],
+    "moDensityUnits_c": [
+      1
+    ],
+    "moDetailCabinet_c": [
+      1
+    ],
+    "moDirectionLight_c": [
+      1
+    ],
+    "moDisplayDistanceDim_c": [
+      1
+    ],
+    "moDisplayRadialDim_c": [
+      1
+    ],
+    "moDocsFolder_c": [
+      1
+    ],
+    "moEdgeRef_c": [
+      1
+    ],
+    "moEndFaceSurfIdRep_c": [
+      1
+    ],
+    "moEndSpec_c": [
+      1
+    ],
+    "moEnergyUnits_c": [
+      1
+    ],
+    "moEnvFolder_c": [
+      1
+    ],
+    "moEqnFolder_c": [
+      1
+    ],
+    "moExtObject_c": [
+      1
+    ],
+    "moExtrusion_c": [
+      1
+    ],
+    "moFR_c": [
+      1
+    ],
+    "moFaceRef_c": [
+      1
+    ],
+    "moFavoriteFolder_c": [
+      1
+    ],
+    "moFavoriteHandle_c": [
+      1
+    ],
+    "moFeatColorTab_c": [
+      0
+    ],
+    "moFeatureDimHandle_c": [
+      1
+    ],
+    "moFilletSurfIdRep_c": [
+      1
+    ],
+    "moFloatNumberUserUnits_c": [
+      1
+    ],
+    "moForceUnits_c": [
+      1
+    ],
+    "moFrequencyUserUnits_c": [
+      1
+    ],
+    "moFromEndSpec_c": [
+      1
+    ],
+    "moFromSktEntSurfIdRep_c": [
+      1
+    ],
+    "moGravityUnits_c": [
+      1
+    ],
+    "moHistoryFeatItemData_c": [
+      1
+    ],
+    "moHistoryFolder_c": [
+      1
+    ],
+    "moInkMarkupFolder_c": [
+      1
+    ],
+    "moLengthParameter_c": [
+      1
+    ],
+    "moLengthUserUnits_c": [
+      1
+    ],
+    "moLinearMotorUnits_c": [
+      1
+    ],
+    "moMaterialFolder_c": [
+      1
+    ],
+    "moMaterial_c": [
+      1
+    ],
+    "moNodeName_c": [
+      1
+    ],
+    "moNotesAreaFtrFolder_c": [
+      1
+    ],
+    "moNumberUserUnits_c": [
+      1
+    ],
+    "moOriginProfileFeature_c": [
+      1
+    ],
+    "moPMarkRecord_c": [
+      1
+    ],
+    "moPart_c": [
+      1
+    ],
+    "moPerBodyChooserData_c": [
+      1
+    ],
+    "moPowerUnits_c": [
+      1
+    ],
+    "moProfileFeature_c": [
+      1
+    ],
+    "moPrtExplViewManager_c": [
+      1
+    ],
+    "moRefPlane_c": [
+      1
+    ],
+    "moRelMgr_c": [
+      1
+    ],
+    "moRotaryMotorUnits_c": [
+      1
+    ],
+    "moSelectionSetFolder_c": [
+      1
+    ],
+    "moSensorFolder_c": [
+      1
+    ],
+    "moSketchBlockMgr_c": [
+      1
+    ],
+    "moSketchChain_c": [
+      1
+    ],
+    "moSketchRegion_c": [
+      1
+    ],
+    "moSolidBodyFolder_c": [
+      1
+    ],
+    "moSpringConstantUnits_c": [
+      1
+    ],
+    "moStressUnits_c": [
+      1
+    ],
+    "moSurfaceBodyFolder_c": [
+      1
+    ],
+    "moSurfaceIdRep_c": [
+      1
+    ],
+    "moTimeUnits_c": [
+      1
+    ],
+    "moTransRefPlaneData_c": [
+      1
+    ],
+    "moUnitComponent_c": [
+      1
+    ],
+    "moUnitSysUnits_c": [
+      1
+    ],
+    "moUnitsTable_c": [
+      1
+    ],
+    "moView_c": [
+      1
+    ],
+    "moVisualProperties_c": [
+      1
+    ],
+    "sgLineHandle": [
+      1
+    ],
+    "sgPointHandle": [
+      1
+    ],
+    "sgSketch": [
+      1
+    ],
+    "suObList": [
+      1
+    ],
+    "uoModelData_c": [
+      1
+    ]
+  },
+  "results": [
+    {
+      "archive_version": 19000,
+      "cached_partition": {
+        "active_payload_sha256": "68973764c231678c74ee3fbc18600da582f793b2fd9293fc2b6fdbbdedc9a049",
+        "active_replay": {
+          "byte_identical": true,
+          "record_bytes": 7611,
+          "record_sha256": "28e93d0f18757df9547f1ea5e5cbed8082dd88d3ed1eddc9dcc35eed7c6d8d93",
+          "typed_nodes": 206
+        },
+        "active_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1816,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34
+        },
+        "body_node": 2,
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "cylinder": {
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "position_m": [
+            0.03753,
+            -0.02073,
+            0.0228
+          ],
+          "radius_m": 0.00437
+        },
+        "cylinder_node": 7,
+        "cylindrical_face_node": 44,
+        "history": {
+          "strict_history_refused": "current kernel framing differs"
+        },
+        "history_payload_sha256": "fe08a23d047ca29ad2c199e1a8b3089c6ad05adf87d4205c52bdb18a255700f2",
+        "stream_sha256": "fc40f8000a3f53c91f3ee8a0aa5cae39903a36f0f09b78d818cb9db32f0217d3"
+      },
+      "case": "EdgeFilletAxial",
+      "container_version": 4,
+      "edited": false,
+      "native_reopen": {
+        "adjacent_stock_faces": 2,
+        "body_counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "cylinder_m": [
+          0.03753,
+          -0.02073,
+          0.0228,
+          0.0,
+          0.0,
+          -1.0,
+          0.00437
+        ],
+        "edge_endpoints_m": [
+          [
+            0.0419,
+            -0.025099999999999997,
+            0.0
+          ],
+          [
+            0.0419,
+            -0.025099999999999997,
+            0.0228
+          ]
+        ],
+        "fillet_name": "ConstantEdgeFillet",
+        "native_radial_dimension_name": "D1@ConstantEdgeFillet@EdgeFilletAxial.Part",
+        "radius_m": 0.00437,
+        "stock_depth_m": 0.0228,
+        "stock_name": "FilletStockBoss",
+        "volume_area_centroid_si": {
+          "area": 0.008116319403189708,
+          "centroid": [
+            0.013142672967539794,
+            -0.0077662457185538325,
+            0.0114
+          ],
+          "volume": 4.5188272360254137e-05
+        }
+      },
+      "owners": {
+        "body_owner": {
+          "atom_id": 101,
+          "body_kind": 0,
+          "body_stamp": 1816,
+          "config_mark": 3,
+          "creator_id": 32,
+          "fillet_mark": 17,
+          "last_modifier_id": 34,
+          "owner": {
+            "class": "moAtom_c",
+            "interval": [
+              3070,
+              3170
+            ],
+            "schema": 1,
+            "slot": 58,
+            "stream": "Contents/Config-0"
+          },
+          "stock_mark": 13
+        },
+        "display_vectors": {
+          "fillet_radial": {
+            "allocation_words": [
+              16,
+              1
+            ],
+            "value_si": 0.00437
+          },
+          "stock_distance": {
+            "allocation_words": [
+              16,
+              1
+            ],
+            "value_si": 0.0228
+          }
+        },
+        "edge_owners": {
+          "edge_f820": [
+            {
+              "configuration": "Default",
+              "creation_word": 1795241518,
+              "f38": null,
+              "f3c": null,
+              "feature_id": 34,
+              "feature_reference_slot": 279,
+              "owner": {
+                "class": "moSurfaceIdRep_c",
+                "interval": [
+                  12329,
+                  12365
+                ],
+                "schema": 1,
+                "slot": 278,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            {
+              "configuration": "Default",
+              "creation_word": 1795241518,
+              "f38": 1,
+              "f3c": null,
+              "feature_id": 34,
+              "feature_reference_slot": 282,
+              "owner": {
+                "class": "moFilletSurfIdRep_c",
+                "interval": [
+                  12365,
+                  12408
+                ],
+                "schema": 1,
+                "slot": 281,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            }
+          ],
+          "edge_f820_ff0_ref_slot": 284,
+          "f848_selected_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                12410,
+                12569
+              ],
+              "schema": 1,
+              "slot": 284,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              1912,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 286,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12465,
+                    12485
+                  ],
+                  "schema": 1,
+                  "slot": 285,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 288,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12485,
+                    12505
+                  ],
+                  "schema": 1,
+                  "slot": 287,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 290,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    12505,
+                    12529
+                  ],
+                  "schema": 1,
+                  "slot": 289,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 0,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 292,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    12529,
+                    12553
+                  ],
+                  "schema": 1,
+                  "slot": 291,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                12579,
+                12747
+              ],
+              "schema": 1,
+              "slot": 295,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              0
+            ]
+          },
+          "f868_radial_edge_alias_slot": 284,
+          "f868_radial_edge_wrapper": {
+            "class": "moCompEdge_c",
+            "interval": [
+              14613,
+              14765
+            ],
+            "schema": 1,
+            "slot": 311,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "f868_radial_wrapper_words_f18_f1c": [
+            0,
+            0
+          ],
+          "f9b8_detached_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                15200,
+                15344
+              ],
+              "schema": 1,
+              "slot": 330,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              0,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 332,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15240,
+                    15260
+                  ],
+                  "schema": 1,
+                  "slot": 331,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 334,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15260,
+                    15280
+                  ],
+                  "schema": 1,
+                  "slot": 333,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 336,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15280,
+                    15304
+                  ],
+                  "schema": 1,
+                  "slot": 335,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 0,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 338,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15304,
+                    15328
+                  ],
+                  "schema": 1,
+                  "slot": 337,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                15112,
+                15406
+              ],
+              "schema": 1,
+              "slot": 328,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "f9b8_result_face": {
+            "reference": {
+              "class": "moFaceRef_c",
+              "interval": [
+                14940,
+                15110
+              ],
+              "schema": 1,
+              "slot": 317,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              2146,
+              768
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241518,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 34,
+                "feature_reference_slot": 319,
+                "owner": {
+                  "class": "moFilletSurfIdRep_c",
+                  "interval": [
+                    14980,
+                    15000
+                  ],
+                  "schema": 1,
+                  "slot": 318,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 321,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15000,
+                    15024
+                  ],
+                  "schema": 1,
+                  "slot": 320,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 323,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15024,
+                    15044
+                  ],
+                  "schema": 1,
+                  "slot": 322,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 0,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 325,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15044,
+                    15068
+                  ],
+                  "schema": 1,
+                  "slot": 324,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 327,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15068,
+                    15088
+                  ],
+                  "schema": 1,
+                  "slot": 326,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              null
+            ],
+            "wrapper": {
+              "class": "moCompFace_c",
+              "interval": [
+                14836,
+                15112
+              ],
+              "schema": 1,
+              "slot": 315,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "face_f828_rows": 0,
+          "fbf0_detached_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                15540,
+                15684
+              ],
+              "schema": 1,
+              "slot": 341,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              0,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 343,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15580,
+                    15600
+                  ],
+                  "schema": 1,
+                  "slot": 342,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 345,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15600,
+                    15620
+                  ],
+                  "schema": 1,
+                  "slot": 344,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 347,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15620,
+                    15644
+                  ],
+                  "schema": 1,
+                  "slot": 346,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 0,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 349,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15644,
+                    15668
+                  ],
+                  "schema": 1,
+                  "slot": 348,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                15452,
+                15746
+              ],
+              "schema": 1,
+              "slot": 339,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "fbf0_row_fields": {
+            "f00": 0,
+            "f04": 1,
+            "f08": 0.00437
+          }
+        },
+        "fillet": {
+          "class": "Fillet_c",
+          "f60_rows": 0,
+          "interval": [
+            11996,
+            15788
+          ],
+          "name": "ConstantEdgeFillet",
+          "native_id": 34,
+          "schema": 1,
+          "slot": 274,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "radial_driver": {
+          "dimension_native_id": 33,
+          "name": "D1",
+          "owners": [
+            {
+              "class": "edgeRadiusObject_c",
+              "interval": [
+                12775,
+                14769
+              ],
+              "schema": 1,
+              "slot": 302,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moDisplayRadialDim_c",
+              "interval": [
+                12799,
+                14613
+              ],
+              "schema": 1,
+              "slot": 304,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "interval": [
+                13381,
+                13767
+              ],
+              "schema": 1,
+              "slot": 305,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ThreeDRadiusDim_c",
+              "interval": [
+                13490,
+                13767
+              ],
+              "schema": 1,
+              "slot": 307,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "interval": [
+                13517,
+                13560
+              ],
+              "schema": 1,
+              "slot": 308,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radius_m": 0.00437
+        },
+        "stock": {
+          "class": "moExtrusion_c",
+          "interval": [
+            8747,
+            11996
+          ],
+          "name": "FilletStockBoss",
+          "native_id": 32,
+          "schema": 1,
+          "slot": 216,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "stock_sketch": {
+          "class": "moProfileFeature_c",
+          "interval": [
+            5957,
+            8747
+          ],
+          "name": "FilletStockSketch",
+          "native_id": 26,
+          "schema": 1,
+          "slot": 186,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        }
+      },
+      "phase_receipt_sha256": "721a5c15e0df77b8467c7a86d4d46439aa50f9a93618292faa37e9da1aa972f5",
+      "runtime_external_access_attempts": 0,
+      "source_bytes": 65765,
+      "source_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2175,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 19,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "7609bee1f4ae56f41e54e65a3232a37c51a2857056ec80078a1ba4408b98899d",
+          "tail": 0,
+          "used_schema_count": 31
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "6e4c6b359cd34883182508ca23e923e91548a5b33739f27c05657ff538d3c135",
+          "tail": 0,
+          "used_schema_count": 3
+        },
+        "Contents/Config-0": {
+          "bytes": 25742,
+          "identical": true,
+          "map_base": 4,
+          "map_count": 110,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "7e201eed643babd50d752549e1fc484e78d8f59345d1a4860b735f2d81ffff30",
+          "tail": 0,
+          "used_schema_count": 150
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2481,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 78,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "2bf2c41f67692bb024bfbf111326f98e4a99e0456a19f2a75d112f04e47d3dad",
+          "tail": 0,
+          "used_schema_count": 10
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15792,
+          "identical": true,
+          "map_base": 110,
+          "map_count": 350,
+          "provisional_schemas": [
+            "mo_dynSurfIdArr.Serialize"
+          ],
+          "raw_fields": {
+            "load": [
+              {
+                "field": "data",
+                "object_class": "moDisplayDistanceDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              },
+              {
+                "field": "data",
+                "object_class": "moDisplayRadialDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              }
+            ],
+            "store": [
+              {
+                "field": "data",
+                "object_class": "moDisplayDistanceDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              },
+              {
+                "field": "data",
+                "object_class": "moDisplayRadialDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              }
+            ]
+          },
+          "sha256": "1478c1bd5bce6b5a7e1761182954549f461306173db6f3e17aec7cc16283f937",
+          "tail": 0,
+          "used_schema_count": 157
+        },
+        "Contents/Definition": {
+          "bytes": 3816,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 60,
+          "provisional_schemas": [],
+          "raw_fields": {
+            "load": [
+              {
+                "field": "clsid_d",
+                "object_class": "uiModelDoc_c",
+                "observed_length": 8,
+                "schema": "uiModelDoc_c.Serialize"
+              }
+            ],
+            "store": [
+              {
+                "field": "clsid_d",
+                "object_class": "uiPartDoc_c",
+                "observed_length": 8,
+                "schema": "uiModelDoc_c.Serialize"
+              }
+            ]
+          },
+          "sha256": "b25ad95aa3b274b93e2d5c3c7700f1a4286f89ce4115e25c40e385ebe387af7e",
+          "tail": 0,
+          "used_schema_count": 25
+        },
+        "Header2": {
+          "bytes": 2481,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 78,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "2bf2c41f67692bb024bfbf111326f98e4a99e0456a19f2a75d112f04e47d3dad",
+          "tail": 0,
+          "used_schema_count": 10
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1497,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 3,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "a7bb81a117e02901df9e1ad746ba4ada26d2c51ea1cb884b631267622acdd5ad",
+          "tail": 0,
+          "used_schema_count": 3
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0,
+          "used_schema_count": 5
+        }
+      },
+      "strict_production_refusal": "unsupported SOLIDWORKS body class Fillet_c schema 1"
+    },
+    {
+      "archive_version": 19000,
+      "cached_partition": {
+        "active_payload_sha256": "c62b4d127a9f6385dc398b3db9905d7529235f2ac886456cc5b280826ecaf496",
+        "active_replay": {
+          "byte_identical": true,
+          "record_bytes": 7508,
+          "record_sha256": "c3a94a6dc06132b4c676185d829f23ca67e052aa371e1ccb4c480296881fca78",
+          "typed_nodes": 203
+        },
+        "active_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1409,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34
+        },
+        "body_node": 2,
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "cylinder": {
+          "axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "position_m": [
+            0.03579,
+            -0.018989999999999996,
+            0.0228
+          ],
+          "radius_m": 0.00611
+        },
+        "cylinder_node": 7,
+        "cylindrical_face_node": 43,
+        "history": {
+          "strict_history_refused": "current kernel framing differs"
+        },
+        "history_payload_sha256": "fb19e2727bc516111e297806b3e297f0f84a5168794c02c565fd5568a8bc665e",
+        "stream_sha256": "69dc9cf3639a3a87aaebb80ff9895d753375757e9fd9a6deaa424a114f3c2614"
+      },
+      "case": "EdgeFilletAxial",
+      "container_version": 4,
+      "edited": true,
+      "native_reopen": {
+        "adjacent_stock_faces": 2,
+        "body_counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "cylinder_m": [
+          0.03579,
+          -0.018989999999999996,
+          0.0228,
+          0.0,
+          0.0,
+          -1.0,
+          0.00611
+        ],
+        "edge_endpoints_m": [
+          [
+            0.0419,
+            -0.025099999999999997,
+            0.0
+          ],
+          [
+            0.0419,
+            -0.025099999999999997,
+            0.0228
+          ]
+        ],
+        "fillet_name": "ConstantEdgeFillet",
+        "native_radial_dimension_name": "D1@ConstantEdgeFillet@EdgeFilletAxialEdited.Part",
+        "radius_m": 0.00611,
+        "stock_depth_m": 0.0228,
+        "stock_name": "FilletStockBoss",
+        "volume_area_centroid_si": {
+          "area": 0.008091465420244685,
+          "centroid": [
+            0.013089285138282909,
+            -0.00773545814644481,
+            0.0114
+          ],
+          "volume": 4.509904895128756e-05
+        }
+      },
+      "owners": {
+        "body_owner": {
+          "atom_id": 101,
+          "body_kind": 0,
+          "body_stamp": 1409,
+          "config_mark": 3,
+          "creator_id": 32,
+          "fillet_mark": 29,
+          "last_modifier_id": 34,
+          "owner": {
+            "class": "moAtom_c",
+            "interval": [
+              3090,
+              3190
+            ],
+            "schema": 1,
+            "slot": 58,
+            "stream": "Contents/Config-0"
+          },
+          "stock_mark": 25
+        },
+        "display_vectors": {
+          "fillet_radial": {
+            "allocation_words": [
+              16,
+              1
+            ],
+            "value_si": 0.00611
+          },
+          "stock_distance": {
+            "allocation_words": [
+              16,
+              1
+            ],
+            "value_si": 0.0228
+          }
+        },
+        "edge_owners": {
+          "edge_f820": [
+            {
+              "configuration": "Default",
+              "creation_word": 1795241518,
+              "f38": null,
+              "f3c": null,
+              "feature_id": 34,
+              "feature_reference_slot": 279,
+              "owner": {
+                "class": "moSurfaceIdRep_c",
+                "interval": [
+                  12491,
+                  12527
+                ],
+                "schema": 1,
+                "slot": 278,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            {
+              "configuration": "Default",
+              "creation_word": 1795241518,
+              "f38": 1,
+              "f3c": null,
+              "feature_id": 34,
+              "feature_reference_slot": 282,
+              "owner": {
+                "class": "moFilletSurfIdRep_c",
+                "interval": [
+                  12527,
+                  12570
+                ],
+                "schema": 1,
+                "slot": 281,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            }
+          ],
+          "edge_f820_ff0_ref_slot": 284,
+          "f848_selected_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                12572,
+                12731
+              ],
+              "schema": 1,
+              "slot": 284,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              1505,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 286,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12627,
+                    12647
+                  ],
+                  "schema": 1,
+                  "slot": 285,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 288,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12647,
+                    12667
+                  ],
+                  "schema": 1,
+                  "slot": 287,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 290,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    12667,
+                    12691
+                  ],
+                  "schema": 1,
+                  "slot": 289,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 0,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 292,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    12691,
+                    12715
+                  ],
+                  "schema": 1,
+                  "slot": 291,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                12741,
+                12909
+              ],
+              "schema": 1,
+              "slot": 295,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              0
+            ]
+          },
+          "f868_radial_edge_alias_slot": 284,
+          "f868_radial_edge_wrapper": {
+            "class": "moCompEdge_c",
+            "interval": [
+              14775,
+              14927
+            ],
+            "schema": 1,
+            "slot": 311,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "f868_radial_wrapper_words_f18_f1c": [
+            0,
+            0
+          ],
+          "f9b8_detached_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                15362,
+                15506
+              ],
+              "schema": 1,
+              "slot": 330,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              0,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 332,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15402,
+                    15422
+                  ],
+                  "schema": 1,
+                  "slot": 331,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 334,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15422,
+                    15442
+                  ],
+                  "schema": 1,
+                  "slot": 333,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 336,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15442,
+                    15466
+                  ],
+                  "schema": 1,
+                  "slot": 335,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 0,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 338,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15466,
+                    15490
+                  ],
+                  "schema": 1,
+                  "slot": 337,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                15274,
+                15568
+              ],
+              "schema": 1,
+              "slot": 328,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "f9b8_result_face": {
+            "reference": {
+              "class": "moFaceRef_c",
+              "interval": [
+                15102,
+                15272
+              ],
+              "schema": 1,
+              "slot": 317,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              1739,
+              768
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241518,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 34,
+                "feature_reference_slot": 319,
+                "owner": {
+                  "class": "moFilletSurfIdRep_c",
+                  "interval": [
+                    15142,
+                    15162
+                  ],
+                  "schema": 1,
+                  "slot": 318,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 321,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15162,
+                    15186
+                  ],
+                  "schema": 1,
+                  "slot": 320,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 323,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15186,
+                    15206
+                  ],
+                  "schema": 1,
+                  "slot": 322,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 0,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 325,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15206,
+                    15230
+                  ],
+                  "schema": 1,
+                  "slot": 324,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 327,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15230,
+                    15250
+                  ],
+                  "schema": 1,
+                  "slot": 326,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              null
+            ],
+            "wrapper": {
+              "class": "moCompFace_c",
+              "interval": [
+                14998,
+                15274
+              ],
+              "schema": 1,
+              "slot": 315,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "face_f828_rows": 0,
+          "fbf0_detached_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                15702,
+                15846
+              ],
+              "schema": 1,
+              "slot": 341,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              0,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 343,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15742,
+                    15762
+                  ],
+                  "schema": 1,
+                  "slot": 342,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 345,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15762,
+                    15782
+                  ],
+                  "schema": 1,
+                  "slot": 344,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 347,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15782,
+                    15806
+                  ],
+                  "schema": 1,
+                  "slot": 346,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241510,
+                "f38": 0,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 349,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15806,
+                    15830
+                  ],
+                  "schema": 1,
+                  "slot": 348,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                15614,
+                15908
+              ],
+              "schema": 1,
+              "slot": 339,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "fbf0_row_fields": {
+            "f00": 0,
+            "f04": 1,
+            "f08": 0.00611
+          }
+        },
+        "fillet": {
+          "class": "Fillet_c",
+          "f60_rows": 0,
+          "interval": [
+            12158,
+            15950
+          ],
+          "name": "ConstantEdgeFillet",
+          "native_id": 34,
+          "schema": 1,
+          "slot": 274,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "radial_driver": {
+          "dimension_native_id": 33,
+          "name": "D1",
+          "owners": [
+            {
+              "class": "edgeRadiusObject_c",
+              "interval": [
+                12937,
+                14931
+              ],
+              "schema": 1,
+              "slot": 302,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moDisplayRadialDim_c",
+              "interval": [
+                12961,
+                14775
+              ],
+              "schema": 1,
+              "slot": 304,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "interval": [
+                13543,
+                13929
+              ],
+              "schema": 1,
+              "slot": 305,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ThreeDRadiusDim_c",
+              "interval": [
+                13652,
+                13929
+              ],
+              "schema": 1,
+              "slot": 307,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "interval": [
+                13679,
+                13722
+              ],
+              "schema": 1,
+              "slot": 308,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radius_m": 0.00611
+        },
+        "stock": {
+          "class": "moExtrusion_c",
+          "interval": [
+            8747,
+            12158
+          ],
+          "name": "FilletStockBoss",
+          "native_id": 32,
+          "schema": 1,
+          "slot": 216,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "stock_sketch": {
+          "class": "moProfileFeature_c",
+          "interval": [
+            5957,
+            8747
+          ],
+          "name": "FilletStockSketch",
+          "native_id": 26,
+          "schema": 1,
+          "slot": 186,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        }
+      },
+      "phase_receipt_sha256": "ad45755371ebe27e2fdf27845eb16e1a86b982d489534779f5f4ecc594371a43",
+      "runtime_external_access_attempts": 0,
+      "source_bytes": 66231,
+      "source_sha256": "f38135c13ee77b70960cfd5388f7472b9f30a254949d274f8edeebfb8c6e900a",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2414,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 20,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "6095026d5010654cad3f609f8321c1e88984d60a13e27b975a080a0b704540b2",
+          "tail": 0,
+          "used_schema_count": 31
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "e5e937c8a9c73313d915aaacf9e21b9c28ec1811d55612fd8f25c9c642c85701",
+          "tail": 0,
+          "used_schema_count": 3
+        },
+        "Contents/Config-0": {
+          "bytes": 25762,
+          "identical": true,
+          "map_base": 4,
+          "map_count": 110,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "872ab4e630b9ccd5fe879683ea696639e49fb3bd2f7d46bb3a009efb39f91af8",
+          "tail": 0,
+          "used_schema_count": 150
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2675,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 79,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "7ffefce8017e04d81605aac939cac7ed70c3a3fbf4c5499015485cf3cd80ee93",
+          "tail": 0,
+          "used_schema_count": 10
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15954,
+          "identical": true,
+          "map_base": 110,
+          "map_count": 350,
+          "provisional_schemas": [
+            "mo_dynSurfIdArr.Serialize"
+          ],
+          "raw_fields": {
+            "load": [
+              {
+                "field": "data",
+                "object_class": "moDisplayDistanceDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              },
+              {
+                "field": "data",
+                "object_class": "moDisplayRadialDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              }
+            ],
+            "store": [
+              {
+                "field": "data",
+                "object_class": "moDisplayDistanceDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              },
+              {
+                "field": "data",
+                "object_class": "moDisplayRadialDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              }
+            ]
+          },
+          "sha256": "aa3169a2b32f74ccb303cdd09630b42b5572659b32e8f0328bb24719a5ddf2ed",
+          "tail": 0,
+          "used_schema_count": 157
+        },
+        "Contents/Definition": {
+          "bytes": 3816,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 60,
+          "provisional_schemas": [],
+          "raw_fields": {
+            "load": [
+              {
+                "field": "clsid_d",
+                "object_class": "uiModelDoc_c",
+                "observed_length": 8,
+                "schema": "uiModelDoc_c.Serialize"
+              }
+            ],
+            "store": [
+              {
+                "field": "clsid_d",
+                "object_class": "uiPartDoc_c",
+                "observed_length": 8,
+                "schema": "uiModelDoc_c.Serialize"
+              }
+            ]
+          },
+          "sha256": "cee1acf06109f5af917752f4e7d71febfc4fcfd260d2ff9ae9a322fcb5cb10a9",
+          "tail": 0,
+          "used_schema_count": 25
+        },
+        "Header2": {
+          "bytes": 2675,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 79,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "7ffefce8017e04d81605aac939cac7ed70c3a3fbf4c5499015485cf3cd80ee93",
+          "tail": 0,
+          "used_schema_count": 10
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 2289,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 3,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "bbd92a600d61f9bfc4e773f4881aa6a095dbbc828d3a190582c40aef716452b0",
+          "tail": 0,
+          "used_schema_count": 3
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0,
+          "used_schema_count": 5
+        }
+      },
+      "strict_production_refusal": "unsupported SOLIDWORKS body class Fillet_c schema 1"
+    },
+    {
+      "archive_version": 19000,
+      "cached_partition": {
+        "active_payload_sha256": "f2b3dcdc525e631df6e21a388b345d554faadcc9cf0cb0a16b5125dbcc063997",
+        "active_replay": {
+          "byte_identical": true,
+          "record_bytes": 7611,
+          "record_sha256": "18ccfe88614a543a6cd26bf048348c91495a1d45ac09a9970dd58611d0badee0",
+          "typed_nodes": 206
+        },
+        "active_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1816,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34
+        },
+        "body_node": 2,
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "cylinder": {
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "position_m": [
+            0.0,
+            0.023620000000000002,
+            0.02577
+          ],
+          "radius_m": 0.00283
+        },
+        "cylinder_node": 7,
+        "cylindrical_face_node": 44,
+        "history": {
+          "strict_history_refused": "current kernel framing differs"
+        },
+        "history_payload_sha256": "420f1359d014216fdf5440c9e7432d6f9da3effd0193b1de1fbd36881df4916f",
+        "stream_sha256": "a8c934f62f4ffa23adaf93a4ddb721998ecc210e4643c207006a22e4884d3c43"
+      },
+      "case": "EdgeFilletTransverse",
+      "container_version": 4,
+      "edited": false,
+      "native_reopen": {
+        "adjacent_stock_faces": 2,
+        "body_counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "cylinder_m": [
+          0.0,
+          0.023620000000000002,
+          0.02577,
+          -1.0,
+          0.0,
+          0.0,
+          0.00283
+        ],
+        "edge_endpoints_m": [
+          [
+            -0.02975,
+            0.02645,
+            0.0286
+          ],
+          [
+            0.01315,
+            0.02645,
+            0.0286
+          ]
+        ],
+        "fillet_name": "ConstantEdgeFillet",
+        "native_radial_dimension_name": "D1@ConstantEdgeFillet@EdgeFilletTransverse.Part",
+        "radius_m": 0.00283,
+        "stock_depth_m": 0.0286,
+        "stock_name": "FilletStockBoss",
+        "volume_area_centroid_si": {
+          "area": 0.006931434220348856,
+          "centroid": [
+            -0.0083,
+            0.010571095934096601,
+            0.01427403992730202
+          ],
+          "volume": 3.882026471255077e-05
+        }
+      },
+      "owners": {
+        "body_owner": {
+          "atom_id": 101,
+          "body_kind": 0,
+          "body_stamp": 1816,
+          "config_mark": 3,
+          "creator_id": 32,
+          "fillet_mark": 17,
+          "last_modifier_id": 34,
+          "owner": {
+            "class": "moAtom_c",
+            "interval": [
+              3070,
+              3170
+            ],
+            "schema": 1,
+            "slot": 58,
+            "stream": "Contents/Config-0"
+          },
+          "stock_mark": 13
+        },
+        "display_vectors": {
+          "fillet_radial": {
+            "allocation_words": [
+              16,
+              1
+            ],
+            "value_si": 0.00283
+          },
+          "stock_distance": {
+            "allocation_words": [
+              16,
+              1
+            ],
+            "value_si": 0.0286
+          }
+        },
+        "edge_owners": {
+          "edge_f820": [
+            {
+              "configuration": "Default",
+              "creation_word": 1795241663,
+              "f38": null,
+              "f3c": null,
+              "feature_id": 34,
+              "feature_reference_slot": 279,
+              "owner": {
+                "class": "moSurfaceIdRep_c",
+                "interval": [
+                  12329,
+                  12365
+                ],
+                "schema": 1,
+                "slot": 278,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            {
+              "configuration": "Default",
+              "creation_word": 1795241663,
+              "f38": 1,
+              "f3c": null,
+              "feature_id": 34,
+              "feature_reference_slot": 282,
+              "owner": {
+                "class": "moFilletSurfIdRep_c",
+                "interval": [
+                  12365,
+                  12408
+                ],
+                "schema": 1,
+                "slot": 281,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            }
+          ],
+          "edge_f820_ff0_ref_slot": 284,
+          "f848_selected_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                12410,
+                12565
+              ],
+              "schema": 1,
+              "slot": 284,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              1838,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 286,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    12465,
+                    12489
+                  ],
+                  "schema": 1,
+                  "slot": 285,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 3,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 288,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12489,
+                    12509
+                  ],
+                  "schema": 1,
+                  "slot": 287,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 290,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12509,
+                    12529
+                  ],
+                  "schema": 1,
+                  "slot": 289,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 4,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 292,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12529,
+                    12549
+                  ],
+                  "schema": 1,
+                  "slot": 291,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                12575,
+                12743
+              ],
+              "schema": 1,
+              "slot": 295,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              0
+            ]
+          },
+          "f868_radial_edge_alias_slot": 284,
+          "f868_radial_edge_wrapper": {
+            "class": "moCompEdge_c",
+            "interval": [
+              14609,
+              14761
+            ],
+            "schema": 1,
+            "slot": 311,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "f868_radial_wrapper_words_f18_f1c": [
+            0,
+            0
+          ],
+          "f9b8_detached_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                15192,
+                15332
+              ],
+              "schema": 1,
+              "slot": 330,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              0,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 332,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15232,
+                    15256
+                  ],
+                  "schema": 1,
+                  "slot": 331,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 3,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 334,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15256,
+                    15276
+                  ],
+                  "schema": 1,
+                  "slot": 333,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 336,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15276,
+                    15296
+                  ],
+                  "schema": 1,
+                  "slot": 335,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 4,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 338,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15296,
+                    15316
+                  ],
+                  "schema": 1,
+                  "slot": 337,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                15104,
+                15394
+              ],
+              "schema": 1,
+              "slot": 328,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "f9b8_result_face": {
+            "reference": {
+              "class": "moFaceRef_c",
+              "interval": [
+                14936,
+                15102
+              ],
+              "schema": 1,
+              "slot": 317,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              2146,
+              768
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241663,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 34,
+                "feature_reference_slot": 319,
+                "owner": {
+                  "class": "moFilletSurfIdRep_c",
+                  "interval": [
+                    14976,
+                    14996
+                  ],
+                  "schema": 1,
+                  "slot": 318,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 321,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    14996,
+                    15016
+                  ],
+                  "schema": 1,
+                  "slot": 320,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 3,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 323,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15016,
+                    15036
+                  ],
+                  "schema": 1,
+                  "slot": 322,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 4,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 325,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15036,
+                    15056
+                  ],
+                  "schema": 1,
+                  "slot": 324,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 327,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15056,
+                    15080
+                  ],
+                  "schema": 1,
+                  "slot": 326,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              null
+            ],
+            "wrapper": {
+              "class": "moCompFace_c",
+              "interval": [
+                14832,
+                15104
+              ],
+              "schema": 1,
+              "slot": 315,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "face_f828_rows": 0,
+          "fbf0_detached_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                15528,
+                15668
+              ],
+              "schema": 1,
+              "slot": 341,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              0,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 343,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15568,
+                    15592
+                  ],
+                  "schema": 1,
+                  "slot": 342,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 3,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 345,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15592,
+                    15612
+                  ],
+                  "schema": 1,
+                  "slot": 344,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 347,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15612,
+                    15632
+                  ],
+                  "schema": 1,
+                  "slot": 346,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 4,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 349,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15632,
+                    15652
+                  ],
+                  "schema": 1,
+                  "slot": 348,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                15440,
+                15730
+              ],
+              "schema": 1,
+              "slot": 339,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "fbf0_row_fields": {
+            "f00": 0,
+            "f04": 1,
+            "f08": 0.00283
+          }
+        },
+        "fillet": {
+          "class": "Fillet_c",
+          "f60_rows": 0,
+          "interval": [
+            11996,
+            15772
+          ],
+          "name": "ConstantEdgeFillet",
+          "native_id": 34,
+          "schema": 1,
+          "slot": 274,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "radial_driver": {
+          "dimension_native_id": 33,
+          "name": "D1",
+          "owners": [
+            {
+              "class": "edgeRadiusObject_c",
+              "interval": [
+                12771,
+                14765
+              ],
+              "schema": 1,
+              "slot": 302,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moDisplayRadialDim_c",
+              "interval": [
+                12795,
+                14609
+              ],
+              "schema": 1,
+              "slot": 304,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "interval": [
+                13377,
+                13763
+              ],
+              "schema": 1,
+              "slot": 305,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ThreeDRadiusDim_c",
+              "interval": [
+                13486,
+                13763
+              ],
+              "schema": 1,
+              "slot": 307,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "interval": [
+                13513,
+                13556
+              ],
+              "schema": 1,
+              "slot": 308,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radius_m": 0.00283
+        },
+        "stock": {
+          "class": "moExtrusion_c",
+          "interval": [
+            8747,
+            11996
+          ],
+          "name": "FilletStockBoss",
+          "native_id": 32,
+          "schema": 1,
+          "slot": 216,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "stock_sketch": {
+          "class": "moProfileFeature_c",
+          "interval": [
+            5957,
+            8747
+          ],
+          "name": "FilletStockSketch",
+          "native_id": 26,
+          "schema": 1,
+          "slot": 186,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        }
+      },
+      "phase_receipt_sha256": "86ef2da4ed3d2509a81d3a724c9314976cf6c840930a490ce50f430564f641c5",
+      "runtime_external_access_attempts": 0,
+      "source_bytes": 68065,
+      "source_sha256": "cc36db430e80d74889f640077fde239cc48f41a1655247ea155cd0538871ed9e",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2175,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 19,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "e2498bc96761d674a69656f7c9df5dea022e07681fcb5d73ebdbc57beab4b34c",
+          "tail": 0,
+          "used_schema_count": 31
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "4da5f58be53a1bd3bf1ed2b40f8753fa5d93d14ca55361f9bad81a4deb2b32a2",
+          "tail": 0,
+          "used_schema_count": 3
+        },
+        "Contents/Config-0": {
+          "bytes": 25742,
+          "identical": true,
+          "map_base": 4,
+          "map_count": 110,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "8c4df100085eeb46aeff0b6481a6f2f04e97354c55e928dcf423e761a1dc4134",
+          "tail": 0,
+          "used_schema_count": 150
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2481,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 78,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "b16c9b2d8f4f4078e21ec7f335b2bbaee19e63a212ab269c4a302be3b77d93ae",
+          "tail": 0,
+          "used_schema_count": 10
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15776,
+          "identical": true,
+          "map_base": 110,
+          "map_count": 350,
+          "provisional_schemas": [
+            "mo_dynSurfIdArr.Serialize"
+          ],
+          "raw_fields": {
+            "load": [
+              {
+                "field": "data",
+                "object_class": "moDisplayDistanceDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              },
+              {
+                "field": "data",
+                "object_class": "moDisplayRadialDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              }
+            ],
+            "store": [
+              {
+                "field": "data",
+                "object_class": "moDisplayDistanceDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              },
+              {
+                "field": "data",
+                "object_class": "moDisplayRadialDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              }
+            ]
+          },
+          "sha256": "7f5cabb631171caeac05c16b8b038f600c1c51d7ec3b267426a691605dcb6cc6",
+          "tail": 0,
+          "used_schema_count": 157
+        },
+        "Contents/Definition": {
+          "bytes": 3816,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 60,
+          "provisional_schemas": [],
+          "raw_fields": {
+            "load": [
+              {
+                "field": "clsid_d",
+                "object_class": "uiModelDoc_c",
+                "observed_length": 8,
+                "schema": "uiModelDoc_c.Serialize"
+              }
+            ],
+            "store": [
+              {
+                "field": "clsid_d",
+                "object_class": "uiPartDoc_c",
+                "observed_length": 8,
+                "schema": "uiModelDoc_c.Serialize"
+              }
+            ]
+          },
+          "sha256": "0ea90e4b2b5bcd4371a8d54eced5759fbaa5f3a3bb6c885dbd2f0b54e7d9bd26",
+          "tail": 0,
+          "used_schema_count": 25
+        },
+        "Header2": {
+          "bytes": 2481,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 78,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "b16c9b2d8f4f4078e21ec7f335b2bbaee19e63a212ab269c4a302be3b77d93ae",
+          "tail": 0,
+          "used_schema_count": 10
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1517,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 3,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "5ed78f1e6d04a91b4362c259b028f066f69f2a910cdc69d06935952d16d869e7",
+          "tail": 0,
+          "used_schema_count": 3
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0,
+          "used_schema_count": 5
+        }
+      },
+      "strict_production_refusal": "unsupported SOLIDWORKS body class Fillet_c schema 1"
+    },
+    {
+      "archive_version": 19000,
+      "cached_partition": {
+        "active_payload_sha256": "6060827632366a2a540eccc9693ce8f73a25aefaf508a9ef0b0b9c33c8d93336",
+        "active_replay": {
+          "byte_identical": true,
+          "record_bytes": 7508,
+          "record_sha256": "6dfd9f67cc9f664c3d190704fa310b91ebcb21cb6c495aac64c52b1e49a582ae",
+          "typed_nodes": 203
+        },
+        "active_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1412,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34
+        },
+        "body_node": 2,
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "cylinder": {
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "position_m": [
+            0.0,
+            0.02118,
+            0.02333
+          ],
+          "radius_m": 0.0052699999999999995
+        },
+        "cylinder_node": 7,
+        "cylindrical_face_node": 43,
+        "history": {
+          "strict_history_refused": "current kernel framing differs"
+        },
+        "history_payload_sha256": "c5684f163f7beb0aaa9b9d6055ec2cfd0df58a34399e59caf2082992a7cc58c3",
+        "stream_sha256": "4d665152fcc6ca13cbfae14509c6edd58ef75d0377b77481951efd21e29725e2"
+      },
+      "case": "EdgeFilletTransverse",
+      "container_version": 4,
+      "edited": true,
+      "native_reopen": {
+        "adjacent_stock_faces": 2,
+        "body_counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "cylinder_m": [
+          0.0,
+          0.02118,
+          0.02333,
+          -1.0,
+          0.0,
+          0.0,
+          0.0052699999999999995
+        ],
+        "edge_endpoints_m": [
+          [
+            -0.02975,
+            0.02645,
+            0.0286
+          ],
+          [
+            0.01315,
+            0.02645,
+            0.0286
+          ]
+        ],
+        "fillet_name": "ConstantEdgeFillet",
+        "native_radial_dimension_name": "D1@ConstantEdgeFillet@EdgeFilletTransverseEdited.Part",
+        "radius_m": 0.0052699999999999995,
+        "stock_depth_m": 0.0286,
+        "stock_name": "FilletStockBoss",
+        "volume_area_centroid_si": {
+          "area": 0.006878024115255213,
+          "centroid": [
+            -0.0083,
+            0.010502902432202135,
+            0.014213159554725834
+          ],
+          "volume": 3.863830905158028e-05
+        }
+      },
+      "owners": {
+        "body_owner": {
+          "atom_id": 101,
+          "body_kind": 0,
+          "body_stamp": 1412,
+          "config_mark": 3,
+          "creator_id": 32,
+          "fillet_mark": 29,
+          "last_modifier_id": 34,
+          "owner": {
+            "class": "moAtom_c",
+            "interval": [
+              3100,
+              3200
+            ],
+            "schema": 1,
+            "slot": 58,
+            "stream": "Contents/Config-0"
+          },
+          "stock_mark": 25
+        },
+        "display_vectors": {
+          "fillet_radial": {
+            "allocation_words": [
+              16,
+              1
+            ],
+            "value_si": 0.0052699999999999995
+          },
+          "stock_distance": {
+            "allocation_words": [
+              16,
+              1
+            ],
+            "value_si": 0.0286
+          }
+        },
+        "edge_owners": {
+          "edge_f820": [
+            {
+              "configuration": "Default",
+              "creation_word": 1795241663,
+              "f38": null,
+              "f3c": null,
+              "feature_id": 34,
+              "feature_reference_slot": 279,
+              "owner": {
+                "class": "moSurfaceIdRep_c",
+                "interval": [
+                  12521,
+                  12557
+                ],
+                "schema": 1,
+                "slot": 278,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            {
+              "configuration": "Default",
+              "creation_word": 1795241663,
+              "f38": 1,
+              "f3c": null,
+              "feature_id": 34,
+              "feature_reference_slot": 282,
+              "owner": {
+                "class": "moFilletSurfIdRep_c",
+                "interval": [
+                  12557,
+                  12600
+                ],
+                "schema": 1,
+                "slot": 281,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            }
+          ],
+          "edge_f820_ff0_ref_slot": 284,
+          "f848_selected_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                12602,
+                12757
+              ],
+              "schema": 1,
+              "slot": 284,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              1434,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 286,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    12657,
+                    12681
+                  ],
+                  "schema": 1,
+                  "slot": 285,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 3,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 288,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12681,
+                    12701
+                  ],
+                  "schema": 1,
+                  "slot": 287,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 290,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12701,
+                    12721
+                  ],
+                  "schema": 1,
+                  "slot": 289,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 4,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 292,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    12721,
+                    12741
+                  ],
+                  "schema": 1,
+                  "slot": 291,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                12767,
+                12935
+              ],
+              "schema": 1,
+              "slot": 295,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              0
+            ]
+          },
+          "f868_radial_edge_alias_slot": 284,
+          "f868_radial_edge_wrapper": {
+            "class": "moCompEdge_c",
+            "interval": [
+              14801,
+              14953
+            ],
+            "schema": 1,
+            "slot": 311,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "f868_radial_wrapper_words_f18_f1c": [
+            0,
+            0
+          ],
+          "f9b8_detached_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                15384,
+                15524
+              ],
+              "schema": 1,
+              "slot": 330,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              0,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 332,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15424,
+                    15448
+                  ],
+                  "schema": 1,
+                  "slot": 331,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 3,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 334,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15448,
+                    15468
+                  ],
+                  "schema": 1,
+                  "slot": 333,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 336,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15468,
+                    15488
+                  ],
+                  "schema": 1,
+                  "slot": 335,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 4,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 338,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15488,
+                    15508
+                  ],
+                  "schema": 1,
+                  "slot": 337,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                15296,
+                15586
+              ],
+              "schema": 1,
+              "slot": 328,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "f9b8_result_face": {
+            "reference": {
+              "class": "moFaceRef_c",
+              "interval": [
+                15128,
+                15294
+              ],
+              "schema": 1,
+              "slot": 317,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              1742,
+              768
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241663,
+                "f38": 1,
+                "f3c": null,
+                "feature_id": 34,
+                "feature_reference_slot": 319,
+                "owner": {
+                  "class": "moFilletSurfIdRep_c",
+                  "interval": [
+                    15168,
+                    15188
+                  ],
+                  "schema": 1,
+                  "slot": 318,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 321,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15188,
+                    15208
+                  ],
+                  "schema": 1,
+                  "slot": 320,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 3,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 323,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15208,
+                    15228
+                  ],
+                  "schema": 1,
+                  "slot": 322,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 4,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 325,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15228,
+                    15248
+                  ],
+                  "schema": 1,
+                  "slot": 324,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 327,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15248,
+                    15272
+                  ],
+                  "schema": 1,
+                  "slot": 326,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              null
+            ],
+            "wrapper": {
+              "class": "moCompFace_c",
+              "interval": [
+                15024,
+                15296
+              ],
+              "schema": 1,
+              "slot": 315,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "face_f828_rows": 0,
+          "fbf0_detached_edge": {
+            "reference": {
+              "class": "moEdgeRef_c",
+              "interval": [
+                15720,
+                15860
+              ],
+              "schema": 1,
+              "slot": 341,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "reference_words_f70_fe8": [
+              0,
+              512
+            ],
+            "surfaces": [
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 1,
+                "f3c": 0,
+                "feature_id": 32,
+                "feature_reference_slot": 343,
+                "owner": {
+                  "class": "moEndFaceSurfIdRep_c",
+                  "interval": [
+                    15760,
+                    15784
+                  ],
+                  "schema": 1,
+                  "slot": 342,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 3,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 345,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15784,
+                    15804
+                  ],
+                  "schema": 1,
+                  "slot": 344,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 2,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 347,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15804,
+                    15824
+                  ],
+                  "schema": 1,
+                  "slot": 346,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              },
+              {
+                "configuration": "Default",
+                "creation_word": 1795241655,
+                "f38": 4,
+                "f3c": null,
+                "feature_id": 32,
+                "feature_reference_slot": 349,
+                "owner": {
+                  "class": "moFromSktEntSurfIdRep_c",
+                  "interval": [
+                    15824,
+                    15844
+                  ],
+                  "schema": 1,
+                  "slot": 348,
+                  "stream": "Contents/Config-0-ResolvedFeatures"
+                }
+              }
+            ],
+            "wrapper": {
+              "class": "moCompEdge_c",
+              "interval": [
+                15632,
+                15922
+              ],
+              "schema": 1,
+              "slot": 339,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "wrapper_words_f18_f1c": [
+              101,
+              101
+            ]
+          },
+          "fbf0_row_fields": {
+            "f00": 0,
+            "f04": 1,
+            "f08": 0.0052699999999999995
+          }
+        },
+        "fillet": {
+          "class": "Fillet_c",
+          "f60_rows": 0,
+          "interval": [
+            12188,
+            15964
+          ],
+          "name": "ConstantEdgeFillet",
+          "native_id": 34,
+          "schema": 1,
+          "slot": 274,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "radial_driver": {
+          "dimension_native_id": 33,
+          "name": "D1",
+          "owners": [
+            {
+              "class": "edgeRadiusObject_c",
+              "interval": [
+                12963,
+                14957
+              ],
+              "schema": 1,
+              "slot": 302,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moDisplayRadialDim_c",
+              "interval": [
+                12987,
+                14801
+              ],
+              "schema": 1,
+              "slot": 304,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "interval": [
+                13569,
+                13955
+              ],
+              "schema": 1,
+              "slot": 305,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ThreeDRadiusDim_c",
+              "interval": [
+                13678,
+                13955
+              ],
+              "schema": 1,
+              "slot": 307,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "interval": [
+                13705,
+                13748
+              ],
+              "schema": 1,
+              "slot": 308,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radius_m": 0.0052699999999999995
+        },
+        "stock": {
+          "class": "moExtrusion_c",
+          "interval": [
+            8747,
+            12188
+          ],
+          "name": "FilletStockBoss",
+          "native_id": 32,
+          "schema": 1,
+          "slot": 216,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "stock_sketch": {
+          "class": "moProfileFeature_c",
+          "interval": [
+            5957,
+            8747
+          ],
+          "name": "FilletStockSketch",
+          "native_id": 26,
+          "schema": 1,
+          "slot": 186,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        }
+      },
+      "phase_receipt_sha256": "352a4fd6fb734803fd119fa5691c500affac35e2182dbbd8f4c245ad0d738fb7",
+      "runtime_external_access_attempts": 0,
+      "source_bytes": 70768,
+      "source_sha256": "7a89a9710463afb80cb35c4e9bb5960b37167d78883f221d6e26bd86815b0fd3",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2444,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 20,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "d62a40e76282f75ea7c5d35a8ed0254a9032fdf225378744ddd3010d70e758ef",
+          "tail": 0,
+          "used_schema_count": 31
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "935eed2c0ed47868d4e45a0ec662b7e6a36015deac470e435334a70c738e431f",
+          "tail": 0,
+          "used_schema_count": 3
+        },
+        "Contents/Config-0": {
+          "bytes": 25772,
+          "identical": true,
+          "map_base": 4,
+          "map_count": 110,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "04f4c84d1fc9361fd6ec82af3306a5f3c62dd1557ef3967b72135174eacc1210",
+          "tail": 0,
+          "used_schema_count": 150
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2705,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 79,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "3c1b5dc884c0d8ee142409325e1d7932d8a4c4ee7f39542599ef5db201cd9d71",
+          "tail": 0,
+          "used_schema_count": 10
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15968,
+          "identical": true,
+          "map_base": 110,
+          "map_count": 350,
+          "provisional_schemas": [
+            "mo_dynSurfIdArr.Serialize"
+          ],
+          "raw_fields": {
+            "load": [
+              {
+                "field": "data",
+                "object_class": "moDisplayDistanceDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              },
+              {
+                "field": "data",
+                "object_class": "moDisplayRadialDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              }
+            ],
+            "store": [
+              {
+                "field": "data",
+                "object_class": "moDisplayDistanceDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              },
+              {
+                "field": "data",
+                "object_class": "moDisplayRadialDim_c",
+                "observed_length": 8,
+                "schema": "dm.FUN_4bd03960"
+              }
+            ]
+          },
+          "sha256": "9a8ac4d026f5d882d0569ae121b8f5ac0122d2e6d72bd7ba41d075dfa8c5cb38",
+          "tail": 0,
+          "used_schema_count": 157
+        },
+        "Contents/Definition": {
+          "bytes": 3816,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 60,
+          "provisional_schemas": [],
+          "raw_fields": {
+            "load": [
+              {
+                "field": "clsid_d",
+                "object_class": "uiModelDoc_c",
+                "observed_length": 8,
+                "schema": "uiModelDoc_c.Serialize"
+              }
+            ],
+            "store": [
+              {
+                "field": "clsid_d",
+                "object_class": "uiPartDoc_c",
+                "observed_length": 8,
+                "schema": "uiModelDoc_c.Serialize"
+              }
+            ]
+          },
+          "sha256": "d62963950222accf3eef841ac442d0036e4655e65dd0ad2bdd514196fcf2d7b1",
+          "tail": 0,
+          "used_schema_count": 25
+        },
+        "Header2": {
+          "bytes": 2705,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 79,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "3c1b5dc884c0d8ee142409325e1d7932d8a4c4ee7f39542599ef5db201cd9d71",
+          "tail": 0,
+          "used_schema_count": 10
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 2359,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 3,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "a629778e861bcf6c55acea72594f69c571f2d0b5899e58579a9d6fa86615a650",
+          "tail": 0,
+          "used_schema_count": 3
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "provisional_schemas": [],
+          "raw_fields": {},
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0,
+          "used_schema_count": 5
+        }
+      },
+      "strict_production_refusal": "unsupported SOLIDWORKS body class Fillet_c schema 1"
+    }
+  ],
+  "schema": "kit.sw2026.edge-fillet-archive-read.v1",
+  "schema_source_sha256": {
+    "re/data/Serialization/SerializeMap2026.json": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+    "re/tooling/sw2026/serial/RoundTrip.py": "c4f307e4a2b4277351ff919d0cc54ea68c76193986b417d654f38df59a5fd5ae",
+    "re/tooling/sw2026/serial/defs/ConfigPart.py": "861747fe96fde0ea8c98d3f17597177587d72e9ddfae3c185fa4d40c1caa87a9",
+    "re/tooling/sw2026/serial/defs/ResolvedCore.py": "dbd41924f02e18da88765be32aaee9449ae145635397159c52903b30fc85761c",
+    "re/tooling/sw2026/serial/defs/ResolvedDims.py": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a",
+    "re/tooling/sw2026/serial/defs/ResolvedFillet.py": "b4d1e51baaa2fd6b0b864baedd191177d98193f717aa2058320bcc673ecbf0bc",
+    "re/tooling/sw2026/serial/defs/ResolvedRefs.py": "b0ff1ee52afc7e4e528d0eab780dc8c2d359fe019fa0de4525bf8940ecdae576"
+  },
+  "source_job_sha256": "e37e868be9a2b394c296b30c08a586f5dd5cced5309c2f23503f2b8ba0532c01",
+  "source_lock_sha256": "1f2652129840582cb663063b08f590dadbaf8dd046f0b96f5a1b99cf5ae47797",
+  "source_phase_receipt_sha256": {
+    "EdgeFilletAxial": {
+      "author": "9bb4317910eddd55583b123960c71ee2f459628e1e31d691d889d43d96056bc4",
+      "edited-reopen": "ad45755371ebe27e2fdf27845eb16e1a86b982d489534779f5f4ecc594371a43",
+      "reopen-edit-save": "721a5c15e0df77b8467c7a86d4d46439aa50f9a93618292faa37e9da1aa972f5"
+    },
+    "EdgeFilletTransverse": {
+      "author": "2b7efb5ac815f535cd89b3ddbd3a5cb2b0595b3a22b833b7ae7c00c6318ca4ee",
+      "edited-reopen": "352a4fd6fb734803fd119fa5691c500affac35e2182dbbd8f4c245ad0d738fb7",
+      "reopen-edit-save": "86ef2da4ed3d2509a81d3a724c9314976cf6c840930a490ce50f430564f641c5"
+    }
+  },
+  "source_revision": "8797d0782d9d5635e004710d462518e88c23b15e",
+  "strict_production_reads_admitted": 0,
+  "writer_outputs": 0
+}
