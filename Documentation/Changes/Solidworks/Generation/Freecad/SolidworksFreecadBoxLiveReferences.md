@@ -1,0 +1,5 @@
+# Measure live references on generated FreeCAD origin boxes
+
+The disclosed F14a oracle protocol takes the two existing model-only parts generated from FreeCAD 1.0.2 and 1.1.4. It resolves real SOLIDWORKS references before and after one Height edit, after the native save to a fresh derivative and on fresh reopen. The host verified both source and prior native evidence chains plus the frozen tooling. The new SOLIDWORKS run is pending. [Research protocol](../../../../../re/solidworks/records/FreecadF14aTopologyLineage2026.md#live-reference-protocol)
+
+For each part, the runner selects the six faces, twelve edges and eight vertices through the registered API. It identifies the actual AdditiveBox through face and body ownership and probes that feature's reference separately. It retains per-role status, resolved geometry and object equality. The two prior native controls bracket the measurement. Reference tokens stay in process memory. This protocol measures downstream native persistence and supplies no FreeCAD reference import or public writer admission. [Applied oracle standard](../../../../Reference/Research/Oracles.md)
