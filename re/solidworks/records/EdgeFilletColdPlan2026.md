@@ -45,10 +45,14 @@ python3.14 -B re/tooling/sw2026/edge_fillet_source/StageFilletCold.py \
 Copy just the frozen external `Packet` directory to `C:\KitEdgeFilletColdProbe01\Packet`. The oracle owner runs from an idle guest. `Run01` must be unused. Use the SHA-256 printed by the packager.
 
 ```sh
-prlctl exec --current-user 'Windows 11' py -3.12 -B \
+prlctl exec 'Windows 11' --current-user 'C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe' -B \
   'C:\KitEdgeFilletColdProbe01\Packet\Tool\ProbeFilletCold.py' \
   --job 'C:\KitEdgeFilletColdProbe01\Packet\ColdJob.json' \
   --job-sha256 EXACT_COLD_JOB_SHA256
 ```
 
 Add `--verify-packet` for a no-oracle packet check. If interrupted, keep dependent oracle work stopped. Confirm no SOLIDWORKS process is running and rerun the pinned command with `--recover`. That operation checks the exact adjacent backup and file hash before it restores. It moves a known trial occupant aside in the original run folder and refuses any unrecognized bytes. If the locator or backup is unrecognized, preserve both and investigate custody without overwriting either. Verify the original SHA-256 `528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6`, confirm the backup is absent, and only then start any dependent work. An interrupted run is invalid. Do not reuse its output folder. Only sanitized outcomes and digests may leave the research store.
+
+## Native outcome
+
+SOLIDWORKS 2026 SP05.2 opened the partition-omitted axial model with its one correct solid, clean open status and matching physical measurements before explicit rebuild. The explicit rebuild and live radius edit both passed. The intact arm and both controls passed in the same four-process bracket. All inputs were immutable and the task-owned original was restored to its exact hash before the trailing control. This establishes the disclosed cold partition omission rule. The remaining archived selector and presentation still came from the original, so the experiment awards zero generated or held-out credit. [Sanitized native outcome](../measurements/2026/EdgeFilletColdDiagnosticResult01.json)
