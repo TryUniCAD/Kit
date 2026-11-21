@@ -22,13 +22,13 @@ Manual audits select the explicit source SHA and verify it before collection; th
 This audit evidence is separate from native merge-queue acceptance.
 See [manual source audits](Documentation/Changes/Ci/Testing/ManualSourceAudit.md).
 
-Jobs have one execution phase. Jobs that complete in less than 45 seconds run
+Pyright, Mypy and Python steering run on both PRs and queue candidates. Other jobs that complete in less than 45 seconds run
 on PRs. Jobs that take 45 seconds or longer run on merge-group candidates.
 Measured duration includes runner setup, checkout, execution, and finalization.
 The [phase allocation](.github/CiPhases.json) records every split workflow job.
 See the [timing record](Documentation/Changes/Ci/SinglePhaseValidation.md).
 
-PR validation includes Ruff, Black, explicit imports, path policies, rationale
+PR validation includes Ruff, Black, Pyright, Mypy, Python steering, explicit imports, path policies, rationale
 comments, skill preservation, workflow pins, Zizmor, actionlint, release artifact
 validation, and metadata labeling. Queue validation includes Pyright, Mypy,
 Python steering, CI process policy, research CLI compatibility, the full suite,

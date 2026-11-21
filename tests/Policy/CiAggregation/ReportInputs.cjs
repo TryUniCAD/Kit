@@ -16,7 +16,7 @@ function BuildReports(CaseMode, Verdict, CheckName) {
   const Statuses = Reviews.Statuses;
 
   if (CaseMode === "check")
-    Checks.find((Check) => Check.name === CheckName).conclusion = "failure";
+    Checks.find((Check) => Check.name === CheckName).conclusion = Verdict;
   if (CaseMode === "status")
     Statuses.push({
       id: 900,

@@ -57,16 +57,21 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
   const Required = IsPull ? Phases.PullRequest : Phases.MergeQueue;
   const Deferred = IsPull ? Phases.MergeQueue : Phases.PullRequest;
   const Workflows = new Map(
-    Object.entries(PreflightNames).map(([File, Name]) => [
-      WorkflowRoot + File,
-      {
-        event: Event,
-        required: Required[File],
-        optional: Deferred[File],
-        skip: Deferred[File],
-        preflight: Name,
-      },
-    ]),
+    Object.entries(PreflightNames).map(([File, Name]) => {
+      const OtherPhaseOnly = Deferred[File].filter(
+        (Job) => !Required[File].includes(Job),
+      );
+      return [
+        WorkflowRoot + File,
+        {
+          event: Event,
+          required: Required[File],
+          optional: OtherPhaseOnly,
+          skip: OtherPhaseOnly,
+          preflight: Name,
+        },
+      ];
+    }),
   );
   if (!IsPull) {
     Workflows.set(QueuePath, {
