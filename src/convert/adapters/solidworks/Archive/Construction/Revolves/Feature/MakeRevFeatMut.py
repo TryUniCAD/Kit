@@ -40,9 +40,15 @@ def MakeRevFeatMut(
     InputValue: PartBuildInput,
     PlanValue: RevolvePlan,
     Allocator: PersistentIds,
+    *,
+    IsThin: bool = False,
 ) -> tuple[ArchiveNode, ArchiveNode, ArchiveNode, DimensionGraph]:
     FeatureValue = MakeRevNodeMut(
-        PlanValue.FeatureName, SystemValue.RootValue, InputValue.TargetValue, Allocator
+        PlanValue.FeatureName,
+        SystemValue.RootValue,
+        InputValue.TargetValue,
+        Allocator,
+        IsThin=IsThin,
     )
     Reference = MakeRevAxisRef(SystemValue, ProfileValue, AxisValue, PlanValue)
     AngleValue = MakeRevAngleMut(FeatureValue, InputValue, PlanValue, Allocator)
@@ -65,7 +71,7 @@ def MakeRevFeatMut(
             "f810": None,
             "f820": 0,
             "f818": ArchiveNode(RuntimeClass("suObList", 1), {"n": 0, "items": []}),
-            "f828": 3,
+            "f828": 5 if IsThin else 3,
             "f870": 1,
             "f830": Reference,
             "f8d8": EndValue,
