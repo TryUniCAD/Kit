@@ -67,7 +67,7 @@ def main():
     flags.add_argument("--seal-method", action="store_true")
     args = flags.parse_args()
     result = prepare(args.source_revision, args.control, args.output, args.guest_packet,
-                     args.guest_capture, args.guest_checkout)
+                     args.guest_capture, args.guest_checkout, seal_method=args.seal_method)
     print(json.dumps(result, sort_keys=True, allow_nan=False))
     return 0
 
