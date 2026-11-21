@@ -1,0 +1,122 @@
+{
+  "baseline_revision": "69fea01776309f9bf2d39c8be10c922672edd8f9",
+  "disclosed_typed_reads": 4,
+  "exact_disclosed_baseline_sha256": "e7573a71c5fb709a26ae512a332f3fe6eecca5fef949b8f98380ac7cbd1337f3",
+  "heldout_cases_read": 0,
+  "native_launches": 0,
+  "native_writer_qualified": false,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "public_fillets_qualified": false,
+  "results": [
+    {
+      "byte_identical": true,
+      "case": "EdgeFilletAxial",
+      "completed_schema_count": 143,
+      "config_sha256": "7e201eed643babd50d752549e1fc484e78d8f59345d1a4860b735f2d81ffff30",
+      "edited": false,
+      "native_owners_match": true,
+      "refusals": {
+        "alternate_archive_context": "unsupported ordinary SOLIDWORKS fillet archive context",
+        "alternate_component_array": "unsupported SOLIDWORKS native field path fillet component arrays",
+        "default_read": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+        "ordinary_store": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+        "single_keeper_surface": "unsupported SOLIDWORKS native field path fillet keeper count"
+      },
+      "resolved_sha256": "1478c1bd5bce6b5a7e1761182954549f461306173db6f3e17aec7cc16283f937",
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6",
+      "typed_driver_values_m": {
+        "moDisplayDistanceDim_c": 0.0228,
+        "moDisplayRadialDim_c": 0.00437
+      },
+      "typed_map": [
+        110,
+        350
+      ]
+    },
+    {
+      "byte_identical": true,
+      "case": "EdgeFilletAxial",
+      "completed_schema_count": 143,
+      "config_sha256": "872ab4e630b9ccd5fe879683ea696639e49fb3bd2f7d46bb3a009efb39f91af8",
+      "edited": true,
+      "native_owners_match": true,
+      "refusals": {
+        "default_read": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+        "ordinary_store": "unsupported SOLIDWORKS body class Fillet_c schema 1"
+      },
+      "resolved_sha256": "aa3169a2b32f74ccb303cdd09630b42b5572659b32e8f0328bb24719a5ddf2ed",
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "f38135c13ee77b70960cfd5388f7472b9f30a254949d274f8edeebfb8c6e900a",
+      "typed_driver_values_m": {
+        "moDisplayDistanceDim_c": 0.0228,
+        "moDisplayRadialDim_c": 0.00611
+      },
+      "typed_map": [
+        110,
+        350
+      ]
+    },
+    {
+      "byte_identical": true,
+      "case": "EdgeFilletTransverse",
+      "completed_schema_count": 143,
+      "config_sha256": "8c4df100085eeb46aeff0b6481a6f2f04e97354c55e928dcf423e761a1dc4134",
+      "edited": false,
+      "native_owners_match": true,
+      "refusals": {
+        "default_read": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+        "ordinary_store": "unsupported SOLIDWORKS body class Fillet_c schema 1"
+      },
+      "resolved_sha256": "7f5cabb631171caeac05c16b8b038f600c1c51d7ec3b267426a691605dcb6cc6",
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "cc36db430e80d74889f640077fde239cc48f41a1655247ea155cd0538871ed9e",
+      "typed_driver_values_m": {
+        "moDisplayDistanceDim_c": 0.0286,
+        "moDisplayRadialDim_c": 0.00283
+      },
+      "typed_map": [
+        110,
+        350
+      ]
+    },
+    {
+      "byte_identical": true,
+      "case": "EdgeFilletTransverse",
+      "completed_schema_count": 143,
+      "config_sha256": "04f4c84d1fc9361fd6ec82af3306a5f3c62dd1557ef3967b72135174eacc1210",
+      "edited": true,
+      "native_owners_match": true,
+      "refusals": {
+        "default_read": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+        "ordinary_store": "unsupported SOLIDWORKS body class Fillet_c schema 1"
+      },
+      "resolved_sha256": "9a8ac4d026f5d882d0569ae121b8f5ac0122d2e6d72bd7ba41d075dfa8c5cb38",
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "7a89a9710463afb80cb35c4e9bb5960b37167d78883f221d6e26bd86815b0fd3",
+      "typed_driver_values_m": {
+        "moDisplayDistanceDim_c": 0.0286,
+        "moDisplayRadialDim_c": 0.0052699999999999995
+      },
+      "typed_map": [
+        110,
+        350
+      ]
+    }
+  ],
+  "schema": "kit.sw2026.edge-fillet-production-read.v1",
+  "source_lock_sha256": "1f2652129840582cb663063b08f590dadbaf8dd046f0b96f5a1b99cf5ae47797",
+  "strict_control": {
+    "byte_identical": true,
+    "config_sha256": "d5148de01dba03ef6ed203bf4d44cfb67044a69bb26367621319ef31d3260793",
+    "resolved_sha256": "bc11aac1af0a62306f3abec9ea05b99de7b5e30f7d1e63eb9dfa4d9d4f76ebb2",
+    "runtime_external_access_attempts": 0,
+    "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+    "typed_map": [
+      109,
+      268
+    ]
+  }
+}

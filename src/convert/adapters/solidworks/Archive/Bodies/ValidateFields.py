@@ -4,6 +4,12 @@ from convert.adapters.solidworks.Archive.Bodies.CheckBaseCtx import CheckBaseCtx
 from convert.adapters.solidworks.Archive.Bodies.CheckExtShape import CheckExtShape
 from convert.adapters.solidworks.Archive.Bodies.CheckConfigMut import CheckConfigMut
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Fillets.CheckFilletKeep import (
+    CheckFilletKeep,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Fillets.CheckFilletRows import (
+    CheckFilletRows,
+)
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Patterns.CheckPatDatum import (
     CheckPatDatum,
 )
@@ -18,6 +24,10 @@ def ValidateFields(
     NodeValue: ArchiveNode,
     ProfileName: str,
 ) -> None:
+    if ProfileName == "OrdinaryEdgeFillet":
+        CheckFilletKeep(ScopeValue.FieldsValue)
+        CheckFilletRows(ScopeValue.FieldsValue)
+        return
     if ProfileName == "OrdinaryLocalBaseBody":
         CheckBaseCtx(ContextValue)
         return

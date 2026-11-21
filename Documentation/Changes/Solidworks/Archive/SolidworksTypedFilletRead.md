@@ -1,0 +1,5 @@
+# Read the explicit ordinary edge-fillet archive profile
+
+Kit's shared ResolvedFeatures reader now has an internal `ReadFillets=True` option for the measured SOLIDWORKS 2026 SP05.2 compressed part archive. It uses the actual Config-0 map and CMgr context. It retains the ordinary single-edge constant-radius fillet's keeper rows, radial dimension chain, component references and saved result maps with their separate object identities.
+
+Four disclosed original and edited files complete the new reader in guarded fresh processes. The pre-existing research store replays each resolved graph byte-for-byte, with Config-0 re-emitted before the map handoff. The actual stock and radius display arrays decode as binary64, and all mapped owners match the separately audited files. A healthy ordinary control retains its prior read and store bytes. Three malformed or alternate-layout cases refuse, along with the ordinary reader and writer entry points on every fillet input. [Typed read receipt](../../../../re/solidworks/measurements/2026/EdgeFilletTypedRead01.json) · [Scope and procedure](../../../../re/solidworks/records/EdgeFilletArchive2026.md#explicit-shared-archive-read)

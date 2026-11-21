@@ -67,6 +67,10 @@ For the measured modern version-19000 one-direction blind boss, the normal reade
 
 The selected axis uses its real sketch-entity path and preserves raw endpoint order, while native reversal controls the effective unit direction. Display caches and KeyWords angle text are presentation rather than driver owners. Ordinary partial Mid Plane projects one total D1 as `symmetric_full`. Ordinary partial Two Directions preserves independent D1 and D2 as `two_sided` with either measured direction. The new end-mode evidence uses a canonical Top datum. Other owner families retain the earlier representation. This supplement adds no writer, native cache or full-tree/held-out qualification. See [the reading guide](../Research/Solidworks/OrdinaryRevolveReading.md) and [exact public-path evidence](../../../re/solidworks/records/SdkOrdinaryRevolveRead2026.md).
 
+## Typed ordinary 2026 edge fillet
+
+The internal ResolvedFeatures reader can explicitly admit the measured single-edge circular fillet after binding its actual Config-0 and CMgr. Four disclosed saves retain their mapped keeper, edge, result-face and driving-radius owners. Public feature projection and native writing require separate evidence. [Explicit edge-fillet reader](../../Changes/Solidworks/Archive/SolidworksTypedFilletRead.md)
+
 ## Trace calibration
 
 The historical trace study recorded these archive fields:

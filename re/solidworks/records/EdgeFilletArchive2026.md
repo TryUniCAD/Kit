@@ -36,3 +36,16 @@ python3.14 -B re/tooling/sw2026/edge_fillet_source/AuditFilletArchive.py \
   --capture /absolute/path/to/disclosed/EdgeFilletSource03/Capture \
   --report /absolute/new/EdgeFilletArchiveRead01.json
 ```
+
+## Explicit shared archive read
+
+The shared version-19000 ResolvedFeatures reader now has an internal `ReadFillets=True` option. Its context requires an ordinary compressed part with `cmgr_f658=1`. The option adds only the seven concrete schema-one descriptors observed in the disclosed files. It reuses the existing body-feature, current component-reference, boundary entity, surface-ID, point and dimension rules. The fillet-specific layout reads the real keeper counts and result maps. The bounded path rejects the unqualified component alias, composite edge and saved body-row branches and checks the selected and auxiliary record inventory. Field values come from the parsed file.
+
+The [typed production-reader receipt](../measurements/2026/EdgeFilletTypedRead01.json), SHA-256 `39c1df18ead423448ce02262e2555fee39abf4139e6ea8d5f45c9804f8b93f9b`, records four complete production `ReadResolvedMut` reads with no missing or provisional grammar. All four match the independent owner records above. Each consumed 143 schema bodies and inherited map counter 110, ending at 350. The ordinary shared Config-0 writer re-emits the exact configuration before the unchanged research store replays the production-read resolved graph byte-for-byte. The shared display codec records two actual typed binary64 values for the stock depth and radius. The separate immutable ordinary control reproduces both streams with its resolved map at 109 to 268. The alternate manager context, one-row keeper and enabled component array refuse. The standard read and resolved store continue to refuse `Fillet_c` schema 1. Public feature projection, kernel delta decoding and generation require separate qualification.
+
+```sh
+python3.14 -B re/tooling/sw2026/edge_fillet_source/AuditTypedFillet.py \
+  --capture /absolute/path/to/disclosed/EdgeFilletSource03/Capture \
+  --control /absolute/path/to/disclosed/EdgeFilletSource03/Packet/Control.SLDPRT \
+  --report /absolute/new/EdgeFilletTypedRead01.json
+```
