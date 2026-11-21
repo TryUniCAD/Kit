@@ -11,3 +11,18 @@ The exact `sldmodu.dll` image in the licensed SOLIDWORKS 2026 SP05.2 build has S
 The [guarded builder](../../tooling/sw2026/materials/BuildAssignedMaterialProbe.py) validates one material, projects the geometry separately and builds the existing dimensioned part graph. It uses the typed material for the explicit experiment assignments before the shared archive emits. It constructs the part-density subtree, active configuration density, and active visual identity independently. The three selected owners have five contrast modes, including the unassigned generated control and the all-owners case. A second geometry and catalog exercise the all-owners case independently. The research process checks deterministic generation, exact typed re-emission of the three linked streams, allocated map continuity and zero access to external files or processes in generation. It never reads saved material property records.
 
 The [packet preparer](../../tooling/sw2026/materials/FreezeAssignedMaterialProbe.py) uses neutral geometry for the measurement predictions and pins generated candidates, the already qualified separate vendor control, and every exact helper. The [native observer](../../tooling/sw2026/materials/RunAssignedMaterialProbe.py) uses one process per case to measure actual editable driving values, feature tree, active material identity, physical selected-body density, mass and geometry at the exact path, both cold and after rebuild. The probe establishes an observable contrast; native edit, save and fresh reopen are required in later qualification. Only the disclosed cohort is used. The earlier salted commitment for independent originals stays closed during discovery. [Private prewriter custody receipt](../measurements/2026/AssignedMaterialPrivateSourceLock01.json)
+
+## Native measurements
+
+Six computed files opened and rebuilt without diagnostic warnings or errors in six distinct SOLIDWORKS processes. The two surrounding controls also passed in fresh processes. The candidates passed 120 numeric checks for native driving lengths, analytic volume, area, centroid and selected-body density consistency. The disk hashes of the generated inputs remained unchanged. [Generated custody receipt](../measurements/2026/AssignedMaterialPhysicalProbeBuild01.json) · [Native measurement receipt](../measurements/2026/AssignedMaterialPhysicalProbeNative01.json)
+
+| Generated contrast | Named assignment observed | Selected-body density in kg/m³ |
+| --- | --- | ---: |
+| No added owner | Blank | 1000 |
+| Part density | Blank | 2700 |
+| Active configuration density | Blank | 1000 |
+| Active visual identity | Requested aluminium | 1000 |
+| All three owners, aluminium | Requested aluminium | 2700 |
+| All three owners, steel | Requested steel | 7858.000032 |
+
+Both all-owner cases preserve the same identity, density, and expected mass before and after a rebuild. In this ordinary single-configuration shape, the part density subtree supplies the observed density and the active visual IdName supplies the identity. The configuration scalar alone leaves the selected-body density unchanged. The comparison establishes cold and rebuilt physical behavior in the pinned build with ten ordinary generated streams. Native persistence, any catalog payload or authored appearance, and held-out qualification remain open. [Independent identity and density](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Parts/MaterialIdentityAndDensityHaveSeparateOwners.md)
