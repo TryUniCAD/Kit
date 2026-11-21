@@ -32,7 +32,9 @@ def PlanNativePart(
         isinstance(FeatureValue.definition, ThinRevolve)
         for FeatureValue in DocumentValue.feature_timeline
     ):
-        raise ValueError("public native thin revolve requires independent native acceptance")
+        raise ValueError(
+            "public native thin revolve requires independent native acceptance"
+        )
     if any(Parameter.expression is not None for Parameter in DocumentValue.parameters):
         return PlanEqPart(DocumentValue)[1]
     if IsStockChain(DocumentValue):

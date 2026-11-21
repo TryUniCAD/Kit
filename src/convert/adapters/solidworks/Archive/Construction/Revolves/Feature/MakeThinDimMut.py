@@ -41,14 +41,20 @@ def MakeThinDimMut(
 ) -> ArchiveNode:
     Parameter = ArchiveNode(RuntimeClass("moLengthParameter_c", 1), {})
     InitNodeMut(Parameter, NameValue)
-    Parameter.FieldsValue.update(owner=FeatureValue, f0c=0, f48=None, f58=LengthValue, f68=0)
+    Parameter.FieldsValue.update(
+        owner=FeatureValue, f0c=0, f48=None, f58=LengthValue, f68=0
+    )
     Dimension = MakeDimValue(FeatureValue, Parameter)
     _ = Allocator.AllocateMut(Dimension, "f50")
     if SpanValue is not None:
         SetWallFrameMut(Dimension, SupportValue, SpanValue)
     HandleValue = MakeHandleMut(FeatureValue, Dimension)
     DisplayValue = MakeExtrudeView(
-        FeatureValue, HandleValue, False, InputValue.DesignIntent, InputValue.SelectedLeader
+        FeatureValue,
+        HandleValue,
+        False,
+        InputValue.DesignIntent,
+        InputValue.SelectedLeader,
     )
     CacheValue = CastValue(dict[str, object], DisplayValue.FieldsValue["f5b0"])
     CacheValue["data"] = PackValues("<d", LengthValue)

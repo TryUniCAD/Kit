@@ -46,12 +46,34 @@ def MakeThinSpecMut(
     WallValue: ThinWallPlan,
 ) -> ArchiveNode:
     First, Second = (
-        MakeThinDimMut(FeatureValue, InputValue, Allocator, SupportValue, NameValue, LengthValue, SpanValue)
+        MakeThinDimMut(
+            FeatureValue,
+            InputValue,
+            Allocator,
+            SupportValue,
+            NameValue,
+            LengthValue,
+            SpanValue,
+        )
         for NameValue, LengthValue, SpanValue in zip(
-            ("D3", "D4"), WallValue.LengthValues, GetWallSpans(PlanValue, WallValue), strict=True
+            ("D3", "D4"),
+            WallValue.LengthValues,
+            GetWallSpans(PlanValue, WallValue),
+            strict=True,
         )
     )
-    return ArchiveNode(RuntimeClass("moThinSpec_c", 1), {
-        "f08": First, "f10": Second, "f2c": 0, "f30": -2.0, "f38": -2.0,
-        "f28": WallValue.ModeValue, "f40": 1, "f48": None, "f50": 0, "f54": 0,
-    })
+    return ArchiveNode(
+        RuntimeClass("moThinSpec_c", 1),
+        {
+            "f08": First,
+            "f10": Second,
+            "f2c": 0,
+            "f30": -2.0,
+            "f38": -2.0,
+            "f28": WallValue.ModeValue,
+            "f40": 1,
+            "f48": None,
+            "f50": 0,
+            "f54": 0,
+        },
+    )

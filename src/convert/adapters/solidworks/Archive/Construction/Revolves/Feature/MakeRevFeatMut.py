@@ -87,6 +87,11 @@ def MakeRevFeatMut(
     )
     if WallsValue is not None:
         FeatureValue.FieldsValue["f8f0"] = MakeThinSpecMut(
-            FeatureValue, InputValue, Allocator, ProfileValue.FrameValue, PlanValue, WallsValue
+            FeatureValue,
+            InputValue,
+            Allocator,
+            ProfileValue.FrameValue,
+            PlanValue,
+            WallsValue,
         )
     return FeatureValue, Reference, EndValue, AngleValue

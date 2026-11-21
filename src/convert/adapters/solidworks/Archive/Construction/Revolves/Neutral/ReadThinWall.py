@@ -20,7 +20,7 @@ def ReadThinWall(
     DriverIds = Definition.GetWallIds()
     ParameterValues = {Value.id: Value for Value in DocumentValue.parameters}
     NamesValue = ("D3", "D4")[: len(DriverIds)]
-    LengthsValue = []
+    LengthsValue: list[float] = []
     for ParameterId, NameValue in zip(DriverIds, NamesValue, strict=True):
         LengthValue = GetRevWall(FeatureValue, ParameterId, ParameterValues) * 0.001
         Parameter = ParameterValues[ParameterId]

@@ -19,7 +19,9 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 def ScaleWallAxis(
     BasisValue: tuple[float, float, float], SenseValue: float
 ) -> tuple[float, float, float]:
-    First, Second, Third = (Value * SenseValue if Value else 0.0 for Value in BasisValue)
+    First, Second, Third = (
+        Value * SenseValue if Value else 0.0 for Value in BasisValue
+    )
     return First, Second, Third
 
 
