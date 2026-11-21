@@ -31,7 +31,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.RevCutL
 )
 
 
-# the actual selected face and both output choosers must corroborate the same consumed stock
+# the actual body selection and regenerated output choosers must corroborate the same consumed stock
 def CheckRevPick(
     LinkValue: NativeLink, TopHeader: ArchiveNode, Lineage: RevCutLineage
 ) -> None:
@@ -49,19 +49,24 @@ def CheckRevPick(
         FeatureId: DatumTime(Header, FeatureId)
         for FeatureId in (FirstId, SecondId, CutId)
     }
+    Selection = Lineage.WrapperValue.FieldsValue.get("ff0")
     if any(
-        Value == 2592000 or DatumTime(TopHeader, FeatureId) != Value
+        (Value == 2592000) != (Selection is None)
+        or DatumTime(TopHeader, FeatureId) != Value
         for FeatureId, Value in Epochs.items()
     ):
         raise ValueError("selected revolve cut requires matching saved creation events")
-    Selection = RequireNative(
-        Lineage.WrapperValue.FieldsValue.get("ff0"), "moFaceRef_c"
+    Faces = (
+        ()
+        if Selection is None
+        else ReadRevFace(
+            LinkValue, RequireNative(Selection, "moFaceRef_c"), Epochs, 5, 0x200
+        )
     )
-    Faces = ReadRevFace(LinkValue, Selection, Epochs, 5, 0x200)
     Index = Lineage.AtomsValue.SelectedIndex
     SelectedId, StockBand = ((FirstId, FirstBand), (SecondId, SecondBand))[Index]
     Marks = {Value.MarkValue for Value in Faces}
-    if (
+    if Selection is not None and (
         len(Marks) != 3
         or not Marks <= StockBand.Marks
         or any(Value.IsEnd or Value.FeatureId != SelectedId for Value in Faces)
