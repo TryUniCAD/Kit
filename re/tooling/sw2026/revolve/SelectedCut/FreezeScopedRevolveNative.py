@@ -42,7 +42,7 @@ def make_candidate(case, workspace, epoch):
     return raw, data
 
 
-def freeze(output, packet, workspace, control, epoch):
+def freeze(output, packet, workspace, control, epoch, reverse):
     require(output.is_absolute() and not output.exists() and not output.is_relative_to(ROOT)
             and packet.is_absolute() and packet.name == output.name
             and workspace.is_absolute() and workspace.parent == PREFIX,
@@ -51,10 +51,13 @@ def freeze(output, packet, workspace, control, epoch):
     require(not git("diff", "--name-only", "HEAD", "--", *watched)
             and not git("ls-files", "--others", "--exclude-standard", "--", *watched),
             "commit the exact construction and capture tools before freezing")
-    source = HERE.with_name("StockCutPrincipalDisclosures01.json").read_bytes()
+    source_name = "StockCutReverseDisclosures02.json" if reverse else "StockCutPrincipalDisclosures01.json"
+    source = HERE.with_name(source_name).read_bytes()
     cases = validate_specs(json.loads(source))
-    require({(case["plane"], case["scope"]) for case in cases} == {("top", "inner"), ("right", "outer")},
-            "disclosed packet must vary actual principal frame and selected stock")
+    require({case["plane"] for case in cases} == {"top", "right"}
+            and {case["scope"] for case in cases} == {"inner", "outer"}
+            and all(case["reverse"] is reverse for case in cases),
+            "disclosed packet must vary actual frame and stock under its declared direction")
     artifacts = {CONTROL: checked(control, CONTROL_SHA), MODEL: source,
                  **{f"Tools/{name}": path_for_tool(name).read_bytes() for name in TOOLS}}
     with ThreadPoolExecutor(max_workers=4) as workers:
@@ -98,5 +101,6 @@ if __name__ == "__main__":
     parser.add_argument("--guest-workspace", type=PureWindowsPath, required=True)
     parser.add_argument("--control", type=Path, required=True)
     parser.add_argument("--epoch", type=int, required=True)
+    parser.add_argument("--reverse", action="store_true")
     args = parser.parse_args()
-    freeze(args.output, args.guest_packet, args.guest_workspace, args.control, args.epoch)
+    freeze(args.output, args.guest_packet, args.guest_workspace, args.control, args.epoch, args.reverse)

@@ -126,9 +126,10 @@ def neutral_projection(document):
             and {value.ParameterId for value in operations} == set(parameters),
             "selected revolve repeats or loses an actual driver or axis owner")
     require(all(value.AxisValue == first.AxisValue and value.AxisStart == first.AxisStart
-                and value.AxisEnd == first.AxisEnd and value.EqualRule is None and not value.IsReverse for value in operations)
+                and value.AxisEnd == first.AxisEnd and value.EqualRule is None for value in operations)
+            and not first.IsReverse and not second.IsReverse
             and first.AngleValue == second.AngleValue == tau and 0 < tool.AngleValue < tau,
-            "selected revolve requires coaxial full stocks and a positive one-sided cut")
+            "selected revolve requires coaxial full stocks and a one-sided cut")
     sections = tuple(map(section, operations))
     inner, outer, tool_section = sections
     require(inner.radial[0] < tool_section.radial[0] < inner.radial[1] < outer.radial[0]

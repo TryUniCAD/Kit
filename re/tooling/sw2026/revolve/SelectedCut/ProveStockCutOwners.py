@@ -45,7 +45,7 @@ INVALID_NEUTRAL = {
     "cross-selection": "selected stock reference differs",
     "cross-driver": "unlinked or unowned angle parameter",
     "cross-axis": "coaxial full stocks",
-    "reverse-cut": "coaxial full stocks",
+    "reverse-stock": "coaxial full stocks",
 }
 INVALID_LINKED = {
     "cross-consumed": "consumed and surviving atom states differ",

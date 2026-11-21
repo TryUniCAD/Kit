@@ -141,7 +141,7 @@ def compare_single_geometry(archive, link, frame_hint):
     picked, tool = sections[index], sections[2]
     overlap = (max(picked.radial[0], tool.radial[0]), min(picked.radial[1], tool.radial[1]))
     plan = SimpleNamespace(operations=(None, None, SimpleNamespace(AxisStart=(anchor, 0), AxisValue=axis_name,
-                           AngleValue=angles[-1])), sections=sections, selected_index=index,
+                           AngleValue=angles[-1], IsReverse=cut.IsReverse)), sections=sections, selected_index=index,
                            reached_wall=("outer", "inner")[index], radial_overlap=overlap)
     predicted = cut_measure(plan)
     observations = {row["name"]: row for row in frame_hint["measured"].values()}

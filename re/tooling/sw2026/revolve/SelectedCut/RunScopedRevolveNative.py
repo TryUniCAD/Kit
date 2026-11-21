@@ -76,7 +76,7 @@ def verify(path, pin):
     require(set(files) == expected and files[CONTROL] == CONTROL_SHA
             and cohort in ("discovery", "heldout")
             and all(case["split"] == cohort and case["family"] == "cut"
-                    and not case["reverse"] and case["scope"] in ("inner", "outer")
+                    and case["scope"] in ("inner", "outer")
                     for case in cases)
             and set(data["construction"]) == {case["name"] for case in cases},
             "packet contains unqualified cases or an unexpected file")

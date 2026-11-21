@@ -26,7 +26,8 @@ def fixture(design, fault=None):
         spec = {
             "name": name, "radial_mm": radial, "axial_mm": axial,
             "axis_x_mm": design["axis"] + (1.0 if fault == "cross-axis" and index == 2 else 0.0),
-            "axis_span_mm": design["span"], "angle_deg": angle, "reverse": fault == "reverse-cut" and index == 2,
+            "axis_span_mm": design["span"], "angle_deg": angle,
+            "reverse": (fault == "reverse-stock" and index == 0) or (index == 2 and design.get("reverse", False)),
             "edit_angle_deg": 245.75, "created_at": design["epoch"], "self_path": f"C:\\KitScope\\{name}.SLDPRT",
         }
         single = authored_neutral(spec, design["plane"], None)

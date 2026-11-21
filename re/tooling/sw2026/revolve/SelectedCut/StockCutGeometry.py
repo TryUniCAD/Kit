@@ -47,8 +47,9 @@ def cut_measure(plan: StockCutPlan):
     axial = high - low
     removed = 0.5 * theta * axial * radial_square
     radial_moment = 2 * (outer ** 3 - inner ** 3) / (3 * theta * radial_square)
+    sweep_sign = 1.0 if operation.IsReverse else -1.0
     tool_centre = world_point(frame, axis + radial_moment * sin(theta), (low + high) / 2,
-                              -radial_moment * (1 - cos(theta)))
+                              sweep_sign * radial_moment * (1 - cos(theta)))
     volume = selected.volume_m3 - removed
     result_centre = tuple((selected.volume_m3 * stock_coord - removed * cut_coord) / volume
                           for stock_coord, cut_coord in zip(selected.centre_m, tool_centre, strict=True))

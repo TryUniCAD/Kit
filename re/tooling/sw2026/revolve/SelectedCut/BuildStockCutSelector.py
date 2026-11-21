@@ -87,16 +87,17 @@ def model(locator):
 
 def case_document(case, locator, epoch):
     require(case["name"] == PureWindowsPath(locator).stem and case["family"] == "cut"
-            and case["plane"] in ("front", "top", "right") and case["reverse"] is False
+            and case["plane"] in ("front", "top", "right") and type(case["reverse"]) is bool
             and case["scope"] in ("inner", "outer") and type(epoch) is int and 0 < epoch < 2**31,
-            "scoped revolve requires a forward principal frame and one explicit stock")
+            "scoped revolve requires a principal frame and one explicit stock")
     stock = tuple(value * 1000 for value in case["stock_axial_m"])
     design = {"name": case["name"], "plane": case["plane"], "axis": case["axis_x_m"] * 1000,
               "span": tuple(value * 1000 for value in case["axis_axial_m"]),
               "radial": tuple(tuple(value * 1000 for value in pair)
                               for pair in (*case["stock_radii_m"], case["radius_m"])),
               "axial": (stock, stock, tuple(value * 1000 for value in case["axial_m"])),
-              "angle": case["angle_deg"], "selected": ("inner", "outer").index(case["scope"]), "epoch": epoch}
+              "angle": case["angle_deg"], "selected": ("inner", "outer").index(case["scope"]),
+              "reverse": case["reverse"], "epoch": epoch}
     return named_document(design)
 
 
@@ -163,7 +164,7 @@ def inspect(raw, streams, context, plan, policy):
     for profile, feature, code, item in zip(profiles, features, (1, 0, 1), plan.operations, strict=True):
         owner = ReadRevCore(link, feature, profile, IndexFeatures(link), code)
         require(owner.EndValue.AgainstValue is None and owner.AngleValue.NameValue == "D1"
-                and owner.AngleValue.RadiansValue == item.AngleValue and not owner.IsReverse,
+                and owner.AngleValue.RadiansValue == item.AngleValue and owner.IsReverse is item.IsReverse,
                 "generated part lost an active angular driver")
     atoms = tuple(ReadStockAtom(node, False) for node in features[:2])
     require(set(atoms) == ReadCutAtoms(link)
