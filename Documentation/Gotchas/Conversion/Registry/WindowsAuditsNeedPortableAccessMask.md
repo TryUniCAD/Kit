@@ -10,3 +10,7 @@ read-versus-write check on the exact Windows interpreter and leaves
 the SDK process separate from the CAD oracle.
 
 [Windows process results](../../../../re/solidworks/measurements/2026/SdkDefaultAssemblyPublication01.json)
+
+Both nested publication routes reproduced the same attribute error on the
+first staged write with a disclosed neutral bundle. The corresponding
+sealed parity attempt stopped before comparing any output. [Preserved verdict](../../../../re/solidworks/measurements/2026/SdkSealedPublicNestedParityWindowsFailure01.json)
