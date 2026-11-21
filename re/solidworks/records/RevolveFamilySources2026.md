@@ -178,3 +178,18 @@ controls pass. The next source capture tests the dedicated
 selections and independent geometry checks.
 [Second cut attempt](../measurements/2026/RevolveCutDiscoveryFailed02.json) ·
 [Dedicated cut entry](https://help.solidworks.com/2025/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IFeatureManager~FeatureRevolveCut2.html)
+
+The dedicated entry creates both separately scoped cut controls.
+Each passes native save, live angle edit and derivative reopen, retaining
+the actual selected stock. The all-body request creates a cut whose native
+definition enumerates both current stocks as explicit scope. Its
+unrestricted-scope assertion fails. The aggregate retains that failure
+with nine distinct processes and both controls healthy.
+[Mixed scoped cut result](../measurements/2026/RevolveCutMixedSource01.json)
+
+The part archive dispatcher now binds the distinct schema-one `moRevCut_c`
+to the exact shared 2026 revolve serializer. The two disclosed targeted
+originals each replay their Config and Resolved streams byte for byte,
+including the one selected-body wrapper, the separate output atom
+and the empty body-feature list. A full neutral cut projection and
+independent writer qualification remain open.

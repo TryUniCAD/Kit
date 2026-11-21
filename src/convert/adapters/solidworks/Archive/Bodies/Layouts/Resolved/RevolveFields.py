@@ -36,6 +36,7 @@ KRevolveFields = MappingProxyType(
             NativeField("Base", "moRevolution_c"),
             NativeField("Node", "f8f0", "moThinSpec_c"),
         ),
+        "moRevCut_c": (NativeField("Base", "moRevolution_c"),),
         "moThinSpec_c": (
             NativeField("Node", "f08", "moDisplayDim_c"),
             NativeField("Node", "f10", "moDisplayDim_c"),
