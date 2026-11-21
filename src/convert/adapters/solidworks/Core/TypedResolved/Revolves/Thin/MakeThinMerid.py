@@ -19,7 +19,8 @@ def MakeThinMerid(
         AxisLow[0] == AxisHigh[0] < BodyLow[0] == BodyHigh[0]
         and AxisLow[1] < BodyLow[1] < BodyHigh[1] < AxisHigh[1]
         and 0.0 < FirstWidth < RadiusValue
-        and 0.0 <= SecondWidth < RadiusValue and FirstWidth != SecondWidth
+        and 0.0 <= SecondWidth < RadiusValue
+        and FirstWidth != SecondWidth
     ):
         raise ValueError("SOLIDWORKS thin wall exceeds the measured axial domain")
     Outward = FirstWidth if ModeValue in ("one_sided", "two_sided") else 0.0

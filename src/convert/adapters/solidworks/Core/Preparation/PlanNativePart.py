@@ -14,7 +14,9 @@ from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartW
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import (
     PlanPublicRevolve,
 )
-from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import PlanThinPart
+from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import (
+    PlanThinPart,
+)
 from convert.adapters.solidworks.Core.Preparation.TwoStock.PlanTwoStocks import (
     PlanTwoStocks,
 )

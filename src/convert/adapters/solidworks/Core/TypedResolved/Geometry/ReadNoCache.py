@@ -57,7 +57,8 @@ def ReadNoCache(
         ):
             return ReadRevGeom(LinkValue, ManagerValue, ModelValue, BodyId)
         if any(
-            Feature.class_name == "moRevolutionThin_c" for Feature in ModelValue.features
+            Feature.class_name == "moRevolutionThin_c"
+            for Feature in ModelValue.features
         ):
             return ReadThinGeom(LinkValue, ManagerValue, ModelValue, BodyId)
         if any(

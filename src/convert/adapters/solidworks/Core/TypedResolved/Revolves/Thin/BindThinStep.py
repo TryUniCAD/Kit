@@ -1,8 +1,12 @@
 from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.BindRevStep import BindRevStep
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ThinRevOwner import ThinRevOwner
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.BindRevStep import (
+    BindRevStep,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ThinRevOwner import (
+    ThinRevOwner,
+)
 from interchange.Enums.EnumFeatures import BooleanOp
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.FeatureStep import FeatureStep
@@ -18,11 +22,17 @@ def BindThinStep(
     SelectValue: Selection,
     ParamIds: tuple[str, ...],
 ) -> FeatureStep:
-    Projected = BindRevStep(StepValue, OwnerValue.SweepValue, LinkValue, SelectValue, ParamIds[:1])
+    Projected = BindRevStep(
+        StepValue, OwnerValue.SweepValue, LinkValue, SelectValue, ParamIds[:1]
+    )
     AnglesValue = Projected.definition
     if not isinstance(AnglesValue, AngularRevolve):
-        raise ValueError("SOLIDWORKS thin revolve is missing its actual angular control")
+        raise ValueError(
+            "SOLIDWORKS thin revolve is missing its actual angular control"
+        )
     return ReplaceValue(
-        Projected, operation=BooleanOp.KCreate, parameter_ids=ParamIds,
+        Projected,
+        operation=BooleanOp.KCreate,
+        parameter_ids=ParamIds,
         definition=ThinRevolve(AnglesValue, OwnerValue.ModeValue, *ParamIds[1:]),
     )

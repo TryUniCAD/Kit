@@ -10,12 +10,15 @@ from interchange.Features.ThinRevolve import KWallModes
 
 
 # the cold initializer may omit optional baked state while still retaining both wall display owners
-def ReadThinSpecs(FeatureValue: ArchiveNode) -> tuple[str, ThinWallOwner, ThinWallOwner]:
+def ReadThinSpecs(
+    FeatureValue: ArchiveNode,
+) -> tuple[str, ThinWallOwner, ThinWallOwner]:
     SpecValue = RequireNative(FeatureValue.FieldsValue.get("f8f0"), "moThinSpec_c")
     FieldsValue = SpecValue.FieldsValue
     ModeValue = FieldsValue.get("f28")
     if (
-        type(ModeValue) is not int or not 0 <= ModeValue < len(KWallModes)
+        type(ModeValue) is not int
+        or not 0 <= ModeValue < len(KWallModes)
         or any(FieldsValue.get(NameValue) != 0 for NameValue in ("f2c", "f50", "f54"))
         or FieldsValue.get("f30") != -2.0
         or FieldsValue.get("f38") != -2.0

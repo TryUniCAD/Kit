@@ -22,10 +22,23 @@ def CheckThinAxis(Reference: AxisReference, FrameValue: RevolveAxis) -> None:
     for NameValue, Expected in (("fc8", StartValue), ("fe0", DirectionValue)):
         Stored = NativeRecord(FieldsValue.get(NameValue))
         if not all(
-            IsClose(RequireScalar(Stored.get(KeyValue)), Value, abs_tol=1e-14, rel_tol=1e-13)
+            IsClose(
+                RequireScalar(Stored.get(KeyValue)), Value, abs_tol=1e-14, rel_tol=1e-13
+            )
             for KeyValue, Value in zip("xyz", Expected, strict=True)
         ):
-            raise ValueError("SOLIDWORKS thin native axis disagrees with its selected line")
-    LengthValue = Hypot(EndPoint.x - StartPoint.x, EndPoint.y - StartPoint.y, EndPoint.z - StartPoint.z)
-    if not IsClose(RequireScalar(FieldsValue.get("fb8")), LengthValue * 0.001, abs_tol=1e-14, rel_tol=1e-13):
-        raise ValueError("SOLIDWORKS thin native axis span disagrees with its selected line")
+            raise ValueError(
+                "SOLIDWORKS thin native axis disagrees with its selected line"
+            )
+    LengthValue = Hypot(
+        EndPoint.x - StartPoint.x, EndPoint.y - StartPoint.y, EndPoint.z - StartPoint.z
+    )
+    if not IsClose(
+        RequireScalar(FieldsValue.get("fb8")),
+        LengthValue * 0.001,
+        abs_tol=1e-14,
+        rel_tol=1e-13,
+    ):
+        raise ValueError(
+            "SOLIDWORKS thin native axis span disagrees with its selected line"
+        )

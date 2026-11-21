@@ -53,7 +53,9 @@ def ReadThinEdge(RowValue: Mapping[str, object]) -> LineSegment:
     ):
         raise ValueError("SOLIDWORKS thin sketch requires its actual open body line")
     return LineSegment(
-        0, Permanent, Creation,
+        0,
+        Permanent,
+        Creation,
         LineIndex(FieldsValue, "fc8_s", "fc8", 65535),
         LineIndex(FieldsValue, "fcc_s", "fcc", 65535),
         FieldsValue,
@@ -82,23 +84,39 @@ def ReadThinLines(
     PointsValue = NativeRows(FieldsValue.get("points"))
     LinesValue = NativeRows(FieldsValue.get("lines"))
     if (
-        len(LinesValue) != 2 or FieldsValue.get("nlines") != 2
-        or len(PointsValue) != 4 or FieldsValue.get("npoints") != 4
+        len(LinesValue) != 2
+        or FieldsValue.get("nlines") != 2
+        or len(PointsValue) != 4
+        or FieldsValue.get("npoints") != 4
         or Reference.IndexValue != 1
     ):
-        raise ValueError("SOLIDWORKS thin sketch requires two actual lines and four points")
+        raise ValueError(
+            "SOLIDWORKS thin sketch requires two actual lines and four points"
+        )
     BodyValue = ReadThinEdge(LinesValue[0])
     AxisValue = ReadAxisLine(LinesValue[1], Reference)
     if (
-        {BodyValue.StartValue, BodyValue.EndValue, AxisValue.StartValue, AxisValue.EndValue}
-        != set(range(4)) or BodyValue.PermanentId == AxisValue.PermanentId
+        {
+            BodyValue.StartValue,
+            BodyValue.EndValue,
+            AxisValue.StartValue,
+            AxisValue.EndValue,
+        }
+        != set(range(4))
+        or BodyValue.PermanentId == AxisValue.PermanentId
         or BodyValue.CreationId == AxisValue.CreationId
     ):
         raise ValueError("SOLIDWORKS thin sketch axis and body incidence overlap")
     BodyPoints, AxisPoints = (
-        {IndexValue: ReadAxisPoint(PointsValue[IndexValue], IndexValue, RowValue.IndexValue)
-         for IndexValue in (RowValue.StartValue, RowValue.EndValue)}
+        {
+            IndexValue: ReadAxisPoint(
+                PointsValue[IndexValue], IndexValue, RowValue.IndexValue
+            )
+            for IndexValue in (RowValue.StartValue, RowValue.EndValue)
+        }
         for RowValue in (BodyValue, AxisValue)
     )
-    LoopValue = LineLoop(BodyPoints, (BodyValue,), (0,), NativeNodeSpan(LinkValue, SketchValue))
+    LoopValue = LineLoop(
+        BodyPoints, (BodyValue,), (0,), NativeNodeSpan(LinkValue, SketchValue)
+    )
     return RevolveProfile(LoopValue, AxisValue, AxisPoints, (), (), None)

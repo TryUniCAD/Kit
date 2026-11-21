@@ -17,9 +17,14 @@ def ReadThinDim(DisplayNode: object, NameValue: str, IsActive: bool) -> ThinWall
     if len(RowsValue) != 1 or DisplayValue.FieldsValue.get("n850") != 1:
         raise ValueError("SOLIDWORKS thin wall display requires one local target")
     HandleValue = RequireNative(RowsValue[0].get("o"), "moFeatureDimHandle_c")
-    if any(HandleValue.FieldsValue.get(FieldName) is not None for FieldName in ("fe8", "f100")):
+    if any(
+        HandleValue.FieldsValue.get(FieldName) is not None
+        for FieldName in ("fe8", "f100")
+    ):
         raise ValueError("SOLIDWORKS thin wall display carries an alternate handle")
-    Dimension = RequireNative(HandleValue.FieldsValue.get("ff0"), "ParallelPlaneDistanceDim_c")
+    Dimension = RequireNative(
+        HandleValue.FieldsValue.get("ff0"), "ParallelPlaneDistanceDim_c"
+    )
     FieldsValue = Dimension.FieldsValue
     Parameter = RequireNative(FieldsValue.get("f28"), "moLengthParameter_c")
     ParamFields = Parameter.FieldsValue
@@ -27,15 +32,25 @@ def ReadThinDim(DisplayNode: object, NameValue: str, IsActive: bool) -> ThinWall
     NumberValue = FieldsValue.get("f50")
     if (
         ReadNativeName(Parameter) != NameValue
-        or type(NumberValue) is not int or NumberValue <= 0
-        or FieldsValue.get("f30") != 0 or FieldsValue.get("f54") != 0
-        or FieldsValue.get("f48") is not None or FieldsValue.get("f60") is not None
-        or ParamFields.get("f68") != 0 or ParamFields.get("f20") != ""
-        or ParamFields.get("f48") is not None or WidthValue < 0.0
+        or type(NumberValue) is not int
+        or NumberValue <= 0
+        or FieldsValue.get("f30") != 0
+        or FieldsValue.get("f54") != 0
+        or FieldsValue.get("f48") is not None
+        or FieldsValue.get("f60") is not None
+        or ParamFields.get("f68") != 0
+        or ParamFields.get("f20") != ""
+        or ParamFields.get("f48") is not None
+        or WidthValue < 0.0
         or (WidthValue > 0.0) is not IsActive
         or FieldsValue.get("has_fe0") != int(IsActive)
         or FieldsValue.get("has_ff0") != int(IsActive)
-        or NativeRecord(DisplayValue.FieldsValue.get("f5b0")).get("data") != PackValues("<d", WidthValue)
+        or NativeRecord(DisplayValue.FieldsValue.get("f5b0")).get("data")
+        != PackValues("<d", WidthValue)
     ):
-        raise ValueError("SOLIDWORKS thin wall has unqualified parameter or display state")
-    return ThinWallOwner(DisplayValue, HandleValue, Dimension, Parameter, NameValue, WidthValue)
+        raise ValueError(
+            "SOLIDWORKS thin wall has unqualified parameter or display state"
+        )
+    return ThinWallOwner(
+        DisplayValue, HandleValue, Dimension, Parameter, NameValue, WidthValue
+    )
