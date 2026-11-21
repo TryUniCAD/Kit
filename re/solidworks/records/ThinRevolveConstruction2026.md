@@ -26,3 +26,12 @@ The [staging tool](../../tooling/sw2026/revolve/ThinArchive/StageThinNative.py) 
 The [Windows runner](../../tooling/sw2026/revolve/ThinArchive/RunThinNative.py) launches each phase with the existing SOLIDWORKS 2026 SP05.2 source observer, using registered angular and length roles. In a successful run, eighteen distinct processes run the opening control, four same-mode source and candidate pairs with separate original and edited fresh opens, and the closing control. It checks the complete recursive feature tree, actual profile and axis, D1 and each active wall before and after its own edit, body and topology identities, and volume, area, centre of mass, and bounds to six significant figures. It verifies each new source measurement against the pinned original native phase before comparing the candidate to that same-mode source. A failed candidate keeps its observed phase and refusal in the result. The candidate checks require a zero-warning cold open with one body.
 
 The oracle owner copies the complete frozen packet to its exact local Windows locator and calls the runner from Python 3.12 with the job SHA-256 returned by staging. The research build and observer scripts in this change do not start CAD from the host. The paired run supplies disclosed candidate evidence only. Public admission and held-out evaluation remain separate.
+
+All four generated cold candidates pass on the pinned SP05.2 build.
+The two bracket controls and all sixteen comparison phases use distinct
+processes. There are 17 paired candidate states and 187 matched numerical
+geometry values. The opening accepts the initialized end-thickness word,
+null inactive radial owner and omitted saved caches. Each active wall
+and angle edits, saves and survives a fresh reopen with one solid.
+[Guarded build](../measurements/2026/SdkThinRevolveBuild01.json) ·
+[Disclosed native receipt](../measurements/2026/SdkThinRevolveDisclosedNative01.json)
