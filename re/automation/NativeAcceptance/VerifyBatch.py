@@ -61,7 +61,7 @@ def VerifyBatch(root, application, samples, output):
 
     availability = ApiStatus(application)
     revision = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"], capture_output=True, text=True, timeout=15, check=True).stdout.strip()
-    report = {"schema": 1, "application": application, "source_revision": revision, "scope": "native_source_reader_verification", "status": "unverified", "portable_complete": False, "conversion_qualified": False, "live_batch_verified": False, "full_semantics_verified": False, "semantic_gaps": ["complete_feature_definitions", "constraint_operands", "reference_bindings"], "cases": [], "controls": {}}
+    report = {"schema": 2, "application": application, "source_revision": revision, "scope": "native_source_reader_verification", "status": "unverified", "portable_complete": False, "conversion_qualified": False, "live_batch_verified": False, "full_semantics_verified": False, "semantic_gaps": ["complete_feature_definitions", "constraint_operands", "reference_bindings"], "cases": [], "controls": {}}
     if availability["status"] != "available":
         report.update(status="api_unavailable", action=availability["action"])
         WriteJson(output, report)
@@ -71,17 +71,26 @@ def VerifyBatch(root, application, samples, output):
     control = ReadControl(root, application)
     sources = {str(path): FileHash(path) for base in (root / "src", root / "re/automation/NativeAcceptance") for path in base.rglob("*.py")}
     report["source_inventory_sha256"] = hashlib.sha256(json.dumps(sources, sort_keys=True).encode()).hexdigest()
+    evidence = Path(tempfile.mkdtemp(prefix=output.stem + ".Evidence-", dir=output.parent))
+
+    def Persist(name, value):
+        path = evidence / (name + ".json")
+        WriteJson(path, value)
+        return {"path": path.relative_to(output.parent).as_posix(), "sha256": FileHash(path)}
+
     process_ids = set()
     build = None
+    before_healthy = False
     try:
         with closing(MeasureFile(application, availability, control, suffix, "control")) as measurement:
             _, before = next(measurement)
-            report["controls"]["before"] = before
-        if not HealthyControl(before):
+            report["controls"]["before"] = Persist("control-before", before)
+        before_healthy = HealthyControl(before)
+        if not before_healthy:
             raise ValueError("starting control failed; native verification batch is invalid")
         process_ids.add(before["pid"])
         build = before["build"]
-        for sample in samples:
+        for case_index, sample in enumerate(samples):
             entry = {"source_sha256": sample["sha256"], "path": sample["path"], "status": "failed", "measurement_status": "failed", "full_semantics_verified": False}
             report["cases"].append(entry)
             WriteJson(output, report)
@@ -92,17 +101,18 @@ def VerifyBatch(root, application, samples, output):
             entry["neutral_sha256"] = hashlib.sha256(document.to_json(indent=None).encode()).hexdigest()
             with closing(MeasureFile(application, availability, payload, suffix, "candidate", sample.get("configuration"))) as measurement:
                 work, result = next(measurement)
-                entry["measurement"] = result
+                entry["measurement"] = Persist(f"case-{case_index}-measurement", result)
                 if not CheckMeasurement(result):
                     entry["reason"] = result.get("error", "native load or rebuild measurement failed")
                     continue
                 if result["pid"] in process_ids or result["build"] != build:
                     raise ValueError("native case did not use a fresh process and the same application build")
                 process_ids.add(result["pid"])
-                entry["checks"] = CompareDocument(document, result["rebuilt"], application)
-                entry.update(AssessChecks(entry["checks"]))
+                checks = CompareDocument(document, result["rebuilt"], application)
+                entry["checks"] = Persist(f"case-{case_index}-checks", checks)
+                verdicts = [{"field": item["field"], "status": item["status"]} for item in checks]
                 entry["edits"] = []
-                for edit in result["edits"]:
+                for edit_index, edit in enumerate(result["edits"]):
                     saved = work / edit["saved"]
                     if saved.parent != work or saved.name != edit["saved"]:
                         raise ValueError("edited output escapes its private verification directory")
@@ -117,12 +127,21 @@ def VerifyBatch(root, application, samples, output):
                     changed = not SameValues(edit["measured"]["bodies"], result["rebuilt"]["bodies"])
                     measured = bool(fresh and restored and changed and SameValues(edit["measured"], reopened.get("rebuilt")))
                     assessment = AssessChecks(checks)
-                    entry["edits"].append({"parameter": edit["parameter"], "saved_sha256": hashlib.sha256(edited).hexdigest(), "reopened": reopened, "checks": checks, "restored": restored, "geometry_changed": changed, **assessment, "measurement_status": "passed" if measured else "failed"})
+                    reopened_reference = Persist(f"case-{case_index}-edit-{edit_index}-reopened", reopened)
+                    checks_reference = Persist(f"case-{case_index}-edit-{edit_index}-checks", checks)
+                    verdicts.extend({"field": item["field"], "status": item["status"]} for item in checks)
+                    entry["edits"].append({"parameter": edit["parameter"], "saved_sha256": hashlib.sha256(edited).hexdigest(), "reopened": reopened_reference, "checks": checks_reference, "restored": restored, "geometry_changed": changed, "status": assessment["status"], "full_semantics_verified": assessment["full_semantics_verified"], "measurement_status": "passed" if measured else "failed"})
                 measured = bool(entry["edits"]) and all(item["measurement_status"] == "passed" for item in entry["edits"])
                 entry["measurement_status"] = "passed" if measured else "failed"
-                entry.update(AssessChecks(entry["checks"] + [check for edit in entry["edits"] for check in edit["checks"]]))
+                entry.update(AssessChecks(verdicts))
+                gaps = entry.pop("semantic_gaps")
+                entry["semantic_gap_count"] = len(gaps)
+                entry["semantic_gaps"] = Persist(f"case-{case_index}-gaps", gaps)
                 if not measured:
                     entry.update(status="failed", full_semantics_verified=False)
+                detail = Persist(f"case-{case_index}-detail", entry)
+                report["cases"][-1] = {key: entry[key] for key in ("path", "source_sha256", "neutral_sha256", "status", "measurement_status", "full_semantics_verified", "semantic_gap_count", "semantic_gaps")}
+                report["cases"][-1]["evidence"] = detail
             del payload
     except (OSError, ValueError, KeyError, TypeError, RuntimeError, subprocess.SubprocessError) as error:
         report["error"] = f"{type(error).__name__}: {error}"[:2048]
@@ -130,8 +149,8 @@ def VerifyBatch(root, application, samples, output):
         try:
             with closing(MeasureFile(application, availability, control, suffix, "control")) as measurement:
                 _, after = next(measurement)
-                report["controls"]["after"] = after
-            healthy = HealthyControl(report["controls"].get("before", {})) and HealthyControl(after) and after["pid"] not in process_ids and after["build"] == build
+                report["controls"]["after"] = Persist("control-after", after)
+            healthy = before_healthy and HealthyControl(after) and after["pid"] not in process_ids and after["build"] == build
         except (OSError, ValueError, KeyError, TypeError, RuntimeError, subprocess.SubprocessError) as error:
             healthy = False
             report["controls"]["after"] = {"status": "failed", "error": str(error)[:2048]}
@@ -142,7 +161,7 @@ def VerifyBatch(root, application, samples, output):
             stable = False
         measured = not report.get("error") and report["cases"] and all(item["measurement_status"] == "passed" for item in report["cases"])
         report["measurement_status"] = "invalid_batch" if not healthy or not stable else "passed" if measured else "failed"
-        report["semantic_gaps"] = sorted({sample["path"] + ":" + gap for sample in report["cases"] for gap in sample.get("semantic_gaps", [])})
+        report["semantic_gaps"] = [{"case_index": index, "count": sample["semantic_gap_count"], "evidence": sample["semantic_gaps"]} for index, sample in enumerate(report["cases"]) if sample.get("semantic_gap_count")]
         complete = bool(measured and all(item["full_semantics_verified"] for item in report["cases"]))
         report["full_semantics_verified"] = bool(complete and healthy and stable)
         report["live_batch_verified"] = report["full_semantics_verified"]

@@ -8,11 +8,23 @@ from tests.CliResearch.NativeVerification.RunComparison import RunComparison
 
 
 # equal measurements need complete semantic coverage without pretending that offline evidence is native acceptance
-def CheckFullCompare(TmpPath: FilePath) -> None:
+@TestMark.parametrize("VariantName", ("original", "reordered", "near_boundary"))
+def CheckFullCompare(TmpPath: FilePath, VariantName: str) -> None:
     DocumentPath = DecodeControl(TmpPath)
     Evidence = DecodeJson(
         FilePath(__file__).with_name("FusionRectangle.json").read_bytes()
     )
+    if VariantName == "reordered":
+        for FieldName in ("vertices_mm", "edges", "faces"):
+            Evidence["bodies"][0]["geometry"][FieldName].reverse()
+        for FaceValue in Evidence["bodies"][0]["geometry"]["faces"]:
+            FaceValue["loops"].reverse()
+            for Boundary in FaceValue["loops"]:
+                Boundary.reverse()
+        for FieldName in ("entities", "constraints"):
+            Evidence["semantics"]["sketches"][0][FieldName].reverse()
+    if VariantName == "near_boundary":
+        Evidence["bodies"][0]["geometry"]["vertices_mm"][0][0] = -1e-8
     Result = RunComparison(TmpPath, DocumentPath, Evidence)
     assert Result.returncode == 0, Result.stderr
     Report = DecodeJson((TmpPath / "Compared.json").read_bytes())

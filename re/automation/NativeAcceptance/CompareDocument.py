@@ -1,4 +1,5 @@
 import math
+from itertools import product
 
 from NativeAcceptance.NeutralBrep import NeutralBrep
 from NativeAcceptance.NeutralSemantics import Expression, NeutralSemantics, ParameterNames, Scalar
@@ -18,17 +19,78 @@ def SameValues(left, right):
     return type(left) is type(right) and left == right
 
 
+def Category(value):
+    if type(value) in (int, float):
+        return "number"
+    if isinstance(value, dict):
+        return tuple((key, Category(value[key])) for key in sorted(value))
+    if isinstance(value, (tuple, list)):
+        return tuple(sorted((Category(item) for item in value), key=repr))
+    return type(value).__name__, value
+
+
+def Anchor(value):
+    if isinstance(value, (tuple, list)):
+        if len(value) == 3 and all(type(item) in (int, float) and math.isfinite(item) for item in value):
+            return tuple(value)
+        positions = [Anchor(item) for item in value]
+    elif isinstance(value, dict):
+        if "start_mm" in value and "end_mm" in value:
+            positions = [Anchor(value["start_mm"]), Anchor(value["end_mm"])]
+        else:
+            for key in ("point_mm", "center_mm", "geometry", "operands", "loops", "boundary", "origin_mm"):
+                if key in value:
+                    return Anchor(value[key])
+            return None
+    else:
+        return None
+    positions = [item for item in positions if item is not None]
+    return tuple(math.fsum(item[axis] for item in positions) / len(positions) for axis in range(3)) if positions else None
+
+
+def Magnitude(value):
+    if type(value) in (int, float):
+        if not math.isfinite(value):
+            raise ValueError("semantic comparison requires finite numbers")
+        return abs(value)
+    if isinstance(value, dict):
+        return max((Magnitude(item) for item in value.values()), default=0)
+    if isinstance(value, (list, tuple)):
+        return max((Magnitude(item) for item in value), default=0)
+    return 0
+
+
 def UnorderedEqual(left, right):
     if not isinstance(left, (list, tuple)) or not isinstance(right, (list, tuple)) or len(left) != len(right):
         return False
-    if len(left) > 4096:
-        raise ValueError("semantic comparison inventory exceeds 4096 entries")
-    remaining = list(right)
-    for item in left:
-        found = next((index for index, other in enumerate(remaining) if SemanticEqual(item, other)), None)
-        if found is None:
+    if len(left) > 16384:
+        raise ValueError("semantic comparison inventory exceeds 16384 entries")
+    left_positions = [Anchor(item) for item in left]
+    right_positions = [Anchor(item) for item in right]
+    tolerance = max(1e-6, max(Magnitude(left), Magnitude(right)) * 1e-9)
+    buckets = {}
+    for index, (item, position) in enumerate(zip(right, right_positions)):
+        cell = None if position is None else tuple(math.floor(value / tolerance) for value in position)
+        buckets.setdefault((Category(item), cell), {})[index] = item
+    for item, position in zip(left, left_positions):
+        category = Category(item)
+        cells = [None] if position is None else product(*(range(math.floor(value / tolerance) - 1, math.floor(value / tolerance) + 2) for value in position))
+        found = False
+        attempts = 0
+        for cell in cells:
+            candidates = buckets.get((category, cell), {})
+            for index, other in candidates.items():
+                attempts += 1
+                if attempts > 256:
+                    raise ValueError("semantic comparison has more than 256 ambiguous spatial matches")
+                if SemanticEqual(item, other):
+                    del candidates[index]
+                    found = True
+                    break
+            if found:
+                break
+        if not found:
             return False
-        remaining.pop(found)
     return True
 
 
@@ -43,12 +105,8 @@ def SemanticEqual(left, right):
             if key == "loops":
                 if len(left[key]) != len(right[key]):
                     return False
-                available = list(right[key])
-                for boundary in left[key]:
-                    match = next((index for index, other in enumerate(available) if UnorderedEqual(boundary, other)), None)
-                    if match is None:
-                        return False
-                    available.pop(match)
+                if not UnorderedEqual([{"boundary": boundary} for boundary in left[key]], [{"boundary": boundary} for boundary in right[key]]):
+                    return False
             elif not UnorderedEqual(left[key], right[key]):
                 return False
         elif key in ("start_mm", "end_mm") and "start_mm" in left and "end_mm" in left and left.get("kind") != "arc":
@@ -59,6 +117,9 @@ def SemanticEqual(left, right):
                 return False
         elif key == "offset_mm" and "normal" in left:
             continue
+        elif key == "boundary":
+            if not UnorderedEqual(left[key], right[key]):
+                return False
         elif key == "geometry" and left.get("kind") == "arc":
             if not SameValues(left[key], right[key]):
                 return False
