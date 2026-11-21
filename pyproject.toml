@@ -183,4 +183,5 @@ override-dependencies = [
     "nltk @ git+https://github.com/nltk/nltk.git@ba6b259aa94a85168c031ad60e4072538c30b513",
     "protobuf>=5.29.6,<6",
     "soupsieve>=4.0.0",
+    "wcmatch==11.2",
 ]
