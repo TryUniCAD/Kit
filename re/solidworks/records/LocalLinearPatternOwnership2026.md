@@ -102,8 +102,17 @@ The exact packet SHA-256 is
 `913426870bc64edb320e6a1508521c81da677a2ef4feef80b715c7859856c1bc`.
 Its disclosed source lock is
 `8239fc92779aadd6a0116ad2df9e7969568394a301e1ed11aa44fc3875ac0426`.
-The separate guest-only lock must complete before writing work.
 [Exact disclosed source lock](../measurements/2026/LocalLinearPatternDisclosedSourceLock01.json)
+
+The separate guest-only packet independently authored two new sources
+using the exact disclosed method. All twelve source and derivative
+phases pass across 14 distinct processes with both controls healthy.
+The source, STEP and Parasolid bytes, model intents and phase detail
+remain in the guest. The sanitized lock records their hashes before
+writer construction. Its SHA-256 is
+`feae81f34fb0505753eebad0ab11588b6a18b5fdf72f6b4c5b9ad899084f1112`.
+No Kit writer ran during source acquisition.
+[Pre-writer held-out lock](../measurements/2026/LocalLinearPatternHeldoutSourceLock01.json)
 
 After that lock, inspect only the disclosed native sources first. Establish actual class reachability, seed/direction/skip identities, complete whole-stream raw replay and aliases; reconcile every input with the static owners above. The immediate generative gaps are actual direction/reference construction, count/display subclasses and allocation/style owners, inherited fresh pattern state, store-computed parameter geometry, map/frame provenance, runtime load/store repairs, nested subclass closure and independent native output acceptance. None is filled from a saved row. No schema promotion, constructor implementation or public writer admission is part of this tranche.
 
