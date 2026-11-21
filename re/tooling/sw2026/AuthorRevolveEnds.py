@@ -161,13 +161,13 @@ def validate_cases(spec):
     return cases
 
 
-def source_case(case, output, oracle, reuse=None):
+def source_case(case, output, oracle, reuse=None, *, author_type=RevolveEndAuthor):
     directory = output / case["name"]
     directory.mkdir()
     path = directory / (case["name"] + ".SLDPRT")
     edited_path = directory / (case["name"] + "-edited.SLDPRT")
     if reuse is None:
-        written, written_receipt = run_phase(case, "author", path, oracle, author_type=RevolveEndAuthor)
+        written, written_receipt = run_phase(case, "author", path, oracle, author_type=author_type)
     else:
         path = Path(reuse["directory"]) / path.name
         receipt = path.with_suffix(".author.json")
@@ -181,21 +181,21 @@ def source_case(case, output, oracle, reuse=None):
     native_hash = written.get("native_sha256")
     if written["passed"]:
         reopened, reopened_receipt = run_phase(case, "reopen", path, oracle, native_hash, inspect_profile=True,
-                                              inspect_before_rebuild=True, save_edited=edited_path, author_type=RevolveEndAuthor,
+                                              inspect_before_rebuild=True, save_edited=edited_path, author_type=author_type,
                                               record_path=directory / (case["name"] + ".reopen.json"))
         phases.append((reopened, reopened_receipt))
         if reopened["passed"] and reopened.get("edit", {}).get("passed"):
             edited = dict(case, angle_deg=case["edit_angle_deg"], second_deg=case["edit_second_deg"])
             phases.append(run_phase(edited, "edited-reopen", edited_path, oracle,
                                     reopened["edited_derivative"]["sha256"], inspect_profile=True,
-                                    inspect_before_rebuild=True, author_type=RevolveEndAuthor))
+                                    inspect_before_rebuild=True, author_type=author_type))
     row = {"name": case["name"], "mode": case["mode"], "native_sha256": native_hash, "native_bytes": written.get("native_bytes"),
            "phase_record_sha256": [sha for _, sha in phases], "reused_authored_phase": reuse is not None,
            "passed": len(phases) == 3 and all(result["passed"] for result, _ in phases)}
     return row, [result for result, _ in phases]
 
 
-def main():
+def main(author_type=RevolveEndAuthor, extra_tools=()):
     job_path = Path(sys.argv[1]).resolve()
     job = json.loads(job_path.read_bytes())
     require(job["schema"] == "kit.sw2026.revolve-end-authoring.v1" and re.fullmatch(r"[0-9a-f]{40}", job["source_revision"]), "invalid source authoring job")
@@ -211,13 +211,14 @@ def main():
             "only declared discovery sources outside the checkout can reuse an authoring receipt")
     require(not publication.exists(), "source publication path already exists")
     output.mkdir(parents=True)
-    RevolveEndAuthor.constants = read_constants()
+    author_type.constants = read_constants()
     tools = {name: Path(__file__).with_name(name) for name in ("AuthorRevolveEnds.py", "AuthorRevolveSources.py", "AuthorCurves.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py")}
+    tools.update({path.name: path for path in extra_tools})
     tool_hashes = {name: digest(path) for name, path in tools.items()}
     oracle = job["oracle_sha256"]
     evidence = {"schema": "kit.sw2026.revolve-end-source-lock.v1", "split": spec["split"], "source_revision": job["source_revision"],
                 "job_sha256": digest(job_path), "spec_sha256": digest(spec_path), "control_sha256": digest(control),
-                "oracle_sha256": oracle, "registered_swconst": RevolveEndAuthor.constants, "tool_sha256": tool_hashes,
+                "oracle_sha256": oracle, "registered_swconst": author_type.constants, "tool_sha256": tool_hashes,
                 "started_at": time.time(), "sources": [], "writer_output_count": 0, "heldout_writer_acceptance": False}
     processes = []
     signs = set()
@@ -234,7 +235,7 @@ def main():
         measure_control("control-before")
         if evidence["control-before"]["passed"]:
             for case in cases:
-                row, phases = source_case(case, output, oracle, reused.get(case["name"]))
+                row, phases = source_case(case, output, oracle, reused.get(case["name"]), author_type=author_type)
                 evidence["sources"].append(row)
                 for phase in phases:
                     if "oracle_identity" in phase:
