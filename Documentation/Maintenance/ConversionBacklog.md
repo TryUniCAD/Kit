@@ -72,6 +72,16 @@ revision must also pass the absent-history, mismatched-mark, wrong-owner,
 and metadata controls.
 [Change entry](../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
 
+### B04-SW2026-PARTITION-MARKS
+
+The PR #121 takeover team owns this archive reader on
+`codex/solidworks-partition-marks`. It reuses the active partition and
+rollback validators delivered in [PR #172](https://github.com/TryUniCAD/Kit/pull/172).
+Exit requires the selected and predecessor IDs, the validation-only API
+result, and the guarded ownership and framing controls on the accepted revision.
+Binding these IDs to individual feature records is a separate delivery.
+[Change entry](../Changes/Solidworks/Archive/SolidworksPartitionMarks.md)
+
 ### B14-COMPANION-PUBLICATION
 
 The PR #121 takeover agent owns this active destination-safety task. The
