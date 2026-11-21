@@ -37,7 +37,7 @@ def BuildBoundAxis() -> CadDocument:
 
 
 # integration checks use the same geometry resolver as the public neutral validator
-def ReadAxisDoc(Document: CadDocument) -> tuple[SpaceVector, SpaceVector]:
+def ReadAxisDoc(Document: CadDocument) -> tuple[SpaceVector, SpaceVector] | None:
     Restored = CadDocument.from_json(Document.to_json())
     assert Restored == Document == CadDocument.from_dict(Document.to_dict())
     return ResolveAxis(
@@ -45,6 +45,7 @@ def ReadAxisDoc(Document: CadDocument) -> tuple[SpaceVector, SpaceVector]:
         {Value.id: Value for Value in Restored.selections},
         {Value.id: Value for Value in Restored.support_planes},
         {Value.id: Value for Value in Restored.parameters},
+        Restored.configurations,
     )
 
 

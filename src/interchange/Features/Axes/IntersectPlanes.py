@@ -1,9 +1,7 @@
-from math import copysign as CopySign
-from math import fsum as SumExact
+from fractions import Fraction
 from math import hypot as Hypot
-from math import isfinite as IsFinite
 
-from interchange.Features.Axes.AxisVector import CrossAxis, KAxisTriple
+from interchange.Features.Axes.AxisVector import AxisRational, CrossAxis, KAxisTriple
 from interchange.Features.PlaneExtAxis import KAxisTolerance
 from interchange.Features.PlaneExtFrame import GetExtFrame
 from interchange.geometry.Models.Transform import Transform
@@ -25,16 +23,8 @@ def GetPlaneLine(
 ) -> tuple[KAxisTriple, KAxisTriple]:
     FirstOrigin, FirstNormal = GetAxisFrame(FirstFrame)
     SecondOrigin, SecondNormal = GetAxisFrame(SecondFrame)
-    NearbySign = CopySign(
-        1.0,
-        SumExact(First * Second for First, Second in zip(FirstNormal, SecondNormal)),
-    )
-    DeltaNormal = tuple(
-        Second - NearbySign * First for First, Second in zip(FirstNormal, SecondNormal)
-    )
-    CrossValue = CrossAxis(
-        FirstNormal, (DeltaNormal[0], DeltaNormal[1], DeltaNormal[2])
-    )
+    FirstExact, SecondExact = AxisRational(FirstNormal), AxisRational(SecondNormal)
+    CrossValue = CrossAxis(FirstExact, SecondExact)
     CrossLength = Hypot(*CrossValue)
     if CrossLength <= KAxisTolerance:
         raise ValueError("plane axis support planes must define a unique intersection")
@@ -43,18 +33,23 @@ def GetPlaneLine(
         CrossValue[1] / CrossLength,
         CrossValue[2] / CrossLength,
     )
-    FirstTangent = CrossAxis(Direction, FirstNormal)
-    Station = (
-        SumExact(
-            Normal * (Second - First)
-            for Normal, First, Second in zip(SecondNormal, FirstOrigin, SecondOrigin)
+    Separation = sum(
+        (
+            Normal * (Fraction(Second) - Fraction(First))
+            for Normal, First, Second in zip(SecondExact, FirstOrigin, SecondOrigin)
+        ),
+        Fraction(),
+    )
+    ScaleValue = Separation / sum(
+        (Normal * Normal for Normal in CrossValue), Fraction()
+    )
+    try:
+        Anchor = tuple(
+            float(Fraction(Origin) + Tangent * ScaleValue)
+            for Origin, Tangent in zip(FirstOrigin, CrossAxis(CrossValue, FirstExact))
         )
-        / CrossLength
-    )
-    Anchor = tuple(
-        SumExact((Origin, Tangent * Station))
-        for Origin, Tangent in zip(FirstOrigin, FirstTangent)
-    )
-    if not all(IsFinite(PointValue) for PointValue in Anchor):
-        raise ValueError("plane axis intersection requires a finite model origin")
+    except OverflowError as ErrorInfo:
+        raise ValueError(
+            "plane axis intersection requires a finite model origin"
+        ) from ErrorInfo
     return (Anchor[0], Anchor[1], Anchor[2]), Direction

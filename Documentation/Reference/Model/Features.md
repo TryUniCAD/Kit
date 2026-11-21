@@ -47,8 +47,17 @@ projection of the first support origin onto the intersection. Positive stations
 follow the cross product of the first and second normals. The two stations
 may run in either order and define the finite segment direction.
 [`ResolveAxis`](../../../src/interchange/Features/Axes/ResolveAxis.py) evaluates these
-endpoints from the selected frames and current parameters, including after
-support and length edits.
+endpoints from the selected frames and current parameters. Pass the document's
+`configurations` to apply its active variant, as document validation does.
+An override replaces the value of the linked length parameter while retaining
+its ownership. The closest override in the active configuration's parent chain
+controls each station. With no active configuration, the base values apply.
+Base suppression, or suppression by either record in the active chain, keeps
+the bound definition and resolves to no segment.
+
+The signed stations establish the direction of a bound segment. Both generated
+endpoints must remain finite, distinct, and within the line tolerance at model
+precision. Endpoint snapshots also have an independent angular tolerance.
 
 The measured SOLIDWORKS hinge has zero live extent dimensions. Its finite
 size comes from clipping the line at the first support's display boundary.

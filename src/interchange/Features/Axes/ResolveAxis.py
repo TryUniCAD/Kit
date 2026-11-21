@@ -1,17 +1,20 @@
-from math import fsum as SumExact
 from typing import Mapping as TypeMap
 
 from interchange.Enums.EnumFeatures import FeatureKind
+from interchange.Features.Axes.AxisConfigChain import GetAxisConfigs
+from interchange.Features.Axes.AxisExtentConfig import IsSuppressed
 from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
+from interchange.Features.Axes.IntersectPlanes import GetPlaneLine
+from interchange.Features.Axes.MakeBoundAxis import MakeBoundAxis
+from interchange.Features.Axes.ReadAxisExtents import ReadAxisExtents
+from interchange.Features.Axes.ReadAxisPlanes import ReadAxisPlanes
 from interchange.Features.CheckAxisFit import CheckAxisFit
 from interchange.Features.FeaturePlaneAxis import PlaneAxis
 from interchange.Features.FeatureStep import FeatureStep
-from interchange.Features.Axes.IntersectPlanes import GetPlaneLine
-from interchange.Features.Axes.ReadAxisExtents import ReadAxisExtents
-from interchange.Features.Axes.ReadAxisPlanes import ReadAxisPlanes
 from interchange.geometry.Models.Selection import Selection
 from interchange.geometry.Models.SupportPlane import SupportPlane
 from interchange.geometry.Models.VectorSpace import SpaceVector
+from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordParameter import Parameter
 
 
@@ -21,7 +24,8 @@ def ResolveAxis(
     Selections: TypeMap[str, Selection],
     Frames: TypeMap[str, SupportPlane],
     Parameters: TypeMap[str, Parameter],
-) -> tuple[SpaceVector, SpaceVector]:
+    Configurations: tuple[Configuration, ...] = (),
+) -> tuple[SpaceVector, SpaceVector] | None:
     Definition = StepValue.definition
     if (
         not isinstance(Definition, (PlaneAxis, BoundPlaneAxis))
@@ -32,21 +36,15 @@ def ResolveAxis(
         raise ValueError("requires a reference feature with plane selections")
     PickIds = (Definition.FirstPlaneSelectionId, Definition.SecondPlaneSelectionId)
     FirstPlane, SecondPlane = ReadAxisPlanes(StepValue, PickIds, Selections, Frames)
+    if isinstance(Definition, BoundPlaneAxis):
+        Chain = GetAxisConfigs(Configurations)
+        Stations = ReadAxisExtents(StepValue, Definition, Parameters, Chain)
+        if IsSuppressed(StepValue, Chain):
+            return None
+        Origin, Direction = GetPlaneLine(FirstPlane.transform, SecondPlane.transform)
+        return MakeBoundAxis(Origin, Direction, Stations)
+    if StepValue.parameter_ids:
+        raise ValueError("snapshot extent requires only its two plane selections")
     Origin, Direction = GetPlaneLine(FirstPlane.transform, SecondPlane.transform)
-    if isinstance(Definition, PlaneAxis):
-        if StepValue.parameter_ids:
-            raise ValueError("snapshot extent requires only its two plane selections")
-        StartValue, EndValue = Definition.StartMm, Definition.EndMm
-    else:
-        Stations = ReadAxisExtents(StepValue, Definition, Parameters)
-        StartValue, EndValue = (
-            SpaceVector(
-                *(
-                    SumExact((Coordinate, Offset * Station))
-                    for Coordinate, Offset in zip(Origin, Direction)
-                )
-            )
-            for Station in Stations
-        )
-    CheckAxisFit(StartValue, EndValue, Origin, Direction)
-    return StartValue, EndValue
+    CheckAxisFit(Definition.StartMm, Definition.EndMm, Origin, Direction)
+    return Definition.StartMm, Definition.EndMm

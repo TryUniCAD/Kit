@@ -52,7 +52,13 @@ def GetFeatureErrs(
                 )
         ErrorValues.extend(
             GetDefErrors(
-                FeatureValue, IdentitySets, Selections, Parameters, Frames, Sketches
+                FeatureValue,
+                IdentitySets,
+                Selections,
+                Parameters,
+                Frames,
+                Sketches,
+                DocumentValue.configurations,
             )
         )
     for BodyValue in DocumentValue.bodies:

@@ -21,6 +21,7 @@ from interchange.Features.ScopedExtrude import ScopedExtrude
 from interchange.geometry.Models.Selection import Selection
 from interchange.geometry.Models.Sketch import Sketch
 from interchange.geometry.Models.SupportPlane import SupportPlane
+from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordParameter import Parameter
 
 
@@ -52,12 +53,13 @@ def GetDefErrors(
     Params: TypeMap[str, Parameter],
     Frames: TypeMap[str, SupportPlane],
     Sketches: TypeMap[str, Sketch],
+    Configurations: tuple[Configuration, ...] = (),
 ) -> tuple[str, ...]:
     Definition = StepValue.definition
     if isinstance(Definition, ScopedExtrude):
         return GetScopeErrors(StepValue, Definition, IdentitySets["bodies"])
     if isinstance(Definition, (PlaneAxis, BoundPlaneAxis)):
-        return GetAxisErrors(StepValue, Selections, Frames, Params)
+        return GetAxisErrors(StepValue, Selections, Frames, Params, Configurations)
     if isinstance(Definition, PlaneRevolve):
         return GetPlaneRevErrs(
             StepValue, Definition, Selections, IdentitySets["support_planes"]

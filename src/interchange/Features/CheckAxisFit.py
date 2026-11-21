@@ -13,9 +13,14 @@ def CheckAxisFit(
     EndValue: SpaceVector,
     LineOrigin: KAxisTriple,
     LineDirection: KAxisTriple,
+    *,
+    CompareDirection: bool = True,
 ) -> None:
     StartPoint, EndPoint, Direction = GetAxisLine(StartValue, EndValue)
-    if Hypot(*CrossAxis(Direction, LineDirection)) > KAxisTolerance:
+    if (
+        CompareDirection
+        and Hypot(*CrossAxis(Direction, LineDirection)) > KAxisTolerance
+    ):
         raise ValueError(
             "plane axis direction differs from the support plane intersection"
         )

@@ -4,6 +4,7 @@ from interchange.Features.FeatureStep import FeatureStep
 from interchange.Features.Axes.ResolveAxis import ResolveAxis
 from interchange.geometry.Models.Selection import Selection
 from interchange.geometry.Models.SupportPlane import SupportPlane
+from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordParameter import Parameter
 
 
@@ -13,9 +14,10 @@ def GetAxisErrors(
     Selections: TypeMap[str, Selection],
     Frames: TypeMap[str, SupportPlane],
     Parameters: TypeMap[str, Parameter],
+    Configurations: tuple[Configuration, ...],
 ) -> tuple[str, ...]:
     try:
-        _ = ResolveAxis(StepValue, Selections, Frames, Parameters)
+        _ = ResolveAxis(StepValue, Selections, Frames, Parameters, Configurations)
     except (ValueError, OverflowError) as ErrorInfo:
         return (f"plane axis {StepValue.id}: {ErrorInfo}",)
     return ()
