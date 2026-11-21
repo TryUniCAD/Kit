@@ -64,7 +64,7 @@ def MainProbe() -> None:
                 )
             )
             Caller.start()
-            WaitRequest(WorkPath)
+            WaitRequest(Session)
             Hooks.CloseCall()
             Caller.join(timeout=10)
             assert not Caller.is_alive()
