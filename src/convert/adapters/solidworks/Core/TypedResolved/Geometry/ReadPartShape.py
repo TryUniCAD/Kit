@@ -19,13 +19,22 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadNoCache import (
     ReadNoCache,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.ColdRevolvePart import (
+    ColdRevolvePart,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.TryColdRevolve import (
+    TryColdRevolve,
+)
 
 
 # exact saved and cold stock paths must qualify before ordinary geometry can substitute for cache data
 def ReadPartShape(
     Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions, BodyId: str
 ) -> tuple[
-    NativeModel, StockCacheGeom | None, ColdStockPart | None, PartGeometry | None
+    NativeModel,
+    StockCacheGeom | None,
+    ColdStockPart | ColdRevolvePart | None,
+    PartGeometry | None,
 ]:
     Model, SavedValue = TryStockPart(Archive, Model, Settings)
     if SavedValue is not None or not Settings.include_brep:
@@ -33,4 +42,7 @@ def ReadPartShape(
     Model, ColdValue = TryColdStock(Archive, Model, Settings)
     if ColdValue is not None:
         return Model, None, ColdValue, ColdValue.GeometryValue
+    RevolveValue = TryColdRevolve(Archive, Model, Settings)
+    if RevolveValue is not None:
+        return Model, None, RevolveValue, RevolveValue.GeometryValue
     return Model, None, None, ReadNoCache(Archive, Model, BodyId)

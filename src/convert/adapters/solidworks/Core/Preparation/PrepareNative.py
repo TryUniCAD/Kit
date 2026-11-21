@@ -9,6 +9,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 from convert.adapters.solidworks.Archive.Construction.Revolves.Part.RevolvePart import (
     RevolvePart,
 )
+from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.MakeSelectedRevolvePart import (
+    MakeSelectedRevolvePart,
+)
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
     PrepareCircle,
@@ -28,11 +31,17 @@ from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartW
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import (
     PlanPublicRevolve,
 )
+from convert.adapters.solidworks.Core.Preparation.Revolve.PlanSelectedRevolve import (
+    PlanSelectedRevolve,
+)
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import (
     PlanThinPart,
 )
 from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import (
     PrepareRevolve,
+)
+from convert.adapters.solidworks.Core.Preparation.Revolve.RevPrepInput import (
+    RevPrepInput,
 )
 from convert.adapters.solidworks.Core.Preparation.RunPartPrep import RunPartPrep
 from convert.adapters.solidworks.Core.Preparation.TwoStock.PrepareStockPart import (
@@ -62,6 +71,16 @@ def PrepareNative(
     if IsStockChain(DocumentValue):
         return PrepareStockPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
+    SelectedValue = PlanSelectedRevolve(DocumentValue)
+    if SelectedValue is not None:
+        Recipe = RevPrepInput(
+            DocumentValue,
+            TargetValue,
+            WrittenAt,
+            SettingsValue,
+            PlanValue=SelectedValue.OperationsValue[0],
+        )
+        return MakeSelectedRevolvePart(DocumentValue, Recipe)
     if PlanPublicRevolve(DocumentValue) is not None:
         return PrepareRevolve(DocumentValue, TargetValue, WrittenAt, SettingsValue)
     TopValue = PlanTopCorner(DocumentValue)

@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan impo
 from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePlan import (
     RevolvePlan,
 )
+from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.SelectedRevolvePlan import (
+    SelectedRevolvePlan,
+)
 from convert.adapters.solidworks.Core.Preparation.Circle.PlanCircle import PlanCircle
 from convert.adapters.solidworks.Core.Preparation.Equations.PlanEqPart import PlanEqPart
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.PlanTopCorner import (
@@ -13,6 +16,9 @@ from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockCha
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import (
     PlanPublicRevolve,
+)
+from convert.adapters.solidworks.Core.Preparation.Revolve.PlanSelectedRevolve import (
+    PlanSelectedRevolve,
 )
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import (
     PlanThinPart,
@@ -29,7 +35,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 # registry selection must identify the actual native part profile before any destination is staged
 def PlanNativePart(
     DocumentValue: CadDocument,
-) -> KPartPlan | TwoStockPlan | RevolvePlan:
+) -> KPartPlan | TwoStockPlan | RevolvePlan | SelectedRevolvePlan:
     ThinValue = PlanThinPart(DocumentValue)
     if ThinValue is not None:
         return ThinValue
@@ -37,6 +43,9 @@ def PlanNativePart(
         return PlanEqPart(DocumentValue)[1]
     if IsStockChain(DocumentValue):
         return PlanTwoStocks(DocumentValue)
+    SelectedValue = PlanSelectedRevolve(DocumentValue)
+    if SelectedValue is not None:
+        return SelectedValue
     RevolveValue = PlanPublicRevolve(DocumentValue)
     if RevolveValue is not None:
         return RevolveValue

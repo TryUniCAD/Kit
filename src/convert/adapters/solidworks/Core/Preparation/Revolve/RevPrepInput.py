@@ -11,6 +11,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
 from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.ProjectRevolve import (
     ProjectRevolve,
 )
+from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePlan import (
+    RevolvePlan,
+)
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPartPath
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
@@ -23,8 +26,11 @@ def RevPrepInput(
     TargetValue: KTargetType,
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
+    *,
+    PlanValue: RevolvePlan | None = None,
 ) -> PartBuildInput:
-    PlanValue = ProjectRevolve(DocumentValue)
+    if PlanValue is None:
+        PlanValue = ProjectRevolve(DocumentValue)
     SettingsValue = CheckPartOpts(OptionsValue)
     ConfigValue = DocumentValue.configurations[0]
     if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):

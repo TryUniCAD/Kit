@@ -18,7 +18,7 @@ def CheckRevStock(
         or any(
             len({Value.MarkValue for Value in FaceValue}) != 3 for FaceValue in Choices
         )
-        or {Value.MarkValue for Value in (*First, *Second)} != StockBand.Marks
+        or frozenset(Value.MarkValue for Value in (*First, *Second)) != StockBand.Marks
     ):
         raise ValueError(
             "revolve stock chooser does not cover the actual producer meridian"

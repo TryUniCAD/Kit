@@ -3,14 +3,11 @@ from dataclasses import replace as ReplaceValue
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockDesigns import (
     StockDesigns,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.WithCutSelection import (
-    BindCutPick,
-)
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.BindRevDoc import (
-    BindRevDoc,
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.BindSelectedRevolves import (
+    BindSelectedRevolves,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.RevCutCache import (
     RevCutCache,
@@ -20,7 +17,6 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.RevCutL
 )
 from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
-from interchange.Enums.EnumFeatures import BooleanOp
 
 
 # the cut consumes one historical stock while leaving both final physical bodies independently owned
@@ -30,20 +26,16 @@ def ApplySelRevCut(
     Lineage: RevCutLineage,
     CacheValue: RevCutCache,
 ) -> CadDocument:
-    First, Second = Lineage.StockValues
     CutValue = Lineage.CutValue
     StockId = NativeNodeId(Lineage.SelectedValue.NodeValue)
     CutId = NativeNodeId(CutValue.NodeValue)
-    StockKey = f"sldprt:feature:{StockId}"
-    Result = BindRevDoc(
-        DocumentValue, LinkValue, First, BooleanOp.KCreate, CheckFront=True
+    Result = BindSelectedRevolves(
+        DocumentValue,
+        LinkValue,
+        Lineage.StockValues,
+        CutValue,
+        Lineage.AtomsValue.SelectedIndex,
     )
-    Result = BindRevDoc(Result, LinkValue, Second, BooleanOp.KCreate, CheckFront=True)
-    Result = BindRevDoc(
-        Result, LinkValue, CutValue, BooleanOp.KCutOperation, StockKey, CheckFront=True
-    )
-    Steps = {Value.id: Value for Value in Result.feature_timeline}
-    Result = BindCutPick(Result, Steps[StockKey], Steps[f"sldprt:feature:{CutId}"])
     return ReplaceValue(
         Result,
         brep=CacheValue.BrepValue,

@@ -8,7 +8,6 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadCutAtomId import (
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadManagedCutAtoms import (
     ReadCutAtoms,
 )
-from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.CheckColdAtom import (
     CheckColdAtom,
 )
@@ -19,9 +18,9 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
 
 # each initial stock must own the same actual object in the history and manager
 def ReadColdAtoms(
-    LinkValue: NativeLink, StocksValue: tuple[ExtrudeOwner, ExtrudeOwner]
+    LinkValue: NativeLink, StockNodes: tuple[ArchiveNode, ArchiveNode]
 ) -> tuple[tuple[ArchiveNode, ArchiveNode], tuple[int, int]]:
-    FirstNode, SecondNode = (Value.NodeValue for Value in StocksValue)
+    FirstNode, SecondNode = StockNodes
     FirstAtom = ReadStockAtom(FirstNode, False)
     SecondAtom = ReadStockAtom(SecondNode, False)
     AtomsValue = (FirstAtom, SecondAtom)

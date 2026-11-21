@@ -15,9 +15,10 @@ KRevAngleTypes = frozenset(
 
 
 # map inventory must match the actual angle references rather than an inferred count
-def CheckRevAngles(NodesValue: tuple[ArchiveNode, ...], EndValue: RevolveEnd) -> None:
+def CheckRevAngles(NodesValue: tuple[ArchiveNode, ...], *EndsValue: RevolveEnd) -> None:
     OwnedNodes = {
         NodeValue
+        for EndValue in EndsValue
         for AngleValue in (EndValue.AlongValue, EndValue.AgainstValue)
         if AngleValue is not None
         for NodeValue in (

@@ -10,3 +10,8 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePl
 class SelectedRevolvePlan:
     OperationsValue: tuple[RevolvePlan, RevolvePlan, RevolvePlan]
     SelectedIndex: int
+
+    # the final destination basename represents the same document as the stock plans
+    @property
+    def NameValue(self) -> str:
+        return self.OperationsValue[0].NameValue

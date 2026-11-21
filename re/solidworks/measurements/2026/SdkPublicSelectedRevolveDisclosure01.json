@@ -1,0 +1,204 @@
+{
+  "cases": {
+    "KitScopeRightDisclosure": {
+      "cold": {
+        "bodies": {
+          "InnerRevolveStock": {
+            "area_mm2": 20451.768174869554,
+            "centre_mm": [
+              0.0,
+              -11.0,
+              4.7
+            ],
+            "edges": 4,
+            "faces": 4,
+            "native_final_producer": "sldprt:feature:19",
+            "native_vertices": 0,
+            "portable_vertices": 4,
+            "volume_mm3": 83126.54161398593
+          },
+          "OrdinaryRevolveCut": {
+            "area_mm2": 55403.861885955805,
+            "centre_mm": [
+              3.082433737656842,
+              -12.43465977818516,
+              5.694113902332662
+            ],
+            "edges": 16,
+            "faces": 9,
+            "native_final_producer": "sldprt:feature:25",
+            "native_vertices": 8,
+            "portable_vertices": 12,
+            "volume_mm3": 340882.96146735305
+          }
+        },
+        "exact_native_axis_sense": true,
+        "features": 23,
+        "native_mass_and_bounds_checks": 22,
+        "owned_D1s": 3,
+        "selected_producer_id": 22
+      },
+      "fresh_path_and_stream_routes": 4,
+      "named_stream_routes": 2,
+      "passed": true,
+      "runtime_writer_input_reads": 0,
+      "sha256": "b5b89d1fdafb48beac24818e351f69059183ab1923702c1e1d2a5d1d4109fba4",
+      "streams": 10,
+      "strict_reader_refusals": 2,
+      "unexpected_reader_input_reads": 0,
+      "writer_refusals": 2
+    },
+    "KitScopeRightReverse": {
+      "cold": {
+        "bodies": {
+          "OrdinaryRevolveCut": {
+            "area_mm2": 29833.248003642086,
+            "centre_mm": [
+              -0.5026343372629213,
+              5.229646434970974,
+              -8.752783889238497
+            ],
+            "edges": 16,
+            "faces": 9,
+            "native_final_producer": "sldprt:feature:25",
+            "native_vertices": 8,
+            "portable_vertices": 12,
+            "volume_mm3": 190324.7895829545
+          },
+          "OuterRevolveStock": {
+            "area_mm2": 90526.27408299255,
+            "centre_mm": [
+              0.0,
+              5.25,
+              -9.85
+            ],
+            "edges": 4,
+            "faces": 4,
+            "native_final_producer": "sldprt:feature:22",
+            "native_vertices": 0,
+            "portable_vertices": 4,
+            "volume_mm3": 894799.226674173
+          }
+        },
+        "exact_native_axis_sense": true,
+        "features": 23,
+        "native_mass_and_bounds_checks": 22,
+        "owned_D1s": 3,
+        "selected_producer_id": 19
+      },
+      "fresh_path_and_stream_routes": 4,
+      "named_stream_routes": 2,
+      "passed": true,
+      "runtime_writer_input_reads": 0,
+      "sha256": "4d23fcf26a33b846fc98c25e1156969a6f453f8935252b1a18f780d553188a7a",
+      "streams": 10,
+      "strict_reader_refusals": 2,
+      "unexpected_reader_input_reads": 0,
+      "writer_refusals": 2
+    },
+    "KitScopeTopDisclosure": {
+      "cold": {
+        "bodies": {
+          "OrdinaryRevolveCut": {
+            "area_mm2": 28250.956356158407,
+            "centre_mm": [
+              10.11619027870467,
+              0.954666659711964,
+              -6.071281740049727
+            ],
+            "edges": 16,
+            "faces": 9,
+            "native_final_producer": "sldprt:feature:25",
+            "native_vertices": 8,
+            "portable_vertices": 12,
+            "volume_mm3": 139073.48966568467
+          },
+          "OuterRevolveStock": {
+            "area_mm2": 72614.77259507451,
+            "centre_mm": [
+              11.2,
+              0.0,
+              -6.0
+            ],
+            "edges": 4,
+            "faces": 4,
+            "native_final_producer": "sldprt:feature:22",
+            "native_vertices": 0,
+            "portable_vertices": 4,
+            "volume_mm3": 683836.756092198
+          }
+        },
+        "exact_native_axis_sense": true,
+        "features": 23,
+        "native_mass_and_bounds_checks": 22,
+        "owned_D1s": 3,
+        "selected_producer_id": 19
+      },
+      "fresh_path_and_stream_routes": 4,
+      "named_stream_routes": 2,
+      "passed": true,
+      "runtime_writer_input_reads": 0,
+      "sha256": "2fd8a4d877e0a5f7772ca2656d8e4ad60df7e73e2e0ad05fc6b378bbe5197eb3",
+      "streams": 10,
+      "strict_reader_refusals": 2,
+      "unexpected_reader_input_reads": 0,
+      "writer_refusals": 2
+    },
+    "KitScopeTopReverse": {
+      "cold": {
+        "bodies": {
+          "InnerRevolveStock": {
+            "area_mm2": 22986.876366683835,
+            "centre_mm": [
+              -7.4,
+              0.0,
+              -2.375
+            ],
+            "edges": 4,
+            "faces": 4,
+            "native_final_producer": "sldprt:feature:19",
+            "native_vertices": 0,
+            "portable_vertices": 4,
+            "volume_mm3": 113894.27119165032
+          },
+          "OrdinaryRevolveCut": {
+            "area_mm2": 72319.83701582497,
+            "centre_mm": [
+              -8.340310048336125,
+              -2.1294513260783763,
+              -2.1329883983451734
+            ],
+            "edges": 16,
+            "faces": 9,
+            "native_final_producer": "sldprt:feature:25",
+            "native_vertices": 8,
+            "portable_vertices": 12,
+            "volume_mm3": 446038.16692841734
+          }
+        },
+        "exact_native_axis_sense": true,
+        "features": 23,
+        "native_mass_and_bounds_checks": 22,
+        "owned_D1s": 3,
+        "selected_producer_id": 22
+      },
+      "fresh_path_and_stream_routes": 4,
+      "named_stream_routes": 2,
+      "passed": true,
+      "runtime_writer_input_reads": 0,
+      "sha256": "d6faebf0c1b7bce699cf2793e52ea63c513702ee55ae21674e604adffea87448",
+      "streams": 10,
+      "strict_reader_refusals": 2,
+      "unexpected_reader_input_reads": 0,
+      "writer_refusals": 2
+    }
+  },
+  "fresh_processes": 4,
+  "native_result_sha256": {
+    "ScopedRevolveFrontier02": "66300aa22b70a44f0b70e3e45420b426827ed8ea149a8316199bb7ee9f200258",
+    "ScopedRevolveReverse03": "b310fcd0e0b25305aa2e97b2c9451673b174eac5c0376eb7cd55f4916a0ac292"
+  },
+  "new_heldout_credit": 0,
+  "passed": true,
+  "schema": "kit.sw2026.public-selected-revolve-disclosure.v1"
+}

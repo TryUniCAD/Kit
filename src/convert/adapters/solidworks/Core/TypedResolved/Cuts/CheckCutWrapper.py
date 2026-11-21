@@ -15,14 +15,16 @@ def CheckCutWrapper(
     AtomId: int,
     *,
     IsCold: bool = False,
+    UseProducerSentinel: bool = False,
 ) -> None:
     Wrapper = ReadSingleNode(
         CutValue.FieldsValue.get("f548"), "moCompSolidBody_c"
     ).FieldsValue
     Component = RequireNative(Wrapper.get("f58"), "moUnitComponent_c")
     Lineage = NativeRows(Wrapper.get("f110"))
+    Producer = -1 if UseProducerSentinel else NativeNodeId(BossValue)
     if (
-        Wrapper.get("f108") != NativeNodeId(BossValue)
+        Wrapper.get("f108") != Producer
         or Wrapper.get("f18") != AtomId
         or Wrapper.get("f1c") != AtomId
         or Wrapper.get("n110") != 1

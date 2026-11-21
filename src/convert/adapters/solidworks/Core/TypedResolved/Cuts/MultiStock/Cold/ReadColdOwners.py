@@ -39,7 +39,9 @@ def ReadColdOwners(LinkValue: NativeLink) -> ColdStockOwners:
     FirstStock, SecondStock, CutValue = OwnersValue
     StockValues = (FirstStock, SecondStock)
     CheckColdState(OwnersValue)
-    StockAtoms, AtomIds = ReadColdAtoms(LinkValue, StockValues)
+    StockAtoms, AtomIds = ReadColdAtoms(
+        LinkValue, (FirstStock.NodeValue, SecondStock.NodeValue)
+    )
     Selected, WrapperValue = ReadColdSelect(LinkValue, OwnersValue, AtomIds)
     for OwnerValue in StockValues:
         CheckColdDepth(LinkValue, OwnerValue)

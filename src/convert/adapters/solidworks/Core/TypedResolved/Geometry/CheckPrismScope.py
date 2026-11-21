@@ -54,7 +54,7 @@ def CheckPrismScope(
     NodesValue = PrismNodes(LinkValue, ManagerValue, ColdAtom, ProvenNodes=ProvenNodes)
     Features = IndexFeatures(LinkValue)
     CheckPrismRoots(Features, NodesValue)
-    CheckPrismRoot(LinkValue.ConfigValue.RootValue, ColdAtom)
+    CheckPrismRoot(LinkValue.ConfigValue.RootValue, int(ColdAtom is not None))
     CheckPrismMgr(ManagerValue)
     if RelationValue is None:
         CheckPrismRels(LinkValue.ConfigValue.RootValue)

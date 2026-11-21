@@ -150,6 +150,9 @@ from convert.adapters.solidworks.Core.BuildRevolve import BuildRevolve as BuildR
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.BindStockDoc import (
     BindStockDoc,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ColdStockPart import (
+    ColdStockPart,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockDesigns import (
     StockDesigns,
 )
@@ -164,6 +167,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.WithRevolveDoc impo
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.WithSelRevDoc import (
     WithSelRevDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.BindColdRevolveDoc import (
+    BindColdRevolveDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.ColdRevolvePart import (
+    ColdRevolvePart,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.WithThinDoc import (
     WithThinDoc,
@@ -581,13 +590,19 @@ def ReadNativePart(
     )
     if StockValue is None and DerivedValue is None:
         DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    if isinstance(ColdValue, ColdRevolvePart):
+        DocValue = BindColdRevolveDoc(DocValue, ColdValue.OwnersValue)
     return FinishPartDoc(
         BindStockDoc(
             DocValue,
             (
                 StockValue.LineageValue
                 if StockValue is not None
-                else ColdValue.OwnersValue if ColdValue is not None else None
+                else (
+                    ColdValue.OwnersValue
+                    if isinstance(ColdValue, ColdStockPart)
+                    else None
+                )
             ),
         ),
         Archive,
@@ -598,7 +613,8 @@ def ReadNativePart(
         Model.WidthDepth.ConfigValue if Model.WidthDepth is not None else None,
         BindSavedOwners=Settings.include_brep
         and not Settings.extract_raw_brep
-        and not Model.equations,
+        and not Model.equations
+        and not isinstance(ColdValue, ColdRevolvePart),
     )
 
 

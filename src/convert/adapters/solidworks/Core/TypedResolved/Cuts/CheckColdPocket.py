@@ -50,7 +50,7 @@ def CheckColdPocket(
 ) -> None:
     RootValue = LinkValue.ConfigValue.RootValue
     CheckColdRoots(Features)
-    CheckPrismRoot(RootValue, SelectedStock)
+    CheckPrismRoot(RootValue, int(SelectedStock is not None))
     CheckPrismRels(RootValue)
     Through = CutValue.ModeValue == ExtrudeEnd.KThroughAll
     CheckPrismBoss(
