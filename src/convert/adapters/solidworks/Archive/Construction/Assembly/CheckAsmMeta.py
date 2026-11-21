@@ -46,3 +46,7 @@ def CheckAsmMeta(InputValue: AssemblyInput) -> None:
     ):
         if not ReadStyleText(NameValue, "assembly document identity"):
             raise ValueError("assembly document identity names must not be empty")
+    if InputValue.ModelName is not None and not ReadStyleText(
+        InputValue.ModelName, "assembly model name"
+    ):
+        raise ValueError("assembly model name must not be empty")

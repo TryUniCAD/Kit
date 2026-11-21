@@ -101,7 +101,7 @@ def ReadDisplayXml(RootValue: Element) -> DisplayOwner:
         or set(StateValue.attrib) != {"id", "swDisplayStateName", "swShowState"}
         or len(StateValue)
         or not StateValue.attrib["swDisplayStateName"]
-        or len(RefValues) not in (1, 2)
+        or len(RefValues) not in (1, 2, 3)
     ):
         raise ValueError("assembly display state has an unqualified ordinary owner")
     MembersValue = tuple(ReadDispMember(RowValue) for RowValue in RefValues)

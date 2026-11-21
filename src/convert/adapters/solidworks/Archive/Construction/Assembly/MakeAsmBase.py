@@ -34,7 +34,10 @@ def MakeAsmBase(InputValue: AssemblyInput) -> AssemblyState:
         InputValue.DocumentUnits,
         UnitInput("m", "radian", "mks", 4),
     )
-    RootValue = MakeAsmRoot(InputValue.NameValue, RefsValue, Allocator)
+    ModelName = (
+        InputValue.NameValue if InputValue.ModelName is None else InputValue.ModelName
+    )
+    RootValue = MakeAsmRoot(ModelName, RefsValue, Allocator)
     ConfigValue = ConfigSpec(
         InputValue.ConfigName, "", InputValue.HeaderValue.ModifiedAt
     )

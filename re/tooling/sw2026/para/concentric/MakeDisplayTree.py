@@ -44,8 +44,9 @@ def occurrence_ids(state: AssemblyState, references: tuple[ArchiveNode, ...], xm
     owner = RequireNode(state.RootValue, 'moAssembly_c').FieldsValue
     table = RequireRecord(RequireRecord(owner['f68'])['list'])
     actual = tuple(RequireNode(row['o'], 'moReference_c') for row in ReadRows(table['items']))
-    if FieldInt(table, 'n') != 2 or len(actual) != 2 or len(xml_rows) != 2 or len(references) != 2:
-        raise ValueError('display intent requires two actual direct occurrences')
+    count = len(references)
+    if count not in (2, 3) or FieldInt(table, 'n') != count or len(actual) != count or len(xml_rows) != count:
+        raise ValueError('display intent requires two or three actual direct occurrences')
     if any(left is not right for left, right in zip(actual, references, strict=True)):
         raise ValueError('display intent references must belong to the actual generated assembly')
     ordered = []
@@ -66,6 +67,8 @@ def occurrence_ids(state: AssemblyState, references: tuple[ArchiveNode, ...], xm
 def action_rows(intent: DisplayListIntent, ordered: tuple[int, ...]) -> tuple[tuple[str, str], ...]:
     if type(intent.states) is not tuple or not intent.states:
         raise ValueError('display intent requires one or more ordered authored states')
+    if len(ordered) == 3 and len(intent.states) != 1:
+        raise ValueError('three direct occurrences require a single all-visible display state')
     names = set()
     output = []
     expected = set(ordered)

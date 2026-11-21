@@ -39,3 +39,4 @@ class AssemblyInput:
     DefinitionValue: ModelDefInput
     OutputValue: SelfFileInput
     SavePartValues: Mapping[str, bool | int | float]
+    ModelName: str | None = None

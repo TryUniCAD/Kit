@@ -135,7 +135,7 @@ The normal reader now projects the measured ordinary solved concentric profile b
 
 The assembly reader exposes display-state names in `CadDocument.assembly.attributes["display_states"]`. It reads `swDisplayStateName` and accepts `swName` when the display-state attribute is absent. [Display-state names](../../Changes/Solidworks/Reading/Assembly/SolidworksAssemblyDisplayStateNames.md)
 
-For the measured SOLIDWORKS 2026 profile, `assembly.attributes["typed_display_states"]` also exposes the selected configuration, XML list and state IDs, and ordered visibility for one or two direct visible occurrences. Each entry binds its XML occurrence ID to its persistent feature ID. The typed view is optional for source reads. [Typed display-state reading](../../Changes/Solidworks/Research/Mates/SolidworksConcentricDisplayRead.md)
+For the measured SOLIDWORKS 2026 profile, `assembly.attributes["typed_display_states"]` also exposes the selected configuration, XML list and state IDs, and a single all-visible state's ordered visibility for one to three direct occurrences. Each entry binds its XML occurrence ID to its persistent feature ID. The typed view is optional for source reads. [Typed display-state reading](../../Changes/Solidworks/Research/Mates/SolidworksConcentricDisplayRead.md) · [Three-member and identity comparison](../../Changes/Solidworks/Research/Mates/SolidworksPlanarAssemblyIdentity.md)
 
 Two opposite native-authored occurrence states are present in the saved
 instance tree and VisualStates graphs. The cold open returned warning 32
