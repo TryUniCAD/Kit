@@ -1,4 +1,5 @@
 from collections.abc import Mapping
+from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
@@ -22,11 +23,16 @@ def WriteBoundsMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     OutputValue = FrameValue.WriterValue.OutputValue
     OutputValue.extend(EncodeScalar(len(SlotsValue), "i32"))
     for SlotValue in SlotsValue:
-        if not isinstance(SlotValue, Mapping) or set(SlotValue) != {"k", "o"}:
+        if not isinstance(SlotValue, Mapping):
+            raise BodyUnsupported(
+                "SOLIDWORKS bounds cache slot requires a typed record"
+            )
+        FieldsValue = CastValue(Mapping[str, object], SlotValue)
+        if set(FieldsValue) != {"k", "o"}:
             raise BodyUnsupported(
                 "SOLIDWORKS bounds cache slot requires modeled fields"
             )
-        KeyValue, NodeValue = SlotValue["k"], SlotValue["o"]
+        KeyValue, NodeValue = FieldsValue["k"], FieldsValue["o"]
         if type(KeyValue) is not int or (KeyValue <= 0 and NodeValue is not None):
             raise BodyUnsupported(
                 "SOLIDWORKS bounds cache slot has an inconsistent tag"
