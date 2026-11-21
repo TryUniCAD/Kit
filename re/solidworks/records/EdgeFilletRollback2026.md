@@ -40,3 +40,20 @@ python3.14 -B re/tooling/sw2026/edge_fillet_source/AuditFilletHistory.py \
   --control /absolute/path/to/disclosed/EdgeFilletSource03/Packet/Control.SLDPRT \
   --report /absolute/new/EdgeFilletRollbackRead01.json
 ```
+
+## Explicit production transaction
+
+`ReadFilletHist` consumes the selected partition and linked Config-0, CMgr and ResolvedFeatures from one archive. The activation mark and atom must alias the inherited configuration map. The stock and fillet marks must alias the linked ResolvedFeatures map. The stock's actual output atom is the atom modified by the fillet. The active and preceding kernel bodies use the same transmit slot, atom identity and body tag. Their last modifier and implicit name agree with the database feature for each state. The fillet removes the active name row and explicitly restores the actual prior name row. Its preceding copy owns the prior BODY. The stock rollback owns deletion. [Part history reader](../../../src/convert/adapters/solidworks/Core/TypedResolved/Fillets/ReadFilletHist.py)
+
+The delete-only and retained-body paths share the original header, mark framing and reciprocal mark validation. The delete-only caller still requires the selected body in the removal set and a single previous WORLD. The additional transaction reader retains the physically ordered restored and previous rows and the separate removal and staging counts. A qualifier belongs to its actual pointed-to slot throughout a transaction. Previous copies must match the actual live kind at their slot. Restore slots are absent from the current graph and disjoint from the mark namespace. Every resulting graph resolves each pointer and all concrete declared pointer classes. Every node is reachable from its WORLD or the exact global attribute registry traced from the active WORLD. [Shared frame reader](../../../src/convert/adapters/solidworks/Archive/Partition/History/ReadHistFrames.py) · [Undo application](../../../src/convert/adapters/solidworks/Archive/Partition/History/ApplyXmtUndo.py) · [Historical dependencies](../../../src/convert/adapters/solidworks/Core/TypedResolved/Fillets/CheckFilletDeps.py)
+
+The restored stock passes the complete rectangular topology guard. The active body binds seven faces to six planar carriers and the one cylindrical carrier. Its radius equals native archive D1 and the saved keyed radius. The earlier physical proof remains the separate evidence for the positional, face-ID and edge incidence cross-check. Public feature projection, other history profiles and generation have independent qualification gates.
+
+Four independent production workers compare every root mark, restored/removed/copied row, qualifier and reconstructed node with the prior research transaction reader. A fifth worker verifies the exact prior delete-only control. The four source archives also retain the original default read and delete-only rejection. Six contrasting inputs refuse: a wrong removal kind, short copy capacity, contradictory qualifier, unresolved predecessor pointer, copied controller detached from the map, and a physically valid partition from the other fillet paired with the wrong archive and radius. All workers report zero data reads after setup. The [transaction receipt](../measurements/2026/EdgeFilletTxnRead01.json) SHA-256 is `0e6c866f2a0a7e10cd59af873344297a4d89b19ae3736d901e936ee8b054966c`. It binds the earlier physical proof at `872478d2b7026941949d98036465bb615854c5e1`. No runtime writer or vendor application participates.
+
+```sh
+python3.14 -B re/tooling/sw2026/edge_fillet_source/AuditFilletTxn.py \
+  --capture /absolute/path/to/disclosed/EdgeFilletSource03/Capture \
+  --control /absolute/path/to/disclosed/EdgeFilletSource03/Packet/Control.SLDPRT \
+  --report /absolute/new/EdgeFilletTxnRead01.json
+```

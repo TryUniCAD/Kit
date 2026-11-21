@@ -15,7 +15,11 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 
 # public semantic reads must enter through the same proven configuration and resolved alias chain
 def ReadNativeLink(
-    Archive: SldprtArchive, ConfigId: int | None, *, RelationConfig: str | None = None
+    Archive: SldprtArchive,
+    ConfigId: int | None,
+    *,
+    RelationConfig: str | None = None,
+    ReadFillets: bool = False,
 ) -> NativeLink:
     VersionValue = ContainerMo(Archive.streams)
     if (
@@ -23,6 +27,7 @@ def ReadNativeLink(
         or ConfigId != 0
         or Archive.format_version != 4
         or KitResolvedStream in Archive.streams
+        or (ReadFillets and RelationConfig is not None)
     ):
         raise BodyUnsupported(
             "typed model semantics require ordinary version 19000 Config-0"
@@ -46,5 +51,6 @@ def ReadNativeLink(
         VersionValue,
         ConfigValue.MapValue,
         MakeLinkContext(ConfigValue, ManagerValue),
+        ReadFillets=ReadFillets,
     )
     return NativeLink(ConfigValue, ResolvedValue, ConfigName, StreamName)

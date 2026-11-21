@@ -71,6 +71,8 @@ The selected axis uses its real sketch-entity path and preserves raw endpoint or
 
 The internal ResolvedFeatures reader can explicitly admit the measured single-edge circular fillet after binding its actual Config-0 and CMgr. Four disclosed saves retain their mapped keeper, edge, result-face and driving-radius owners. Public feature projection and native writing require separate evidence. [Explicit edge-fillet reader](../../Changes/Solidworks/Archive/SolidworksTypedFilletRead.md)
 
+The explicit [typed transaction reader](../../Changes/Solidworks/Archive/SolidworksFilletTransactions.md) also validates the retained body and restores its actual predecessor graph from the same archive. The four disclosed histories and the ordinary delete-only control pass the offline comparison.
+
 ## Trace calibration
 
 The historical trace study recorded these archive fields:

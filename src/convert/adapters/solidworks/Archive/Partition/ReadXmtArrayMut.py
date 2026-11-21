@@ -1,6 +1,9 @@
+from collections.abc import Callable
+
 from convert.adapters.solidworks.Archive.Partition.ReadXmtValueMut import (
     ReadXmtValueMut,
 )
+
 from convert.adapters.solidworks.Archive.Partition.XmtCursor import XmtCursor
 from convert.adapters.solidworks.Archive.Partition.XmtField import XmtField
 
@@ -11,8 +14,9 @@ def ReadXmtArrayMut(
     FieldValue: XmtField,
     CountValue: int,
     PreviousWorld: bool,
+    ValueReader: Callable[[XmtCursor, XmtField, bool], object] = ReadXmtValueMut,
 ) -> tuple[object, ...]:
     Values: list[object] = []
     while len(Values) < CountValue:
-        Values.append(ReadXmtValueMut(CursorValue, FieldValue, PreviousWorld))
+        Values.append(ValueReader(CursorValue, FieldValue, PreviousWorld))
     return tuple(Values)
