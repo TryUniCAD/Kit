@@ -64,10 +64,13 @@ separate control. [SDK readback receipt](../measurements/2026/SdkColdFirstCreato
 The same workers compare all four actual native-saved edited caches
 against native geometry and the separately measured output atom, partition
 marks and edited depth. The linked archive keeps the stored scope word
-and absent wrapper. The native-saved public definition still projects
-the ordinary join model. Metadata-only SDK reads and public SOLIDWORKS
-writing remain outside this scoped promotion. No new native processes,
-original-source transfers or held-out credit enter this receipt.
+and absent wrapper. The cold comparison's baseline projects the
+native-saved definition as an ordinary join. A later saved read proof
+independently recovers the selected-empty typed create state and preserves
+the original saved geometry. Metadata-only SDK reads and public
+SOLIDWORKS writing stay outside this cold scope. The receipt adds zero
+new native processes, original-source transfers or held-out cases.
+[Later saved projection](FirstCreatorSavedScope2026.md)
 
 ## Replay
 

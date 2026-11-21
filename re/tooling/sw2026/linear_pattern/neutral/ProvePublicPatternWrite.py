@@ -122,25 +122,19 @@ def read_typed(archive, document):
     names = [row["o"].FieldsValue["f358"] for row in NativeRows(catalog["items"])]
     require(names == ["*Top", "*Back"] and link.ResolvedValue.ExtraFields is None,
             "ordinary writer lost its modeled annotations or introduced a stored body")
-    return geometry.BrepValue, topology, link
+    return geometry.BrepValue, topology
 
 
-def strict_geometry(data, link, expected):
+def strict_geometry(source, expected, *, format_id=None):
     from convert import open_document
-    from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
-    from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.CheckPatViews import CheckPatViews
+    from interchange import CadDocument
 
-    try:
-        restored = open_document(BytesIO(data), source_format=FORMAT, strict=True)
-    except SldprtFormat as error:
-        require(str(error) == "SLDPRT contains no readable Parasolid payload",
-                "ordinary strict geometry unexpectedly rejected the packet")
-        checked_refusal(ValueError, "unqualified annotation owner in cache free pattern",
-                        lambda: CheckPatViews(link))
-        return "canonical Top/Back catalog is outside the current strict reader gate"
-    require(restored.brep is not None and restored.bodies[0].topology == expected,
+    restored = open_document(source, source_format=format_id, strict=True)
+    require(not restored.validate() and restored.brep is not None and len(restored.bodies) == 1
+            and restored.bodies[0].topology == expected,
             "strict public read disagrees with the linked geometry")
-    return "linked native geometry recovered through ordinary strict read"
+    require(CadDocument.from_json(restored.to_json()).bodies[0].topology == expected,
+            "strict geometry did not survive portable JSON")
 
 
 def positive(folder, document, target, writer, adapter, audit):
@@ -170,11 +164,11 @@ def positive(folder, document, target, writer, adapter, audit):
                 and len(expected_stream) == 10, "public stream changed the canonical archive")
         check_result(public_stream, stream_bytes, None)
         check_result(direct_stream, stream_bytes, None)
-        body, topology, link = read_typed(archive, document)
+        body, topology = read_typed(archive, document)
         metadata = open_document(BytesIO(stream_bytes), source_format=FORMAT, strict=True, include_brep=False)
         require(metadata.brep is None and metadata.configurations[0].name == config.name,
                 "ordinary metadata reader lost the active configuration")
-        strict_result = strict_geometry(stream_bytes, link, topology)
+        strict_geometry(BytesIO(stream_bytes), topology, format_id=FORMAT)
     with audit.active("path"):
         public_path = write_document(document, path, configuration=config.name, allow_carrier=False, values=POLICY)
     require(path.read_bytes() == file_bytes and SldprtArchive.from_bytes(file_bytes).streams == expected_path
@@ -184,13 +178,14 @@ def positive(folder, document, target, writer, adapter, audit):
         direct_path = adapter.write(document, path, WriteOptions(configuration=config.id, values=POLICY))
     require(path.read_bytes() == file_bytes and tuple(path.parent.iterdir()) == (path,),
             "direct adapter changed the final locator or retained a stage")
+    strict_geometry(path, topology)
     check_result(public_path, file_bytes, path)
     check_result(direct_path, file_bytes, path)
     source = document.feature_timeline[-1].definition
     return {"configuration": config.name, "count": source.instance_count, "pitch_m": source.spacing.value,
             "reversed": source.reversed, "faces": topology.face_count, "logical_streams": len(expected_stream),
             "stream_bytes": len(stream_bytes), "stream_sha256": digest(stream_bytes), "same_locator_file_sha256": digest(file_bytes),
-            "native_transfers": sorted(NATIVE), "ordinary_strict_geometry": strict_result, "publication_routes": 4}, path, body
+            "native_transfers": sorted(NATIVE), "strict_path_and_stream": True, "publication_routes": 4}, path, body
 
 
 def negative(folder, document, target, writer, adapter, audit, path, brep):
@@ -334,7 +329,7 @@ def measure(exact_host, compare_base):
             results[name] = row
     require(len(results) == 2 and len({row["stream_sha256"] for row in results.values()}) == 2,
             "expected two independent portable part controls")
-    return {"schema": "kit.sw2026.public-oblique-pattern-write.v1", "base_revision": BASE,
+    return {"schema": "kit.sw2026.public-oblique-pattern-write.v2", "base_revision": BASE,
             "disclosed_neutral_manifest_sha256": FIXTURE_SHA, "historical_host_defaults_sha256": DEFAULTS_SHA,
             "historical_host_digest_required": exact_host, "guarded_worker_processes": len(results),
             "source_sha256": {str((PRODUCTION / path).relative_to(ROOT)): digest((PRODUCTION / path).read_bytes())

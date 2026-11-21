@@ -31,7 +31,10 @@ def TestPatWrite() -> None:
     assert (Second["count"], Second["faces"], Second["reversed"]) == (4, 26, True)
     for Evidence in Cases.values():
         assert Evidence["publication_routes"] == 4 and Evidence["logical_streams"] == 10
-        assert Evidence["runtime_input_file_reads"] == 0
+        assert (
+            Evidence["runtime_input_file_reads"] == 0
+            and Evidence["strict_path_and_stream"] is True
+        )
         assert Evidence["refusals"] == [
             "overlapping",
             "overhanging",
