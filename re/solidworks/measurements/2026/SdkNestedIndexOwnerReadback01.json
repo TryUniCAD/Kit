@@ -492,8 +492,8 @@
   ],
   "revised_sources_sha256": {
     "src/convert/adapters/solidworks/Assembly/NestedIndex/CheckIndexReference.py": "47428d0d566b96fa8a79b749b17919de2d65847bc0964f22227582a35510e189",
-    "src/convert/adapters/solidworks/Assembly/NestedIndex/IndexModel.py": "5cf82ae8af33fb842b7905d4f7b0564298ff3fe7be1c9fbe8e1d88f70cbf01ef",
-    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadIndexModel.py": "3e78c454bb49f44963f23232460659236564909e7c735c8472e89ac486430deb",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/IndexModel.py": "50794170aaaa4f417f63e6e21377cde87a1c2e1e3beeef35b56fc24e825de583",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadIndexModel.py": "33998f6499ee949891eebed57a60c2783b02b546190ebedc444de5179b552db0",
     "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadIndexOrders.py": "fb33c9d5391bd1d20f52b28f519a5807e2f7b9ce8c743c0a593faf19144348aa",
     "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadNestedIndex.py": "99167f28014be08a77a4a40ed3e7404e4afcc3b74dec8262486b7a94f843d865",
     "src/convert/adapters/solidworks/Assembly/NestedIndex/WithNestedIndex.py": "2698a43a27fe18fea44529dc97a904d734924ae0266459817c44d0660cf0d0cf",

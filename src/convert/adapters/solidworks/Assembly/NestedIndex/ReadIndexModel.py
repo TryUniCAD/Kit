@@ -16,7 +16,7 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KitDocStream
 
 
-# both the physical header and typed CMgr selection must identify the same owned indexed definition
+# physical headers and typed manager selections must identify the same owned indexed definition
 def ReadIndexModel(
     Archive: SldprtArchive, Definition: NativeAsmA, FileValue: NativeAsmFile
 ) -> IndexModel:

@@ -3,7 +3,7 @@ from dataclasses import dataclass as DataClass
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
-# the selected model keeps its actual configuration root and full header key for cross-file occurrence checks
+# the selected model keeps its root and complete header key for checking occurrence identity across files
 @DataClass(frozen=True, slots=True)
 class IndexModel:
     RootValue: ArchiveNode
