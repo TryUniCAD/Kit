@@ -8,3 +8,5 @@ The advisory was published to the GitHub database on November 20, 2026, so a lat
 Require `wcmatch>=11.2,<12` through the uv overrides and regenerate the lock.
 Retain the required bracex upgrade and verify the locked Python floor remains supported.
 Keep Semgrep and the security scanners enabled to establish compatibility on the merge-group candidate.
+Semgrep 1.185.0 declares `wcmatch~=8.3`; lock consistency alone therefore does not establish path-selection compatibility.
+The Semgrep job exercises its actual CLI include and exclude filters against positive and negative files before scanning the repository.
