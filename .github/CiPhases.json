@@ -1,8 +1,8 @@
 {
   "Version": 1,
   "PullRequest": {
-    "PythonQuality.yml": ["Ruff", "Black"],
-    "PythonSteering.yml": [],
+    "PythonQuality.yml": ["Ruff", "Black", "Pyright", "Mypy"],
+    "PythonSteering.yml": ["Python steering"],
     "ExplicitImports.yml": ["Reject Python wildcard imports"],
     "PathPolicies.yml": ["Verify path policies"],
     "SteeringSync.yml": ["Verify repository skill"],
