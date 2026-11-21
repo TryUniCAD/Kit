@@ -50,3 +50,11 @@ Packet `FirstCreatorScopeNative01/Packet.json` has SHA-256 `c8addf29032d630b2513
 | Windows observer | `07825de373805d78bd8f3f12ebd711eb316806d3baeb91696fef1fab234239ec` |
 
 The four staged candidates have zero native acceptance credit from this preparation.
+
+## Native result
+
+On the pinned Windows 11 oracle, both variants of both disclosed parts passed the complete edit and reopen trajectory. Ten fresh SOLIDWORKS processes included two healthy controls. The candidate phases passed all 360 geometry and dimension comparisons. The exact native result retains the unavailable direct count sentinel and its nonzero verdict. Four guarded typed replays independently verified both saved scope settings, exact creator/profile IDs, a sole active result atom, its rollback marks and zero selected wrappers. The stored dimension labels match the separate authored spatial inputs.
+
+The [selection-access observer](../../tooling/sw2026/nested_publication/ObserveFirstCreatorSelection.py) then reopened the four same immutable derivatives. It used `AccessSelections` and `ReleaseSelectionAccess` in six fresh processes, bracketing the candidates with a measured two-stock selected-cut control. Both active scoped first bosses reported count zero and an absent array. Both controls reported count one and a one-entry array. The first-boss rollback exposes zero existing bodies. On release each candidate rebuilds its original sole solid with zero reported issues. The files remain byte-identical. The [SOLIDWORKS 2026 selection-access contract](https://help.solidworks.com/2026/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IExtrudeFeatureData2~AccessSelections.html) describes the temporary rollback.
+
+The [combined receipt](../measurements/2026/FirstCreatorScopeAcceptance01.json) binds the earlier oracle result, frozen typed reader, positive selection controls and the four read-only observations. This is disclosed case evidence. Held-out and intact source conversion, plus strict public handling of the selected-empty generated reader branch, remain open.
