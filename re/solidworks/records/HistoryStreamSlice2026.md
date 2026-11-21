@@ -89,8 +89,8 @@ python -I -B re/tooling/sw2026/CheckHistory.py renumbered
 All six host processes reported zero external accesses after
 input loading. The manifest records their digests.
 The internal codec uses typed fields and shared scalar, string and map
-primitives. The source fixtures are disclosed controls. This tranche
-records zero new native trials and zero held-out cases.
+primitives. The initial source fixtures are disclosed controls. Those host trials
+add zero native runs.
 Public document admission requires independently authored and hash-locked
 native controls for these streams that did not inform the format rules.
 Earlier version lanes and additional archive owners have separate exits.
@@ -148,10 +148,12 @@ re-emit with identical bytes, valid root/class/date ownership and exact
 logical spans. The result contains aggregate counts, hashes and verdicts.
 Source bytes and typed values remain in guest memory.
 
-A successful protected replay addresses the held-out requirement for this
-standalone decoder and typed re-emitter. The geometry authoring and native
-controls are prior evidence for the originals' exact file hashes. This
-protocol runs no new CAD process and creates no native output artifact.
-The fresh-history constructor, empty-Biography policy, cross-stream provenance
-and public writer admission still require their own complete generated
-document lifecycle evidence. The protected replay result is pending.
+Both pre-writer locked originals pass. Two fresh guarded Windows processes
+decode and re-emit all four complete streams, preserving the original source
+hashes, date-code aliases and map counters. Both Biography saves have two
+embedded records. Both History saves have a single state and its single
+date-code record. Runtime input reads are zero. The earlier native lifecycle
+establishes the provenance and source controls for the exact hashes. This
+standalone replay uses zero new CAD processes and produces zero native
+documents. Fresh constructor, cross-stream provenance and public document
+acceptance retain their separate exit. [Exact held-out receipt](../measurements/2026/HistoryStreamHeldout01.json)
