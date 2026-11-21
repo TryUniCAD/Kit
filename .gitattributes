@@ -26,6 +26,7 @@ re/solidworks/measurements/2026/RevolveCutMixedSource01.json binary
 re/solidworks/measurements/2026/RevolveCutBothDiscoverySource01.json binary
 re/solidworks/measurements/2026/RevolveCutHeldoutSourceLock01.json binary
 re/solidworks/measurements/2026/LocalLinearPatternCreateDefinition02.json binary
+re/solidworks/measurements/2026/PlanarOriginalCopyRejected01.json binary
 
 /re export-ignore
 

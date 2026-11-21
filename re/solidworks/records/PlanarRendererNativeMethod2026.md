@@ -57,3 +57,20 @@ the original packet, and its receipt proves that the originals remain
 unchanged. This is a disclosed contrast with separate evidence and no
 held-out or writer-output credit.
 [Original-save probe](../../tooling/sw2026/planar_registry/ProbeOriginalPlanarSave.py)
+
+The first copy-only attempt kept all original hashes intact. Both A20
+and A21 parent copies resolved their original child instead of the
+working child. The exact-path check stopped each phase before editing.
+The two controls stayed healthy across the four processes. This run
+does not measure original renderer allocation after an edit.
+[Copy-only result](../measurements/2026/PlanarOriginalCopyRejected01.json)
+
+Use `--rebind` with a new working directory to change only the native
+closed parent copies. Each extra isolated phase reads the single
+stored direct dependency without applying search paths. It checks that
+the old dependency is the original child, replaces it with the
+hash-identical copy, and verifies the recorded new path and unchanged
+child hash before starting the live edit. The paired comparison then
+runs eight processes, including the two rebind phases and both controls.
+[Native reference replacement](https://help.solidworks.com/2018/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISldWorks~ReplaceReferencedDocument.html) ·
+[Stored dependency query](https://help.solidworks.com/2023/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.ISldWorks~GetDocumentDependencies2.html)
