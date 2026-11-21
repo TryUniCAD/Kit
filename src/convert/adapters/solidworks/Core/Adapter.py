@@ -156,6 +156,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockDesigns
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.WithCutSelection import (
     BindCutStock,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.WithPatternDoc import (
+    WithPatternDoc,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.WithRevolveDoc import (
     WithRevolveDoc,
 )
@@ -593,7 +596,7 @@ def ReadNativePart(
         DataValue,
         Label,
         Model.WidthDepth.ConfigValue if Model.WidthDepth is not None else None,
-        BindSelectedRevolve=Settings.include_brep
+        BindSavedOwners=Settings.include_brep
         and not Settings.extract_raw_brep
         and not Model.equations,
     )
@@ -609,7 +612,7 @@ def FinishPartDoc(
     Label: str,
     GraphValue: ConfigGraph | None = None,
     *,
-    BindSelectedRevolve: bool = False,
+    BindSavedOwners: bool = False,
 ) -> CadDoc:
     DocValue = WithColdName(DocValue, DerivedValue)
     DocValue = WithBodyNames(DocValue, Archive, ConfigId)
@@ -617,8 +620,9 @@ def FinishPartDoc(
     DocValue = BindCutStock(DocValue)
     DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)
     DocValue = WithThinDoc(DocValue, Archive, ConfigId, DerivedValue)
-    if BindSelectedRevolve:
+    if BindSavedOwners:
         DocValue = WithSelRevDoc(DocValue, Archive, ConfigId)
+        DocValue = WithPatternDoc(DocValue, Archive, ConfigId)
     if (
         DerivedValue is not None
         and DerivedValue.EvidenceValue.get("method")
