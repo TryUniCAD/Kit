@@ -21,6 +21,7 @@ re/solidworks/measurements/2026/SdkThinRevolveDisclosedNative01.json binary
 re/solidworks/measurements/2026/RevolveCutDiscoveryFailed01.json binary
 re/solidworks/measurements/2026/RevolveCutDiscoveryFailed02.json binary
 re/solidworks/measurements/2026/RevolveCutMixedSource01.json binary
+re/solidworks/measurements/2026/RevolveCutHeldoutSourceLock01.json binary
 
 /re export-ignore
 

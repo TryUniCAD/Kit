@@ -193,3 +193,11 @@ originals each replay their Config and Resolved streams byte for byte,
 including the one selected-body wrapper, the separate output atom
 and the empty body-feature list. A full neutral cut projection and
 independent writer qualification remain open.
+
+Two new independently authored selected-body cut parts pass their
+source authoring, live angular edit, save and fresh reopen. Each uses a
+different support plane, stock geometry and actual selected stock.
+Both controls pass across eight distinct processes. The guest publishes
+the source hashes before selected-cut writer implementation and
+retains the original parts and private model values in custody.
+[Pre-writer cut lock](../measurements/2026/RevolveCutHeldoutSourceLock01.json)

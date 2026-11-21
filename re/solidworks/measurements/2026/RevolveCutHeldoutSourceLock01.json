@@ -1,0 +1,142 @@
+{
+  "schema": "kit.sw2026.revolve-family-source-lock.v1",
+  "family": "cut",
+  "split": "heldout",
+  "source_revision": "4de7606b44e84da5b84f10847d03f42d710ad29f",
+  "source_tree": "e5aae0de575b8d3d87e426224c90ed65e970ff14",
+  "job_sha256": "966aaf47f5e2b3d3e90021a55b92a025a85807d65030e42e2937e3de2d1ec2ee",
+  "spec_sha256": "c83a910d633e01b0b5c67a06ec83d571a0f9ee12b4376ae5e91d4d7a2022da42",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "tool_sha256": {
+    "AuthorRevolveFamilies.py": "f32b7f75275488771399183ade651917f5cc8514052349d239079c6e442cfa9e",
+    "RevolveFamilyModel.py": "feb79fe618ac3205ae15ea6d211e59f75279f76aec2d0dea984a48242d2cfa44",
+    "AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_build": "34.5.2.0604",
+  "registered_swconst": {
+    "swEndCondBlind": 0,
+    "swRevolveTypeOneDirection": 0,
+    "swThinWallOneDirection": 0,
+    "swThinWallOppDirection": 1,
+    "swThinWallMidPlane": 2,
+    "swThinWallTwoDirection": 3,
+    "swSelSKETCHES": 9,
+    "swSelSKETCHSEGS": 10,
+    "swSelEXTSKETCHSEGS": 24,
+    "swSelSOLIDBODIES": 76,
+    "swAngularDimension": 3,
+    "swLinearDimension": 2,
+    "swHorLinearDimension": 11,
+    "swVertLinearDimension": 12,
+    "swDimensionDriving": 2,
+    "swSetValue_InThisConfiguration": 1,
+    "swSolidBody": 0,
+    "swObjectSame": 1
+  },
+  "started_at": 1795232628.6293597,
+  "sources": [
+    {
+      "case": "Slot01",
+      "native_sha256": "4a190969e77bf7a0507477080cafee37076e74fa5e6b7abcedf91de5c399c195",
+      "native_bytes": 94383,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "2421d577a0ce8d0ef77946afd674293084e589e8f0a8ccd5f8b3c61d1ebf6fd5",
+          "passed": true,
+          "open_status": null,
+          "checks": 70,
+          "checks_passed": 70
+        },
+        {
+          "phase": "reopen",
+          "sha256": "b63d8af862144da7076ee8a5902ff8e327ba10864211d76562c2594cc427a705",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 61,
+          "checks_passed": 61
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "1978bb506bede921af0613dad79c68586e116eaee3086ca11d6e23d5b5c2eefd",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 30,
+          "checks_passed": 30
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "Slot02",
+      "native_sha256": "174073a262e3b5a7d6c6d83c489dbdec9224181a9d4b23134bdef0d87fd939bc",
+      "native_bytes": 82229,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "a13d0390ac9a95cee23e32247f6e7dfbd533bd2ab1a87c29991535098ef352f5",
+          "passed": true,
+          "open_status": null,
+          "checks": 70,
+          "checks_passed": 70
+        },
+        {
+          "phase": "reopen",
+          "sha256": "01c3078169428d2185854d6d9e6bbe0620eb988b97f44b5f79cfb186fa197ea3",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 61,
+          "checks_passed": 61
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "3318fe76b76a798c89e87f6bf3977134e864d1bfa8a7a9fd68c6870a53a11ec4",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 30,
+          "checks_passed": 30
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "writer_output_count": 0,
+  "heldout_writer_acceptance": false,
+  "control-before": {
+    "sha256": "d58e2dd55e2c97c3a7efd274f376ffd67d067e309620b99e05aba6ef22e8574b",
+    "passed": true
+  },
+  "control-after": {
+    "sha256": "3363f898571ed01fc4bc0bf6c82c5a76c812cfa6356f07c26b53316c16cdb431",
+    "passed": true
+  },
+  "finished_at": 1795232949.914245,
+  "fresh_processes": 8,
+  "distinct_processes": 8,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "tools_unchanged": true,
+  "wall_side_consistent": true,
+  "passed": true
+}
