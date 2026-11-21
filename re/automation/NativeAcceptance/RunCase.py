@@ -13,7 +13,7 @@ def RunCase(application, work, source, role, availability, configuration=None):
     request = {"nonce": nonce, "source": source.name, "source_sha256": FileHash(source), "role": role, "configuration": configuration, "deadline": time.time() + 420}
     if application == "solidworks":
         WriteJson(work / "request.json", request)
-        completed = subprocess.run([sys.executable, "-B", str(Path(__file__).with_name("SolidWorksMeasure.py")), str(work)], capture_output=True, timeout=450, check=False)
+        subprocess.run([sys.executable, "-B", str(Path(__file__).with_name("SolidWorksMeasure.py")), str(work)], capture_output=True, timeout=450, check=False)
         if not (work / "response.json").is_file():
             raise ValueError("SOLIDWORKS API worker did not return a native measurement")
         result = ReadJson(work / "response.json")
