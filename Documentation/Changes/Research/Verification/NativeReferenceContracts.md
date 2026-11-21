@@ -8,4 +8,4 @@ The private transport does not rewrite these vendor observations. Separate versi
 
 Live probes confirmed the origin coordinates and types and the complete direction output tuple. The P03 native measurement sequence opened, rebuilt, edited, saved, restored, and reopened all three driving dimensions between healthy controls. Full SOLIDWORKS semantic comparison remains unresolved; these corrections do not qualify its complete decoder output.
 
-See [the native-reference gotcha](../../Gotchas/Research/SolidWorksNativeReferenceValues.md).
+See [the native-reference gotcha](../../../Gotchas/Research/SolidWorksNativeReferenceValues.md).

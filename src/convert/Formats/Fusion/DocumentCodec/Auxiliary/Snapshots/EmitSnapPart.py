@@ -23,10 +23,10 @@ def EmitSnapPart(Value: DocumentSnap) -> ContainerPart:
     Snapshot = Value.Snapshot
     if isinstance(Snapshot, GeometryState):
         return ContainerPart(Value.Name, EmitGeometry(Snapshot))
-    if Snapshot.Header != BrepHeader(23200, 4, 2, 10.0, 1e-6, 1e-10):
-        raise ValueError("Unsupported Fusion snapshot header")
     if isinstance(Snapshot, PrismSnapshot):
         return ContainerPart(Value.Name, EmitPrismSnap(Snapshot))
+    if Snapshot.Header != BrepHeader(23200, 4, 2, 10.0, 1e-6, 1e-10):
+        raise ValueError("Unsupported Fusion snapshot header")
     return ContainerPart(
         Value.Name,
         EmitSnapshot(

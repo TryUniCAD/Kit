@@ -7,6 +7,7 @@ from sys import executable as PythonPath
 from pytest import mark as TestMark
 
 from convert.Formats.Fusion.DocumentCodec.EmitBodyPart import EmitBodyPart
+from convert.Formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.Formats.Fusion.DocumentCodec.ReadBodyPart import ReadBodyPart
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from tests.CliResearch.NativeVerification.RunComparison import RunComparison
@@ -68,3 +69,4 @@ def CheckSavedPrism(TmpPath: FilePath, CaseName: str) -> None:
     Emitted = EmitBodyPart(BodyValue)
     assert Emitted.Payload.startswith(b"ASM BinaryFile4")
     assert ReadBodyPart(Emitted) == BodyValue
+    assert ReadDocument(EmitParsed(NativeModel)) == NativeModel

@@ -1,6 +1,6 @@
 from dataclasses import replace as ReplaceValue
-from convert.adapters.Fusion.Native.DraftedRectangle.MatchDraftPoints import (
-    MatchDraftPoints,
+from convert.adapters.Fusion.Native.DraftedRectangle.MatchDraftVerts import (
+    MatchDraftVerts,
 )
 
 from convert.adapters.Fusion.Native.DraftedRectangle.CheckDraftEdges import (
@@ -29,18 +29,18 @@ def CheckDraftTags(
     Model: DocumentModel,
     Shape: RectGeometry,
     History: JournalModel,
-    Body: SignedBody,
+    Bodies: SignedBody,
     Geometry: BrepModel,
     JournalIds: tuple[int, ...],
     SavedIds: tuple[int, ...],
     Retired: frozenset[int],
 ) -> None:
-    Tags = ReadFeatureTags(Body.JournalTable)
-    BodyTag = Tags.pop(Body.Journal.BodyRef, None)
+    FaceTags = ReadFeatureTags(Bodies.JournalTable)
+    BodyTag = FaceTags.pop(Bodies.Journal.BodyRef, None)
     if BodyTag is None:
         raise ValueError("Native drafted rectangle has no owned body tag")
     Operation, Sides = CheckOwnTags(
-        Graph, Context, Model, Shape, History, Body.Journal, BodyTag
+        Graph, Context, Model, Shape, History, Bodies.Journal, BodyTag
     )
     Curves = SelectedCurves(Shape)
     if set(Sides.values()) != set(Curves):
@@ -50,37 +50,43 @@ def CheckDraftTags(
         for Vertex in Geometry.vertices
     )
     Journal = ReplaceValue(
-        Body.Journal, PointsCm=tuple(Points[Index] for Index in JournalIds)
+        Bodies.Journal, PointsCm=tuple(Points[Index] for Index in JournalIds)
     )
     Saved = ReplaceValue(
-        Body.Saved, PointsCm=tuple(Points[Index] for Index in SavedIds)
+        Bodies.Saved, PointsCm=tuple(Points[Index] for Index in SavedIds)
     )
     if CheckFaceTags(
-        Journal, Tags, Operation, Points[4][2], Sides, Curves
+        Journal, FaceTags, Operation, Points[4][2], Sides, Curves
     ) != CheckFaceTags(
-        Saved, ReadFeatureTags(Body.SavedTable), Operation, Points[4][2], Sides, Curves
+        Saved,
+        ReadFeatureTags(Bodies.SavedTable),
+        Operation,
+        Points[4][2],
+        Sides,
+        Curves,
     ):
         raise ValueError("Native drafted history and snapshot face identities disagree")
-    for Region in Body.Regions:
+    for Region in Bodies.Regions:
         CheckRegionTags(
             ReplaceValue(
                 Region,
                 CornersCm=tuple(
                     Points[Index]
-                    for Index in MatchDraftPoints(Region.CornersCm, Points[:4])
+                    for Index in MatchDraftVerts(Region.CornersCm, Points[:4])
                 ),
             ),
             Curves,
         )
     CheckDraftEdges(
-        Body.JournalTable,
+        Bodies.JournalTable,
         dict(zip(Journal.VertexRefs, JournalIds, strict=True)),
         Points,
         Curves,
         2,
+        frozenset(),
     )
     CheckDraftEdges(
-        Body.SavedTable,
+        Bodies.SavedTable,
         dict(zip(Saved.VertexRefs, SavedIds, strict=True)),
         Points,
         Curves,

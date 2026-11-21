@@ -1,5 +1,5 @@
-from convert.adapters.Fusion.Native.DraftedRectangle.MatchDraftPoints import (
-    MatchDraftPoints,
+from convert.adapters.Fusion.Native.DraftedRectangle.MatchDraftVerts import (
+    MatchDraftVerts,
 )
 from convert.adapters.Fusion.Native.Graph.GraphChecks import SameNumbers
 from convert.Formats.Fusion.BrepCodec.Journal.Planar.PlanarShell import PlanarShell
@@ -15,7 +15,7 @@ def CheckDraftSolid(
         Shell.Placement is not None
         or len(Shell.VertexRefs) != 8
         or len(Shell.FaceRefs) != 6
-        or any(len(Ring) != 4 for Ring in Shell.Rings)
+        or any(len(Boundary) != 4 for Boundary in Shell.Rings)
     ):
         raise ValueError(
             "Native drafted rectangle requires one untransformed six face solid"
@@ -24,7 +24,7 @@ def CheckDraftSolid(
         (Vertex.point.x / 10, Vertex.point.y / 10, Vertex.point.z / 10)
         for Vertex in Geometry.vertices
     )
-    Indices = MatchDraftPoints(Shell.PointsCm, Points)
+    Indices = MatchDraftVerts(Shell.PointsCm, Points)
     ExpectedFaces = {
         frozenset(range(4)),
         frozenset(range(4, 8)),
@@ -34,7 +34,7 @@ def CheckDraftSolid(
         ),
     }
     if {
-        frozenset(Indices[Index] for Index in Ring) for Ring in Shell.Rings
+        frozenset(Indices[Index] for Index in Boundary) for Boundary in Shell.Rings
     } != ExpectedFaces:
         raise ValueError(
             "Native drafted rectangle faces disagree with its generated caps and walls"

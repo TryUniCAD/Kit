@@ -58,9 +58,9 @@ def ReadDraftBody(
     JournalIds = CheckDraftSolid(Journal, Geometry, Measures)
     SavedIds = CheckDraftSolid(Saved, Geometry, Measures)
     Edges = {
-        Use.EdgeRef
-        for Face in ReadBodyFaces(SavedTable, Saved.BodyRef)
-        for Use in Face.BoundaryUses
+        EdgeUse.EdgeRef
+        for Surface in ReadBodyFaces(SavedTable, Saved.BodyRef)
+        for EdgeUse in Surface.BoundaryUses
     }
     if len(Edges) != 12:
         raise ValueError(

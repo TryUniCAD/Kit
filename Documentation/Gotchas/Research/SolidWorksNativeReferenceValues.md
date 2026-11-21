@@ -14,4 +14,4 @@ For the ordinary P03 extrusion, `GetDirectionReference` returned -1, two null ob
 
 Establish the origin through its unique built-in sketch owner and zero coordinates, then accept the observed point types 1 and 8. For a default extrusion direction, require an empty result across all five outputs. A positive count, non-null reference, or populated type remains unsupported by this collector.
 
-These rules correct oracle collection. They do not establish full source-decoder acceptance. See [the change entry](../../Changes/Research/NativeReferenceContracts.md).
+These rules correct oracle collection. They do not establish full source-decoder acceptance. See [the change entry](../../Changes/Research/Verification/NativeReferenceContracts.md).

@@ -42,7 +42,7 @@ def ProjectDraft(
     CheckGraph(Graph, Context, Rectangle)
     CheckScopes(Graph, Context, Model.Asset.AssetId)
     Shape = ReadRectangle(Graph, Context, Rectangle)
-    if Shape.BasePoint != (0, 0, 0):
+    if any(Value != 0.0 for Value in Shape.BasePoint):
         raise ValueError("Native drafted rectangle requires its anchored XY profile")
     Parameters = ReadParameters(Graph, Context, AllowTaper=True, Rectangle=Rectangle)
     CheckRegion(Graph, Context, Shape.LineNodes, Model.Asset.AssetId)
@@ -57,7 +57,7 @@ def ProjectDraft(
     CheckDraftMass(Context, Measures)
     CheckSceneRefs(Graph, Model.Graphics)
     Material = ReadMaterial(Graph, Context, Model)
-    Body = DesignBody(
+    SolidBody = DesignBody(
         Context.BodyNode.Identity,
         TextValue(Context.BodyNode.Fields["userName"]),
         Context.Extrude.Identity,
@@ -83,7 +83,7 @@ def ProjectDraft(
         (ProjectSketch(Context, Shape, Rectangle),),
         (),
         ProjectFeatures(Graph, Context, Rectangle),
-        (Body,),
+        (SolidBody,),
         brep=Geometry,
         materials=(Material,),
         metadata=Metadata,

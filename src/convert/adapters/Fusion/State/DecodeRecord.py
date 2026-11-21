@@ -6,6 +6,8 @@ from typing import Protocol, cast as CastValue
 from convert.adapters.Fusion.State.StateTypes import KStateNames
 from convert.Formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.Formats.Fusion.BrepCodec.Journal.Materialize import Materialize
+from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
+from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismIds import PrismIds
 from convert.Formats.Fusion.DocumentCodec.Materials.Model.FinishSpec import FinishSpec
 from convert.Formats.Fusion.DocumentCodec.Materials.Model.MechanicSpec import (
     MechanicSpec,
@@ -25,6 +27,8 @@ def DecodeRecord(NameValue: object, Values: dict[str, object]) -> object:
     if not isinstance(NameValue, str) or NameValue not in KStateNames:
         raise ValueError("Unknown Fusion semantic-state record")
     ClassType = KStateNames[NameValue]
+    if ClassType is PrismHistory:
+        Values = {"Tracking": PrismIds(), **Values}
     if (
         NameValue
         == "convert.Formats.Fusion.DocumentCodec.Model.DocumentModel.DocumentModel"

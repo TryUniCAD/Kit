@@ -6,7 +6,7 @@ from convert.Formats.Fusion.BrepCodec.Journal.Geometry.JournalVector import (
 
 
 # independent native coordinate caches must resolve bijectively within the qualified geometric tolerance
-def MatchDraftPoints(
+def MatchDraftVerts(
     Points: tuple[KJournalVector, ...], Expected: tuple[KJournalVector, ...]
 ) -> tuple[int, ...]:
     Mapping = tuple(

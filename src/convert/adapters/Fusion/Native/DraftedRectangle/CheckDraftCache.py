@@ -52,22 +52,24 @@ def CheckDraftCache(
     Generator = ResolveField(
         Graph, Serializer, "topEntityPIDGenerator", "PassiveIdGenerator"
     )
-    Scan = tuple(
+    ScanOrder = tuple(
         IntegerValue(Value) for Value in SeriesItems(Generator.Fields["scanOrderIndex"])
     )
     Addresses = SeriesItems(Generator.Fields["addressOfTopEntities"])
     if (
-        len(Scan) != Count - 1
-        or len(set(Scan)) != len(Scan)
-        or min(Scan) <= 0
-        or IntegerValue(Generator.Fields["nextId"]) <= max(Scan)
-        or len(Addresses) != len(Scan)
+        len(ScanOrder) != Count - 1
+        or len(set(ScanOrder)) != len(ScanOrder)
+        or min(ScanOrder) <= 0
+        or IntegerValue(Generator.Fields["nextId"]) <= max(ScanOrder)
+        or len(Addresses) != len(ScanOrder)
     ):
         raise ValueError(
             "Native drafted snapshot passive identities disagree with its roots"
         )
-    Tool = ResolveField(Graph, Context.Extrude, "rExtrudeToolBody", "DcExtrudeToolBody")
-    ToolCaches = LinkedNodes(Graph, Tool, "toolbodyCaches")
+    ToolNode = ResolveField(
+        Graph, Context.Extrude, "rExtrudeToolBody", "DcExtrudeToolBody"
+    )
+    ToolCaches = LinkedNodes(Graph, ToolNode, "toolbodyCaches")
     RegionCaches = tuple(
         Value
         for Value in LinkedNodes(Graph, Graph.OneClass("SketchRegionRef"), "caches")
@@ -81,7 +83,7 @@ def CheckDraftCache(
     for Index, Cache in enumerate((*ToolCaches, *RegionCaches)):
         Scope = ObjectFields(Cache.Fields["scope"])
         if (
-            IntegerValue(Cache.Fields["cachedEntityId"]) != Scan[Index]
+            IntegerValue(Cache.Fields["cachedEntityId"]) != ScanOrder[Index]
             or Scope
             != {
                 "assetId": Model.Asset.AssetId,
@@ -94,11 +96,11 @@ def CheckDraftCache(
             raise ValueError(
                 "Native drafted snapshot cache does not own its selected root"
             )
-    if IntegerValue(Context.Sketch.Fields["bodyId"]) != Scan[2]:
+    if IntegerValue(Context.Sketch.Fields["bodyId"]) != ScanOrder[2]:
         raise ValueError(
             "Native drafted snapshot sketch root has a different passive identity"
         )
-    if Count == 5 and Scan[3] >= min(Scan[:3]):
+    if Count == 5 and ScanOrder[3] >= min(ScanOrder[:3]):
         raise ValueError(
             "Native drafted snapshot extra sheet is not a retired passive identity"
         )

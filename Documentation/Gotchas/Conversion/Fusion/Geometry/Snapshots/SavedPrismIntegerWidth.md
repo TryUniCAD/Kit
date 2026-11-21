@@ -12,4 +12,4 @@ Fusion 2706.1.17 saved the independently edited P03 controls with `ASM BinaryFil
 
 Read the width from the ASM signature. Pass it to every integer-bearing record reader. Preserve topology identities as typed source values, separate from the body key. Re-emit the original width through the typed journal and snapshot serializers.
 
-The [retained controls and native measurements](../../../../../re/Fusion/Reconstruction/NativeEditedPrisms/Findings.md) establish this behavior. [The reader change](../../../../Changes/Fusion/FusionSavedPrismEdits.md) records its scope and verification.
+The [retained controls and native measurements](../../../../../../re/Fusion/Reconstruction/NativeEditedPrisms/Findings.md) establish this behavior. [The reader change](../../../../../Changes/Fusion/Reading/FusionSavedPrismEdits.md) records its scope and verification.

@@ -16,4 +16,4 @@ Keep the current solid, current sheets, and retired sheet separate. Validate pas
 
 Preserve finite annotation extension coordinates on their declared axis. Continue to verify current measured endpoints, values, annotation plane, and parameter bindings.
 
-See [the controlled observations](../../../../../re/Fusion/Reconstruction/NativeEditedPrisms/Findings.md) and [the reader change](../../../../Changes/Fusion/FusionSavedPrismEdits.md).
+See [the controlled observations](../../../../../../re/Fusion/Reconstruction/NativeEditedPrisms/Findings.md) and [the reader change](../../../../../Changes/Fusion/Reading/FusionSavedPrismEdits.md).

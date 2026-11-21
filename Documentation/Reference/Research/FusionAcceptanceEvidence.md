@@ -324,7 +324,7 @@ Fillets, part arcs and partly hidden edges have no Fusion evidence, and Kit rais
 
 ## Saved rectangular extrusion edits
 
-The [saved-edit reader change](../../Changes/Fusion/FusionSavedPrismEdits.md) retains four-byte ASM framing, allocated topology identities, and the driving rectangular taper parameter. Its [native report](../../../re/Fusion/Reconstruction/NativeEditedPrisms/NativeAcceptance.json) records healthy before/after controls and successful fresh-process readback for independently edited width, height, depth, and taper. Eight additional controls passed 216 comparisons with saved native observations. The [fixture manifest](../../../re/Fusion/Reconstruction/NativeEditedPrisms/Measurements.json) separates vendor-saved hashes from any privacy-scrubbed committed hashes. This qualifies the stated source-reader scope, not arbitrary conversion or a new native writer.
+The [saved-edit reader change](../../Changes/Fusion/Reading/FusionSavedPrismEdits.md) retains four-byte ASM framing, allocated topology identities, and the driving rectangular taper parameter. Its [native report](../../../re/Fusion/Reconstruction/NativeEditedPrisms/NativeAcceptance.json) records healthy before/after controls and successful fresh-process readback for independently edited width, height, depth, and taper. Eight additional controls passed 216 comparisons with saved native observations. The [fixture manifest](../../../re/Fusion/Reconstruction/NativeEditedPrisms/Measurements.json) separates vendor-saved hashes from any privacy-scrubbed committed hashes. This qualifies the stated source-reader scope, not arbitrary conversion or a new native writer.
 
 ## Fixture privacy scrub
 
