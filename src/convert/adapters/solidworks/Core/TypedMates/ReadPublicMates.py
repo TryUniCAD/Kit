@@ -10,6 +10,7 @@ from convert.adapters.solidworks.Core.TypedMates.CheckMateWrappers import (
     CheckMateWraps,
 )
 from convert.adapters.solidworks.Core.TypedMates.ReadMateKids import ReadMateKids
+from convert.adapters.solidworks.Core.TypedMates.ReadMateGroup import ReadMateGroup
 from convert.adapters.solidworks.Core.TypedMates.ReadMateRows import ReadMateRows
 from convert.adapters.solidworks.Core.TypedMates.ReadMateScope import ReadMateScope
 from convert.adapters.solidworks.Core.TypedMates.ReadFixedFlags import ReadFixedFlags
@@ -62,11 +63,16 @@ def ReadPublicMates(
     Entities, Rules = ReadMateRows(
         GraphValue.RootsValue, Context, EnvValue, LegacyRules, LegacyEntities
     )
+    if LegacyGroups:
+        raise ValueError("ordinary planar mates have additional legacy group owners")
+    GroupValue = ReadMateGroup(
+        LinkValue, GraphValue, Rules, LegacyRules[0].owner_definition_id
+    )
     ScopeValue = ReadMateScope(GraphValue.RootsValue, len(Items))
     return (
         Entities,
         Rules,
-        LegacyGroups,
+        (GroupValue,),
         {
             "status": "admitted",
             "scope": ScopeValue,
