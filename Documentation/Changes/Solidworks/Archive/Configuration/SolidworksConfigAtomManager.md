@@ -16,6 +16,6 @@ that reuse their atom identities.
 Named atoms, populated links, inline or handle bodies, full configuration
 admission and native writing require separate qualification.
 
-[Exact evidence and process scope](../../../../re/solidworks/records/ConfigAtomSlice2026.md)
+[Exact evidence and process scope](../../../../../re/solidworks/records/ConfigAtomSlice2026.md)
 
-[Adapter guide](../../../Reference/Adapters/Solidworks.md)
+[Adapter guide](../../../../Reference/Adapters/Solidworks.md)

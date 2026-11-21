@@ -362,7 +362,7 @@ reader and shared archive maps. Exit requires exact native record emission,
 independent typed row and condition contrasts, guarded malformed cases,
 and current revision queue and review evidence. Complete configuration
 writing and native file admission have separate exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigAtomEmission.md)
 
 ### B04-SW2026-DEFINITION
 
@@ -385,7 +385,7 @@ and concave parts, invalid frame and owner refusals through the queue
 processes, and current revision review and CI. The remaining executors,
 configuration owners and full physical `Config-0` admission have separate
 exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigUnitTables.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigUnitTables.md)
 
 ### B04-SW2026-CONFIG-MEMBERS
 
@@ -396,7 +396,7 @@ Exit requires exact relation and feature color member readback from the
 disclosed controls, independently authored repeated rows and class map
 cases, and current revision review and CI. The remaining configuration
 layouts and complete physical admission have separate exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigMemberFields.md)
 
 ### B04-SW2026-CONFIG-FIELD-ACTIONS
 
@@ -407,7 +407,7 @@ color member readers. Exit requires the two disclosed part controls,
 the guarded invalid record cases and current revision queue and review
 evidence. Full configuration admission and write coverage have separate
 exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigFieldActions.md)
 
 ### B04-SW2026-CONFIG-FIELD-MODES
 
@@ -419,7 +419,7 @@ exact physical leaf and normalized word reads, independent authored
 branch and repeat checks, and current revision review and CI.
 Directly owned bodies and whole configuration admission follow
 separately.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigFieldModes.md)
 
 ### B04-SW2026-CONFIG-VIEWS
 
@@ -430,7 +430,7 @@ view groups, the authored archive state and refusal cases, and current
 revision queue and review evidence. Full configuration admission,
 annotation view owners and populated presentation lists retain separate
 exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigViewRecords.md)
 
 ### B04-SW2026-CONFIG-THREAD-MARK
 
@@ -441,7 +441,7 @@ the exact native record and map handoffs, guarded signed-word and
 invalid record cases, and current revision queue and review evidence.
 Populated thread maps and complete configuration support have separate
 exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigThreadMarks.md)
 
 ### B04-SW2026-CONFIG-SECTIONS
 
@@ -452,7 +452,7 @@ physical section bounds, true direct alias and empty ghost owner for both
 tracked model controls, guarded framing refusals and current revision review
 and queue evidence. Complete section bodies, broader context and public
 configuration admission retain separate exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigSections.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigSections.md)
 
 ### B04-SW2026-CONFIG-HEADER-LINK
 
@@ -464,7 +464,7 @@ identities at the part's lightweight boundary, malformed physical
 prefix refusals and current revision queue and review evidence.
 Complete configuration admission and the property owner's physical
 link remain separate work.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigHeaderLink.md)
 
 ### B04-SW2026-FRESH-PART-HEADERS
 
@@ -485,7 +485,7 @@ Exit requires both measured suffixes and map identities, guarded
 authored contrasts and refusals, and current revision review and queue
 evidence. Complete configuration admission and material assignment
 retain separate exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigMaterialOwners.md)
 
 ### B04-SW2026-CONFIG-CACHES
 
@@ -496,7 +496,7 @@ the disclosed mass and empty bounds intervals, malformed record
 refusals and current revision queue and review evidence. Populated
 bounds ownership and complete physical `Config-0` admission have
 separate exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigCaches.md)
 
 ### B04-SW2026-CONFIG-ATOMS
 
@@ -506,7 +506,7 @@ objects and accepted concept fields. Exit requires both disclosed
 manager and producer identities, guarded signed state and rejection
 cases, and current revision queue and review evidence. Inline bodies,
 handle modes and full configuration admission retain separate exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigAtomManager.md)
 
 ### B04-SW2026-CONFIG-FONT-FIELDS
 
@@ -516,7 +516,7 @@ It reuses the accepted scalar, text and embedded field readers and the
 part header handoff. Exit requires exact native field and map comparisons,
 guarded malformed cases and current revision queue and review evidence.
 The composed label, annotation and detail definitions have separate exits.
-[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigFontFields.md)
 
 ### B08-SW2026-TERMINAL-FIN
 

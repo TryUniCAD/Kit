@@ -43,7 +43,7 @@ state and three separate options allocations.
 
 The [header activity-count finding](../../../re/solidworks/records/AssemblyConstruction2026.md#header-component-activity-count)
 traces the configuration walk, document-context bridge and header store. The
-[activity-count gotcha](../../Gotchas/Conversion/Solidworks/Archive/HeaderCountsFollowConfigurationActivity.md)
+[activity-count gotcha](../../Gotchas/Conversion/Solidworks/Archive/Headers/HeaderCountsFollowConfigurationActivity.md)
 explains why neither a feature-count formula nor the initial configuration seed
 defines a completed header count. Full neutral-model traversal constraints remain
 unresolved; this finding does not expand the metadata constructor's supported

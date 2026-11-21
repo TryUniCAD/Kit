@@ -14,6 +14,6 @@ contrast are covered by prepared merge-queue process cases.
 Populated lists, extended transforms, complete Config-0 admission and
 native writing require separate qualification.
 
-[Exact evidence and process scope](../../../../re/solidworks/records/ConfigViewSlice2026.md)
+[Exact evidence and process scope](../../../../../re/solidworks/records/ConfigViewSlice2026.md)
 
-[Adapter guide](../../../Reference/Adapters/Solidworks.md)
+[Adapter guide](../../../../Reference/Adapters/Solidworks.md)

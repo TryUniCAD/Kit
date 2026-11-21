@@ -10,4 +10,4 @@ The two disclosed version-19000 saves set the flag to one. The renderer wrapper 
 
 ## Workaround
 
-Read the flag and the object count separately. Preserve a supported empty wrapper when re-emitting that source. Construct branch absence for the fresh ordinary profile. [Measured fields and scope](../../../../../re/solidworks/records/SdkOrdinaryPartDefinition2026.md)
+Read the flag and the object count separately. Preserve a supported empty wrapper when re-emitting that source. Construct branch absence for the fresh ordinary profile. [Measured fields and scope](../../../../../../re/solidworks/records/SdkOrdinaryPartDefinition2026.md)

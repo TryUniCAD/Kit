@@ -17,7 +17,7 @@ import re
 import struct
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Core.BindMirrorField import IsAngleMatch
+from convert.adapters.solidworks.Core.Dimensions.BindMirrorField import IsAngleMatch
 from convert.adapters.solidworks.Core.Dimensions.PickNamedScalar import PickNamedScalar
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars, ParseXml
 from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream, ParseDisplay

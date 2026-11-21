@@ -10,7 +10,7 @@ import difflib
 import re
 import subprocess
 
-from convert.adapters.solidworks.Core.BindMirrorField import KMirroredFields
+from convert.adapters.solidworks.Core.Dimensions.BindMirrorField import KMirroredFields
 from InferenceGrid.SolidWorksFieldDiscovery import native_parameter_matches
 from InferenceGrid.CandidateReader import decode_candidate
 

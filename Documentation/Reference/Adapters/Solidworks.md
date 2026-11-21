@@ -257,7 +257,7 @@ Inherited body links require the concrete objects from the prior map.
 The current configuration directory codec reads and constructs
 `Contents/CMgrHdr2` from a typed manager and its configuration rows.
 Its archive map starts at one, independently of the full `CMgr` stream.
-[Configuration directory scope](../../Changes/Solidworks/Archive/SolidworksConfigurationDirectory.md)
+[Configuration directory scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigurationDirectory.md)
 
 The internal part header constructor takes the allocated part,
 its actual selected configuration and explicit save provenance.
@@ -270,35 +270,35 @@ The internal unit-table codec reads one complete ordinary version-19000
 inherited unit fields, the optional length override and the class slots
 needed by subsequent records. Its scope is the bounded unit-table record.
 Reading the full `Config-0` body requires additional native owners.
-[Configuration unit-table scope](../../Changes/Solidworks/Archive/SolidworksConfigUnitTables.md)
+[Configuration unit-table scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigUnitTables.md)
 
 The bounded configuration member reader handles the ordinary relation
 record and empty or absent feature color ownership. Stored length words
 remain available alongside the decoded rows. The record owner supplies
 the expected descriptor and the live archive map snapshot.
-[Configuration member scope](../../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
+[Configuration member scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigMemberFields.md)
 
 The bounded member reader also handles absent or empty sketch block and
 part exploded view managers. Their feature base selects branches and
 concrete virtual targets. The sketch map backlink retains the newly
 allocated manager's identity.
-[Configuration field action scope](../../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
+[Configuration field action scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigFieldActions.md)
 
 The bounded configuration member reader also handles the ordinary view
 record with compact transforms and empty presentation lists. Context
 changes govern both optional list windows in the same archive.
-[Configuration view scope](../../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+[Configuration view scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigViewRecords.md)
 
 The same member reader accepts a concrete partition mark and an absent
 or empty thread reference manager. The archive slot and kernel mark ID
 remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
-[Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
+[Thread and mark record scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigThreadMarks.md)
 
 The bounded lightweight material reader handles the part hatch, optional
 density parameter, model data with an absent scene and empty body visual
 counts. Each concrete owner retains its actual archive slot.
-[Lightweight material scope](../../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+[Lightweight material scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigMaterialOwners.md)
 
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
@@ -308,26 +308,26 @@ The self file comes first, followed by the directory entries in
 stored order. This reader requires physical format 4 and logical
 archive version 19000.
 Complete configuration admission requires the remaining model body.
-[Configuration header link scope](../../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
+[Configuration header link scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigHeaderLink.md)
 
 The bounded version-19000 part cache reader keeps zero through two mass
 slots, each slot's atom rows and attached mass properties, and the
 signed trailer when two slots are stored. The measured bounds field
 carries an empty count in this profile. Populated bounds records require
 additional owner evidence. Cache reads preserve the caller's map state.
-[Part cache scope](../../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
+[Part cache scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigCaches.md)
 
 The embedded part atom manager keeps concrete kind-zero archive atoms
 with their signed IDs and existing map context. Later feature links
 can reuse those exact objects. The stored unsigned atom state remains
 available alongside its runtime projection.
-[Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+[Atom manager scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigAtomManager.md)
 
 The shared version-19000 body reader has layouts for line fonts, embedded
 widths, character formats, and print width tables in part detail definitions.
 These fields retain their wire values and leave the archive map unchanged.
 Complete detail definitions require the remaining annotation and table owners.
-[Configuration font scope](../../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
+[Configuration font scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigFontFields.md)
 
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
@@ -356,7 +356,7 @@ The cached body geometry and feature history provide different evidence.
 The shared body reader uses stored comparison fields and archive conditions
 for ordinary branches. Fixed repeats take their row count from the field
 declaration. Signed normalization retains the original word with its runtime
-projection. [Configuration field modes](../../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
+projection. [Configuration field modes](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigFieldModes.md)
 
 The Parasolid reader uses forward fin links and terminal vertices for schema
 `SCH_3701250_37102_13006`. The disclosed SOLIDWORKS 2026 rectangles and an
@@ -474,7 +474,7 @@ A single flag change is not a general operation converter.
 The shared atom manager encoder derives its row count and map allocation
 from typed rows. Its bounded emission preserves native state normalization
 under the actual archive conditions.
-[Atom manager emission](../../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
+[Atom manager emission](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigAtomEmission.md)
 
 The parametric part writer accepts a neutral millimetre document with one
 active configuration, one sketch, one boss and one solid. It admits these

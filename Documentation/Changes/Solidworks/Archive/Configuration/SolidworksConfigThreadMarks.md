@@ -15,5 +15,5 @@ Reference reads identify four physical intervals in the disclosed
 ladder and concave controls. New queue cases verify those inputs,
 authored signed words and malformed records through the guarded reader.
 Queue execution remains pending.
-[Exact evidence](../../../../re/solidworks/records/ConfigThreadMarkSlice2026.md)
-· [Thread wire word gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/ThreadBooleanRetainsWireWord.md)
+[Exact evidence](../../../../../re/solidworks/records/ConfigThreadMarkSlice2026.md)
+· [Thread wire word gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Configuration/ThreadBooleanRetainsWireWord.md)

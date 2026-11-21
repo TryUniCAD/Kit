@@ -18,7 +18,7 @@ from convert.adapters.solidworks.Core.NativeDimension import (
 )
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
-from convert.adapters.solidworks.Core.BindMirrorField import (
+from convert.adapters.solidworks.Core.Dimensions.BindMirrorField import (
     BindMirrorField,
     KMirroredFields,
 )

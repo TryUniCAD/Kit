@@ -15,5 +15,5 @@ Guarded process cases verify native comparison witnesses and ten complete
 native view rows in each tracked part. Separate authored cases exercise
 comparison boundaries and malformed inputs. Full configuration admission
 and queue execution remain pending.
-[Format evidence and process commands](../../../../re/solidworks/records/ConfigFieldModesSlice2026.md)
-· [Fixed repeat gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/FixedRepeatsHaveNoCountWord.md)
+[Format evidence and process commands](../../../../../re/solidworks/records/ConfigFieldModesSlice2026.md)
+· [Fixed repeat gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Configuration/FixedRepeatsHaveNoCountWord.md)

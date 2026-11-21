@@ -16,5 +16,5 @@ The version-order process counts typed decoder entries. The wrong
 version reaches neither decoder, and the matching-version contrasts
 exercise both counters.
 Queue execution and complete physical configuration admission are pending.
-[Source record and process commands](../../../../re/solidworks/records/ConfigHeaderLinkSlice2026.md)
-· [Header alias index gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/HeaderAliasesKeepSourceIndex.md)
+[Source record and process commands](../../../../../re/solidworks/records/ConfigHeaderLinkSlice2026.md)
+· [Header alias index gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Configuration/HeaderAliasesKeepSourceIndex.md)

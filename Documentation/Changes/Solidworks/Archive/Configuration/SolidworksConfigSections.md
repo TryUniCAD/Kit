@@ -17,6 +17,6 @@ The scope covers section framing and the listed ordinary records. Full
 configuration admission, populated ghost owners, alternate section modes
 and native writing require separate qualification.
 
-[Format evidence and verification](../../../../re/solidworks/records/ConfigSectionSlice2026.md)
+[Format evidence and verification](../../../../../re/solidworks/records/ConfigSectionSlice2026.md)
 
-[Adapter guide](../../../Reference/Adapters/Solidworks.md)
+[Adapter guide](../../../../Reference/Adapters/Solidworks.md)

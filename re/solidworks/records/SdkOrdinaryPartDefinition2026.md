@@ -1,6 +1,6 @@
 # Ordinary SOLIDWORKS 2026 part Definition codec
 
-Task `B04-SW2026-DEFINITION` advances the PR #121 writer program on the isolated `codex/solidworks-ordinary-part-definition` branch. The local delivery base is `16493de95602b732a569923ec89cfee13a87d45d` from PR #199. The current archive supplies the shared base, branch and repeat actions. The historical independent constructor and evidence are pinned at `81aff00e947ef3bb39fb479c265782d7ca7a0581`. [Current archive field actions](../../../Documentation/Changes/Solidworks/Archive/SolidworksConfigFieldActions.md) · [Earlier Definition research](Definition.md)
+Task `B04-SW2026-DEFINITION` advances the PR #121 writer program on the isolated `codex/solidworks-ordinary-part-definition` branch. The local delivery base is `16493de95602b732a569923ec89cfee13a87d45d` from PR #199. The current archive supplies the shared base, branch and repeat actions. The historical independent constructor and evidence are pinned at `81aff00e947ef3bb39fb479c265782d7ca7a0581`. [Current archive field actions](../../../Documentation/Changes/Solidworks/Archive/Configuration/SolidworksConfigFieldActions.md) · [Earlier Definition research](Definition.md)
 
 ## Format and construction
 
@@ -28,7 +28,7 @@ git show 81aff00e947ef3bb39fb479c265782d7ca7a0581:re/solidworks/measurements/202
 
 The typed reader retains populated line styles, fonts and environment objects when it recognizes their actual layouts. The splitter reads a row count from `f08` and a column count from its enclosing `f0c`. The shared repeat writer checks both counts against their typed collections. Neither repeat adds a length prefix. Standard object lists, model data, geometry and fonts use the active archive layouts. CString and DWord arrays use shared counted-container rules. [Splitter layout](../../../src/convert/adapters/solidworks/Archive/Definition/Fields/DocEnvironmentFields.py) · [Shared container layouts](../../../src/convert/adapters/solidworks/Archive/Bodies/Layouts/ContainerFields.py)
 
-The disclosed L1 and D19Annulus saves each include a present renderer wrapper with two signed words `(6, 0)` and an empty object list. The reader and re-emitter preserve those saved fields. This narrow profile accepts only that empty wrapper or an absent branch. The values `6` and `0` select the measured saved profile and do not become fresh defaults. The fresh constructor derives branch absence from the absence of authored rendering content. The scope guards reject populated rendering, alternate flags and optional scene, sketch, OLE or variation objects. [Renderer scope guard](../../../src/convert/adapters/solidworks/Archive/Definition/CheckDefRender.py) · [Saved empty renderer gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/EmptyDefinitionRendererWrapper.md)
+The disclosed L1 and D19Annulus saves each include a present renderer wrapper with two signed words `(6, 0)` and an empty object list. The reader and re-emitter preserve those saved fields. This narrow profile accepts only that empty wrapper or an absent branch. The values `6` and `0` select the measured saved profile and do not become fresh defaults. The fresh constructor derives branch absence from the absence of authored rendering content. The scope guards reject populated rendering, alternate flags and optional scene, sketch, OLE or variation objects. [Renderer scope guard](../../../src/convert/adapters/solidworks/Archive/Definition/CheckDefRender.py) · [Saved empty renderer gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Definition/EmptyDefinitionRendererWrapper.md)
 
 ## Canonical tag boundary
 
@@ -50,14 +50,14 @@ with the shared compatibility decoder. A separate authored case allocates
 first escaped index `0x7fff`. The fresh receiver checks its six physical
 bytes, identity and exact re-emission. The cases passed on the accepted
 PR #205 merge-group revision.
-[Width gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/DefinitionTagWidths.md) ·
+[Width gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Definition/DefinitionTagWidths.md) ·
 [Accepted queue run](https://github.com/TryUniCAD/Kit/actions/runs/44845499360)
 
 The canonical Definition reader also refuses a second declaration
 of the same class before allocating another map slot. The separate
 receiver verifies a generated line-style class reference, constructs
 an independent repeated declaration at that boundary and verifies
-its refusal. [Repeated class slots](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/DefinitionRepeatedClassSlots.md)
+its refusal. [Repeated class slots](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Definition/DefinitionRepeatedClassSlots.md)
 
 ## Guarded measurement
 

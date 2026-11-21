@@ -12,6 +12,6 @@ and check the alternate density, scene and count refusals.
 Full appearance, physical material assignment, complete configuration
 admission and native writing require separate qualification.
 
-[Exact format evidence and queue scope](../../../../re/solidworks/records/ConfigMaterialSlice2026.md)
+[Exact format evidence and queue scope](../../../../../re/solidworks/records/ConfigMaterialSlice2026.md)
 
-[Adapter guide](../../../Reference/Adapters/Solidworks.md)
+[Adapter guide](../../../../Reference/Adapters/Solidworks.md)

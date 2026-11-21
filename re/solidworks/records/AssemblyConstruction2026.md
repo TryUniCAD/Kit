@@ -788,7 +788,7 @@ producer**. Its vtable `0x4d0c7068` is constructed in
 `moModel_c::GetNumTessTriangles` at `0x4c013660`, where its grouped
 component multiplicities feed tessellation statistics. The name alone does
 not establish the header counter's role. The
-[activity-count gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/HeaderCountsFollowConfigurationActivity.md)
+[activity-count gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Headers/HeaderCountsFollowConfigurationActivity.md)
 records the distinction. These conclusions are static dataflow and loop
 evidence, not execution traces or target-application acceptance.
 

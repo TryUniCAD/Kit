@@ -11,4 +11,4 @@ adding a class. Use a class reference for each reuse. The process
 comparison verifies exact replay of the canonical line-style stream and
 refusal of an independently framed repeated declaration.
 
-[Definition codec evidence](../../../../../re/solidworks/records/SdkOrdinaryPartDefinition2026.md)
+[Definition codec evidence](../../../../../../re/solidworks/records/SdkOrdinaryPartDefinition2026.md)

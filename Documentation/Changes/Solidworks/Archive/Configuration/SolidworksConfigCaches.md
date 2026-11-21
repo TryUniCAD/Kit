@@ -13,9 +13,9 @@ distinct signed trailer. The fresh process checks also exercise
 truncation, framing and owner refusals. Populated bounds records require
 additional owner layouts. Queue execution and full physical `Config-0`
 admission are pending.
-[Source record and process commands](../../../../re/solidworks/records/ConfigCacheSlice2026.md)
-· [Mass cache trailer gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/MassCacheSelectorFollowsTwoSlots.md)
+[Source record and process commands](../../../../../re/solidworks/records/ConfigCacheSlice2026.md)
+· [Mass cache trailer gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Configuration/MassCacheSelectorFollowsTwoSlots.md)
 
 The queue cases include an independently authored populated one-slot
 record and require refusal of a signed trailer appended to that frame.
-[One-slot case](../../../../tests/Convert/Solidworks/Configuration/CacheOneSlotTests.py)
+[One-slot case](../../../../../tests/Convert/Solidworks/Configuration/CacheOneSlotTests.py)

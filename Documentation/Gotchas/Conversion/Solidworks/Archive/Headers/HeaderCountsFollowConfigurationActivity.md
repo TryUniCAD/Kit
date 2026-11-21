@@ -18,7 +18,7 @@ header copy distinct. Derive a neutral-model rule only after closing the
 relevant traversal predicates. Do not copy a saved count, fit it to a feature
 ladder, or replace it with zero to make an assembly writer proceed.
 
-The [construction record](../../../../../re/solidworks/records/AssemblyConstruction2026.md#header-component-activity-count)
+The [construction record](../../../../../../re/solidworks/records/AssemblyConstruction2026.md#header-component-activity-count)
 binds every native address to module hashes and lists the remaining constraints.
 This is static evidence; held-out generated-assembly acceptance remains
 unproven.

@@ -12,14 +12,14 @@ manager. A reference to a mapped configuration header retains that
 object's identity. The writer takes a typed directory graph with
 explicit field values.
 
-The [authored-row case](../../../../tests/Convert/Solidworks/CmgrHeader/ManagerRowTests.py)
+The [authored-row case](../../../../../tests/Convert/Solidworks/CmgrHeader/ManagerRowTests.py)
 checks independent wire bytes. The
-[extended count case](../../../../tests/Convert/Solidworks/CmgrHeader/ManagerCountTests.py)
+[extended count case](../../../../../tests/Convert/Solidworks/CmgrHeader/ManagerCountTests.py)
 checks two distinct children and a 65,535-row directory. The
-[role cases](../../../../tests/Convert/Solidworks/CmgrHeader/ManagerRoleTests.py)
+[role cases](../../../../../tests/Convert/Solidworks/CmgrHeader/ManagerRoleTests.py)
 check refusal and the
-[disclosed replay cases](../../../../tests/Convert/Solidworks/CmgrHeader/ManagerNativeTests.py)
+[disclosed replay cases](../../../../../tests/Convert/Solidworks/CmgrHeader/ManagerNativeTests.py)
 check full re-emission of two inputs. Execution awaits remote CI.
 Projection from a full configuration manager and native document
 construction have separate acceptance requirements.
-[Scope and proof](../../../../re/solidworks/records/ManagerDirectorySlice2026.md)
+[Scope and proof](../../../../../re/solidworks/records/ManagerDirectorySlice2026.md)

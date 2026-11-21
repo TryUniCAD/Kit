@@ -16,4 +16,4 @@ Escaped zero likewise decodes as null and emits as a two-byte null tag.
 The bounded ordinary part Definition reader compares the physical tag width
 with the canonical writer width before advancing its cursor or applying the
 tag to the map. Canonical wide references still work at the native threshold.
-Other graph readers retain their current tag policy. [Process cases](../../../../../tests/Convert/Solidworks/ArchiveDefinition/DefGuardTests.py)
+Other graph readers retain their current tag policy. [Process cases](../../../../../../tests/Convert/Solidworks/ArchiveDefinition/DefGuardTests.py)

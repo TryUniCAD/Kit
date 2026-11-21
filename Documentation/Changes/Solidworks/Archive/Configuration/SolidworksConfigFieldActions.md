@@ -18,5 +18,5 @@ L1 part and both null intervals in the concave control. Fresh process
 queue cases cover the physical records and invalid owner, virtual,
 backlink and framing cases, including a complete single-row exploded
 view map that reaches the semantic owner guard. Queue execution remains pending.
-[Source record and process commands](../../../../re/solidworks/records/ConfigFieldActionsSlice2026.md)
-· [Sketch map owner gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/SketchBlockMapUsesItsOwnSlot.md)
+[Source record and process commands](../../../../../re/solidworks/records/ConfigFieldActionsSlice2026.md)
+· [Sketch map owner gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Configuration/SketchBlockMapUsesItsOwnSlot.md)

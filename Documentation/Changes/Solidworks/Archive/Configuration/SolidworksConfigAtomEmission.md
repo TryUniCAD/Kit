@@ -12,4 +12,4 @@ Seven modeled inputs cover zero through two rows, independent text lengths,
 and all measured condition masks. Twelve invalid inputs refuse in guarded
 processes. Complete configuration emission and native file acceptance have
 separate exits.
-[Field ownership and verification](../../../../re/solidworks/records/ConfigAtomEmission2026.md)
+[Field ownership and verification](../../../../../re/solidworks/records/ConfigAtomEmission2026.md)

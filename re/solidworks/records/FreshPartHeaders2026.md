@@ -49,7 +49,7 @@ observes this direct map operation without emitting `Config-0`.
 [Header construction rules](https://github.com/TryUniCAD/Kit/blob/ed2928db557adfdaec8cbb1b400d8e51ca2e9d22/re/solidworks/records/MetadataConstruction2026.md)
 · [Native manager getters](https://github.com/TryUniCAD/Kit/blob/ed2928db557adfdaec8cbb1b400d8e51ca2e9d22/re/solidworks/records/ConfigurationManagerHeader2026.md)
 · [Direct map ownership](ConfigHeaderLinkSlice2026.md)
-· [Saved Header roles](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/StandaloneHeaderRolesCanMatch.md)
+· [Saved Header roles](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Headers/StandaloneHeaderRolesCanMatch.md)
 
 ## Bound process observations
 

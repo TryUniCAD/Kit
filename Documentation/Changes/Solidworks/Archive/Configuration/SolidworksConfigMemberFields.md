@@ -16,5 +16,5 @@ ladder and concave parts. A separate authoring control verifies the
 named count traversal, raw unsigned count retention and class map
 handoff. The queue process cases and full configuration qualification
 remain pending.
-[Exact evidence](../../../../re/solidworks/records/ConfigMemberFieldsSlice2026.md)
-· [Color owner gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Configuration/ColorOwnerSchemaCanBeZero.md)
+[Exact evidence](../../../../../re/solidworks/records/ConfigMemberFieldsSlice2026.md)
+· [Color owner gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Configuration/ColorOwnerSchemaCanBeZero.md)

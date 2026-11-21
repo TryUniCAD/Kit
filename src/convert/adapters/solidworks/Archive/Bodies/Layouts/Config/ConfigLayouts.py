@@ -59,7 +59,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.RecordFields impo
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.UnitFields import (
     KUnitFields as KUnitRules,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ViewFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Members.ViewFields import (
     KViewFields as KViewRules,
 )
 

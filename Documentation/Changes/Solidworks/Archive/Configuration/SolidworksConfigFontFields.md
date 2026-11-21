@@ -14,5 +14,5 @@ tracked parts and four independently authored records. All fields matched
 an independent decoder. Eight malformed records and unsupported
 layout or version cases returned the expected refusal. The queue runs the
 same cases through the integration suite.
-[Measurement](../../../../re/solidworks/measurements/2026/ConfigFontReader01.json)
-[Field scope](../../../../re/solidworks/records/ConfigFontSlice2026.md)
+[Measurement](../../../../../re/solidworks/measurements/2026/ConfigFontReader01.json)
+[Field scope](../../../../../re/solidworks/records/ConfigFontSlice2026.md)
