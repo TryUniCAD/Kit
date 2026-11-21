@@ -25,3 +25,10 @@ No local tests ran.
 The [initial remote planner](https://github.com/TryUniCAD/Kit/actions/runs/44908607006/job/136859391345)
 verified main `b46259ae0f847339d8a043799e8b8539a2b909d6` and scheduled all 7,052 tests across six shards with zero reused results.
 Full execution remains pending until its complete report is available.
+
+The [invalid-input control](https://github.com/TryUniCAD/Kit/actions/runs/44909628956)
+supplied `audit_sha=main` to harness `8a48e5031317de45a22e306e2e1de763e1d059ad`.
+All 21 checkout jobs rejected the value in their first guard; no checkout, collection, or scanner step executed.
+The workflow's failed result is the expected rejection outcome, separate from decoding correctness.
+The [fresh installed-CLI run](https://github.com/TryUniCAD/Kit/actions/runs/44896468254)
+passed Linux and Windows compatibility and process-policy checks on source `b46259ae0f847339d8a043799e8b8539a2b909d6`.
