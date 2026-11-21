@@ -41,18 +41,14 @@ public sealed partial class SolidWorksCapture
         try {
             Units(Document,5);
             ProgramSeed(Document,Row("kind","block","width_mm",40.0,"depth_mm",20.0,"height_mm",10.0),"XY");
-            Document.ClearSelection2(true);
-            string Support=TextValue(Program,"support");
-            string Name=Support=="XY"?"Front Plane":Support=="YZ"?"Right Plane":"Top Plane";
-            Check(Document.Extension.SelectByID2(Name,"PLANE",0,0,0,false,0,null,0),"Select candidate native support");
-            bool Offset=TextValue(Program,"operation")=="offset_plane";
-            double Distance=NumberValue(Program,"scale")*Requested*.001;
-            bool Reverse=Convert.ToBoolean(Program["reverse"])^(Distance<0);
-            int Constraint=Offset?8|(Reverse?256:0):4;
-            var Feature=Document.FeatureManager.InsertRefPlane(Constraint,Offset?Math.Abs(Distance):0,0,0,0,0) as IFeature;
+            var Feature=GeneratedPlaneBuilder.BuildCandidate(Document,Requested);
             Check(Feature!=null,"Candidate native plane creation failed");
             Feature.Name="RecipeFeature";
-            if(Offset) FeatureDimension(Feature,"offset_mm",Math.Abs(Distance));
+            if(TextValue(Program,"operation")=="offset_plane") {
+                var NativeDimensions=Dimensions(Feature).ToArray();
+                Check(NativeDimensions.Length==1,"Candidate offset feature has no unique native dimension");
+                NativeDimensions[0].Name="offset_mm";
+            }
             Document.ClearSelection2(true);
             Rebuild(Document);
             return Document;

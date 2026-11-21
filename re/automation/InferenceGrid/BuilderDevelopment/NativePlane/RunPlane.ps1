@@ -12,6 +12,7 @@ param(
     [Parameter(Mandatory)] [string]$OutputDirectory,
     [Parameter(Mandatory)] [string]$InteropAssembly,
     [Parameter(Mandatory)] [string]$ExecutablePath,
+    [Parameter(Mandatory)] [ValidatePattern('^[0-9a-f]{64}$')] [string]$CandidateSha256,
     [Parameter(Mandatory)] [ValidateSet('first', 'second')] [string]$Phase,
     [switch]$CompileOnly
 )
@@ -44,8 +45,16 @@ $WebExtensions = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRun
 Add-Type -Path $Interop.FullName
 $Programs = @(Get-ChildItem -LiteralPath (Join-Path $Catalogue 'Programs') -Filter '*.cs' -File -Recurse | Sort-Object FullName | ForEach-Object FullName)
 $Collectors = @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter '*.cs' -File | Sort-Object FullName | ForEach-Object FullName)
+$Candidate = Get-Item -LiteralPath (Join-Path $Destination 'CandidateProgram.cs')
+if ($Candidate.PSIsContainer -or ($Candidate.Attributes -band [IO.FileAttributes]::ReparsePoint) -or
+    (Get-FileHash -LiteralPath $Candidate.FullName -Algorithm SHA256).Hash.ToLowerInvariant() -cne $CandidateSha256) {
+    throw 'Candidate source differs from the frozen generated source.'
+}
 Add-Type -Path (@((Join-Path $Repository 're/automation/CaptureTools/SolidWorksAuthoring/SolidWorksCapture.cs'),
-    (Join-Path $Catalogue 'ConfiguredCapture.cs'), (Join-Path $Catalogue 'SolidOwner.cs')) + $Programs + $Collectors) -ReferencedAssemblies @($Interop.FullName, 'System.Core.dll', $WebExtensions)
+    (Join-Path $Catalogue 'ConfiguredCapture.cs'), (Join-Path $Catalogue 'SolidOwner.cs')) + $Programs + $Collectors + @($Candidate.FullName)) -ReferencedAssemblies @($Interop.FullName, 'System.Core.dll', $WebExtensions)
+if ((Get-FileHash -LiteralPath $Candidate.FullName -Algorithm SHA256).Hash.ToLowerInvariant() -cne $CandidateSha256) {
+    throw 'Candidate source changed while being compiled.'
+}
 [SolidWorksCapture]::CheckPlaneManifest($CaseFile)
 if ($CompileOnly) { Write-Output 'Compiled trusted plane collector without starting a CAD application'; return }
 $Mutex = [Threading.Mutex]::new($false, 'Local\KitResearchControllerOracle')

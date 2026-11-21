@@ -24,7 +24,7 @@ from Records import canonical, digest
 
 
 # existing Windows job ownership and timeouts bound the trusted collector and native descendants
-def RunPlanePhase(Manifest, Output, Host, Phase):
+def RunPlanePhase(Manifest, Output, Host, Phase, CandidateSourcePin):
     from WindowsProcess import WindowsProcess
 
     Root = Path(__file__).resolve().parents[5]
@@ -48,6 +48,8 @@ def RunPlanePhase(Manifest, Output, Host, Phase):
         Host["interop_assembly"],
         "-ExecutablePath",
         Host["executable"],
+        "-CandidateSha256",
+        CandidateSourcePin,
         "-Phase",
         Phase,
     ]
@@ -117,7 +119,7 @@ def RunPlaneCases(Program, Cases, Output, Host):
     Source.write_text(PlaneSource(Program), encoding="utf-8")
     CandidateSourcePin = sha256(Source.read_bytes()).hexdigest()
     for Phase in ("first", "second"):
-        RunPlanePhase(Manifest, Output, Host, Phase)
+        RunPlanePhase(Manifest, Output, Host, Phase, CandidateSourcePin)
         if sha256(Manifest.read_bytes()).hexdigest() != ManifestPin:
             raise ValueError("native candidate manifest changed during execution")
     _, After = PlaneSourcePins(Root)
@@ -170,6 +172,7 @@ def RunPlaneCases(Program, Cases, Output, Host):
         "candidate_source": {
             "path": str(Source),
             "sha256": sha256(Source.read_bytes()).hexdigest(),
+            "executed": True,
         },
         "manifest_sha256": ManifestPin,
         "application": {

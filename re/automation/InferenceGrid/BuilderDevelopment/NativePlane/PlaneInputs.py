@@ -39,12 +39,12 @@ def PlaneSource(Program):
         Program["support"]
     ]
     if Program["operation"] == "coincident_plane":
-        Call = "return document.FeatureManager.InsertRefPlane(4, 0, 0, 0, 0, 0);"
+        Call = "var feature = document.FeatureManager.InsertRefPlane(4, 0, 0, 0, 0, 0) as SolidWorks.Interop.sldworks.IFeature;"
     else:
         Call = (
             f"double distance = {float(Program['scale'])!r} * offset_mm * 0.001;\n"
             f"bool reverse = {str(Program['reverse']).lower()} ^ (distance < 0);\n"
-            "return document.FeatureManager.InsertRefPlane(8 | (reverse ? 256 : 0), System.Math.Abs(distance), 0, 0, 0, 0);"
+            "var feature = document.FeatureManager.InsertRefPlane(8 | (reverse ? 256 : 0), System.Math.Abs(distance), 0, 0, 0, 0) as SolidWorks.Interop.sldworks.IFeature;"
         )
     return (
         "// SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0\n"
@@ -53,12 +53,14 @@ def PlaneSource(Program):
         "// removed, altered, or obscured. Doing so is a material breach of\n"
         "// the PolyForm Strict License 1.0.0 and voids all licenses granted\n"
         "// to you under it immediately and permanently.\n\n"
-        "// Bounded candidate translated by the independently maintained plane runtime.\n"
-        "// Only this feature creation is candidate controlled; collectors and edits are trusted.\n"
-        "object BuildCandidate(SolidWorks.Interop.sldworks.IModelDoc2 document, double offset_mm) {\n"
-        f'    document.Extension.SelectByID2("{Support}", "PLANE", 0, 0, 0, false, 0, null, 0);\n'
-        + "\n".join("    " + Line for Line in Call.splitlines())
-        + "\n}\n"
+        "public static class GeneratedPlaneBuilder {\n"
+        "    public static SolidWorks.Interop.sldworks.IFeature BuildCandidate(SolidWorks.Interop.sldworks.IModelDoc2 document, double offset_mm) {\n"
+        "        document.ClearSelection2(true);\n"
+        f'        if (!document.Extension.SelectByID2("{Support}", "PLANE", 0, 0, 0, false, 0, null, 0))\n'
+        '            throw new System.InvalidOperationException("Candidate support selection failed");\n'
+        + "\n".join("        " + Line for Line in Call.splitlines())
+        + '\n        if (feature == null) throw new System.InvalidOperationException("Candidate plane creation failed");\n'
+        "        return feature;\n    }\n}\n"
     )
 
 
