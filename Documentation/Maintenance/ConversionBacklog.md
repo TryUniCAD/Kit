@@ -171,6 +171,16 @@ have supporting evidence. Delivery requires current-revision CI and review.
 Native qualification applies to a complete generated part.
 [Change entry](../Changes/Solidworks/Archive/SolidworksOrdinaryPartDefinition.md)
 
+### B04-SW2026-PART-DEFINITION-VIEW
+
+The PR #121 takeover team owns the saved document view reader on
+`codex/solidworks-saved-part-view`. Its complete Definition boundary comes
+from [PR #205](https://github.com/TryUniCAD/Kit/pull/205). Exit requires the
+same orientation and pan/zoom values on the pinned parts, guarded
+orthographic refusals, and current revision review and queue evidence.
+Session window selection and public presentation transfer have separate exits.
+[Change entry](../Changes/Solidworks/Inspection/Presentation/SolidworksSavedPartView.md)
+
 ### B04-SW2026-CONFIG-UNITS
 
 The PR #121 takeover team owns this unit-table reader on

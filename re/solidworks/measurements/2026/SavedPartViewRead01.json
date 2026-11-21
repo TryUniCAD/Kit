@@ -1,0 +1,157 @@
+{
+  "accepted_base": "2c3330b3e79cb199655e590eb63458f5bef316f2",
+  "analytic": {
+    "definition_bytes": 535,
+    "definition_map_counter": 7,
+    "definition_sha256": "38b8c1d112306aa7256b7789e89f6a3ed4e853e4baccff7318560810c1985b77",
+    "matrix": [
+      0.0,
+      -1.0,
+      -0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "matrix_present": 1,
+    "pan": [
+      -0.0,
+      0.03125,
+      -0.125
+    ],
+    "pose_sha256": "738d95b1f47791cf8570a6454130420c21550ff69e9cfdf822fb872af814ee32",
+    "scale": 0.625,
+    "user_environments": 0
+  },
+  "archive_version": 19000,
+  "format_version": 4,
+  "guarded_processes": 5,
+  "heldout_inputs_read": 0,
+  "native_launches": 0,
+  "prior_evidence": {
+    "revision": "646abf82c9ca3c511fe742386980fd6fea73fb8e",
+    "sha256": {
+      "re/solidworks/measurements/2026/ThroughAllSourceView01.json": "d89619c9da85908493875a73ce5c21bf988ddfc345459b7d66f5e1ac5b982177",
+      "re/solidworks/records/ThroughAllSourceViewRules2026.json": "7f83f9b03a5c27bff05d109c6f4628cadc024c65d42dd36b738a215c90adf093"
+    }
+  },
+  "python": "3.14.7",
+  "refusals": {
+    "explicit_identity": "source camera matrix presence cannot be regenerated",
+    "infinite_matrix": "view coordinate or scale must be finite",
+    "infinite_zoom": "view coordinate or scale must be finite",
+    "model_negative_zero": "source camera contains unrepresented affine state",
+    "model_pan": "source camera contains unrepresented affine state",
+    "nan_pan": "view coordinate or scale must be finite",
+    "pan_matrix": "source camera requires ordinary orthographic transform modes",
+    "perspective": "source camera requires ordinary orthographic transform modes",
+    "reflection": "view rotation must preserve orientation",
+    "shear": "view rotation rows must be orthonormal",
+    "trailing": "SOLIDWORKS model Definition has an unconsumed tail",
+    "wrong_version": "SOLIDWORKS model Definition requires archive version 19000",
+    "zero_scale": "view scale must be positive"
+  },
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.saved-part-view-read.v1",
+  "scope": "Complete ordinary part Definition inspection of saved orientation and pan zoom",
+  "source_sha256": {
+    "re/tooling/sw2026/CheckSavedPartView.py": "19d6f3e21bcf9011b1ef4ed6d9dacea769aec3321ca763700c1d48d54f50783c",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/GeometryFields.py": "8fed1b002d7861e5c6546baa193764bb3bf3a1fcb7e0249c2b87f4d9f9eaf132",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocHeadFields.py": "4ae8ffe49bd19b9925ee0585576b6e308a8ba074b257db98905d96aa2dd0fe06",
+    "src/convert/adapters/solidworks/Archive/Definition/ReadModelDef.py": "90066347da5dc40a76a68bda0807f99c90c654cfccdfa44b6ee532a56f0bbeda",
+    "src/convert/adapters/solidworks/Archive/Definition/WriteModelDef.py": "2646b26e9b0811a9998c459b7505d67523900971d98b8b26d9c9a9ab5e20c7d1",
+    "src/convert/adapters/solidworks/Archive/Views/CheckRotation.py": "62e7da96e9bef4af747eee7cd24e1917f1133cfeb526b416e8eea316efdb11d1",
+    "src/convert/adapters/solidworks/Archive/Views/CheckViewRep.py": "9cefd19329a13808034528550db2a95d57f5529f648abba9da55d65f00063065",
+    "src/convert/adapters/solidworks/Archive/Views/MakeViewPair.py": "aa00af5d438ee7110a6d72283976bb8906ba5e9d1b72ef6cb740c0ea0570e442",
+    "src/convert/adapters/solidworks/Archive/Views/ReadPartView.py": "c0262e6c3c5fbb65b3e91a78066f6b8098ff430a0e27ab64e555cd5de66fad1c",
+    "src/convert/adapters/solidworks/Archive/Views/ReadViewPair.py": "1afb754d6e3e8ee3f05cf337ed5e570a67f840c096f128885d63e5173a79ffb6",
+    "src/convert/adapters/solidworks/Archive/Views/RequireScalar.py": "6a0831d9643a5ee453672165e512c88eacd4fd42e926829f24363cd09d2cc51a",
+    "src/convert/adapters/solidworks/Archive/Views/ViewInput.py": "8a24d35109185bb1255bd804ab450181a59661ca178717f305b05e61455b0d22",
+    "tests/Convert/Solidworks/ArchiveDefinition/SavedViewTests.py": "a86cdb8e15e977a6545ed8d8c9deb7f60dcbc42709e7ba9abe0ef784f2a39127"
+  },
+  "sources": {
+    "ladder": {
+      "definition_bytes": 3816,
+      "definition_map_counter": 60,
+      "definition_sha256": "14d9b75edf4586f8e1db2b166e855e29a03d4c88256e26d24351edb5c43d8a87",
+      "matrix": [
+        0.8844181216774213,
+        -0.24036589468392133,
+        0.400036026779314,
+        1.3877787807814457e-17,
+        0.8571673007021341,
+        0.5150380749100181,
+        -0.4666953889300622,
+        -0.4555090068042732,
+        0.7580942940502868
+      ],
+      "matrix_present": 1,
+      "pan": [
+        0.03490443496581813,
+        0.01343819220345903,
+        -0.022364907564101685
+      ],
+      "pose_sha256": "1feef72863afe5a345809cd63f551528a852ff99210db26e3410f16155c3f4f7",
+      "scale": 5.900297031550575,
+      "source_path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "user_environments": 1
+    },
+    "local": {
+      "definition_bytes": 459,
+      "definition_map_counter": 7,
+      "definition_sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "matrix_present": 0,
+      "pan": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_sha256": "41df93b73ba9599b9c154b1cd0944bf9e602130aa777ac2dfc23faa40e38f7eb",
+      "scale": 1.0,
+      "source_path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "user_environments": 0
+    },
+    "one_light": {
+      "definition_bytes": 3672,
+      "definition_map_counter": 60,
+      "definition_sha256": "967533dc08fd32608fb231adca3e6a1ac42533fbaa93491f90dce8911384fcb7",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "matrix_present": 0,
+      "pan": [
+        0.010505988556330606,
+        0.008014596837307151,
+        0.0
+      ],
+      "pose_sha256": "13aa4cce3f6ef126f73c6b7cf3f4d0f6200ae8f024d1ead28184df8794fe34f3",
+      "scale": 3.3533877980364655,
+      "source_path": "re/solidworks/v2026/corpus/light-counts/OneLights.SLDPRT",
+      "source_sha256": "b2772eebfd9f11038f72c76fe3a6ace4b9cd45373425f75921be45174943edb7",
+      "user_environments": 1
+    }
+  }
+}
