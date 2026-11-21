@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from InferenceGrid.FeatureRoutes import FeatureRecipes
+from InferenceGrid.ScopeOrder import OrderScopes
 from Records import digest
 
 
@@ -46,6 +47,7 @@ def BuildRunPlan(Catalogues, Revision):
         "inputs_sha256": digest([Revision, Pins]),
         "features": Features,
         "scopes": dict(sorted(Scopes.items())),
+        "scope_order": OrderScopes(Catalogues, Scopes),
     }
 
 

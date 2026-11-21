@@ -1,4 +1,4 @@
-from sys import executable as KPythonPath, platform as KPlatform
+from sys import executable as KPythonPath, platform as KPlatform, stderr as KErrorStream
 from typing import NoReturn
 
 from convert.Commands.CliOptions import CliOptions
@@ -10,6 +10,7 @@ def RunResearch(Options: CliOptions) -> NoReturn:
     from subprocess import Popen as StartProcess
 
     from KitCli.ExitResearch import ExitResearch
+    from KitCli.DetectVerify import CanNativeVerify
     from KitCli.ResearchSignals import ResearchSignals
     from KitCli.WaitResearchMut import WaitResearchMut
 
@@ -37,6 +38,7 @@ def RunResearch(Options: CliOptions) -> NoReturn:
     if Options.ResearchTool == "supervisor" and KPlatform == "win32":
         raise ValueError("The PR94 research supervisor requires Linux or macOS")
     Arguments = list(Options.ToolArgs)
+    LegacyReader = False
     if Options.Command == "run":
         Arguments = [*Arguments, "--batch-format", Options.ResearchTool]
     elif Options.ResearchTool in ("solidworks", "fusion", "corpus"):
@@ -46,6 +48,12 @@ def RunResearch(Options: CliOptions) -> NoReturn:
         ):
             raise ValueError("Set research --root once, before the tool name")
         Arguments = ["--root", str(RootPath), *Arguments]
+        if Options.ResearchTool in ("solidworks", "fusion"):
+            if "--help" not in Arguments and "-h" not in Arguments:
+                if CanNativeVerify(ScriptPath):
+                    Arguments.append("--native-verify")
+                else:
+                    LegacyReader = True
     with ResearchSignals() as (ChildProcesses, PendingSignals):
         with StartProcess(
             [KPythonPath, str(ScriptPath), *Arguments],
@@ -53,4 +61,11 @@ def RunResearch(Options: CliOptions) -> NoReturn:
         ) as ChildProcess:
             ChildProcesses.append(ChildProcess)
             ReturnCode = WaitResearchMut(ChildProcess, PendingSignals)
+    if LegacyReader and ReturnCode in (0, 3):
+        print(
+            "kit: decoding artifacts were preserved; native verification was not performed because the selected checkout lacks the verification capability; update that trusted checkout to enable verification",
+            file=KErrorStream,
+        )
+        if ReturnCode == 0:
+            ReturnCode = 4
     ExitResearch(ReturnCode)
