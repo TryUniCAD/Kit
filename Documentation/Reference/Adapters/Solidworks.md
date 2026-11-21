@@ -65,6 +65,8 @@ The shared archive codec preserves an ordinary version-19000 revolve's actual ax
 
 The normal reader reconstructs a closed solid for the measured cache-free ordinary rectangular revolve. It uses the real selected sketch axis, positive angular parameter and signed sweep direction. The computed body uses its verified creator's printable ASCII name. [Cache-free revolve geometry](../../Changes/Solidworks/Reading/Parts/SolidworksCacheFreeRevolveGeometry.md) · [Derived body names](../../Changes/Solidworks/Reading/Parts/SolidworksColdRevolveNames.md)
 
+The strict reader restores the editable D1 angle, the active thin wall parameters and the verified solid owner for the measured saved thin boss revolve. It checks the native partition and its face and edge geometry against the typed operation. [Saved thin revolve reading](../../Changes/Solidworks/Reading/Parts/SolidworksThinSavedRead.md)
+
 The default saved geometry reader also retains two independent annular Front-plane bosses and their partial revolve cut when one actual stock is explicitly selected. All three D1 angles and sketch axes remain editable in the portable history. The historical body selection and both final body names come from verified native owners. After a native rebuild and save, the same read path also supports the verified direct stock wrapper with regenerated surface choices. [Saved selected revolve cut](../../Changes/Solidworks/Reading/Parts/SolidworksSelectedRevolveCutRead.md) · [Direct selection readback](../../Changes/Solidworks/Reading/Parts/SolidworksDirectRevolveSelectionRead.md)
 
 The internal pocket composer builds a Front-plane rectangular blind boss followed by a reversed circular blind cut from neutral history. It preserves a free circle or the actual fixed-centre radius or diameter. Three disclosed designs pass 30 exact generated stream comparisons and 275 native open, edit, save and reopen checks. Held-out comparison and public admission remain open. [SDK blind pocket](../../Changes/Solidworks/Construction/SolidworksSdkBlindPocket.md)
@@ -760,7 +762,7 @@ The [thin-revolve archive schemas](../../Changes/Solidworks/Inspection/Solidwork
 add three structural research classes with a version-19000 guard.
 The [disclosed thin boss and edited-save audit](../../Changes/Solidworks/Inspection/Revolve/SolidworksThinRevolveWireReading.md)
 verifies exact Config-0 and ResolvedFeatures re-emission and captures the distinct wall, saved face and radial display owners.
-Constructors, public projection and native acceptance of generated thin revolves remain unproved.
+Later [held-out measurements](../../../re/solidworks/measurements/2026/SdkThinRevolveHeldoutNative01.json) qualified the bounded cache-free writer for forward partial thin bosses on signed principal planes. The [saved thin reader](../../Changes/Solidworks/Reading/Parts/SolidworksThinSavedRead.md) independently verifies radial displays, cache lineage and physical topology in the disclosed native saves.
 The [revolved-radius dimension schema](../../Changes/Solidworks/Inspection/SolidworksRevolvedRadiusDimensionArchive.md)
 adds the separate feature-dimension class structurally at version `19000`; its actual case reachability and constructor rules remain unproved.
 The [approved-session handoff tool](../../Changes/Solidworks/Inspection/SolidworksApprovedSessionHandoff.md)
