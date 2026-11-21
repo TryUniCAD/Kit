@@ -25,15 +25,18 @@ from Records import digest
 # model generation may revise candidate instructions but never the frozen collector or expectations
 def GenerateAttempt(Context, Attempt):
     Number = Attempt["number"]
-    _, Result, _ = Context.Stage(
-        "attempt." + str(Number) + ".generate",
-        "generate",
-        {
+    if "generation_inputs" not in Attempt:
+        Attempt["generation_inputs"] = {
             "generation_attempt": Number,
             "request": ModelPacket(Context.job, Context.state["diagnostics"]),
             "model_call_limit": Context.state["model_call_limit"],
             "model_seconds_limit": Context.state["model_seconds_limit"],
-        },
+        }
+        Context.Save()
+    _, Result, _ = Context.Stage(
+        "attempt." + str(Number) + ".generate",
+        "generate",
+        Attempt["generation_inputs"],
     )
     Attempt["generation"] = Result
     if Result["status"] != "candidate":

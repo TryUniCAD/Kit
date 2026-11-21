@@ -47,6 +47,7 @@ def CheckQualificationProof(Store, Native, Verdict, Manifest):
         Definition["kind"] != "builder.native"
         or VerifyDefinition["kind"] != "builder.verify"
         or Reservation["status"] != "frozen"
+        or len(Reservation["cases"]) != 3
         or Reservation["diagnostics_exposed"] is not False
         or Reservation["candidate_sha256"] != CandidatePin
         or Qualification["candidate_sha256"] != CandidatePin

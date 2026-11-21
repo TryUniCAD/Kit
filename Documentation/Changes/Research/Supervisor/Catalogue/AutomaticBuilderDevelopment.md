@@ -98,7 +98,9 @@ preparation. `--builder-pause` requests a durable pause. Explicit
 resume; it does not reset prior usage. Wall time includes pauses. Never edit frozen
 source or expectations to make an old job pass: preserve it and start a new job.
 
-The negative probe must reject an actual coincident plane despite matching mass.
+The negative probe must reject an actual offset plane on YZ support despite matching
+mass. Native creation must succeed and produce independent observations; a creation
+exception alone cannot satisfy this gate.
 The demo deliberately changes the first real generated program's scale to 2 and
 records this human-requested intervention. Native observations must show its wrong
 distance, then the model must repair it from structured diagnostics. This proves

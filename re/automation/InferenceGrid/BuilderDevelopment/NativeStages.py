@@ -95,8 +95,8 @@ def NegativeProbe(Context):
         return
     Candidate = {
         "schema": 1,
-        "operation": "coincident_plane",
-        "support": "XY",
+        "operation": "offset_plane",
+        "support": "YZ",
         "scale": 1.0,
         "reverse": False,
     }
@@ -111,6 +111,8 @@ def NegativeProbe(Context):
         )
     Context.state["negative_probe"] = Evaluation
     Context.Save()
+    if Evaluation.get("verification_job") is None:
+        raise DevelopmentStopped("negative_probe_unverified", Evaluation)
     if Evaluation["verdict"].get("verified") is True:
         raise DevelopmentStopped("verifier_false_accept", Evaluation)
     if Evaluation["verdict"].get("classification") != "builder_defect":
