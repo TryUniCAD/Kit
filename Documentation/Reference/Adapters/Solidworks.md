@@ -147,6 +147,12 @@ These fields retain their wire values and leave the archive map unchanged.
 Complete detail definitions require the remaining annotation and table owners.
 [Configuration font scope](../../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
 
+The configuration scene reader keeps the environment folder, its actual
+name and the observed ambient and directional light children. The
+runtime light reset retains its separate signed wire word. Populated
+light property owners need further layout evidence.
+[Scene record scope](../../Changes/Solidworks/Archive/SolidworksConfigSceneRecords.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)

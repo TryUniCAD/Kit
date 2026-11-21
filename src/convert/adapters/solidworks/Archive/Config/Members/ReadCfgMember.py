@@ -9,6 +9,7 @@ from convert.adapters.solidworks.Archive.Config.Members.CfgMemberGraph import (
     CfgMemberGraph,
 )
 from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
+    KAllMemberSchemas,
     KCfgMemberSchemas,
 )
 from convert.adapters.solidworks.Archive.Config.Members.CheckCfgMember import (
@@ -54,7 +55,7 @@ def ReadCfgMember(
         VersionValue,
         KMemberLayouts,
         KMemberVirtuals,
-        KCfgMemberSchemas,
+        KAllMemberSchemas,
         FlagsValue=FlagsValue,
     )
     MapValue = ArchiveMaps(SeedValue.CounterValue, SeedValue)
