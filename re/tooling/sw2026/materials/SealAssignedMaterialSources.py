@@ -256,7 +256,7 @@ def seal(args):
     prelock = local / "PrivatePreflight.json"
     store(prelock, private)
     with (local / "NativeAuthor.log").open("xb") as log:
-        command = (sys.executable, "-I", "-B", str(local / "Tools/AuthorAssignedMaterials.py"))
+        command = (sys.executable, "-E", "-B", str(local / "Tools/AuthorAssignedMaterials.py"))
         arguments = (str(local / "Job.json"), "--packet-sha256", job_sha)
         require(run((*command, "verify", *arguments), stdout=log, stderr=log, check=False, cwd=local).returncode == 0,
                 "private native author preflight failed")

@@ -106,10 +106,16 @@ python -I -B re/tooling/sw2026/materials/SealAssignedMaterialSources.py prefligh
 
 It verified the 13 members and all 10 disclosed phases, exercised the receipt filter with synthetic opaque aliases, and refused one missing numeric check. Native process and private input counts were zero.
 
-Root runs the frozen launcher with the verified guest Python after the host preflight. The receipt destination is a new file outside the private C folder.
+Root runs the frozen launcher with the verified current-user guest Python 3.12 after the host preflight. The receipt destination is a new file outside the private C folder.
 
 ```powershell
-py.exe -3.12 -I -B <launcher> seal <NativeSourcePacket03.json> --revision <committed-launcher-revision> --tool-sha256 <launcher-sha256> --private-root 'C:\KitSealedMaterialSource01' --receipt <new-public-receipt>
+py.exe -3.12 -I -B <launcher> seal <NativeSourcePacket03.json> --revision <committed-launcher-revision> --tool-sha256 <launcher-sha256> --private-root 'C:\KitSealedMaterialSource02' --receipt <new-public-receipt>
 ```
+
+### Current-user interpreter calibration
+
+Lease 01 reached private Job verification. Its native child then raised `ModuleNotFoundError` during `Swapp` import under `-I -B`. Isolated mode hid the current-user pywin32 installation. No `Inspection` directory or native process was created, and the attempt produced no original source lock. Its private intent commitment and log stay with the failed lease.
+
+The child now uses the same pinned executable with `-E -B`, matching the successful disclosed batch. This ignores Python environment variables, keeps bytecode disabled and preserves the installed user-site COM imports. Lease 02 requires a fresh C folder and receipt path. Source, phase and custody checks still use the exact packet 03 rules. [Related observer import gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/Rewrite/IsolatedPythonHidesUserSiteComObservers.md)
 
 Keep private values and source files sealed through writer and comparator freeze. This prospective source lock will supply original controls for the material writer evaluation. Held-out comparison and public writer acceptance require later evidence.

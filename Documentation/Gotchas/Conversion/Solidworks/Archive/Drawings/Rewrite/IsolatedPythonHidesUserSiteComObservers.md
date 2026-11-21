@@ -5,3 +5,5 @@ The actual Windows Python 3.12 SDK import gate passed in isolated mode, but the 
 The pure SDK generator keeps its isolated process. The native observer uses the previously qualified bytecode-suppressed legacy environment and explicit pinned tool directory. Run the passive observer import gate in that environment before the native batch. Retain all failed observations and reuse hash-verified generated inputs; do not classify a module-import error as a CAD file failure or a native crash.
 
 [Measured setup failure and retry scope](../../../../../../../re/solidworks/measurements/2026/BlankRewriteObserverIsolation01.json)
+
+The sealed assigned-material launcher reproduced the same failure after its non-native Job verification passed. Its Python 3.12 child uses `-E -B` to match the disclosed native run while the launcher and host preflight can remain isolated. The failed lease retains its private log and intent commitment. [Material setup refusal and fresh retry protocol](../../../../../../../re/solidworks/records/AssignedMaterialSourceProtocol2026.md#current-user-interpreter-calibration)
