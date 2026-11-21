@@ -34,3 +34,9 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/AuditPatternHingeAxisWire.py \
 ```
 
 The outer audit verifies the known disclosed save hashes and records tool hashes. Guarded generation acquires no saved asset or disclosed source information.
+
+## Shared constructor
+
+The [shared part composer](../../../src/convert/adapters/solidworks/Archive/Construction/Datums/MakeHingeMut.py) now builds this finite hinge. Both prior isolated generated cases retain the same Config-0 and ResolvedFeatures bytes and maps. The four exact native-prefix comparisons retain every row. The standard linked part emitter consumes the shared constructor for the complete pattern graphs. Six prior full output hashes and strict SDK readback receipts remain exact. [Integrated evidence](../measurements/2026/SdkSharedFiniteHinge01.json)
+
+The axis display sizing and signed endpoint use the current stock extents. Each checked principal support supplies its own stamped selection, actual root, frame and border. The shared path does not access any stored native asset during construction. Tool-only comparison inputs remain outside production.
