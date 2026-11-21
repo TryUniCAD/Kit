@@ -26,6 +26,7 @@ from convert.adapters.solidworks.Archive.Config.ReadConfigMut import ReadConfigM
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Archive.Partition.KernelShapes import KKernelShapes
 from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import ReadActiveNodes
+from convert.adapters.solidworks.Archive.Partition.ReadHistMarks import ReadHistMarks
 from convert.adapters.solidworks.Archive.Partition.ReadXmtHistory import ReadXmtHistory
 from convert.adapters.solidworks.Archive.Partition.SchemaHeader import SchemaHeader
 from convert.adapters.solidworks.Archive.Partition.WalkXmtChain import WalkXmtChain
@@ -218,7 +219,7 @@ def control_history(raw):
     ids = source_marks(link, (revolve,))
     active, history = DecodePartData(archive.require(PARTITION), PARTITION)
     nodes = ReadActiveNodes(active.data)
-    previous = ReadXmtHistory(history.data, nodes)
+    _, previous = ReadHistMarks(history.data, nodes)
     root, frames = decode_history(history.data)
     ordered, states = ordered_states(nodes, root, frames, ids)
     require(previous == ids[0] and not any(frame.restored for frame in ordered)

@@ -1,10 +1,9 @@
 from argparse import ArgumentParser
-from gzip import compress
 from hashlib import sha256
 from io import BytesIO
 from pathlib import Path, PurePosixPath, PureWindowsPath
 from subprocess import check_output, run
-from tarfile import open as open_tar
+from tarfile import TarInfo, open as open_tar
 import json
 import os
 import sys
@@ -22,6 +21,7 @@ NATIVE = "aee4c2213efdd216e35a9c22de36811b83eab06703b9233ef0f06d36619c8084"
 READER = "0b041e7b5e75d3a6b06315174d631a6695c6cd5632aa6aca04bfa5c217c5398d"
 TOP_TOOLS = ("AuthorCurves.py", "AuthorRevolveFamilies.py", "AuthorRevolveSources.py", "ComparePerpendicularRuntimes.py",
              "InspectFresh.py", "OracleIdentity.py", "RevolveFamilyModel.py", "Swapp.py", "VerifySdkCircleEndRegistration.py")
+stage = "capsule"
 
 
 def require(condition, diagnostic):
@@ -65,8 +65,21 @@ def freeze(folder):
             and case["runtime_writer_input_reads"] == 0 and case["passed"] for case in result["cases"].values())
             and digest(reader) == READER and json.loads(reader)["passed"] and HERE.read_bytes() == self_raw,
             "require the exact public disclosure and protected reader proof")
-    code = compress(git("archive", "--format=tar", revision, "src", f"{TOOLS}/revolve",
-                        *(f"{TOOLS}/{name}" for name in TOP_TOOLS)), mtime=0)
+    tools = git("ls-tree", "-r", "--name-only", revision, f"{TOOLS}/revolve").decode().splitlines()
+    tools = sorted({*(name for name in tools if name.endswith((".py", ".json"))), *(f"{TOOLS}/{name}" for name in TOP_TOOLS)})
+    require(WORKER in tools, "public worker is missing from the committed source inventory")
+    packed = BytesIO()
+    source = git("archive", "--format=tar", revision, "src")
+    with open_tar(fileobj=BytesIO(source), mode="r:") as sdk, open_tar(fileobj=packed, mode="w:gz") as bundle:
+        for member in sdk:
+            require(member.isdir() or member.isfile(), "unexpected SDK source archive member")
+            bundle.addfile(member, sdk.extractfile(member) if member.isfile() else None)
+        for name in tools:
+            raw = git("show", f"{revision}:{name}")
+            member = TarInfo(name)
+            member.size, member.mode = len(raw), 0o644
+            bundle.addfile(member, BytesIO(raw))
+    code = packed.getvalue()
     files = {"Observe.py": self_raw, "Code.tar.gz": code, "Disclosure.json": proof, "ReaderResult.json": reader}
     record = encode({"schema": SCHEMA, "revision": revision, "source_tree": tree, "writer_freeze_sha256": WRITER,
                      "reader_result_sha256": READER, "without_sealed_inputs": True,
@@ -100,6 +113,7 @@ def invoke(script, request, *arguments):
 
 
 def observe(folder, pin):
+    global stage
     require(os.name == "nt" and folder == HERE.parent and folder.name.startswith("ScopedRevolvePublicWriter"),
             "run isolated public SDK evaluation on the oracle host")
     manifest = json.loads(checked(folder / "PublicFreeze.json", pin))
@@ -121,6 +135,8 @@ def observe(folder, pin):
     root = private / "Code"
     expand(files["Code.tar.gz"], root)
     worker = root / WORKER
+    require(worker.is_file(), "public comparison worker is missing from its source capsule")
+    stage = "disclosed"
     prototype = frozen / TOOLS / "revolve" / "SelectedCut" / "BuildStockCutSelector.py"
     public_probes = []
     for name, result_pin in disclosure["native_result_sha256"].items():
@@ -140,6 +156,7 @@ def observe(folder, pin):
             public_probes.append(invoke(worker, request))
     require(len(public_probes) == 4 and all(result["passed"] for result in public_probes), "public guest preflight failed")
 
+    stage = "protected"
     area = original_run / "CandidatePacket"
     candidate = json.loads(checked(area / "Packet.json", CANDIDATE))
     native = json.loads(checked(area / "Inspection" / "Result.json", NATIVE))
@@ -190,6 +207,6 @@ if __name__ == "__main__":
         try:
             result = observe(args.folder, args.pin)
         except Exception as error:
-            print(json.dumps({"passed": False, "error_type": type(error).__name__}))
+            print(json.dumps({"passed": False, "stage": stage, "error_type": type(error).__name__}))
             raise SystemExit(1) from None
     print(json.dumps(result, sort_keys=True))
