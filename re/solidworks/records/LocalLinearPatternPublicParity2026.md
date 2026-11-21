@@ -17,3 +17,6 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/evaluation/public_parity/Freez
 ```
 
 Dispatch the exact `guest_argv` from `Recipe.json` as the root oracle owner. The packet requires the original parity packet and private retained copies, the pre-writer lock, and unused local and public output directories.
+## Protected SDK result
+
+Four guarded Windows writers at SDK revision `41ee633c85336eba196e1579834e1dd871cc17b7` reproduced the two native-qualified archives through eight ordinary stream calls. Both repetitions of each SDK route emit the same complete file. Each worker also recovers strict typed geometry and replays nine generated streams. The protected outputs are 10,544 and 10,533 bytes. Runtime input reads and native launches are both zero. The native Slot02 rerun qualified the exact bytes the SDK now reproduces, while Slot01 is identical to its earlier native-qualified artifact. [Public receipt](../measurements/2026/LocalLinearPatternPublicParity01.json) · [Native Slot02 receipt](../measurements/2026/LocalLinearPatternDefaultNative01.json) · [Native Slot01 custody](../measurements/2026/LocalLinearPatternDefaultParity01.json)
