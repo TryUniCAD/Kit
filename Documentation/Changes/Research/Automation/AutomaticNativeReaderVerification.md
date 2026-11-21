@@ -102,6 +102,9 @@ The live index links to each case's detailed gap list rather than duplicating it
 Absent decoded centers or other required values also prevent a passing case.
 Unordered geometric inventories use spatial buckets and structural categories before applying the unchanged numeric tolerances.
 Each item allows at most 256 candidate comparisons; more ambiguous geometry fails explicitly instead of causing an unbounded search.
+Sketch entities and boundary vertices and edges must also have unique geometric identities within their owner.
+Duplicate coincident entities leave reference binding unverified even when both inventories have matching counts and values.
+Face-attached sketches remain unverified until the exact support face identity is compared; a producer name and frame alone do not establish that identity.
 
 `full_semantics_verified` is computed from the case and saved-edit comparisons.
 Every required observation must exist and match for it to become true.
@@ -140,6 +143,7 @@ Serialized CLI coverage decodes the pinned P03 Fusion control and compares it wi
 It checks a complete comparison and rejects missing semantics, unsupported fields, wrong feature directions, wrong parameter bindings, wrong constraint operands, wrong topology counts, and wrong face planes.
 It also checks reordered observations and a coordinate perturbation across a spatial bucket boundary within the numeric tolerance.
 The P03 fixture has one boundary loop per face; the reorder case covers edge order within those loops and does not establish inner-loop reorder acceptance.
+An additional serialized CLI case duplicates point geometry in both the decoded document and observation inventory and requires an unverified result.
 The fixture is explicitly offline evidence and cannot establish licensed API acceptance.
 No local tests or licensed application acceptance were executed during implementation.
 Remote CI and live licensed SOLIDWORKS and Fusion measurements remain required.

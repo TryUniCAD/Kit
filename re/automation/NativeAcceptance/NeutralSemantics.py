@@ -99,6 +99,7 @@ def SketchSemantics(sketch, document, names, gaps):
         producers = set() if selection is None else {part.entity_id for part in selection.path if part.entity_kind == "feature" and part.subelement.startswith(("face:", "end-face:"))}
         if len(producers) == 1:
             support = {"kind": "face", "feature": features.get(next(iter(producers)))}
+            gaps.append("sketch:" + sketch.name + ":exact_support_face_identity")
     elif plane.offset_parameter_id is None:
         normal = Vector(plane.transform.z_axis)
         if sum(abs(value) > 1e-9 for value in normal) == 1 and all(abs(value) < 1e-9 for value in Vector(plane.transform.origin)):

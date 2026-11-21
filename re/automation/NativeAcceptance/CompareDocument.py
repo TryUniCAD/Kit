@@ -60,7 +60,7 @@ def Magnitude(value):
     return 0
 
 
-def UnorderedEqual(left, right):
+def UnorderedEqual(left, right, unique=False):
     if not isinstance(left, (list, tuple)) or not isinstance(right, (list, tuple)) or len(left) != len(right):
         return False
     if len(left) > 16384:
@@ -75,7 +75,7 @@ def UnorderedEqual(left, right):
     for item, position in zip(left, left_positions):
         category = Category(item)
         cells = [None] if position is None else product(*(range(math.floor(value / tolerance) - 1, math.floor(value / tolerance) + 2) for value in position))
-        found = False
+        found = None
         attempts = 0
         for cell in cells:
             candidates = buckets.get((category, cell), {})
@@ -84,13 +84,16 @@ def UnorderedEqual(left, right):
                 if attempts > 256:
                     raise ValueError("semantic comparison has more than 256 ambiguous spatial matches")
                 if SemanticEqual(item, other):
-                    del candidates[index]
-                    found = True
-                    break
-            if found:
+                    if found is not None:
+                        return False
+                    found = candidates, index
+                    if not unique:
+                        break
+            if found is not None and not unique:
                 break
-        if not found:
+        if found is None:
             return False
+        del found[0][found[1]]
     return True
 
 
@@ -175,6 +178,11 @@ def CompareDocument(document, native, application):
                 raise ValueError("native semantic names are ambiguous")
             for row in semantics[group]:
                 other = by_name.get(row["name"])
+                if group == "sketches":
+                    for label, sketch in (("decoded", row), ("native", other)):
+                        entities = None if sketch is None else sketch.get("entities")
+                        unique = isinstance(entities, list) and UnorderedEqual(entities, entities, unique=True)
+                        Compare(label + ":sketch:" + row["name"] + ":entity_identity", True, True if unique else None)
                 if group == "parameters" and other is not None:
                     other = {**other, "expression": Expression(other.get("expression"), other.get("dependencies", []))}
                 Compare("semantic_" + group + ":" + row["name"], row, other)
@@ -188,6 +196,11 @@ def CompareDocument(document, native, application):
         topology = document.bodies[0].topology
         Compare("body_topology", {"faces": topology.face_count, "edges": topology.edge_count, "vertices": topology.vertex_count}, {key: bodies[0].get(key) for key in ("faces", "edges", "vertices")})
         Compare("body_geometry", geometry, bodies[0].get("geometry"))
+        for label, boundary in (("decoded", geometry), ("native", bodies[0].get("geometry"))):
+            for field in ("vertices_mm", "edges"):
+                items = None if boundary is None else boundary.get(field)
+                unique = isinstance(items, list) and UnorderedEqual(items, items, unique=True)
+                Compare(label + ":brep:" + field + ":identity", True, True if unique else None)
         center = center if center is not None else document.bodies[0].attributes.get(application + ".body_centroid_mm")
         Compare("center_mm", None if center is None else list(center), bodies[0]["center_mm"])
     else:

@@ -1,4 +1,5 @@
-from json import loads as DecodeJson
+from copy import deepcopy as CopyValue
+from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
 
 from pytest import mark as TestMark
@@ -85,4 +86,33 @@ def CheckBadCompare(
     Report = DecodeJson((TmpPath / "Compared.json").read_bytes())
     assert Report["status"] == StatusName
     assert Report["full_semantics_verified"] is False
+    assert Report["native_acceptance"] is False
+
+
+# coincident geometry cannot establish reference identity even when both serialized inventories agree
+def CheckAmbiguousPoints(TmpPath: FilePath) -> None:
+    DocumentPath = DecodeControl(TmpPath)
+    SourceValue = DecodeJson(DocumentPath.read_bytes())
+    SketchValue = SourceValue["sketches"]["$tuple"][0]
+    SourceEntities = SketchValue["entities"]["$tuple"]
+    for EntityValue in tuple(SourceEntities):
+        if "point" not in EntityValue["geometry"]:
+            continue
+        Duplicate = CopyValue(EntityValue)
+        Duplicate["id"] += ":ambiguous"
+        SourceEntities.append(Duplicate)
+    _ = DocumentPath.write_text(EncodeJson(SourceValue), encoding="utf-8")
+    Evidence = DecodeJson(
+        FilePath(__file__).with_name("FusionRectangle.json").read_bytes()
+    )
+    Entities = Evidence["semantics"]["sketches"][0]["entities"]
+    Entities.extend(
+        CopyValue(Value) for Value in tuple(Entities) if Value["kind"] == "point"
+    )
+    Result = RunComparison(TmpPath, DocumentPath, Evidence)
+    assert Result.returncode == 5, Result.stderr
+    Report = DecodeJson((TmpPath / "Compared.json").read_bytes())
+    assert Report["status"] == "unverified"
+    assert Report["full_semantics_verified"] is False
+    assert any("entity_identity" in FieldName for FieldName in Report["semantic_gaps"])
     assert Report["native_acceptance"] is False
