@@ -4,7 +4,6 @@ from convert.adapters.solidworks.Archive.Partition.ReadHistMarks import ReadHist
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 
 
-# prior mark callers still rely on the original rollback selector contract
-def ReadXmtHistory(DataValue: bytes, NodesValue: Mapping[int, XmtNode]) -> int:
-    _, PriorMark = ReadHistMarks(DataValue, NodesValue)
-    return PriorMark
+# legacy validation callers retain their original result after the shared mark checks
+def ReadXmtHistory(DataValue: bytes, NodesValue: Mapping[int, XmtNode]) -> None:
+    _ = ReadHistMarks(DataValue, NodesValue)

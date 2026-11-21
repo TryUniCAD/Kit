@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Archive.Partition.CheckXmtGraph import CheckXmt
 from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import (
     ReadActiveNodes,
 )
-from convert.adapters.solidworks.Archive.Partition.ReadXmtHistory import ReadXmtHistory
+from convert.adapters.solidworks.Archive.Partition.ReadHistMarks import ReadHistMarks
 from convert.adapters.solidworks.Container.Format import (
     KLocalBodyStream,
     KPartitionStream,
@@ -44,7 +44,7 @@ def ReadLocalState(
     CheckXmtGraph(ActiveNodes)
     if len(ActiveNodes) != 1 or ActiveNodes[1].Integer("body"):
         raise ValueError("local body requires an empty active partition")
-    PriorMark = ReadXmtHistory(HistoryData, ActiveNodes)
+    _, PriorMark = ReadHistMarks(HistoryData, ActiveNodes)
     return LocalData, ActiveNodes[1].Integer("current_id"), PriorMark
 
 

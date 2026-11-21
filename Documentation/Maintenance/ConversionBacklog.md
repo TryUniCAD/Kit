@@ -252,6 +252,16 @@ and the typed partition rules from [PR #121](https://github.com/TryUniCAD/Kit/pu
 [Queue verification](https://github.com/TryUniCAD/Kit/actions/runs/44679488820)
 [Change entry](../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
 
+### B04-SW2026-PARTITION-MARKS
+
+The PR #121 takeover team owns this archive reader on
+`codex/solidworks-partition-marks`. It reuses the active partition and
+rollback validators delivered in [PR #172](https://github.com/TryUniCAD/Kit/pull/172).
+Exit requires the selected and predecessor IDs, the validation-only API
+result, and the guarded ownership and framing controls on the accepted revision.
+Binding these IDs to individual feature records is a separate delivery.
+[Change entry](../Changes/Solidworks/Archive/SolidworksPartitionMarks.md)
+
 ### B14-COMPANION-PUBLICATION
 
 [PR #170](https://github.com/TryUniCAD/Kit/pull/170) delivered the generic

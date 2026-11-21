@@ -403,6 +403,11 @@ This is source-backed inspection of the native import. Conversion
 acceptance follows the [CAD success criteria](../Operations/CadSuccessCriteria.md).
 [Local body readback](../../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
 
+The shared version-3701250 rollback reader exposes the selected mark ID
+and its immediate predecessor ID after validation. The validation-only
+entry point returns `None`.
+[Partition mark identities](../../Changes/Solidworks/Archive/SolidworksPartitionMarks.md)
+
 The strict local geometry route also admits the measured bare periodic
 cylinder with a managed import feature and linked rollback predecessor.
 Its neutral B-rep includes two synthesized seam vertices for the

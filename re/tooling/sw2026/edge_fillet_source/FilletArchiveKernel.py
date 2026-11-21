@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Archive.Partition.CheckXmtGraph import CheckXmt
 from convert.adapters.solidworks.Archive.Partition.KernelShapes import KKernelShapes
 from convert.adapters.solidworks.Archive.Partition.LocalWrite.WriteXmtNodeMut import WriteXmtNodeMut
 from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import ReadActiveNodes
-from convert.adapters.solidworks.Archive.Partition.ReadXmtHistory import ReadXmtHistory
+from convert.adapters.solidworks.Archive.Partition.ReadHistMarks import ReadHistMarks
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyAttrs import ReadBodyAttrs
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyScalar import ReadBodyScalar
 
@@ -65,7 +65,7 @@ def audit_kernel(archive, atom, observed):
     CheckXmtGraph(nodes)
     ownership = kernel_ownership(nodes, atom, observed)
     try:
-        previous = ReadXmtHistory(history.data, nodes)
+        _, previous = ReadHistMarks(history.data, nodes)
     except ValueError as error:
         require(str(error) == "current kernel framing differs", "changed kernel history refusal")
         history_result = {"strict_history_refused": str(error)}
