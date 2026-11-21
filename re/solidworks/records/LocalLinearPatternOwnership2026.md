@@ -117,3 +117,8 @@ No Kit writer ran during source acquisition.
 After that lock, inspect only the disclosed native sources first. Establish actual class reachability, seed/direction/skip identities, complete whole-stream raw replay and aliases; reconcile every input with the static owners above. The immediate generative gaps are actual direction/reference construction, count/display subclasses and allocation/style owners, inherited fresh pattern state, store-computed parameter geometry, map/frame provenance, runtime load/store repairs, nested subclass closure and independent native output acceptance. None is filled from a saved row. No schema promotion, constructor implementation or public writer admission is part of this tranche.
 
 Mandatory stopping conditions: “The first is success under every criterion on this page.” and “The second is the end of the available context.” Missing fields remain work; a ready source-author packet is not overall completion.
+
+The six disclosed native part saves now have independent linked archive
+replays and source-bound seed, plane, signed direction and editable driver
+evidence. The production type boundary and the research display cache
+boundary are recorded separately. [Archive intake](LocalLinearPatternDisclosedArchive2026.md)
