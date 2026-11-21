@@ -17,7 +17,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckTreeAlias 
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 
 
-# a revolve selector couples the consumed body history to its separate result atom
+# a revolve selector couples the consumed body history to the result, which may omit its paired cache words even with a live face
 def ReadRevWrapper(
     LinkValue: NativeLink,
     Selected: ArchiveNode,
@@ -35,7 +35,7 @@ def ReadRevWrapper(
     ExpectedWords = (
         ((-1, 0, 0), (NativeNodeId(Selected), 0, 0))
         if Fields.get("ff0") is None
-        else ((-1, ResultId, 58),)
+        else ((-1, ResultId, 58), (-1, 0, 0))
     )
     if (
         Component.FieldsValue.get("owner") is not LinkValue.ConfigValue.RootValue

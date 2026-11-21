@@ -25,7 +25,7 @@ def classify(error):
     return type(error).__name__
 
 
-def evaluate(packet, freeze_pin, candidate_pin, native_pin):
+def evaluate(packet, freeze_pin, candidate_pin, native_pin, *, read=None, output=None, reader=None):
     if os.name != "nt" or packet.name != "ScopedRevolveHeldoutEval03":
         raise ValueError("use the exact guest-local sealed evaluation")
     private = Path(PREFIX / packet.name)
@@ -51,6 +51,7 @@ def evaluate(packet, freeze_pin, candidate_pin, native_pin):
                 "native control differs from the frozen oracle")
     custody = source_lock(checked(source / LOCK, LOCK_SHA))
     cases = validate_specs(json.loads(checked(area / "ModelSpecs.json", custody["spec_sha256"])))
+    read = dispatch if read is None else read
     evidence = {}
     for case, locked in zip(cases, custody["sources"], strict=True):
         label = locked["case"]
@@ -69,12 +70,13 @@ def evaluate(packet, freeze_pin, candidate_pin, native_pin):
         reads = {}
         for state, (file, pin), observed in states:
             try:
-                read = dispatch(file, pin, observed=observed)
+                result = read(file, pin, observed=observed)
             except (OSError, TypeError, ValueError) as error:
                 reads[state] = {"passed": False, "boundary": classify(error)}
             else:
-                reads[state] = {"passed": True, "runtime_reads": read["unexpected_runtime_reads"],
-                                "linked_streams": len(read["exact_streams"])}
+                reads[state] = {"passed": result["unexpected_runtime_reads"] == 0 and len(result["exact_streams"]) == 2,
+                                "runtime_reads": result["unexpected_runtime_reads"],
+                                "linked_streams": len(result["exact_streams"])}
         evidence[label] = {
             "native": {"passed": all(all(row.values()) for row in comparisons),
                        "checks": comparisons, "native_tree_rows": [
@@ -94,7 +96,9 @@ def evaluate(packet, freeze_pin, candidate_pin, native_pin):
         "original_native_files_read_by_generation": candidate["original_native_files_read_by_generation"],
         "passed": passed, "cases": evidence,
     }
-    pin = publish(private / "ReadRecheck01.json", encode(receipt))
+    if reader is not None:
+        receipt["reader"] = reader
+    pin = publish(private / "ReadRecheck01.json" if output is None else output, encode(receipt))
     return {"sha256": pin, "passed": passed,
             "native_parity_cases": sum(row["native"]["passed"] for row in evidence.values()),
             "strict_saved_reads": sum(value["passed"] for row in evidence.values() for value in row["strict_reads"].values())}
