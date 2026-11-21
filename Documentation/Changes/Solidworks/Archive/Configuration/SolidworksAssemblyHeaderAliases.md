@@ -1,7 +1,7 @@
 # SOLIDWORKS assembly header aliases
 
 The version-19000 direct header writer accepts the mapped schema-one
-assembly root. The same owner list governs the linked reader.
+assembly root. Both codecs use the configuration owner catalog.
 The action allocates distinct external header objects in map order
 and writes zero bytes. Only the top-level model owns this action.
 [Direct header writer](../../../../../src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteDirectMut.py)

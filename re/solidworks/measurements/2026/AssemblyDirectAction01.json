@@ -196,14 +196,30 @@
   },
   "runtime_external_accesses": 0,
   "schema": "kit.sw2026.assembly-direct-action.v1",
+  "shared_owner_catalog": {
+    "classes": [
+      [
+        "moPart_c",
+        1
+      ],
+      [
+        "moAssembly_c",
+        1
+      ]
+    ],
+    "legacy_reader_symbol_preserved": true,
+    "reader_function_identical_to_base": true,
+    "writer_function_identical_to_aggregate": true
+  },
   "source_semantics_match_aggregate": true,
   "source_sha256": {
     "re/tooling/sw2026/CheckAsmDirect.py": "f4d62379765630e9efd26b95ad3ec9e62ae841e71e0a91c27cb3e9e1a8dbe210",
     "re/tooling/sw2026/CheckCfgSection.py": "c68d1488829051b52ba317e6c0539e477d71b09c7b6175a4aa2e0d1e98f4d9e6",
     "re/tooling/sw2026/CheckCfgSectionWrite.py": "8296b823de4b7b9c940c42fdcaa3d6ad0f84f1d021060fd52f67b6879abd55ad",
     "re/tooling/sw2026/MakeHeadAliasCase.py": "d3f10efe2f7506b60e16558b88014bbee68e5772e0908d2b705b6c99bfd127fd",
-    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadDirectMut.py": "edd4b55520be3564ae79aa1d550ff251a0238609cd6de60a4422ec0fe0a3c22e",
-    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteDirectMut.py": "9f0a27a01636d968f460e11ab28c7f853501f285a9240a671563f4ea1f4b90da",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Direct/DirectOwners.py": "d370510dfab7c9b309315a0c7e374e9ed4fee3eb6728b785785b32d9d445080f",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadDirectMut.py": "7c97216c8e068dae6ce2ed25598c0ff5a986b023bc4fcd43f407cea38d486691",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteDirectMut.py": "acb48315506ea1f382df00a0b658ccbc979dca040d961493fb1fb578d383ecc5",
     "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteSectionMut.py": "0889a498a1f678a29c841e6ff01e88a121431cf4a6ea8313ea77c95c724c2e1e",
     "src/convert/adapters/solidworks/Archive/Header/HeaderRefNodes.py": "a6792564852e0e46cbb147abc700147bfda23bbac5b40c2e48a1dfa02f7c6910",
     "tests/Convert/Solidworks/Configuration/Sections/AssemblyAliasTests.py": "0b8ec2fa6da9921fd30cc56cbd5d12dde6fefa6fa714503cb4b070255bb62a8c"

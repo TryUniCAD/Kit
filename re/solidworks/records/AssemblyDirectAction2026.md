@@ -3,7 +3,7 @@
 Task `B04-SW2026-ASSEMBLY-HEADER-ALIASES` delivers the direct writer owner
 repair from [aggregate revision 3136c93c5](https://github.com/TryUniCAD/Kit/commit/3136c93c5d5f30395d315a2124894cc60de9d9cc)
 on accepted main `91df941c98d2e96633eb0fd0f0a1adfbf70d3039`. The emitter
-shares the existing reader owner table for version 19000. It checks
+uses the same immutable version-19000 owner catalog as the reader. It checks
 writer depth one, a registered root object and distinct unallocated
 `moExtObject_c` schema-one aliases.
 [Change entry](../../../Documentation/Changes/Solidworks/Archive/Configuration/SolidworksAssemblyHeaderAliases.md)
