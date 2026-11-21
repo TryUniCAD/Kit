@@ -49,7 +49,7 @@ directory adjacent to the existing public capsule.
 python3.14 -I -B re/tooling/sw2026/nested_publication/SealedPublicNestedParity.py freeze \
   --sdk-revision 96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb \
   --original /disclosed/SdkSealedNeutralNestedEvaluation01 \
-  --output /disclosed/SdkSealedPublicNestedParity02
+  --output /disclosed/SdkSealedPublicNestedParity03
 ```
 
 Use the command's parity packet SHA-256 with the copy under the new packet's
@@ -98,13 +98,11 @@ guard still requires the same absolute destination scope, exclusive open and
 owned filenames. The production SDK and all other worker helpers stay pinned
 to the original public writer revision.
 
-The numbered retry requires a separate published Windows preflight hash before
-the guest may resolve either private trial. Four fresh workers reproduce both
-public dimensioned bundles on the two routes using an existing fixed drive
-scratch directory. The preflight binds both native-tested disclosed manifests,
-the exact retry packet and audit helper, and the Python executable and version.
-Run the protected replay with that same interpreter. Scratch output, the
-Windows preflight receipt and the separate retry result use fresh destinations.
+The second packet required both Windows publication routes to reproduce the
+Mac-generated disclosed manifests before either private trial could be
+resolved. On Windows publication reached the exact bundle comparison and
+refused the first manifest mismatch. No protected request was opened under
+that packet, and its frozen inputs were retained.
 
 The retry packet SHA-256 is
 `7092c012aac0eb6ef2c721b9901a3fa3f32129aa4f6b3a8043b7a65529a6fbd2`.
@@ -114,6 +112,34 @@ A host Python 3.12 probe removed only the unavailable constant. The four old
 disclosed workers reproduced the same attribute error. All four repaired
 workers matched fourteen complete file hashes across the two routes and
 returned full native transfer with zero runtime input reads. The ordinary
-host preflight also passed. The guest preflight and protected replay retain
-their own independent receipts.
+host preflight also passed. The Windows refusal retains its own weight and receives no passing credit.
 [Portable mask behavior](../../../Documentation/Gotchas/Conversion/Registry/WindowsAuditsNeedPortableAccessMask.md)
+
+
+## Same-guest preparer reference
+
+The Windows disclosed comparison found that both public entry points reproduce
+every file from the original frozen neutral preparer on that same Windows
+interpreter. All seven generated Windows files differ from their Mac-frozen
+counterparts. The typed comparison located eight binary64 words per file in
+the default camera matrices under `Contents/Config-0/f9f8`. Other typed fields
+and streams are exact, all stream lengths agree, and the maximum difference
+is `7.888609052210118e-31`. This observation explains why the earlier public
+preflight rejected the platform contrast. It grants no byte tolerance.
+
+Packet 03 runs the original frozen preparer from the verified native packet
+once per disclosed dimensioned request. This process reads no runtime files,
+replays all 34 or 44 typed streams and returns file names, lengths and hashes
+without raw output bytes. Two separate guarded workers call the current
+public registry and direct adapter on the same request. Both must match every
+file hash and length from the preceding same-guest preparer, report all eight
+native transfers, and hold both usability flags. The Mac fixture comparison
+is a separate receipt field. This preflight launches six Python processes on
+the guest and records no new native lifecycle for the disclosed Windows files.
+
+The immutable preflight receipt binds the original preparer revision and code
+manifest, both disclosed request hashes, the exact retry packet and portable
+audit, and the Python executable, version and zlib runtime. The protected
+replay verifies that authority before opening either opaque request. Its exact
+file comparator uses the actual earlier Windows-native BuildLock for each slot
+and never the disclosed manifest or a typed tolerance.
