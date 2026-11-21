@@ -67,12 +67,18 @@ def UseProducerName(Document: CadDocument, GeometryValue: PartGeometry) -> CadDo
     BossValue = GeometryValue.CreatorValue or GeometryValue.ProducerValue
     if BossValue is None:
         return Document
+    FirstScope = (
+        GeometryValue.CreatorValue is BossValue
+        and BossValue.FieldsValue.get("f544") == 1
+    )
     try:
         FeatureValue = CheckColdBind(Document, GeometryValue, BossValue)
     except (ValueError, TypeError, KeyError):
+        if FirstScope:
+            raise
         return Document
     if GeometryValue.CreatorValue is BossValue:
-        Document = BindPrismCreate(Document, FeatureValue)
+        Document = BindPrismCreate(Document, FeatureValue, FirstScope=FirstScope)
     try:
         LabelValue = ReadNativeName(BossValue)
     except (ValueError, TypeError, KeyError):

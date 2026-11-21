@@ -4,6 +4,7 @@ from interchange.document.Models.DocumentModel import (  # lgtm[py/cyclic-import
     CadDocument,
 )
 from interchange.document.Validation.DocumentDefValidate import GetDefErrors
+from interchange.document.Validation.FirstScopeErrs import FirstScopeErrs
 
 
 # timeline checks protect ordering and every feature dependency from invalid references
@@ -58,4 +59,13 @@ def GetFeatureErrs(
     for BodyValue in DocumentValue.bodies:
         if BodyValue.final_feature_id not in IdentitySets["feature_timeline"]:
             ErrorValues.append(f"body {BodyValue.id} references missing final feature")
-    return tuple(ErrorValues)
+    return (
+        *ErrorValues,
+        *FirstScopeErrs(
+            DocumentValue.feature_timeline,
+            DocumentValue.bodies,
+            Parameters,
+            Sketches,
+            Frames,
+        ),
+    )

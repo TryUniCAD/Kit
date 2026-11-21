@@ -37,6 +37,7 @@ def ReadPrismPlan(
     *,
     ModeValue: ExtrudeEnd = ExtrudeEnd.KBlind,
     SelectedStock: bool = False,
+    AllowFirstScope: bool = False,
 ) -> PrismPlan:
     (BossValue,) = (
         NodeValue
@@ -45,7 +46,11 @@ def ReadPrismPlan(
     )
     OwnerValue = ReadExtrude(LinkValue, BossValue, Features)
     CheckPrismBoss(
-        OwnerValue, ColdValue, ModeValue=ModeValue, SelectedStock=SelectedStock
+        OwnerValue,
+        ColdValue,
+        ModeValue=ModeValue,
+        SelectedStock=SelectedStock,
+        AllowFirstScope=AllowFirstScope,
     )
     ReversedBlind = (
         OwnerValue.IsReversed

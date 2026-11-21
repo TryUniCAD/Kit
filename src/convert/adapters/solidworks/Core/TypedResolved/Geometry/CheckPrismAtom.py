@@ -13,10 +13,17 @@ def CheckPrismAtom(
     NodeValue: ArchiveNode,
     HasColdOutput: bool = False,
     *,
-    SelectedScope: Literal["stock", "cut"] | None = None,
+    SelectedScope: Literal["stock", "cut", "first_creator"] | None = None,
 ) -> None:
     Fields = NodeValue.FieldsValue
     HasOutput = HasColdOutput or SelectedScope == "stock"
+    if SelectedScope == "first_creator" and (
+        HasOutput
+        or any(
+            Fields.get(FieldName) is not None for FieldName in ("f528", "f530", "f548")
+        )
+    ):
+        raise ValueError("cache free first creator has stored body owners")
     Expected = {
         "has_f528": int(HasOutput),
         "n494": int(HasOutput),
