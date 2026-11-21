@@ -41,7 +41,7 @@ The only public selection is the same sketch's actual `N_Axis`.
 Its validated local Front frame supplies the explicit forward direction
 in the projected creator. The two inactive directions and drafts have
 absent typed inputs. The unchanged cold model, boss and end gates still
-refuse the saved modes. [Warm scope observation](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/WarmBossScopeCanOwnOnlyAnOutput.md)
+refuse the saved modes. [Warm scope observation](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/Owners/WarmBossScopeCanOwnOnlyAnOutput.md)
 
 The name helper begins at the pre-name-binding boundary. It decodes the
 exact active partition and proves that rebinding the typed name and atom

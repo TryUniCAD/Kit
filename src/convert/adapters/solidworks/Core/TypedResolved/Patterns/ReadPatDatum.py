@@ -1,4 +1,5 @@
 from collections.abc import Mapping
+from math import dist as Distance
 
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import (
     DatumTime,
@@ -7,6 +8,7 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.ReadDatumFrame
     ReadDatumFrame,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from convert.adapters.solidworks.Assembly.PlanarMates.ReadPlane import ReadVector
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismRef import (
     CheckPrismRef,
@@ -15,6 +17,9 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.PatternDatum import (
     PatternDatum,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.ReadPatTilt import (
+    ReadPatTilt,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckTreeAlias import (
     CheckTreeAlias,
@@ -28,6 +33,7 @@ def ReadPatDatum(
     HeaderValue: ArchiveNode,
     Features: Mapping[int, ArchiveNode],
     PatternValue: ArchiveNode,
+    HingeValue: ArchiveNode | None = None,
 ) -> PatternDatum:
     LineValue = RequireNative(PatternValue.FieldsValue.get("f1288"), "moLineRef_w")
     Reference = RequireNative(LineValue.FieldsValue.get("f58"), "moCompRefPlane_c")
@@ -37,15 +43,12 @@ def ReadPatDatum(
     if type(DatumId) is not int:
         raise ValueError("pattern plane lacks a persistent datum identity")
     DatumValue = RequireNative(Features.get(DatumId), "moRefPlane_c")
-    FrameValue, DatumKey = ReadDatumFrame(DatumValue)
     CheckPrismRef(Reference)
     CheckTreeAlias(LinkValue, (LineValue, Reference, Component, DatumValue))
     Reverse = PatternValue.FieldsValue.get("f1298")
     Fields = LineValue.FieldsValue
     if (
-        DatumKey not in (1, 2)
-        or Reference.FieldsValue.get("f100") != DatumKey
-        or Reference.FieldsValue.get("ff8") is not None
+        Reference.FieldsValue.get("ff8") is not None
         or Component.FieldsValue.get("owner") is not LinkValue.ConfigValue.RootValue
         or Component is LinkValue.ConfigValue.RootValue.FieldsValue.get("f990")
         or Component.FieldsValue.get("has_ext") != 0
@@ -53,7 +56,6 @@ def ReadPatDatum(
         or any(
             Fields.get(NameValue) != 0 for NameValue in ("has_f10", "has_f18", "ff8")
         )
-        or ReadVector(Fields.get("fe0")) != FrameValue.NormalValue
         or type(Reverse) is not int
         or Reverse not in (0, 1)
         or not all(
@@ -64,4 +66,29 @@ def ReadPatDatum(
         raise ValueError(
             "pattern direction does not bind its actual local datum and reversal"
         )
-    return PatternDatum(DatumValue, LineValue, FrameValue, Reverse == 1)
+    Direction = ReadVector(Fields.get("fe0"))
+    DatumKey = Reference.FieldsValue.get("f100")
+    if HingeValue is None:
+        FrameValue, PrincipalKey = ReadDatumFrame(DatumValue)
+        if (
+            PrincipalKey not in (1, 2)
+            or DatumKey != PrincipalKey
+            or Direction != FrameValue.NormalValue
+        ):
+            raise ValueError("pattern direction contradicts its principal plane")
+        return PatternDatum(DatumValue, LineValue, FrameValue, Reverse == 1)
+    FrameValue, CenterValue, TiltValue = ReadPatTilt(
+        LinkValue, HeaderValue, Features, DatumValue, HingeValue
+    )
+    if (
+        DatumKey != 0
+        or Fields.get("f68") != 1
+        or Fields.get("fb0") != 0.0
+        or abs(RequireScalar(Fields.get("fb8")) - 1.0) > 2e-15
+        or Distance(ReadVector(Fields.get("fc8")), CenterValue) > 2e-15
+        or Distance(Direction, FrameValue.NormalValue) > 2e-15
+    ):
+        raise ValueError(
+            "pattern direction contradicts its angular plane border or signed normal"
+        )
+    return PatternDatum(DatumValue, LineValue, FrameValue, Reverse == 1, TiltValue)

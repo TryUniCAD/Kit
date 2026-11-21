@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.IsStockConfi
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.ApplyPatDoc import (
     ApplyPatDoc,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.ApplyTiltDoc import (
+    ApplyTiltDoc,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.ReadPatBody import (
     ReadPatBody,
 )
@@ -16,7 +19,7 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNa
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# unsupported or unsaved variants keep the existing generic reader behavior
+# a proven angular selection can project before the narrower saved topology check
 def WithPatternDoc(
     Document: CadDocument, Archive: SldprtArchive, ConfigId: int | None
 ) -> CadDocument:
@@ -29,15 +32,17 @@ def WithPatternDoc(
         or "moLPattern_c" not in ClassNames
     ):
         return Document
+    Projected = Document
     try:
         if not IsStockConfig(Archive, 19000):
             return Document
         LinkValue = ReadNativeLink(Archive, ConfigId)
         Header = ReadHeaderGraph(Archive.require("Header2"), 19000)
         OwnerValue = ReadPatOwner(LinkValue, Header)
-        BodyValue = ReadPatBody(Document, Archive, LinkValue, OwnerValue)
-        Result = ApplyPatDoc(Document, LinkValue, OwnerValue, BodyValue)
+        Projected = ApplyTiltDoc(Document, LinkValue, OwnerValue.DatumValue)
+        BodyValue = ReadPatBody(Projected, Archive, LinkValue, OwnerValue)
+        Result = ApplyPatDoc(Projected, LinkValue, OwnerValue, BodyValue)
         Result.assert_valid()
         return Result
     except (ValueError, TypeError, KeyError):
-        return Document
+        return Projected

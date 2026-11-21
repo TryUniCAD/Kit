@@ -8,4 +8,4 @@ python3.14 -I -B re/tooling/sw2026/f14a_lineage/VerifyF14aLineage.py \
   > /unused/external/F14aTopologyReceipt.json
 ```
 
-The generated inputs have no serialized per-entity kernel identities, and the edited saves contain no previous solid in their rollback. The prior reopen verified geometry and editable owners. Live native persistent-reference resolution and intact-source transfer remain unqualified. [Native reference evidence boundary](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/GeneratedBoxRolesNeedNativeReferenceProof.md)
+The generated inputs have no serialized per-entity kernel identities, and the edited saves contain no previous solid in their rollback. The prior reopen verified geometry and editable owners. Live native persistent-reference resolution and intact-source transfer remain unqualified. [Native reference evidence boundary](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/Topology/GeneratedBoxRolesNeedNativeReferenceProof.md)

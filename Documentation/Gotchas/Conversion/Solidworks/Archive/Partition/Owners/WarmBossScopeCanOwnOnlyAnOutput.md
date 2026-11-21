@@ -10,4 +10,4 @@ Follow the actual output array, manager atom, active kernel partition and
 selected-input branches when classifying the first creator. The saved
 mode has its own chooser and rollback state. Keep the cold constructor
 guards and validate the saved body through its actual owners.
-[Guarded warm and selected controls](../../../../../../re/solidworks/records/SdkWarmNestedLeaf2026.md)
+[Guarded warm and selected controls](../../../../../../../re/solidworks/records/SdkWarmNestedLeaf2026.md)

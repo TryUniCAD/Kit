@@ -31,27 +31,37 @@ def ReadPatOwner(LinkValue: NativeLink, HeaderValue: ArchiveNode) -> PatternOwne
     Classes = tuple(Value.ClassValue.NameValue for Value in RootsValue)
     SystemCounts = dict.fromkeys(KSystemFolders | KSystemExtras, 1)
     SystemCounts["moRefPlane_c"] = 3
-    if LinkValue.ConfigValue.RootValue.ClassValue.NameValue != "moPart_c" or (
-        Counter(Classes[:-5]) != SystemCounts
-        or Classes[-5:]
-        != (
-            "moProfileFeature_c",
-            "moExtrusion_c",
-            "moProfileFeature_c",
-            "moICE_c",
-            "moLPattern_c",
+    StockKinds = (
+        "moProfileFeature_c",
+        "moExtrusion_c",
+        "moProfileFeature_c",
+        "moICE_c",
+    )
+    if Classes[-7:] == (*StockKinds, "moRefAxis_c", "moRefPlane_c", "moLPattern_c"):
+        StartIndex = len(Classes) - 7
+        HingeValue = RootsValue[-3]
+    elif Classes[-5:] == (*StockKinds, "moLPattern_c"):
+        StartIndex = len(Classes) - 5
+        HingeValue = None
+    else:
+        raise ValueError(
+            "ordinary linear pattern requires ordered plate and seed roots"
         )
+    if (
+        LinkValue.ConfigValue.RootValue.ClassValue.NameValue != "moPart_c"
+        or Counter(Classes[:StartIndex]) != SystemCounts
     ):
         raise ValueError(
             "ordinary linear pattern requires its ordered plate seed and pattern roots"
         )
-    SeedValue, PatternValue = RootsValue[-2:]
+    StockValue = RootsValue[StartIndex : StartIndex + 4]
+    SeedValue, PatternValue = StockValue[-1], RootsValue[-1]
     CheckPatMode(PatternValue)
-    AtomsValue, Output = ReadPatChain(LinkValue, RootsValue)
+    AtomsValue, Output = ReadPatChain(LinkValue, (*StockValue, PatternValue))
     return PatternOwner(
         PatternValue,
         SeedValue,
-        ReadPatDatum(LinkValue, HeaderValue, Features, PatternValue),
+        ReadPatDatum(LinkValue, HeaderValue, Features, PatternValue, HingeValue),
         ReadPatDrivers(LinkValue, PatternValue),
         AtomsValue,
         Output,
