@@ -18,7 +18,31 @@ Both disclosed cases also author dimension presentation. The ordinary part model
 
 The profile requires a positive acute angle, both canonical fixed supports, nonoverlapping raised footprints strictly inside the origin plate, and one selected local seed. It rejects mismatched finite trim and frames, an open sketch, a missing or crossed owner, conflicting live count, presentation bound to another driver, an inconsistent final body, and an attempted metadata replacement for the missing axis type.
 
+## Shared preparation
+
+The internal [planner](../../../src/convert/adapters/solidworks/Core/Preparation/Patterns/PlanLinPattern.py) accepts a complete `CadDocument`, explicit `SelfFileInput` and typed [authored presentation](../../../src/convert/adapters/solidworks/Archive/Construction/Patterns/Input/PatPresentInput.py). Ordinary document validation and the scoped reader resolve the actual Front profiles, stock selection, ordered Top and Right hinge picks, Right angle support and local pattern direction and seed. The live values remain the two blind depths, angle D1, integer count D1 and spacing D3. The angle has its actual derived zero offset. The sole final body must name the final joined pattern and any supplied topology must match the ordinary counted result.
+
+The planner reads the registered portable `PlaneAxis` directly. The existing wire tag belongs to that type, while the frozen historical research proof retains its old locally registered prototype. [Portable type boundary](PortablePlaneIntersectionAxis2026.md) · [Registry gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/ReferencePlanes/PortableAxisOwnsLegacyWireTag.md)
+
+The [archive input](../../../src/convert/adapters/solidworks/Archive/Construction/Patterns/Input/LinPatternInput.py) carries both stock boxes, the hinge label, angle intent, ordered annotation catalog, active and shown choices, pattern name, signed direction, count and pitch, and all six explicit display styles. The three supplied presentation IDs must match the real parameter owners. A canonical Back view anchors the angle and count. The standard pitch annotation remains unassigned, with its proven zero text point.
+
+The planner checks that the base plate and seed form the measured two-box profile and that the finite hinge follows the joined stock's first-plane bounds. The downstream shared geometry must still verify containment and separation of all repeated footprints before emitting a complete part. This preparation adds no public write route, native run or held-out credit.
+
+The [shared projection proof](../../tooling/sw2026/linear_pattern/neutral/ProveSharedPatternPlan.py) uses only the two independently authored disclosed recipes and their separate pitch and count changes. Each isolated worker decodes the regular portable document, builds the typed result under the no-read guard and verifies that the document wire remains intact. The parent compares every recipe field to the frozen disclosed model. The authored integer zeros at the first origin corner are represented as metre floats. The original file digests serve as outside construction evidence.
+
+The [recorded receipt](../measurements/2026/SharedLinearPatternPlan01.json) has SHA-256 `edb8f7b9905eb8edd42195a4fc5741b2cf52a2588d3b423b0de1bf57ccdd64d3`. Six new guarded process runs matched the two original recipes and both separately edited inputs per design with zero runtime reads. Sixteen further isolated processes refused missing or mismatched hinge ownership, a crossed seed, an open outline, inconsistent depth-independent pattern controls, wrong output or configuration, contradictory final topology and misattached presentation. The frozen historical proof remains unchanged.
+
+```sh
+pattern_proof="$(mktemp -d)"
+uv run --no-project --offline --python 3.14 --with pefile --with capstone python -I -B \
+  re/tooling/sw2026/linear_pattern/neutral/ProveSharedPatternPlan.py \
+  --disclosed /absolute/path/to/GeneratedLocalPatternNative02 \
+  --output "$pattern_proof/Receipt.json"
+```
+
 ## Reproduce
+
+The command below belongs to the original frozen research codec revision named above.
 
 ```sh
 pattern_proof="$(mktemp -d)"
