@@ -5,6 +5,7 @@ from pytest import raises as Raises
 from interchange import CadDocument, PlaneAxis
 from interchange.document.Models.DocumentError import DocumentError
 from interchange.Enums.EnumFeatures import FeatureKind
+from interchange.Enums.EnumUnits import UnitSystem
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.geometry.Models.Selection import Selection, SelectPathElem
 from interchange.geometry.Models.SupportPlane import SupportPlane
@@ -63,14 +64,17 @@ def BuildAxisDoc() -> CadDocument:
 # public document round trips must retain the authored order and explicit finite segment
 def CheckAxisWire() -> None:
     Document = BuildAxisDoc()
-    Payload = Document.to_json(indent=None)
-    Restored = CadDocument.from_json(Payload)
-    assert '"$type": "PlaneIntersectionAxis"' in Payload
-    assert Restored == CadDocument.from_dict(Document.to_dict()) == Document
-    Definition = Restored.feature_timeline[0].definition
-    assert type(Definition) is PlaneAxis
-    assert Definition.FirstPlaneSelectionId == "base-pick"
-    assert Definition.StartMm.y > Definition.EndMm.y
+    for DisplayUnit in UnitSystem:
+        Candidate = ReplaceValue(Document, units=DisplayUnit)
+        Payload = Candidate.to_json(indent=None)
+        Restored = CadDocument.from_json(Payload)
+        assert '"$type": "PlaneIntersectionAxis"' in Payload
+        assert Restored == CadDocument.from_dict(Candidate.to_dict()) == Candidate
+        assert Restored.support_planes == Document.support_planes
+        Definition = Restored.feature_timeline[0].definition
+        assert type(Definition) is PlaneAxis
+        assert Definition.FirstPlaneSelectionId == "base-pick"
+        assert Definition.StartMm.y > Definition.EndMm.y
 
 
 # ordinary decode must refuse contradictory selection ownership and translated support geometry
@@ -87,5 +91,23 @@ def CheckAxisOwners() -> None:
         Document,
         support_planes=(LowerPlane, ReplaceValue(SidePlane, transform=FrameValue)),
     )
-    with Raises(DocumentError, match="endpoints are outside their support planes"):
+    with Raises(
+        DocumentError, match="endpoints are outside the support plane intersection"
+    ):
+        _ = CadDocument.from_json(Broken.to_json())
+
+
+# a malformed support should surface an axis diagnostic through the ordinary document reader
+def CheckAxisFrame() -> None:
+    Document = BuildAxisDoc()
+    LowerPlane, SidePlane = Document.support_planes
+    Reflected = ReplaceValue(SidePlane.transform, z_axis=SpaceVector(-1.0, 0.0, 0.0))
+    Broken = ReplaceValue(
+        Document,
+        support_planes=(LowerPlane, ReplaceValue(SidePlane, transform=Reflected)),
+    )
+    with Raises(
+        DocumentError,
+        match="plane axis supports require finite orthonormal right handed frames",
+    ):
         _ = CadDocument.from_json(Broken.to_json())

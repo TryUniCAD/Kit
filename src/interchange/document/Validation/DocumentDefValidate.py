@@ -7,6 +7,7 @@ from interchange.document.Validation.PlaneAxisValidate import GetAxisErrors
 from interchange.document.Validation.PlaneRevValidate import GetPlaneRevErrs
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.BoundScaleValues import GetScaleValues
+from interchange.Features.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
@@ -55,8 +56,8 @@ def GetDefErrors(
     Definition = StepValue.definition
     if isinstance(Definition, ScopedExtrude):
         return GetScopeErrors(StepValue, Definition, IdentitySets["bodies"])
-    if isinstance(Definition, PlaneAxis):
-        return GetAxisErrors(StepValue, Definition, Selections, Frames)
+    if isinstance(Definition, (PlaneAxis, BoundPlaneAxis)):
+        return GetAxisErrors(StepValue, Selections, Frames, Params)
     if isinstance(Definition, PlaneRevolve):
         return GetPlaneRevErrs(
             StepValue, Definition, Selections, IdentitySets["support_planes"]

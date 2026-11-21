@@ -101,6 +101,7 @@ KPythonCompatFacades = (
         (
             "AdapterCapabilities",
             "Body",
+            "BoundPlaneAxis",
             "BrepPayload",
             "ChamferFeature",
             "CircularPatternFeature",

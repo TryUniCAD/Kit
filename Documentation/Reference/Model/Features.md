@@ -29,13 +29,31 @@ It does not prove that every writer can emit that feature.
 
 ## Plane intersection axes
 
-`PlaneAxis` represents a finite directed reference axis from two ordered support-plane selections.
-Its first and second selection IDs must match the reference step's `selection_ids` in order.
-Each selection directly identifies a different local `SupportPlane`.
-The start and end are distinct finite model-space points in millimetres, in the same frame as the selected supports.
-Both points and the segment direction must agree with the intersection of the two planes.
-Reversing the segment changes its direction while preserving both selection roles.
-The serialized type is `PlaneIntersectionAxis`.
+Both axis forms use two ordered local `SupportPlane` selections. Their IDs
+must match the reference step's `selection_ids` in order. The support frames
+and axis endpoints share model-space millimetres, independent of the document's
+display unit.
+
+`PlaneAxis` retains two authored or measured endpoints. Its serialized type is
+`PlaneIntersectionAxis`, with the original four fields. The endpoints and
+segment direction must agree with the current intersection line. A support
+edit that moves the line requires a new endpoint snapshot.
+
+`BoundPlaneAxis` derives its endpoints from two ordered, independently owned
+driving length parameters. Supply their IDs as `StartParameterId` and
+`EndParameterId`, and put both IDs in the same order in the step's
+`parameter_ids`. These parameters are signed literal distances from the
+projection of the first support origin onto the intersection. Positive stations
+follow the cross product of the first and second normals. The two stations
+may run in either order and define the finite segment direction.
+[`ResolveAxis`](../../../src/interchange/Features/ResolveAxis.py) evaluates these
+endpoints from the selected frames and current parameters, including after
+support and length edits.
+
+The measured SOLIDWORKS hinge has zero live extent dimensions. Its finite
+size comes from clipping the line at the first support's display boundary.
+`PlaneAxis` retains that evaluated native extent. `BoundPlaneAxis` represents
+an explicitly authored portable extent binding.
 
 ## Supporting records
 
