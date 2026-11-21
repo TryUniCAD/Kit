@@ -26,20 +26,11 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 )
 
 
-# keyword presentation must use the actual generated profile feature and angular parameter while preserving native consumed sketch framing
-def MakeRevKeys(
-    SystemValue: PartSystem,
+# standard feature rows take their names, stored classes and IDs from the allocated system graph
+def MakeRevSystemRows(
     FeatureValues: tuple[ArchiveNode, ...],
-    InputValue: PartBuildInput,
-    PlanValue: RevolvePlan,
-) -> bytes:
-    ConfigValues = tuple(
-        KeywordConfig(
-            FieldInt(NodeValue.FieldsValue, "f08"), ReadNodeName(NodeValue), ""
-        )
-        for NodeValue in SystemValue.ConfigValues
-    )
-    RowsValue = tuple(
+) -> tuple[KeywordFeature, ...]:
+    return tuple(
         KeywordFeature(
             FieldInt(NodeValue.FieldsValue, "f08"),
             ReadNodeName(NodeValue),
@@ -50,10 +41,33 @@ def MakeRevKeys(
             None,
             None,
         )
-        for NodeValue in FeatureValues[:-2]
+        for NodeValue in FeatureValues
     )
-    ProfileValue, FeatureValue = FeatureValues[-2:]
-    RowsValue += MakeRevKeyRows(ProfileValue, FeatureValue, PlanValue)
+
+
+# keyword presentation must use the actual generated profile feature and angular parameter while preserving native consumed sketch framing
+def MakeRevKeys(
+    SystemValue: PartSystem,
+    FeatureValues: tuple[ArchiveNode, ...],
+    InputValue: PartBuildInput,
+    PlanValue: RevolvePlan,
+    *,
+    KeyRowsValue: tuple[KeywordFeature, ...] | None = None,
+) -> bytes:
+    ConfigValues = tuple(
+        KeywordConfig(
+            FieldInt(NodeValue.FieldsValue, "f08"), ReadNodeName(NodeValue), ""
+        )
+        for NodeValue in SystemValue.ConfigValues
+    )
+    if KeyRowsValue is None:
+        ProfileValue, FeatureValue = FeatureValues[-2:]
+        KeyRowsValue = MakeRevSystemRows(FeatureValues[:-2]) + MakeRevKeyRows(
+            ProfileValue, FeatureValue, PlanValue
+        )
     return MakeKeywords(
-        PlanValue.NameValue, InputValue.HeaderValue.ModifiedAt, ConfigValues, RowsValue
+        PlanValue.NameValue,
+        InputValue.HeaderValue.ModifiedAt,
+        ConfigValues,
+        KeyRowsValue,
     )

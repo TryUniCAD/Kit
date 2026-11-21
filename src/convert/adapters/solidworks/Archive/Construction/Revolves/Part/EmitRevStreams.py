@@ -2,6 +2,9 @@ from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
 from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
+from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature import (
+    KeywordFeature,
+)
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeBiography import (
     MakeBiography,
 )
@@ -42,6 +45,8 @@ def EmitRevStreams(
     DefinitionValue: ModelDefGraph,
     InputValue: PartBuildInput,
     PlanValue: RevolvePlan,
+    *,
+    KeyRowsValue: tuple[KeywordFeature, ...] | None = None,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
     ConfigBytes, ConfigValue = WriteConfigMut(SystemValue.RootValue, 19000, HeaderValue)
@@ -65,6 +70,8 @@ def EmitRevStreams(
         "_MO_VERSION_19000/History": WriteHistMut(
             MakeFreshHist(InputValue.HistoryValue), 19000
         )[0],
-        KeywordsStream: MakeRevKeys(SystemValue, FeatureValues, InputValue, PlanValue),
+        KeywordsStream: MakeRevKeys(
+            SystemValue, FeatureValues, InputValue, PlanValue, KeyRowsValue=KeyRowsValue
+        ),
     }
     return StreamsValue, ConfigValue, ResolvedValue
