@@ -158,6 +158,7 @@ jobs:
           tests/CliResearch/LegacyReaderTests.py
           tests/CliResearch/FusionReaderTests.py
           tests/CliResearch/ReaderRejectTests.py
+          tests/CliResearch/NativeVerification
           tests/CliResearch/InterruptTests.py
           tests/CliResearch/LeaseFlowTests.py -q
 

@@ -10,6 +10,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from NativeAcceptance.Availability import ApiStatus
+from NativeAcceptance.CompareFile import CompareFile
 from NativeAcceptance.Records import Endpoint, FileHash, WriteJson
 
 
@@ -42,16 +43,30 @@ def EnableFusion(root):
 
 
 def MainApi():
-    parser = argparse.ArgumentParser(description="Detect or enable the local native verification API")
-    parser.add_argument("operation", choices=("status", "enable"))
+    parser = argparse.ArgumentParser(description="Detect or enable the local API, or compare saved measurements without native acceptance")
+    parser.add_argument("operation", choices=("status", "enable", "compare"))
     parser.add_argument("application", choices=("solidworks", "fusion"))
+    parser.add_argument("--document", type=Path)
+    parser.add_argument("--measurement", type=Path)
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    paths = (args.document, args.measurement, args.output)
+    if args.operation == "compare" and not all(paths):
+        parser.error("compare requires --document, --measurement and --output")
+    if args.operation != "compare" and any(paths):
+        parser.error("comparison paths are only valid with compare")
     try:
         root = Path(__file__).resolve().parents[3]
-        result = EnableFusion(root) if args.operation == "enable" and args.application == "fusion" else ApiStatus(args.application)
+        if args.operation == "compare":
+            sys.path.insert(0, str(root / "src"))
+            result = CompareFile(args.application, args.document, args.measurement, args.output)
+        else:
+            result = EnableFusion(root) if args.operation == "enable" and args.application == "fusion" else ApiStatus(args.application)
         print(json.dumps(result, sort_keys=True))
+        if args.operation == "compare":
+            return 0 if result["status"] == "passed" else 5
         return 0 if result["status"] == "available" else 4
-    except (OSError, ValueError, KeyError, TypeError, subprocess.SubprocessError) as error:
+    except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError, RecursionError, OverflowError, subprocess.SubprocessError) as error:
         parser.exit(1, f"native API setup failed: {error}\n")
 
 

@@ -39,7 +39,7 @@ The native batch performs these operations:
 
 1. Rebuild and measure the pinned healthy control.
 2. Open each candidate in a fresh application process.
-3. Rebuild and measure bodies, volume, centers, feature history, parameters, and sketch inventories.
+3. Rebuild and measure bodies, volume, centers, exact planar boundaries, feature definitions, parameters, and sketch constraints.
 4. Compare those observations with the current decoder output.
 5. Change each supported independent driving parameter separately.
 6. Rebuild, measure, save, and restore the original parameter.
@@ -80,14 +80,32 @@ Existing research receipts and conversion markers remain unqualified.
 
 Current API collectors handle part documents with one to sixteen independent dimensional parameters.
 Assembly occurrences and unsupported parameter types fail explicitly.
-Absent decoded centers or other required values prevent a passing case.
-Native observations retain feature types, but the current common comparison checks names and suppression rather than complete feature definitions.
-Sketch comparison checks inventory counts rather than full constraint operands and reference semantics.
-Those broader semantic checks remain required before full CAD qualification can be claimed.
-The report lists these checks in `semantic_gaps` and keeps `full_semantics_verified` false.
-Successful measurement comparisons set `measurement_status` to `passed` but leave the overall status `unverified`.
-The command returns status `5` for that incomplete verification.
-Consequently, this initial implementation cannot yet certify complete decoding, even with a licensed API available.
+Comparison covers feature order and suppression, parameter values and ownership, expression dependencies, sketch frames and supports, exact sketch entities, and constraint operands and dimensional bindings.
+One-sided solid extrusions compare their profile, operation, depth or through-all termination, direction, taper, start offset, and owned parameter bindings.
+Planar single-body results compare vertices, straight edges, face planes, and each face's boundary loops in addition to topology counts and measured mass properties.
+The decoder's planar boundary representation supplies its centroid independently of the native measurement.
+Known metadata folders do not enter the operational feature graph.
+Unknown authored features, unresolved references, constructed planes, multiple configurations, nonplanar boundaries, ambiguous profiles, and other unsupported definitions produce explicit field names in `semantic_gaps`.
+Absent decoded centers or other required values also prevent a passing case.
+
+`full_semantics_verified` is computed from the case and saved-edit comparisons.
+Every required observation must exist and match for it to become true.
+A live batch additionally requires healthy controls, fresh owned processes, an unchanged application build, and unchanged verifier and decoder sources.
+Only then does `live_batch_verified` become true and the overall status become `passed`.
+Successful native measurements with incomplete semantic comparisons remain `unverified` and return status `5`.
+These fields describe the selected source-reader verification scope; they do not establish writer or cross-format qualification.
+
+To inspect a saved observation without starting an application, run:
+
+```sh
+kit research --root CHECKOUT api compare fusion --document document.json --measurement Observed.json --output Compared.json
+```
+
+Use `solidworks` for a SOLIDWORKS observation.
+The command reads bounded serialized inputs and uses the same semantic comparator and assessment as the live batch.
+It returns `0` for a complete comparison and `5` for missing or differing observations.
+Its scope is always `offline_measurement_comparison`; `native_acceptance` and `live_batch_verified` always remain false.
+An authored fixture or saved report cannot qualify a live native batch through this command.
 
 Fusion needs its owner-enabled startup add-in to load in the newly launched process.
 The protocol requires its PID to match the directly launched process.
@@ -99,6 +117,11 @@ Timeouts leave native sessions available for owner recovery instead of closing u
 Source inspection covered controller dependencies, CLI forwarding, API detection, batch invalidation, and artifact publication.
 CLI compatibility coverage now checks missing-API reports and nonzero verification outcomes at the installed process boundary.
 The Windows compatibility job also selects the encoding and legacy-checkout process cases explicitly.
+The legacy fixture checks out only SDK and automation paths, avoiding unrelated historical CAD trees.
+Its historical lazy fetch uses the public repository and does not require persisted checkout credentials.
 Catalogue process coverage inspects the persisted predecessor dependencies and native availability report.
+Serialized CLI coverage decodes the pinned P03 Fusion control and compares it with an independently authored observation fixture.
+It checks a complete comparison and rejects missing semantics, unsupported fields, wrong feature directions, wrong parameter bindings, wrong constraint operands, wrong topology counts, and wrong face planes.
+The fixture is explicitly offline evidence and cannot establish licensed API acceptance.
 No local tests or licensed application acceptance were executed during implementation.
 Remote CI and live licensed SOLIDWORKS and Fusion measurements remain required.

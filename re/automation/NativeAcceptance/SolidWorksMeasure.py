@@ -6,6 +6,8 @@ import sys
 sys.path[:0] = [str(Path(__file__).resolve().parents[1]), str(Path(__file__).resolve().parents[1] / "ApplicationWorkers")]
 
 from NativeAcceptance.Records import FileHash, ReadJson, WriteJson
+from NativeAcceptance.SolidWorksBrep import MeasureBrep
+from NativeAcceptance.SolidWorksSemantics import MeasureSemantics
 from SolidWorksAvailability import HoldMutex, IsSolidWorksRunning, OracleMutex
 
 
@@ -14,16 +16,17 @@ def ComValue(owner, name):
     return value() if callable(value) else value
 
 
-def MeasurePart(document):
+def MeasurePart(document, app):
     import pythoncom
     from win32com.client import VARIANT
 
-    features, parameters, sketches = [], [], []
+    features, parameters, sketches, native_features = [], [], [], []
     feature = ComValue(document, "FirstFeature")
     while feature is not None:
         if len(features) >= 4096:
             raise ValueError("native feature inventory exceeds 4096 nodes")
         name = str(feature.Name)
+        native_features.append(feature)
         warning = VARIANT(pythoncom.VT_BYREF | pythoncom.VT_BOOL, False)
         error = feature.GetErrorCode2(warning)
         features.append({"name": name, "type": feature.GetTypeName2(), "suppressed": bool(ComValue(feature, "IsSuppressed")), "health": int(error), "message": "warning" if error and warning.value else "error" if error else ""})
@@ -36,7 +39,8 @@ def MeasurePart(document):
             dimension = display.GetDimension2(0)
             kind = int(display.Type2)
             unit = "rad" if kind in (3, 16) else "m"
-            parameters.append({"name": "@".join(str(dimension.FullName).split("@")[:2]), "value": float(dimension.SystemValue), "unit": unit, "driving": int(dimension.DrivenState) == 2, "dimension_type": kind})
+            if str(dimension.FullName).split("@")[1:2] == [name]:
+                parameters.append({"name": "@".join(str(dimension.FullName).split("@")[:2]), "value": float(dimension.SystemValue), "unit": unit, "driving": int(dimension.DrivenState) == 2, "dimension_type": kind})
             display = feature.GetNextDisplayDimension(display)
         if feature.GetTypeName2() in ("ProfileFeature", "3DProfileFeature"):
             sketch = feature.GetSpecificFeature2()
@@ -44,13 +48,14 @@ def MeasurePart(document):
             relations = sketch.RelationManager.GetRelations(0) or ()
             sketches.append({"name": name, "entities": len(segments), "constraints": len(relations), "dimensions": count})
         feature = ComValue(feature, "GetNextFeature")
+    semantics = MeasureSemantics(app, document, native_features)
     bodies = []
-    for body in document.GetBodies2(0, False) or ():
+    for index, body in enumerate(document.GetBodies2(0, False) or ()):
         props = body.GetMassProperties(1.0)
         if props is None or len(props) < 6:
             raise ValueError("native body has no measured mass properties")
-        bodies.append({"name": body.Name, "volume_mm3": float(props[3]) * 1e9, "center_mm": [float(item) * 1000 for item in props[:3]], "faces": int(body.GetFaceCount()), "edges": int(body.GetEdgeCount()), "vertices": len(body.GetVertices() or ())})
-    return {"bodies": bodies, "features": features, "parameters": parameters, "sketches": sketches}
+        bodies.append({"name": body.Name, "volume_mm3": float(props[3]) * 1e9, "center_mm": [float(item) * 1000 for item in props[:3]], "faces": int(body.GetFaceCount()), "edges": int(body.GetEdgeCount()), "vertices": len(body.GetVertices() or ()), "geometry": MeasureBrep(body, f"body:{index}", semantics["gaps"])})
+    return {"bodies": bodies, "features": features, "parameters": parameters, "sketches": sketches, "semantics": semantics, "configuration": str(document.ConfigurationManager.ActiveConfiguration.Name)}
 
 
 def MeasureSource(app, work, request):
@@ -64,15 +69,16 @@ def MeasureSource(app, work, request):
     if document is None:
         raise ValueError(f"SOLIDWORKS could not open the candidate: {errors.value}")
     try:
-        result["opened"] = MeasurePart(document)
+        result["opened"] = MeasurePart(document, app)
         if errors.value or warnings.value & ~2 or not document.ForceRebuild3(False):
             raise ValueError("SOLIDWORKS reported a load or rebuild problem")
-        result["rebuilt"] = MeasurePart(document)
+        result["rebuilt"] = MeasurePart(document, app)
         if any(item["health"] for item in result["rebuilt"]["features"]):
             raise ValueError("SOLIDWORKS feature tree contains a rebuild error or warning")
         if request["role"] == "candidate":
             parameters = {item["name"]: item for item in result["rebuilt"]["parameters"]}
-            independent = [item for item in parameters.values() if item["driving"]]
+            driving = {item["name"] for item in result["rebuilt"]["semantics"]["parameters"] if item["role"] == "driving"}
+            independent = [item for item in parameters.values() if item["driving"] and item["name"] in driving]
             if not independent or len(independent) > 16:
                 raise ValueError("candidate needs between one and sixteen independent driving parameters for this verification batch")
             for index, parameter in enumerate(independent):
@@ -83,7 +89,7 @@ def MeasureSource(app, work, request):
                     handle.SystemValue = value
                     if not document.ForceRebuild3(False) or not math.isclose(float(handle.SystemValue), value, rel_tol=1e-9, abs_tol=1e-12):
                         raise ValueError("SOLIDWORKS driving edit was not applied or did not rebuild")
-                    measured = MeasurePart(document)
+                    measured = MeasurePart(document, app)
                     saved = work / f"edit-{index}.SLDPRT"
                     if not document.Extension.SaveAs(str(saved), 0, 1, None, errors, warnings) or errors.value or warnings.value:
                         raise ValueError("SOLIDWORKS could not save the edited candidate without warnings")
@@ -94,7 +100,7 @@ def MeasureSource(app, work, request):
                     handle.SystemValue = original
                     if not document.ForceRebuild3(False):
                         raise ValueError("SOLIDWORKS driving parameter restore did not rebuild")
-                result["edits"][-1]["restored"] = MeasurePart(document)
+                result["edits"][-1]["restored"] = MeasurePart(document, app)
         return {**result, "status": "measured"}
     finally:
         app.QuitDoc(str(ComValue(document, "GetTitle")))

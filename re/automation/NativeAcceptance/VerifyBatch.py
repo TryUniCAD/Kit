@@ -8,6 +8,7 @@ import sys
 import tempfile
 
 from NativeAcceptance.Availability import ApiStatus
+from NativeAcceptance.Assessment import AssessChecks
 from NativeAcceptance.CompareDocument import CompareDocument, NumericEqual, SameValues
 from NativeAcceptance.Records import Endpoint, FileHash, ReadBytes, WriteJson
 from NativeAcceptance.RunCase import RunCase
@@ -32,7 +33,7 @@ def CheckMeasurement(result):
     rebuilt = result["rebuilt"]
     import math
 
-    return bool(rebuilt["bodies"] and rebuilt["features"]) and all(math.isfinite(item["volume_mm3"]) and item["volume_mm3"] > 0 and len(item["center_mm"]) == 3 and all(math.isfinite(value) for value in item["center_mm"]) for item in rebuilt["bodies"]) and all(not item["health"] and not item["message"] for item in rebuilt["features"])
+    return bool(rebuilt["bodies"] and rebuilt["features"]) and SameValues(result.get("opened"), rebuilt) and all(math.isfinite(item["volume_mm3"]) and item["volume_mm3"] > 0 and len(item["center_mm"]) == 3 and all(math.isfinite(value) for value in item["center_mm"]) for item in rebuilt["bodies"]) and all(not item["health"] and not item["message"] for item in rebuilt["features"])
 
 
 def MeasureFile(application, availability, payload, suffix, role, configuration=None):
@@ -62,7 +63,7 @@ def VerifyBatch(root, application, samples, output):
 
     availability = ApiStatus(application)
     revision = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"], capture_output=True, text=True, timeout=15, check=True).stdout.strip()
-    report = {"schema": 1, "application": application, "source_revision": revision, "scope": "native_source_reader_verification", "status": "unverified", "portable_complete": False, "conversion_qualified": False, "full_semantics_verified": False, "semantic_gaps": ["complete_feature_definitions", "constraint_operands", "reference_bindings"], "cases": [], "controls": {}}
+    report = {"schema": 1, "application": application, "source_revision": revision, "scope": "native_source_reader_verification", "status": "unverified", "portable_complete": False, "conversion_qualified": False, "live_batch_verified": False, "full_semantics_verified": False, "semantic_gaps": ["complete_feature_definitions", "constraint_operands", "reference_bindings"], "cases": [], "controls": {}}
     if availability["status"] != "available":
         report.update(status="api_unavailable", action=availability["action"])
         WriteJson(output, report)
@@ -83,7 +84,7 @@ def VerifyBatch(root, application, samples, output):
         process_ids.add(before["pid"])
         build = before["build"]
         for sample in samples:
-            entry = {"source_sha256": sample["sha256"], "path": sample["path"], "status": "failed"}
+            entry = {"source_sha256": sample["sha256"], "path": sample["path"], "status": "failed", "measurement_status": "failed", "full_semantics_verified": False}
             report["cases"].append(entry)
             WriteJson(output, report)
             payload = sample["load"]()
@@ -101,6 +102,7 @@ def VerifyBatch(root, application, samples, output):
                     raise ValueError("native case did not use a fresh process and the same application build")
                 process_ids.add(result["pid"])
                 entry["checks"] = CompareDocument(document, result["rebuilt"], application)
+                entry.update(AssessChecks(entry["checks"]))
                 entry["edits"] = []
                 for edit in result["edits"]:
                     saved = work / edit["saved"]
@@ -108,17 +110,21 @@ def VerifyBatch(root, application, samples, output):
                         raise ValueError("edited output escapes its private verification directory")
                     edited = ReadBytes(saved)
                     edited_document = open_document(edited, source_format=source_format, configuration=sample.get("configuration"), strict=True, include_brep=True, include_tessellation=False)
-                    with closing(MeasureFile(application, availability, edited, suffix, "control")) as reopening:
+                    with closing(MeasureFile(application, availability, edited, suffix, "control", sample.get("configuration"))) as reopening:
                         _, reopened = next(reopening)
                         fresh = CheckMeasurement(reopened) and reopened["pid"] not in process_ids and reopened["build"] == build
                         process_ids.add(reopened.get("pid"))
                         checks = CompareDocument(edited_document, reopened["rebuilt"], application) if fresh else []
                     restored = SameValues(edit["restored"], result["rebuilt"])
                     changed = not SameValues(edit["measured"]["bodies"], result["rebuilt"]["bodies"])
-                    passed = fresh and restored and changed and SameValues(edit["measured"], reopened.get("rebuilt")) and checks and all(item["status"] == "passed" for item in checks)
-                    entry["edits"].append({"parameter": edit["parameter"], "saved_sha256": hashlib.sha256(edited).hexdigest(), "reopened": reopened, "checks": checks, "restored": restored, "geometry_changed": changed, "status": "passed" if passed else "failed"})
-                passed = entry["checks"] and all(item["status"] == "passed" for item in entry["checks"]) and entry["edits"] and all(item["status"] == "passed" for item in entry["edits"])
-                entry["status"] = "passed" if passed else "failed"
+                    measured = bool(fresh and restored and changed and SameValues(edit["measured"], reopened.get("rebuilt")))
+                    assessment = AssessChecks(checks)
+                    entry["edits"].append({"parameter": edit["parameter"], "saved_sha256": hashlib.sha256(edited).hexdigest(), "reopened": reopened, "checks": checks, "restored": restored, "geometry_changed": changed, **assessment, "measurement_status": "passed" if measured else "failed"})
+                measured = bool(entry["edits"]) and all(item["measurement_status"] == "passed" for item in entry["edits"])
+                entry["measurement_status"] = "passed" if measured else "failed"
+                entry.update(AssessChecks(entry["checks"] + [check for edit in entry["edits"] for check in edit["checks"]]))
+                if not measured:
+                    entry.update(status="failed", full_semantics_verified=False)
             del payload
     except (OSError, ValueError, KeyError, TypeError, RuntimeError, subprocess.SubprocessError) as error:
         report["error"] = f"{type(error).__name__}: {error}"[:2048]
@@ -136,11 +142,15 @@ def VerifyBatch(root, application, samples, output):
             stable = sources == current
         except (OSError, ValueError):
             stable = False
-        measured = not report.get("error") and report["cases"] and all(item["status"] == "passed" for item in report["cases"])
+        measured = not report.get("error") and report["cases"] and all(item["measurement_status"] == "passed" for item in report["cases"])
         report["measurement_status"] = "invalid_batch" if not healthy or not stable else "passed" if measured else "failed"
-        report["status"] = "unverified" if report["measurement_status"] == "passed" else report["measurement_status"]
-        if report["status"] == "unverified":
-            report["action"] = "Native measurements passed, but full feature definitions, constraint operands and reference bindings still require semantic verification; do not claim complete decoding"
+        report["semantic_gaps"] = sorted({sample["path"] + ":" + gap for sample in report["cases"] for gap in sample.get("semantic_gaps", [])})
+        complete = bool(measured and all(item["full_semantics_verified"] for item in report["cases"]))
+        report["full_semantics_verified"] = bool(complete and healthy and stable)
+        report["live_batch_verified"] = report["full_semantics_verified"]
+        report["status"] = report["measurement_status"] if report["measurement_status"] != "passed" else "passed" if complete else "failed" if any(item["status"] == "failed" for item in report["cases"]) else "unverified"
+        if report["status"] != "passed":
+            report["action"] = "Inspect failed checks and semantic_gaps in this report; incomplete or differing observations do not verify decoding"
         report["controls_healthy"] = healthy
         report["sources_unchanged"] = stable
         WriteJson(output, report)
