@@ -19,6 +19,7 @@ from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModel
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ReadMbsMut import ReadMbsMut
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
+from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
 from convert.adapters.solidworks.Archive.Resolved.UseFilletCtxMut import UseFilletCtxMut
 
 
@@ -32,10 +33,15 @@ def ReadResolvedMut(
     UsageValue: BodyUsage | None = None,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
     ReadFillets: bool = False,
+    ReadChamfers: bool = False,
 ) -> ResolvedGraph:
     ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    if ReadFillets and ReadChamfers:
+        raise BodyUnsupported("SOLIDWORKS resolved edge finish scopes are exclusive")
     if ReadFillets:
         UseFilletCtxMut(ContextValue)
+    if ReadChamfers:
+        UseChmfCtxMut(ContextValue)
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)
     if BaseValue != SeedValue.CounterValue:

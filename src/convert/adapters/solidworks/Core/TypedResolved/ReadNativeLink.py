@@ -20,6 +20,7 @@ def ReadNativeLink(
     *,
     RelationConfig: str | None = None,
     ReadFillets: bool = False,
+    ReadChamfers: bool = False,
 ) -> NativeLink:
     VersionValue = ContainerMo(Archive.streams)
     if (
@@ -27,7 +28,7 @@ def ReadNativeLink(
         or ConfigId != 0
         or Archive.format_version != 4
         or KitResolvedStream in Archive.streams
-        or (ReadFillets and RelationConfig is not None)
+        or ((ReadFillets or ReadChamfers) and RelationConfig is not None)
     ):
         raise BodyUnsupported(
             "typed model semantics require ordinary version 19000 Config-0"
@@ -52,5 +53,6 @@ def ReadNativeLink(
         ConfigValue.MapValue,
         MakeLinkContext(ConfigValue, ManagerValue),
         ReadFillets=ReadFillets,
+        ReadChamfers=ReadChamfers,
     )
     return NativeLink(ConfigValue, ResolvedValue, ConfigName, StreamName)
