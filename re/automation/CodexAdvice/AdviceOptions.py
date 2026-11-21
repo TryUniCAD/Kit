@@ -65,6 +65,8 @@ def read_options(args):
     if (auth == "local") != (provider == "ollama"):
         raise ValueError("local model inference requires --advisor ollama --auth local")
     model = args.model
+    if model is None and provider == "codex":
+        model = "gpt-6.2-sol"
     if model is not None and not re.fullmatch(
         r"[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}", model
     ):

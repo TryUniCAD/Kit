@@ -53,6 +53,8 @@ def ReadRun(Directory, SourceRoot, Format):
     Run = read_record(Directory / "CatalogueRun.json")
     if Run.get("version") != 1 or Run.get("plan_sha256") != digest(Plan):
         raise ValueError("saved catalogue run does not match its prepared plan")
+    if Format == "auto" and (Directory / "FileScope.json").is_file():
+        Format = None
     if Format is not None and set(Plan["catalogues"]) != {Format}:
         raise ValueError("saved catalogue run uses a different format")
     CheckRevision(Plan["source_revision"])
@@ -64,7 +66,7 @@ def ReadRun(Directory, SourceRoot, Format):
 # accepted submissions are reused directly rather than submitted a second time
 def ReadSubmissions(Directory, Plan):
     Submissions, Results = {}, {}
-    for Index, Scope in enumerate(Plan["scopes"], 1):
+    for Index, Scope in enumerate(Plan.get("scope_order", Plan["scopes"]), 1):
         Entry = read_record(Directory / f"Submission{Index}.json")
         if Entry["scope"] != Scope or (Entry["receipt"] is None) == (
             Entry["failure"] is None

@@ -85,6 +85,11 @@ Each `Prepared.json` records the actual controller maximum, pool, resources, and
 `Trial.json` contains worker intervals, physical CPU and RSS observations, throughput, measurement coverage, incomplete reasons, and source identities.
 `Cleanup.json` records supervisor exit and private-session cleanup.
 `Calibration.json` records the attempted steps, comparisons, stop reason, and optional measured recommendation.
+When supervision catches an exception, the trial and sweep reports include
+`supervision_error` with the failed stage, exception type, and numeric `errno`
+and `winerror` when available. The diagnostic omits exception messages and
+paths. If a later cleanup error prevents a trial report, the sweep's failure
+report retains the first supervision detail.
 
 Exit `0` means the requested sweep was attempted through all four steps.
 It does not mean every trial was complete or that a recommendation exists.

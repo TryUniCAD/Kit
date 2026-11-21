@@ -15,13 +15,16 @@ class ReplayReadScope:
     Reads: KReplayReadCache
     Root: FilePath | None
     LegacyVisibility: bool
+    LegacyPadExpr: bool
     ReusedReads: int = 0
     Incomplete: set[int] = Field(default_factory=set[int])
 
     # only an independent validation may reuse a complete projection from this write
     def FindRead(self, SourcePath: str, DataValue: bytes) -> CadDocument | None:
         Digest = Hashlib.sha256(DataValue).hexdigest()
-        return self.Reads.get((self.Root, SourcePath, Digest, self.LegacyVisibility))
+        return self.Reads.get(
+            (self.Root, SourcePath, Digest, self.LegacyVisibility, self.LegacyPadExpr)
+        )
 
     # promotion needs a complete subtree free of context inherited from cached siblings
     def RememberRead(
@@ -44,6 +47,12 @@ class ReplayReadScope:
         ):
             return
         Source = Document.source
-        self.Reads[(self.Root, Source.path, Source.sha256, self.LegacyVisibility)] = (
-            Document
-        )
+        self.Reads[
+            (
+                self.Root,
+                Source.path,
+                Source.sha256,
+                self.LegacyVisibility,
+                self.LegacyPadExpr,
+            )
+        ] = Document

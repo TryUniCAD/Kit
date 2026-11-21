@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from dataclasses import replace
 import sqlite3
 import subprocess
 import sys
@@ -23,6 +24,7 @@ from InferenceGrid.CatalogueWorkerConfig import BuildWorkerCfg
 from InferenceGrid.FeatureRoutes import FeatureRecipes
 from InferenceGrid.Provision import CheckRevision
 from Ledger import Ledger
+from NativeAcceptance.CatalogueBatch import VerifyCatalogue
 from Pilot.PilotConfig import PilotConfig
 from Pilot.PilotFiles import WriteRecord
 from Records import bounded, read_record
@@ -62,6 +64,8 @@ def RunCatalogueBatch(
     Reserve=None,
     Workers=KMaxBatchWorkers,
     NativeReady=False,
+    FileScope=None,
+    FileInput=None,
 ):
     Workers = bounded(Workers, 1, KMaxBatchWorkers)
     CheckRevision(Revision)
@@ -70,6 +74,33 @@ def RunCatalogueBatch(
     Plan = BuildRunPlan(Catalogues, Revision)
     Directory.mkdir(mode=0o700)
     with HoldCatalogue(Directory):
+        if FileScope is not None:
+            Audit, Reports = FileScope
+            WriteRecord(Directory / "FileScope.json", Audit)
+            for Layer, Report in Reports.items():
+                WriteRecord(Directory / f"Input-{Layer}.json", Report)
+                if Layer in ("scalar-stream-reader", "reader-patch", "design-names", "state-repair", "timeline-names", "pattern-count-reader", "mirrored-field-reader"):
+                    Name = {"scalar-stream-reader": "NamedScalarReader.patch", "reader-patch": "Reader.patch", "mirrored-field-reader": "MirroredFields.patch", "pattern-count-reader": "SketchPatternCounts.patch", "design-names": "DesignNames.patch", "state-repair": "BrepTypes.patch", "timeline-names": "TimelineNames.patch"}[Layer]
+                    with (Directory / Name).open("x", encoding="utf-8") as Patch:
+                        Patch.write(Report["patch"])
+            from InferenceGrid.FileAdvice import advise_file, file_stall
+            Stall = file_stall(Audit, Reports)
+            if Stall is not None:
+                WriteRecord(Directory / "FileStall.json", Stall)
+                Selected = None
+                if Advice is not None:
+                    FileAdviceStatus, Selected = advise_file(Directory, Stall, Advice)
+                    Advice = replace(Advice, calls=Advice.calls - 1) if Advice.calls > 1 else None
+                Experiments = Stall["available_experiments"]
+                if FileInput is not None and Experiments:
+                    from InferenceGrid.DepthControlReplay import replay_depth_edit
+                    Ordered = ([Selected] if Selected in Experiments else []) + [name for name in Experiments if name != Selected]
+                    if Stall["focus"] == "counted_text_gap":
+                        from InferenceGrid.CountedText import resume_text
+                        Replays = [resume_text(FileInput, Stall["source_sha256"], Reports["raw-structure"]["counted_text"], name) for name in Ordered]
+                    else:
+                        Replays = [replay_depth_edit(SourceRoot, FileInput, Stall, name) for name in Ordered]
+                    WriteRecord(Directory / "FileExperiments.json", {"advisor_selection": Selected, "results": Replays})
         WriteRecord(Directory / "CataloguePlan.json", Plan)
         Store = Directory / "Store"
         Config, _, _ = PilotConfig(
@@ -191,10 +222,32 @@ def FinishCatalogue(
                 )
     Results.update(ReadCatalogueJobs(Store, Submissions, Phases))
     Outcome = RunOutcome(Plan, Results, Failures)
+    if (Directory / "FileScope.json").is_file():
+        for Key, Name in (("file_scope", "FileScope.json"), ("file_stall", "FileStall.json"),
+                          ("file_experiments", "FileExperiments.json"), ("reader_patch", "Reader.patch"),
+                          ("scalar_reader_patch", "NamedScalarReader.patch")):
+            if (Directory / Name).is_file():
+                Outcome[Key] = str(Directory / Name)
+        AdvicePath = Directory / "FileAdvice/Advice.json"
+        if AdvicePath.is_file():
+            Outcome["file_advice"] = {"status": read_record(AdvicePath)["status"], "path": str(AdvicePath)}
+        if Outcome["status"] == "completed":
+            Outcome["status"] = "coverage_incomplete"
     if (Directory / "CataloguePause.json").is_file() and Outcome[
         "status"
     ] == "coverage_incomplete":
         Outcome["status"] = "paused"
+    if not (Directory / "CataloguePause.json").exists() and not any(
+        Job["state"] == "running"
+        for Result in Results.values()
+        for Job in Result.get("jobs", [])
+    ):
+        Reports = VerifyCatalogue(SourceRoot, Directory, Results)
+        Outcome["native_verification"] = Reports
+        if Outcome["status"] == "completed" and (
+            not Reports or any(not Report["live_batch_verified"] for Report in Reports.values())
+        ):
+            Outcome["status"] = "coverage_incomplete"
     write_private(Directory / "CatalogueResult.json", Outcome)
     return Outcome
 
@@ -202,13 +255,20 @@ def FinishCatalogue(
 # per scope submission receipts remain inspectable even before the batch finishes
 def SubmitCatalogue(Directory, Plan, Store, Revision):
     Submissions, Results = {}, {}
-    for Index, (Scope, Identity) in enumerate(Plan["scopes"].items(), 1):
+    Dependencies = []
+    Blocked = None
+    for Index, Scope in enumerate(Plan["scope_order"], 1):
+        Identity = Plan["scopes"][Scope]
         try:
-            Receipt = FeatureRecipes[Identity].Submit(Store, Revision)
+            if Blocked is not None:
+                raise ValueError(f"preceding scope could not be submitted: {Blocked}")
+            Receipt = FeatureRecipes[Identity].Submit(Store, Revision, Dependencies=Dependencies)
             if Receipt["scope"] != Scope:
                 raise ValueError("submitted scope differs from the selected recipe")
             Submissions[Scope] = Receipt
+            Dependencies = [Job["id"] for Job in Receipt["jobs"]]
         except ScopeErrors as Error:
+            Blocked = Scope
             Results[Scope] = {
                 "status": "failed",
                 "stage": "submission",

@@ -4,19 +4,22 @@ from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
 
 
 # native tag boundaries must remain independent of descriptor and object allocation
-def ReadTag(BufferValue: bytes, OffsetValue: int) -> tuple[ArchiveTag, int]:
+def ReadTag(
+    BufferValue: bytes, OffsetValue: int, *, LimitValue: int | None = None
+) -> tuple[ArchiveTag, int]:
     if type(BufferValue) is not bytes:
         raise TypeError("archive tag input must be bytes")
     if type(OffsetValue) is not int:
         raise TypeError("archive tag position must be an integer")
-    if OffsetValue < 0 or OffsetValue + 2 > len(BufferValue):
+    EndValue = len(BufferValue) if LimitValue is None else LimitValue
+    if OffsetValue < 0 or not OffsetValue + 2 <= EndValue <= len(BufferValue):
         raise ValueError("archive tag has no complete unsigned short")
     TagWord = int(UnpackValue("<H", BufferValue, OffsetValue)[0])
     NextOffset = OffsetValue + 2
     if TagWord == 0xFFFF:
         return ArchiveTag("NewClass", None), NextOffset
     if TagWord == 0x7FFF:
-        if NextOffset + 4 > len(BufferValue):
+        if NextOffset + 4 > EndValue:
             raise ValueError("archive tag has no complete unsigned dword")
         TagWord = int(UnpackValue("<I", BufferValue, NextOffset)[0])
         NextOffset += 4

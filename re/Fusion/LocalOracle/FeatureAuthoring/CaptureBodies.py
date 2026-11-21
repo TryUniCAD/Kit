@@ -256,6 +256,15 @@ def c_fillet_rim(comp, design):
     f.name = "Rim round"
 
 
+def remove_first_default_body(comp, design):
+    first = block(comp)
+    block(comp, x0=6.0, x1=9.0, name="Survivor")
+    if comp.bRepBodies.count != 2 or not comp.features.removeFeatures.add(first.bodies.item(0)):
+        raise RuntimeError("Could not remove the first of two default-named bodies")
+    if comp.bRepBodies.count != 1:
+        raise RuntimeError("Removal did not leave one body")
+
+
 controls = [
     ("CombineCut", lambda comp, design: combine(comp, FO.CutFeatureOperation, False)),
     ("CombineIntersect", lambda comp, design: combine(comp, FO.IntersectFeatureOperation, False)),
@@ -300,6 +309,8 @@ def observe(design):
 
 
 try:
+    if globals().get("ONLY") == ["RemoveFirstDefaultBody"]:
+        controls = [("RemoveFirstDefaultBody", remove_first_default_body)]
     for name, build in controls:
         if globals().get("ONLY") and name not in globals()["ONLY"]:
             continue

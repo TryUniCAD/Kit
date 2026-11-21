@@ -9,6 +9,9 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.FeatColorFields i
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.GeometryFields import (
     KGeometryFields,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.LightFields import (
+    KLightFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.OwnerFields import (
     KOwnerFields,
 )
@@ -26,6 +29,9 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ViewFields import
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.FeatureFields import (
     KFeatureFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.GeometryFields import (
+    KGeometryFields as KVectorFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.ObListFields import (
     KObListFields,
@@ -45,6 +51,8 @@ KMemberLayouts = MappingProxyType(
         **KOwnerFields,
         **KRecordFields,
         **KThreadFields,
+        **KLightFields,
+        **KVectorFields,
         **KGeometryFields,
         **KViewFields,
     }

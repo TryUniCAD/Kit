@@ -95,6 +95,9 @@ from convert.adapters.freecad.Archive import (
     validated_object_name as ValidatedObjectName,
 )
 from convert.adapters.freecad.Format import FORMAT_ID as FormatId, SUFFIX as Suffix
+from convert.adapters.freecad.ArchiveNodes.NativeObject import (
+    NativeObject as NativeObject,
+)
 from convert.adapters.freecad.Protocol import (
     ASSEMBLY_JOINT_GROUP_TYPE_ID as AsmJointGroupTypeId,
     ASSEMBLY_OBJECT_TYPE_PREFIX as AsmObjectTypePrefix,
@@ -126,6 +129,7 @@ from convert.adapters.freecad.Protocol import (
     SUPPORT_PLANE_TYPE_IDS as SupportPlaneTypeIds,
     XML_TRUE_VALUES as XmlTrueValues,
 )
+from convert.adapters.freecad.NativeParameters.BindPadExprMut import BindPadExprMut
 from convert.adapters.freecad.Replay.OuterState import OuterState as OuterState
 from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from convert.adapters.freecad.Replay.ReadNativeArc import ReadNativeArc
@@ -149,20 +153,6 @@ KSubtractiveCapableKinds = frozenset({FeatureKind.EXTRUSION, FeatureKind.REVOLUT
 # this definition exists because focused behavior needs one stable owner
 class NativeFreeCad(ValueError):
     KSlots = ()
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(slots=True)
-class NativeObject:
-    name: str
-    type_id: str
-    index: int
-    object_id: str
-    touched: bool
-    dependencies: tuple[str, ...]
-    extensions: tuple[XmlTree.Element, ...]
-    transient_properties: tuple[XmlTree.Element, ...]
-    properties: dict[str, XmlTree.Element]
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3847,6 +3837,7 @@ def DecodeNativeDoc(
     ActiveState: OuterState | None,
     OuterDepth: int,
     LegacyVisibility: bool,
+    LegacyPadExpr: bool,
 ) -> tuple[CadDoc, tuple[CadDoc, ...], bool]:
     Native = LoadNative(DataValue)
     ResolvedOuter, UnresolvedOuter = OuterDocsMut(
@@ -3886,6 +3877,8 @@ def DecodeNativeDoc(
         Parameters,
         Consumed,
     )
+    if not (LegacyVisibility or LegacyPadExpr):
+        BindPadExprMut(FeatureObjects, Features, Sketches, Parameters)
     Bodies = BuildBodies(Native, FeatureIds, BodyIds, OwnerPayloads, Features)
     DecodedBrep = DecodedDocBrep(BrepPayloads, tuple(Bodies))
     AsmValue = ParseAsm(
@@ -3932,6 +3925,7 @@ def ReadNativeFcstd(
     StateValue: OuterState | None = None,
     OuterDepth: int = 0,
     LegacyVisibility: bool = False,
+    LegacyPadExpr: bool = False,
     RecordReplay: bool = False,
     ReplayReads: KReplayReadCache | None = None,
 ) -> CadDoc:
@@ -3942,6 +3936,7 @@ def ReadNativeFcstd(
         StateValue,
         OuterDepth,
         LegacyVisibility,
+        LegacyPadExpr,
         RecordReplay,
         ReplayReads,
         DecodeNativeDoc,

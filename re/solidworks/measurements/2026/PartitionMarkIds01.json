@@ -1,0 +1,188 @@
+{
+  "accepted_base": "eec010f5d20564721d3f9a700fb1709ec1e39931",
+  "aggregate_extraction": "9be8583760b74fac5d549f791fdd2b868dadba72",
+  "baseline_validation": {
+    "identical_observations": [
+      "initial",
+      "ladder",
+      "legacy",
+      "local",
+      "one_light"
+    ],
+    "statement_ast_match_through_validation": true,
+    "validator_sha256": "2e452422f2da9f508c1eddec9ece0384d69d5a54c1c715c958c82da02246d87c"
+  },
+  "cases": {
+    "initial": {
+      "deltas_sha256": "22c8c8503dbf0d730ef628e3d42ed09b991edda633ce81880484ee3f5a050d85",
+      "marks": [
+        1,
+        0
+      ],
+      "partition_sha256": "79b05810be1696a6a6e85bd38272dc2e63e3e6b40e282896d2635b5fc9863d1d",
+      "validator_return": null
+    },
+    "ladder": {
+      "deltas": {
+        "bytes": 1112,
+        "schema": "SCH_3701250_37102_13006",
+        "sha256": "a4231abb168b1188174ced656f4f1f01a2b8f3bb8d07a81f88f7dc9c9526ac7f"
+      },
+      "id_offsets": [
+        140,
+        1028
+      ],
+      "marks": [
+        7,
+        3
+      ],
+      "partition": {
+        "bytes": 6514,
+        "schema": "SCH_3701250_37102_13006",
+        "sha256": "eb41fea16306a3bf99ae82839e2d0f5bdcc75773bb4a819267800ccb8fb5a827"
+      },
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "refusals": {
+        "appended_bytes": {
+          "bytes": 1113,
+          "diagnostic": "current kernel terminator differs",
+          "sha256": "2e1b9e4d11063aa82bc22558f4d701915c893cc7f561a1c39108280b3fb0baac"
+        },
+        "deleted_owner_missing": {
+          "bytes": 1108,
+          "diagnostic": "selected native rollback does not own the active body",
+          "sha256": "7d7e7799a9fed5e31b623801f109d8f785836313cde29ac65fccfb8bc8cb7a6f"
+        },
+        "detached_predecessor": {
+          "bytes": 1112,
+          "diagnostic": "native history is not the witnessed linear rollback profile",
+          "sha256": "8608df0b4c9c9cb7723792b6b16120ee6d383a2a57f5d9b7a0086de6c81e9277"
+        },
+        "truncated_terminator": {
+          "bytes": 1111,
+          "diagnostic": "current kernel record is truncated",
+          "sha256": "d1ccb4bc406bfc5727499af476d60ccbbeefa20b4685dcb96dcebb0a6bc0cf91"
+        },
+        "wrong_selected_mark": {
+          "bytes": 1112,
+          "diagnostic": "native world and history identities disagree",
+          "sha256": "cdf00b6cb0280d60d8e8ea9adb6334b87e36e4c928fd121f90653c8645ca5653"
+        }
+      },
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "strict_document_sha256": "1262d6a0fd3c8ff8b4187ee9a96a9ca344c6e11945b04274e0668819c2b234f0",
+      "topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "transmit_slots": [
+        177,
+        178
+      ],
+      "validator_return": null
+    },
+    "legacy": {
+      "deltas": {
+        "bytes": 23150,
+        "schema": "SCH_3601228_36001_13006",
+        "sha256": "59d5eef7feb40d7a2ce52e20e50e14ca8eedaa1a1671b33a13fdc43720311cb7"
+      },
+      "partition": {
+        "bytes": 30850,
+        "schema": "SCH_3601228_36001_13006",
+        "sha256": "3f3e3efbfbee0f41bda187579547881126cbf48101f006eecd759f491fc87ac6"
+      },
+      "path": "re/solidworks/examples/.SLDPRT/example.SLDPRT",
+      "source_sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408",
+      "strict_document_sha256": "fbc9ed1215368621975d6e9955e716f14b6c715fae0199086ed871c8a5022997",
+      "topology": [
+        1,
+        31,
+        65,
+        45
+      ],
+      "typed_refusal": {
+        "bytes": 23150,
+        "diagnostic": "kernel history transmit profile is unqualified",
+        "sha256": "59d5eef7feb40d7a2ce52e20e50e14ca8eedaa1a1671b33a13fdc43720311cb7"
+      }
+    },
+    "local": {
+      "deltas": {
+        "bytes": 520,
+        "schema": "SCH_3701250_37102_13006",
+        "sha256": "7ace723819c14c47b46dfc4fa9d73eb62b03541f29ca3b014d108c2d753a0fe5"
+      },
+      "id_offsets": [
+        140,
+        436
+      ],
+      "marks": [
+        3,
+        2
+      ],
+      "partition": {
+        "bytes": 307,
+        "schema": "SCH_3701250_37102_13006",
+        "sha256": "47e7343bcb7cce96604318603a1230aec3849d466b615dd01380d77516d1dfd2"
+      },
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "strict_document_sha256": "74e91e63eb748b3cfb4a0a8d1f08c559dccff13783615c3b860023aea95af62e",
+      "topology": [
+        1,
+        8,
+        18,
+        12
+      ],
+      "transmit_slots": [
+        3,
+        4
+      ],
+      "validator_return": null
+    },
+    "one_light": {
+      "deltas": {
+        "bytes": 3306,
+        "schema": "SCH_3701250_37102_13006",
+        "sha256": "75132a3e1cfd947c6425b4b5987c3f892c32895ea3c4abb50c09f610bcdf1428"
+      },
+      "partition": {
+        "bytes": 7685,
+        "schema": "SCH_3701250_37102_13006",
+        "sha256": "88de93180e79df6ad22bff44aca85dcb6646594932910460f2784594ae6ffd03"
+      },
+      "path": "re/solidworks/v2026/corpus/light-counts/OneLights.SLDPRT",
+      "source_sha256": "b2772eebfd9f11038f72c76fe3a6ace4b9cd45373425f75921be45174943edb7",
+      "strict_document_sha256": "8c80f9ca055ed2a84cc2a369fea04fecaa52790ad67dfd38d4a0e06414a6201e",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "typed_refusal": {
+        "bytes": 3306,
+        "diagnostic": "current kernel framing differs",
+        "sha256": "75132a3e1cfd947c6425b4b5987c3f892c32895ea3c4abb50c09f610bcdf1428"
+      }
+    }
+  },
+  "guarded_fresh_processes": 5,
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.partition-mark-ids.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/CheckPartitionMarks.py": "f655ada5d03fee04c18cdce2d5730df017e028e4acccb91fdfadcadbe0c6d3b6",
+    "src/convert/adapters/solidworks/Archive/Partition/CheckXmtMarks.py": "03c80d760cb3fec4ff5281d5bbb84b44ff1ca88d7c39ea7f4047f3bb05861987",
+    "src/convert/adapters/solidworks/Archive/Partition/Fields/WorldShapes.py": "36298bef0b7cb5315e31955e0e5f50fba6434fb72255595ebc67f3c77e239a11",
+    "src/convert/adapters/solidworks/Archive/Partition/ReadActiveNodes.py": "09ba1fb364e1eee1b840645c9da7e0492f4c3b0f5b56a99681a56d2ca66478f3",
+    "src/convert/adapters/solidworks/Archive/Partition/ReadHistMarks.py": "a4f043e8cc5347b54471887a5c7eaf7bcc26f755898590bca69e8fdd8a289f57",
+    "src/convert/adapters/solidworks/Archive/Partition/ReadRollbackMut.py": "18e67a4a27a35144515c68769d3d9d920e09da5318db885aa3a58b6214c3c855",
+    "src/convert/adapters/solidworks/Archive/Partition/ReadXmtHistory.py": "b079873dfdba765bd59fa288cacf4c2fbc3aaa4611fb9205a990f09862205658",
+    "src/convert/adapters/solidworks/Archive/Partition/ReadXmtNodeMut.py": "1135c530f2116ff167d69f228afd5a2626d4a65de5df95dae4020047a72999ca",
+    "src/convert/adapters/solidworks/Archive/Partition/XmtCursor.py": "bc7cf1c43c8fe96b7adf0ed56256d4850b176cc78a8b6c10771ad03712ac37e7",
+    "tests/Convert/Solidworks/Partition/HistoryMarkTests.py": "c345e73eb17c361f40ad5082e3e9065cca088c03c272fca510da5db1097c82e3"
+  }
+}

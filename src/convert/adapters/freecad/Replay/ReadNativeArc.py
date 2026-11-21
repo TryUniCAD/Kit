@@ -19,10 +19,11 @@ def ReadNativeArc(
     StateValue: OuterState | None,
     OuterDepth: int,
     LegacyVisibility: bool,
+    LegacyPadExpr: bool,
     RecordReplay: bool,
     ReplayReads: KReplayReadCache | None,
     DecodeDoc: Callable[
-        [bytes, str, OuterState | None, int, bool],
+        [bytes, str, OuterState | None, int, bool, bool],
         tuple[CadDocument, tuple[CadDocument, ...], bool],
     ],
 ) -> CadDocument:
@@ -32,6 +33,7 @@ def ReadNativeArc(
             ReplayReads,
             SourceFile.parent if SourceFile is not None else None,
             LegacyVisibility,
+            LegacyPadExpr,
         )
         if StateValue is None and ReplayReads is not None and not RecordReplay
         else None
@@ -46,9 +48,11 @@ def ReadNativeArc(
             LegacyVisibility,
             RecordReplay,
             ReadScope,
+            LegacyPadExpr,
         )
     if ActiveState is not None:
         LegacyVisibility = ActiveState.LegacyVisibility
+        LegacyPadExpr = ActiveState.LegacyPadExpr
         RecordReplay = ActiveState.RecordReplay
         ReadScope = ActiveState.ReplayScope
     IsNested = StateValue is not None or OuterDepth != 0
@@ -58,10 +62,10 @@ def ReadNativeArc(
         if Cached is not None:
             return Cached
     DocValue, Children, HasUnresolved = DecodeDoc(
-        DataValue, SourcePath, ActiveState, OuterDepth, LegacyVisibility
+        DataValue, SourcePath, ActiveState, OuterDepth, LegacyVisibility, LegacyPadExpr
     )
     DocValue = RecoverAlias(DocValue)
-    if RecordReplay and not LegacyVisibility:
+    if RecordReplay and not (LegacyVisibility or LegacyPadExpr):
         return AnnotateNative(DocValue)
     if ReadScope is not None:
         ReadScope.RememberRead(

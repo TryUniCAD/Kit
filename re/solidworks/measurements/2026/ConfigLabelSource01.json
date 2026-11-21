@@ -1,0 +1,510 @@
+{
+  "archive_version": 19000,
+  "format_version": 4,
+  "native_controls": {
+    "concave": {
+      "bases": [
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            11064,
+            11742
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f18",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "593ceec5ebcc5630c843337f4addb3a46667d062a62ef9557c7bb61f386386ab"
+        },
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            11750,
+            12428
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "fe8",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "fced5a6c4fbd13a55ca6fbd2284b1f8fc6a9f61d14b376d4a789454f96bef920"
+        },
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            12472,
+            13150
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f1e8",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "bbfbf52cdc07890618996bfc9a84d97504b906b4ed2c3adc232c1a6b201846fd"
+        },
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            13254,
+            13932
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f2b8",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "bc71b8870a084af91b944760cc83d86df1cc6b618fad3cc8aecbfb44240760b0"
+        },
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            13940,
+            14618
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f388",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "bc71b8870a084af91b944760cc83d86df1cc6b618fad3cc8aecbfb44240760b0"
+        }
+      ],
+      "children": [
+        {
+          "conditions": 0,
+          "interval": [
+            11064,
+            11750
+          ],
+          "layout": "moDetailLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f18"
+          ],
+          "wire_sha256": "dbb09d6d57b120c526b6aa9c5fab1585d0e61a82ea45cf03067e00429d635bf7"
+        },
+        {
+          "conditions": 0,
+          "interval": [
+            11750,
+            12472
+          ],
+          "layout": "moSectionLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "fe8"
+          ],
+          "wire_sha256": "3a6b950f1d85168650dd356e6f99dac705a03be48717f33290becfa278fbfea8"
+        },
+        {
+          "conditions": 0,
+          "interval": [
+            12472,
+            13154
+          ],
+          "layout": "moAuxLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f1e8"
+          ],
+          "wire_sha256": "336b8a11618515d68a35ffc72079483cc7a6178d7f161936ec898bceab0e3b0c"
+        },
+        {
+          "conditions": 0,
+          "interval": [
+            13254,
+            13940
+          ],
+          "layout": "moOrthoLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f2b8"
+          ],
+          "wire_sha256": "4b6ab15cd278d47ef95e50f79b8e9fab2f3356ff8deaab3ec7f0bba854862905"
+        },
+        {
+          "conditions": 0,
+          "interval": [
+            13940,
+            14626
+          ],
+          "layout": "moMiscLabelData_c",
+          "map_counter": 54,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f388"
+          ],
+          "wire_sha256": "4b6ab15cd278d47ef95e50f79b8e9fab2f3356ff8deaab3ec7f0bba854862905"
+        }
+      ],
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "labels": {
+        "anchor_slots": [
+          1,
+          2,
+          3
+        ],
+        "conditions": 0,
+        "header_alias": [
+          "moExtObject_c",
+          1,
+          15
+        ],
+        "interval": [
+          11056,
+          14626
+        ],
+        "layout": "moLabelDefs_c",
+        "map_base": 4,
+        "map_counter": 54,
+        "native_map_entries": 53,
+        "owner_fields": [
+          "moPart_c.FUN_4c2378b0",
+          "Section",
+          "moModel_c.FUN_4c234150",
+          "fae0",
+          "f2750"
+        ],
+        "part": [
+          "moPart_c",
+          1,
+          2
+        ],
+        "wire_sha256": "6ab5c510c13f30c8534d307dc96268e1a833a7153abf0cad2909cd42a45ef926"
+      },
+      "layout_calls": {
+        "moAuxLabelData_c": 1,
+        "moDetailLabelData_c": 1,
+        "moDrViewLabelData_c": 5,
+        "moLabelDefs_c": 1,
+        "moMiscLabelData_c": 1,
+        "moOrthoLabelData_c": 1,
+        "moSectionLabelData_c": 1,
+        "utCharFormat_c": 31,
+        "utLineWidth_c.Serialize0": 10
+      },
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "pinned_config_next_slot": 94,
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    "ladder": {
+      "bases": [
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            12615,
+            13293
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f18",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "c1b7f40efd2fc991340d2f69e4a8145d1589cbb7a4260952561cfc3a76d172fe"
+        },
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            13301,
+            13979
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "fe8",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "f5ca17f2a3b69163c2818c23e7d39ae2350171b2ee607956dfcbea9133b514e1"
+        },
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            14023,
+            14701
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f1e8",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "3775fd9e85fd5bd94828430f268becceb1eee5314a80e0577b0b30c2eb62f331"
+        },
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            14805,
+            15483
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f2b8",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "6f8d0c20d344a706c362f60dacc54c755ce85042e9053cb9c9ec0c132b22043b"
+        },
+        {
+          "conditions": 0,
+          "f48": -1,
+          "f50_present": false,
+          "interval": [
+            15491,
+            16169
+          ],
+          "layout": "moDrViewLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f388",
+            "moDrViewLabelData_c"
+          ],
+          "wire_sha256": "6f8d0c20d344a706c362f60dacc54c755ce85042e9053cb9c9ec0c132b22043b"
+        }
+      ],
+      "children": [
+        {
+          "conditions": 0,
+          "interval": [
+            12615,
+            13301
+          ],
+          "layout": "moDetailLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f18"
+          ],
+          "wire_sha256": "ffc6ecfaaa2f52ff132079ae25fb14c1904ee18f3ee1b6311c635e8c6c7ffdef"
+        },
+        {
+          "conditions": 0,
+          "interval": [
+            13301,
+            14023
+          ],
+          "layout": "moSectionLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "fe8"
+          ],
+          "wire_sha256": "a3f56d6686335f58eef36ec94ddfc49b2cb74f7a530ef12594efd34de81b8952"
+        },
+        {
+          "conditions": 0,
+          "interval": [
+            14023,
+            14705
+          ],
+          "layout": "moAuxLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f1e8"
+          ],
+          "wire_sha256": "d296700a9a3c02c85d2693b5982ae20c7194a402f3352667fe51edf42ceb42e2"
+        },
+        {
+          "conditions": 0,
+          "interval": [
+            14805,
+            15491
+          ],
+          "layout": "moOrthoLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f2b8"
+          ],
+          "wire_sha256": "69b36cd03c42196f1389379bd438e42dfeb0c62f3a83040daaa4600e97844f6b"
+        },
+        {
+          "conditions": 0,
+          "interval": [
+            15491,
+            16177
+          ],
+          "layout": "moMiscLabelData_c",
+          "map_counter": 69,
+          "owner_fields": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f2750",
+            "f388"
+          ],
+          "wire_sha256": "69b36cd03c42196f1389379bd438e42dfeb0c62f3a83040daaa4600e97844f6b"
+        }
+      ],
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "labels": {
+        "anchor_slots": [
+          1,
+          2,
+          3
+        ],
+        "conditions": 0,
+        "header_alias": [
+          "moExtObject_c",
+          1,
+          69
+        ],
+        "interval": [
+          12607,
+          16177
+        ],
+        "layout": "moLabelDefs_c",
+        "map_base": 4,
+        "map_counter": 69,
+        "native_map_entries": 68,
+        "owner_fields": [
+          "moPart_c.FUN_4c2378b0",
+          "Section",
+          "moModel_c.FUN_4c234150",
+          "fae0",
+          "f2750"
+        ],
+        "part": [
+          "moPart_c",
+          1,
+          2
+        ],
+        "wire_sha256": "3bd3131b1a5b3d1663c6946bc64341346ecfe41b0ca98d471c39dd4b7c2da7e1"
+      },
+      "layout_calls": {
+        "moAuxLabelData_c": 1,
+        "moDetailLabelData_c": 1,
+        "moDrViewLabelData_c": 5,
+        "moLabelDefs_c": 1,
+        "moMiscLabelData_c": 1,
+        "moOrthoLabelData_c": 1,
+        "moSectionLabelData_c": 1,
+        "utCharFormat_c": 31,
+        "utLineWidth_c.Serialize0": 10
+      },
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "pinned_config_next_slot": 110,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    }
+  },
+  "pinned_archive_reader": "9f0ccb5389c121e750ca3b73f8e5d248b34d2e15",
+  "runtime_external_accesses": 0
+}

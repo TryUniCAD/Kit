@@ -139,9 +139,10 @@ def HasScopePlan(ledger, batch):
 
 
 # offline scheduling creates ordinary controller dependencies for the local worker
-def ProvisionScope(store, revision):
+def ProvisionScope(store, revision, Dependencies=()):
     CheckRevision(revision)
     report, plan_binding, sources, batch = ScopeSchedule(revision)
+    batch["jobs"][0]["depends_on"] = sorted(set(batch["jobs"][0]["depends_on"]) | set(Dependencies))
     with (
         Ledger(store) as ledger,
         TemporaryDirectory(prefix="kit-scope-provision-") as scratch,

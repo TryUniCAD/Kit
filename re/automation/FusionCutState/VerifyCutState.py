@@ -33,6 +33,8 @@ from ReadCutRims import read_cut_rims
 from convert import open_document, write_document
 from convert.adapters.Fusion.Bridge.CheckContract import CheckContract
 from convert.adapters.Fusion.Native.Graph.ReadNames import ReadNames
+from convert.Formats.Fusion.DocumentCodec.Vocabulary.AuthorSchemas import AuthorSchemas
+from convert.Formats.Fusion.DocumentCodec.Vocabulary.ReadVocabulary import ReadVocabulary
 from convert.adapters.Fusion.State.EncodeState import EncodeState
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeAttrib
@@ -193,6 +195,17 @@ def native_observations(captures, variant, names):
 # Strict vocabulary absence stays different from successful typed wire decoding.
 def strict_inventory(model):
     catalog = {row.Value.ClassGuid.upper() for row in ReadNames()}
+    require("5662F619-2281-4AD9-93DC-1FCFDA1062E7" in catalog,
+            "current P04 reader lost the registered BrepRef class")
+    feature_only = ({row.Value.ClassGuid.upper() for row in AuthorSchemas("cuboid", True, HasFeatures=True)}
+                    - {row.Value.ClassGuid.upper() for row in AuthorSchemas("cuboid", True)})
+    vocabulary = ROOT / "src/convert/Formats/Fusion"
+    preserved = {row.Value.ClassGuid.upper()
+                 for path in ("DocumentCodec/Vocabulary/DesignClasses.json",
+                              "ContainerCodec/Assembly/ActClasses.json",
+                              "ContainerCodec/Browser/BrowserClasses.json")
+                 for row in ReadVocabulary(vocabulary / path)}
+    catalog = (catalog - feature_only) | preserved
     auxiliary = {row.ClassGuid.upper() for row in KAuxiliarySchemas}
     unknown = []
     for segment in model.Segments:
@@ -629,7 +642,7 @@ def public_guards(raw, document, contract, mode):
     result = {
         "strict": refusal(
             lambda: open_document(raw, strict=True),
-            "Unknown native Fusion entity class",
+            "Native Fusion projection requires a sketch followed by one extrusion",
         )
     }
     for name, item in (

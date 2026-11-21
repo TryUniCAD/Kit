@@ -18,10 +18,11 @@ from Records import digest
 
 
 # shared discovery routes preserve exact bindings and assessment identities
-def ProvisionAssessment(Store, Revision, CaptureRevision, BuildSchedule):
+def ProvisionAssessment(Store, Revision, CaptureRevision, BuildSchedule, Dependencies=()):
     CheckRevision(Revision)
     Bindings, Batch = BuildSchedule(Revision)
     Jobs = Batch["jobs"]
+    Jobs[0]["depends_on"] = sorted(set(Jobs[0]["depends_on"]) | set(Dependencies))
     with (
         TemporaryDirectory(prefix="kit-feature-provision-") as Scratch,
         Ledger(Store) as State,
