@@ -26,3 +26,14 @@ The public portable relation name is `equal`. The constructor must emit it from 
 ## Independent lock
 
 Two further independent native squares complete their three source phases with both controls healthy in eight fresh processes. Their source author verifies the actual owned equal-length relation through the angle edits and the edited fresh reopen. The original Windows lock is preserved at SHA-256 `f083f56d7dad630ae2fbebda1c983ce06c8e5c935ace81317dc0f050b561cd53`. The held-out model and detailed receipts remain private until writer and comparison are frozen. [Pre-writer square source lock](../measurements/2026/RevolveEqualLengthSourceLock01.json)
+
+## Generated native records
+
+The shared constructor emits the actual ordered local pair from the
+neutral sketch. The strict stream reader preserves both relation owners
+and rejects unsupported binary records. Across both disclosed
+inputs, the ordered operands and native embedded fields match, all 20
+linked streams replay exactly and the fresh model-only workers make zero
+external access attempts.
+
+[Generated disclosure receipt](../measurements/2026/SdkSquareRevolveGeneration01.json)

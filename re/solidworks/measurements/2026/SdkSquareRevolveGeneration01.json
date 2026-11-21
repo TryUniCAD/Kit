@@ -1,0 +1,138 @@
+{
+  "cases": {
+    "SquareEndMidA": {
+      "candidate_sha256": "b34e4e5bb5c0851d5e3154e271c5b5517d376d0f603c3d525f8a8cad94390783",
+      "candidate_streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22260,
+          "sha256": "c906ff38a5ac8b96ec48a733682f9fa3b214671dd9e7c5f2fb647afd9a5c2795"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 679,
+          "sha256": "9c828a978b2a1bce83216376bf6b44cbc86c10955cf3d722394835cbaeead3f9"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 10042,
+          "sha256": "232b533f6d299c3b5b14cfe23e419aa1d1bb56076213a5d3687c31a05eb8d071"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 679,
+          "sha256": "5c2a3ecb2d78cfdb1c3e15885b89b2880ba38bd145f9c0d40042e147cf6b5108"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1394,
+          "sha256": "dd27fff6b51bf35327b11467cd38ea9cd2acbf7e3b8cd722d6f14f7d6c9a812b"
+        }
+      },
+      "native_relation_code": 14,
+      "path_and_stream_equal": true,
+      "runtime_external_access_attempts": 0,
+      "same_ordered_contour_operands": true,
+      "source_sha256": "eee9b2325e20cc302f43b6ae72c52215ea05dce6f503fb2b3aeffd318dfdcc7c",
+      "strict_source_and_candidate_read": true
+    },
+    "SquareEndTwoB": {
+      "candidate_sha256": "52bb825d5c5bbc9868f397cc3ea8c341c3a3c14992cdf915fbfaf8e023a8a8d9",
+      "candidate_streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "22933e1e8a443606d81571b9babc2748ee1208b38628bef91be3cc84bd02d56a"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22260,
+          "sha256": "2756db0eb11ab9b0341278a46ee7008be19660b1e3095a7472522280613d418b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 679,
+          "sha256": "819b277777beba45532897ce25b4b60a224b5486051a1d571733355a08b6d089"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 11660,
+          "sha256": "978d2162438747c287e577b5b27abec1a5bcfec7523146f043da9874c32c8e99"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 679,
+          "sha256": "e736affc8901185451ea45fb840c572b4a73449ba407158f6ba9c56b97c61377"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1436,
+          "sha256": "e47382e56122685706b8552831d0d09ad5227f205e2e6047f999785fd6b0a68f"
+        }
+      },
+      "native_relation_code": 14,
+      "path_and_stream_equal": true,
+      "runtime_external_access_attempts": 0,
+      "same_ordered_contour_operands": true,
+      "source_sha256": "07f54e3b513b2c3ab08a1683b1cde31d2be7792dbeadb96e300cde3046f1afd5",
+      "strict_source_and_candidate_read": true
+    }
+  },
+  "epoch": 1760000000,
+  "model_worker_external_read_attempts": 0,
+  "schema": "kit.sw2026.square-revolve-generation.v1",
+  "source_lock_sha256": "d693e56fe4bd12b8c2c263f8f78d1dc10a17a14499d3268105637875d6a2edfc",
+  "spec_sha256": "ff6e5f4011d454aaff194309b9e233c3c49638e3ab45f35a528ad82bf134959f",
+  "split": "discovery",
+  "writer_revision": "bc49a5acff6c3a5488b47623f6e2353f7cfad2be",
+  "writer_source_tree": "d69a52436090865d5d442acb090912fd3b4a7d88"
+}
