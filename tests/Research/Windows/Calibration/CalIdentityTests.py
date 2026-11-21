@@ -33,6 +33,6 @@ def CheckExitOwner() -> None:
                 assert Process.wait(timeout=10) == 0
             except Subprocess.TimeoutExpired:
                 Process.kill()
-                Process.wait(timeout=10)
+                _ = Process.wait(timeout=10)
                 raise
     WaitForCalExit(Process.pid, Started)
