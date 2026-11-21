@@ -34,6 +34,10 @@ Compatibility tests select an unused directory and cannot attach to a configured
 The readers retain their existing `document.json`, `receipt.json`, and Fusion `summary.json` artifacts.
 The additional `NativeVerification.json` records the measured input hashes, source revision, application build, controls, cases, and edits.
 Catalogue runs retain separate `NativeVerification-solidworks.json` and `NativeVerification-fusion.json` reports.
+Live report schema `2` keeps a compact case index.
+Measurements, comparisons, saved-edit readbacks, and detailed case results are separate bounded JSON artifacts in the adjacent private `*.Evidence-*` directory.
+Every artifact reference records its relative path and SHA-256 digest.
+Completed cases are reduced to their summaries in memory, so a large batch does not retain or repeatedly serialize every native snapshot.
 
 The native batch performs these operations:
 
@@ -86,7 +90,10 @@ Planar single-body results compare vertices, straight edges, face planes, and ea
 The decoder's planar boundary representation supplies its centroid independently of the native measurement.
 Known metadata folders do not enter the operational feature graph.
 Unknown authored features, unresolved references, constructed planes, multiple configurations, nonplanar boundaries, ambiguous profiles, and other unsupported definitions produce explicit field names in `semantic_gaps`.
+The live index links to each case's detailed gap list rather than duplicating it in the batch summary.
 Absent decoded centers or other required values also prevent a passing case.
+Unordered geometric inventories use spatial buckets and structural categories before applying the unchanged numeric tolerances.
+Each item allows at most 256 candidate comparisons; more ambiguous geometry fails explicitly instead of causing an unbounded search.
 
 `full_semantics_verified` is computed from the case and saved-edit comparisons.
 Every required observation must exist and match for it to become true.
@@ -123,6 +130,7 @@ Its historical lazy fetch uses the public repository and does not require persis
 Catalogue process coverage inspects the persisted predecessor dependencies and native availability report.
 Serialized CLI coverage decodes the pinned P03 Fusion control and compares it with an independently authored observation fixture.
 It checks a complete comparison and rejects missing semantics, unsupported fields, wrong feature directions, wrong parameter bindings, wrong constraint operands, wrong topology counts, and wrong face planes.
+It also checks reordered observations and a coordinate perturbation across a spatial bucket boundary within the numeric tolerance.
 The fixture is explicitly offline evidence and cannot establish licensed API acceptance.
 No local tests or licensed application acceptance were executed during implementation.
 Remote CI and live licensed SOLIDWORKS and Fusion measurements remain required.
