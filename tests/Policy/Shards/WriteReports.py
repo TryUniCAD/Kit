@@ -1,12 +1,13 @@
 from json import dumps as EncodeJson
 from pathlib import Path as FilePath
+from shutil import copytree as CopyTree
 
 
 # complete and corrupted artifact sets exercise the actual reporter without substituting its implementation
 def WriteReports(TmpPath: FilePath, Outcome: str) -> None:
     NodeNames = [f"tests/Native/ProbeTests.py::CheckCase{Index}" for Index in range(4)]
     for ShardIndex, NodeName in enumerate(NodeNames, 1):
-        Attempt = 2 if Outcome == "rerun" and ShardIndex == 1 else 1
+        Attempt = 2 if Outcome in ("rerun", "latest-failed") and ShardIndex == 1 else 1
         ReportPath = TmpPath / f"Platform-shard-{ShardIndex}-{Attempt}"
         ReportPath.mkdir()
         _ = (ReportPath / "Collected.txt").write_text("\n".join(NodeNames) + "\n")
@@ -28,7 +29,7 @@ def WriteReports(TmpPath: FilePath, Outcome: str) -> None:
                 continue
             if Outcome == "duplicate":
                 Records.append(TestRecord)
-            if Outcome == "failed":
+            if Outcome in ("failed", "latest-failed"):
                 TestRecord["outcome"] = "failed"
             if Outcome == "session":
                 Records[1]["exitstatus"] = 1
@@ -39,3 +40,13 @@ def WriteReports(TmpPath: FilePath, Outcome: str) -> None:
         _ = (ReportPath / "Report.jsonl").write_text(
             "\n".join(EncodeJson(Record) for Record in Records) + "\n"
         )
+        if Outcome in ("rerun", "latest-failed") and ShardIndex == 1:
+            _ = (
+                CopyTree(ReportPath, TmpPath / "Platform-shard-1-1") / "Report.jsonl"
+            ).write_text(
+                "{}\n"
+                if Outcome == "rerun"
+                else (ReportPath / "Report.jsonl")
+                .read_text()
+                .replace('"failed"', '"passed"')
+            )

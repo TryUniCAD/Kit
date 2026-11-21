@@ -23,6 +23,8 @@ Artifact names include the run attempt to prevent upload collisions.
 The reporter selects each shard's latest artifact within the same immutable workflow run.
 A failed-job rerun can retain successful shards from earlier attempts of that run.
 Reports from another workflow run are never downloaded.
+Historical audits load the verifier from the workflow revision while native test shards retain the requested source revision.
+See [the audit reporting gotcha](../../../Gotchas/Ci/Audits/ShardVerifierRevision.md).
 The CI phase map registers every concrete shard. PR validation explicitly defers the skipped matrix template.
 
 The macOS platform job also partitions its unchanged selected roster across four macOS runners.
@@ -65,7 +67,7 @@ Linux compatibility, normal shard scheduling, security scanners, and organizatio
 The author inspected two completed heavy queue runs and associated workflow job and step timestamps.
 The author also inspected the successful 18-minute Windows CLI run and the cancelled 20-minute run.
 The existing aggregator process coverage now checks every concrete Windows CLI and macOS shard under failure, skip, cancellation, timeout, neutral, and success outcomes.
-New report-process compatibility cases reject missing, duplicated, failed, unexpected, and mismatched outcomes, failed sessions, and missing native passes.
+New report-process compatibility cases reject missing, duplicated, failed, unexpected, and mismatched outcomes, failed sessions, missing native passes, and incorrect artifact precedence across rerun attempts.
 These cases use the complete suite's existing planner, runners, and report.
 No local tests ran under the repository execution policy.
 PR checks and configured review run on [PR #230](https://github.com/TryUniCAD/Kit/pull/230).

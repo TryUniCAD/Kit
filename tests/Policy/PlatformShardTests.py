@@ -20,6 +20,7 @@ from tests.Policy.Shards.WriteReports import WriteReports
         "extra",
         "native",
         "rerun",
+        "latest-failed",
     ),
 )
 @TestMark.parametrize("NativePattern", ("", "^tests/Native/"))
@@ -34,7 +35,7 @@ def CheckShardGate(TmpPath: FilePath, Outcome: str, NativePattern: str) -> None:
             ),
             str(TmpPath),
             "Platform",
-            "2" if Outcome == "rerun" else "1",
+            "2" if Outcome in ("rerun", "latest-failed") else "1",
             NativePattern,
         ),
         env={**KEnvironment, "GITHUB_STEP_SUMMARY": str(TmpPath / "Summary.md")},
