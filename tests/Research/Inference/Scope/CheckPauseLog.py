@@ -29,4 +29,7 @@ def CheckPauseLog(LogPath: FilePath) -> None:
         if Event.get("event") == "catalogue_paused"
     )
     assert Settlement < PauseIndex
-    assert all(Event.get("event") != "started" for Event in Events[Settlement + 1 :])
+    assert all(
+        Event.get("event") not in {"started", "setup_failed"}
+        for Event in Events[Settlement + 1 :]
+    )
