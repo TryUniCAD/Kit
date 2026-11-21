@@ -12,8 +12,8 @@ from interchange.document.Models.DocumentModel import CadDocument
 def CanWriteNested(Document: CadDocument, TargetValue: KTargetType) -> bool:
     if not isinstance(TargetValue, (str, FilePath)):
         return False
-    OutputPath = FilePath(TargetValue)
-    if OutputPath.suffix.casefold() != KAsmSuffix:
+    OutputPath = FilePath(TargetValue).expanduser()
+    if OutputPath.suffix.casefold() != KAsmSuffix or OutputPath.is_symlink():
         return False
     try:
         PlanValue = ReadNestedAssembly(Document)

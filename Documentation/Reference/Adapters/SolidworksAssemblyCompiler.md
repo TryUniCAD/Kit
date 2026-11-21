@@ -25,8 +25,8 @@ companion filenames and byte totals. Both native usability flags stay false.
 The internal publisher requires a fresh filesystem destination. The file
 scan covers every companion as well as the root. The shared registry
 preserves prior entries and rolls back earlier publications on a handled
-late conflict. Normal SOLIDWORKS writer selection retains its established
-flat assembly profiles.
+late conflict. The separately qualified rigid nested profile uses the same
+transaction through the [normal SOLIDWORKS writer](SolidworksAssemblyWriting.md).
 [Publication scope and evidence](../../../re/solidworks/records/SdkNestedAssemblyPublication2026.md)
 
 [Scope and evidence record](../../../re/solidworks/records/PortableAssemblyCompiler2026.md)

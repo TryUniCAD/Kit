@@ -1,18 +1,20 @@
 # Writing ordinary native SOLIDWORKS assemblies
 
-The bounded assembly writer accepts a complete neutral `CadDocument.assembly` with one owned dimensioned rectangular part and two or three direct occurrences. It writes a native `.SLDASM` plus that part's `.SLDPRT` beside it. Both files are generated from the neutral model through the shared SDK constructors. Existing external part files are not writer inputs.
+The assembly writer takes a complete neutral `CadDocument.assembly` and generates the native root `.SLDASM` and its owned dependencies beside it. The neutral documents and occurrence graph provide the inputs to the shared SDK constructors.
 
-The supported group contains aligned ordinary coincident/parallel and positive driving distance mates between actual principal planes. It preserves the authored names, active configurations, ordered occurrence/plane references, fixed anchor, rigid placements and rectangular child dimensions. The initial placements must satisfy every mate. Unsupported features, mates, child shapes, nested components, suppressed/hidden/flexible instances, unresolved references, extra metadata and incomplete ownership fail closed.
+The flat mate profile uses two or three direct occurrences of one owned dimensioned rectangular part. It supports aligned ordinary coincident/parallel and positive driving distance mates between actual principal planes. It preserves the authored names, active configurations, ordered occurrence/plane references, fixed anchor, rigid placements and rectangular child dimensions. The initial placements must satisfy every mate. Unsupported features, mates, child shapes, suppressed/hidden/flexible instances, unresolved references, extra metadata and incomplete ownership fail closed.
 
 An occurrence may carry an explicit `reference_number` such as `"2"` for `SharedPart-2`. It must match the canonical positive decimal suffix of the occurrence name. Leave the field empty to derive the same native number from the name. [Occurrence reference numbers](../../Changes/Solidworks/Construction/Assembly/SolidworksOccurrenceReferenceNumbers.md)
 
 For two direct occurrences, the writer also accepts one ordinary perpendicular mate between principal planes. Use one fixed occurrence, unknown alignment and an initially orthogonal placement. This profile excludes other mates in the same group and active correction from an invalid angle. The normal mate reader preserves the ordered references in native saves. [Perpendicular qualification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
 
+The rigid nested profile uses a complete acyclic hierarchy with separately owned rectangular blind-boss parts and explicit selected configurations. Floating rigid occurrences retain their local transforms and repeated instances share one generated child. A leaf may carry the ordinary driving depth or the depth plus driving width and height with the prescribed rectangle relations. The nested profile accepts a hierarchy without mates, suppression, hidden instances or flexible placement. [Nested writing and native qualification](../../Changes/Solidworks/Construction/Assembly/SolidworksRigidNestedAssemblyWriting.md)
+
 `convert.write_document` selects the writer by `.SLDASM` destination
 or explicit `destination_format="solidworks.sldasm"`. The assembly
 alias resolves to the canonical `solidworks.sldprt` registration.
 
-On Windows, provide the actual absolute final path. That path establishes both native file identities. On another host, provide the physical final destination plus the explicit corresponding Windows `native_destination` in write values. The staged, physical and native assembly basenames must match the neutral root name. The validated owned child name supplies its sibling filename. The SDK does not guess a drive mapping or resolve a source-file reference.
+On Windows, provide the actual absolute final path. That path establishes the directory for every native file identity. On another host, provide the physical final destination plus the explicit corresponding Windows `native_destination` in write values. The staged, physical and native assembly basenames must match the neutral root name. Each validated owned definition name supplies one sibling filename.
 
 ```python
 from pathlib import Path

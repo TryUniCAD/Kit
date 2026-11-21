@@ -933,6 +933,13 @@ native edit and save. Eleven fresh processes and 546 checks pass with
 healthy controls. These three cases qualify the scoped SDK construction.
 The FCStd production count remains 0 of 165 parts and 0 of 5 assemblies.
 
+Both [locked rigid nested hierarchies](measurements/2026/SdkSealedNeutralNestedNative01.json)
+passed the neutral SDK writer and their controlled native edits and reopens.
+Both [public output routes](measurements/2026/SdkPublicNestedWriting01.json)
+reproduce four separately measured nested bundles byte for byte. These
+are SOLIDWORKS and directly authored neutral fixtures. The requested
+FCStd conversion counts remain unchanged.
+
 ## Last audit of the removed writer
 
 The 2026-08-11 audit ran recursively from the repository root with this historical command.
