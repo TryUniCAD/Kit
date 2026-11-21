@@ -25,7 +25,7 @@ def CheckNativeEnv(TmpPath: Path) -> None:
     Scratch = TmpPath / "TaskScratch"
     Roaming.mkdir(parents=True)
     Scratch.mkdir()
-    Settings = TmpPath / "Host.json"
+    Settings = Scratch / "Host.json"
     _ = Settings.write_text(
         dumps(
             {
@@ -51,7 +51,7 @@ def CheckNativeEnv(TmpPath: Path) -> None:
             "-B",
             str(Path(__file__).with_name("NativeChild.py")),
             str(Settings),
-            str(TmpPath),
+            str(Scratch),
         ],
         cwd=KRepoRoot,
         env=Environment,
@@ -61,7 +61,7 @@ def CheckNativeEnv(TmpPath: Path) -> None:
         timeout=30,
     )
     assert Process.returncode == 0, Process.stderr
-    Observed = loads((TmpPath / "Child.stdout").read_bytes())
+    Observed = loads((Scratch / "Child.stdout").read_bytes())
     assert Observed == {
         "profile": str(Profile),
         "roaming": str(Roaming),
@@ -69,7 +69,7 @@ def CheckNativeEnv(TmpPath: Path) -> None:
         "secret_absent": True,
         "pythonpath": None,
     }
-    assert (TmpPath / "Child.stderr").read_bytes() == b""
+    assert (Scratch / "Child.stderr").read_bytes() == b""
 
 
 # host configuration cannot replace executable lookup through native profile restoration
