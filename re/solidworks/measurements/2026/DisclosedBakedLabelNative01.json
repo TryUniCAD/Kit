@@ -1,0 +1,1517 @@
+{
+  "body_state_and_identity_text_exact": true,
+  "both_lifecycles_healthy": true,
+  "build_sha256": "35d699c64afbd424ca625fd7e177400eec94a68bf4952ea9126f8999d330dbb1",
+  "candidate_numeric_checks": 232,
+  "controls_healthy": true,
+  "distinct_native_processes": 6,
+  "heldout_cases": 0,
+  "intact_fcstd_conversions": 0,
+  "mass_measured_against_same_source": true,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "12936962d6140cb5858c7884ad01b2643379611faa0bbf1c332011dea9f8ff0b",
+  "passed": true,
+  "phases": {
+    "ControlAfter": {
+      "passed": true,
+      "process_creation_filetime": 134397304828708845,
+      "record_sha256": "53b0e6599ce70d226209b6b95f030fe9fefb451c520590ddb8f62805a3f5cc9e"
+    },
+    "ControlBefore": {
+      "passed": true,
+      "process_creation_filetime": 134397303051831702,
+      "record_sha256": "fb921387ebfb8962090ba3f5a25761ecbd3c20f7f281c4652f321306ad96011e"
+    },
+    "LabelOnly": {
+      "cold": {
+        "configuration": "Default",
+        "configurations": [
+          "Default"
+        ],
+        "feature": "Disclosed Baked B",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "shape": {
+          "area_m2": 0.0014452812499999997,
+          "com_m": [
+            0.0038125,
+            0.020125,
+            0.0078125
+          ],
+          "document_text": {
+            "FreeCAD Object ID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "4041",
+              "resolved": "4041",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Shape SHA-256": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "resolved": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Source UUID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "resolved": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "status": 2,
+              "type": 30
+            }
+          },
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "visible_solids": 1,
+          "volume_m3": 2.7614179687499997e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Disclosed Baked B",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "input_sha256": "8d6ec9f12559ea59c115819a7472a56ddb6620bf25b22e000dad096a0f809004",
+      "numeric_checks": 58,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "passed": true,
+      "process_creation_filetime": 134397304055085300,
+      "rebuilt": {
+        "configuration": "Default",
+        "configurations": [
+          "Default"
+        ],
+        "feature": "Disclosed Baked B",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "shape": {
+          "area_m2": 0.0014452812499999997,
+          "com_m": [
+            0.0038125,
+            0.020125,
+            0.0078125
+          ],
+          "document_text": {
+            "FreeCAD Object ID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "4041",
+              "resolved": "4041",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Shape SHA-256": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "resolved": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Source UUID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "resolved": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "status": 2,
+              "type": 30
+            }
+          },
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "visible_solids": 1,
+          "volume_m3": 2.7614179687499997e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Disclosed Baked B",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "record_sha256": "af056190d60bd1cc9be08d1cf93a1982bcaf30ebb639c1ad01c5f9270f400966",
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "saved_sha256": "a3abc76a7e6ad5450d0187775d0cf3d4da08bde2ea5fb228a768664e2674d34c"
+    },
+    "LabelOnlyReopen": {
+      "cold": {
+        "configuration": "Default",
+        "configurations": [
+          "Default"
+        ],
+        "feature": "Disclosed Baked B",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "shape": {
+          "area_m2": 0.0014452812499999997,
+          "com_m": [
+            0.0038125,
+            0.020125,
+            0.0078125
+          ],
+          "document_text": {
+            "FreeCAD Object ID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "4041",
+              "resolved": "4041",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Shape SHA-256": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "resolved": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Source UUID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "resolved": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "status": 2,
+              "type": 30
+            }
+          },
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "visible_solids": 1,
+          "volume_m3": 2.7614179687499997e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Disclosed Baked B",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "input_sha256": "a3abc76a7e6ad5450d0187775d0cf3d4da08bde2ea5fb228a768664e2674d34c",
+      "numeric_checks": 58,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "passed": true,
+      "process_creation_filetime": 134397304456477303,
+      "rebuilt": {
+        "configuration": "Default",
+        "configurations": [
+          "Default"
+        ],
+        "feature": "Disclosed Baked B",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "shape": {
+          "area_m2": 0.0014452812499999997,
+          "com_m": [
+            0.0038125,
+            0.020125,
+            0.0078125
+          ],
+          "document_text": {
+            "FreeCAD Object ID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "4041",
+              "resolved": "4041",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Shape SHA-256": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "resolved": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Source UUID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "resolved": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "status": 2,
+              "type": 30
+            }
+          },
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "visible_solids": 1,
+          "volume_m3": 2.7614179687499997e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Disclosed Baked B",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "record_sha256": "4291d84e7ae53e8dea4e0e9df2bc0fc49431de9a6740e2df25f1257f58b25962"
+    },
+    "SourceLabel": {
+      "cold": {
+        "configuration": "Default",
+        "configurations": [
+          "Default"
+        ],
+        "feature": "Disclosed Baked A",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "shape": {
+          "area_m2": 0.0014452812499999997,
+          "com_m": [
+            0.0038125,
+            0.020125,
+            0.0078125
+          ],
+          "document_text": {
+            "FreeCAD Object ID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "4041",
+              "resolved": "4041",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Shape SHA-256": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "resolved": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Source UUID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "resolved": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "status": 2,
+              "type": 30
+            }
+          },
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "visible_solids": 1,
+          "volume_m3": 2.7614179687499997e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Disclosed Baked A",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "input_sha256": "596a0939c6669e1146f8c62be50aec825a329c89decea9659a1547d52e514d7e",
+      "numeric_checks": 58,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "passed": true,
+      "process_creation_filetime": 134397303305273342,
+      "rebuilt": {
+        "configuration": "Default",
+        "configurations": [
+          "Default"
+        ],
+        "feature": "Disclosed Baked A",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "shape": {
+          "area_m2": 0.0014452812499999997,
+          "com_m": [
+            0.0038125,
+            0.020125,
+            0.0078125
+          ],
+          "document_text": {
+            "FreeCAD Object ID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "4041",
+              "resolved": "4041",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Shape SHA-256": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "resolved": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Source UUID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "resolved": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "status": 2,
+              "type": 30
+            }
+          },
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "visible_solids": 1,
+          "volume_m3": 2.7614179687499997e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Disclosed Baked A",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "record_sha256": "96a7773b6421b9e94f437b7f475447c019665dc46ee297c249d017634a46f473",
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "saved_sha256": "ef00661be69edf8beb7c823671d1d21956746d8dcdf52131d3d6e5d5388907de"
+    },
+    "SourceLabelReopen": {
+      "cold": {
+        "configuration": "Default",
+        "configurations": [
+          "Default"
+        ],
+        "feature": "Disclosed Baked A",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "shape": {
+          "area_m2": 0.0014452812499999997,
+          "com_m": [
+            0.0038125,
+            0.020125,
+            0.0078125
+          ],
+          "document_text": {
+            "FreeCAD Object ID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "4041",
+              "resolved": "4041",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Shape SHA-256": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "resolved": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Source UUID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "resolved": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "status": 2,
+              "type": 30
+            }
+          },
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "visible_solids": 1,
+          "volume_m3": 2.7614179687499997e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Disclosed Baked A",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "input_sha256": "ef00661be69edf8beb7c823671d1d21956746d8dcdf52131d3d6e5d5388907de",
+      "numeric_checks": 58,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "passed": true,
+      "process_creation_filetime": 134397303671436128,
+      "rebuilt": {
+        "configuration": "Default",
+        "configurations": [
+          "Default"
+        ],
+        "feature": "Disclosed Baked A",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "shape": {
+          "area_m2": 0.0014452812499999997,
+          "com_m": [
+            0.0038125,
+            0.020125,
+            0.0078125
+          ],
+          "document_text": {
+            "FreeCAD Object ID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "4041",
+              "resolved": "4041",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Shape SHA-256": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "resolved": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+              "status": 2,
+              "type": 30
+            },
+            "FreeCAD Source UUID": {
+              "evaluated": true,
+              "linked": false,
+              "raw": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "resolved": "7490b28c-63bc-4aee-8a15-b20536063fab",
+              "status": 2,
+              "type": 30
+            }
+          },
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "visible_solids": 1,
+          "volume_m3": 2.7614179687499997e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Disclosed Baked A",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "record_sha256": "497ab0734f3913aaacfea72a80b50cecf5aec43fc98d8ec40859183a43793c7c"
+    }
+  },
+  "preflight_attempt": {
+    "cad_processes_started": 0,
+    "recovery": "same frozen packet with guest user site enabled",
+    "result": "missing_pythoncom_before_oracle_launch"
+  },
+  "raw_native_result_sha256": "75892e9d82ad23df50aff891fadb07cdb2f2e1c5b79809b4fc460a9de8e7bd5a",
+  "schema": "kit.sw2026.baked-label-native-result.v1",
+  "source_audit_sha256": "76471602145cacdac72876f471b00d74cf41397df85ed946e5a719d62afaeb1e",
+  "tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorImportedBody.py": "8935fa40217244d4d4eb37bc822b419cdc79778b9a4cdc2bd03a2d0925252a6b",
+    "AuthorPartProperties.py": "adf654f5d5711d87f78623269a1fa9f83556723089fc147338d16737dc976436",
+    "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveBakedLabelContrast.py": "111e239d6cb8747cbb9e2560b979b7029a458c4bc7ba1ff29146c6964f3ac606",
+    "ObserveKernelBodyRestore.py": "4d15596ee8dbb7be548a68d8fc442c801da7bca62133f4487218601c058d7afe",
+    "ObserveLocalImportedPart.py": "81f5231920d56d52abbc6023b348178f37545ae74808a8f29d9e737bc354591a",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "RunImportedBodySources.py": "0399abd851863d711dc232d332db87ba4a8ee0e3cd1eb1becab5806c1d66a49c",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "tree_parity_except_sole_label": true
+}

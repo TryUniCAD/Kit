@@ -15,8 +15,22 @@ Both arms use the `Baked01` document UUID `7490b28c-63bc-4aee-8a15-b20536063fab`
 | Feature and storage group | Strict read binds one unsuppressed imported feature, BaseBody ID `18`, to the actual LocalBodies group key. The group key and both exposed feature and body labels follow the arm's input label. |
 | Managed body | The typed feature and configuration maps select atom `101` at actual local mark `3`. The raw kernel is the same 3,759 bytes in both arms. The strict B-rep binds to `sldprt:body:1`, with six faces, twelve edges and eight corners. |
 | Source identity text | `FreeCAD Source UUID`, `FreeCAD Object ID` and `FreeCAD Shape SHA-256` are ordinary document custom properties. The separate `docProps/custom.xml` and its typed property readback are identical. |
-| Visibility and presentation | Source `Visibility=True`, target feature unsuppressed, and ordinary single-body atom fields remain fixed. Native visible-body enumeration still needs an app measurement. The probe uses the previously modeled ordinary ambient input. |
+| Visibility and presentation | Source `Visibility=True`, target feature unsuppressed, and ordinary single-body atom fields remain fixed. Native enumeration returns the same one visible solid in both arms. The probe uses the previously modeled ordinary ambient input. |
 
 The label changes LocalBodies, Config-0-ModelHeader, ResolvedFeatures, Header2 and KeyWords. Each arm re-emits six actual typed archive streams byte-for-byte, including the regenerated LocalBodies envelope and the unchanged Config-0 and CMgr. Strict readback checks exact wire-unit corner coordinates, edge incidence, volume and centre against the computed source box. [Local owner reader](../../../../../src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/Local/ReadLocalOwner.py) · [Document text input](../../../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/PartTextInput.py) · [Visible-body enumeration](../../../../../re/solidworks/records/AtomManagerBodyEnumeration2026.md) · [Body label sequencing](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/LocalBodies/LocalNameReadPrecedesMetadataBinding.md) · [Wire-unit station comparison](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/LocalBodies/LocalBoxStationsUseWireUnitRoundTrip.md)
 
-For the native comparison, stage each verified output in turn at the same embedded task-owned locator and open it in a fresh SOLIDWORKS 2026 SP05.2 process with healthy controls. Check actual BaseBody and body names, full and visible-only solid inventories, separate document custom text and the expected 2,761.41796875 mm³ volume, 1,445.28125 mm² area and centre `(3.8125, 20.125, 7.8125)` mm. This offline receipt supplies a controlled geometry and label projection. Native open/rebuild, an app-level visibility transfer, the complete FCStd carrier and its provenance, element-map metadata, local tolerances, assigned material and presentation all remain open. The public writer gate remains untouched. [CAD success criteria](../../../../Reference/Operations/CadSuccessCriteria.md)
+The native contrast staged each verified output at the same embedded
+task-owned locator. Two fresh SOLIDWORKS 2026 SP05.2 controls bracketed
+both open, rebuild, save and fresh reopen lifecycles. All four candidate
+processes reported zero open warnings, open errors and rebuild diagnostics.
+Both arms retained the distinct BaseBody and body caption, one visible
+solid and the same three document custom text values. All 232 geometry
+checks passed. The measured volume is 2,761.41796875 mm³, area is
+1,445.28125 mm², and centre is `(3.8125, 20.125, 7.8125)` mm.
+[Native observer](../../../../../re/tooling/sw2026/imported_body_source/ObserveBakedLabelContrast.py) ·
+[Native receipt](../../../../../re/solidworks/measurements/2026/DisclosedBakedLabelNative01.json)
+
+This diagnostic preserves the disclosed label in the target behavior.
+The complete FCStd carrier and its provenance, element-map metadata,
+local tolerances, assigned material and presentation remain open.
+[CAD success criteria](../../../../Reference/Operations/CadSuccessCriteria.md)

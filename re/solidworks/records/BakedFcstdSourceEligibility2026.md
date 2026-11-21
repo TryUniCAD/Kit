@@ -27,6 +27,17 @@ The [bundled Windows Python authoring procedure](../../../Documentation/Changes/
 
 The default strict SDK reader independently accepts all six originals in two fresh guest processes. Source tree `4f00d8b078ea956ccfa2883c043093a964ae2237` is verified by the frozen snapshot manifest. Each model contributes one owned design body and one typed B-rep, and the digest covers the complete returned neutral JSON. The sealed files, source specifications and returned models stay in custody. No native process or writer ran during this phase. [Disclosed neutral lock](../measurements/2026/DisclosedBakedFcstdNeutralLock01.json) · [Protected neutral lock](../v2026/heldout/BakedFcstdNeutralLock01.json)
 
+A disclosed label contrast fixes the first baked source's actual signed box,
+object identity and Shape digest. Changing only the target feature and
+storage-group labels retains the same modeled B-rep and three literal
+identity properties. Six fresh SOLIDWORKS processes verify both label
+lifecycles and healthy brackets. Both clean saves reopen with the correct
+feature label and one visible body, and all 232 numerical geometry checks
+match the independent source model. Full original-source admission remains
+pending on the separate provenance, local tolerance, element-map and
+appearance owners. [Guarded construction](../measurements/2026/DisclosedBakedLabelPair01.json) ·
+[Native comparison](../measurements/2026/DisclosedBakedLabelNative01.json)
+
 1. Freeze a native FreeCAD author method and the admission checklist first. Independently author two ordinary closed rectangular solids with different dimension triples and signed offsets. Create each document with one literal `Part::Feature` and assign its completed shape directly from an analytic box operation. Use one object with an ordinary identity placement. Its Shape is the source geometry. Choose distinct names and parameters independently of previous candidate dimensions and keep the author specs with the source custodian. [Corpus protocol](../../Playbook/GenerativeCorpus.md)
 2. After rebuild, save, close and fresh read-only reopen each source under a recorded FreeCAD build. Check the actual single object and solid, closed oriented shell, six faces, twelve edges, eight vertices, exact coordinate stations and ordered face trims. Independently compute expected volume, area, signed centre and bounds from the author specs. Require healthy brackets and record the full source object graph and save diagnostics. Retain the already measured sketch/extrusion and AdditiveBox files as negative provenance controls.
 3. Bind the literal declaration, its object ID, the one `Shape` property and its exact archive member. Verify there are no authored dependencies in the stored dependency graph, parameter expressions, support or base links, external links, proxy state or `ParametricSource`. The latter can make a `Part::Feature` a dependent cache carrier. The standalone profile also excludes a second object, region, shell or solid, an open boundary and incomplete incidence. [FreeCAD shape carrier](../../../src/convert/adapters/freecad/Archive.py)
