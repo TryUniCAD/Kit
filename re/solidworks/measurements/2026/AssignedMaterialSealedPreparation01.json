@@ -1,0 +1,19 @@
+{
+  "action": "prepare",
+  "candidates": 2,
+  "evaluation_method_sha256": "3fa3d5b218e5aeddea1f6d86653a69e44b7671e5eaa5d3cc41eea036d2422c2b",
+  "full_source_qualified": false,
+  "full_source_refusals": 2,
+  "generation_sha256": "c6b72fc0ab57e45d028cd9704fd1096c5ccc53d3207575dbb589924461491821",
+  "guarded_workers": 6,
+  "lifecycle_plan_sha256": "466aa7a7c7cb5256fb086c1f57917d43444dcbe17743fb5437625e3837f986e3",
+  "native_physical_scope_passed": false,
+  "native_processes": 0,
+  "passed": true,
+  "protected_payloads_exported": 0,
+  "schema": "kit.sw2026.sealed-material-evaluation-redacted.v1",
+  "scope": "origin-owned-physical-material",
+  "source_controls": 2,
+  "source_files": 6,
+  "source_lifetimes": 10
+}

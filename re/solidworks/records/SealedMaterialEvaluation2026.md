@@ -2,6 +2,12 @@
 
 Task `B04-SW2026-NAMED-MATERIAL`, PR #121. The root oracle owner executes this protocol inside the existing Windows guest. The completed source authority precedes material writer construction and commits two independently authored private originals and their native source lifecycles. The frozen Packet02 worker supplies the neutral model projection. [Public digest-only source authority](../measurements/2026/AssignedMaterialPrivateSourceLock01.json) · [Preparation method](AssignedMaterialNeutralPreparation2026.md)
 
+## First native evaluation
+
+The original frozen method prepared two candidates in six guarded processes and verified the two original source controls and all ten source lifetimes. Its first attempt to publish the aggregate receipt at the root of `C:` was denied. The recovery used the current user's writable directory and reverified the same prepared model hashes and native reference plan. [Redacted preparation](../measurements/2026/AssignedMaterialSealedPreparation01.json)
+
+Both candidates opened with zero load errors and warnings. The batch had two healthy controls and 20 completed numeric checks. Both stopped before edit at an observer predicate requiring a coincidence endpoint to be the same COM object as the separately selected document origin. Previous matched native evidence establishes distinct external-point and source-origin identities. The failed receipt remains in the ledger. The corrected observer must verify actual point type and owning sketch as well as the immutable archive reference chain. [Failed native comparison](../measurements/2026/AssignedMaterialSealedNative01.json) · [Known point-owner contract](../../../Documentation/Gotchas/Conversion/Solidworks/Inspection/ExternalOriginPointsHaveSketchOwners.md)
+
 ## Closed source and phase authority
 
 The [companion runner](../../tooling/sw2026/materials/sealed_evaluation/RunSealedMaterialEvaluation.py) pins the original aggregate receipt, exact schema implementation, two observer scripts and prior preparation method. The complete public packet and local synthetic worker preflight pass before any protected path is read. It revalidates 32 prescribed files in the unchanged `C:\KitSealedMaterialSource02` local authority, including the preflight, 13 original members, original intent, primary native result, source lock, both healthy control records, eight phase records and six saved files. A resolved path must remain its exact local locator. Both source controls independently agree with the pinned physical seed and fresh app process evidence.

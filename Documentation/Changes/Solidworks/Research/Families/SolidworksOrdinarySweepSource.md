@@ -1,0 +1,3 @@
+# Prepare native SOLIDWORKS sweep source acquisition
+
+The frozen research packet authors a circular section and a distinct curved path in SOLIDWORKS 2026 SP05.2. The observer resolves the actual selected sketch owners and measures independent section-diameter and path-radius edits, save and fresh reopen under bracketing controls. A checked closed-form model and independent quadrature predict volume, area, and centroid. Host verification passed all 22 packet members and 42 geometry checks. Native source execution and independent pre-writer custody remain pending. [Source procedure](../../../../../re/solidworks/records/OrdinarySweptBossSource2026.md)
