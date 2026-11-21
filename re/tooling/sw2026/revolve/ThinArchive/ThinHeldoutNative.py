@@ -4,7 +4,7 @@ from pathlib import Path
 from time import time
 
 from ThinHeldoutPacket import (
-    CASES, DISCLOSURE_SHA, LOCK_SHA, ORACLE, ORIGINALS, SCHEMA, SPEC, VERSION, WRITER, WRITER_TREE,
+    CASES, DISCLOSURE_SHA, LOCK_SHA, ORACLE, ORIGINALS, SCHEMA, SPEC, VERSION,
     checked, digest, encode, packet_data, publish, require,
 )
 
@@ -86,7 +86,7 @@ def compare_slot(inputs, output, runner):
     return row
 
 
-def run_native(packet, pin, generation_pin, lock, work, cases, generation):
+def run_native(packet, pin, generation_pin, manifest, lock, work, cases, generation):
     import Swapp
     from AuthorCurves import write_json
     from AuthorRevolveFamilies import author_type, constants_from_registration
@@ -111,7 +111,9 @@ def run_native(packet, pin, generation_pin, lock, work, cases, generation):
     processes = []
     report = {"schema": SCHEMA, "freeze_sha256": pin, "generation_sha256": generation_pin,
               "source_lock_sha256": LOCK_SHA, "disclosed_sha256": DISCLOSURE_SHA,
-              "writer_revision": WRITER, "writer_src_tree": WRITER_TREE,
+              "principal_disclosed_sha256": manifest.get("principal_native_sha256"),
+              "profile": manifest.get("profile", "front"),
+              "writer_revision": manifest["writer"], "writer_src_tree": manifest["writer_src_tree"],
               "oracle_build": VERSION, "oracle_sha256": ORACLE, "started_at": time(),
               "original_native_files_read_during_generation": 0, "writer_runtime_external_access_attempts": 0,
               "public_writer_qualified": False, "whole_source_conversion": False, "cases": []}

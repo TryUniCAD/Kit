@@ -6,6 +6,8 @@ locked originals. The native phase requires a generation digest, checks the
 full edit and fresh reopen lifecycle between two controls, and publishes only
 the sanitized outcome. The first packet retains the measured forward Front
 four-mode scope and refuses other orientations before native access.
+The principal-plane option requires a hash-bound successful disclosed Top and
+Right result before it freezes the broader writer and its exact tool closure.
 
 The disclosed writer passed all four native discovery profiles and eighteen
 processes. The host freeze checked the pre-writer lock and exact disclosed tool

@@ -10,7 +10,7 @@ from time import time
 from zipfile import ZipFile
 
 from ThinHeldoutPacket import (
-    CASES, LOCK_SHA, MODES, SCHEMA, SPEC, SWROOT, THINROOT, WRITER, WRITER_TREE,
+    CASES, LOCK_SHA, MODES, SCHEMA, SPEC, SWROOT, THINROOT,
     archive_path, checked, digest, encode, packet_data, publish, require,
 )
 
@@ -51,8 +51,10 @@ def locked_intents(code, lock):
     return cases
 
 
-def build_one(code, root, case, epoch):
-    tool = code / THINROOT / "BuildThinControls.py"
+def build_one(code, root, case, epoch, profile):
+    tool_name = "BuildThinControls.py" if profile == "front" else "BuildThinPlanes.py"
+    access_key = "runtime_external_access_attempts" if profile == "front" else "writer_external_access_attempts"
+    tool = code / THINROOT / tool_name
     runner = ("from pathlib import Path; import runpy, sys; "
               "sys.path.insert(0, str(Path(sys.argv[1]).parent)); del sys.argv[0]; "
               "runpy.run_path(sys.argv[0], run_name='__main__')")
@@ -69,9 +71,12 @@ def build_one(code, root, case, epoch):
             raise ValueError("frozen model-only writer refused this sealed intent")
         outputs.append(json.loads(process.stdout))
     a, b = outputs
-    require(a == b and a["runtime_external_access_attempts"] == 0
+    require(a == b and a[access_key] == 0
             and len(a["typed_streams"]) == 10 and all(row["byte_identity"] for row in a["typed_streams"].values()),
             "isolated writer proof, repeat bytes or linked stream parity differ")
+    if profile == "principal":
+        require(a["portable_round_trip"] and a["refusals"]["public_stream"] == "AdapterNotFoundError",
+                "principal worker lost portable binding or the closed public gate")
     raw = b64decode(a.pop("candidate"), validate=True)
     require((digest(raw), len(raw)) == (a["sha256"], a["bytes"]), "frozen worker output differs")
     return destination, raw, {"candidate_sha256": a["sha256"], "candidate_bytes": a["bytes"],
@@ -83,18 +88,22 @@ def prepare(packet, pin, manifest, lock, root):
     require(not root.exists(), "use a fresh private guest evaluation root")
     code = writer_code(packet, manifest, root, extract=True)
     cases = locked_intents(code, lock)
-    require(all(case["plane"] == "front" and not case["reverse"] for case in cases),
-            "sealed cohort exceeds the measured forward Front-only frozen writer")
+    profile = manifest.get("profile", "front")
+    planes = ("front",) if profile == "front" else ("front", "top", "right")
+    require(all(case["plane"] in planes and not case["reverse"] for case in cases),
+            "sealed cohort exceeds the selected forward principal scope")
+    require(all(case["first_wall_sign"] in (None, 1) for case in cases),
+            "sealed cohort exceeds the observed first-wall direction")
     epoch = int(manifest["frozen_at"])
-    candidates = [build_one(code, root, case, epoch) for case in cases]
+    candidates = [build_one(code, root, case, epoch, profile) for case in cases]
     (root / "Generated").mkdir()
     rows = {}
     for slot, (path, raw, row) in zip(CASES, candidates, strict=True):
         require(publish(path, raw) == row["candidate_sha256"], "staged candidate differs from isolated generation")
         rows[slot] = row
     require(digest(checked(Path(SPEC), lock["spec_sha256"])) == lock["spec_sha256"], "neutral intent changed")
-    report = {"schema": SCHEMA, "freeze_sha256": pin, "source_lock_sha256": LOCK_SHA,
-              "writer_revision": WRITER, "writer_src_tree": WRITER_TREE, "spec_sha256": lock["spec_sha256"],
+    report = {"schema": SCHEMA, "profile": profile, "freeze_sha256": pin, "source_lock_sha256": LOCK_SHA,
+              "writer_revision": manifest["writer"], "writer_src_tree": manifest["writer_src_tree"], "spec_sha256": lock["spec_sha256"],
               "writer_epoch": epoch, "generated_at": time(), "cases": rows,
               "writer_processes": 2 * len(rows), "original_native_files_read_during_generation": 0,
               "writer_runtime_external_access_attempts": 0, "native_acceptance": False}
@@ -106,8 +115,9 @@ def native(packet, pin, generation_pin, manifest, lock, root):
     code = writer_code(packet, manifest, root, extract=False)
     generation = json.loads(checked(root / "Generation.json", generation_pin))
     require(generation["schema"] == SCHEMA and generation["freeze_sha256"] == pin
-            and generation["source_lock_sha256"] == LOCK_SHA and generation["writer_revision"] == WRITER
-            and generation["writer_src_tree"] == WRITER_TREE and generation["spec_sha256"] == lock["spec_sha256"]
+            and generation["source_lock_sha256"] == LOCK_SHA and generation["writer_revision"] == manifest["writer"]
+            and generation["writer_src_tree"] == manifest["writer_src_tree"] and generation["spec_sha256"] == lock["spec_sha256"]
+            and generation.get("profile", "front") == manifest.get("profile", "front")
             and generation["writer_epoch"] == int(manifest["frozen_at"]) <= generation["generated_at"]
             and generation["original_native_files_read_during_generation"] == 0
             and generation["writer_runtime_external_access_attempts"] == 0 and generation["writer_processes"] == 8
@@ -117,7 +127,7 @@ def native(packet, pin, generation_pin, manifest, lock, root):
     sys.path.insert(0, str(code / THINROOT))
     from ThinHeldoutNative import run_native
 
-    return run_native(packet, pin, generation_pin, lock, root, cases, generation)
+    return run_native(packet, pin, generation_pin, manifest, lock, root, cases, generation)
 
 
 def main():
@@ -142,8 +152,9 @@ def main():
             path = root / ("Private" + args.action.capitalize() + "Failure.json")
             if not path.exists():
                 publish(path, encode({"error": repr(error)}))
-        message = "sealed cohort exceeds the measured forward Front-only frozen writer"
-        reason = "frozen_orientation_unsupported" if str(error) == message else "private_" + args.action + "_failure"
+        reason = {"sealed cohort exceeds the selected forward principal scope": "frozen_orientation_unsupported",
+                  "sealed cohort exceeds the observed first-wall direction": "frozen_wall_direction_unsupported"}
+        reason = reason.get(str(error), "private_" + args.action + "_failure")
         result = {"passed": False, "failure": reason, "error_type": type(error).__name__}
     print(encode(result).decode(), end="")
     return int(not result["passed"])
