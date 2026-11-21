@@ -10,6 +10,10 @@ to you under it immediately and permanently.
 
 # Apply written recipes with an assisting agent
 
+The opt-in [automatic builder-development loop](AutomaticBuilderDevelopment.md)
+adds bounded generation, independent qualification and runtime registration for one
+missing offset-plane builder. The handoff behavior below remains the default.
+
 `RunRecipeCampaign.py` walks every written recipe in the selected feature
 catalogues, including recipes that have no executable mapping yet. It reuses
 the existing native authoring, verification and decoding runner. It does not

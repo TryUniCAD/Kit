@@ -31,7 +31,7 @@ def ReserveQualification(History, ForbiddenValues, Count=3):
             Used.update((Case["offset_mm"], Case["edit_mm"]))
     Pool = [
         Value / 4
-        for Value in range(8, 392)
+        for Value in range(8, 240)
         if Value / 4 not in Used and Value / 4 + 0.125 not in Used
     ]
     if len(Pool) < Count:

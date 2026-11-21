@@ -30,6 +30,10 @@ from InferenceGrid.RecipeCampaign.CampaignState import (
 )
 from InferenceGrid.RecipeCampaign.RecipePlan import PlanRecipes
 from InferenceGrid.CatalogueRuntime import HoldCatalogue
+from InferenceGrid.BuilderDevelopment.Options import (
+    AddBuilderOptions,
+    CheckBuilderOptions,
+)
 
 
 # one entry point walks written recipes and exposes unresolved work to its assisting agent
@@ -60,8 +64,12 @@ def ReadOptions():
     Parser.add_argument("--recipe-seconds", type=int, default=1200)
     Parser.add_argument("--max-seconds", type=int, default=3600)
     Parser.add_argument("--max-recipes", type=int, default=10000)
+    AddBuilderOptions(Parser)
     Args = Parser.parse_args()
-    if not (Args.solidworks_catalogue or Args.fusion_catalogue):
+    CheckBuilderOptions(Parser, Args)
+    if not (Args.solidworks_catalogue or Args.fusion_catalogue) and not (
+        Args.auto_develop_builders and (Args.builder_resume or Args.builder_pause)
+    ):
         Parser.error("select at least one application catalogue")
     if min(Args.recipe_seconds, Args.max_seconds, Args.max_recipes) < 1:
         Parser.error("time and recipe limits must be positive")
@@ -72,6 +80,8 @@ def ReadOptions():
         "solidworks_host",
         "native_config",
         "fusion_lifecycle",
+        "builder_api_metadata",
+        "builder_registry",
     ):
         Value = getattr(Args, Name)
         if Value is not None:
@@ -140,6 +150,17 @@ def CampaignStep(Args):
 # fresh step processes observe assistant code changes without reusing imported stale builders
 def MainCampaign():
     Args = ReadOptions()
+    if Args.auto_develop_builders:
+        from InferenceGrid.BuilderDevelopment.RunDevelopment import RunDevelopment
+
+        Result = RunDevelopment(Args, Path(__file__).resolve().parents[3])
+        print(dumps(Result, sort_keys=True), flush=True)
+        return (
+            0
+            if Result["status"]
+            in {"completed", "prepared", "paused", "pause_requested"}
+            else 3
+        )
     if Args.prepare_only or Args.step:
         return CampaignStep(Args)
     Command = [

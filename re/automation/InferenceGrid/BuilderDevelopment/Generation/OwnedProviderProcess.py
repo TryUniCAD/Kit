@@ -83,9 +83,10 @@ def RunProvider(Command, Directory, Environment, Seconds, Limit=4 * 1024 * 1024)
     Capture = LogCapture(Directory / "Provider.jsonl", Limit)
     Process, Code, Reason = None, None, None
     try:
-        with (Directory / "Prompt.txt").open("rb") as Input, open(
-            os.devnull, "wb"
-        ) as Errors:
+        with (
+            (Directory / "Prompt.txt").open("rb") as Input,
+            open(os.devnull, "wb") as Errors,
+        ):
             Process = OwnedProviderProcess(
                 Command,
                 Directory,
