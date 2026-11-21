@@ -85,9 +85,18 @@ def MainRun():
         action="store_true",
         help="Mark the configured application resource ready in this run's new store",
     )
+    Parser.add_argument("--codec-request", type=Path, help="Qualify a reader or writer patch for this reviewed scope")
+    Parser.add_argument("--codec-image", help="Local immutable Docker image ID for qualification")
+    Parser.add_argument("--codec-output", type=Path, help="New output patch file")
+    Parser.add_argument("--codec-candidate", type=Path, help="Use supplied replacements instead of Codex")
     add_options(Parser)
     Args = Parser.parse_args()
     try:
+        Promotion = (Args.codec_request, Args.codec_image, Args.codec_output)
+        if (any(Promotion) or Args.codec_candidate) and not all(Promotion):
+            raise ValueError("codec promotion requires request, image and output")
+        if Args.pause and Args.codec_request:
+            raise ValueError("codec promotion requires a running or resumed catalogue")
         SourceRoot = Path(__file__).resolve().parents[3]
         Directory = Args.directory.resolve()
         if Args.pause or Args.resume:
@@ -111,6 +120,9 @@ def MainRun():
             )
         else:
             Outcome = StartNewRun(Args, SourceRoot)
+        if Args.codec_request and Outcome["status"] in {"completed", "coverage_incomplete"}:
+            from CodecPatch import promote_scope
+            Outcome["codec_patch"] = promote_scope(Args, Outcome)
         Output = canonical(
             {**Outcome, "result": str(Directory / "CatalogueResult.json")}
         )

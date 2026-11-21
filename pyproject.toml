@@ -73,6 +73,7 @@ target-version = ["py311"]
 force-exclude = "(examples|modules|re)/"
 
 [dependency-groups]
+codec-promotion = ["numpy<2.5"]
 dev = [
     "bandit>=1.9.4",
     "black==26.10.1",
