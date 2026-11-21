@@ -73,6 +73,14 @@ def refs_for(rows, headers, features):
 
 
 def parent_store(archive, registry):
+    return read_parent_store(archive, registry, constructor_order)
+
+
+def constructor_order(context, occurrence):
+    return context["f30"] == (101 + occurrence["f3f0"]) & 0xFFFFFFFF
+
+
+def read_parent_store(archive, registry, check_order):
     document, info = replay(archive, registry)
     _, headers = order_keys(archive)
     refs, config, _, planes, header = model_inputs(archive)
@@ -94,7 +102,7 @@ def parent_store(archive, registry):
         live = refs[key]
         prop, state, label = attrs_for(row["attrs"], row["m"], 1, (PROPERTY, STATE, LABEL))
         require(context["owner"] is None and context["f48"] == 0
-                and context["f30"] == (101 + live.FieldsValue["f3f0"]) & 0xFFFFFFFF
+                and check_order(context, live.FieldsValue)
                 and chain["f24"] == group["n"] == 1
                 and target["f50"] is None and ctext(target["f38"]) == ReadNodeName(live)
                 and live.FieldsValue["f4f8"].FieldsValue["f50"] is live

@@ -31,7 +31,7 @@ def projected_prediction(geometry):
     }}
 
 
-def observe(row, mode, prediction, appearance, display, source_labels, reg):
+def observe(row, mode, prediction, appearance, display, source_labels, reg, *, saved_parent=None):
     from PlanarRendererInput import confirm_look, differences, request_look
     from PlanarAssemblyIdentity import request_view
     from PlanarVisualOwners import parent_store, source_definition
@@ -45,6 +45,7 @@ def observe(row, mode, prediction, appearance, display, source_labels, reg):
     from convert.adapters.solidworks.Core.Native import ParseXml
 
     hashes = {key: item["sha256"] for key, item in row.items()}
+    require(saved_parent is None or mode == "saved", "paired native observer needs its actual saved revision")
     paths = {key: exact(Path(item["file"]), hashes[key]) for key, item in row.items()}
     require(paths["parent"].parent == paths["child"].parent, "strict readback requires an exact local paired child")
     raw_parent, raw_child = (paths[key].read_bytes() for key in ("parent", "child"))
@@ -67,7 +68,7 @@ def observe(row, mode, prediction, appearance, display, source_labels, reg):
             "the strict SDK reader lost the owned all-visible state")
     archive_audits = {key: audit(ROOT, path)["typed_stream_round_trips"] for key, path in paths.items()}
     definition = source_definition(pair["child"])
-    parent = parent_store(pair["parent"], reg)
+    parent = (saved_parent or parent_store)(pair["parent"], reg)
     actual_labels = labels(raw_child)
     label_delta = label_differences(source_labels, actual_labels)
     if mode == "generated":

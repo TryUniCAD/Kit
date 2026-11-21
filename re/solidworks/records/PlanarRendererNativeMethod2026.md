@@ -36,3 +36,5 @@ prlctl exec --current-user 'Windows 11' py -3.11 -B \
 ```
 
 The top-level observer uses the guest Python 3.11 user-site COM bindings. The SDK subprocess uses `-I -B` and asserts the absence of COM imports. `Inspection/Result.json` separates native, strict saved readback and custody checks. This record binds host preparation only. A native result needs its own exact receipt before any broader conclusion.
+
+The disclosed completed packet passed its paired native mechanics and retained a failed overall result. The host supplement traces the saved context and allocator changes against both frozen inputs and preserves that result. [Saved readback evidence](PlanarRendererSavedRead2026.md)
