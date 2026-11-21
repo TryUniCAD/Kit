@@ -24,13 +24,18 @@ def annotation_node(name, basis, identity):
     return MakeAnnoView(AnnoViewInput(name, ReadAnnoBasis(basis)), identity)
 
 
-def add_catalog_mut(model, intents, active, shown, *, version):
-    if not isinstance(intents, (tuple, list)) or not isinstance(shown, (tuple, list)):
+def annotation_inputs(intents):
+    if not isinstance(intents, (tuple, list)):
         raise ValueError("expected an ordered bounded catalog and explicit shown view roles")
     if any(type(intent) is not dict or set(intent) != {"name", "basis"} for intent in intents):
         raise ValueError("unknown authored annotation view fields")
-    inputs = tuple(AnnoViewInput(intent["name"], ReadAnnoBasis(intent["basis"])) for intent in intents)
-    return PutAnnoCatalog(model, version, inputs, active, tuple(shown))
+    return tuple(AnnoViewInput(intent["name"], ReadAnnoBasis(intent["basis"])) for intent in intents)
+
+
+def add_catalog_mut(model, intents, active, shown, *, version):
+    if not isinstance(shown, (tuple, list)):
+        raise ValueError("expected an ordered bounded catalog and explicit shown view roles")
+    return PutAnnoCatalog(model, version, annotation_inputs(intents), active, tuple(shown))
 
 
 def display_membership(model, name):

@@ -28,6 +28,12 @@ def CheckRevKeys(InputValue: KeywordFeature) -> None:
         (DimValue.NameValue, DimValue.UnitValue)
         for DimValue in InputValue.DimensionValues
     )
+    if (
+        KindValue == "Plane"
+        and InputValue.TagValue == "Feature"
+        and DimsValue == (("D1", "degree"),)
+    ):
+        return
     if KindValue is None or KindValue not in KRevKeywordDims:
         if any(UnitValue is not None for _, UnitValue in DimsValue):
             raise ValueError(

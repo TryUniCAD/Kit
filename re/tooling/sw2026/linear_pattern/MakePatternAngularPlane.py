@@ -21,11 +21,14 @@ def typed_node(name, fields):
     return ArchiveNode(RuntimeClass(name, 1), fields)
 
 
-def make_angular_plane_mut(system, settings, allocator, hinge, headers, intent):
+def angle_input(intent):
     if type(intent) is not AngularPlaneIntent:
         raise ValueError("angular datum requires its own authored feature name and intent")
-    input_value = AnglePlaneInput(
+    return AnglePlaneInput(
         intent.name, intent.angle_rad, intent.reverse, intent.annotation_view,
         intent.design_intent, intent.selected_leader, intent.shifted_point_m,
     )
-    return MakeAnglePlane(system, settings, allocator, hinge, headers, input_value)
+
+
+def make_angular_plane_mut(system, settings, allocator, hinge, headers, intent):
+    return MakeAnglePlane(system, settings, allocator, hinge, headers, angle_input(intent))

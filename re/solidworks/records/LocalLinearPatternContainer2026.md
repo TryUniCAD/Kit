@@ -65,3 +65,17 @@ observer across cold open, rebuild, D3 edit, save and fresh reopen.
 The shared archive constructor now creates all six dimensions, display owners and handles. It verifies the local pattern owner and its separate integer and length factories before it calls the common display initializer. Active D3 and D1 take the next model display IDs in that order. All six dimension IDs follow the persistent allocation order. The actual Back view supplies the count membership. The reserved unassigned view supplies the pitch membership. Native document style supplies the distance projection. Each cache derives from its own parameter and active display assignment.
 
 The [complete container comparison](../../tooling/sw2026/linear_pattern/ProveLocalPatternContainer.py) and [cold SDK comparison](../../tooling/sw2026/linear_pattern/ProveColdPatternRead.py) retain all six corrected file hashes, four linked native input comparisons, the two-stream edit boundary and all twelve strict path and stream reads. A separate older neutral writer proof remains pinned to its original compiler and source tree. No new native process or protected file participated in this refactor. [Shared constructor evidence](../measurements/2026/SdkSharedPatternDrivers01.json)
+
+## Shared complete archive
+
+The ordinary part composer now consumes the shared portable planner's typed input. Actual stock, seed, hinge and constrained plane owners determine the supported direction and local selector. The seed footprint repeats at the signed pitch. The constructor checks that every footprint is strictly inside the plate and remains separated from every other footprint. The inherited pattern constructor creates its own independent original-dimension holders. The two drivers and their inactive companions allocate before the pattern owner. The actual joined seed and its original plate drive the last scope wrapper and result atom.
+
+The shared archive emitter writes all ten part streams and their normal compound container. The linked feature rows keep the actual stock prefix and append only the axis, plane and pattern. The shared Keywords composer writes its measured lexical feature groups and actual live owners, including the single D1 in degrees on the constrained plane. The cache-free part uses the generative feature graph for its one solid.
+
+The current proof passes both previously native-tested disclosed original files and four isolated pitch or count edits through normal neutral JSON, the shared planner and the shared composer. All six complete file digests and all 60 stream digests match. Each new generation replays nine typed streams exactly. A seventh process refuses an overhanging footprint before archive emission. The separate cold regression reproduces all twelve SDK path and stream reads and both signed cases. The private held-out writer closure and the public registry route still require explicit verification. [Complete emission receipt](../measurements/2026/SdkSharedPatternEmission01.json)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/linear_pattern/neutral/ProveSharedPatternEmission.py \
+  --disclosed /absolute/share/Oracle121Takeover/GeneratedLocalPatternNative02 \
+  --output /absolute/unused/SharedEmission.json
+```
