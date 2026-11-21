@@ -214,3 +214,18 @@ current stocks produced by native cut creation. It checks each retained
 selection against the actual rollback body and both changed solids
 against independent geometry. The `all` observation still requires a
 genuinely unrestricted scope.
+
+Two different explicitly scoped sources pass source creation, the live
+angle edit and fresh reopen, with eight exact-build processes and both
+controls healthy. They use Front and reversed Right frames. Four guarded
+read workers replay the original and edited `Config-0` and
+`Config-0-ResolvedFeatures` streams byte for byte. In all four, the cut
+consumes two atoms from the actual stock-feature producers and owns two
+new result atoms. Each of its two explicit selected wrappers refers to
+one consumed atom through a face-backed reference. The secondary
+cache words `f100/f104` are `58/104` in ScopePairA and `0/0` in
+ScopePairB, including after each angle edit. The body-feature list is
+empty. This evidence remains limited to reading disclosed sources.
+[Both-stock source lock](../measurements/2026/RevolveCutBothDiscoverySource01.json) ·
+[Typed replay receipt](../measurements/2026/RevolveCutBothDiscoveryRead01.json) ·
+[Disclosed model specification](../v2026/corpus/revolve-family-models/RevolveCutBothDiscovery.json)

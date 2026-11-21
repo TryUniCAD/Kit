@@ -1,0 +1,142 @@
+{
+  "schema": "kit.sw2026.revolve-family-source-lock.v1",
+  "family": "cut",
+  "split": "discovery",
+  "source_revision": "8d8e54c3dde5d8f5b96f4287029b31edc6da6db2",
+  "source_tree": "5238a74c52eca1092f20aa7adece69e7ce77864e",
+  "job_sha256": "0e8a95117deb60d8ca80674136954c25a89b8238b9c2f576fc7305413b3ff2e5",
+  "spec_sha256": "bc05e112465be2e3eb2becbd29efb68a0c896859db81d46a8f13d7d72a2673d0",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "tool_sha256": {
+    "AuthorRevolveFamilies.py": "e9f90e3bffcb30646b30504769e3e27dc7d14b227cd5481aa6052c8c2832b29c",
+    "RevolveFamilyModel.py": "ea896511295d262e9e63748d1aff35b5ec7b9608d2724ea2af91ae30b534d4b5",
+    "AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_build": "34.5.2.0604",
+  "registered_swconst": {
+    "swEndCondBlind": 0,
+    "swRevolveTypeOneDirection": 0,
+    "swThinWallOneDirection": 0,
+    "swThinWallOppDirection": 1,
+    "swThinWallMidPlane": 2,
+    "swThinWallTwoDirection": 3,
+    "swSelSKETCHES": 9,
+    "swSelSKETCHSEGS": 10,
+    "swSelEXTSKETCHSEGS": 24,
+    "swSelSOLIDBODIES": 76,
+    "swAngularDimension": 3,
+    "swLinearDimension": 2,
+    "swHorLinearDimension": 11,
+    "swVertLinearDimension": 12,
+    "swDimensionDriving": 2,
+    "swSetValue_InThisConfiguration": 1,
+    "swSolidBody": 0,
+    "swObjectSame": 1
+  },
+  "started_at": 1795233477.342301,
+  "sources": [
+    {
+      "case": "ScopePairA",
+      "native_sha256": "797520b4695d7ef9d6b390fd30a925c5795a9f492201a0b5863b18193977f9b1",
+      "native_bytes": 85654,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "7aae3bbc48bdc97c955938df19f1b9687ca4280df8d902191d6bd6b18cfdc7a7",
+          "passed": true,
+          "open_status": null,
+          "checks": 70,
+          "checks_passed": 70
+        },
+        {
+          "phase": "reopen",
+          "sha256": "94f6c78ab570aa6562e9a7d3d8100761a977953c79aa8d868bf7fabd15b5be08",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 61,
+          "checks_passed": 61
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "e28ad45e530d6f61631a8c0231a354c85418c2de186e7536396c2de8e42bd384",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 30,
+          "checks_passed": 30
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "ScopePairB",
+      "native_sha256": "de0a62060b102336ab71664f274c92a5af689a070c858e20e7f8ded4da272a6a",
+      "native_bytes": 85917,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "a59a60fa053fe0cbc0704bf622d20acf948b3e4d4cd5c614023c2067c652113f",
+          "passed": true,
+          "open_status": null,
+          "checks": 70,
+          "checks_passed": 70
+        },
+        {
+          "phase": "reopen",
+          "sha256": "a3c4e1c3f1abfedf19fc4bb61c4ac19e8ec7d4378e38675a8ad1a1130c0b66a5",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 61,
+          "checks_passed": 61
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "c0e14b3824d4f1a4ca8f3f7cdecfac789a11b1614ef6772055d24d6a5a219d5d",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 30,
+          "checks_passed": 30
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "writer_output_count": 0,
+  "heldout_writer_acceptance": false,
+  "control-before": {
+    "sha256": "3d0380f068e3bf9ca694a36f35dbe36e9debf9d8b6e02f81f6e2e815c6efb62e",
+    "passed": true
+  },
+  "control-after": {
+    "sha256": "160a1d9b29d164aafef72aa78ee2d89952e7be079f2d16adf6f364e34a3bd32d",
+    "passed": true
+  },
+  "finished_at": 1795233810.3895876,
+  "fresh_processes": 8,
+  "distinct_processes": 8,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "tools_unchanged": true,
+  "wall_side_consistent": true,
+  "passed": true
+}
