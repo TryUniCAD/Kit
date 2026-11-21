@@ -16,7 +16,8 @@ from CaptureTools.Catalogue.SolidWorks.CheckProgramShape import CheckProgramShap
 def CheckSolidShape(CaseValue, Observed):
     CaseValue = ValidateSolid(CaseValue)
     if "program" in CaseValue["options"]:
-        return CheckProgramShape(CaseValue, Observed)
+        CheckProgramShape(CaseValue, Observed)
+        return
     RecipeKey = CaseValue["recipe"]
     Params = CaseValue["parameters"]
     Options = CaseValue["options"]

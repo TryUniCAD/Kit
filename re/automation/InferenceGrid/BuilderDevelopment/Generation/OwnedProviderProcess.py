@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from contextlib import suppress
 import os
 import signal
 import subprocess
@@ -63,10 +64,8 @@ class OwnedProviderProcess:
         from Processes import group_running
 
         try:
-            try:
+            with suppress(ProcessLookupError):
                 os.killpg(self.process.pid, signal.SIGKILL)
-            except ProcessLookupError:
-                pass
             Deadline = monotonic() + 5
             while group_running(self.process.pid):
                 if monotonic() >= Deadline:

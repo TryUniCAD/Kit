@@ -8,7 +8,6 @@
 
 from pathlib import Path
 from sys import executable
-from time import monotonic
 
 from InferenceGrid.Authoring.AuthorConfig import AuthorConfig
 from InferenceGrid.CatalogueBatch import RunSupervisor
