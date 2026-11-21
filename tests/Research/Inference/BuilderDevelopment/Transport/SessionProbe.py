@@ -15,8 +15,8 @@ from time import monotonic as MonoTime, sleep as WaitBriefly
 # absolute roots let the protocol fixture import its independently executed handlers
 KRepoRoot = FilePath(__file__).resolve().parents[5]
 
-# process fixtures need the same checkout identity as their imported protocol client
-SearchPaths[:0] = [str(KRepoRoot / "re/automation"), str(KRepoRoot)]
+SearchPaths.insert(0, str(KRepoRoot))
+SearchPaths.insert(0, str(KRepoRoot / "re/automation"))
 
 from importlib import import_module as ImportModule
 from typing import Callable, cast as CastValue

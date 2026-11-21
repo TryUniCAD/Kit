@@ -15,8 +15,8 @@ from sys import argv as ArgValues, path as SearchPaths
 # registry checks must consume receipts from the actual tested checkout
 KRepoRoot = FilePath(__file__).resolve().parents[4]
 
-# dynamic probes need both the research root and their typed process contracts
-SearchPaths[:0] = [str(KRepoRoot / "re/automation"), str(KRepoRoot)]
+SearchPaths.insert(0, str(KRepoRoot))
+SearchPaths.insert(0, str(KRepoRoot / "re/automation"))
 
 
 # fixture proof must be rejected before any licensed worker can be dispatched

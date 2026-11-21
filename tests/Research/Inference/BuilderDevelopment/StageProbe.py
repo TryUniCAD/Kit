@@ -15,8 +15,8 @@ from sys import argv as ArgValues, path as SearchPaths
 # the probe exercises orchestration against the same checkout as its controller receipts
 KRepoRoot = FilePath(__file__).resolve().parents[4]
 
-# dynamic probes need both the research root and their typed process contracts
-SearchPaths[:0] = [str(KRepoRoot / "re/automation"), str(KRepoRoot)]
+SearchPaths.insert(0, str(KRepoRoot))
+SearchPaths.insert(0, str(KRepoRoot / "re/automation"))
 
 
 # recovery must reuse accepted controller results without inventing another execution

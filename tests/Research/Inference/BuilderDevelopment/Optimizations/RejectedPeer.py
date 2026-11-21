@@ -38,7 +38,7 @@ def RejectPeer(
     with OpenSocket(("127.0.0.1", CountField(Record, "port")), timeout=5) as Connection:
         if ModeName == "oversized":
             Prefix, Suffix = b'{"hello":"', b'"}\n'
-            Payload = Prefix + b"x" * (8193 - len(Prefix) - len(Suffix)) + Suffix
+            Payload = Prefix + b"x" * (4097 - len(Prefix) - len(Suffix)) + Suffix
             _ = ReadRecord(Payload)
             Connection.sendall(Payload)
         elif ModeName == "incomplete":

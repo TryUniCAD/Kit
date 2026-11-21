@@ -16,8 +16,8 @@ from sys import argv as ArgValues, path as SearchPaths
 # worker probes need the exact checkout shared by their supervisor and controller
 KRepoRoot = FilePath(__file__).resolve().parents[4]
 
-# dynamic probes need both the research root and their typed process contracts
-SearchPaths[:0] = [str(KRepoRoot / "re/automation"), str(KRepoRoot)]
+SearchPaths.insert(0, str(KRepoRoot))
+SearchPaths.insert(0, str(KRepoRoot / "re/automation"))
 
 from tests.Research.Inference.BuilderDevelopment.Contracts.ConfigWorker import (
     ConfigWorker,
