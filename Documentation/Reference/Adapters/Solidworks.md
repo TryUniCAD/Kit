@@ -494,6 +494,7 @@ profiles:
 - A fixed-centre analytic circle on the canonical Right Plane with a driving diameter and a symmetric mid-plane boss
 - A fixed-centre analytic circle on the canonical Top Plane with a driving diameter and a reversed two-direction boss
 - A rectangular partial boss revolve on the canonical Top or Right plane with a selected construction line and one live D1
+- A rectangular two-direction partial boss revolve on the canonical Top or Right plane with a selected construction line and independent D1 and D2 angular drivers. [Two-direction writing](../../Changes/Solidworks/Construction/Revolve/SolidworksTwoDirectionRevolveWriting.md)
 
 Circle centres can be translated within their support plane. The writer
 preserves the neutral sketch, boss and configuration names and the
