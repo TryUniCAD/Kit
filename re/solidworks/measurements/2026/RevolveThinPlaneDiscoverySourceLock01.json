@@ -1,0 +1,145 @@
+{
+  "schema": "kit.sw2026.revolve-family-source-lock.v1",
+  "family": "thin",
+  "split": "discovery",
+  "source_revision": "5eb8c980f25f3ff88ecaeaad315daf9d10894ea8",
+  "source_tree": "5238a74c52eca1092f20aa7adece69e7ce77864e",
+  "job_sha256": "6e203aea8e90d9cfebaca4011589a01e60908ebb7201666609c5481440b17fbe",
+  "spec_sha256": "72341240e566c2fe027716478fa3e07b389cf4e5451e463f3c14698afe23e694",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "tool_sha256": {
+    "AuthorRevolveFamilies.py": "f32b7f75275488771399183ade651917f5cc8514052349d239079c6e442cfa9e",
+    "RevolveFamilyModel.py": "feb79fe618ac3205ae15ea6d211e59f75279f76aec2d0dea984a48242d2cfa44",
+    "AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_build": "34.5.2.0604",
+  "registered_swconst": {
+    "swEndCondBlind": 0,
+    "swRevolveTypeOneDirection": 0,
+    "swThinWallOneDirection": 0,
+    "swThinWallOppDirection": 1,
+    "swThinWallMidPlane": 2,
+    "swThinWallTwoDirection": 3,
+    "swSelSKETCHES": 9,
+    "swSelSKETCHSEGS": 10,
+    "swSelEXTSKETCHSEGS": 24,
+    "swSelSOLIDBODIES": 76,
+    "swAngularDimension": 3,
+    "swLinearDimension": 2,
+    "swHorLinearDimension": 11,
+    "swVertLinearDimension": 12,
+    "swDimensionDriving": 2,
+    "swSetValue_InThisConfiguration": 1,
+    "swSolidBody": 0,
+    "swObjectSame": 1
+  },
+  "started_at": 1795233001.8551595,
+  "sources": [
+    {
+      "case": "ThinTopOppositeControl",
+      "native_sha256": "856e9ef1568469bbe54d0418918d79bd6998b76ae552775dbe77e3d775450721",
+      "native_bytes": 62765,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "4ad22bbd535f64f1d62b6db776472020d84832e8d3c2f87978db782a6fa35e2d",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "8100c1095eaccfa683074b03e701ecb50f2fd930fb901c423401d5f6adc1c6c9",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 71,
+          "checks_passed": 71
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "4c4041c46029e38383e3b218db8ce058016971f45fab6f77d5aed5c65b429737",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "ThinRightCenterControl",
+      "native_sha256": "4220ae33c17a2d6f1fda6bd81769dda049544e00acab9633f1acdf068011875c",
+      "native_bytes": 54981,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "c776f891ffe0f6bdaae9b066dcfed8823ebecfaf02faccfe0c0d2663ef98d8ca",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "475299275155dcea470e25bdca9760bcb47559f08136a5a77fec9de4cf0f6162",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 71,
+          "checks_passed": 71
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "f65664e70f641d94c470a4cb4c3c7d9252eefe32abc36dae0c1bfd7ab5c72574",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "writer_output_count": 0,
+  "heldout_writer_acceptance": false,
+  "control-before": {
+    "sha256": "767933a60146f6875563787d894c98dd5f1b74d057d71b9156e86fd510d38907",
+    "passed": true
+  },
+  "control-after": {
+    "sha256": "4949e86580690d3dce2a4d0ec8f2fb18b1a1411749f59eeacbd7a1240e0661e1",
+    "passed": true
+  },
+  "finished_at": 1795233252.482143,
+  "fresh_processes": 8,
+  "distinct_processes": 8,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "tools_unchanged": true,
+  "wall_side_consistent": true,
+  "measured_first_wall_signs": [
+    1
+  ],
+  "passed": true
+}

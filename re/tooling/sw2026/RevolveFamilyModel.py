@@ -100,7 +100,7 @@ def validate_cut(case, bottom, top):
     need(0 < first_low < cut_low < first_high < second_low < cut_high < second_high,
          "cutter must open the first outer and second inner carriers without joining the stocks")
     need(bottom < stock_low < low < high < stock_high < top, "cutter axial range must remain inside both stocks")
-    need(case["scope"] in ("inner", "outer", "all"), "invalid cut owner policy")
+    need(case["scope"] in ("inner", "outer", "both", "all"), "invalid cut owner policy")
 
 
 def world(case, point):
@@ -158,7 +158,7 @@ def cut_predictions(case, *, before=False):
     results = {}
     for slot, name, radii in zip(("inner", "outer"), STOCK_NAMES, case["stock_radii_m"], strict=True):
         stock = sector(case, radii, case["stock_axial_m"], 360)
-        if before or case["scope"] not in (slot, "all"):
+        if before or case["scope"] not in (slot, "both", "all"):
             results[name] = stock | {"cut_face": False}
             continue
         inner, outer = radii

@@ -195,7 +195,7 @@ def author_type(base, planes, sw, constants):
         def add_revolve(self, case, profile, name, *, cut=False, thin=False, merge=True):
             original = self.make_profile(case, profile, thin)
             target = None
-            if cut and case["scope"] != "all":
+            if cut and case["scope"] in ("inner", "outer"):
                 selected_name = STOCK_NAMES[("inner", "outer").index(case["scope"])]
                 target = self.stock_bodies()[selected_name][0]
             selected = self.mark_feature_inputs(case, profile, original, target)
@@ -310,14 +310,17 @@ def author_type(base, planes, sw, constants):
                       "array_present": bodies is not None, "stock_owners": rows}
             self.rec.data["last_scope_observation"] = result
             self.rec.flush()
-            if case["scope"] == "all":
+            policy = case["scope"]
+            if policy == "all":
                 need(not scoped and not rows, "unrestricted cut acquired a selected-body restriction")
             else:
-                expected = STOCK_NAMES[("inner", "outer").index(case["scope"])]
-                need(scoped and not automatic and count == 1 and rows == [expected],
-                     "native cut definition does not retain its explicit stock owner")
-                body = self.stock_bodies()[expected][0]
-                need(self.same(body, bodies[0]), "definition stock owner differs from the rollback body object")
+                expected = STOCK_NAMES if policy == "both" else (STOCK_NAMES[("inner", "outer").index(policy)],)
+                need(scoped and not automatic and count == len(expected) == len(rows)
+                     and set(rows) == set(expected),
+                     "native cut definition does not retain its explicit stock owners")
+                actual = self.stock_bodies()
+                need(all(self.same(actual[owner][0], body) for owner, body in zip(rows, bodies, strict=True)),
+                     "definition stock owner differs from the rollback body object")
             return result
 
         def observe_profile(self):

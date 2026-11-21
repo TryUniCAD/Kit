@@ -160,6 +160,13 @@ published before coding the thin writer. The native originals and
 model parameters stay private until the writer and comparison are frozen.
 [Pre-writer thin lock](../measurements/2026/RevolveThinHeldoutSourceLock01.json)
 
+Two additional disclosed sources cover the Top Plane opposite wall
+and Right Plane symmetric wall. Both pass native authoring, live depth
+and angle edits, and fresh reopen in eight healthy processes. The
+observed first side of the asymmetric wall remains positive radial.
+[Alternate plane source lock](../measurements/2026/RevolveThinPlaneDiscoverySourceLock01.json) ·
+[Disclosed plane model specifications](../v2026/corpus/revolve-family-models/RevolveThinPlaneDiscovery.json)
+
 The first cut batch stopped while identifying the second stock sketch.
 The earlier single-sketch helper classified the existing first stock
 profile as a second candidate. Both native controls passed. The repaired
@@ -201,3 +208,9 @@ Both controls pass across eight distinct processes. The guest publishes
 the source hashes before selected-cut writer implementation and
 retains the original parts and private model values in custody.
 [Pre-writer cut lock](../measurements/2026/RevolveCutHeldoutSourceLock01.json)
+
+The separate `both` discovery mode measures the explicitly enumerated
+current stocks produced by native cut creation. It checks each retained
+selection against the actual rollback body and both changed solids
+against independent geometry. The `all` observation still requires a
+genuinely unrestricted scope.
