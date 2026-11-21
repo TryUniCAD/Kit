@@ -51,8 +51,8 @@ def ReadNestedIndex(
             raise ValueError("nested occurrence has an unsupported target selection")
         Members[ItemValue.owner_definition_id].append(ItemValue)
     Orders: dict[int, int] = {}
-    for Identity, Rows in Members.items():
-        Orders.update(ReadIndexOrders(Models[Identity], tuple(Rows), Models))
+    for Identity, RowsValue in Members.items():
+        Orders.update(ReadIndexOrders(Models[Identity], tuple(RowsValue), Models))
     if len(Orders) != len(Native.occurrences):
         raise ValueError("nested assembly index occurrence identities collide")
     return (

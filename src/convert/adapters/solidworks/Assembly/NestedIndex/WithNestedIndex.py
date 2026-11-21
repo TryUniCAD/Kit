@@ -11,16 +11,31 @@ from convert.adapters.solidworks.Container.Container import (
 )
 from interchange.assembly.ComponentDefinition import ComponentDef
 from interchange.assembly.ComponentInstance import ComponentInst
+from interchange.document.Models.DocumentModel import CadDocument
 
 
 # uncertain ownership must preserve the reader index projection without applying a partial hierarchy correction
 def WithNestedIndex(
     Archive: SldprtArchive,
     Native: NativeAsm,
-    SourceData: Mapping[int, object],
+    DocumentIds: Mapping[int, str],
+    Documents: Mapping[str, CadDocument],
     Definitions: tuple[ComponentDef, ...],
     Instances: tuple[ComponentInst, ...],
+    *,
+    Enabled: bool,
+    SourceKey: str,
 ) -> tuple[tuple[ComponentDef, ...], tuple[ComponentInst, ...]]:
+    if (
+        not Enabled
+        or Native.application_version != 19000
+        or not any(Value.depth > 0 for Value in Native.occurrence_paths)
+    ):
+        return Definitions, Instances
+    SourceData = {
+        Identity: Documents[DocId].metadata.get(SourceKey)
+        for Identity, DocId in DocumentIds.items()
+    }
     try:
         Titles, Orders = ReadNestedIndex(Archive, Native, SourceData)
     except (SldprtFormatError, ValueError, TypeError, KeyError):

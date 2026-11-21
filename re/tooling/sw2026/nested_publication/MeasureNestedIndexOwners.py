@@ -23,6 +23,7 @@ ORIGINAL = "NestedAssemblyDisclosedReplayNative01.json"
 CHANGES = (
     "src/convert/adapters/solidworks/Assembly/NestedIndex",
     "src/convert/adapters/solidworks/Core/Adapter.py",
+    "src/convert/adapters/solidworks/Core/Partition/BuildPartBody.py",
 )
 
 

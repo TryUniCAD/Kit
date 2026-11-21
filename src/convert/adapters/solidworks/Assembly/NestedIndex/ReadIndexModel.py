@@ -34,15 +34,17 @@ def ReadIndexModel(
         Archive.require("Contents/Config-0-ModelHeader"), VersionValue
     )
     External = RequireNode(Header.FieldsValue.get("f38"), "moExtObject_c")
-    Key = ReadFileKey(External)
+    FileKey = ReadFileKey(External)
     if (
-        Key[2] != (3 if IsAssembly else 2)
-        or Key[3] != FileValue.creation_time
-        or PureWindowsPath(Key[1]) != PureWindowsPath(FileValue.source_path)
+        FileKey[2] != (3 if IsAssembly else 2)
+        or FileKey[3] != FileValue.creation_time
+        or PureWindowsPath(FileKey[1]) != PureWindowsPath(FileValue.source_path)
     ):
         raise ValueError("nested index file does not match its physical header")
     Config = ReadConfigMut(Archive.require("Contents/Config-0"), VersionValue, Header)
-    Root = RequireNode(Config.RootValue, "moAssembly_c" if IsAssembly else "moPart_c")
+    RootValue = RequireNode(
+        Config.RootValue, "moAssembly_c" if IsAssembly else "moPart_c"
+    )
     Manager = ReadCmgrMut(Archive.require("Contents/CMgr"), VersionValue).RootValue
     Current = RequireNode(
         Manager.FieldsValue.get("f360"),
@@ -54,4 +56,4 @@ def ReadIndexModel(
         or ReadNodeName(Current) != Definition.configuration_name
     ):
         raise ValueError("nested index configuration does not match its active owner")
-    return IndexModel(Root, Key, ReadNodeName(Root))
+    return IndexModel(RootValue, FileKey, ReadNodeName(RootValue))

@@ -1,8 +1,8 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Assembly.Assembly import NativeAsmItem
-from convert.adapters.solidworks.Assembly.NestedIndex.CheckIndexReference import (
-    CheckIndexReference,
+from convert.adapters.solidworks.Assembly.NestedIndex.CheckIndexRef import (
+    CheckIndexRef,
 )
 from convert.adapters.solidworks.Assembly.NestedIndex.IndexModel import IndexModel
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
@@ -23,16 +23,16 @@ def ReadIndexOrders(
         if Items:
             raise ValueError("nested index assigned occurrences to a part")
         return {}
-    Body = RequireRecord(Owner.RootValue.FieldsValue.get("f68"))
-    Frame = RequireRecord(Body.get("list"))
-    Rows = ReadRows(Frame.get("items"))
+    BodyValue = RequireRecord(Owner.RootValue.FieldsValue.get("f68"))
+    Frame = RequireRecord(BodyValue.get("list"))
+    RowsValue = ReadRows(Frame.get("items"))
     ByFeature = {Value.feature_id: Value for Value in Items}
-    if len(Rows) != len(ByFeature) or len(Items) != len(ByFeature):
+    if len(RowsValue) != len(ByFeature) or len(Items) != len(ByFeature):
         raise ValueError("nested index has an incomplete owner-local occurrence list")
     Orders: dict[int, int] = {}
-    for Order, Row in enumerate(Rows):
-        Reference = RequireNode(Row.get("o"), "moReference_c")
+    for Order, RowValue in enumerate(RowsValue):
+        Reference = RequireNode(RowValue.get("o"), "moReference_c")
         ItemValue = ByFeature.pop(FieldInt(Reference.FieldsValue, "f08"))
-        CheckIndexReference(ItemValue, Reference, Models[ItemValue.definition_id])
+        CheckIndexRef(ItemValue, Reference, Models[ItemValue.definition_id])
         Orders[ItemValue.object_id] = Order
     return Orders

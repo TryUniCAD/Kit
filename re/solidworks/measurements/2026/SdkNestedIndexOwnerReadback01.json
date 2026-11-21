@@ -491,15 +491,16 @@
     "owner-local instance order"
   ],
   "revised_sources_sha256": {
-    "src/convert/adapters/solidworks/Assembly/NestedIndex/CheckIndexReference.py": "47428d0d566b96fa8a79b749b17919de2d65847bc0964f22227582a35510e189",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/CheckIndexRef.py": "5adca7aec6eb3fed706d35e995522223450d83622a25997c03162f55ed453e25",
     "src/convert/adapters/solidworks/Assembly/NestedIndex/IndexModel.py": "50794170aaaa4f417f63e6e21377cde87a1c2e1e3beeef35b56fc24e825de583",
-    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadIndexModel.py": "33998f6499ee949891eebed57a60c2783b02b546190ebedc444de5179b552db0",
-    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadIndexOrders.py": "fb33c9d5391bd1d20f52b28f519a5807e2f7b9ce8c743c0a593faf19144348aa",
-    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadNestedIndex.py": "99167f28014be08a77a4a40ed3e7404e4afcc3b74dec8262486b7a94f843d865",
-    "src/convert/adapters/solidworks/Assembly/NestedIndex/WithNestedIndex.py": "2698a43a27fe18fea44529dc97a904d734924ae0266459817c44d0660cf0d0cf",
-    "src/convert/adapters/solidworks/Core/Adapter.py": "5eef132cf93ca2a0ff39117f5d00c94a9766ca47ba35caf850ce3e31abb00d14"
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadIndexModel.py": "8ace641c8f162a7c65e672fa67c09680e967b7a5d46fa87ebfa10c5efb5bc46e",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadIndexOrders.py": "9b13b3fc5cc3ea728afabeeb0ff85072097cc7793aa680e6a78cb98045f2d8cc",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadNestedIndex.py": "823d5ea158bfd7e68fdec688ae54077007f9334609a359011dad91b3140e32b2",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/WithNestedIndex.py": "df7d9cbf5ca150a5819aeebf07fcf78838bc1855ed4818ab028c2101a939dd11",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "0741b9f0bca934b24ead1c727c4a886b0a35ff793f89e40ab71d81cade3391dd",
+    "src/convert/adapters/solidworks/Core/Partition/BuildPartBody.py": "f7a82c7ccb174c90993037abac5844315bed8fbd6cbb5d5c6a8b260397fa1dfc"
   },
   "same_format_outputs": 0,
   "schema": "kit.sw2026.nested-index-owners.v1",
-  "tool_sha256": "358228f6b627d5dc208b848018717fd220d0edf891c176d9897517b201b407e2"
+  "tool_sha256": "88136483c1557a027ce231a258f3aa2c0efcc2dec63c71e1ca5c63813e4f897c"
 }

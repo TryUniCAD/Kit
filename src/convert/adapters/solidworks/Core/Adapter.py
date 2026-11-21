@@ -32,7 +32,6 @@ from interchange import (
     ArcGeometry as ArcGeom,
     ArcParabolaGeometry as ArcParabolaGeom,
     AssemblyData as AsmData,
-    Body as BodyValue,
     BooleanOperation as BoolOperation,
     BoundingBox,
     BrepModel,
@@ -270,9 +269,8 @@ from convert.adapters.solidworks.Core.Partition.ActivePartition import (
     ActivePartition,
     ReadActivePart,
 )
-from convert.adapters.solidworks.Core.Partition.PartTopology import (
-    ActivePartMass,
-    PartTopology,
+from convert.adapters.solidworks.Core.Partition.BuildPartBody import (
+    BuildPartBody,
 )
 from convert.adapters.solidworks.Core.OrdinaryRead import (
     IsEmptyPart,
@@ -523,37 +521,15 @@ def ReadNativePart(
             BrepValue, TopologyValue = LinkLocalBody(
                 BrepValue, KPartBodyId, TopologyValue
             )
-        SavedPart = ActivePart.ModelValue if ActivePart is not None else None
-        Summary, Measures = ActivePartMass(
-            SavedPart, PartTopology(SavedPart, KPartBodyId, TopologyValue), KPartBodyId
-        )
         Bodies = (
-            BodyValue(
-                id=KPartBodyId,
-                name=BodyFeature.name if BodyFeature is not None else "Body 1",
-                final_feature_id=FinalFeature,
-                topology=Summary,
-                provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
-                attributes=FrozenMapping(
-                    {
-                        "native_object_id": (
-                            BodyFeature.object_id if BodyFeature is not None else None
-                        ),
-                        "parasolid_payload_ids": tuple(
-                            (Payload.id for Payload in Payloads)
-                        ),
-                        **(
-                            {"parasolid_active_payload_id": ActivePart.PayloadId}
-                            if ActivePart is not None and SavedPart is not None
-                            else {}
-                        ),
-                        **(
-                            {"solidworks.body_centroid_mm": Measures.Centroid}
-                            if Measures is not None
-                            else {}
-                        ),
-                    }
-                ),
+            BuildPartBody(
+                KPartBodyId,
+                BodyFeature,
+                FinalFeature,
+                TopologyValue,
+                ActivePart,
+                Payloads,
+                FeatureA(BodyFeature) if BodyFeature is not None else None,
             ),
         )
     Diagnostics = (
@@ -1081,21 +1057,16 @@ def AsmDoc(
         ResolveComponents=ResolveComponents,
     )
     Instances = AsmInstances(Native)
-    if (
-        ResolveComponents
-        and Native.application_version == 19000
-        and any(Value.depth > 0 for Value in Native.occurrence_paths)
-    ):
-        Definitions, Instances = WithNestedIndex(
-            Archive,
-            Native,
-            {
-                Identity: LinkedDocuments[DocId].metadata.get(KSourceBytesKey)
-                for Identity, DocId in DocIds.items()
-            },
-            Definitions,
-            Instances,
-        )
+    Definitions, Instances = WithNestedIndex(
+        Archive,
+        Native,
+        DocIds,
+        LinkedDocuments,
+        Definitions,
+        Instances,
+        Enabled=ResolveComponents,
+        SourceKey=KSourceBytesKey,
+    )
     MateSourceValues, SourceDiagnostics = MateSources(
         Native, Archive, Label, Index, Settings
     )
@@ -1112,8 +1083,7 @@ def AsmDoc(
     )
     Instances = WithTypedFixed(Instances, TypedMates)
     FlatMateValues = FlattenedMates(Native, Mates)
-    PayloadSettings = Replace(Settings, strict=False)
-    BrepValues, PayloadDiagnostics = BrepPayloads(Archive, PayloadSettings)
+    BrepValues, PayloadDiagnostics = BrepPayloads(Archive, Replace(Settings, strict=False))
     CompanionPayloads = (
         Companion(Label)
         if Settings.include_brep

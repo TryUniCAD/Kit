@@ -12,16 +12,16 @@ from tests.Convert.Solidworks.Research.Construction.Nesting.MakeNestedCase impor
 
 
 # each public nested route must stage the complete owned hierarchy in a guarded process
-def CheckPublicNested(
-    Request: dict[str, object], Area: FilePath, Route: str, Mode: str
+def CheckNestWrite(
+    Request: dict[str, object], Folder: FilePath, Route: str, ModeValue: str
 ) -> dict[str, object]:
-    Area.mkdir()
+    Folder.mkdir()
     Script = (
         KRepoRoot / "re/tooling/sw2026/nested_publication/MeasurePublicNestedWriting.py"
     )
     Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(Script), "--worker", str(Area.resolve())),
-        input=DumpJson({"request": Request, "route": Route, "mode": Mode}),
+        (PythonExec, "-I", "-B", str(Script), "--worker", str(Folder.resolve())),
+        input=DumpJson({"request": Request, "route": Route, "mode": ModeValue}),
         capture_output=True,
         text=True,
         check=False,
@@ -34,10 +34,10 @@ def CheckPublicNested(
 
 
 # both actual public adapters must transfer the same native bundle and refuse an unsupported placement without publishing
-def TestPublicNestedWriting(TmpPath: FilePath) -> None:
+def TestNestWrite(TmpPath: FilePath) -> None:
     Request = MakeNestedCase(True, r"C:\KitSdkNested")
-    Registry = CheckPublicNested(Request, TmpPath / "registry", "registry", "fresh")
-    Adapter = CheckPublicNested(Request, TmpPath / "adapter", "adapter", "fresh")
+    Registry = CheckNestWrite(Request, TmpPath / "registry", "registry", "fresh")
+    Adapter = CheckNestWrite(Request, TmpPath / "adapter", "adapter", "fresh")
     assert Registry == Adapter
     assert Adapter["vendor_loadable"] is Adapter["application_usable"] is True
     Files = CastValue(dict[str, object], Adapter["files"])
@@ -63,6 +63,6 @@ def TestPublicNestedWriting(TmpPath: FilePath) -> None:
     assert tuple(
         Value.order for Value in Assembly.GetChildren(Definitions["SdkModule"].id)
     ) == (0, 1)
-    Failure = CheckPublicNested(Request, TmpPath / "fixed", "adapter", "fixed")
+    Failure = CheckNestWrite(Request, TmpPath / "fixed", "adapter", "fixed")
     assert Failure["refused"] == "AdapterNotFoundError"
     assert Failure["output_unchanged"] is True

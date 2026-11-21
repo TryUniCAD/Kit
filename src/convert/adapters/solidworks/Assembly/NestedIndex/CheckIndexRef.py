@@ -17,7 +17,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 
 
 # index placements need reciprocal feature identity and exact child ownership before publishing the local order
-def CheckIndexReference(
+def CheckIndexRef(
     ItemValue: NativeAsmItem,
     Reference: ArchiveNode,
     Target: IndexModel,
@@ -36,9 +36,9 @@ def CheckIndexReference(
     ):
         raise ValueError("nested index occurrence differs from its physical owner")
     Matrix, Origin = ReadRigidXform(RequireRecord(Fields.get("f360")))
-    Pose = (*Matrix[:3], 0.0, *Matrix[3:6], 0.0, *Matrix[6:], 0.0, *Origin, 1.0)
+    PoseValue = (*Matrix[:3], 0.0, *Matrix[3:6], 0.0, *Matrix[6:], 0.0, *Origin, 1.0)
     if any(
         not IsClose(Actual, Expected, rel_tol=1e-14, abs_tol=1e-16)
-        for Actual, Expected in zip(ItemValue.transform, Pose, strict=True)
+        for Actual, Expected in zip(ItemValue.transform, PoseValue, strict=True)
     ):
         raise ValueError("nested index placement differs from its physical owner")
