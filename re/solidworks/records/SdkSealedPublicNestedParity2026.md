@@ -1,0 +1,63 @@
+# Public-route parity for the sealed nested assembly cohort
+
+The parity evaluator freezes public writer revision
+`96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb`, with source tree
+`4f00d8b078ea956ccfa2883c043093a964ae2237`. It binds the 13-process disclosed
+public-route evidence and the original sealed native qualification before it
+opens either locked neutral request. The earlier program qualified both
+cohorts in eight distinct native processes. This tool checks the newly
+registered SDK routes against those exact native-tested generated bundles.
+[Disclosed public routes](../measurements/2026/SdkPublicNestedWriting01.json) ·
+[Earlier sealed native receipt](../measurements/2026/SdkSealedNeutralNestedNative01.json)
+
+The host freeze reads public custody records and committed Python source.
+It invokes the original frozen verifier in its public-only mode, checks the
+two complete native phase chains, and creates a new packet with an exact
+source and evaluator inventory. The optional disclosed preflight separately
+launches the frozen normal registry and direct adapter worker for each of
+the two disclosed neutral controls.
+
+Only the Windows guest can execute the private replay. It first verifies
+the new packet and both prior qualification records, then writes a fresh
+code lock on the same fixed guest drive. For each opaque slot it checks the
+old BuildLock, source exposure chronology, complete generated-file manifest
+and locked neutral request. The request must still own the original logical
+Windows output locators and save epoch. Only the neutral request is sent
+to each isolated public writer worker. The old generated or saved CAD bytes
+are never read by this evaluator.
+
+The worker exercises the normal `write_document` registry and the
+`SldprtAdapter.write` entry in separate processes for each slot. It checks
+the actual staging boundary, complete native transfer, both usability flags,
+zero input file access and the whole generated bundle. Each route must match
+the full filenames, lengths and SHA-256 hashes from the BuildLock. Scratch
+outputs stay on the fixed guest drive and are removed after each process.
+The result includes only counts, booleans, hashes and opaque slot numbers.
+The evaluator launches no CAD process. A passing parity receipt links prior
+native qualification by exact file identity for the two frozen cases.
+
+## Run the proof
+
+Freeze from the committed tool in an isolated checkout. Use an unused packet
+directory adjacent to the existing public capsule.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/nested_publication/SealedPublicNestedParity.py freeze \
+  --sdk-revision 96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb \
+  --original /disclosed/SdkSealedNeutralNestedEvaluation01 \
+  --output /disclosed/SdkSealedPublicNestedParity01
+```
+
+Use the command's parity packet SHA-256 with the copy under the new packet's
+`Tools` directory. The `verify` subcommand takes the same packet and original
+paths. It can also take `--disclosed-workspace` for the two public controls.
+The `run` subcommand must be executed inside the Windows guest.
+
+```text
+python -I -B <new-packet>/Tools/SealedPublicNestedParity.py run <new-packet>/Parity.json --packet-sha256 <sha256> --original <original-packet>
+```
+
+The guest writes the sanitized `Result.json` exclusively. A refusal returns a
+nonzero process code and its exact stage, route when applicable, and safe
+predicate diagnostic. The host preflight alone gives no public held-out
+parity credit.
