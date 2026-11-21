@@ -55,6 +55,14 @@ def MakeRevKeys(
         for NodeValue in FeatureValues[:-2]
     )
     ProfileValue, FeatureValue = FeatureValues[-2:]
+    AnglesValue = (KeywordDim("D1", Degrees(PlanValue.AngleValue), "degree"),)
+    if PlanValue.AgainstAngle is not None:
+        Secondary = KeywordDim("D2", Degrees(PlanValue.AgainstAngle), "degree")
+        AnglesValue = (
+            (*AnglesValue, Secondary)
+            if PlanValue.IsReverse
+            else (Secondary, *AnglesValue)
+        )
     RowsValue += (
         KeywordFeature(
             FieldInt(ProfileValue.FieldsValue, "f08"),
@@ -71,7 +79,7 @@ def MakeRevKeys(
             ReadNodeName(FeatureValue),
             "Revolve",
             "Feature",
-            (KeywordDim("D1", Degrees(PlanValue.AngleValue), "degree"),),
+            AnglesValue,
             (),
             None,
             None,

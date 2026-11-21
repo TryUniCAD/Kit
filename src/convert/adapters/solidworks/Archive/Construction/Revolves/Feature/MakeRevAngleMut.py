@@ -27,6 +27,7 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePl
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 
 
 # the modern end needs its actual local driving parameter dimension retaining handle and model dependent display descriptor
@@ -35,15 +36,20 @@ def MakeRevAngleMut(
     InputValue: PartBuildInput,
     PlanValue: RevolvePlan,
     Allocator: PersistentIds,
+    *,
+    Against: bool = False,
 ) -> DimensionGraph:
+    AngleValue = PlanValue.AgainstAngle if Against else PlanValue.AngleValue
+    if AngleValue is None:
+        raise ValueError("second revolve display requires its own angular driver")
     Parameter = ArchiveNode(RuntimeClass("moAngleParameter_c", 1), {})
-    InitNodeMut(Parameter, "D1")
+    InitNodeMut(Parameter, "D2" if Against else "D1")
     Parameter.FieldsValue.update(
         {
             "owner": FeatureValue,
             "f0c": 0,
             "f48": None,
-            "f58": PlanValue.AngleValue,
+            "f58": AngleValue,
             "f68": 0,
         }
     )
@@ -57,6 +63,10 @@ def MakeRevAngleMut(
         InputValue.DesignIntent,
         InputValue.SelectedLeader,
     )
+    if Against:
+        DisplayValue.FieldsValue["f1018"] = (
+            FieldInt(DisplayValue.FieldsValue, "f1018") | 4
+        )
     ArrayValue = CastValue(dict[str, object], DisplayValue.FieldsValue["f5b0"])
-    ArrayValue["data"] = PackValues("<d", PlanValue.AngleValue)
+    ArrayValue["data"] = PackValues("<d", AngleValue)
     return DimensionGraph(Parameter, Dimension, HandleValue, DisplayValue)

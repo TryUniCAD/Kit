@@ -39,11 +39,14 @@ def ProjectRevolve(DocumentValue: CadDocument) -> RevolvePlan:
     RequireRevDoc(DocumentValue)
     PlaneValue = CheckPartLinks(DocumentValue)
     AxisValue = ReadPrincAxis(PlaneValue.transform)
-    Definition, AngleValue = ReadRevFeature(DocumentValue)
+    Definition, AngleValue, AgainstValue = ReadRevFeature(DocumentValue)
     SketchValue = DocumentValue.sketches[0]
     AxisEntityId = ReadRevSelect(DocumentValue, Definition)
     ShapeValue = ReadRevShape(SketchValue, AxisEntityId)
     CheckRevRules(SketchValue)
+    ReverseValue = IsRevReverse(Definition, ShapeValue, PrincipalFrame(AxisValue))
+    if Definition.SideMode == "symmetric_full" and ReverseValue:
+        raise ValueError("mid plane revolve requires its ordered selected axis")
     return RevolvePlan(
         ReadStyleText(DocumentValue.metadata["name"], "neutral document name"),
         DocumentValue.configurations[0].name,
@@ -54,12 +57,14 @@ def ProjectRevolve(DocumentValue: CadDocument) -> RevolvePlan:
         ShapeValue.AxisStart,
         ShapeValue.AxisEnd,
         AngleValue,
-        IsRevReverse(Definition, ShapeValue, PrincipalFrame(AxisValue)),
+        ReverseValue,
         SketchValue.id,
         DocumentValue.feature_timeline[0].id,
-        DocumentValue.parameters[0].id,
+        Definition.AlongParameterId,
         DocumentValue.bodies[0].id,
         DocumentValue.selections[0].id,
         ShapeValue.AxisEntityId,
         AxisValue,
+        Definition.SideMode,
+        AgainstValue,
     )

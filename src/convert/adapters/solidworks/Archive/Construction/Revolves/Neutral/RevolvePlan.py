@@ -21,3 +21,5 @@ class RevolvePlan:
     SelectionId: str
     AxisEntityId: str
     AxisValue: str = "z"
+    SideMode: str = "one_sided"
+    AgainstAngle: float | None = None

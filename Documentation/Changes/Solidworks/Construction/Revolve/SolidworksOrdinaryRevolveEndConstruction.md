@@ -1,0 +1,5 @@
+# SOLIDWORKS ordinary revolve end construction
+
+The internal part constructor takes the authored end mode and its actual angular drivers from the neutral feature. A Mid Plane boss uses the single total D1 in `symmetric_full`. A Two Directions boss uses independent positive D1 and D2 from `two_sided`. The existing sketch and selected construction line drive both modes. [Neutral angle contract](../../../Interchange/AngularRevolveTotalAngle.md) · [Native owner evidence](../../../../../re/solidworks/records/OrdinaryRevolveEndModes2026.md)
+
+The shared serializer emits the actual end object and one distinct native display chain per active driver, allocates their identities and computes the keyword index. The initial construction scope covers partial ordinary rectangular bosses with canonical principal support. Native acceptance governs registration through the public writer. [Pre-writer source lock](../../../../../re/solidworks/measurements/2026/RevolveEndHeldoutSourceLock01.json)
