@@ -183,3 +183,9 @@ started. It contributes no candidate measurement. The successful first
 replay and repeated trial each contain both passing controls in chronological
 order and all expected derivative hashes. The independent VM postflight checks
 preserve the licensed processes and verify application exit.
+
+## Neutral document preparation
+
+`PrepareNestedAssembly` now binds the actual neutral definition graph, owned leaf documents, per-target selected configuration, local occurrence order and transforms. It reuses the same file, part and assembly graph constructors as the earlier explicit-settings trials. It builds targets in dependency order and retains the same generated model for each repeated occurrence. The normal file recipe is derived from the actual root destination and one writer event.
+
+Four fresh guarded processes reproduce both disclosed neutral bundles. The 34-stream three-definition case retains its two expanded occurrences. The 44-stream four-definition case retains its seven expanded occurrences. Every stream re-emits exactly and the writer reads no runtime files. The normal recipe changes container bytes compared with the earlier explicit-settings native trial. The new bundle requires independent native open, edit, save and reopen. [Neutral preparation receipt](../measurements/2026/SdkNestedNeutralComposition01.json)

@@ -1,0 +1,5 @@
+# Prepare nested SOLIDWORKS assemblies from a neutral document
+
+The internal preparer accepts one acyclic assembly definition graph with floating rigid occurrences, explicit selected configurations and owned rectangular blind-boss leaf parts. Each definition is written once, and each assembly retains its direct occurrence order and local transforms. Repeated instances share the generated definition. The preparer rejects missing or unreachable definitions, inconsistent ownership, unsupported occurrence state and colliding output names before publication.
+
+Two disclosed neutral hierarchies repeat in four isolated processes with 156 exact logical-stream replays and zero runtime file reads. The first preserves three definitions and two expanded occurrences. The second preserves four definitions and seven expanded occurrences. Both use the normal shared preparation defaults. Their bytes differ from the earlier explicit-settings files, so they require their own native measurement before public admission. [Process receipt](../../../../../re/solidworks/measurements/2026/SdkNestedNeutralComposition01.json)
