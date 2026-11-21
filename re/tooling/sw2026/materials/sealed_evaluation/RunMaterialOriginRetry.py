@@ -10,7 +10,6 @@ from traceback import format_exc
 
 
 HERE = Path(__file__).resolve()
-ROOT = HERE.parents[5]
 RELATIVE = "re/tooling/sw2026/materials/sealed_evaluation/"
 BASE = "1483e8726ee6ccd962a0a605fb6533dba3e00ea7"
 OLD_METHOD = "3fa3d5b218e5aeddea1f6d86653a69e44b7671e5eaa5d3cc41eea036d2422c2b"
@@ -299,10 +298,11 @@ def retry(args):
 
 
 def freeze(args):
+    root = HERE.parents[5]
     revision = args.revision
-    require(check_output(("git", "-C", str(ROOT), "rev-parse", revision + "^")).decode().strip() == BASE
-            and check_output(("git", "-C", str(ROOT), "rev-parse", revision + ":src")) ==
-            check_output(("git", "-C", str(ROOT), "rev-parse", BASE + ":src")),
+    require(check_output(("git", "-C", str(root), "rev-parse", revision + "^")).decode().strip() == BASE
+            and check_output(("git", "-C", str(root), "rev-parse", revision + ":src")) ==
+            check_output(("git", "-C", str(root), "rev-parse", BASE + ":src")),
             "observer-only retry requires an unchanged SDK tree and exact method ancestry")
     old, _ = original_method(args.original)
     output = args.output.resolve()
@@ -310,7 +310,7 @@ def freeze(args):
     tools.mkdir(parents=True, exist_ok=False)
     hashes = {}
     for name in (HERE.name, ARCHIVE_CHECK):
-        raw = check_output(("git", "-C", str(ROOT), "cat-file", "blob", revision + ":" + RELATIVE + name))
+        raw = check_output(("git", "-C", str(root), "cat-file", "blob", revision + ":" + RELATIVE + name))
         require(raw == HERE.with_name(name).read_bytes(), "frozen retry source differs from the committed tool")
         hashes[name] = publish(tools / name, raw)
     code, _ = old.preparer(args.preparation.resolve(strict=True), output, preflight=False)
