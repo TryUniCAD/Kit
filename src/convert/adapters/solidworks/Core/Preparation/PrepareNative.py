@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandida
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
+from convert.adapters.solidworks.Archive.Construction.Revolves.Part.RevolvePart import (
+    RevolvePart,
+)
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
     PrepareCircle,
@@ -19,6 +22,12 @@ from convert.adapters.solidworks.Core.Preparation.Imports.PrepareImport import (
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
+from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import (
+    PlanPublicRevolve,
+)
+from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import (
+    PrepareRevolve,
+)
 from convert.adapters.solidworks.Core.Preparation.RunPartPrep import RunPartPrep
 from convert.adapters.solidworks.Core.Preparation.TwoStock.PrepareStockPart import (
     PrepareStockPart,
@@ -35,7 +44,7 @@ def PrepareNative(
     TargetValue: KTargetType,
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
-) -> PartCandidate | ImportCandidate | StockCandidate:
+) -> PartCandidate | ImportCandidate | StockCandidate | RevolvePart:
     if DocumentValue.brep is not None:
         return PrepareImport(
             DocumentValue, TargetValue, WrittenAt, CheckPartOpts(OptionsValue)
@@ -45,6 +54,8 @@ def PrepareNative(
     if IsStockChain(DocumentValue):
         return PrepareStockPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
+    if PlanPublicRevolve(DocumentValue) is not None:
+        return PrepareRevolve(DocumentValue, TargetValue, WrittenAt, SettingsValue)
     try:
         PlanValue = PlanPartWrite(DocumentValue)
     except (TypeError, ValueError):
