@@ -747,7 +747,9 @@ The [type-library inventory](../../Changes/Solidworks/Inspection/SolidworksTypeL
 selects installed API declarations and enum constants without activating CAD.
 The [thin-revolve archive schemas](../../Changes/Solidworks/Inspection/SolidworksThinRevolveArchive.md)
 add three structural research classes with a version-19000 guard.
-Their constructors, native thin round trips and usable generated output remain unproved.
+The [disclosed thin boss and edited-save audit](../../Changes/Solidworks/Inspection/Revolve/SolidworksThinRevolveWireReading.md)
+verifies exact Config-0 and ResolvedFeatures re-emission and captures the distinct wall, saved face and radial display owners.
+Constructors, public projection and native acceptance of generated thin revolves remain unproved.
 The [revolved-radius dimension schema](../../Changes/Solidworks/Inspection/SolidworksRevolvedRadiusDimensionArchive.md)
 adds the separate feature-dimension class structurally at version `19000`; its actual case reachability and constructor rules remain unproved.
 The [approved-session handoff tool](../../Changes/Solidworks/Inspection/SolidworksApprovedSessionHandoff.md)

@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedLayouts
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedSchemas import (
     KAssemblyResolvedSchemas,
-    KResolvedSchemas,
+    KPartResolvedSchemas,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedVirtuals import (
     KResolvedVirtuals,
@@ -46,7 +46,7 @@ def MakeResolvedCtx(
         VersionValue,
         KResolvedLayouts,
         KResolvedVirtuals,
-        KResolvedSchemas if IsPart else KAssemblyResolvedSchemas,
+        KPartResolvedSchemas if IsPart else KAssemblyResolvedSchemas,
         UsageValue,
         FlagsValue=dict(LinkContext),
     )

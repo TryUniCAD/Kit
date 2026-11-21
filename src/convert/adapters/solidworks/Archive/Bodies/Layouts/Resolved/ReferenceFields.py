@@ -309,5 +309,11 @@ KReferenceFields = MappingProxyType(
         ),
         "moFromSktEnt3IntSurfIdRep_c": KTripleSurfaceFields,
         "moFromSktEntSurfIdRep_c": (NativeField("Base", "er.FUN_4bbaa6a0"),),
+        "moThinOffsetSurfIdRep_c": (NativeField("Base", "er.FUN_4bbaa6a0"),),
+        "moThinClosingSurfIdRep_c": (
+            NativeField("Base", "er.FUN_4bba8790"),
+            NativeField("Scalar", "f38", "i32"),
+            NativeField("Scalar", "f3c", "i32"),
+        ),
     }
 )

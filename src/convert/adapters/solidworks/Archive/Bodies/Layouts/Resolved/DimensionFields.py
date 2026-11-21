@@ -57,6 +57,7 @@ KDimensionFields = MappingProxyType(
         "ParallelPlaneDistanceDim_c": (
             NativeField("Base", "moFeatureDim_c.FUN_4c833f00"),
         ),
+        "ThreeDRadiusDim_c": (NativeField("Base", "moFeatureDim_c.FUN_4c833f00"),),
         "dm.FUN_4bd03960": (
             NativeField("Scalar", "elem", "u32"),
             NativeField(

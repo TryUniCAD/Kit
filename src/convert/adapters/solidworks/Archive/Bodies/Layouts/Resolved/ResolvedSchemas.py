@@ -79,6 +79,18 @@ KResolvedSchemas = MappingProxyType(
     }
 )
 
+# ordinary part saves independently establish thin feature and inactive radius body schemas
+KPartResolvedSchemas = MappingProxyType(
+    {
+        **KResolvedSchemas,
+        "ThreeDRadiusDim_c": (1,),
+        "moRevolutionThin_c": (1,),
+        "moThinClosingSurfIdRep_c": (1,),
+        "moThinOffsetSurfIdRep_c": (1,),
+        "moThinSpec_c": (1,),
+    }
+)
+
 # the resolved assembly history admits only its concrete schema one reference owners
 KAssemblyResolvedSchemas = MappingProxyType(
     {
