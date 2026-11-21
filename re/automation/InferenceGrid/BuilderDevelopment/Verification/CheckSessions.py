@@ -13,13 +13,13 @@ def CheckSessions(Check, Report):
     if not isinstance(Phases, dict):
         Check.Add(
             "report.phases",
-            "two owned native phases",
+            "three owned native phases",
             Phases,
             "verifier_support_missing",
         )
         return
     Owners = []
-    for PhaseName in ("first", "second"):
+    for PhaseName in ("first", "second", "third"):
         Phase = Check.Field(Phases, PhaseName, "report.phases")
         if not isinstance(Phase, dict):
             continue
@@ -78,8 +78,8 @@ def CheckSessions(Check, Report):
                 Native["failure"],
                 "unhealthy_session",
             )
-    if len(Owners) == 2:
-        if Owners[0].get("pid") == Owners[1].get("pid"):
+    if len(Owners) == 3:
+        if len({Owner.get("pid") for Owner in Owners}) != 3:
             Check.Add(
                 "report.phases.process_ids",
                 "independently created process ids",
@@ -89,7 +89,7 @@ def CheckSessions(Check, Report):
         Created = [Owner.get("created") for Owner in Owners]
         if (
             any(type(Value) is not int or Value <= 0 for Value in Created)
-            or Created[0] >= Created[1]
+            or not Created[0] < Created[1] < Created[2]
         ):
             Check.Add(
                 "report.phases.created",
@@ -110,8 +110,22 @@ def CheckControls(Check, Report):
             "verifier_support_missing",
         )
         return
-    for PhaseName in ("first", "second"):
+    for PhaseName in ("first", "second", "third"):
         Phase = Check.Field(Controls, PhaseName, "report.controls")
+        if isinstance(Phase, dict):
+            Owner = Report.get("phases", {}).get(PhaseName, {}).get("owner", {})
+            Check.Equal(
+                Check.Field(Phase, "pid", "report.controls." + PhaseName),
+                Owner.get("pid"),
+                "report.controls." + PhaseName + ".pid",
+                "unhealthy_session",
+            )
+            Check.Equal(
+                Check.Field(Phase, "application_build", "report.controls." + PhaseName),
+                Check.Expectations["application_build"],
+                "report.controls." + PhaseName + ".application_build",
+                "source_mismatch",
+            )
         for Position in ("before", "after"):
             Prefix = f"report.controls.{PhaseName}.{Position}"
             Control = Check.Field(Phase, Position, "report.controls." + PhaseName)

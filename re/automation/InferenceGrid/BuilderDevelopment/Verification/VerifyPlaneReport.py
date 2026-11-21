@@ -21,6 +21,9 @@ from InferenceGrid.BuilderDevelopment.Verification.CheckCases import (
 from InferenceGrid.BuilderDevelopment.Verification.CheckCandidateSource import (
     CheckCandidateSource,
 )
+from InferenceGrid.BuilderDevelopment.Verification.CheckArchiveProcesses import (
+    CheckArchiveProcesses,
+)
 from InferenceGrid.BuilderDevelopment.Verification.CheckSessions import (
     CheckControls,
     CheckSessions,
@@ -207,6 +210,7 @@ def VerifyPlaneReport(Expectations, Report, OutputDirectory=None):
                 CheckCase(
                     Check, Expected, Matching[0], Archives.get(Expected["id"], [])
                 )
+                CheckArchiveProcesses(Check, Matching[0], Report)
     except (
         OSError,
         TypeError,
