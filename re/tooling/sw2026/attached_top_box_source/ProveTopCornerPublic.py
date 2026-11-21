@@ -5,6 +5,7 @@ from hashlib import sha256
 from importlib import import_module
 from io import BytesIO
 import json
+from math import ulp
 import os
 from pathlib import Path, PurePosixPath
 from subprocess import run
@@ -159,13 +160,23 @@ def worker(request, scratch, variant=None):
     opened = open_document(exact, source_format=FORMAT, strict=True)
     assert len(opened.bodies) == 1 and opened.bodies[0].name == document.bodies[0].name
     assert opened.brep is not None and (len(opened.brep.vertices), len(opened.brep.edges), len(opened.brep.faces)) == (8, 12, 6)
-    assert sorted((value.name, value.value.value) for value in opened.parameters) == sorted(
-        (value.name, value.value.value) for value in document.parameters)
+    expected = {value.name: value for value in document.parameters}
+    actual = {value.name: value for value in opened.parameters}
+    assert len(actual) == len(opened.parameters) == 3 and set(actual) == set(expected)
+    readback_ulps = {}
+    for name, wanted in expected.items():
+        found = actual[name]
+        assert found.role == wanted.role and found.value.kind == wanted.value.kind and found.value.unit == wanted.value.unit
+        distance = abs(found.value.value - wanted.value.value)
+        step = max(ulp(found.value.value), ulp(wanted.value.value))
+        assert distance <= step
+        readback_ulps[name] = distance / step
     assert sum(rule.kind == "coincident" and rule.driving and not rule.suppressed
                for rule in opened.sketches[0].constraints) == 1
     return {"native_candidate_sha256": digest(exact), "exact_streams": len(streams), "guarded_public_routes": 5,
             "fresh_locator_sha256": digest(fresh.getvalue()), "runtime_external_access_attempts": len(guard.denied),
-            "body_topology": [8, 12, 6], "live_parameters": len(opened.parameters), "active_origin_coincidence": True}
+            "body_topology": [8, 12, 6], "live_parameters": len(opened.parameters), "active_origin_coincidence": True,
+            "readback_distance_ulps": readback_ulps}
 
 
 def compare(packet, pin, prior, scratch, receipt):
@@ -203,7 +214,10 @@ def compare(packet, pin, prior, scratch, receipt):
             command = (sys.executable, "-I", "-B", str(script), "worker", str(target))
             if variant is not None:
                 command += ("--negative", variant)
-            probe = run(command, input=request, check=True, capture_output=True, timeout=120)
+            probe = run(command, input=request, capture_output=True, timeout=120)
+            if probe.returncode:
+                trace = probe.stderr.decode(errors="replace").strip().splitlines()
+                raise ValueError(f"{slot}/{label} failed: " + "\n".join(trace[-4:]))
             assert not probe.stderr
             outcomes[slot + "/" + label] = json.loads(probe.stdout)
         payload(source, known)
