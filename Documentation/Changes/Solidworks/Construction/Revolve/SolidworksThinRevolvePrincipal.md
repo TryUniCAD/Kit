@@ -8,5 +8,7 @@ Top and Right planes.
 
 The guarded model-only proof reproduces all four exact native-tested Front
 files and prepares two independent disclosed Top and Right observations.
+Both new disclosed candidates passed the ten-process native edit, save
+and reopen comparison.
 The normal SDK writer keeps the thin profile closed pending independent
 native acceptance. [Scope and reproducible proof](../../../../../re/solidworks/records/ThinRevolvePrincipal2026.md) · [World-space walls](../../../../Gotchas/Conversion/Solidworks/Archive/Revolve/ThinWallAnchorsAreInModelSpace.md)

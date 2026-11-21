@@ -19,6 +19,7 @@ re/solidworks/measurements/2026/RevolveThinDiscoverySourceLock01.json binary
 re/solidworks/measurements/2026/RevolveThinPlaneDiscoverySourceLock01.json binary
 re/solidworks/measurements/2026/RevolveThinHeldoutSourceLock01.json binary
 re/solidworks/measurements/2026/SdkThinRevolveDisclosedNative01.json binary
+re/solidworks/measurements/2026/SdkThinRevolvePrincipalNative01.json binary
 re/solidworks/measurements/2026/RevolveCutDiscoveryFailed01.json binary
 re/solidworks/measurements/2026/RevolveCutDiscoveryFailed02.json binary
 re/solidworks/measurements/2026/RevolveCutMixedSource01.json binary
