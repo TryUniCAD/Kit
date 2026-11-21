@@ -39,3 +39,27 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/PatternDatumHeightContrast.py
 ```
 
 The prospective height JSON SHA-256 is `8325f3457f0e7d2a565a63d3bd4a718a70cf736d8a14d7045ca218dfe7d9354b`.
+
+## Staged height discriminator
+
+The [packet freezer](../../tooling/sw2026/linear_pattern/PatternDatumHeightPacket.py) requires the exact passing `LinearPatternEnvelope02` sibling, its verified control and immutable tool inventory. It keeps the historical packet intact. It freezes the original pure height predictions, both source roles and phases, separately bound script hashes, the native executable hash and the exact new locator. The shared author accepts a single-spacing source specification. The shared phase runner accepts the height observer through its existing author, warning, save and fresh reopen boundary.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/linear_pattern/PatternDatumHeightPacket.py \
+  --prior-trial /absolute/share/LinearPatternEnvelope02 \
+  --output /absolute/share/LinearPatternDatumHeight01 \
+  --guest-root '\\Mac\Home\Documents\UniCAD\Oracle121Takeover\LinearPatternDatumHeight01' \
+  --guest-python 'C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
+```
+
+`Recipe.json` contains the single root-owned `guest_argv`. It verifies the freeze and registered libraries before launch. It identifies the getter DISPIDs on the installed major-34 `IRefPlane` and `IMathPoint` interfaces, requires no arguments and a declared VARIANT result, and uses those two exact property bindings. The stages are the pristine control, Short author and reopen, Tall author and reopen, and the trailing control. The two native parts come from distinct authoring sessions. The same selected `EnvelopeHinge`, `EnvelopeDirection` and `SeedBoss` roles are bound in both. The observer records raw finite on-plane diagonal endpoints before selection, directly after pattern creation, after the authored rebuild and after a fresh reopen. Native source scope requires one joined solid with the fixed XY profiles, stock and seed dimensions, the actual 20 mm pitch and count two, plus independent volume, area, COM and six exact extents in each applicable phase. [Native source runner](../../tooling/sw2026/linear_pattern/RunPatternDatumHeight.py) · [Native display observer](../../tooling/sw2026/linear_pattern/AuthorPatternDatumHeight.py) · [SOLIDWORKS 2026 bounding-box example](https://help.solidworks.com/2026/english/api/sldworksapi/Get_Coordinates_of_the_Plane%27s_Bounding_Box_Example_CSharp.htm)
+
+After an exact clean result, the host audit verifies both control and four candidate digests, actual isolated process lifetimes, preserved XY profiles, named source references and immutable saves. It replays both linked streams, captures the exact `fc8` bytes and compares the measured centres at the four checkpoints, the stored datum display geometry and the independently predicted stock projections. A stage must show at least a 1 mm measured transverse contrast to distinguish the height arms. Match tolerance stays 5 nm. Coincident matching stages remain unresolved as a lifecycle question. A typed archive refusal is retained without suppressing the native observations. The hypothesis for a 5% border is assessed separately from measured geometry and remains unqualified. [Host audit](../../tooling/sw2026/linear_pattern/AuditPatternDatumHeight.py)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/linear_pattern/AuditPatternDatumHeight.py \
+  --trial /absolute/share/LinearPatternDatumHeight01 --packet-sha256 TRIAL_SHA256 \
+  --result-sha256 NATIVE_RESULT_SHA256 --output "$(mktemp -d)/DatumHeightEvidence.json"
+```
+
+This stage is a frozen disclosed source experiment. Native phase and archive measurements await the root-owned oracle.

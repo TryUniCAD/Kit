@@ -23,9 +23,10 @@ class PatternEnvelopeAuthor(LinearPatternAuthor):
             "seed_size_m": [b - a for a, b in zip(seed_min[:2], seed_max[:2], strict=True)],
             "seed_extra_depth_m": seed_max[2] - plate_max[2],
             "spacing_m": spec["arms"][0]["spacing_m"],
-            "edit_spacing_m": spec["arms"][1]["spacing_m"],
             "instances": spec["arms"][0]["count"],
         }
+        if len(spec["arms"]) > 1:
+            self.case["edit_spacing_m"] = spec["arms"][1]["spacing_m"]
 
     def connect(self, model):
         self.model = self.datum_author.model = model

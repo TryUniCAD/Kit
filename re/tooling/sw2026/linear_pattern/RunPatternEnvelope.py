@@ -27,7 +27,7 @@ def saved_hash(path):
     return {"name": path.name, "bytes": path.stat().st_size, "sha256": digest(path.read_bytes())}
 
 
-def inspect_phase(root, phase, spec, api, pristine, edited, initial, derivative):
+def inspect_phase(root, phase, spec, api, pristine, edited, initial, derivative, *, author_type=None):
     import Swapp
     from AuthorCurves import Recorder
     from AuthorPatternEnvelope import PatternEnvelopeAuthor
@@ -57,7 +57,7 @@ def inspect_phase(root, phase, spec, api, pristine, edited, initial, derivative)
                 require(identity["file_version"] == BUILD and identity["version_matches"]
                         and identity["sha256"] == ORACLE and identity["pe_machine"] == "0x8664"
                         and session.revision == "34.5.2", "native oracle build differs")
-                author = PatternEnvelopeAuthor(session.app, rec, api, spec)
+                author = (author_type or PatternEnvelopeAuthor)(session.app, rec, api, spec)
                 if phase == "author":
                     author.build_envelope(session)
                     author.envelope_state("authored", 0)
