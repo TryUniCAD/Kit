@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScala
 
 
 # populated bounds need their own typed owners before the archive can encode a cache
-def WriteBBoxCacheMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
+def WriteBoundsMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     if ReadBodyRows(FrameValue.ScopeValue, RuleValue.NameValue):
         raise BodyUnsupported(
             "populated SOLIDWORKS part bounds cache requires typed owners"

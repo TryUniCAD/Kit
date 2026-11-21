@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScala
 
 
 # counted cache slots derive their wire frame from the actual modeled rows
-def WriteMassCachesMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
+def WriteMassMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     ScopeValue = FrameValue.ScopeValue
     SlotsValue = ReadBodyRows(ScopeValue, RuleValue.NameValue)
     CountValue = len(SlotsValue)
