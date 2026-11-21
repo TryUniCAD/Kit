@@ -5,7 +5,7 @@
 Task `CI-WINDOWS-CLI-SHARDS` is owned by the implementation agent for this PR.
 The scope covers Windows research CLI sharding, macOS platform sharding, and investigation of queue durations.
 Dependencies are the locked Python 3.14 environment, candidate research checkout, and existing CI aggregator.
-The delivery PR is linked in the validation record below.
+The delivery is [PR #230](https://github.com/TryUniCAD/Kit/pull/230).
 The exit requires current-head PR checks and configured review. Native queue performance evidence remains deferred until authorized enrollment.
 
 `Research CLI Windows compatibility` previously ran every selected case serially on one Windows runner.
@@ -68,6 +68,7 @@ The existing aggregator process coverage now checks every concrete Windows CLI a
 New report-process compatibility cases reject missing, duplicated, failed, unexpected, and mismatched outcomes, failed sessions, and missing native passes.
 These cases use the complete suite's existing planner, runners, and report.
 No local tests ran under the repository execution policy.
-PR checks and configured review remain pending publication.
+PR checks and configured review run on [PR #230](https://github.com/TryUniCAD/Kit/pull/230).
+Formatting and shell syntax checks passed before publication. Process-compatibility execution remains deferred to the shared queue suite.
 Queue acceptance and measured improvement require the synthetic candidate after administrator-authorized enrollment.
 No native CAD decoding, conversion, or vendor acceptance is claimed.
