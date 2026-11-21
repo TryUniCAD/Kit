@@ -6,7 +6,9 @@ from pathlib import Path as FilePath
 import pytest as Pytest
 
 from tests.Research.Calibration.BuildManifest import BuildManifest
-from tests.Research.Calibration.RunCalibration import KRepoRoot, ReadCalRun
+from tests.Research.Calibration.ReadCalRun import ReadCalRun
+from tests.Research.Calibration.RunCalibration import KRepoRoot
+from tests.Research.Windows.Calibration.CheckDecStop import CheckDecStop
 
 # the process fixture supplies a reproducible windows error without depending on a sharing race
 KFaultScript = """
@@ -56,11 +58,16 @@ def RunCalError(
         check=False,
         timeout=60,
     )
-    _ = ReadCalRun(Process, 1 if CleanupFails else 2, OutputPath)
+    Report = ReadCalRun(Process, 1 if CleanupFails else 2, OutputPath)
     with Pytest.raises(AssertionError) as Mismatch:
-        _ = ReadCalRun(Process, 0, OutputPath)
+        _ = ReadCalRun(Process, 2 if CleanupFails else 0, OutputPath)
     Prefix = "\nSupervision error: " if CleanupFails else '"supervision_error": '
-    assert Prefix + JsonCodec.dumps(Expected, sort_keys=True) in str(Mismatch.value)
+    Detail = JsonCodec.dumps(Expected, sort_keys=True)
+    assert Prefix + Detail in str(Mismatch.value)
     assert "fixture-private-" not in Process.stdout + Process.stderr
     assert "fixture-private-" not in str(Mismatch.value)
+    if not CleanupFails:
+        with Pytest.raises(AssertionError) as StopMismatch:
+            CheckDecStop(Report, OutputPath)
+        assert Prefix + Detail in str(StopMismatch.value)
     return OutputPath

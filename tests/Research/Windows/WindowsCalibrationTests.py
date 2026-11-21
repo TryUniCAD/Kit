@@ -6,7 +6,8 @@ from pathlib import Path as FilePath
 import pytest as Pytest
 
 from tests.Research.Calibration.BuildManifest import BuildManifest
-from tests.Research.Calibration.RunCalibration import RunCalibration, TrialDetails
+from tests.Research.Calibration.RunCalibration import RunCalibration
+from tests.Research.Windows.Calibration.CheckDecStop import CheckDecStop
 from tests.Research.Windows.VerifyCalTrial import VerifyCalTrial
 
 # hosted windows trials need headroom for eight serial decoder startups under load
@@ -49,10 +50,7 @@ def CheckWinReject(TmpPath: FilePath) -> None:
     OutputPath = TmpPath / "Rejected"
     Report = RunCalibration(ManifestPath, OutputPath, ExitCode=2)
     assert Report["completed_sweep"] is False
-    assert Report["stop_reason"] == "child_did_not_complete", (
-        Report["stop_reason"],
-        TrialDetails(OutputPath / "Calibration.json"),
-    )
+    CheckDecStop(Report, OutputPath)
     assert Report["recommended_concurrency"] is None
     TrialPath = OutputPath / "Trial1"
     Cleanup = JsonCodec.loads((TrialPath / "Cleanup.json").read_text(encoding="utf-8"))
