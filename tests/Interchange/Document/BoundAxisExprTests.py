@@ -22,6 +22,16 @@ def CheckAxisExpr() -> None:
         SpaceVector(8.0, 18.0, 22.0),
         SpaceVector(8.0, 6.0, 22.0),
     )
+    NewStart = ReplaceValue(StartValue, value=ReplaceValue(StartValue.value, value=5.0))
+    NewEnd = ReplaceValue(Expressed, value=ReplaceValue(Expressed.value, value=-0.7))
+    Updated = CadDocument.from_json(
+        ReplaceValue(Stored, parameters=(NewStart, NewEnd)).to_json()
+    )
+    assert Updated.parameters[1].expression == Formula
+    assert ReadAxisDoc(Updated) == (
+        SpaceVector(8.0, 19.0, 22.0),
+        SpaceVector(8.0, 7.0, 22.0),
+    )
     Dangling = ReplaceValue(
         Expressed, expression=ReplaceValue(Formula, parameter_ids=("missing",))
     )

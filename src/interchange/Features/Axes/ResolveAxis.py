@@ -1,6 +1,7 @@
 from typing import Mapping as TypeMap
 
 from interchange.Features.Axes.AxisExtentConfig import MakeAxisView
+from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.Axes.SolveAxis import SolveAxis
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.geometry.Models.Selection import Selection
@@ -18,6 +19,9 @@ def ResolveAxis(
     Parameters: TypeMap[str, Parameter],
     Configurations: tuple[Configuration, ...] = (),
 ) -> tuple[SpaceVector, SpaceVector] | None:
-    return SolveAxis(
-        StepValue, Selections, Frames, Parameters, MakeAxisView(Configurations)
+    ConfigView = (
+        MakeAxisView(Configurations)
+        if isinstance(StepValue.definition, BoundPlaneAxis)
+        else None
     )
+    return SolveAxis(StepValue, Selections, Frames, Parameters, ConfigView)
