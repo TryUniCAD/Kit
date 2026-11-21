@@ -164,7 +164,7 @@ def RegisterBuilder(
         ):
             raise ValueError("registered builder source artifact changed")
     else:
-        with Source.open("x", encoding="utf-8") as Output:
+        with Source.open("x", encoding="utf-8", newline="\n") as Output:
             Output.write(SourceText)
     return Manifest
 

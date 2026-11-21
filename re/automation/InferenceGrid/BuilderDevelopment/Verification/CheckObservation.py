@@ -23,8 +23,7 @@ def CheckFeatureTree(Check, Observation, Path):
         Check.Add(Path + ".feature_tree.names", "unique native feature names", Names)
         return
     Required = {
-        "SeedProfile": "ProfileFeature",
-        "SeedFeature": "Boss",
+        **Check.Expectations["prerequisite_feature_types"],
         "RecipeFeature": "RefPlane",
     }
     for Name, Type in Required.items():

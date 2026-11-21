@@ -110,6 +110,10 @@ def FreezeExpectations(Cases, ApplicationBuild, SourcePin=None, Control=None):
         "application_build": ApplicationBuild,
         "source_pin": SourcePin,
         "options": {"basis": "XY", "direction": 1, "instances": 1, "units": "mm"},
+        "prerequisite_feature_types": {
+            "SeedProfile": "ProfileFeature",
+            "SeedFeature": "Extrusion",
+        },
         "cases": Normal,
         "control": ExpectedControl,
         "geometry": {

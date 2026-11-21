@@ -116,7 +116,7 @@ def RunPlaneCases(Program, Cases, Output, Host):
     )
     ManifestPin = sha256(Manifest.read_bytes()).hexdigest()
     Source = Output / "CandidateProgram.cs"
-    Source.write_text(PlaneSource(Program), encoding="utf-8")
+    Source.write_text(PlaneSource(Program), encoding="utf-8", newline="\n")
     CandidateSourcePin = sha256(Source.read_bytes()).hexdigest()
     for Phase in ("first", "second", "third"):
         RunPlanePhase(Manifest, Output, Host, Phase, CandidateSourcePin)
