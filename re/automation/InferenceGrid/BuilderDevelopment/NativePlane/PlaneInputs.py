@@ -70,7 +70,16 @@ def PlaneSourcePins(SourceRoot):
     Directory = Path(__file__).resolve().parent
     from hashlib import sha256
 
-    for Source in sorted(Directory.iterdir()):
+    Sources = list(Directory.iterdir()) + [
+        SourceRoot / Relative
+        for Relative in (
+            "re/automation/WindowsProcess.py",
+            "re/automation/WindowsApi.py",
+            "re/automation/WindowsJobMembers.py",
+            "re/automation/ApplicationWorkers/WindowsIdentity.py",
+        )
+    ]
+    for Source in sorted(Sources):
         if Source.suffix not in {".py", ".cs", ".ps1"}:
             continue
         Relative = Source.relative_to(SourceRoot).as_posix()

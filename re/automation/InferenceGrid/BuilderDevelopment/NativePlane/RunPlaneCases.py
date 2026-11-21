@@ -115,12 +115,17 @@ def RunPlaneCases(Program, Cases, Output, Host):
     ManifestPin = sha256(Manifest.read_bytes()).hexdigest()
     Source = Output / "CandidateProgram.cs"
     Source.write_text(PlaneSource(Program), encoding="utf-8")
+    CandidateSourcePin = sha256(Source.read_bytes()).hexdigest()
     for Phase in ("first", "second"):
         RunPlanePhase(Manifest, Output, Host, Phase)
         if sha256(Manifest.read_bytes()).hexdigest() != ManifestPin:
             raise ValueError("native candidate manifest changed during execution")
     _, After = PlaneSourcePins(Root)
-    if Pins != After or sha256(Control.read_bytes()).hexdigest() != ControlPin:
+    if (
+        Pins != After
+        or sha256(Control.read_bytes()).hexdigest() != ControlPin
+        or sha256(Source.read_bytes()).hexdigest() != CandidateSourcePin
+    ):
         raise ValueError("native capture changed a source or control input")
     Reports = []
     Archives = []
