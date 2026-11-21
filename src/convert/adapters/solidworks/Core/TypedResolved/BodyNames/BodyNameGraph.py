@@ -21,3 +21,4 @@ class BodyNameGraph:
     StreamLength: int
     LocalStoreKey: str | None = None
     LocalNameOwner: str | None = None
+    MarksValue: tuple[int, int] | None = None

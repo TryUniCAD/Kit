@@ -52,7 +52,7 @@ def ReadRevolveBody(
         OwnerValue.AngleValue.RadiansValue, 2 * CirclePi, rel_tol=0, abs_tol=1e-12
     )
     StreamName = LinkValue.ConfigName + "-Partition"
-    NodesValue = ReadBodyCache(Document, Archive, StreamName)
+    NodesValue, _ = ReadBodyCache(Document, Archive, StreamName)
     TreeValue = ReadRevolveTree(NodesValue, IsFull)
     BodyValue = NodesValue[TreeValue.BodyIndex]
     CheckXmtAttrs(NodesValue, BodyValue)

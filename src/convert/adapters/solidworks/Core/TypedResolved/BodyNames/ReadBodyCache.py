@@ -12,8 +12,10 @@ from interchange.document.Models.DocumentModel import CadDocument
 # public geometry must come from the selected live partition rather than another readable cache
 def ReadBodyCache(
     Document: CadDocument, Archive: SldprtArchive, StreamName: str
-) -> Mapping[int, XmtNode]:
-    Payloads, NodesValue, _ = ReadBodyKernel(Archive.require(StreamName), StreamName)
+) -> tuple[Mapping[int, XmtNode], tuple[int, int]]:
+    Payloads, NodesValue, MarksValue = ReadBodyKernel(
+        Archive.require(StreamName), StreamName
+    )
     ActivePayload = Payloads[0]
     Attached = tuple(
         Payload
@@ -29,4 +31,4 @@ def ReadBodyCache(
     DecodedValue = DecodeBrepModel(ActivePayload.data)
     if DecodedValue is None or DecodedValue != Document.brep:
         raise ValueError("public geometry does not match the selected native partition")
-    return NodesValue
+    return NodesValue, MarksValue

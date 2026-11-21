@@ -2,6 +2,9 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismProf import (
     CheckPrismProf,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.SavedScope.CheckSavedChain import (
+    CheckSavedChain,
+)
 from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.CheckDimGraph import (
     CheckDimGraph,
 )
@@ -19,8 +22,10 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # reconstruction must use complete active typed contour and relation ownership instead of keyword profiles or guessed construction points
-def ReadPrismLoop(ProfileValue: ArchiveNode, LinkValue: NativeLink) -> LineLoop:
-    CheckPrismProf(ProfileValue)
+def ReadPrismLoop(
+    ProfileValue: ArchiveNode, LinkValue: NativeLink, *, IsSaved: bool = False
+) -> LineLoop:
+    CheckPrismProf(ProfileValue, IsSaved=IsSaved)
     Fields = ProfileValue.FieldsValue
     if (
         Fields.get("f3dc") != 0
@@ -53,4 +58,6 @@ def ReadPrismLoop(ProfileValue: ArchiveNode, LinkValue: NativeLink) -> LineLoop:
         raise ValueError("cache free prism requires one fresh four line contour")
     if DimsValue is not None:
         CheckDimGraph(LoopValue, DimsValue)
+    if IsSaved:
+        CheckSavedChain(LinkValue, Fields.get("d5c0"), LoopValue)
     return LoopValue

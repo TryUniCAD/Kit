@@ -50,6 +50,14 @@ def CheckPrismEnd(
         and "f20" in Fields
         and Fields["f20"] is None
     )
+    CheckPrismDims(OwnerValue, NullReverse=NullReverse)
+
+
+# distinct end owners keep the live depth separate from inactive persisted parameters
+def CheckPrismDims(
+    OwnerValue: ExtrudeOwner, *, NullReverse: bool = False, IsSaved: bool = False
+) -> None:
+    Fields = OwnerValue.EndValue.FieldsValue
     Values = tuple(
         ReadPrismParam(Fields.get(FieldName), Angular)
         for FieldName, Angular in (
@@ -66,7 +74,10 @@ def CheckPrismEnd(
         raise ValueError("cache free prism end roles share live owners")
     if (
         Values[0][2] <= 0
-        or (not NullReverse and Values[1][2] != Values[0][2])
+        or (
+            not NullReverse
+            and (Values[1][2] <= 0 if IsSaved else Values[1][2] != Values[0][2])
+        )
         or Values[-2][2] != 0
         or Values[-1][2] != 0
     ):

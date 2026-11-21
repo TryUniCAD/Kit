@@ -54,7 +54,7 @@ def ReadNamedBody(
             "native name owners require complete nonprovisional archive grammar"
         )
     StreamName = LinkValue.ConfigName + "-Partition"
-    NodesValue = ReadBodyCache(Document, Archive, StreamName)
+    NodesValue, MarksValue = ReadBodyCache(Document, Archive, StreamName)
     IsCylinder = Document.brep is not None and len(Document.brep.faces) == 3
     TreeValue = ReadCylBodyTree(NodesValue) if IsCylinder else ReadBodyTree(NodesValue)
     BodyValue = NodesValue[TreeValue.BodyIndex]
@@ -94,4 +94,5 @@ def ReadNamedBody(
         ExplicitLabel is not None,
         StreamName,
         len(Archive.require(StreamName)),
+        MarksValue=MarksValue,
     )

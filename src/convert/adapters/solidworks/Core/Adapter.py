@@ -641,7 +641,7 @@ def FinishPartDoc(
     BindSavedOwners: bool = False,
 ) -> CadDoc:
     DocValue = WithColdName(DocValue, DerivedValue)
-    DocValue = WithBodyNames(DocValue, Archive, ConfigId)
+    DocValue = WithBodyNames(DocValue, Archive, ConfigId, BindSavedScope=BindSavedOwners)
     DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive, GraphValue), Archive)
     DocValue = BindCutStock(DocValue)
     DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)

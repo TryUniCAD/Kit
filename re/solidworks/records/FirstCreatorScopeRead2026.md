@@ -89,3 +89,7 @@ also preserve the mode through ordinary registry JSON path and stream
 writing with no dropped scope. Intact native models carry native-only
 feature records and still refuse a normal registry conversion without
 touching either destination. [Reproduction tool](../../tooling/sw2026/nested_publication/MeasureColdCreatorScope.py)
+
+The later saved-scope work qualifies the two edited selected-empty
+derivatives through their actual active configurations and retained
+partitions. [Saved reader qualification](FirstCreatorSavedScope2026.md)

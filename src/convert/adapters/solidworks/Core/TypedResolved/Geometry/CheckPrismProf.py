@@ -4,10 +4,10 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRe
 
 
 # profile geometry must remain wholly local with no partial contour selection spatial ownership or additional modeled profile state
-def CheckPrismProf(ProfileValue: ArchiveNode) -> None:
+def CheckPrismProf(ProfileValue: ArchiveNode, *, IsSaved: bool = False) -> None:
     Fields = ProfileValue.FieldsValue
     for FieldName in ("f390", "f3dc", "pd_has_fe8", "pd_f118", "f42c", "f3c0"):
-        if Fields.get(FieldName) != 0:
+        if Fields.get(FieldName) != int(IsSaved and FieldName == "f3c0"):
             raise ValueError("cache free prism has unsupported profile modes")
     if Fields.get("pd_f100") != 4 or Fields.get("pd_f11c") != (
         -7 if ProfileValue.ClassValue.NameValue == "moOriginProfileFeature_c" else -1
@@ -19,6 +19,8 @@ def CheckPrismProf(ProfileValue: ArchiveNode) -> None:
     ):
         raise ValueError("cache free prism has profile dependencies or shared geometry")
     for FieldName in ("d5c0", "f3e8", "pd_f128", "pd_f148"):
+        if IsSaved and FieldName == "d5c0":
+            continue
         if not IsLineState(Fields.get(FieldName)):
             raise ValueError(
                 "cache free prism has contour caches or extra profile references"

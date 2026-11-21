@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Local.ReadLocalNam
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadNamedBody import (
     ReadNamedBody,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.SavedScope.WithSavedScope import (
+    WithSavedScope,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Revolves.ReadRevolveBody import (
     ReadRevolveBody,
@@ -16,7 +19,11 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Revolves.ReadRevol
 
 # unsupported body inventories retain their existing reader path without speculative naming or geometry changes
 def WithBodyNames(
-    Document: CadDocument, Archive: SldprtArchive, ConfigId: int | None
+    Document: CadDocument,
+    Archive: SldprtArchive,
+    ConfigId: int | None,
+    *,
+    BindSavedScope: bool = False,
 ) -> CadDocument:
     if (
         Document.brep is None
@@ -25,7 +32,8 @@ def WithBodyNames(
     ):
         return Document
     try:
-        return BindBodyName(Document, ReadNamedBody(Document, Archive, ConfigId))
+        GraphValue = ReadNamedBody(Document, Archive, ConfigId)
+        Bound = BindBodyName(Document, GraphValue)
     except (TypeError, ValueError, KeyError):
         try:
             return BindBodyName(Document, ReadRevolveBody(Document, Archive, ConfigId))
@@ -36,3 +44,6 @@ def WithBodyNames(
                 )
             except (TypeError, ValueError, KeyError, OverflowError):
                 return Document
+    if BindSavedScope:
+        return WithSavedScope(Bound, Archive, GraphValue)
+    return Bound
