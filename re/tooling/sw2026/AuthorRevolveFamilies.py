@@ -96,7 +96,19 @@ def author_type(base, planes, sw, constants):
             need(len(observed["id"]) == 2, "unexpected construction line identity")
             return observed
 
+        def sketch_features(self):
+            result = {}
+            feature = self.get(self.model, "FirstFeature")
+            while feature is not None:
+                if str(self.get(feature, "GetTypeName2")) == "ProfileFeature":
+                    name = str(self.get(feature, "Name"))
+                    need(name and name not in result, "profile feature names are not unique")
+                    result[name] = feature
+                feature = self.get(feature, "GetNextFeature")
+            return result
+
         def make_profile(self, case, name, thin):
+            prior = self.sketch_features()
             self.get(self.model, "ClearSelection2", True)
             extension = self.get(self.model, "Extension")
             need(self.get(extension, "SelectByID2", planes[case["plane"]], "PLANE",
@@ -124,9 +136,14 @@ def author_type(base, planes, sw, constants):
             finally:
                 self.set(manager, "AddToDB", False)
             self.get(manager, "InsertSketch", True)
-            sketch_feature = self.created_sketch_feature()
+            current = self.sketch_features()
+            created = current.keys() - prior.keys()
+            need(len(created) == 1 and prior.keys() <= current.keys(),
+                 "the new 2D profile must have one actual feature owner")
+            sketch_feature = current[created.pop()]
             self.set(sketch_feature, "Name", name)
             self.sketch = self.get(sketch_feature, "GetSpecificFeature2")
+            need(self.sketch is not None, "authored profile has no actual sketch interface")
             return original
 
         def mark_feature_inputs(self, case, profile, original, target):

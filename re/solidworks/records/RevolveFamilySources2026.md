@@ -147,5 +147,17 @@ thin dynamic dimension chains and the cut stock identity, and classify
 the remaining fields against those sources.
 
 Host preflight validated both deterministic model plans and static PE
-ranges. Native creation, display and scope matching, source-lock
-acquisition and held-out generalization remain pending.
+ranges. All four thin discovery inputs completed 14 independent native
+processes with both controls healthy, including separate live angle and
+wall edits. The active first wall lies on the measured positive radial
+side for the forward controls.
+[Thin disclosure lock](../measurements/2026/RevolveThinDiscoverySourceLock01.json)
+
+The first cut batch stopped while identifying the second stock sketch.
+The earlier single-sketch helper classified the existing first stock
+profile as a second candidate. Both native controls passed. The repaired
+author binds the new profile by the difference from its previous live
+feature inventory, then verifies the selected construction axis in that
+profile.
+[Original cut failure](../measurements/2026/RevolveCutDiscoveryFailed01.json) ·
+[Profile feature discovery](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Process/MultipleAuthoredSketchFeatures.md)
