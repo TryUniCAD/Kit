@@ -41,6 +41,10 @@ def ProbeWorker() -> None:
     ConfigPath, ResourceMap = DevelopmentConfig(
         RunPath, KRepoRoot, TmpPath / "Host.json"
     )
+    ConfigValue = DecodeJson(ConfigPath.read_bytes())
+    ConfigValue["reserved_cpus"] = 0
+    ConfigValue["reserved_memory_mib"] = 0
+    _ = ConfigPath.write_text(EncodeJson(ConfigValue), encoding="utf-8")
     with Ledger(RunPath / "Store", create=True) as StoreValue:
         if ModeName == "native":
             StoreValue.resource(ResourceMap["solidworks"], available=True, capacity=1)
