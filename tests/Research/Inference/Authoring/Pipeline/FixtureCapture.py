@@ -6,14 +6,18 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from convert.Security.PathBoundary import ResolveTemp
+from convert.Security.PathBoundary import ResolveWithin
 
 from hashlib import sha256 as HashBytes
 from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
 from re import fullmatch as MatchText
-from sys import argv as ArgValues
+from sys import argv as ArgValues, path as ImportPaths
 from zipfile import ZIP_STORED as KStoredZip, ZipFile as NativeBundle
+
+ImportPaths.insert(0, str(FilePath(__file__).resolve().parents[5]))
+
+from tests.Research.Inference.Authoring.Contracts.ResolveSession import ResolveSession
 
 
 # transport fixtures publish retained native bytes without claiming fresh application acceptance
@@ -25,7 +29,7 @@ def PublishFixture(SessionPath: FilePath) -> None:
         or Descriptor["path"] != "inputs/" + Descriptor["sha256"]
     ):
         raise ValueError("invalid fixture source binding")
-    Content = ResolveTemp(SessionPath / Descriptor["path"]).read_bytes()
+    Content = ResolveWithin(SessionPath / Descriptor["path"], SessionPath).read_bytes()
     if (
         len(Content) > 64 * 1024 * 1024
         or HashBytes(Content).hexdigest() != Descriptor["sha256"]
@@ -76,4 +80,4 @@ def PublishFixture(SessionPath: FilePath) -> None:
 
 
 if __name__ == "__main__":
-    PublishFixture(ResolveTemp(ArgValues[1]))
+    PublishFixture(ResolveSession(ArgValues[1]))
