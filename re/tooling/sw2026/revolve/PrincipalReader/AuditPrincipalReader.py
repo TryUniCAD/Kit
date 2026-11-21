@@ -129,6 +129,7 @@ def checked_reopen(data, reopen):
 
 def make_guard(sdk):
     gram = (sdk / GRAMMAR).resolve()
+    access_mode_mask = getattr(os, "O_ACCMODE", os.O_WRONLY | os.O_RDWR)
     receipt = {"grammar_path": GRAMMAR, "grammar_sha256": digest(gram.read_bytes()),
                "grammar_reads": 0, "unexpected_attempts": []}
     state = {"enabled": False}
@@ -136,7 +137,7 @@ def make_guard(sdk):
     def audit(event, args):
         if not state["enabled"]:
             return
-        if event == "open" and args[0] == str(gram) and (args[2] & os.O_ACCMODE) == os.O_RDONLY:
+        if event == "open" and args[0] == str(gram) and (args[2] & access_mode_mask) == os.O_RDONLY:
             receipt["grammar_reads"] += 1
             return
         if (event in ("open", "os.listdir", "os.scandir", "os.system", "os.fork",

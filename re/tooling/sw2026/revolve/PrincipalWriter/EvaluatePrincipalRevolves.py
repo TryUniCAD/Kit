@@ -54,6 +54,13 @@ CASES = {"PrincipalRevolveHeldoutRight": "right", "PrincipalRevolveHeldoutTop": 
 CASE_FIELDS = {"name", "split", "plane", "radius_m", "axial_m", "axis_x_m", "axis_axial_m",
                "angle_deg", "reverse", "edit_angle_deg"}
 SCHEMA = "kit.sw2026.principal-revolve-heldout-evaluation.v1"
+RECOVERY = {
+    "attempt": "PrincipalRevolveEvaluation02",
+    "freeze_sha256": "9b8c814e29c4862eb99ea51699dde0bbb6d308c5ce20ce0ebdcbcb52bac5630c",
+    "generation_sha256": "30b127f6bd04746e79019180099f62e55b87499e635b25182e0b04533a0bb0d2",
+    "failure_sha256": "726a8941c301051722f33039b4c9d65f0483b70d58eeb659078cde42816927d6",
+}
+RECOVERY_FAILURE = "re/solidworks/measurements/2026/PrincipalRevolveObserverGuardFailure01.json"
 FRAMES = {
     "right": ((0, 0, -1), (0, 1, 0), (1, 0, 0)),
     "top": ((1, 0, 0), (0, 0, -1), (0, 1, 0)),
@@ -110,7 +117,20 @@ def pack(source, research):
     return output.getvalue()
 
 
-def freeze(name):
+def guard_failure(raw):
+    row = json.loads(raw)
+    require(row["schema"] == SCHEMA and row["source_tree"] == SOURCE_TREE and row["writer_revision"] == WRITER
+            and row["freeze_sha256"] == RECOVERY["freeze_sha256"]
+            and row["generation_sha256"] == RECOVERY["generation_sha256"]
+            and row["controls_healthy"] and row["distinct_observed_processes"] == 2
+            and row["heldout_rule_credit"] == 0 and set(row["cases"]) == set(CASES)
+            and all(not case["passed"] and case["reason"] ==
+                    "guarded SDK worker failed: AttributeError: module 'os' has no attribute 'O_ACCMODE'"
+                    for case in row["cases"].values()), "prior failure is not the portable observer guard")
+    return row
+
+
+def freeze(name, recover):
     require(os.name != "nt" and re.fullmatch(r"PrincipalRevolveEvaluation\d{2}", name) is not None,
             "use a fresh principal revolve host packet")
     repo = HERE.parents[5]
@@ -149,6 +169,11 @@ def freeze(name):
         "case_source_sha256": {key: row["native_sha256"] for key, row in locked_slots(lock).items()},
         "sealed_reads": 0,
     }
+    if recover:
+        failure = git("show", f"{method}:{RECOVERY_FAILURE}")
+        require(digest(failure) == RECOVERY["failure_sha256"], "recovery evidence differs")
+        guard_failure(failure)
+        value["recovery"] = RECOVERY
     root.mkdir(mode=0o700)
     publish(root / HERE.name, exact[EVALUATOR])
     publish(root / "Code.tar.gz", package)
@@ -240,6 +265,7 @@ def authored_case(case, name):
 
 def prepare(path, pin):
     manifest, private, archive = packet(path, pin)
+    require("recovery" not in manifest, "observer recovery uses the existing exact candidates")
     require(not private.exists(), "preparation working directory already exists")
     target = code(archive, private, manifest, create=True)
     specs = json.loads(checked(Path(OLD) / "Specs.json", SPEC_SHA))
@@ -464,13 +490,23 @@ def source_lifecycle(root, private, row, locked, output):
 
 def native(path, pin, generation_sha):
     manifest, private, archive = packet(path, pin)
-    root = code(archive, private, manifest, create=False)
-    generation = json.loads(checked(private / "Generation.json", generation_sha))
-    require(generation["schema"] == SCHEMA and generation["freeze_sha256"] == pin
+    recovery = manifest.get("recovery")
+    inputs = private
+    generation_freeze = pin
+    if recovery is not None:
+        require(recovery == RECOVERY and generation_sha == RECOVERY["generation_sha256"]
+                and not private.exists(), "wrong existing candidates or recovery output")
+        inputs = private.with_name(recovery["attempt"])
+        require(inputs != private, "recovery must preserve the earlier packet and outputs")
+        guard_failure(checked(inputs / "Native" / "Summary.json", recovery["failure_sha256"]))
+        generation_freeze = recovery["freeze_sha256"]
+    root = code(archive, private, manifest, create=recovery is not None)
+    generation = json.loads(checked(inputs / "Generation.json", generation_sha))
+    require(generation["schema"] == SCHEMA and generation["freeze_sha256"] == generation_freeze
             and generation["original_files_read"] == generation["native_processes"] == 0
             and set(generation["cases"]) == set(CASES), "wrong two-case generation pin")
     for name, row in generation["cases"].items():
-        checked(private / "Candidate" / ("Kit" + name + ".SLDPRT"), row["generated"]["sha256"])
+        checked(inputs / "Candidate" / ("Kit" + name + ".SLDPRT"), row["generated"]["sha256"])
     slots = locked_slots(json.loads(checked(root / LOCK_PATH, LOCK_SHA)))
     sys.path[:0] = [str(root / name) for name in (TOOLS, REVOLVE + "/Construction", REVOLVE + "/PrincipalWriter")]
     from InspectFresh import healthy, inspect
@@ -507,7 +543,7 @@ def native(path, pin, generation_sha):
                 target = output / name
                 target.mkdir()
                 try:
-                    measured[name] = source_lifecycle(root, private, row, slots[name], target)
+                    measured[name] = source_lifecycle(root, inputs, row, slots[name], target)
                 except Exception as error:
                     failure = {"passed": False, "class": type(error).__name__, "reason": str(error)}
                     measured[name] = failure | {"failure_sha256": publish(target / "Failure.json", encode(failure))}
@@ -526,6 +562,7 @@ def native(path, pin, generation_sha):
         "schema": SCHEMA, "passed": passed, "controls_healthy": controls_healthy, "controls": controls,
         "source_tree": manifest["source_tree"], "writer_revision": manifest["writer_revision"],
         "method_revision": manifest["method_revision"], "freeze_sha256": pin, "generation_sha256": generation_sha,
+        "generation_freeze_sha256": generation_freeze, "observer_recovery": recovery,
         "distinct_observed_processes": distinct, "oracle_version": VERSION, "oracle_sha256": ORACLE, "cases": measured,
         "heldout_rule_credit": 2 if passed else 0, "complete_original_source_conversion": False,
     }
@@ -538,13 +575,14 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("action", choices=("freeze", "prepare", "native", "read"))
     parser.add_argument("--name")
+    parser.add_argument("--recover-guard", action="store_true")
     parser.add_argument("--packet", type=Path)
     parser.add_argument("--freeze-sha256")
     parser.add_argument("--generation-sha256")
     parser.add_argument("--root", type=Path)
     args = parser.parse_args()
     if args.action == "freeze":
-        result = freeze(args.name)
+        result = freeze(args.name, args.recover_guard)
     elif args.action == "prepare":
         result = prepare(args.packet.resolve(), args.freeze_sha256)
     elif args.action == "native":

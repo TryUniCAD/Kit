@@ -36,6 +36,19 @@ datum, axis and D1 owners. All ten measured streams must replay.
 Both candidate hashes and numeric predictions enter
 `Generation.json` before reference files or phase records open.
 
+## Windows read guard recovery
+
+The first native attempt's two controls passed. Neither candidate
+launched because the strict reader's known grammar read reached
+the absent Windows CPython constant `os.O_ACCMODE`. The retained
+failure receipt contains no candidate observation. The portable
+mask keeps the same read-only path allowance. The recovery packet
+verifies that exact failure and uses the original generation
+receipt, candidate files and self paths. It starts no generation
+work and leaves the production SDK tree, comparisons and
+thresholds pinned as before.
+[Observed guard failure](../measurements/2026/PrincipalRevolveObserverGuardFailure01.json) · [Portable access mask](../../../Documentation/Gotchas/Conversion/Registry/WindowsAuditsNeedPortableAccessMask.md)
+
 ## Native comparison
 
 The two candidates and two original native parts retain their
