@@ -1,0 +1,44 @@
+{
+  "build": "34.5.2.0604",
+  "disclosed_observations": {
+    "D01Corner": {
+      "actual_density_si": 1.0,
+      "body_identity": {
+        "database": "",
+        "material": ""
+      },
+      "mass_over_volume_si": 1.0,
+      "observed_phase_outcome": "EvidenceFailure('predeclared DENS@value SI interpretation vs live density: 1.0 differs from 2700.0')",
+      "part_identity": {
+        "database": "SOLIDWORKS DIN Materials",
+        "material": "3.0205 (EN-AW 1200)"
+      },
+      "predicted_density_si": 2700.0,
+      "record_sha256": "19cad2dd16a1a918c4a8b0b70dc3b712b52fbc9d404537ff213dc410e9015244"
+    },
+    "D02Center": {
+      "actual_density_si": 1.0,
+      "body_identity": {
+        "database": "",
+        "material": ""
+      },
+      "mass_over_volume_si": 1.0,
+      "observed_phase_outcome": "EvidenceFailure('predeclared DENS@value SI interpretation vs live density: 1.0 differs from 7858.000032')",
+      "part_identity": {
+        "database": "SOLIDWORKS Materials",
+        "material": "1023 Carbon Steel Sheet (SS)"
+      },
+      "predicted_density_si": 7858.000032,
+      "record_sha256": "33aa606b66daeee463401690c24b2f83f3d473a9a9d5a0048dfa980a787e853e"
+    }
+  },
+  "healthy_controls": 2,
+  "heldout_count": 0,
+  "native_processes": 4,
+  "origins_saved": 0,
+  "schema": "kit.sw2026.assigned-material-density-source.v1",
+  "source_packet_sha256": "292df06a2fd4f740c2070a32152568271eaf1c95be2675a9564e541f4c0b677f",
+  "source_qualified": false,
+  "source_result_sha256": "7ba51e40c30237afd87bbd61f5de1f3f676c525e53269c632f268f11d4e2addb",
+  "writer_registered": false
+}
