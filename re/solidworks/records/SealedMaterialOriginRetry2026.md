@@ -1,0 +1,17 @@
+# Observer-only origin ownership retry for the sealed material evaluation
+
+Task `B04-SW2026-NAMED-MATERIAL`, PR #121. The first bounded material evaluation opened both candidates with zero load diagnostics between two healthy controls. Each produced ten numeric checks before the observer refused its comparison of a dependent sketch point with the separately selected true model Origin. No edit or save followed. The original `Inspection/Result.json` has SHA-256 `71d0ca74a7521907f958ed89276410d5a12934bf81b72583b197a661ca4888b1`.
+
+The [matched origin owner probe](../../../Documentation/Gotchas/Conversion/Solidworks/Inspection/ExternalOriginPointsHaveSketchOwners.md) binds the separate sketch-point domains on a disclosed native source and an identical generated candidate. The Type 10 external point is a dependent sketch proxy. The lower-corner Type 0 point is a second point in that same sketch. Their own typed objects and sketch owners compare equal to themselves. Neither is the separately selected Origin point. The previously measured native probe is `6e822733fe51dfb0aca6dfb91b5ec70500dff7c06a808fe2fc4d93c2c7411995`.
+
+The [retry tool](../../tooling/sw2026/materials/sealed_evaluation/RunMaterialOriginRetry.py) verifies the old method, complete original generation and plan through the old `open_plan` implementation, and the failed result plus original phase/control records. A separate isolated [typed archive decoder](../../tooling/sw2026/materials/sealed_evaluation/VerifyMaterialOriginArchive.py) reads each complete unmodified generated candidate through the frozen Packet02 SDK. It checks the actual mapped dependent sketch, external entity, wrapper and selection handle, same part component, actual Origin feature and marked point, and exact local corner or centered geometry. Both synthetic shapes passed this same archived-owner path with no runtime input or CAD reads.
+
+The corrected native predicate requires one Type 10 proxy and one distinct local point under the actual dependent sketch. It checks the actual boundary point identity for the corner, or the actual shared local center identity across both opposite-corner construction diagonal relations. The fresh native measurements retain all earlier shape, feature, physical assignment, mass, driving edit and independent save/reopen checks. The typed archive proof is from the immutable generated input. The persistence phase measures the real reopened geometry, sketch owners and material on the separate saved derivative.
+
+The existing original evaluation stays at its existing local path and only `Inspection02` is created beneath it. The only exported file is a new redacted JSON receipt directly beneath `C:\Users\odin`. Both earlier packets and the original candidate, plan, generation, source and failed result bytes are checked again after the native phase. Native completion is pending the serialized root oracle. Full material-source transfer remains unqualified.
+
+```powershell
+python -E -B C:\KitMaterialOriginRetry01\Tools\RunMaterialOriginRetry.py run --retry-sha256 RETRY_SHA --original C:\KitMaterialEvaluationMethod01 --preparation C:\KitMaterialPreparation02 --local C:\KitSealedMaterialEvaluation01 --receipt C:\Users\odin\RedactedMaterialOriginRetry01.json
+```
+
+Use the exact current-user Python 3.12 interpreter already qualified for the licensed application and existing native wrapper. The public method does not include an original private result or any private source.
