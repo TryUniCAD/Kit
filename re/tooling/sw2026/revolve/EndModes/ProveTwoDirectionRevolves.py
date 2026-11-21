@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 import codecs
+from contextlib import contextmanager
 from dataclasses import replace
 from hashlib import sha256
 from importlib import import_module
@@ -43,10 +44,29 @@ FILES = (
 )
 REFUSALS = ("mid-plane", "equal-halves", "over-turn", "front", "equal-length", "translated-support", "foreign-suffix", "without-final")
 MODES = ("staged", "public")
+CHILD_FIELDS = ("passed", "error_type", "proof_lane", "predicate", "errno", "winerror", "denied_audit_events")
 
 
 class ParityFailure(ValueError):
     pass
+
+
+class ChildFailure(Exception):
+    def __init__(self, report):
+        self.report = report
+
+
+@contextmanager
+def proof_lane(lane, guard=None):
+    try:
+        yield
+    except ChildFailure:
+        raise
+    except Exception as error:
+        report = failure(error) | {"proof_lane": lane}
+        if guard is not None and guard.denied:
+            report["denied_audit_events"] = sorted(set(guard.denied))
+        raise ChildFailure(report) from None
 
 
 def need(value, check):
@@ -162,23 +182,24 @@ def write_worker(request):
     from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import PrepareRevolve
     from convert.api.ApiContext import GetRegistry
 
-    warm()
-    case = request["case"]
-    logical, epoch = request["locator"], request["epoch"]
-    root = Path(request["scratch"]).resolve()
-    normal = root / "Published" / (case["name"] + ".SLDPRT")
-    direct_file = root / "Direct" / normal.name
-    direct_file.parent.mkdir()
-    policy = {"require_native_transfers": True}
-    original_options = WriteOptions(values={**policy, "final_destination": logical})
-    options = WriteOptions(values={**policy, "final_destination": str(normal)})
-    writer = GetRegistry().GetWriter(FORMAT)
-    emitter = import_module("convert.adapters.solidworks.Core.Writing.EmitNativeMut")
-    emitter.ReadTime = lambda: epoch
-    guard = OutputGuard(root, normal.name)
-    sys.addaudithook(guard.audit)
-    results = []
-    with guard.active("memory"):
+    with proof_lane("writer-setup"):
+        warm()
+        case = request["case"]
+        logical, epoch = request["locator"], request["epoch"]
+        root = Path(request["scratch"]).resolve()
+        normal = root / "Published" / (case["name"] + ".SLDPRT")
+        direct_file = root / "Direct" / normal.name
+        direct_file.parent.mkdir()
+        policy = {"require_native_transfers": True}
+        original_options = WriteOptions(values={**policy, "final_destination": logical})
+        options = WriteOptions(values={**policy, "final_destination": str(normal)})
+        writer = GetRegistry().GetWriter(FORMAT)
+        emitter = import_module("convert.adapters.solidworks.Core.Writing.EmitNativeMut")
+        emitter.ReadTime = lambda: epoch
+        guard = OutputGuard(root, normal.name)
+        sys.addaudithook(guard.audit)
+
+    with proof_lane("prepare-original", guard), guard.active("memory"):
         doc = source_model(case, logical, epoch)
         prepared = PrepareRevolve(doc, logical, epoch)
         stream = BytesIO()
@@ -188,40 +209,49 @@ def write_worker(request):
         need(digest(raw) == request["candidate_sha256"], "exact native-measured candidate bytes")
         audited = inspect_generated(raw, case)
         need(len(audited["streams"]) == 10, "exact load-critical streams")
-        if request["mode"] == "staged":
+    if request["mode"] == "staged":
+        with proof_lane("staged-refusal", guard), guard.active("memory"):
             check_refusal(doc, normal, original_options.values, write_document)
-        else:
-            for direct in (False, True):
-                stream = BytesIO()
-                result = (writer.write(doc, stream, original_options) if direct else
-                          write_document(doc, stream, destination_format=FORMAT, allow_carrier=False,
-                                         values=original_options.values))
-                need(stream.getvalue() == raw, "original locator public/direct byte identity")
-                check_result(result, raw, None, doc, not direct)
-            stream, full_stream = BytesIO(), BytesIO()
-            fresh = PrepareRevolve(doc, normal, epoch).BytesValue
-            need(len(inspect_generated(fresh, case)["streams"]) == 10, "same fresh locator live owners")
-            direct_reply = writer.write(doc, stream, options)
-            stream_reply = write_document(doc, full_stream, destination_format=FORMAT, allow_carrier=False,
-                                          values=options.values)
-            need(stream.getvalue() == full_stream.getvalue() == fresh, "fresh locator memory parity")
-    if request["mode"] == "public":
-        with guard.active("path"):
-            file_reply = writer.write(doc, direct_file, options)
-            path_reply = write_document(doc, normal, allow_carrier=False, values=policy)
+        return {"original_locator_sha256": digest(raw), "exact_streams": 10,
+                "public_fresh_locator_routes": 0, "runtime_input_file_reads": len(guard.denied)}
+
+    with proof_lane("public-original-direct-stream", guard), guard.active("memory"):
+        stream = BytesIO()
+        reply = writer.write(doc, stream, original_options)
+        need(stream.getvalue() == raw, "original locator direct byte identity")
+        check_result(reply, raw, None, doc, False)
+    with proof_lane("public-original-registry-stream", guard), guard.active("memory"):
+        stream = BytesIO()
+        reply = write_document(doc, stream, destination_format=FORMAT, allow_carrier=False, values=original_options.values)
+        need(stream.getvalue() == raw, "original locator registry byte identity")
+        check_result(reply, raw, None, doc, True)
+    with proof_lane("prepare-fresh", guard), guard.active("memory"):
+        fresh = PrepareRevolve(doc, normal, epoch).BytesValue
+        need(len(inspect_generated(fresh, case)["streams"]) == 10, "same fresh locator live owners")
+    with proof_lane("public-fresh-direct-stream", guard), guard.active("memory"):
+        stream = BytesIO()
+        direct_reply = writer.write(doc, stream, options)
+        need(stream.getvalue() == fresh, "fresh locator direct memory parity")
+        check_result(direct_reply, fresh, None, doc, False)
+    with proof_lane("public-fresh-registry-stream", guard), guard.active("memory"):
+        stream = BytesIO()
+        stream_reply = write_document(doc, stream, destination_format=FORMAT, allow_carrier=False, values=options.values)
+        need(stream.getvalue() == fresh, "fresh locator registry memory parity")
+        check_result(stream_reply, fresh, None, doc, True)
+    with proof_lane("public-direct-file", guard), guard.active("path"):
+        file_reply = writer.write(doc, direct_file, options)
+        check_result(file_reply, fresh, direct_file, doc, False)
+    with proof_lane("public-registry-path", guard), guard.active("path"):
+        path_reply = write_document(doc, normal, allow_carrier=False, values=policy)
+        check_result(path_reply, fresh, normal, doc, True)
+    with proof_lane("public-output-comparison", guard):
         need(normal.read_bytes() == direct_file.read_bytes() == fresh
              and tuple(normal.parent.iterdir()) == (normal,), "staged file and direct parity")
-        for reply, path, strict in ((direct_reply, None, False), (stream_reply, None, True),
-                                    (file_reply, direct_file, False), (path_reply, normal, True)):
-            check_result(reply, fresh, path, doc, strict)
-            results.append(strict)
-    response = {"original_locator_sha256": digest(raw), "exact_streams": 10,
-                "public_fresh_locator_routes": len(results), "runtime_input_file_reads": len(guard.denied)}
-    if request["mode"] == "public":
-        response["fresh_locator_sha256"] = digest(fresh)
-        response["native_capabilities"] = sorted(value.value for value in path_reply.native_capabilities)
-        response["guarded_output_events"] = dict(guard.events)
-    return response
+    return {"original_locator_sha256": digest(raw), "exact_streams": 10,
+            "public_fresh_locator_routes": 4, "runtime_input_file_reads": len(guard.denied),
+            "fresh_locator_sha256": digest(fresh),
+            "native_capabilities": sorted(value.value for value in path_reply.native_capabilities),
+            "guarded_output_events": dict(guard.events)}
 
 
 def check_refusal(doc, path, stream_options, write_document):
@@ -307,15 +337,24 @@ def read_worker(request):
 
 def worker(request):
     worker_paths()
-    return {"write": write_worker, "read": read_worker, "negative": negative_worker}[request["operation"]](request)
+    for operation, handler in (("write", write_worker), ("read", read_worker), ("negative", negative_worker)):
+        if request["operation"] == operation:
+            with proof_lane(operation + "-worker"):
+                return handler(request)
+    raise ParityFailure("unknown fresh proof operation")
 
 
 def separated(tool, request):
-    child = run((sys.executable, "-I", "-B", str(tool), "--worker"), input=json_bytes(request),
-                capture_output=True, timeout=150, check=False)
-    need(not child.stderr and child.returncode in (0, 1), "fresh proof subprocess")
-    result = json.loads(child.stdout)
-    need(result.pop("passed") and child.returncode == 0, result.get("predicate", "fresh proof predicate"))
+    with proof_lane("worker-launch"):
+        child = run((sys.executable, "-I", "-B", str(tool), "--worker"), input=json_bytes(request),
+                    capture_output=True, timeout=150, check=False)
+    with proof_lane("worker-response"):
+        need(not child.stderr and child.returncode in (0, 1), "fresh proof subprocess")
+        result = json.loads(child.stdout)
+        need(isinstance(result, dict), "fresh proof response type")
+        if result.get("passed") is False and child.returncode == 1:
+            raise ChildFailure({key: result[key] for key in CHILD_FIELDS if key in result})
+        need(result.pop("passed", None) is True and child.returncode == 0, "fresh proof response status")
     return result
 
 
@@ -413,8 +452,8 @@ def read_and_compare(tool, name, case, directory, locked_original, row):
         try:
             proof[label] = separated(tool, {"operation": "read", "artifact": str(path), "artifact_sha256": sha,
                                             "observed": observed, "case": intent, "cached": cached})
-        except ParityFailure as error:
-            raise ParityFailure(label + " " + str(error)) from None
+        except ChildFailure as error:
+            raise ChildFailure(error.report | {"history_phase": label}) from None
     return proof, source_ids + candidate_ids
 
 
@@ -515,9 +554,16 @@ def verify(args):
 
 
 def failure(error):
+    if isinstance(error, ChildFailure):
+        return error.report
     result = {"passed": False, "error_type": type(error).__name__}
-    if type(error).__name__ == "ParityFailure":
+    if type(error) is ParityFailure:
         result["predicate"] = str(error)
+    if isinstance(error, OSError):
+        for name in ("errno", "winerror"):
+            value = getattr(error, name, None)
+            if type(value) is int:
+                result[name] = value
     return result
 
 

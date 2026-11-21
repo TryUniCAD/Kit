@@ -37,6 +37,7 @@ REACHED_GUARD = "circle preparation is not qualified for this support driver or 
 POLICY = {"require_native_transfers": True}
 PROCESS_EVENTS = ("subprocess.Popen", "os.system", "os.exec", "os.posix_spawn", "os.fork", "os.forkpty", "ctypes.dlopen")
 DIRECTORY_EVENTS = ("os.listdir", "os.scandir")
+ACCESS_MODE_MASK = getattr(os, "O_ACCMODE", os.O_WRONLY | os.O_RDWR)
 EDIT_EVENTS = ("os.mkdir", "os.rmdir", "os.remove", "os.unlink", "os.rename", "os.link", "tempfile.mkdtemp")
 
 
@@ -108,7 +109,7 @@ class OutputGuard:
             if path.is_dir():
                 state = path.stat()
                 self.directories[(state.st_dev, state.st_ino)] = path
-            elif path.name != self.filename or args[2] & os.O_ACCMODE != os.O_WRONLY:
+            elif path.name != self.filename or args[2] & ACCESS_MODE_MASK != os.O_WRONLY:
                 self.denied_event(name, args)
         elif name in ("os.rename", "os.link"):
             source, target, source_fd, target_fd = args

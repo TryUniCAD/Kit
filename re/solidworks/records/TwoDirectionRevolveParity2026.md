@@ -86,5 +86,13 @@ The first Windows lane verified both independent Two Directions pairs
 and the ten native process identities that bracket those comparisons.
 It read the four exact saved inputs per pair and regenerated both
 measured outputs in guarded model-only workers. Eight refusal
-contrasts passed. The public gate still requires its own parity proof.
+contrasts passed.
 [Staged Windows parity](../measurements/2026/SdkTwoDirectionRevolveStagedParity01.json)
+
+## Recover the public proof on Windows
+
+The first public packet, freeze `2f2395fc1682143142b54b5e86dec9f8b9de5aa7cc41a8e96f6e5d9c155e14e3`, returned the generic fresh-worker failure before publication of a passing receipt. The staged replay remains valid for two pairs, eight refusals and ten prior native process identities under receipt `e2d6a2041e4b959ac5b4d72b3bf88225729f546c4868f026593c5197808292e0`.
+
+An independently authored synthetic case reproduced the missing `os.O_ACCMODE` failure at the first guarded output open. Removing that symbol in fresh host workers confirmed the portable access mask retains write-only discrimination and restores parity on all four public routes with ten re-read streams and zero runtime input-file reads. An injected output open fault kept the lane, error class and numeric error codes while suppressing the error text and filename. The candidate-digest refusal kept its fixed predicate. [Existing Windows access-mask gotcha](../../../Documentation/Gotchas/Conversion/Registry/WindowsAuditsNeedPortableAccessMask.md)
+
+The recovery freezes the same public SDK source tree and changes only the proof tooling. It preserves the staged success and the first public failure.
