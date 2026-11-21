@@ -333,6 +333,11 @@ These fields retain their wire values and leave the archive map unchanged.
 Complete detail definitions require the remaining annotation and table owners.
 [Configuration font scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigFontFields.md)
 
+The ordinary part label layouts preserve all five embedded label types, with
+their own numeric suffixes and shared characters and widths. An active
+layer reference requires separate ownership evidence and is refused.
+[Configuration label scope](../../Changes/Solidworks/Archive/SolidworksConfigLabelFields.md)
+
 The configuration scene reader keeps the environment folder, its actual
 name and the observed ambient and directional light children. The
 runtime light reset retains its separate signed wire word. Populated

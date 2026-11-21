@@ -531,6 +531,17 @@ guarded malformed cases and current revision queue and review evidence.
 The composed label, annotation and detail definitions have separate exits.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigFontFields.md)
 
+### B04-SW2026-CONFIG-LABEL-FIELDS
+
+The PR #121 takeover team owns this bounded reader on
+`codex/solidworks-config-label-fields` for separate main delivery.
+It depends on the shared embedded field reader and the font and width
+layouts. Exit requires exact comparisons of the full label group in
+both disclosed parts, signed condition contrasts, refused active layer
+objects, and current revision queue and review evidence.
+Concrete layer ownership and full physical Config-0 have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigLabelFields.md)
+
 ### B04-SW2026-CONFIG-SCENE
 
 The PR #121 takeover team owns this bounded scene and light
