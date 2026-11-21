@@ -974,6 +974,13 @@ The [path audit](measurements/2026/ReFcstdRosterAudit01.json) retains the checke
 scope and the exact overlap. The requested 165-part and five-assembly roster
 still needs authoritative source files or an original inventory.
 
+The [FCStd availability receipt](measurements/2026/FcstdCorpusAvailability01.json)
+also checks the physical Mac checkout's `re/` paths and outer archive metadata.
+It identifies nine modern tracked verification controls and two older
+AdditiveBox blobs in Git. None establishes membership in the historical
+roster. All five documented assembly paths are absent from the inspected
+Mac checkout.
+
 The original recursive result was:
 
 | measurement              | count |
