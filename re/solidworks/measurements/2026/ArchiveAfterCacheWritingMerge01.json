@@ -1,0 +1,30 @@
+{
+  "accepted_aggregate_workflow": 44896468237,
+  "accepted_main": "b46259ae0f847339d8a043799e8b8539a2b909d6",
+  "accepted_merge_gate_job": 136828033589,
+  "accepted_merge_group_checks": 32,
+  "accepted_merge_group_workflow": 44896468235,
+  "aggregate_codec_revision": "e2e75ecfa3beef15feb8b360ec4617bf382edbf4",
+  "all_prior_file_and_stream_rows_exact": true,
+  "all_six_generated_pattern_states_unchanged": true,
+  "cache_guarded_processes": 5,
+  "cache_process_rows_identical_to_main": true,
+  "cache_report_sha256": "fa4c85dcb769b03a4e6da5c4cf17ab1b4a6779c6348eb021685e088693cc2b4c",
+  "codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/serial": "40a081f74b7e3a1a217ea8bf152d7c499022fbf9",
+    "src": "cac45625372f483a8520ea55b6cdd53415ec761c"
+  },
+  "merged_complete_receipt_sha256": "5534bee60c5b86f7daa37cd98adacb9df2a43466fcdfabe6440a395489c134a0",
+  "model_generation_receipt_sha256": "af02a4a2d638013d50282cfd3f08005db3a0f0987870a882946c66192d575010",
+  "native_corpus_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "native_lifecycles_started": 0,
+  "parent_complete_receipt_sha256": "c11d74124fc692ed75f8b8d0e3c8b9d54e7f8c718e0fad6a620b5c8426e16a31",
+  "schema": "kit.sw2026.archive-after-cache-writing-merge.v1",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1328
+  }
+}
