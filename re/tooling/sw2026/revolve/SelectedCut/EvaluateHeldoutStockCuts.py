@@ -32,7 +32,7 @@ GUEST_SHARE = PureWindowsPath(r"\\Mac\Home\Documents\UniCAD\Oracle121Takeover")
 CONTROL = GUEST_SHARE / "RevolveCutSelector01" / "Control" / "RevolveFull.SLDPRT"
 TOOL_NAMES = (
     "AuthorRevolveFamilies.py", "RevolveFamilyModel.py", "AuthorRevolveSources.py",
-    "AuthorCurves.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py",
+    "AuthorCurves.py", "ComparePerpendicularRuntimes.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py",
 )
 
 
@@ -168,6 +168,7 @@ def verify(packet, freeze_pin, *, create=False):
 def prepare(packet, pin):
     manifest, private, source = verify(packet, pin, create=True)
     sys.path.insert(0, str(source / SELECTED))
+    from CompareStockCutRuntime import compare_host_runtime
     from FreezeScopedRevolveNative import make_candidate, path_for_tool
     from RunScopedRevolveNative import (
         CONTROL as CONTROL_NAME, CONTROL_SHA, LOCK as LOCK_NAME, MODEL, ORACLE_SHA,
@@ -179,10 +180,17 @@ def prepare(packet, pin):
     probe = json.loads(checked(source / PROBE, PROBE_SHA))
     disclosed = validate_specs(json.loads(checked(source / PROBE_SPEC, probe["files"][MODEL])))
     require(len(disclosed) == 2, "the guest preflight needs both disclosed constructor cases")
+    host_parity = []
     for case in disclosed:
-        _, evidence = make_candidate(case, PureWindowsPath(probe["guest_workspace"]), probe["epoch"])
-        require(evidence == probe["construction"][case["name"]],
-                "the guest SDK differs from the measured disclosed writer")
+        raw, evidence = make_candidate(case, PureWindowsPath(probe["guest_workspace"]), probe["epoch"])
+        prior = probe["construction"][case["name"]]
+        filename = path_for(case)
+        baseline = Path(GUEST_SHARE / "ScopedRevolveFrontier02" / "Candidates" / filename)
+        old_raw = checked(baseline, prior["sha256"])
+        require(all(evidence[key] == prior[key] for key in
+                    ("zero_runtime_reads", "selector", "active_root_count", "config_counter", "resolved_counter")),
+                "the guest SDK changed the disclosed link or selection")
+        host_parity.append(compare_host_runtime(old_raw, raw))
     raw_spec = checked(Path(SPEC), lock["spec_sha256"])
     cases = validate_specs(json.loads(raw_spec))
     require(len(cases) == 2 and {case["plane"] for case in cases} == {"top", "right"}
@@ -212,7 +220,7 @@ def prepare(packet, pin):
         "codec_revision": manifest["writer_revision"], "codec_src_tree": manifest["writer_source_tree"],
         "guest_packet": str(candidate_packet), "guest_workspace": str(workspace),
         "epoch": manifest["epoch"], "generation_workers": len(samples),
-        "disclosed_guest_preflight_cases": len(disclosed), "python_version": sys.version.split()[0],
+        "disclosed_guest_preflight": host_parity, "python_version": sys.version.split()[0],
         "freeze_sha256": pin, "original_native_files_read_by_generation": 0,
         "runtime_reads": 0, "new_heldout_credit": 0, "construction": proof,
         "files": {name: digest(raw) for name, raw in artifacts.items()},
