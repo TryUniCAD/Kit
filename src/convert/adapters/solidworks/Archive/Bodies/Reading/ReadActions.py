@@ -29,6 +29,7 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNestedMut import (
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNormalMut import (
     ReadNormalMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadOwnedMut import ReadOwnedMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import (
     ReadPresentMut,
 )
@@ -54,6 +55,7 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Direct": ReadDirectMut,
             "GhostCount": ReadGhostMut,
             "Base": ReadNestedMut,
+            "DirectNode": ReadOwnedMut,
             "Embed": ReadNestedMut,
             "Array": ReadArrayMut,
             "Context": ReadContextMut,

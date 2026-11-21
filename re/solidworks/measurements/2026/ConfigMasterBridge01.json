@@ -1,0 +1,148 @@
+{
+  "complete_native_files_written": 0,
+  "guarded_outcomes": {
+    "circle-save": {
+      "result": {
+        "base": 4,
+        "body_bytes": 149,
+        "bridge_sha256": "7bc2acf38197cb8a08008c527073ee0e12bb3186f7c4b8b597ecb94d85e4ef79",
+        "case": "circle-save",
+        "config_sha256": "0108db9a716df98148a4d55f6a50cbf5ae184847132ab7d065e5329676194952",
+        "counter": [
+          118,
+          118
+        ],
+        "header_sha256": "f69b4105ad3ebea020b533ed18a76bb8230a25cc19a03e5aab3539e4fef63fbe",
+        "interval": [
+          24214,
+          24367
+        ],
+        "result": {
+          "class": "moSheetMetalMaster_c",
+          "count": 0,
+          "fields_sha256": "2f3c3bdd57b2042697c543f2440628a4808fc147540e340385af918552c200e9",
+          "index": null,
+          "native_id": -1,
+          "schema": 1,
+          "variant": 0
+        },
+        "runtime_external_accesses": 0,
+        "selector": 1,
+        "source_sha256": "2be24e233fb210e575c411ed7665d715036844859a86833bd025317c05edfee0"
+      },
+      "stdout_sha256": "e93507652822d89f70ab295abe44f980f4a78028b2af32f6ccf46506beb91c43"
+    },
+    "circular": {
+      "result": {
+        "authored": {
+          "positive": [
+            {
+              "bytes": 201,
+              "node": {
+                "class": "moSheetMetalMaster_c",
+                "count": 0,
+                "fields_sha256": "8d40c505a3dfa69174ca64010d8326dad7a730e05dbfbdbb4f05f50d51f987ee",
+                "index": null,
+                "native_id": -1,
+                "schema": 1,
+                "variant": -41
+              },
+              "selector": -7,
+              "sha256": "d99d226c91814637c09930802fd0bf90c262086961373337afb2516293de43ed"
+            },
+            {
+              "bytes": 213,
+              "node": {
+                "class": "moSheetMetalMaster_c",
+                "count": 0,
+                "fields_sha256": "4b5432ff6756ea5db24d9ff8928722813860bc0b3b4a27b671fa5b3b3851bbdb",
+                "index": null,
+                "native_id": -1,
+                "schema": 1,
+                "variant": -41
+              },
+              "selector": 41,
+              "sha256": "987e8f6f62a9fc5f9237669218bc7e9338b67b6e9015740fd1bab1c1f75e1c2d"
+            }
+          ],
+          "refusals": [
+            "wrong_version",
+            "detached_part",
+            "trailing_absent",
+            "missing_direct_owner",
+            "wrong_tagged_frame",
+            "borrowed_part_link",
+            "nonempty_list",
+            "negative_list",
+            "appended_present"
+          ]
+        },
+        "base": 4,
+        "body_bytes": 149,
+        "bridge_sha256": "94932387d25e3870b30d38890e59a43b99967f805bed225c02ed02e929134a42",
+        "case": "circular",
+        "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+        "counter": [
+          119,
+          119
+        ],
+        "header_sha256": "dbff4fc3e0c22cc292d30541648df2aef7e7e193c513d005ceb3cbc88e962a9a",
+        "interval": [
+          25320,
+          25473
+        ],
+        "result": {
+          "class": "moSheetMetalMaster_c",
+          "count": 0,
+          "fields_sha256": "dadef17e06869eaf27508a7e37d04ea55662aa004fcfcdb124f8a31a73827a19",
+          "index": null,
+          "native_id": -1,
+          "schema": 1,
+          "variant": 1
+        },
+        "runtime_external_accesses": 0,
+        "selector": 1,
+        "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23"
+      },
+      "stdout_sha256": "0867b4a1c5b2ee297cec0f79f15409d369700fb5bd10b6926b648c872065bf7d"
+    },
+    "rectangle": {
+      "result": {
+        "base": 4,
+        "body_bytes": 0,
+        "bridge_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "case": "rectangle",
+        "config_sha256": "a77890c040efaa9792d0b151c5d38c8b9458301781c399a4a52b9b4a9d003d3a",
+        "counter": [
+          105,
+          105
+        ],
+        "header_sha256": "c3fd32646c92282433f0d265e0ee767256f869489c88efc0bdf41b925b9c058b",
+        "interval": [
+          25099,
+          25103
+        ],
+        "result": null,
+        "runtime_external_accesses": 0,
+        "selector": 0,
+        "source_sha256": "4377bf5680f30d1c9de52227928911e55604a75d30ceb987240df00d6b1b1805"
+      },
+      "stdout_sha256": "f45ec38d89f4ed1a3ad9357c258a85f5a38f473e02479312fd18d24880de6e62"
+    }
+  },
+  "heldout_credit": 0,
+  "implementation_sha256": {
+    "re/tooling/sw2026/CheckCfgMaster.py": "f7457249a21376c8111583f85b679c3491d2fe8b68750c648fb0118f50559c68",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "06d6c5eb60472edbc364168fc2e06f6cca6a7970d48e3b45dedf1e53303e300c",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadOwnedMut.py": "731f84644281affc98741a67d52112ca5319c21807dc8d7bc03594d3f6d17e9d",
+    "src/convert/adapters/solidworks/Archive/Config/SheetMetal/CheckMaster.py": "21f44b8f7efddf921beea10a186b110d984fd0b5e16c0dd12f8344e62eaabbbc",
+    "src/convert/adapters/solidworks/Archive/Config/SheetMetal/MasterRules.py": "c07b2ea68f8a95b91f25bac453e4007b387d4988603ee7cae4ac6c9a6720ac9c",
+    "src/convert/adapters/solidworks/Archive/Config/SheetMetal/NoMasterRef.py": "1a4faf31ffd2609ae10ac243ffc3436171723f3a0bb2485a345a77917ea350bc",
+    "src/convert/adapters/solidworks/Archive/Config/SheetMetal/ReadCfgMaster.py": "610e2d38c8c1a5f92278fddabde9e03bfa556edefbc73f12bf744da91fbe6d0d",
+    "tests/Convert/Solidworks/Configuration/Bridge/CfgMasterTests.py": "99b0741239ef780a2ba1bbcb47c03322490bbfac04bc8528777d90ac0071c23d",
+    "tests/Convert/Solidworks/Configuration/Bridge/RunMasterCase.py": "40100982de333d82b935adef25fc99f72707d376ac9ac0b60d0fc4a9a63fcb5d"
+  },
+  "preparation_base": "c1809221c0910c301dd457ce92e51e7b1b74f522",
+  "reference_aggregate": "9e0a4b85dd21cdfb7feb50eda94593ef9e9b01f9",
+  "schema": "kit.sw2026.direct-master-bridge.v1"
+}
