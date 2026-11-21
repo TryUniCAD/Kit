@@ -136,6 +136,11 @@ def PrepareRun(Args, SourceRoot):
                 if Args.native_ready:
                     for Resource in Resources.values():
                         Store.resource(Resource, available=True, capacity=1)
+        elif Args.native_ready and Config.exists():
+            with Ledger(Directory / "Store") as Store:
+                Store.resource(
+                    "application:solidworks:catalogue", available=True, capacity=1
+                )
         return Job, State, Config, None
     if Directory.exists():
         raise ValueError(

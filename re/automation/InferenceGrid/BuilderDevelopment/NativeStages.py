@@ -61,6 +61,13 @@ def NativeEvaluation(Context, Key, Candidate, Cases, Qualification=None):
         {"candidate": Candidate, "expectations": Expectations},
         {"observation": {"dependency": NativeId, "artifact": "report"}},
     )
+    if Verdict.get("verified") is not True and Verdict.get("classification") in {
+        "unhealthy_session",
+        "license_unavailable",
+        "application_unavailable",
+    }:
+        Context.state.setdefault("retry_native_jobs", []).append(NativeId)
+        Context.Save()
     return {
         "native_job": NativeId,
         "candidate": Candidate,
@@ -84,10 +91,7 @@ def RepairDiagnostics(Evaluation, Phase):
 
 # wrong-feature probes preserve volume yet must fail independently observed native semantics
 def NegativeProbe(Context):
-    if (
-        Context.state.get("negative_probe") is not None
-        or not Context.job["negative_probe"]
-    ):
+    if not Context.job["negative_probe"]:
         return
     Candidate = {
         "schema": 1,
@@ -96,12 +100,21 @@ def NegativeProbe(Context):
         "scale": 1.0,
         "reverse": False,
     }
-    Evaluation = NativeEvaluation(
-        Context, "negative", Candidate, [Context.job["discovery_cases"][0]]
-    )
+    Evaluation = Context.state.get("negative_probe")
+    if Evaluation is None or Evaluation["verdict"].get("classification") in {
+        "unhealthy_session",
+        "license_unavailable",
+        "application_unavailable",
+    }:
+        Evaluation = NativeEvaluation(
+            Context, "negative", Candidate, [Context.job["discovery_cases"][0]]
+        )
     Context.state["negative_probe"] = Evaluation
     Context.Save()
     if Evaluation["verdict"].get("verified") is True:
         raise DevelopmentStopped("verifier_false_accept", Evaluation)
     if Evaluation["verdict"].get("classification") != "builder_defect":
-        raise DevelopmentStopped("negative_probe_unverified", Evaluation)
+        raise DevelopmentStopped(
+            Evaluation["verdict"].get("classification", "negative_probe_unverified"),
+            Evaluation,
+        )

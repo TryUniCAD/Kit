@@ -59,14 +59,22 @@ class StageState:
     def Stage(self, Key, Kind, Inputs, Dependencies=None, Native=False):
         self.Check()
         Key += ":" + digest([Inputs, Dependencies or {}])[:16]
+        BaseKey = Key
+        Heads = self.state.setdefault("stage_heads", {})
+        Key = Heads.get(BaseKey, BaseKey)
         Epoch = self.state.get("recovery_epoch", 0)
         if Key in self.state["jobs"] and Epoch:
             Previous = ReadStage(self.directory, self.state["jobs"][Key])
             if Previous["status"] in {"failed", "rejected"} or (
-                Native and Previous.get("records", {}).get("status") == "blocked"
+                Native
+                and (
+                    Previous.get("records", {}).get("status") == "blocked"
+                    or self.state["jobs"][Key]
+                    in self.state.get("retry_native_jobs", [])
+                )
             ):
                 Inputs = {**Inputs, "execution_retry": Epoch}
-                Key += ".retry" + str(Epoch)
+                Key = BaseKey + ".retry" + str(Epoch)
         if Key not in self.state["jobs"]:
             self.state["jobs"][Key] = SubmitStage(
                 self.directory,
@@ -76,6 +84,7 @@ class StageState:
                 Dependencies,
                 "application:solidworks:catalogue" if Native else None,
             )
+            Heads[BaseKey] = Key
             self.Save()
         Identity = self.state["jobs"][Key]
         Result = DriveStage(
