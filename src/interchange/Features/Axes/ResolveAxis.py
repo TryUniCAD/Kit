@@ -1,8 +1,11 @@
 from typing import Mapping as TypeMap
 
 from interchange.Enums.EnumFeatures import FeatureKind
-from interchange.Features.Axes.AxisConfigChain import GetAxisConfigs
-from interchange.Features.Axes.AxisExtentConfig import IsSuppressed
+from interchange.Features.Axes.AxisExtentConfig import (
+    AxisConfigView,
+    IsSuppressed,
+    MakeAxisView,
+)
 from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.Axes.IntersectPlanes import GetAxisFrame, GetPlaneLine
 from interchange.Features.Axes.MakeBoundAxis import MakeBoundAxis
@@ -25,6 +28,8 @@ def ResolveAxis(
     Frames: TypeMap[str, SupportPlane],
     Parameters: TypeMap[str, Parameter],
     Configurations: tuple[Configuration, ...] = (),
+    *,
+    ConfigView: AxisConfigView | None = None,
 ) -> tuple[SpaceVector, SpaceVector] | None:
     Definition = StepValue.definition
     if (
@@ -41,9 +46,11 @@ def ResolveAxis(
         GetAxisFrame(SecondPlane.transform),
     )
     if isinstance(Definition, BoundPlaneAxis):
-        Chain = GetAxisConfigs(Configurations)
-        Stations = ReadAxisExtents(StepValue, Definition, Parameters, Chain)
-        if IsSuppressed(StepValue, Chain):
+        ViewValue = MakeAxisView(Configurations) if ConfigView is None else ConfigView
+        if ViewValue.ErrorText is not None:
+            raise ValueError(ViewValue.ErrorText)
+        Stations = ReadAxisExtents(StepValue, Definition, Parameters, ViewValue)
+        if IsSuppressed(StepValue, ViewValue):
             return None
         Origin, Direction = GetPlaneLine(FirstFrame, SecondFrame)
         return MakeBoundAxis(Origin, Direction, Stations)

@@ -6,6 +6,8 @@ from pytest import raises as Raises
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.json.Adapter import JsonAdapter
 from interchange import CadDocument
+from interchange.brep.Topology.BrepModel import BrepModel
+from interchange.brep.Topology.BrepTopology import BrepBody
 from interchange.document.Models.DocumentError import DocumentError
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from interchange.Records.RecordConfig import Configuration
@@ -52,6 +54,23 @@ def CheckCfgLinks() -> None:
         _ = JsonAdapter().read(
             BytesIO(Stored.to_json().encode("utf-8")),
             ReadOptions(configuration=Requested.name, strict=False),
+        )
+
+
+# geometry filtering must preserve the validation result of the complete selected source
+def CheckCfgFilter() -> None:
+    Document = BuildBoundAxis()
+    Requested = Configuration("requested", "Requested")
+    Stored = ReplaceValue(
+        Document,
+        configurations=(*Document.configurations, Requested),
+        brep=BrepModel(bodies=(BrepBody("invalid", ("missing-region",)),)),
+    )
+    Payload = Stored.to_json().encode("utf-8")
+    with Raises(DocumentError, match="B-rep body invalid references a missing region"):
+        _ = JsonAdapter().read(
+            BytesIO(Payload),
+            ReadOptions(configuration=Requested.name, include_brep=False, strict=False),
         )
 
 

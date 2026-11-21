@@ -7,7 +7,7 @@ from interchange.Features.PlaneExtAxis import KAxisTolerance
 from interchange.Features.PlaneExtFrame import GetExtFrame
 from interchange.geometry.Models.Transform import Transform
 
-# each validated support retains its origin and oriented unit normal
+# intersection arithmetic consumes checked origins and normals without revalidating full transforms
 KAxisFrame: TypeAlias = tuple[KAxisTriple, KAxisTriple]
 
 

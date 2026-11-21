@@ -1,11 +1,10 @@
 from typing import Mapping as TypeMap
 
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
-from interchange.Features.Axes.AxisExtentConfig import ConfigAxisParam
+from interchange.Features.Axes.AxisExtentConfig import AxisConfigView, ConfigAxisParam
 from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.DistanceParam import GetDistParam
 from interchange.Features.FeatureStep import FeatureStep
-from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordParameter import Parameter
 
 
@@ -14,7 +13,7 @@ def ReadAxisExtents(
     StepValue: FeatureStep,
     Definition: BoundPlaneAxis,
     Parameters: TypeMap[str, Parameter],
-    Chain: tuple[Configuration, ...],
+    ViewValue: AxisConfigView,
 ) -> tuple[float, float]:
     ParamIds = (Definition.StartParameterId, Definition.EndParameterId)
     if StepValue.parameter_ids != ParamIds:
@@ -30,7 +29,7 @@ def ReadAxisExtents(
             raise ValueError(
                 "requires editable driving length parameters for its extents"
             )
-        Effective = ConfigAxisParam(Param, Chain)
+        Effective = ConfigAxisParam(Param, ViewValue)
         try:
             Length = GetDistParam(StepValue, Identity, Parameters, ValueKind.KLength)
             if Effective is not Param:

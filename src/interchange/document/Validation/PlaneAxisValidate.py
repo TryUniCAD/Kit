@@ -1,10 +1,10 @@
 from typing import Mapping as TypeMap
 
+from interchange.Features.Axes.AxisExtentConfig import AxisConfigView
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Features.Axes.ResolveAxis import ResolveAxis
 from interchange.geometry.Models.Selection import Selection
 from interchange.geometry.Models.SupportPlane import SupportPlane
-from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordParameter import Parameter
 
 
@@ -14,10 +14,10 @@ def GetAxisErrors(
     Selections: TypeMap[str, Selection],
     Frames: TypeMap[str, SupportPlane],
     Parameters: TypeMap[str, Parameter],
-    Configurations: tuple[Configuration, ...],
+    AxisView: AxisConfigView | None,
 ) -> tuple[str, ...]:
     try:
-        _ = ResolveAxis(StepValue, Selections, Frames, Parameters, Configurations)
+        _ = ResolveAxis(StepValue, Selections, Frames, Parameters, ConfigView=AxisView)
     except (ValueError, OverflowError) as ErrorInfo:
         return (f"plane axis {StepValue.id}: {ErrorInfo}",)
     return ()

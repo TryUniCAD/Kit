@@ -47,13 +47,16 @@ projection of the first support origin onto the intersection. Positive stations
 follow the cross product of the first and second normals. The two stations
 may run in either order and define the finite segment direction.
 An expression-backed parameter supplies its stored evaluated length. The axis
-retains the expression and its links without evaluating the expression text.
+preserves the original language, expression and dependency links. Editors
+publish the new evaluated length when a dependency changes the station.
 [`ResolveAxis`](../../../src/interchange/Features/Axes/ResolveAxis.py) evaluates these
 endpoints from the selected frames and current parameters. Pass the document's
 `configurations` to apply its active variant, as document validation does.
 An override replaces the value of the linked length parameter while retaining
 its ownership. The closest override in the active configuration's parent chain
 controls each station. With no active configuration, the base values apply.
+Each validation pass indexes the effective overrides and suppressions once for
+all the bound axes in that document.
 Base suppression, or suppression by either record in the active chain, keeps
 the bound definition and its validated support frames and resolves to no segment.
 An explicit JSON configuration selection validates the requested variant before

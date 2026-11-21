@@ -4,6 +4,41 @@ from interchange.document.Models.DocumentModel import (  # lgtm[py/cyclic-import
     CadDocument,
 )
 from interchange.document.Validation.DocumentDefValidate import GetDefErrors
+from interchange.Features.Axes.AxisExtentConfig import MakeAxisView
+from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
+from interchange.Features.FeatureStep import FeatureStep
+
+
+# step links must name an existing entity and point only to prior operations
+def GetStepErrors(
+    FeatureValue: FeatureStep,
+    FeatureOrders: TypeMap[str, int],
+    IdentitySets: TypeMap[str, set[str]],
+) -> list[str]:
+    ErrorValues: list[str] = []
+    if (
+        FeatureValue.sketch_id
+        and FeatureValue.sketch_id not in IdentitySets["sketches"]
+    ):
+        ErrorValues.append(f"feature {FeatureValue.id} references missing sketch")
+    for InputId in FeatureValue.input_feature_ids:
+        if InputId not in FeatureOrders:
+            ErrorValues.append(
+                f"feature {FeatureValue.id} references missing input {InputId}"
+            )
+        elif FeatureOrders[InputId] >= FeatureValue.order:
+            ErrorValues.append(f"feature {FeatureValue.id} has a forward dependency")
+    for ParameterId in FeatureValue.parameter_ids:
+        if ParameterId not in IdentitySets["parameters"]:
+            ErrorValues.append(
+                f"feature {FeatureValue.id} references missing parameter"
+            )
+    for SelectionId in FeatureValue.selection_ids:
+        if SelectionId not in IdentitySets["selections"]:
+            ErrorValues.append(
+                f"feature {FeatureValue.id} references missing selection"
+            )
+    return ErrorValues
 
 
 # timeline checks protect ordering and every feature dependency from invalid references
@@ -25,31 +60,16 @@ def GetFeatureErrs(
     Parameters = {Value.id: Value for Value in DocumentValue.parameters}
     Frames = {Value.id: Value for Value in DocumentValue.support_planes}
     Sketches = {Value.id: Value for Value in DocumentValue.sketches}
+    AxisView = (
+        MakeAxisView(DocumentValue.configurations)
+        if any(
+            isinstance(FeatureValue.definition, BoundPlaneAxis)
+            for FeatureValue in DocumentValue.feature_timeline
+        )
+        else None
+    )
     for FeatureValue in DocumentValue.feature_timeline:
-        if (
-            FeatureValue.sketch_id
-            and FeatureValue.sketch_id not in IdentitySets["sketches"]
-        ):
-            ErrorValues.append(f"feature {FeatureValue.id} references missing sketch")
-        for InputId in FeatureValue.input_feature_ids:
-            if InputId not in FeatureOrders:
-                ErrorValues.append(
-                    f"feature {FeatureValue.id} references missing input {InputId}"
-                )
-            elif FeatureOrders[InputId] >= FeatureValue.order:
-                ErrorValues.append(
-                    f"feature {FeatureValue.id} has a forward dependency"
-                )
-        for ParameterId in FeatureValue.parameter_ids:
-            if ParameterId not in IdentitySets["parameters"]:
-                ErrorValues.append(
-                    f"feature {FeatureValue.id} references missing parameter"
-                )
-        for SelectionId in FeatureValue.selection_ids:
-            if SelectionId not in IdentitySets["selections"]:
-                ErrorValues.append(
-                    f"feature {FeatureValue.id} references missing selection"
-                )
+        ErrorValues.extend(GetStepErrors(FeatureValue, FeatureOrders, IdentitySets))
         ErrorValues.extend(
             GetDefErrors(
                 FeatureValue,
@@ -58,7 +78,7 @@ def GetFeatureErrs(
                 Parameters,
                 Frames,
                 Sketches,
-                DocumentValue.configurations,
+                AxisView,
             )
         )
     for BodyValue in DocumentValue.bodies:
