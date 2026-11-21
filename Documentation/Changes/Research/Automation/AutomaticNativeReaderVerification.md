@@ -147,3 +147,5 @@ An additional serialized CLI case duplicates point geometry in both the decoded 
 The fixture is explicitly offline evidence and cannot establish licensed API acceptance.
 No local tests or licensed application acceptance were executed during implementation.
 Remote CI and live licensed SOLIDWORKS and Fusion measurements remain required.
+
+The [queue repair entry](NativeVerificationQueueRepairs.md) records the numeric topology comparison correction, consistent Windows metadata snapshots, and catalogue finalization integration.

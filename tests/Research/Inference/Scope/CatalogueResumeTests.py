@@ -60,4 +60,15 @@ def CheckProgress(TmpPath: FilePath) -> None:
     assert "0 workers active" in Progress
     assert "RAM below reserve" in Progress
     Report = DecodeJson((RunPath / "CatalogueResult.json").read_bytes())
-    assert all(Scope["status"] == "queued" for Scope in Report["scopes"].values())
+    PlanValue = DecodeJson((RunPath / "CataloguePlan.json").read_bytes())
+    ScopeOrder = PlanValue["scope_order"]
+    assert Report["scopes"][ScopeOrder[0]]["status"] == "queued"
+    assert all(
+        Report["scopes"][ScopeName]["status"] == "waiting_evidence"
+        for ScopeName in ScopeOrder[1:]
+    )
+    assert all(
+        JobValue["attempts"] == 0
+        for ScopeValue in Report["scopes"].values()
+        for JobValue in ScopeValue["jobs"]
+    )

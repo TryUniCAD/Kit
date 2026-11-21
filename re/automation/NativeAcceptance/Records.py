@@ -12,6 +12,10 @@ def ReadBytes(path, limit=256 * 1024 * 1024):
     before = path.lstat()
     if not stat.S_ISREG(before.st_mode) or before.st_nlink != 1 or getattr(before, "st_file_attributes", 0) & 0x400:
         raise ValueError("verification input must be a regular file without links")
+    if os.name == "nt":
+        from NativeAcceptance.WindowsSnapshot import ReadWindows
+
+        return ReadWindows(path, limit)
     with path.open("rb") as stream:
         opened = os.fstat(stream.fileno())
         data = stream.read(limit + 1)

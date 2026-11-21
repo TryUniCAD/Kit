@@ -24,6 +24,7 @@ from InferenceGrid.CatalogueWorkerConfig import BuildWorkerCfg
 from InferenceGrid.FeatureRoutes import FeatureRecipes
 from InferenceGrid.Provision import CheckRevision
 from Ledger import Ledger
+from NativeAcceptance.CatalogueBatch import VerifyCatalogue
 from Pilot.PilotConfig import PilotConfig
 from Pilot.PilotFiles import WriteRecord
 from Records import bounded, read_record
@@ -241,6 +242,17 @@ def FinishCatalogue(
         "status"
     ] == "coverage_incomplete":
         Outcome["status"] = "paused"
+    if not (Directory / "CataloguePause.json").exists() and not any(
+        Job["state"] == "running"
+        for Result in Results.values()
+        for Job in Result.get("jobs", [])
+    ):
+        Reports = VerifyCatalogue(SourceRoot, Directory, Results)
+        Outcome["native_verification"] = Reports
+        if Outcome["status"] == "completed" and (
+            not Reports or any(not Report["live_batch_verified"] for Report in Reports.values())
+        ):
+            Outcome["status"] = "coverage_incomplete"
     write_private(Directory / "CatalogueResult.json", Outcome)
     return Outcome
 

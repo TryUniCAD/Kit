@@ -361,3 +361,8 @@ The generated reader and graph receipt retain the same input identity in `source
 - [Step register](../Reference/Research/AutomationSteps.md)
 - [SOLIDWORKS reader](../Reference/Research/SolidworksResearchReader.md)
 - [Fusion reader](../Reference/Research/FusionResearchReader.md)
+
+Catalogue finalization verifies completed scope inputs after the supervisor settles, even when later scopes still await evidence.
+Paused runs do not start a native batch.
+Later scopes remain dependent on every predecessor job; a memory reserve can therefore leave the first scope queued and later scopes waiting for evidence.
+See [native verification queue repairs](../Changes/Research/Automation/NativeVerificationQueueRepairs.md) for file-boundary behavior and verification evidence.

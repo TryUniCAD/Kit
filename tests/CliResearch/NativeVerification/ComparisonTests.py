@@ -10,7 +10,7 @@ from tests.CliResearch.NativeVerification.RunComparison import RunComparison
 
 # equal measurements need complete semantic coverage without pretending that offline evidence is native acceptance
 @TestMark.parametrize("VariantName", ("original", "reordered", "near_boundary"))
-def CheckFullCompare(TmpPath: FilePath, VariantName: str) -> None:
+def CheckCompare(TmpPath: FilePath, VariantName: str) -> None:
     DocumentPath = DecodeControl(TmpPath)
     Evidence = DecodeJson(
         FilePath(__file__).with_name("FusionRectangle.json").read_bytes()
@@ -26,8 +26,8 @@ def CheckFullCompare(TmpPath: FilePath, VariantName: str) -> None:
     if VariantName == "near_boundary":
         Evidence["bodies"][0]["geometry"]["vertices_mm"][0][0] = -1e-8
     Result = RunComparison(TmpPath, DocumentPath, Evidence)
-    assert Result.returncode == 0, Result.stderr
     Report = DecodeJson((TmpPath / "Compared.json").read_bytes())
+    assert Result.returncode == 0, Report
     assert Report["status"] == "passed" and Report["full_semantics_verified"] is True
     assert Report["semantic_gaps"] == []
     assert Report["scope"] == "offline_measurement_comparison"
@@ -84,13 +84,13 @@ def CheckBadCompare(
     Result = RunComparison(TmpPath, DocumentPath, Evidence)
     assert Result.returncode == 5, Result.stderr
     Report = DecodeJson((TmpPath / "Compared.json").read_bytes())
-    assert Report["status"] == StatusName
+    assert Report["status"] == StatusName, Report
     assert Report["full_semantics_verified"] is False
     assert Report["native_acceptance"] is False
 
 
 # coincident geometry cannot establish reference identity even when both serialized inventories agree
-def CheckAmbiguousPoints(TmpPath: FilePath) -> None:
+def CheckAmbiguity(TmpPath: FilePath) -> None:
     DocumentPath = DecodeControl(TmpPath)
     SourceValue = DecodeJson(DocumentPath.read_bytes())
     SketchValue = SourceValue["sketches"]["$tuple"][0]
@@ -112,7 +112,7 @@ def CheckAmbiguousPoints(TmpPath: FilePath) -> None:
     Result = RunComparison(TmpPath, DocumentPath, Evidence)
     assert Result.returncode == 5, Result.stderr
     Report = DecodeJson((TmpPath / "Compared.json").read_bytes())
-    assert Report["status"] == "unverified"
+    assert Report["status"] == "unverified", Report
     assert Report["full_semantics_verified"] is False
     assert set(Report["semantic_gaps"]) == {
         "decoded:sketch:RectangleSketch:entity_identity",

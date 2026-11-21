@@ -54,15 +54,15 @@ def CheckGrouping(TmpPath: FilePath) -> None:
     assert len({JobRow["receipt"] for JobRow in ArchiveJobs}) == len(ArchiveJobs)
     Verification = Report["native_verification"]["solidworks"]
     assert Verification["status"] == "api_unavailable" and Verification["action"]
-    Plan = DecodeJson((RunPath / "CataloguePlan.json").read_bytes())
-    assert Plan["scope_order"].index("p03-blind-boss.solidworks") < Plan[
+    PlanValue = DecodeJson((RunPath / "CataloguePlan.json").read_bytes())
+    assert PlanValue["scope_order"].index("p03-blind-boss.solidworks") < PlanValue[
         "scope_order"
     ].index("p04-through-all-body-selection")
     CutScope = Report["scopes"]["p04-through-all-body-selection"]
     with OpenDatabase(RunPath / "Store/ledger.sqlite3") as Database:
         Parents = {
-            Row[0]
-            for Row in Database.execute(
+            DbRow[0]
+            for DbRow in Database.execute(
                 "SELECT dependency FROM dependencies WHERE job_id=?",
                 (CutScope["assessment_job"],),
             )

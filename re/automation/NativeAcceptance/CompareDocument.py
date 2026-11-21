@@ -104,7 +104,7 @@ def SemanticEqual(left, right):
         return False
     unordered = {"entities", "constraints", "dependencies", "vertices_mm", "edges", "faces", "loops"}
     for key in left:
-        if key in unordered:
+        if key in unordered and isinstance(left[key], (list, tuple)) and isinstance(right[key], (list, tuple)):
             if key == "loops":
                 if len(left[key]) != len(right[key]):
                     return False
