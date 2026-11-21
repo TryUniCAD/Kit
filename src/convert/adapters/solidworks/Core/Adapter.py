@@ -23,6 +23,10 @@ from convert.adapters.base import (
     Source,
     is_binary_destination as IsBinaryTarget,
 )
+from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.registry import AdapterRegistry
 from interchange import (
     ArcEllipseGeometry as ArcEllipseGeom,
     ArcGeometry as ArcGeom,
@@ -278,6 +282,7 @@ from convert.adapters.solidworks.Core.Scope.ScopeDocument import (
     ReadScopeDoc,
 )
 from convert.adapters.solidworks.Core.TwoPad.PadDocument import ProjectPadDoc
+from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.adapters.solidworks.Resolved.ResolvedHead import OpenResolved
 from convert.adapters.solidworks.Resolved.SystemPrefix import ReadSysPrefix
 from interchange.geometry.Models.GeometryTypes import KGeometryTypes
@@ -367,6 +372,29 @@ class SldprtAdapter(PairProtocol):
     # conversion needs one neutral document result across solidworks reader implementations
     def read(self, SourceValue: Source, Options: ReadOptions | None = None) -> CadDoc:
         return ReadAction(self, SourceValue, Options)
+
+    # direct adapter callers use the canonical selection and checked output transaction
+    def write(
+        self,
+        document: CadDoc,
+        destination: KTargetType,
+        options: WriteOptions | None = None,
+    ) -> WriteResult:
+        FormatId = (
+            options.destination_format if isinstance(options, WriteOptions) else None
+        )
+        if FormatId is None:
+            if document.DrawingValue is not None:
+                FormatId = KDrawingFormatId
+            elif document.assembly is not None:
+                FormatId = KAsmFormatId
+            else:
+                FormatId = KFormatId
+        RegistryValue = AdapterRegistry()
+        RegistryValue.RegisterWriter(SldprtWriter())
+        return RegistryValue.WriteDocument(
+            document, destination, FormatId=FormatId, OptionsData=options
+        )
 
 
 # adapter metadata stays isolated so discovery can inspect capabilities without reading documents

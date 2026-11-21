@@ -7,6 +7,7 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.catia.Adapter import CatiaAdapter
 from convert.adapters.freecad.Adapter import FreeCadAdapter
 from convert.adapters.json.Adapter import JsonAdapter
+from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
 from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -22,4 +23,5 @@ KDirectWriters: tuple[
     ("catia-write", CatiaAdapter().write),
     ("freecad-write", FreeCadAdapter().write),
     ("solidworks-write", SldprtWriter().write),
+    ("solidworks-adapter-write", SldprtAdapter().write),
 )

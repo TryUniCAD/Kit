@@ -518,6 +518,11 @@ A single flag change is not a general operation converter.
 
 ## Writing
 
+`SldprtAdapter().write(document, destination, options)` uses the same
+admission, native transfer checks and output staging as `write_document`.
+Supply the existing native path options for a named part stream or linked
+assembly bundle. [Direct writer parity](../../Changes/Solidworks/Construction/SolidworksDirectAdapterWrite.md)
+
 The shared atom manager encoder derives its row count and map allocation
 from typed rows. Its bounded emission preserves native state normalization
 under the actual archive conditions.
