@@ -41,7 +41,9 @@ def CheckRevKeys(InputValue: KeywordFeature) -> None:
             "ordinary revolve keywords require active D1 and optional D2 degree drivers"
         )
     if KindValue == "Cut-Revolve":
-        raise ValueError("selected revolve cut keywords require the actual D1 degree driver")
+        raise ValueError(
+            "selected revolve cut keywords require the actual D1 degree driver"
+        )
     raise ValueError(
         "thin revolve keywords require their active angle and wall drivers"
     )

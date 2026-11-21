@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.Layouts.BodyLayouts import KBodyLayouts
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.AnnotationDetailFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Members.AnnotationDetailFields import (
     KAnnotationDetailFields as KAnnotationDetailRules,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.AnnotationFrameFields import (
