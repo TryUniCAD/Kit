@@ -6,14 +6,16 @@ and equation profiles, the selected two-stock circular through cut,
 and standalone geometry-only periodic cylinders and axis-aligned
 rectangular solids.
 The four fixed-centre circle profiles cover blind, symmetric mid-plane
-and two-direction ends. Its held-out native SOLIDWORKS examples belong
-to distinct evaluations. The historical FCStd audit below used vendor
+and two-direction ends. The branch also writes a rectangular partial
+boss revolve on the canonical Top or Right plane. Its held-out native
+SOLIDWORKS examples belong to distinct evaluations. The historical FCStd audit below used vendor
 stream re-emission. That writer was removed from production.
 [Native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
 [Circle end modes](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
 [Periodic import](../../Documentation/Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
 [Rectangular import](../../Documentation/Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
 [Selected two-stock writer](../../Documentation/Changes/Solidworks/Generation/Extrusion/ThroughAll/SolidworksSelectedTwoStockWriter.md)
+[Partial boss revolve writer](../../Documentation/Changes/Solidworks/Construction/Parts/SolidworksPrincipalRevolveWriterRegistration.md)
 [Recorded payload removal](../../Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md)
 
 The figures below are the last audit of that removed writer. They record which source histories it

@@ -1,0 +1,185 @@
+{
+  "cases": [
+    {
+      "cold_body_name": "OrdinaryBossRevolve",
+      "length": 8102,
+      "name": "KitPrincipalRevolveHeldoutRight",
+      "native_candidate_sha256": "07df0e087581fb9fcb68b94da523508074576e4bf925839c5aed65f897298313",
+      "native_capabilities": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "normal_sdk_and_direct_equal": true,
+      "request_sha256": "a98ceb2fa5977eb013d5668e4408c50ba0e0f84f0588015aedf63e6ab9a27270",
+      "runtime_external_attempts": [],
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "e0ff319609d1b65cc25f36e501c23c5c111ea3d940970a9f98dfc8949d1d204c"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "50d4a067848126f1aa87218b99e737dceba132cbd6a78e35aefbc01a8d9bbdbb"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22296,
+          "sha256": "8d97841d2639938abd30c62dfc81498fc973a00c91a65355050cdbc9b3077d82"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 807,
+          "sha256": "aa035278e4cf2f730b901095fd1ee3c244d71cb9d84a5412cc76afad03d5bcd4"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 9931,
+          "sha256": "98ca785f98118c6a87f1e5b97419ea3d45d7cef8476bf96dbabf0021ebf827b8"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 807,
+          "sha256": "eaa1891afd621553315cb9488798244ee7892a2849758c63b65dd3ee8968697d"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1410,
+          "sha256": "32ab4857b028724f9dd2efb2e217cde9d26ca70642d71a78443236f673755398"
+        }
+      }
+    },
+    {
+      "cold_body_name": "OrdinaryBossRevolve",
+      "length": 8097,
+      "name": "KitPrincipalRevolveHeldoutTop",
+      "native_candidate_sha256": "479a98f542d63471d1cbca0958870dca70294e1adbcbdb08f8eeaae9822d9736",
+      "native_capabilities": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "normal_sdk_and_direct_equal": true,
+      "request_sha256": "c23c593ced6e4de0e2ca48e1fadd8cf1ec3d3ae923b30ace3e57c36c46bd5864",
+      "runtime_external_attempts": [],
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "e0ff319609d1b65cc25f36e501c23c5c111ea3d940970a9f98dfc8949d1d204c"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "50d4a067848126f1aa87218b99e737dceba132cbd6a78e35aefbc01a8d9bbdbb"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22292,
+          "sha256": "db44dfc9472bb18d2fb9332d4ad643e3706b984e7b4cfb53567cc3b43a7368a7"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 795,
+          "sha256": "72493c5c46c89fb0d1a8cc872ef52d659d1198db73c2020c6143777b91c902ff"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 9931,
+          "sha256": "e81bfa9f08022ed23d45a8b8a353564e7ab1d460a6016b6d4953363732ce23de"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 795,
+          "sha256": "cfd5b44fdf5f9b6875fac55aaf034aab0282abb15c86601db08881082e8be13a"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1409,
+          "sha256": "b29829aa655ae66834ca10effa27a2c597a1ace10523e6be2d8fab97a39ee63a"
+        }
+      }
+    },
+    {
+      "reason": "solidworks.sldprt does not support the destination",
+      "request_sha256": "816c9ac9312fd616a0cf69484124f1bd6ebf2188413296621f41b6be2ef86d16",
+      "runtime_external_attempts": [],
+      "variant": "full"
+    },
+    {
+      "reason": "solidworks.sldprt does not support the destination",
+      "request_sha256": "8ce58d33e83fe2a79d1bbc89fa44c3ce798cd596b6df8e3c2c4be1ccd7e69297",
+      "runtime_external_attempts": [],
+      "variant": "front"
+    },
+    {
+      "reason": "solidworks.sldprt does not support the destination",
+      "request_sha256": "a447ed8be1f05d37f1125deb095532e1b835a5dcb747ee6b7d5c75af5c446227",
+      "runtime_external_attempts": [],
+      "variant": "translated-support"
+    },
+    {
+      "reason": "plain part preparation cannot target an assembly or drawing",
+      "request_sha256": "ab4a86a76c49b8f2e8b410b635e0f97d07f23bde1b66cda9b1a8c570e59ddbd5",
+      "runtime_external_attempts": [],
+      "variant": "foreign-suffix"
+    },
+    {
+      "reason": "unnamed native streams require an explicit final destination",
+      "request_sha256": "aee754feacec8d73a2271f2c29410896b587a681ff787dddf75c5d22b0dd76ed",
+      "runtime_external_attempts": [],
+      "variant": "missing-final-path"
+    }
+  ],
+  "fresh_workers": 7,
+  "generation_sha256": "30b127f6bd04746e79019180099f62e55b87499e635b25182e0b04533a0bb0d2",
+  "new_native_processes": 0,
+  "proof_tool_sha256": "5a295ba550223dad89e059b71cad88d370e4d8c63bfffd8bc9789e36b97c4248",
+  "schema": "kit.sw2026.public-principal-revolve-parity.v1",
+  "source_revision": "43e7180c726e990e6e3302a45302b801f542bf79",
+  "source_tree": "73c9b51c21a96d6978abbcc6a3d8a285281acc11"
+}

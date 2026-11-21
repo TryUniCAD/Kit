@@ -481,6 +481,7 @@ profiles:
 - A fixed-centre analytic circle on the canonical Top Plane with a driving radius and a reversed blind boss
 - A fixed-centre analytic circle on the canonical Right Plane with a driving diameter and a symmetric mid-plane boss
 - A fixed-centre analytic circle on the canonical Top Plane with a driving diameter and a reversed two-direction boss
+- A rectangular partial boss revolve on the canonical Top or Right plane with a selected construction line and one live D1
 
 Circle centres can be translated within their support plane. The writer
 preserves the neutral sketch, boss and configuration names and the
@@ -490,6 +491,13 @@ second depths. The public circle route reproduces all four measured
 first-generation files from the held-out native comparisons.
 [Blind circle registration](../../Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md) ·
 [Mid-plane and two-direction registration](../../Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
+
+The ordinary revolve route preserves the four contour relations,
+the ordered closed profile, the selected construction axis and
+its signed sweep. The two preregistered Top and Right sources
+match the generated parts through native edit, save and reopen.
+The normal Windows SDK reproduces the two exact files.
+[Partial boss revolve writer](../../Changes/Solidworks/Construction/Parts/SolidworksPrincipalRevolveWriterRegistration.md)
 
 Call `write_document(document, path)` with a `.SLDPRT` path whose basename
 matches the document name. Set `overwrite=True` to replace an existing

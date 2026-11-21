@@ -112,11 +112,42 @@ near-zero centre rule. Eight strict SDK process reads reproduce
 Both candidate hashes precede the first native open of the
 originals. The corrected Windows observer recovered from a
 portable audit-hook error using these same candidates and the
-same production SDK tree. The cold SDK label is recorded as
-`Body 1` separately from the native and strict saved label
-`OrdinaryBossRevolve`. Full original-source preparation, public
-writer admission and original FCStd conversions remain open.
+same production SDK tree. The frozen reader reported the cold
+`Body 1` placeholder. The later creator binding recovers
+`OrdinaryBossRevolve`, matching the native and strict saved label.
+Full original-source preparation and original FCStd conversions
+remain open.
 [Evaluation receipt](../measurements/2026/SdkPrincipalRevolveHeldoutNative01.json) · [Generation pin](../v2026/heldout/PrincipalRevolveGenerationPin01.json) · [Method and recovery](PrincipalRevolveHeldoutProtocol2026.md)
+
+## Registry and cross-host measurements
+
+The normal SDK registry and direct adapter reproduce both exact
+candidate hashes on Windows with the original authored intent,
+final paths and explicit writing epoch. The two positive
+workers replay all 20 measured streams and recover both derived
+body labels. Five other workers refuse unsupported requests.
+All seven record zero guarded external access attempts.
+[Public writer receipt](../measurements/2026/SdkPrincipalRevolvePublicWriter01.json)
+
+Both macOS builds from the same intent preserve nine of the ten
+logical stream hashes. The remaining Config-0 bytes represent
+eight standard-view matrix coefficients in `moView_c.f368.f08`.
+The affected Left and Right rows use `m0` and `m8`. The
+affected Top and Bottom rows use `m4` and `m8`. The Windows
+coefficient is `-0x1.ffffffffffffep-49`. The macOS coefficient is
+`-0x1.0000000000000p-48`. The binary64 variation follows the
+previously observed platform cosine difference in the shared
+quaternion calculation. Both strict SDK readbacks retain the
+signed axis, live D1 and closed solids.
+[Exact host comparison](../measurements/2026/PrincipalRevolveHostViewParity01.json) · [Standard-view construction](StandardViewsConstruction2026.md) · [Previously isolated trigonometric variance](PerpendicularMateBlindMethod2026.md)
+
+Both macOS-generated parts opened with a solid before explicit
+rebuild and zero opening errors or warnings. The existing D1
+drivers edited, rebuilt, saved and reopened in fresh processes.
+All 36 paired mass-property values match the locked sources.
+Both controls passed across six processes. This host-portability
+comparison reuses the already evaluated source intents.
+[macOS-generated native lifecycle](../measurements/2026/SdkPrincipalRevolveMacNative01.json)
 
 ## Oracle procedure
 

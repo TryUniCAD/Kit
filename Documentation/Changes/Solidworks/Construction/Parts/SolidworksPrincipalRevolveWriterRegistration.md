@@ -13,3 +13,15 @@ The registration uses the shared generative part preparation.
 Full turns, other support frames, extra features, and
 unrepresented source owners fail closed.
 [Independent native preparation evidence](../../../../../re/solidworks/measurements/2026/SdkPrincipalRevolveHeldoutNative01.json)
+
+On Windows, the normal registry and direct adapter each
+reproduced both exact independently validated files from
+authored neutral intent. Seven fresh workers emitted no
+guarded external operations. The two positive cases re-emitted
+20 typed streams and read back the true derived body name.
+Five unsupported requests preserved the destination. The macOS
+comparison isolates eight rounding differences to the Config-0
+standard-view matrices. Both macOS-generated outputs pass native
+open, D1 edit, save and fresh reopen with 36 paired mass-property
+values matching the locked sources and both controls healthy.
+[Public writer receipt](../../../../../re/solidworks/measurements/2026/SdkPrincipalRevolvePublicWriter01.json) · [macOS output validation](../../../../../re/solidworks/measurements/2026/SdkPrincipalRevolveMacNative01.json)
