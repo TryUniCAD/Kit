@@ -41,6 +41,8 @@ Live report schema `2` keeps a compact case index.
 Measurements, comparisons, saved-edit readbacks, and detailed case results are separate bounded JSON artifacts in the adjacent private `*.Evidence-*` directory.
 Every artifact reference records its relative path and SHA-256 digest.
 Completed cases are reduced to their summaries in memory, so a large batch does not retain or repeatedly serialize every native snapshot.
+The batch index is written at initialization and finalization.
+Per-case artifacts provide durable progress without rewriting all earlier summaries at each checkpoint.
 
 The native batch performs these operations:
 
