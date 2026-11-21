@@ -157,12 +157,14 @@ class RevolveAuthor(CurveAuthor):
         actual = self.check_axis(self.get(selection, "GetSelectedObject6", 1, 4), case)
         require(actual["id"] == before["id"], "marked axis identity differs from the newly authored line")
         self.rec.data["feature_selections"] = {"marks": marks, "axis": actual}
-        arguments = (True, True, False, False, case["reverse"], False, 0, 0, math.radians(case["angle_deg"]), 0.0, False, False, 0.0, 0.0, 0, 0.0, 0.0, True, True, True)
-        boss = self.get(self.get(self.model, "FeatureManager"), "FeatureRevolve2", *arguments)
+        boss = self.get(self.get(self.model, "FeatureManager"), "FeatureRevolve2", *self.feature_arguments(case))
         require(boss is not None, "ordinary boss revolve creation failed")
         self.set(boss, "Name", BOSS)
 
-    def snapshot(self, case, label, angle_degrees):
+    def feature_arguments(self, case):
+        return (True, True, False, False, case["reverse"], False, 0, 0, math.radians(case["angle_deg"]), 0.0, False, False, 0.0, 0.0, 0, 0.0, 0.0, True, True, True)
+
+    def rebuilt_feature(self, label):
         rebuilt = self.get(self.model, "ForceRebuild3", False)
         if not rebuilt:
             self.rec.data["failed_rebuild"] = {
@@ -185,6 +187,10 @@ class RevolveAuthor(CurveAuthor):
         require(PROFILE in parents, "native revolve does not depend on the saved profile")
         definition = self.typed(self.get(boss, "GetDefinition"), "RevolveFeatureData2")
         require(self.get(definition, "IsBossFeature") and not self.get(definition, "IsThinFeature"), "reopened feature is not an ordinary boss revolve")
+        return boss, tree, parents, definition
+
+    def snapshot(self, case, label, angle_degrees):
+        boss, tree, parents, definition = self.rebuilt_feature(label)
         require(self.get(definition, "AccessSelections", self.model, Swapp.nothing()), "revolve definition selections unavailable")
         try:
             mode = int(self.get(definition, "Type"))
@@ -263,7 +269,7 @@ def checked_angle_edit(author, case, boss):
         preference["restored"] = True
 
 
-def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regeneration_warning=False, inspect_before_rebuild=False, inspect_profile=False, record_path=None, save_edited=None):
+def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regeneration_warning=False, inspect_before_rebuild=False, inspect_profile=False, record_path=None, save_edited=None, author_type=RevolveAuthor):
     record_path = record_path or path.with_suffix(f".{phase}.json")
     recorder = Recorder(record_path, {"case": case, "phase": phase})
     recorder.data["schema"] = "kit.sw2026.ordinary-revolve-source-phase.v1"
@@ -276,7 +282,7 @@ def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regen
             identity = recorder.call("oracle identity", application_identity, session.app)
             recorder.data["oracle_identity"] = identity
             require(identity["version_matches"] and identity["sha256"] == oracle_hash and identity["pe_machine"] == "0x8664" and session.revision == "34.5.2", "wrong SOLIDWORKS oracle")
-            author = RevolveAuthor(session.app, recorder, Swapp)
+            author = author_type(session.app, recorder, Swapp)
             if phase == "author":
                 require(not path.exists(), "native source output already exists")
                 author.build(case, session)
