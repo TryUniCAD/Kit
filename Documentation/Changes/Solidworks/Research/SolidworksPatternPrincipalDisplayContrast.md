@@ -1,3 +1,0 @@
-# SOLIDWORKS model-generated principal display contrast
-
-The research builder populates the real Top and Right plane display fields from the neutral stock bounds. It preserves the ordinary part generator and produces a same-locator plain and sized pair. Four guarded builds read no runtime inputs. Only the linked feature stream changes, and resetting the declared display owners reproduces the plain stream exactly. The six native lifecycles passed and both arms showed identical display values from their first queries through edit and fresh reopen. Dependent datum loading remains outside this measurement. [Scope, frozen experiment and native result](../../../../re/solidworks/records/LocalLinearPatternPrincipalDisplayContrast2026.md)
