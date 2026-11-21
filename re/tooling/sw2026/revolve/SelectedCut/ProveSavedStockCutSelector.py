@@ -5,10 +5,11 @@ from pathlib import Path
 from subprocess import check_output, run
 import sys
 
-from AuditStockCutSelectorSave import HERE, ORACLE, RESULT_PIN, ROOT, TRIAL_PIN, measured
+HERE = Path(__file__).resolve()
+ROOT = HERE.parents[5]
+sys.path[:0] = [str(HERE.parent), str(HERE.parent.parent / "EndModes"), str(ROOT / "src")]
 
-sys.path[:0] = [str(HERE.parent.parent / "EndModes"), str(ROOT / "src")]
-
+from AuditStockCutSelectorSave import ORACLE, RESULT_PIN, TRIAL_PIN, measured
 from ProveSelectedRevCut import dispatch, need
 
 

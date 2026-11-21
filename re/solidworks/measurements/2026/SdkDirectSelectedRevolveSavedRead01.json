@@ -1,0 +1,360 @@
+{
+  "cases": {
+    "producer": {
+      "bodies": [
+        {
+          "atom_id": 102,
+          "body_index": 2,
+          "design_id": "sldprt:body:atom:102",
+          "faces": 4,
+          "native_area_m2": 0.0638685786474805,
+          "native_centroid_m": [
+            0.0062499999999999995,
+            0.007000000000000013,
+            -2.603174375723816e-18
+          ],
+          "native_volume_m3": 0.0004566304921992763,
+          "producer_id": 22
+        },
+        {
+          "atom_id": 103,
+          "body_index": 6,
+          "design_id": "sldprt:body:atom:103",
+          "faces": 9,
+          "native_area_m2": 0.022347513633101355,
+          "native_centroid_m": [
+            0.0055061369725404345,
+            0.007814395936265695,
+            0.001269152287763025
+          ],
+          "native_volume_m3": 0.0001289072631137446,
+          "producer_id": 25
+        }
+      ],
+      "drivers": [
+        {
+          "axis_endpoints_mm": [
+            [
+              6.25,
+              -76.0,
+              0.0
+            ],
+            [
+              6.25,
+              91.0,
+              0.0
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 10446,
+            "field_span": false,
+            "object_index": 264,
+            "offset": 10381,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 6.283185307179586,
+          "selection_mark": 5
+        },
+        {
+          "axis_endpoints_mm": [
+            [
+              6.25,
+              -76.0,
+              0.0
+            ],
+            [
+              6.25,
+              91.0,
+              0.0
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 15762,
+            "field_span": false,
+            "object_index": 323,
+            "offset": 15719,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 6.283185307179586,
+          "selection_mark": 5
+        },
+        {
+          "axis_endpoints_mm": [
+            [
+              6.25,
+              -76.0,
+              0.0
+            ],
+            [
+              6.25,
+              91.0,
+              0.0
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 21314,
+            "field_span": false,
+            "object_index": 394,
+            "offset": 21271,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 2.081305133003238,
+          "selection_mark": 5
+        }
+      ],
+      "exact_streams": {
+        "Contents/Config-0": {
+          "bytes": 25967,
+          "map_counter": 124,
+          "sha256": "8ea71f8c84c7a1606182f4ec5c28180cf2bccd302d2d92461a89d4f6324a0ca5"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 22335,
+          "map_counter": 397,
+          "sha256": "38ff27193fbb9c7d99616fab9b5b1b36aef1f9a494089cbaaf555feb2edee6d1"
+        }
+      },
+      "history_only_legacy": true,
+      "owners": {
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 25,
+        "public_writer_qualified": false,
+        "result_atom_id": 103,
+        "selected_producer_id": 19,
+        "selector_owner": {
+          "class": "moCompSolidBody_c",
+          "end": 19559,
+          "field_span": false,
+          "object_index": 353,
+          "offset": 19429,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "status": "projected_saved_selection",
+        "stock_feature_ids": [
+          19,
+          22
+        ],
+        "untouched_atom_id": 102
+      },
+      "rule_file_reads": 2,
+      "scope": {
+        "array_present": true,
+        "auto_select": false,
+        "count": 1,
+        "feature_scope": true,
+        "stock_owners": [
+          "InnerRevolveStock"
+        ]
+      },
+      "sha256": "f5e81382542563e09d20ebd65b69bffc90705fa837e12cb9d4e0fcfeceb82629",
+      "unexpected_runtime_reads": 0
+    },
+    "sentinel": {
+      "bodies": [
+        {
+          "atom_id": 102,
+          "body_index": 2,
+          "design_id": "sldprt:body:atom:102",
+          "faces": 4,
+          "native_area_m2": 0.0638685786474805,
+          "native_centroid_m": [
+            0.0062499999999999995,
+            0.007000000000000013,
+            -2.603174375723816e-18
+          ],
+          "native_volume_m3": 0.0004566304921992763,
+          "producer_id": 22
+        },
+        {
+          "atom_id": 103,
+          "body_index": 6,
+          "design_id": "sldprt:body:atom:103",
+          "faces": 9,
+          "native_area_m2": 0.022347513633101355,
+          "native_centroid_m": [
+            0.0055061369725404345,
+            0.007814395936265695,
+            0.0012691522877630252
+          ],
+          "native_volume_m3": 0.0001289072631137446,
+          "producer_id": 25
+        }
+      ],
+      "drivers": [
+        {
+          "axis_endpoints_mm": [
+            [
+              6.25,
+              -76.0,
+              0.0
+            ],
+            [
+              6.25,
+              91.0,
+              0.0
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 10446,
+            "field_span": false,
+            "object_index": 264,
+            "offset": 10381,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 6.283185307179586,
+          "selection_mark": 5
+        },
+        {
+          "axis_endpoints_mm": [
+            [
+              6.25,
+              -76.0,
+              0.0
+            ],
+            [
+              6.25,
+              91.0,
+              0.0
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 15762,
+            "field_span": false,
+            "object_index": 323,
+            "offset": 15719,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 6.283185307179586,
+          "selection_mark": 5
+        },
+        {
+          "axis_endpoints_mm": [
+            [
+              6.25,
+              -76.0,
+              0.0
+            ],
+            [
+              6.25,
+              91.0,
+              0.0
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 21314,
+            "field_span": false,
+            "object_index": 394,
+            "offset": 21271,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 2.081305133003238,
+          "selection_mark": 5
+        }
+      ],
+      "exact_streams": {
+        "Contents/Config-0": {
+          "bytes": 25967,
+          "map_counter": 124,
+          "sha256": "d74139f1296d5cbf197b0342be01cce7d6316706c1539092c06053a76eb8af06"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 22335,
+          "map_counter": 397,
+          "sha256": "0c8ae371ad5e0566bffc1a4661309ddf25a9fb736d44e5c0ca70fdc0a06d2235"
+        }
+      },
+      "history_only_legacy": true,
+      "owners": {
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 25,
+        "public_writer_qualified": false,
+        "result_atom_id": 103,
+        "selected_producer_id": 19,
+        "selector_owner": {
+          "class": "moCompSolidBody_c",
+          "end": 19559,
+          "field_span": false,
+          "object_index": 353,
+          "offset": 19429,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "status": "projected_saved_selection",
+        "stock_feature_ids": [
+          19,
+          22
+        ],
+        "untouched_atom_id": 102
+      },
+      "rule_file_reads": 2,
+      "scope": {
+        "array_present": true,
+        "auto_select": false,
+        "count": 1,
+        "feature_scope": true,
+        "stock_owners": [
+          "InnerRevolveStock"
+        ]
+      },
+      "sha256": "0bf24def7c94903c6d40009b88d8b6a034f9e957e48d7466abdcd4d1acb03266",
+      "unexpected_runtime_reads": 0
+    }
+  },
+  "changed_source_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/SelectedCut/CheckRevPick.py": "2b132f72034ef082018b4915ad9f54ad654f5dbe0696e8c262d23bc8cf2e0cf3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/SelectedCut/ReadRevWrapper.py": "a9dc78b5824cd31b488a0ed9098406f5e2d2ac802b26da60698357b729c80cbd"
+  },
+  "guarded_processes": 7,
+  "native_result_sha256": "ae342e6f39afcacf48db0936c67c715bae7bc0199abdeb3dd8afd4aaf172b4e8",
+  "new_heldout_credit": 0,
+  "new_native_processes": 0,
+  "pre_change_receipt_sha256": "2bc7a06403c001f7464786872debaed0bda77d40479a7ac3faf277aa0b489fdb",
+  "public_writer": false,
+  "refused": {
+    "epoch": {
+      "external_runtime_reads": 0,
+      "reason": "selected revolve cut face has a different feature creation owner"
+    },
+    "face-cache": {
+      "external_runtime_reads": 0,
+      "reason": "selected revolve wrapper does not alias its consumed and result bodies"
+    },
+    "mirrored-order": {
+      "external_runtime_reads": 0,
+      "reason": "selected revolve cut chooser lost its actual mirrored surface ownership"
+    },
+    "missing-chooser": {
+      "external_runtime_reads": 0,
+      "reason": "saved stock chooser has no active owner"
+    },
+    "producer": {
+      "external_runtime_reads": 0,
+      "reason": "selected revolve wrapper does not alias its consumed and result bodies"
+    }
+  },
+  "schema": "kit.sw2026.direct-selected-revolve-saved-read.v1",
+  "source_revision": "df7caa0ab47380da35581297ae8f722cf34c7dac"
+}
