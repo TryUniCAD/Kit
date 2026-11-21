@@ -48,7 +48,7 @@ def ReadRevolveBody(
     ):
         raise ValueError("revolve names require complete nonprovisional owners")
     (OwnerValue,) = ReadRevOwners(LinkValue)
-    IsFull = IsClose(
+    IsFull = OwnerValue.EndValue.ModeValue == "one_sided" and IsClose(
         OwnerValue.AngleValue.RadiansValue, 2 * CirclePi, rel_tol=0, abs_tol=1e-12
     )
     StreamName = LinkValue.ConfigName + "-Partition"

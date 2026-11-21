@@ -9,7 +9,7 @@ The four disclosed SOLIDWORKS 2026 SP05.2 revolve controls all have
 line order `(0, 3, 2, 1)` and actual active point IDs
 `(0, 1, 6, 7)`. The semantic reader succeeds. Looking up line
 ordinal `3` directly as a point raises `KeyError(3)`.
-The current `BuildRevBodyGeom.BuildRevBody` uses that direct lookup.
+The earlier `BuildRevBodyGeom.BuildRevBody` used that direct lookup.
 Existing saved reads use their partition, where the cold lookup
 does not run.
 
@@ -20,3 +20,8 @@ lookup. Use cases with differing line and point identities when
 validating that path.
 
 [Guarded incidence evidence](../../../../../../re/solidworks/measurements/2026/RevolveLineIncidence01.json)
+
+`MakeRevMeridian` now follows the actual ordered endpoints. The
+[end-mode reader comparison](../../../../../../re/solidworks/records/SdkOrdinaryRevolveEndRead2026.md)
+checks all four sparse native profiles and preserves the earlier generated
+one-sided outputs.

@@ -23,6 +23,7 @@ def BindRevStep(
     OwnerValue: RevolveOwner,
     LinkValue: NativeLink,
     SelectValue: Selection,
+    ParamIds: tuple[str, ...],
 ) -> FeatureStep:
     NativeId = NativeNodeId(OwnerValue.NodeValue)
     ProfileId = NativeNodeId(OwnerValue.ProfileValue)
@@ -30,21 +31,22 @@ def BindRevStep(
         raise ValueError(
             "ordinary revolve neutral feature does not alias its actual owner"
         )
-    ParameterId = f"sldprt:parameter:{NativeId}:{OwnerValue.AngleValue.NameValue}"
     FrameValue = OwnerValue.FrameValue
     return ReplaceValue(
         StepValue,
         kind=FeatureKind.KRevolution,
         input_feature_ids=(f"sldprt:feature:{ProfileId}",),
         sketch_id=f"sldprt:sketch:{ProfileId}",
-        parameter_ids=(ParameterId,),
+        parameter_ids=ParamIds,
         selection_ids=(SelectValue.id,),
         operation=BooleanOp.KJoin,
         definition=AngularRevolve(
             SelectValue.id,
-            ParameterId,
+            ParamIds[0],
             FrameValue.StartValue,
             FrameValue.DirectionValue,
+            SideMode=OwnerValue.EndValue.ModeValue,
+            AgainstParameterId=ParamIds[1] if len(ParamIds) == 2 else None,
         ),
         provenance=TypedProvenance(
             NativeNodeSpan(LinkValue, OwnerValue.NodeValue), str(NativeId)

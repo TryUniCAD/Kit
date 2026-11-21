@@ -16,6 +16,12 @@ def ReportRevolve(
     PlaneName = "front"
     if NormalValue.z != 1.0:
         PlaneName = "top" if NormalValue.y == 1.0 else "right"
+    EndValue = OwnerValue.EndValue
+    ModeName = {
+        "one_sided": "single_blind",
+        "symmetric_full": "mid_plane",
+        "two_sided": "two_blind_ends",
+    }[EndValue.ModeValue]
     return {
         "feature_id": NativeNodeId(OwnerValue.NodeValue),
         "profile_id": NativeNodeId(OwnerValue.ProfileValue),
@@ -32,7 +38,12 @@ def ReportRevolve(
         "feature_owner": NativeNodeSpan(LinkValue, OwnerValue.NodeValue),
         "parameter_owner": OwnerValue.AngleValue.OwnerValue,
         "axis_owner": NativeNodeSpan(LinkValue, OwnerValue.AxisValue.WrapperValue),
-        "scope": f"ordinary_modern_single_blind_rectangular_boss_{PlaneName}_upward_axis",
+        "scope": f"ordinary_modern_{ModeName}_rectangular_boss_{PlaneName}_upward_axis",
+        **(
+            {}
+            if EndValue.AgainstValue is None
+            else {"against_parameter_owner": EndValue.AgainstValue.OwnerValue}
+        ),
         "full_native_tree_qualified": False,
         "public_writer_qualified": False,
     }

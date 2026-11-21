@@ -10,11 +10,11 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Profile.ReadRevProfile import (
     ReadRevProfile,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.ReadRevAngle import (
-    ReadRevAngle,
-)
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.ReadRevAxisRef import (
     ReadRevAxisRef,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.ReadRevEnd import (
+    ReadRevEnd,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.ReadRevFrame import (
     ReadRevFrame,
@@ -63,7 +63,7 @@ def ReadRevolve(
         raise ValueError(
             "ordinary revolve direction type or converted sketch state is unqualified"
         )
-    AngleValue = ReadRevAngle(LinkValue, NodeValue)
+    EndValue = ReadRevEnd(LinkValue, FieldsValue, bool(ReverseValue))
     AxisValue = ReadRevAxisRef(NodeValue, ProfileValue, RootValue)
     SketchValue = RequireNative(ProfileValue.FieldsValue.get("pd_f80"), "sgSketch")
     ProfileGraph = ReadRevProfile(SketchValue, AxisValue, LinkValue)
@@ -74,7 +74,7 @@ def ReadRevolve(
         NodeValue,
         ProfileValue,
         SketchValue,
-        AngleValue,
+        EndValue,
         AxisValue,
         ProfileGraph,
         FrameValue,
