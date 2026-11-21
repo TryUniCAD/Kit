@@ -63,6 +63,31 @@ def CheckReportFlow(CaseMode: str, CheckName: str) -> None:
         assert f"CI failed: {CheckName}" in ResultInfo.stderr
 
 
+# skipped shared checks must block enrollment while a deferred integration check may wait
+@Pytest.mark.parametrize(
+    "CheckName,ExitCode",
+    (
+        ("Pyright", 1),
+        ("Mypy", 1),
+        ("Python steering", 1),
+        ("Research CLI compatibility", 0),
+    ),
+)
+def CheckPhaseSkip(CheckName: str, ExitCode: int, TmpPath: FilePath) -> None:
+    ScriptPath = (
+        FilePath(__file__).resolve().parents[2]
+        / "tests/Policy/CiAggregation/RunAggregate.cjs"
+    )
+    Result = Subprocess.run(
+        ["node", str(ScriptPath), "check", "skipped", CheckName],
+        cwd=TmpPath,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+    assert Result.returncode == ExitCode, Result.stderr
+
+
 # process execution verifies trusted base phase selection and rejects unreadable markers
 @Pytest.mark.parametrize(
     "CaseMode,PhaseName,ExitCode",
