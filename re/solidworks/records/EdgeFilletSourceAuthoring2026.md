@@ -21,8 +21,8 @@ python3.14 -B re/tooling/sw2026/edge_fillet_source/FreezeFilletJob.py \
   --source-revision EXACT_COMMIT \
   --control /absolute/path/to/Control.SLDPRT \
   --output /absolute/new/host/packet \
-  --guest-packet 'C:\KitEdgeFilletSource02\Packet' \
-  --guest-capture 'C:\KitEdgeFilletSource02\Capture' \
+  --guest-packet 'C:\KitEdgeFilletSource03\Packet' \
+  --guest-capture 'C:\KitEdgeFilletSource03\Capture' \
   --guest-checkout '\\Mac\Home\Documents\UniCAD\Kit'
 ```
 
@@ -30,8 +30,8 @@ Copy the packet to its recorded local guest path. The oracle owner starts the fo
 
 ```sh
 prlctl exec --current-user 'Windows 11' py -3.12 -B \
-  'C:\KitEdgeFilletSource02\Packet\Tool\AuthorEdgeFillets.py' \
-  --job 'C:\KitEdgeFilletSource02\Packet\SourceJob.json' \
+  'C:\KitEdgeFilletSource03\Packet\Tool\AuthorEdgeFillets.py' \
+  --job 'C:\KitEdgeFilletSource03\Packet\SourceJob.json' \
   --job-sha256 EXACT_JOB_SHA256
 ```
 
@@ -43,4 +43,10 @@ The host freezes disclosed intent and validates analytic and packet structure wi
 
 The first source-only packet completed both healthy controls and launched three distinct exact-build processes. The axial phase completed all twelve unfilleted stock checks, matched both adjacent planar faces to the actual stock body and boss, and verified the sole mark-1 object as the intended edge. The fresh `Edges` property put returned without error. Its getter then returned one null element although `GetEdgeCount` returned 1. The next call passed that null as an object to `IsSame`, which returned COM type mismatch `-2147352571`, argument 1. The first attempt ended before feature creation or any native save. [Sanitized failed receipt](../measurements/2026/EdgeFilletSourceAttempt01.json) · [Fresh definition gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Fillets/FreshFilletEdgeCanBeNull.md)
 
-The retry sends the measured mark-1 selection directly to `CreateFeature`. This follows the vendor's constant-radius creation procedure and avoids relying on a fresh definition's edge pointer. Stock face/body identity and exact live preselection identity remain required. After actual creation and on fresh reopen, the rollback selection must identify one nonnull typed edge and one matching fillet item, each joined to the current unfilleted body by the same endpoint and native object checks. The retry uses the same disclosed model and control bytes, with a fresh packet job and capture path. Passing creation and post-creation selection are pending. [Vendor constant-radius creation procedure](https://help.solidworks.com/2022/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISimpleFilletFeatureData2.html?id=2.2.1.334) · [2026 selection data](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISelectionMgr~CreateSelectData.html) · [2026 selection access](https://help.solidworks.com/2026/english/api/sldworksapiprogguide/Miscellaneous/Accessing_Selections_that_Define_Features.htm)
+The retry sends the measured mark-1 selection directly to `CreateFeature`. This follows the vendor's constant-radius creation procedure and avoids relying on a fresh definition's edge pointer. Stock face/body identity and exact live preselection identity remain required. After creation, the retry obtained a nonnull typed edge from the rollback selection and matched it to the current unfilleted body by endpoint and native object checks. It then stopped at a separate item-count assumption described below. [Vendor constant-radius creation procedure](https://help.solidworks.com/2022/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISimpleFilletFeatureData2.html?id=2.2.1.334) · [2026 selection data](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISelectionMgr~CreateSelectData.html) · [2026 selection access](https://help.solidworks.com/2026/english/api/sldworksapiprogguide/Miscellaneous/Accessing_Selections_that_Define_Features.htm)
+
+## Uniform-radius item inventory
+
+The second packet created the axial fillet and rebuilt without diagnostics. Its rollback definition retained the constant-radius and circular enums, `IsMultipleRadius=false`, and radius `0.00437 m`. `Edges` returned one actual dispatch object, `GetEdgeCount` returned 1, and `IsSame` returned 1 for the two typed `IEdge` objects. The edge was independently found by endpoints on the current stock, with both adjacent planar faces joined to that same body and producing boss. `Features` and `Loops` were null. The phase passed all fourteen completed numeric checks, then rejected `FilletItemsCount == -1` before measuring the finished body or saving. Both controls and native cleanup passed. [Sanitized attempt 02 receipt](../measurements/2026/EdgeFilletSourceAttempt02.json)
+
+The official API remarks specify `-1` for a simple fillet that uses a uniform radius. The third packet requires this sentinel after the existing constant-radius, symmetric, one-edge checks. It records both counts and omits per-item indexing for the uniform case. The original shape, marked-selection proof, typed rollback edge comparison, independent geometry, and live edit checks all remain required. Author-save and edit/reopen are pending this packet's native run. [Official item-count property](https://help.solidworks.com/2025/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISimpleFilletFeatureData2~FilletItemsCount.html) · [Uniform radius gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Fillets/UniformFilletItemCountIsNegative.md)

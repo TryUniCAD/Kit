@@ -156,10 +156,12 @@ class FilletAuthor(BlindCutAuthor):
 
     def confirm_edge(self, definition, edge):
         edges = tuple(self.get(definition, "Edges") or ())
-        require(len(edges) == int(self.get(definition, "GetEdgeCount")) == 1 and edges[0] is not None,
+        count = int(self.get(definition, "GetEdgeCount"))
+        require(len(edges) == count == 1 and edges[0] is not None,
                 "rolled back native fillet must expose one nonnull edge")
         require(self.same(self.typed(edges[0], "Edge"), edge),
                 "rolled back native fillet points to a different stock edge")
+        return count
 
     def read_definition(self, feature, boss, endpoints, radius):
         definition = self.typed(self.get(feature, "GetDefinition"), "SimpleFilletFeatureData2")
@@ -168,13 +170,12 @@ class FilletAuthor(BlindCutAuthor):
         try:
             fields = self.confirm_modes(definition, radius)
             edge, proof = self.find_edge(endpoints, boss)
-            self.confirm_edge(definition, edge)
-            require(not self.get(definition, "Features") and not self.get(definition, "Loops")
-                    and int(self.get(definition, "FilletItemsCount")) == 1,
-                    "native fillet has an alternate input selection or fillet item")
-            item = self.get(definition, "GetFilletItemAtIndex", 0)
-            require(item is not None and self.same(self.typed(item, "Edge"), edge),
-                    "rolled back native fillet item does not bind the same stock edge")
+            fields["selected_edge_count"] = self.confirm_edge(definition, edge)
+            require(not self.get(definition, "Features") and not self.get(definition, "Loops"),
+                    "native fillet has an alternate input selection")
+            fields["multiple_radius_items_count"] = int(self.get(definition, "FilletItemsCount"))
+            require(fields["multiple_radius_items_count"] == -1,
+                    "uniform native fillet did not return the documented multiple radius item sentinel")
         finally:
             self.get(definition, "ReleaseSelectionAccess")
         parents = [str(self.get(parent, "Name")) for parent in self.get(feature, "GetParents") or ()]
