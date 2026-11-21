@@ -36,6 +36,9 @@ Compatibility tests select an unused directory and cannot attach to a configured
 
 The readers retain their existing `document.json`, `receipt.json`, and Fusion `summary.json` artifacts.
 The additional `NativeVerification.json` records the measured input hashes, source revision, application build, controls, cases, and edits.
+Reader comparisons reconstruct the exact published `document.json` and verify its receipt hash again immediately before comparison.
+They also require the SDK source inventory to match the publication receipt.
+The report's neutral hash therefore identifies the artifact the user received.
 Catalogue runs retain separate `NativeVerification-solidworks.json` and `NativeVerification-fusion.json` reports.
 Live report schema `2` keeps a compact case index.
 Measurements, comparisons, saved-edit readbacks, and detailed case results are separate bounded JSON artifacts in the adjacent private `*.Evidence-*` directory.
