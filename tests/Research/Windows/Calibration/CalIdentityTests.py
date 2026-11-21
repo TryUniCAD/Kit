@@ -31,8 +31,11 @@ def CheckExitOwner() -> None:
         finally:
             try:
                 assert Process.wait(timeout=10) == 0
-            except Subprocess.TimeoutExpired:
+            except Subprocess.TimeoutExpired as TimeoutFailure:
                 Process.kill()
-                _ = Process.wait(timeout=10)
+                ExitCode = Process.wait(timeout=10)
+                TimeoutFailure.add_note(
+                    f"calibration fixture reaped with exit code {ExitCode}"
+                )
                 raise
     WaitForCalExit(Process.pid, Started)
