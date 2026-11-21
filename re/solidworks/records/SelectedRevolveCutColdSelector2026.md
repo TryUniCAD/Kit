@@ -35,3 +35,9 @@ prlctl exec --current-user 'Windows 11' \
 ```
 
 Use the identical command with `verify` in place of `run` for frozen guest preflight. The root oracle owner runs both. The phase records and aggregate are under `RevolveCutSelector01/Inspection/`. The preparations used zero SOLIDWORKS and COM processes.
+
+## Native result and saved SDK baseline
+
+The exact 34.5.2.0604 run used six fresh processes with passing before and after controls. Both generated arms opened with two bodies before an explicit rebuild, zero open errors or warnings, and the same 29 ordered tree rows and parent links. For each arm the native D1 edit, rebuild, save and separate reopen passed the phase observations. The raw enclosing comparator failed solely because the two unchanged stock drivers' `Dimension.FullName` moved from `@RevolveCutSelector.Part` to `@RevolveCutSelector-edited.Part` on the saved copy. The phase-bound audit verifies these exact names, compares the two unchanged full-turn stock angles and their respective sketch and plane parents, and preserves the original false aggregate. [Raw result](../measurements/2026/SelectedRevolveCutSelectorNative01.json) · [Independent phase audit](../measurements/2026/SelectedRevolveCutSelectorSavedOwner01.json) · [FullName gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Rebuild/DimensionFullNameChangesOnSaveAs.md)
+
+Native saving retained the direct selection wrapper: `f18=101`, `f100=f104=0`, `ff0=null`, and `f108=19` or `-1` for the two arms. At source revision `71715759c796673a59a3d3f0832c2ff0c6767eca` the SDK gave a generic one-body projection on each saved derivative. Both phases use the disclosed neutral trial and give zero held-out credit.

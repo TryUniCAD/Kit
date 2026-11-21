@@ -1,0 +1,82 @@
+{
+  "after": {
+    "passed": true,
+    "sha256": "fd2cce2aefea2509a8d9bd61c4a49bcbeb5bf1b5b52099c0af22ed3b96ca71eb"
+  },
+  "arms": {
+    "producer": {
+      "complete": false,
+      "edited_sha256": "f5e81382542563e09d20ebd65b69bffc90705fa837e12cb9d4e0fcfeceb82629",
+      "input_sha256": "f6354cfbe7dc20ef24eefa686e011ace9b40c90d923bd568211227aa631c9ca6",
+      "phases": [
+        {
+          "failure": null,
+          "open": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "passed": true,
+          "phase": "open-edit-save",
+          "sha256": "63c282183579465a50756574786a0a009fe2e2a2b1c29d7807dae096b1a4d448"
+        },
+        {
+          "failure": null,
+          "open": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "passed": true,
+          "phase": "fresh-reopen",
+          "sha256": "af87b51bfa144c482915424536b7a49d4c6d21e653193c309ddf37a4f7bf5f2a"
+        }
+      ],
+      "tree_rows": 29
+    },
+    "sentinel": {
+      "complete": false,
+      "edited_sha256": "0bf24def7c94903c6d40009b88d8b6a034f9e957e48d7466abdcd4d1acb03266",
+      "input_sha256": "0fdb414eb0f31fd41fcaa9252fecb95cdaef7f2cd3479ad53375232a5174a395",
+      "phases": [
+        {
+          "failure": null,
+          "open": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "passed": true,
+          "phase": "open-edit-save",
+          "sha256": "0e9200615c3c647d0cdaa67056c8d74561d7c1fee94c75acc05d8a5d3cdaad55"
+        },
+        {
+          "failure": null,
+          "open": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "passed": true,
+          "phase": "fresh-reopen",
+          "sha256": "b58dc4772715208760a39f61468d82fca486ffcf2a8f184a72fa31d0ce4c4573"
+        }
+      ],
+      "tree_rows": 29
+    }
+  },
+  "before": {
+    "passed": true,
+    "sha256": "d6369259da65f758d49f1089cc92ae960f9ca9a27e3e729b6da66c52767bd408"
+  },
+  "control_brackets_healthy": true,
+  "diagnostic_completed": true,
+  "distinct_processes": 6,
+  "heldout_credit": 0,
+  "idle_after": true,
+  "lifecycle_passed": false,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer": false,
+  "schema": "kit.sw2026.revolve-cut-cold-selector-diagnostic.v1",
+  "trial_sha256": "03673e04df2f3d8c8a98f1a3ad6784deba549fad0e353c0797f6de8d8708c61d"
+}
