@@ -8,14 +8,11 @@
 
 from json import loads as DecodeJson
 from pathlib import Path as FilePath
-from subprocess import Popen as StartProcess
-from sys import executable as PythonExe
-from time import monotonic as Clock, sleep as WaitFor
 
 from tests.Research.Inference.Scope.FeatureCatalogueTests import KCatalogue
 from tests.Research.Inference.Scope.FeatureHandoffTests import RunAutomation
+from tests.Research.Inference.Scope.PauseInitialRun import PauseInitialRun
 from tests.Research.Inference.Scope.ReadReceipts import ReadReceipts
-from tests.Research.SupervisorClient import KRepoRoot
 
 
 # completed jobs before a pause must keep their exact accepted receipts after resume
@@ -24,35 +21,8 @@ def CheckResume(TmpPath: FilePath) -> None:
     LogPath = RunPath / "OfflineSupervisor.log"
     ToolPath = "InferenceGrid/RunFeatureCatalogue.py"
     SavedArgs = ("--directory", str(RunPath))
-    with (TmpPath / "Output.json").open("wb") as Output:
-        with StartProcess(
-            [
-                PythonExe,
-                "-B",
-                str(KRepoRoot / "re/automation" / ToolPath),
-                *SavedArgs,
-                "--solidworks-catalogue",
-                str(KCatalogue),
-                "--workers",
-                "1",
-                "--reserved-memory-mib",
-                "0",
-                "--max-seconds",
-                "35",
-            ],
-            cwd=KRepoRoot,
-            stdout=Output,
-        ) as Process:
-            Deadline = Clock() + 25
-            while (
-                not LogPath.is_file()
-                or '"event":"finished"' not in LogPath.read_text(encoding="utf-8")
-            ):
-                assert Process.poll() is None and Clock() < Deadline
-                WaitFor(0.05)
-            Reply = DecodeJson(RunAutomation(ToolPath, *SavedArgs, "--pause"))
-            assert Reply["status"] == "pausing"
-            assert Process.wait(timeout=45) == 0
+    PausePath = RunPath / "CataloguePause.json"
+    PauseInitialRun(TmpPath, ToolPath, SavedArgs, PausePath)
     ReportPath = RunPath / "CatalogueResult.json"
     Before = DecodeJson(ReportPath.read_bytes())
     assert Before["status"] == "paused"
@@ -77,7 +47,7 @@ def CheckResume(TmpPath: FilePath) -> None:
     FinalJobs = ReadReceipts(After)
     assert len(FinalJobs) > len(SavedJobs)
     assert SavedJobs.items() <= FinalJobs.items()
-    assert not (RunPath / "CataloguePause.json").exists()
+    assert not PausePath.exists()
 
 
 # a deliberately high reserve exposes a capacity refusal through terminal progress
