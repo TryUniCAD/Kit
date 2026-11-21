@@ -209,6 +209,7 @@ def main():
     require(not reused or spec["split"] == "discovery" and set(reused) <= {case["name"] for case in cases}
             and all(not Path(row["directory"]).resolve().is_relative_to(checkout) for row in reused.values()),
             "only declared discovery sources outside the checkout can reuse an authoring receipt")
+    require(not publication.exists(), "source publication path already exists")
     output.mkdir(parents=True)
     RevolveEndAuthor.constants = read_constants()
     tools = {name: Path(__file__).with_name(name) for name in ("AuthorRevolveEnds.py", "AuthorRevolveSources.py", "AuthorCurves.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py")}
@@ -247,7 +248,7 @@ def main():
         measure_control("control-after")
 
     evidence.update(finished_at=time.time(), distinct_processes=len(set(processes)), direction_consistent=len(signs) <= 1,
-                    idle_after=not Swapp.process_ids(), inputs_unchanged=digest(control) == evidence["control_sha256"]
+                    idle_after=not Swapp.application_pids() and not Swapp.owned_process_ids(), inputs_unchanged=digest(control) == evidence["control_sha256"]
                     and digest(spec_path) == evidence["spec_sha256"] and digest(job_path) == evidence["job_sha256"],
                     tools_unchanged={name: digest(path) for name, path in tools.items()} == tool_hashes)
     evidence["passed"] = bool(evidence.get("control-before", {}).get("passed") and evidence["control-after"]["passed"]
@@ -259,7 +260,6 @@ def main():
     if spec["split"] == "discovery":
         copytree(output, publication)
     else:
-        require(not publication.exists(), "held-out summary path already exists")
         write_json(publication, evidence)
     Swapp.emit({"passed": evidence["passed"], "sources": len(evidence["sources"]), "writer_output_count": 0})
     return int(not evidence["passed"])
