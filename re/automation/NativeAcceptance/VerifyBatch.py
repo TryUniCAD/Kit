@@ -72,6 +72,8 @@ def VerifyBatch(root, application, samples, output):
     sources = {str(path): FileHash(path) for base in (root / "src", root / "re/automation/NativeAcceptance") for path in base.rglob("*.py")}
     report["source_inventory_sha256"] = hashlib.sha256(json.dumps(sources, sort_keys=True).encode()).hexdigest()
     evidence = Path(tempfile.mkdtemp(prefix=output.stem + ".Evidence-", dir=output.parent))
+    report["evidence_directory"] = evidence.name
+    WriteJson(output, report)
 
     def Persist(name, value):
         path = evidence / (name + ".json")
@@ -93,7 +95,6 @@ def VerifyBatch(root, application, samples, output):
         for case_index, sample in enumerate(samples):
             entry = {"source_sha256": sample["sha256"], "path": sample["path"], "status": "failed", "measurement_status": "failed", "full_semantics_verified": False}
             report["cases"].append(entry)
-            WriteJson(output, report)
             payload = sample["load"]()
             if hashlib.sha256(payload).hexdigest() != sample["sha256"]:
                 raise ValueError("native batch source differs from its decoded input pin")
