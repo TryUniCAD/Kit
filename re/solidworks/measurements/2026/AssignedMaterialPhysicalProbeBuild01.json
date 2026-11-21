@@ -1,0 +1,254 @@
+{
+  "cases": {
+    "AlAll": {
+      "bytes": 8839,
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "mode": "all",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "23eaa7a1dbde451359e056900f238ef7c702de43ac719bb3dc89df9b08265602",
+      "requested_density": 2700.0,
+      "requested_identity": "solidworks din materials|3.0205 (EN-AW 1200)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "75a2047838b92cdcbffab48e1a11351c75a757688381d1a79622c8059ae46231",
+      "typed_readback": {
+        "config_density": 2700.0,
+        "config_identity": "solidworks din materials|3.0205 (EN-AW 1200)",
+        "config_map_counter": 91,
+        "exact_linked_streams": 3,
+        "part_density": 2700.0,
+        "resolved_map_counter": 228
+      }
+    },
+    "AlConfiguration": {
+      "bytes": 8720,
+      "changed_streams": [
+        "Contents/CMgr"
+      ],
+      "mode": "configuration",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "52fb3d1b457e6caed0d35a3451b9b34694c48e5ca45584992ad4d34f267d1e77",
+      "requested_density": 2700.0,
+      "requested_identity": "solidworks din materials|3.0205 (EN-AW 1200)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "6c247a72e1501cc478f8a6caa8545060c032a454d82086d2d59f852b9cc41cfa",
+      "typed_readback": {
+        "config_density": 2700.0,
+        "config_identity": null,
+        "config_map_counter": 87,
+        "exact_linked_streams": 3,
+        "part_density": null,
+        "resolved_map_counter": 224
+      }
+    },
+    "AlIdentity": {
+      "bytes": 8851,
+      "changed_streams": [
+        "Contents/CMgr"
+      ],
+      "mode": "identity",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "1625173c945b99954f93e3dcf2198162942d4331c3490a68ceb37c66d85d8e85",
+      "requested_density": 2700.0,
+      "requested_identity": "solidworks din materials|3.0205 (EN-AW 1200)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "ecace6b5296a39c2ee2238ef04a00e79af43e0027a4395b6c2052bfb22bd403b",
+      "typed_readback": {
+        "config_density": -1.0,
+        "config_identity": "solidworks din materials|3.0205 (EN-AW 1200)",
+        "config_map_counter": 87,
+        "exact_linked_streams": 3,
+        "part_density": null,
+        "resolved_map_counter": 224
+      }
+    },
+    "AlPart": {
+      "bytes": 8721,
+      "changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "mode": "part",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "271ff3e1374b7bf3380f9df7fdfe8c8c025e1185a74e3808dfa9b02ecfe5c8f8",
+      "requested_density": 2700.0,
+      "requested_identity": "solidworks din materials|3.0205 (EN-AW 1200)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "820991a61d0c46d4f9ed656ebc8ca286384f0b4e4fbff4bcfc84168c5c58497a",
+      "typed_readback": {
+        "config_density": -1.0,
+        "config_identity": null,
+        "config_map_counter": 91,
+        "exact_linked_streams": 3,
+        "part_density": 2700.0,
+        "resolved_map_counter": 228
+      }
+    },
+    "AlUnassigned": {
+      "bytes": 8724,
+      "changed_streams": [],
+      "mode": "unassigned",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "a2fbbe5cbacc7b5c2e8cb3298c10d1b531303486feb3432497da8a809be2431e",
+      "requested_density": 2700.0,
+      "requested_identity": "solidworks din materials|3.0205 (EN-AW 1200)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "8ab7e56b5139ec07e18f403ccc517874d64c824626e20f8b212dcf1efe11876a",
+      "typed_readback": {
+        "config_density": -1.0,
+        "config_identity": null,
+        "config_map_counter": 87,
+        "exact_linked_streams": 3,
+        "part_density": null,
+        "resolved_map_counter": 224
+      }
+    },
+    "SteelAll": {
+      "bytes": 8926,
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "mode": "all",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "3ac5d41ab5a786749f32a93ca51426657c483d48ce44ee204e6e8729e44019a4",
+      "requested_density": 7858.000032,
+      "requested_identity": "solidworks materials|1023 Carbon Steel Sheet (SS)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "dcbc22d25d2fd8133a1e294d627b599797f17ef3ab4f7bd6f8dd841332004b66",
+      "typed_readback": {
+        "config_density": 7858.000032,
+        "config_identity": "solidworks materials|1023 Carbon Steel Sheet (SS)",
+        "config_map_counter": 91,
+        "exact_linked_streams": 3,
+        "part_density": 7858.000032,
+        "resolved_map_counter": 228
+      }
+    },
+    "SteelConfiguration": {
+      "bytes": 8811,
+      "changed_streams": [
+        "Contents/CMgr"
+      ],
+      "mode": "configuration",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "a5d35ea8c7083cda204458e9bbb306df3c739710becbcd84561717d55ac9657f",
+      "requested_density": 7858.000032,
+      "requested_identity": "solidworks materials|1023 Carbon Steel Sheet (SS)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "9a1956513aa6ed3cf4e30e2afec8bd968da350ddf01c49aa03bd6926b6d1e7d7",
+      "typed_readback": {
+        "config_density": 7858.000032,
+        "config_identity": null,
+        "config_map_counter": 87,
+        "exact_linked_streams": 3,
+        "part_density": null,
+        "resolved_map_counter": 224
+      }
+    },
+    "SteelIdentity": {
+      "bytes": 8923,
+      "changed_streams": [
+        "Contents/CMgr"
+      ],
+      "mode": "identity",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "242a37beac18285ccaaf40375e20808a99eda46da860777fe0dd499214286e17",
+      "requested_density": 7858.000032,
+      "requested_identity": "solidworks materials|1023 Carbon Steel Sheet (SS)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "8e3af76f3a7252ce4d6e468b72c4dda336f2aa935bb701c1c49b5d9ee98f9a05",
+      "typed_readback": {
+        "config_density": -1.0,
+        "config_identity": "solidworks materials|1023 Carbon Steel Sheet (SS)",
+        "config_map_counter": 87,
+        "exact_linked_streams": 3,
+        "part_density": null,
+        "resolved_map_counter": 224
+      }
+    },
+    "SteelPart": {
+      "bytes": 8805,
+      "changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "mode": "part",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "73172fad26faf517561addf66e0bd47d68cd3825447b09896263b5f2fc86c3b6",
+      "requested_density": 7858.000032,
+      "requested_identity": "solidworks materials|1023 Carbon Steel Sheet (SS)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "ebc779de3a7f069fa0dac36651a347c7111759255b0f7c5150436ba6c5ee56ed",
+      "typed_readback": {
+        "config_density": -1.0,
+        "config_identity": null,
+        "config_map_counter": 91,
+        "exact_linked_streams": 3,
+        "part_density": 7858.000032,
+        "resolved_map_counter": 228
+      }
+    },
+    "SteelUnassigned": {
+      "bytes": 8780,
+      "changed_streams": [],
+      "mode": "unassigned",
+      "native_acceptance": false,
+      "public_writer_qualified": false,
+      "request_sha256": "ed18889e9a7665fb6cc71a78236f9ca58b93cb9cf5867f45062c5908e31c3e76",
+      "requested_density": 7858.000032,
+      "requested_identity": "solidworks materials|1023 Carbon Steel Sheet (SS)",
+      "runtime_file_access_attempts": 0,
+      "schema": "kit.sw2026.assigned-material-probe-build.v1",
+      "sha256": "9cd6d301efc080abb1605de4b5ae3464be2bf99cec154690afe74b0f3508ebd6",
+      "typed_readback": {
+        "config_density": -1.0,
+        "config_identity": null,
+        "config_map_counter": 87,
+        "exact_linked_streams": 3,
+        "part_density": null,
+        "resolved_map_counter": 224
+      }
+    }
+  },
+  "native_packet_sha256": "9314fb1c0192ec5fbfb460bbaaed1b6ac2c89aa5e1097065eade06bb0f4e27d5",
+  "native_processes": 0,
+  "planned_native_order": [
+    "AlUnassigned",
+    "AlPart",
+    "AlConfiguration",
+    "AlIdentity",
+    "AlAll",
+    "SteelAll"
+  ],
+  "product_acceptance": false,
+  "schema": "kit.sw2026.assigned-material-probe-build-cohort.v1",
+  "sealed_sources_opened": false,
+  "tools": {
+    "re/tooling/sw2026/materials/BuildAssignedMaterialProbe.py": "308cf8b3012f98fa68b252bf9ca8d3943a2c9efdc3b3ac171be301bc8f62f81b",
+    "re/tooling/sw2026/materials/FreezeAssignedMaterialProbe.py": "93a530f4a74c796672d717d5a8a93f4d81d3168e2941b145f6927c5312ffa7ea",
+    "re/tooling/sw2026/materials/RunAssignedMaterialProbe.py": "f8a4984bfb59f5876918fb4aae2fb1a897df5ee881e3f915bac7082ed8285a67"
+  }
+}
