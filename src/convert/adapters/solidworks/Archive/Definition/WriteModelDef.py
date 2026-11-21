@@ -9,10 +9,14 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteFieldsMut import (
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteSchemaMut import (
     WriteSchemaMut,
 )
+from convert.adapters.solidworks.Archive.Definition.CheckDefScope import CheckDefScope
 from convert.adapters.solidworks.Archive.Definition.Fields.DefPrefixFields import (
     KDefPrefixFields,
 )
-from convert.adapters.solidworks.Archive.Definition.ModelDefClsid import KModelDefClsids
+from convert.adapters.solidworks.Archive.Definition.ModelDefClsid import (
+    KModelDefClsids,
+    KPartDefClass,
+)
 from convert.adapters.solidworks.Archive.Definition.ModelDefContext import (
     ModelDefContext,
 )
@@ -23,15 +27,23 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # each native definition derives the root identity and every wire byte from modeled fields
-def WriteModelDef(GraphValue: ModelDefGraph) -> DefinitionWire:
+def WriteModelDef(
+    GraphValue: ModelDefGraph, *, OrdinaryOnly: bool = False
+) -> DefinitionWire:
     DocumentValue = GraphValue.DocumentValue
     ClassValue = DocumentValue.ClassValue
+    if OrdinaryOnly and ClassValue != KPartDefClass:
+        raise BodyUnsupported(
+            "SOLIDWORKS part Definition requires uiPartDoc_c schema 1"
+        )
     if not isinstance(ClassValue, RuntimeClass):
         raise BodyUnsupported("SOLIDWORKS model Definition requires a concrete class")
     ClsidValue = KModelDefClsids.get(ClassValue)
     if ClsidValue is None:
         raise BodyUnsupported("unsupported SOLIDWORKS model Definition class")
-    ContextValue = ModelDefContext(GraphValue.VersionValue)
+    ContextValue = ModelDefContext(GraphValue.VersionValue, OrdinaryOnly=OrdinaryOnly)
+    if OrdinaryOnly:
+        CheckDefScope(DocumentValue.FieldsValue)
     WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteBodyMut)
     FrameValue = WriteFrame(
         WriterValue,

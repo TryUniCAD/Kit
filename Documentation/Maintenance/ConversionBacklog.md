@@ -364,6 +364,16 @@ and current revision queue and review evidence. Complete configuration
 writing and native file admission have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
 
+### B04-SW2026-DEFINITION
+
+PR #205 delivered the internal ordinary version-19000 part Definition codec
+using the field actions from PR #199. In the PR #121 aggregate,
+`ReadOrdinaryDef` and `WriteOrdDef` retain that exact bounded profile.
+Existing part and assembly composition uses the wider codec. Native
+qualification applies to a complete generated part.
+[Change entry](../Changes/Solidworks/Archive/SolidworksOrdinaryPartDefinition.md) ·
+[Accepted queue run](https://github.com/TryUniCAD/Kit/actions/runs/44845499360)
+
 ### B04-SW2026-CONFIG-UNITS
 
 The PR #121 takeover team owns this unit-table reader on
