@@ -134,3 +134,9 @@ The directly declared references have existing base-display, radial-display, wra
 Confidence is **partial**: class identities, exact modern field order, base calls, and stated gates have pinned static evidence. No thin source stream, held-out stream, fresh generated output, or native thin case was inspected for this change. AST and static source inspection are the only verification; remote CI and class-specific round trips remain pending. No application was launched or attached.
 
 The next steps are a complete source-family lock, discovery-only decoder coverage, closure of any reached subclasses, field semantics and legal-domain recovery, and constructor/lifecycle rules. Fresh generation starts only after the future family lock. Acceptance still requires healthy controls, clean open/rebuild, the required feature tree, geometry matching to six significant figures, driving edits, and save/reopen. The production adapter remains read-only; no prior measured acceptance transfers to new thin-revolve bytes.
+
+The follow-up [source acquisition packet](RevolveFamilySources2026.md)
+adds matched ordinary thin wall and revolve cut models. Its exact-build
+constructor and export trace identifies the two live wall displays and
+the distinct cap-end thickness owner. The retained fields and object
+chains still require the disclosed native saves.

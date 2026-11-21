@@ -1,0 +1,112 @@
+{
+  "schema": "kit.sw2026.revolve-family-models.v1",
+  "family": "cut",
+  "split": "discovery",
+  "cases": [
+    {
+      "plane": "front",
+      "axis_x_m": 0.00471,
+      "axis_axial_m": [
+        -0.06893,
+        0.07319
+      ],
+      "axial_m": [
+        -0.01411,
+        0.01997
+      ],
+      "angle_deg": 72.5,
+      "edit_angle_deg": 108.25,
+      "reverse": false,
+      "radius_m": [
+        0.02117,
+        0.04519
+      ],
+      "stock_radii_m": [
+        [
+          0.01223,
+          0.02737
+        ],
+        [
+          0.04157,
+          0.05731
+        ]
+      ],
+      "stock_axial_m": [
+        -0.03123,
+        0.03947
+      ],
+      "name": "RevCutInner",
+      "scope": "inner"
+    },
+    {
+      "plane": "front",
+      "axis_x_m": 0.00471,
+      "axis_axial_m": [
+        -0.06893,
+        0.07319
+      ],
+      "axial_m": [
+        -0.01411,
+        0.01997
+      ],
+      "angle_deg": 72.5,
+      "edit_angle_deg": 108.25,
+      "reverse": false,
+      "radius_m": [
+        0.02117,
+        0.04519
+      ],
+      "stock_radii_m": [
+        [
+          0.01223,
+          0.02737
+        ],
+        [
+          0.04157,
+          0.05731
+        ]
+      ],
+      "stock_axial_m": [
+        -0.03123,
+        0.03947
+      ],
+      "name": "RevCutOuter",
+      "scope": "outer"
+    },
+    {
+      "plane": "front",
+      "axis_x_m": 0.00471,
+      "axis_axial_m": [
+        -0.06893,
+        0.07319
+      ],
+      "axial_m": [
+        -0.01411,
+        0.01997
+      ],
+      "angle_deg": 72.5,
+      "edit_angle_deg": 108.25,
+      "reverse": false,
+      "radius_m": [
+        0.02117,
+        0.04519
+      ],
+      "stock_radii_m": [
+        [
+          0.01223,
+          0.02737
+        ],
+        [
+          0.04157,
+          0.05731
+        ]
+      ],
+      "stock_axial_m": [
+        -0.03123,
+        0.03947
+      ],
+      "name": "RevCutAll",
+      "scope": "all"
+    }
+  ]
+}

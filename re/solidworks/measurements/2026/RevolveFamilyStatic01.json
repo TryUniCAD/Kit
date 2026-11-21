@@ -1,0 +1,125 @@
+{
+  "image_base": "0x4b140000",
+  "module": "sldmodu.dll",
+  "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "native_execution": false,
+  "oracle_build": "34.5.2.0604",
+  "runtime_classes": {
+    "moRevCut_c": {
+      "serializer": "0x4bb1e7a0",
+      "vtable": "0x4cf52450"
+    },
+    "moRevolutionThin_c": {
+      "serializer": "0x4bb1e5f0",
+      "vtable": "0x4d187fc0"
+    },
+    "moRevolution_c": {
+      "serializer": "0x4bb1e7a0",
+      "vtable": "0x4d185908"
+    },
+    "moThinSpec_c": {
+      "serializer": "0x4bb22c80",
+      "vtable": "0x4d202298"
+    }
+  },
+  "schema": "kit.sw2026.revolve-family-static.v1",
+  "source_range_helper_sha256": "ffa6f015b152d2aa0ce869afc94665e5f01f5089d23298fa19681ff2ac7dc7b9",
+  "source_ranges": {
+    "atom_all_body_feature_scope": {
+      "end_exclusive": "0x4b28d86c",
+      "file_offset": 1363040,
+      "sha256": "d43fc4ef2536e148e99ddc2e82a28ef7c55cc0d20ce0b533f691a8c01ce27e6c",
+      "start": "0x4b28d860"
+    },
+    "atom_selected_feature_scope": {
+      "end_exclusive": "0x4b2867d7",
+      "file_offset": 1334224,
+      "sha256": "4409687402030af584e55010eef6d6b280cf6fc000f811f4f9459c7cc233451f",
+      "start": "0x4b2867d0"
+    },
+    "atom_set_feature_scope": {
+      "end_exclusive": "0x4b2924f7",
+      "file_offset": 1382640,
+      "sha256": "5ccfffec9c703dee68e43f6a86de826a1f7585eab6d8d907eddba5966fa6ba7a",
+      "start": "0x4b2924f0"
+    },
+    "ordinary_cut_constructor": {
+      "end_exclusive": "0x4c389f3c",
+      "file_offset": 19174112,
+      "sha256": "961b223673f5144d147122eca581db6b3ce5148066535ed208a9301c83eca3b1",
+      "start": "0x4c389ee0"
+    },
+    "thin_primary_constructor_display": {
+      "end_exclusive": "0x4c38a883",
+      "file_offset": 19176536,
+      "sha256": "2dc682a88bb945c8fa312decd2d9357bfa5a669286ebb09fc8a17417f4aefef0",
+      "start": "0x4c38a858"
+    },
+    "thin_revolve_constructor": {
+      "end_exclusive": "0x4c38a94f",
+      "file_offset": 19176368,
+      "sha256": "d30940757efac6b40859efa885e3439cfc096332dadff2bff68cda577692c040",
+      "start": "0x4c38a7b0"
+    },
+    "thin_secondary_constructor_display": {
+      "end_exclusive": "0x4c38a8ce",
+      "file_offset": 19176611,
+      "sha256": "92b2b96d909c94e544744fc994d8b55dbf8b200c5c01c8ea7cb89d3cc2cf1bcf",
+      "start": "0x4c38a8a3"
+    },
+    "thin_spec_assign_feature_fields": {
+      "end_exclusive": "0x4c38a928",
+      "file_offset": 19176727,
+      "sha256": "2e240cb763b8b4a4637df8017b89bee2e9f609523546f5727ce2cc5797ea18ab",
+      "start": "0x4c38a917"
+    },
+    "thin_spec_constructor": {
+      "end_exclusive": "0x4c6eef45",
+      "file_offset": 22733488,
+      "sha256": "5483d35e7b9ed34ac598de6a3afd55c36e8f2e070c6655e84f441b9d0567fdb7",
+      "start": "0x4c6eeeb0"
+    },
+    "thin_spec_get_thickness": {
+      "end_exclusive": "0x4c6ef020",
+      "file_offset": 22733840,
+      "sha256": "dc574facbc79c0f1724a29a0dbc8683262cdfd4dd592f2d7a7a1f3325d0f3b74",
+      "start": "0x4c6ef010"
+    },
+    "thin_spec_get_thickness2": {
+      "end_exclusive": "0x4c6ef010",
+      "file_offset": 22733824,
+      "sha256": "10cc7e7738ca4715025433099552410d5bfa7c9e0abf996816f97080465471ea",
+      "start": "0x4c6ef000"
+    },
+    "thin_spec_read_add_bends": {
+      "end_exclusive": "0x4b283944",
+      "file_offset": 1322304,
+      "sha256": "58e7369c57f4c2e5078496dcbdb6cec15f32eb29799a5b214cce0fc70a736beb",
+      "start": "0x4b283940"
+    },
+    "thin_spec_read_cap_ends": {
+      "end_exclusive": "0x4b289a64",
+      "file_offset": 1347168,
+      "sha256": "4d8bbabf4078fb522f1b7e5fa9e993af5e9c941d53117c673ecfde3a5feca5c7",
+      "start": "0x4b289a60"
+    },
+    "thin_spec_read_direction": {
+      "end_exclusive": "0x4b2845f4",
+      "file_offset": 1325552,
+      "sha256": "f9ab56c764100f6de974a6afa5ca5ea00146ab6bd602328393ec5e4228c34b90",
+      "start": "0x4b2845f0"
+    },
+    "thin_spec_read_end_thickness": {
+      "end_exclusive": "0x4b347926",
+      "file_offset": 2125088,
+      "sha256": "d53241d8a2cf3cbde6f551b0114f81e25af6de7b3175ccca4d332542f18d65fb",
+      "start": "0x4b347920"
+    },
+    "thin_spec_set_thickness2": {
+      "end_exclusive": "0x4c6ef257",
+      "file_offset": 22734400,
+      "sha256": "3f409bb8caa848fc282e516ef64c5ee766200852be3c0ff4e308a47adec75a89",
+      "start": "0x4c6ef240"
+    }
+  }
+}
