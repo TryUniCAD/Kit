@@ -18,6 +18,9 @@ from InferenceGrid.BuilderDevelopment.Verification.CheckCases import (
     CheckArchives,
     CheckCase,
 )
+from InferenceGrid.BuilderDevelopment.Verification.CheckCandidateSource import (
+    CheckCandidateSource,
+)
 from InferenceGrid.BuilderDevelopment.Verification.CheckSessions import (
     CheckControls,
     CheckSessions,
@@ -156,6 +159,15 @@ def VerifyPlaneReport(Expectations, Report, OutputDirectory=None):
             Item["classification"] == "source_mismatch" for Item in Check.Diagnostics
         ):
             return Check.Result()
+        CheckCandidateSource(
+            Check,
+            Report,
+            (
+                OutputDirectory
+                if OutputDirectory is not None
+                else Report.get("output_directory")
+            ),
+        )
         CheckSessions(Check, Report)
         CheckControls(Check, Report)
         Archives = CheckArchives(
