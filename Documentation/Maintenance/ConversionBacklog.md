@@ -152,6 +152,15 @@ and current revision queue and review evidence. Complete configuration
 writing and native file admission have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
 
+### B04-SW2026-DEFINITION
+
+The PR #121 takeover team owns the ordinary part Definition codec on
+`codex/solidworks-ordinary-part-definition`. The delivery depends on PR #199
+for shared field actions. Guarded typed readback and fresh stream generation
+have supporting evidence. Delivery requires current-revision CI and review.
+Native qualification applies to a complete generated part.
+[Change entry](../Changes/Solidworks/Archive/SolidworksOrdinaryPartDefinition.md)
+
 ### B04-SW2026-CONFIG-UNITS
 
 The PR #121 takeover team owns this unit-table reader on
