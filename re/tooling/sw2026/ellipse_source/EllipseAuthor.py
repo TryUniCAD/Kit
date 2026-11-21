@@ -19,10 +19,16 @@ METHODS = {
     "ISketchContour": {"IsClosed": 0, "GetSketchSegments": 0},
     "IFeatureManager": {"FeatureExtrusion3": 23},
     "IFeature": {"Parameter": 1, "GetFaces": 0, "GetParents": 0},
-    "IBody2": {"GetFaces": 0, "GetExtremePoint": 6},
-    "IFace2": {"GetFeature": 0, "GetBody": 0, "GetSurface": 0, "GetEdges": 0, "GetArea": 0, "Normal": 0},
-    "IEdge": {"GetCurve": 0, "GetTwoAdjacentFaces2": 0},
-    "ICurve": {"IsEllipse": 0, "GetEllipseParams": 0},
+    "IBody2": {"GetFaces": 0, "GetExtremePoint": 6, "Select2": 2},
+    "IFace2": {"GetFeature": 0, "GetBody": 0, "GetSurface": 0, "GetEdges": 0, "GetArea": 0, "Normal": 0,
+               "GetLoopCount": 0},
+    "IEdge": {"GetCurve": 0, "GetTwoAdjacentFaces2": 0, "GetCurveParams3": 0},
+    "ICurve": {"IsEllipse": 0, "GetEllipseParams": 0, "GetEndParams": 4},
+    "ICurveParamData": {"StartPoint": 0, "EndPoint": 0, "UMinValue": 0, "UMaxValue": 0, "Sense": 0},
+    "IModelDocExtension": {"CreateMassProperty2": 0},
+    "IMassProperty2": {"AccuracyLevel": 0, "UseSystemUnits": 0, "SelectedItems": 0, "Recalculate": 0,
+                       "GetOverrideOptions": 0, "Volume": 0, "SurfaceArea": 0, "CenterOfMass": 0, "Mass": 0},
+    "IMassPropertyOverrideOptions": {"OverrideMass": 0, "OverrideCenterOfMass": 0},
     "IDimension": {"FullName": 0, "SystemValue": 0, "DrivenState": 0, "ReadOnly": 0, "SetSystemValue3": 3},
 }
 ENUMS = {
@@ -34,13 +40,15 @@ ENUMS = {
     "swSetValueInConfiguration_e": {"swSetValue_InThisConfiguration": 1},
     "swSetValueReturnStatus_e": {"swSetValue_Successful": 0},
     "swObjectEquality": {"swObjectSame": None},
+    "swMassPropertyAccuracyLevel_e": {"swMassPropertyAccuracyLevel_Higher": 2},
 }
+MASS_SETTERS = {"AccuracyLevel": 3, "UseSystemUnits": 11}
 
 
 def installed_api():
     model, model_id = load(Swapp, MODEL_LIB)
     consts, const_id = load(Swapp, CONSTS_LIB)
-    found, enums = {}, {}
+    found, enums, setters = {}, {}, {}
     for index in range(model.GetTypeInfoCount()):
         name = model.GetDocumentation(index)[0]
         if name not in METHODS:
@@ -50,6 +58,11 @@ def installed_api():
         for offset in range(info.GetTypeAttr().cFuncs):
             member = info.GetFuncDesc(offset)
             names = info.GetNames(member.memid)
+            if (name == "IMassProperty2" and names and names[0] in MASS_SETTERS
+                    and member.invkind == Swapp.pythoncom.INVOKE_PROPERTYPUT):
+                require(tuple(arg[0] for arg in member.args) == (MASS_SETTERS[names[0]],),
+                        f"registered IMassProperty2.{names[0]} setter type differs")
+                setters[names[0]] = {"id": member.memid, "arguments": repr(member.args)}
             if not names or names[0] not in METHODS[name] or member.invkind not in (
                 Swapp.pythoncom.INVOKE_FUNC, Swapp.pythoncom.INVOKE_PROPERTYGET,
             ):
@@ -73,8 +86,9 @@ def installed_api():
             value = values.get(member)
             require(type(value) is int and (expected is None or value == expected), f"unverified enumeration: {member}")
             enums[member] = value
-    require(found.keys() == METHODS.keys() and len(enums) == sum(map(len, ENUMS.values())), "incomplete 2026 ellipse API")
-    return {"model": model_id, "constants": const_id, "members": found, "enums": enums}
+    require(found.keys() == METHODS.keys() and len(enums) == sum(map(len, ENUMS.values()))
+            and setters.keys() == MASS_SETTERS.keys(), "incomplete 2026 ellipse API")
+    return {"model": model_id, "constants": const_id, "members": found, "enums": enums, "mass_property_setters": setters}
 
 
 class EllipseAuthor(FilletAuthor):
@@ -196,11 +210,32 @@ class EllipseAuthor(FilletAuthor):
         self.rec.flush()
         require(status == self.constants["swSetValue_Successful"], "actual D1 depth setter failed")
 
+    def full_trim(self, edge, curve):
+        trim = self.typed(self.get(edge, "GetCurveParams3"), "CurveParamData")
+        low, high = (float(self.get(trim, name)) for name in ("UMinValue", "UMaxValue"))
+        seam = [[float(value) for value in self.get(trim, name)] for name in ("StartPoint", "EndPoint")]
+        ends = [Swapp.VARIANT(Swapp.pythoncom.VT_BYREF | Swapp.pythoncom.VT_R8, 0.0) for _ in range(2)]
+        closed, periodic = Swapp.byref_bool(), Swapp.byref_bool()
+        success = bool(self.get(curve, "GetEndParams", *ends, closed, periodic))
+        period = abs(float(ends[1].value) - float(ends[0].value))
+        observation = {"trim": [low, high], "base": [float(item.value) for item in ends], "period": period,
+                       "seam_points_m": seam, "same_sense": bool(self.get(trim, "Sense")), "success": success,
+                       "closed": bool(closed.value), "periodic": bool(periodic.value)}
+        self.rec.data["last_rim_trim"] = observation
+        self.rec.flush()
+        require(success and observation["closed"] and observation["periodic"] and period > 0
+                and all(math.isfinite(value) for value in (low, high, period)) and low != high
+                and all(len(point) == 3 for point in seam), "native cap does not carry a finite whole periodic trim")
+        self.rec.close_number("physical cap covers one period", abs(high - low), period, absolute=1e-11)
+        self.vector("physical cap closed seam", *seam)
+        return observation
+
     def cap(self, face, side, plan, expected):
         normal = [float(v) for v in self.get(face, "Normal")]
         require(len(normal) == 3 and abs(normal[2]) > 0.99, "cap is not normal to the signed sketch frame")
         i = int(normal[2] > 0)
         self.vector("native outward cap normal", normal, [0, 0, -1 if i == 0 else 1])
+        require(int(self.get(face, "GetLoopCount")) == 1, "ellipse cap does not have exactly one boundary loop")
         (edge,) = self.get(face, "GetEdges") or ()
         curve = self.typed(self.get(edge, "GetCurve"), "Curve")
         require(bool(self.get(curve, "IsEllipse")), "actual cap rim is not a native ellipse")
@@ -214,8 +249,45 @@ class EllipseAuthor(FilletAuthor):
         for native, model in zip((params[4:7], params[8:11]), plan["unit_axes"], strict=True):
             sign = math.fsum(a * b for a, b in zip(native, model, strict=True))
             self.vector("physical cap ellipse carrier axis", native, model if sign > 0 else [-value for value in model])
-        self.rec.close_number("native cap area", self.get(face, "GetArea"), expected["cap_m2"], absolute=1e-16)
-        return {"station": i, "params": params, "normal": normal, "edge_reference": self.reference(edge)}
+        approximate = float(self.get(face, "GetArea"))
+        require(math.isfinite(approximate) and approximate > 0, "native cap area approximation is not finite and positive")
+        trim = self.full_trim(edge, curve)
+        area = math.pi * params[3] * params[7]
+        self.rec.close_number("complete physical cap rim area", area, expected["cap_m2"], absolute=1e-16)
+        return {"station": i, "params": params, "normal": normal, "edge_reference": self.reference(edge),
+                "trim": trim, "area_from_rim_m2": area, "approximate_native_area_m2": approximate}
+
+    def mass_properties(self, body):
+        self.get(self.model, "ClearSelection2", True)
+        try:
+            require(bool(self.get(body, "Select2", False, Swapp.nothing())),
+                    "native exact solid selection for mass properties failed")
+            self.selected(body)
+            extension = self.get(self.model, "Extension")
+            mass = self.typed(self.get(extension, "CreateMassProperty2"), "MassProperty2")
+            accuracy = self.constants["swMassPropertyAccuracyLevel_Higher"]
+            self.set(mass, "AccuracyLevel", accuracy)
+            self.set(mass, "UseSystemUnits", True)
+            options = self.typed(self.get(mass, "GetOverrideOptions"), "MassPropertyOverrideOptions")
+            require(not self.get(options, "OverrideMass") and not self.get(options, "OverrideCenterOfMass"),
+                    "native mass properties have a manual override")
+            targets = self.get(mass, "SelectedItems") or ()
+            require(len(targets) == 1 and self.same(targets[0], body),
+                    "mass properties do not refer to the actual sole solid")
+            require(bool(self.get(mass, "Recalculate")), "native higher-accuracy mass recalculation failed")
+            require(int(self.get(mass, "AccuracyLevel")) == accuracy and bool(self.get(mass, "UseSystemUnits")),
+                    "native mass measurement did not retain higher-accuracy SI settings")
+            values = {"volume": float(self.get(mass, "Volume")), "area": float(self.get(mass, "SurfaceArea")),
+                      "com": [float(value) for value in self.get(mass, "CenterOfMass")],
+                      "mass": float(self.get(mass, "Mass")), "accuracy_level": accuracy, "selected_solid": True,
+                      "use_system_units": True, "manual_overrides": False}
+            self.rec.data["last_high_accuracy_mass"] = values
+            self.rec.flush()
+            require(all(math.isfinite(values[key]) and values[key] > 0 for key in ("volume", "area", "mass"))
+                    and len(values["com"]) == 3, "native selected body measurements are incomplete")
+            return values
+        finally:
+            self.get(self.model, "ClearSelection2", True)
 
     def measure(self, boss, plan, expected):
         body = self.one_body()
@@ -227,15 +299,17 @@ class EllipseAuthor(FilletAuthor):
                 "actual single solid faces do not all belong to this boss")
         planar = [bool(self.get(self.get(face, "GetSurface"), "IsPlane")) for face in faces]
         require(sum(planar) == 2, "elliptic extrusion must have two planar cap faces")
-        side = faces[planar.index(False)]
-        caps = [self.cap(face, side, plan, expected) for face, is_plane in zip(faces, planar, strict=True) if is_plane]
-        require({cap["station"] for cap in caps} == {0, 1}, "both caps are on the same signed station")
-        self.rec.close_number("native lateral face area", self.get(side, "GetArea"), expected["side_m2"], absolute=1e-16)
-        mass = self.rec.call("physical mass properties", Swapp.mass, self.model)
-        require(mass is not None and "error" not in mass, "ellipse boss has no measurable solid")
+        mass = self.mass_properties(body)
         self.rec.close_number("ellipse boss volume", mass["volume"], expected["volume_m3"], absolute=1e-21)
         self.rec.close_number("ellipse boss total area", mass["area"], expected["area_m2"], absolute=1e-16)
         self.vector("ellipse boss centre of mass", mass["com"], expected["com_m"])
+        side = faces[planar.index(False)]
+        caps = [self.cap(face, side, plan, expected) for face, is_plane in zip(faces, planar, strict=True) if is_plane]
+        require({cap["station"] for cap in caps} == {0, 1}, "both caps are on the same signed station")
+        approximate = float(self.get(side, "GetArea"))
+        require(math.isfinite(approximate) and approximate > 0, "native lateral face area approximation is not finite and positive")
+        lateral = mass["area"] - math.fsum(cap["area_from_rim_m2"] for cap in caps)
+        self.rec.close_number("lateral area from measured body and physical caps", lateral, expected["side_m2"], absolute=1e-16)
         bounds = []
         for axis, interval in enumerate(expected["bounds_m"]):
             actual = []
@@ -246,7 +320,8 @@ class EllipseAuthor(FilletAuthor):
                 actual.append(float(values[axis].value))
             self.vector(f"actual ellipse bound {axis}", actual, interval)
             bounds.append(actual)
-        return {"mass": mass, "caps": caps, "solid_count": 1, "faces": 3, "bounds_m": bounds}
+        return {"mass": mass, "caps": caps, "solid_count": 1, "faces": 3, "bounds_m": bounds,
+                "lateral_area_m2": lateral, "approximate_lateral_area_m2": approximate}
 
     def snapshot(self, label, plan, edited=False):
         self.clean_rebuild()
