@@ -69,13 +69,17 @@ Its workflow checks cover the complete selected written roster, restart and
 rejection of unsupported assistant completion claims. Native recipe coverage and
 full decoder qualification remain separate exit criteria.
 
-A08k is checking on local branch `codex/automatic-builder-development`, owned by
+A08k's bounded first delivery is complete on local branch `codex/automatic-builder-development`, owned by
 Codex, with dependencies A08h/A08i/A08j and the existing provider/native ownership
 contracts. The [automatic builder-development loop](../../Changes/Research/Supervisor/Catalogue/AutomaticBuilderDevelopment.md)
 implements opt-in generation, bounded repair, independently reserved qualification,
 immutable runtime registration and dependent capture/decoding for the scoped positive
-XY offset plane. Native qualification is unverified pending the recorded acceptance
-run. This work does not close decoder, conversion or Fusion qualification. Delivery
+XY offset plane. At frozen source `d61c3be4`, an actual two-call loop repaired an
+injected distance defect, rejected a wrong-support plane, passed three reserved
+cases, registered its source and accepted a separate sample. The dependent decoder
+ran deterministically with 55 unresolved findings per archive; conversion remains
+unqualified. Eighteen new and two unchanged campaign process checks pass. This work
+does not close decoder, conversion or Fusion qualification. Delivery
 is local only; no push, vendor binary or native archive is authorized for publication.
 
 The user assigned SOLIDWORKS and CAD-independent implementation to Codex on 2026-11-17.

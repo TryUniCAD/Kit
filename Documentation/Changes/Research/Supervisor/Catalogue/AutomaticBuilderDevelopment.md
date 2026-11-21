@@ -16,7 +16,7 @@ recipe. Automatic development is disabled by default. Other features explicitly
 report missing verifier support. Fusion qualification is outside this first scope.
 
 The supported options are XY support, positive direction, one plane, millimetres,
-and offsets from 1 to 60 mm on the fixed 40 × 20 × 10 mm block prerequisite.
+and offsets from 1 to 60 mm on the fixed 40 Ã— 20 Ã— 10 mm block prerequisite.
 Qualification establishes this bounded research scope on the exact installed build;
 it does not establish exhaustive feature support, complete decoding or conversion.
 
@@ -116,4 +116,75 @@ vendor DLL, compiled assembly or native document belongs in repository commits.
 
 Completion evidence and current status belong to the
 [automation register](../../../../Reference/Research/AutomationSteps.md), step A08k.
-Native qualification remains unverified until its actual acceptance run is recorded.
+
+## Completed first delivery
+
+The actual local `BD3` run completed with exit 0 at frozen source
+`d61c3be47c503471c07cb2de4756505e96f1baf4` on SOLIDWORKS build `34.4.1`
+(executable and interop file version `34.4.1.1011`). Its elapsed time was
+960.77 seconds, including the retained resource wait and explicit resume.
+Later test/documentation commits do not change its native or verifier sources.
+
+| Stage                  | Independently recorded result                                                                                                                                                                            |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Negative control       | A valid YZ plane at X=15 mm was rejected despite matching 8,000 mmÂ³ body volume.                                                                                                                        |
+| Attempt 1              | Deliberately injected scale 2 created Z=30/40/70 for requests 15/20/35 mm. Edits reached 25/29/42; restoration correctly returned the actual original 30/40/70, and verification rejected the candidate. |
+| Automatic repair       | The second real model call returned scale 1 from structured diagnostics, without a human candidate edit. Discovery passed 15/20/35, edits 25/29/42, restoration and all fresh reopens.                   |
+| Reserved qualification | Frozen code passed offsets 29.25/56.75/48.25 mm, edits 29.375/56.875/48.375 mm, restoration and fresh reopen with zero diagnostics. These cases were not disclosed to the generator.                     |
+| Separate sample        | S1 requested and measured Z=31 mm, edited to 38, restored to 31, saved A/E/B and reopened each in a third process. Native sample acceptance passed.                                                      |
+| Decoder                | Completed deterministically on A/B/E, each with 153 records, 1,406 fields and 55 unresolved findings. Portable completion and conversion qualification remain false.                                     |
+
+The qualified candidate's observations retained one solid body, no surface body,
+volume `8000.000000000001` mmÂ³, centre of mass `[20,10,5]` mm and bounds
+`[0,0,0,40,20,10]` mm. Target observations matched `RefPlane`, distance type 5,
+constraint-base type 11, distance constraint 8, Front Plane support, +Z normal,
+MMGS units and the actual driving dimension state 2. The prerequisite's type,
+sketch dimensions, support, feature order, operation and relationships were checked.
+Fifteen owned application processes closed normally across five batches, with
+30 healthy control observations and 33 saved archives reopened in fresh processes.
+There was no forced cleanup, and the final host inventory contained no SOLIDWORKS
+process. The qualified scope remains only the positive single XY plane, 1â€“60 mm.
+
+Two Codex login calls reported 28,511 input tokens and 64 output tokens, 28,575 total.
+Their measured durations were 4.748 and 3.924 seconds. Actual model identity and USD
+cost were not reported and remain null. The configured model was the CLI default;
+no price or model name is inferred.
+
+The immutable runtime registration is
+`891fc21a217133543530aeb9991580f8342aa2191ef8a54efdc52ec4e378ef4c`.
+Its candidate digest is
+`c63aa53ca033606745f391594216ab088ee423d032ac53bc3cf1fcc933f69c31`;
+its exact executed and registered C# SHA-256 is
+`a569c80b59d1c2e28ce98018f7d8416b243a303c3f1fceed3a97050b440835b8`.
+Qualification native job `builder-native:bc8707b82004adc0c5cde2a8ffa0b6c67a8a33385fc4997b0eff11dd28d6be6e`
+is bound to verifier job `builder-verify:82631cf4cabb4d86a7b0fc82e05e75475d2542425b19adb7a121bc1ee3e6458c`.
+Decoder result SHA-256 is
+`d44c3086d784e1b2f1e60eae16e4c613ea9f8b726f0bdd0687f134259e41ddb6`.
+Runtime evidence stays outside the checkout in `.rescratch/BD3`; the registration
+and generated C# stay in `.rescratch/BuilderRegistry/<id>`. Source promotion was not
+performed. No native archive, ZIP bundle, DLL or compiled assembly is committed.
+
+Per decoded archive, the 55 findings comprise 26 native-only records, 27 retained-byte
+semantics gaps, one direction/frame/operation evidence gap and one missing independent
+source-inventory/native-acceptance link in the reader evidence. Native builder/sample
+acceptance does not close those decoder findings. Full decoding, conversion and Fusion
+qualification remain open.
+
+All human interventions are retained: explicit opt-in; the requested fault-injection
+demo; BD1's object-only metadata transport fix before any CAD/model call; BD2's
+[generated-byte and prerequisite-type corrections](../../../../Gotchas/Research/Workers/Inference/GeneratedBuilderIdentity.md)
+before any model call, followed by a fresh source-bound job; and BD3's explicit resume
+after a transient shared-oracle lock disappeared. Old evidence was never requalified,
+no other process was killed or displaced, and no human repaired a generated candidate.
+The private `BuilderDevelopmentInterventions.json` records the external interventions
+alongside the loop's own intervention journal.
+
+Eighteen new CLI/controller/worker process checks pass, alongside two unchanged default
+campaign checks. They cover opt-in/default behavior, explicit blockers, preparation and
+resume provisioning, locks, retained model reservations, negative-gate replay, readiness,
+reserved-case retirement, registry rejection, recovery reuse and actual typed worker
+transport. Fixture records never establish native qualification. Linux and hosted CI
+execution were not performed; the generic tests remain eligible for Linux, and the
+Windows platform selection includes their prefix. Black, steering and diff checks pass.
+The [exact local staging and commit commands](AutomaticBuilderCommands.md) record
+delivery. Nothing was pushed.
