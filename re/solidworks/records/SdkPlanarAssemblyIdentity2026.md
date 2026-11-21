@@ -47,3 +47,5 @@ python3.14 -I -B re/tooling/sw2026/planar_registry/ProvePlanarAssemblyIdentity.p
 ```
 
 Only the sanitized `Receipt.json` enters Kit. The private output separately retains the complete original document and inverse custody. [Verification tool](../../tooling/sw2026/planar_registry/ProvePlanarAssemblyIdentity.py)
+
+The later internal planar composition supports both parent display owners and a separately modeled constructor-only rectangular child appearance. The original populated renderer, allocator and feature clock evidence remain independent whole-source stops. [Guarded composition and current boundary](SdkPlanarVisualComposition2026.md)

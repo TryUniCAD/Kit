@@ -22,6 +22,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.MakeAsmGraphs imp
 from convert.adapters.solidworks.Archive.Construction.Assembly.Metadata.MakeAsmAux import (
     MakeAsmAux,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
+    BlindPlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
@@ -59,6 +62,11 @@ def EmitAsmStreams(
         GraphValue.ManagerHeader,
         GraphValue.DefinitionValue,
         References,
+        DisplayName=(
+            DisplayValues[0].NameValue
+            if DisplayValues is not None and type(ChildValue.PlanValue) is BlindPlan
+            else None
+        ),
     )
     Combined = JoinAsmMut(StateValue, GraphValue, StreamsValue)
     if VisualBytes is not None:

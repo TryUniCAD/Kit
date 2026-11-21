@@ -7,6 +7,10 @@ from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
+from convert.adapters.solidworks.Archive.VisualStates.PartVisualFields import (
+    KPartVisualFields,
+    KPartVisualSchemas,
+)
 from convert.adapters.solidworks.Archive.VisualStates.VisualFields import (
     KVisualFields,
     KVisualSchemas,
@@ -32,7 +36,7 @@ def WriteVisNodeMut(WriterValue: BodyWriter, NodeValue: ArchiveNode) -> None:
 
 
 # visibility stores own their map independently of the assembly configuration and resolved archive maps
-def WriteAsmVisual(RootValue: ArchiveNode) -> bytes:
+def WriteAsmVisual(RootValue: ArchiveNode, *, PartSelf: bool = False) -> bytes:
     if (
         RootValue.ClassValue != RuntimeClass("visStateKeyData_c", 1)
         or RootValue.FieldsValue.get("n") != 0
@@ -40,7 +44,11 @@ def WriteAsmVisual(RootValue: ArchiveNode) -> bytes:
     ):
         raise ValueError("assembly visual store requires its ordinary empty tracker")
     ContextValue = BodyContext(
-        19000, KVisualFields, {}, KVisualSchemas, FlagsValue={"conditions": 0x20004000}
+        19000,
+        KPartVisualFields if PartSelf else KVisualFields,
+        {},
+        KPartVisualSchemas if PartSelf else KVisualSchemas,
+        FlagsValue={"conditions": 0x20004000},
     )
     WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteVisNodeMut)
     WriterValue.OutputValue.extend(EncodeScalar(ContextValue.VersionValue, "u32"))

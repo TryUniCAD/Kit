@@ -18,20 +18,16 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.VisualStates.MakeVisKey import MakeVisKey
+from convert.adapters.solidworks.Archive.VisualStates.MakeVisRow import MakeVisRow
 from convert.adapters.solidworks.Archive.VisualStates.WriteAsmVisual import (
     WriteAsmVisual,
 )
 from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import ReadFileKey
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
-    FieldInt,
     ReadNodeName,
     RequireNode,
 )
-
-
-# visibility attribute references share only the actual state scope and generated object identity
-def MakeVisRow(KeyValue: int, *Values: ArchiveNode) -> dict[str, object]:
-    return {"key": KeyValue, "objs": [{"o": NodeValue} for NodeValue in Values]}
 
 
 # selected parent display intent must materialize the binary owner that the native assembly actually applies
@@ -82,41 +78,29 @@ def MakeAsmVisual(
         for Enabled in (False, True)
     }
     Datum = ArchiveNode(Flags, {"f08": Default, "f10": 0, "f14": 6, "f18": 1, "f1c": 0})
-    RootValue = ArchiveNode(
-        RuntimeClass("visStateKeyData_c", 1),
-        {
-            "f15c": 5,
-            "f158": 0,
-            "f118": [
-                {"key": FieldInt(Config.FieldsValue, "f08"), "value": Default, "one": 1}
-            ],
-            "f0f0": [
-                {"id": StateKey, "name": StateName, "f384": 0, "f394": 0, "f38c": 0}
-                for StateKey, (StateName, _) in zip(StateKeys, States, strict=True)
-            ],
-            "comps": [
-                {
-                    "comp": NodeValue,
-                    "attrs": [
-                        MakeVisRow(
-                            StateKey, Property, Visibility[Vector[FeatureId]], Display
-                        )
-                        for StateKey, (_, Vector) in zip(StateKeys, States, strict=True)
-                    ],
-                }
-                for FeatureId, NodeValue in Contexts
-            ],
-            "f78": [
-                {
-                    "ref": NodeValue,
-                    "attrs": [
-                        MakeVisRow(StateKey, Property, Datum) for StateKey in StateKeys
-                    ],
-                }
-                for NodeValue in Planes
-            ],
-            "f88": (),
-            "n": 0,
-        },
+    RootValue = MakeVisKey(
+        Config,
+        tuple(StateName for StateName, _ in States),
+        [
+            {
+                "comp": NodeValue,
+                "attrs": [
+                    MakeVisRow(
+                        StateKey, Property, Visibility[Vector[FeatureId]], Display
+                    )
+                    for StateKey, (_, Vector) in zip(StateKeys, States, strict=True)
+                ],
+            }
+            for FeatureId, NodeValue in Contexts
+        ],
+        [
+            {
+                "ref": NodeValue,
+                "attrs": [
+                    MakeVisRow(StateKey, Property, Datum) for StateKey in StateKeys
+                ],
+            }
+            for NodeValue in Planes
+        ],
     )
     return WriteAsmVisual(RootValue)

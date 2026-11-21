@@ -33,6 +33,8 @@ def MakeAsmAux(
     ManagerHeader: ArchiveNode,
     DefinitionValue: ModelDefGraph,
     References: tuple[ArchiveNode, ...],
+    *,
+    DisplayName: str | None = None,
 ) -> dict[str, bytes]:
     StreamsValue = MakeAsmCommon(
         InputValue, HeadersValue, ManagerHeader, DefinitionValue
@@ -43,7 +45,11 @@ def MakeAsmAux(
                 StateValue, HeadersValue[0], ChildValue, References
             ),
             KComponentTreeStream: MakeAsmTree(
-                StateValue, HeadersValue[0], ChildValue, References
+                StateValue,
+                HeadersValue[0],
+                ChildValue,
+                References,
+                DisplayName=DisplayName,
             ),
         }
     )

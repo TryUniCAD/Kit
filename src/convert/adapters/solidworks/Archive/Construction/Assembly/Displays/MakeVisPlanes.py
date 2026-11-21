@@ -1,9 +1,6 @@
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState import (
     AssemblyState,
 )
-from convert.adapters.solidworks.Archive.Construction.PlanarMates.CompRefFields import (
-    CompRefFields,
-)
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import (
     DatumTime,
 )
@@ -12,6 +9,9 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.ReadLogItems i
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.VisualStates.DetachVisualRef import (
+    DetachVisualRef,
+)
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
     RequireNode,
@@ -72,14 +72,7 @@ def MakeVisPlanes(
             raise ValueError(
                 "assembly visual datum chronology is outside the measured empty-log profile"
             )
-        Fields = CompRefFields(UnitValue)
-        Fields.update(
-            {
-                "f58": ArchiveNode(
-                    RuntimeClass("moUnitComponent_c", 1), {"owner": None, "has_ext": 0}
-                ),
-                "ff0": {"f00": IdValue, "f08": DatumTime(HeadersValue[0], IdValue)},
-            }
-        )
+        Fields = DetachVisualRef(UnitValue)
+        Fields["ff0"] = {"f00": IdValue, "f08": DatumTime(HeadersValue[0], IdValue)}
         Result.append(ArchiveNode(RuntimeClass("moCompFeature_c", 1), Fields))
     return tuple(Result)

@@ -10,8 +10,12 @@ def ReadDisplayRows(
     DisplayValues: tuple[AsmDisplayIn, ...],
     Names: tuple[str, ...],
     FeatureIds: tuple[int, ...],
+    *,
+    Planar: bool = False,
 ) -> tuple[tuple[str, dict[int, bool]], ...]:
-    if type(DisplayValues) is not tuple or len(DisplayValues) != 3:
+    if type(DisplayValues) is not tuple or len(DisplayValues) != (1 if Planar else 3):
+        if Planar:
+            raise ValueError("planar visibility requires one all-visible default state")
         raise ValueError(
             "assembly visibility requires the default and two opposite states"
         )
@@ -37,16 +41,23 @@ def ReadDisplayRows(
                 "assembly visibility requires named states and explicit Boolean occurrence values"
             )
         Visibility = dict(State.VisibilityValues)
-        if len(State.VisibilityValues) != 2 or set(Visibility) != set(Names):
+        if len(State.VisibilityValues) != len(Names) or set(Visibility) != set(Names):
             raise ValueError(
-                "assembly display state must bind both actual occurrences exactly once"
+                "assembly display state must bind each actual occurrence exactly once"
+            )
+        if Planar and tuple(Visibility) != Names:
+            raise ValueError(
+                "planar visibility must retain the actual occurrence order"
             )
         VectorValue = tuple(Visibility[NameValue] for NameValue in Names)
         Vectors.append(VectorValue)
         States.append(
             (State.NameValue, dict(zip(FeatureIds, VectorValue, strict=True)))
         )
-    if (
+    if Planar:
+        if States[0][0] != "Display State-1" or not all(Vectors[0]):
+            raise ValueError("planar visibility requires one all-visible default state")
+    elif (
         States[0][0] != "Display State-1"
         or len({NameValue.casefold() for NameValue, _ in States}) != 3
         or Vectors[0] != (True, True)

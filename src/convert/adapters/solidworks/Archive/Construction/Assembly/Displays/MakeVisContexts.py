@@ -58,9 +58,9 @@ def MakeVisContexts(
         RequireNode(RowValue["o"], "moConfigObject_c")
         for RowValue in ReadRows(Config.FieldsValue["fce8"])
     )
-    if len(States) != 3 or States[0].FieldsValue["f10"] is not None:
+    if len(States) != len(References) + 1 or States[0].FieldsValue["f10"] is not None:
         raise ValueError(
-            "assembly visual context requires both actual configuration member rows"
+            "assembly visual context requires all actual configuration member rows"
         )
     Result = []
     for State, Reference in zip(States[1:], reversed(References), strict=True):

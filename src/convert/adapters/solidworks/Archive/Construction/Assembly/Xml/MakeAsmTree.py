@@ -4,6 +4,9 @@ from xml.etree.ElementTree import Element, SubElement, tostring as XmlBytes
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState import (
     AssemblyState,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.PutViewXmlMut import (
+    PutViewXmlMut,
+)
 from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.XmlModelAttrs import (
     XmlModelAttrs,
 )
@@ -34,6 +37,8 @@ def MakeAsmTree(
     HeaderValue: ArchiveNode,
     ChildValue: PartCandidate,
     References: tuple[ArchiveNode, ...],
+    *,
+    DisplayName: str | None = None,
 ) -> bytes:
     OwnerFile = ArchiveNode.RequireNode(HeaderValue.FieldsValue["f38"])
     ChildFile = ArchiveNode.RequireNode(ChildValue.HeaderValue.FieldsValue["f38"])
@@ -98,7 +103,7 @@ def MakeAsmTree(
     NeedsRebuild = FieldInt(ConfigValue.FieldsValue, "f968") != 1 and bool(
         FieldInt(ConfigValue.FieldsValue, "f0c") & 8
     )
-    _ = SubElement(
+    ConfigNode = SubElement(
         Configurations,
         "swConfiguration",
         {
@@ -112,6 +117,8 @@ def MakeAsmTree(
             "swModelRef": "2",
         },
     )
+    if DisplayName is not None:
+        PutViewXmlMut(RootValue, ConfigNode, References, DisplayName)
     _ = SubElement(RootValue, "swExtFeatureList", {"swObjCount": "0"})
     return (
         b'<?xml version="1.0" encoding="UTF-8"?>\r\n'

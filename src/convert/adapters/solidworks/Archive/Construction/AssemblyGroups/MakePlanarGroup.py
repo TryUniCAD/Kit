@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyInput import (
     AssemblyInput,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.Displays.AsmDisplayIn import (
+    AsmDisplayIn,
+)
 from convert.adapters.solidworks.Archive.Construction.Assembly.EmitAsmStreams import (
     EmitAsmStreams,
 )
@@ -42,6 +45,8 @@ def MakePlanarGroup(
     Occurrences: tuple[OccurrenceIn, ...],
     MateInputs: tuple[GroupMateIn, ...],
     FixedIndex: int,
+    *,
+    DisplayValues: tuple[AsmDisplayIn, ...] | None = None,
 ) -> OrderedAsm:
     CheckGroupIn(ChildValue, InputValue, Occurrences, MateInputs, FixedIndex)
     StateValue = MakeAsmBase(InputValue)
@@ -65,7 +70,13 @@ def MakePlanarGroup(
         )
     MateValues = tuple(MateNodes)
     StreamsValue = EmitAsmStreams(
-        StateValue, ChildValue, InputValue, HeadersValue, References, MateValues
+        StateValue,
+        ChildValue,
+        InputValue,
+        HeadersValue,
+        References,
+        MateValues,
+        DisplayValues=DisplayValues,
     )
     return OrderedAsm(
         StateValue,

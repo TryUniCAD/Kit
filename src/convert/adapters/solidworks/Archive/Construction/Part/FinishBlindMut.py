@@ -1,14 +1,8 @@
-from convert.adapters.solidworks.Archive.Construction.Blind.BossEndInput import (
-    BossEndInput,
-)
 from convert.adapters.solidworks.Archive.Construction.ThroughAll.ThroughPartSpec import (
     ThroughPartSpec,
 )
 from convert.adapters.solidworks.Archive.Construction.ThroughAll.MakeThruCutPart import (
     MakeThruCutPart,
-)
-from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndInput import (
-    BlindEndInput,
 )
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import (
     SetCfgStampMut,
@@ -23,14 +17,17 @@ from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeBlindMut imp
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import (
     KeywordDim,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.MakeHolderLook import (
+    BindSelfLookMut,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.MakePartVis import (
+    MakePartVis,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.PartSelfView import (
+    PartSelfView,
+)
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
-)
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
-    BlindPlan,
-)
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan import (
-    CirclePlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartStreams import (
     EmitPartStreams,
@@ -56,6 +53,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.SelectBlindEnd import (
+    SelectBlindEnd,
+)
 from convert.adapters.solidworks.Archive.Construction.Profile.ProfileGraph import (
     ProfileGraph,
 )
@@ -64,6 +64,9 @@ from convert.adapters.solidworks.Archive.Construction.System.PartSystem import (
 )
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import (
     MakePartDef,
+)
+from convert.adapters.solidworks.Archive.VisualStates.WriteAsmVisual import (
+    KVisualStream,
 )
 from convert.adapters.solidworks.Container.Container import BuildSldprt
 
@@ -80,24 +83,18 @@ def FinishBlindMut(
     PocketValue: PocketPlan | None = None,
     ThroughValue: ThroughPartSpec | None = None,
     WidthDriver: DimensionGraph | None = None,
+    SelfView: PartSelfView | None = None,
 ) -> PartCandidate:
-    EndInput: BlindEndInput | BossEndInput
-    if ThroughValue is not None:
-        if PocketValue is not None or ThroughValue.StockValue is not PlanValue:
-            raise ValueError(
-                "through all composition requires its actual sole stock plan"
-            )
-        EndInput = BossEndInput(PlanValue.DepthValue, False, 19000, "mid_plane")
-    elif isinstance(PlanValue, CirclePlan):
-        EndInput = PlanValue.EndValue
-    elif isinstance(PlanValue, BlindPlan) and PlanValue.Reversed:
-        EndInput = BossEndInput(
-            PlanValue.DepthValue, True, 19000, "blind", DepthName=PlanValue.DepthName
+    if SelfView is not None and (
+        PocketValue is not None
+        or ThroughValue is not None
+        or WidthDriver is not None
+        or len(SketchDims) != 2
+    ):
+        raise ValueError(
+            "part self visibility requires two actual rectangle sketch drivers and a single boss"
         )
-    else:
-        EndInput = BlindEndInput(
-            PlanValue.DepthValue, False, 19000, PlanValue.DepthName
-        )
+    EndInput = SelectBlindEnd(PlanValue, PocketValue, ThroughValue)
     BossValue = MakeBlindMut(
         PlanValue.FeatureName,
         SystemValue.RootValue,
@@ -128,6 +125,8 @@ def FinishBlindMut(
     )
     if CutValue is not None:
         FeatureValues += (CutValue.ProfileValue.ProfileValue, CutValue.FeatureValue)
+    if SelfView is not None:
+        BindSelfLookMut(SystemValue.ConfigValues[0])
     StreamsValue, ConfigValue, ResolvedValue = EmitPartStreams(
         SystemValue,
         FeatureValues,
@@ -140,6 +139,14 @@ def FinishBlindMut(
         CutSketchDims=CutSketchDims,
         PartRelations=WidthDriver is not None,
     )
+    if SelfView is not None:
+        StreamsValue[KVisualStream] = MakePartVis(
+            SystemValue,
+            ProfileValue.ProfileValue,
+            (HeadersValue[0], HeadersValue[1]),
+            PlanValue,
+            SelfView,
+        )
     BytesValue = BuildSldprt(StreamsValue, FormatVersion=4)
     return PartCandidate(
         SystemValue,
@@ -155,4 +162,5 @@ def FinishBlindMut(
         BytesValue,
         PlanValue,
         CutValue,
+        SelfView,
     )

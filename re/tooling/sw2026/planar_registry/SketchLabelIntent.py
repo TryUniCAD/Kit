@@ -31,7 +31,7 @@ def placements(child, labels):
     return tuple(by_parameter[identity] for identity in sketch.parameter_ids)
 
 
-def make_group(document, native_parent, event, labels):
+def make_child(document, native_parent, event, labels, self_view=None):
     plan = PlanAsmWrite(document, native_parent, event)
     child = plan.ChildDocument
     recipe = plan.ChildRecipe
@@ -59,7 +59,12 @@ def make_group(document, native_parent, event, labels):
         place_text_mut(display, xyz)
         display.FieldsValue["f1014"] = 0x800 if routed else 0
     keys = MakeSketchKeys(drivers, recipe.DocumentUnits.LengthUnit)
-    part = FinishBlindMut(system, profile, recipe, prism, allocated, keys)
+    options = {} if self_view is None else {"SelfView": self_view}
+    return plan, FinishBlindMut(system, profile, recipe, prism, allocated, keys, **options)
+
+
+def make_group(document, native_parent, event, labels):
+    plan, part = make_child(document, native_parent, event, labels)
     bundle = MakePlanarGroup(part, plan.RootRecipe, plan.Occurrences, plan.MatesValue, plan.FixedIndex)
     require(bundle.ChildValue is part, "assembly linkage must use the actual generated dimensioned part")
     return bundle

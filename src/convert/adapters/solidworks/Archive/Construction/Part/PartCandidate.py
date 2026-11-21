@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import 
 from convert.adapters.solidworks.Archive.Construction.Extrusion.ExtrusionGraph import (
     ExtrusionGraph,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.PartSelfView import (
+    PartSelfView,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
     KPartPlan,
 )
@@ -35,6 +38,7 @@ class PartCandidate:
     BytesValue: bytes
     PlanValue: KPartPlan
     CutValue: CutGraph | None = None
+    SelfView: PartSelfView | None = None
 
     # active configuration access must retain the actual independent manager node rather than invent a part configuration pointer
     @property
