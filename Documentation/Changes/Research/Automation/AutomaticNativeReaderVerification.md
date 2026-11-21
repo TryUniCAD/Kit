@@ -118,6 +118,7 @@ Source inspection covered controller dependencies, CLI forwarding, API detection
 CLI compatibility coverage now checks missing-API reports and nonzero verification outcomes at the installed process boundary.
 The Windows compatibility job also selects the encoding and legacy-checkout process cases explicitly.
 The legacy fixture checks out only SDK and automation paths, avoiding unrelated historical CAD trees.
+It explicitly populates the initially empty sparse index before launching the historical reader.
 Its historical lazy fetch uses the public repository and does not require persisted checkout credentials.
 Catalogue process coverage inspects the persisted predecessor dependencies and native availability report.
 Serialized CLI coverage decodes the pinned P03 Fusion control and compares it with an independently authored observation fixture.
