@@ -301,7 +301,7 @@ class GenerationBroker:
                 Record = loads(
                     OwnedPath(self.path, self.directory).read_text(encoding="utf-8")
                 )
-                if Record.get("token") == self.token:
+                if isinstance(Record, dict) and Record.get("token") == self.token:
                     self.path.unlink()
             except (OSError, ValueError, TypeError):
                 pass

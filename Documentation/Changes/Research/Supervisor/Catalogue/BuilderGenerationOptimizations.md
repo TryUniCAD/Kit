@@ -64,3 +64,33 @@ bounded protocol failures. A fixture model response proves transport and
 accounting behavior only. It never establishes native builder qualification,
 complete decoding or conversion. Live-provider timing and native application
 acceptance remain separate evidence.
+
+At source `803f5a4bfc038b1e59f0528f821fab30835dfdf8`, an explicitly authorized
+live GPT-6.1 Terra check used the same offset-plane recipe and retained its
+global instruction authorization. The initial call took 3.794 seconds; a second
+call over the same provider process took 3.200 seconds. Reusing the identical
+cached candidate took 0.00330 seconds and consumed no provider reservation or
+tokens. The second live call used a separate cache namespace solely to measure
+the warm transport rather than another cache hit.
+
+Both live calls returned the same schema-valid program, with 6,519 input tokens
+and 32 output tokens each. This is 43.3% fewer input tokens than the earlier
+11,491-token Terra CLI smoke check. The provider process was retained between
+the calls, then closed and confirmed absent. There were two model reservations
+for two live calls, with no reservation for candidate reuse. These are individual
+timing samples, not a latency guarantee or native acceptance evidence.
+
+Seventeen independent process checks passed against this generation source,
+including concurrent separate-run requests consuming one provider turn and one
+reservation, request invalidation, interrupted owners, corrupt-cache refusal,
+authenticated broker boundaries and expired deadlines. The transport client and
+cleanup changes also have separate real-process coverage documented in their
+linked change entries.
+
+Across focused runs, all 48 builder-development process cases passed. Two
+inherited supervisor transport fixtures required explicit fixture-only CPU and
+memory reservations because this host could not admit their workers above the
+production reserve. Production reservations, worker limits and assertions were
+unchanged; see [worker fixture resources](WorkerTransportFixtureResources.md).
+Fresh command preparation also verified both instruction-authorization choices
+and that resume preserves the saved choice without a model call.
