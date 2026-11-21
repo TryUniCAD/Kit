@@ -9,15 +9,20 @@ def text(value):
     return pack("<BHB", 255, 65534, len(payload) // 2) + payload
 
 
-def authored():
+def authored(*, extended_null=None, extended_count=False):
+    def null(field):
+        return pack("<HI", 0x7FFF, 0) if field == extended_null else pack("<H", 0)
+
+    count = pack("<HI", 0xFFFF, 0) if extended_count else pack("<H", 0)
     wire = (
-        pack("<HiIii", 0, -3, 26, -1, -19) + text("")
-        + pack("<iHHi", 0, 0, 0, 0)
+        null("f18") + pack("<iIii", -3, 26, -1, -19) + text("")
+        + pack("<i", 0) + null("f78") + count + pack("<i", 0)
         + pack("<iiIB", -29, -31, 0xF0000004, 0)
-        + pack("<iiiidiH", -37, 41, -43, 47, 0.25, -53, 0)
+        + pack("<iiiidi", -37, 41, -43, 47, 0.25, -53) + null("f258")
         + text("λ😀")
         + pack("<BHHBIHhf", 7, 11, 13, 17, 0xF0000009, 23, -31, 0.125)
-        + pack("<iiHIBBiiiiiHiii", -59, 61, 0, 0xE0000013, 3, 2,
+        + pack("<ii", -59, 61) + null("f2f0")
+        + pack("<IBBiiiiiHiii", 0xE0000013, 3, 2,
                -67, 71, -73, 79, -83, 89, -97, 101, 0)
     )
     fields = {
@@ -33,4 +38,6 @@ def authored():
         "f318": -67, "hidden": 71, "f30c": -73, "f2a4": 79, "f2a0": -83, "f98": 89,
         "f2ac": -97, "f344": 101, "f358": [],
     }
+    if extended_count:
+        fields["f60"]["list"]["n#width"] = 6
     return wire, ArchiveNode(KMasterClass, fields)

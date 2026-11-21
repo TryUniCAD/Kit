@@ -34,7 +34,9 @@ def ReadCfgMaster(
 ) -> ArchiveNode:
     ContextValue = MakeMasterCtx(VersionValue, PartValue, MapValue)
     Cursor = BinaryReader(BufferValue)
-    ReaderValue = GraphReader(Cursor, MapValue, DenyMasterNode)
+    ReaderValue = GraphReader(
+        Cursor, MapValue, DenyMasterNode, RequireCanonicalTags=True
+    )
     FrameValue = ReadFrame(
         ContextValue,
         ReaderValue,

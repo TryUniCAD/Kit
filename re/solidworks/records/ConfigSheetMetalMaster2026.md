@@ -68,22 +68,38 @@ trailing data and signed nonzero body counts refuse in the tested
 paths. Rejected direct actions leave the tested cursor, model field
 or output buffer and original map unchanged.
 The same process checks enabled, disabled and invalid flag targets
-through the shared virtual field executor.
+through the shared virtual field executor. It also refuses the
+six-byte encoding of each of the four otherwise null object fields
+and independently authored six-byte zero counts on read and write.
+The accepted body keeps both the null tags and the inherited empty
+list count in their measured two-byte forms.
+
+A third process builds an independent complete typed map with
+occupied slots 1 through 118, including 30 class entries and
+88 object entries. Its base is 4 and its counter is 119. Both bounded
+operations preserve each entry identity and both inverse lookups,
+verified immediately after each operation. This case uses the
+authored body. The pinned aggregate traversal remains the evidence
+for the actual native 118-entry map.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/TraceCfgMaster.py
 python3.14 -I -B re/tooling/sw2026/CheckCfgMaster.py native
 python3.14 -I -B re/tooling/sw2026/CheckCfgMaster.py wire
+python3.14 -I -B re/tooling/sw2026/CheckCfgMaster.py full_map
 ```
 
-The physical trace requires the pinned aggregate Git object. The
-two [guarded replay receipts](../measurements/2026/ConfigSheetMetalBody01.json)
-run in fresh processes against this checkout and attest zero runtime
-external accesses. The normal queue suite runs the two bounded
-checks. These observations qualify the typed wire rule. Native CAD
+The physical trace requires the pinned aggregate Git object. All
+three [guarded replays](../measurements/2026/ConfigSheetMetalBody02.json)
+ran in fresh processes against the scoped SDK with zero runtime
+external accesses. The [initial replay receipt](../measurements/2026/ConfigSheetMetalBody01.json)
+preserves the earlier two-process evidence. The queue regression
+covers all three current cases. These observations qualify the
+typed wire rule. Native CAD
 execution, held-out qualification, populated sheet-metal serialization
 and whole Config-0 admission retain separate evidence requirements.
 
 [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) ·
 [Reverse-engineering playbook](../../Playbook/README.md) ·
-[Direct owner gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/DirectSheetMetalOwner.md)
+[Direct owner gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/DirectSheetMetalOwner.md) ·
+[Canonical widths gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/DirectMasterWireWidths.md)

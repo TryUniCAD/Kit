@@ -1,0 +1,133 @@
+{
+  "guarded_fresh_processes": 3,
+  "results": [
+    {
+      "case": "native",
+      "interval": [
+        25324,
+        25473
+      ],
+      "proof": {
+        "body_count": 0,
+        "class": [
+          "moSheetMetalMaster_c",
+          1
+        ],
+        "counter": [
+          119,
+          119
+        ],
+        "emitted_sha256": "f75ffe9d1742b2d0c44ce72b3c39a0b59954ccbfbb2865ae05e4fa0851a47869",
+        "extent": [
+          0,
+          149
+        ],
+        "fields_sha256": "dadef17e06869eaf27508a7e37d04ea55662aa004fcfcdb124f8a31a73827a19",
+        "mapped_slots": [
+          1,
+          2,
+          3
+        ],
+        "slot": null,
+        "wire_sha256": "f75ffe9d1742b2d0c44ce72b3c39a0b59954ccbfbb2865ae05e4fa0851a47869"
+      },
+      "runtime_external_accesses": 0
+    },
+    {
+      "case": "wire",
+      "prefixed_extent": [
+        7,
+        162
+      ],
+      "proof": {
+        "body_count": 0,
+        "class": [
+          "moSheetMetalMaster_c",
+          1
+        ],
+        "counter": [
+          4,
+          4
+        ],
+        "emitted_sha256": "2a1536c54d55a425602ec103b9f887b109f8091fde58c1b4b0d45265a461992b",
+        "extent": [
+          0,
+          155
+        ],
+        "fields_sha256": "675896042f1f145ca0f6c32bee4fac181960643d420d4c9b99f8420a6f65b7fa",
+        "mapped_slots": [
+          1,
+          2,
+          3
+        ],
+        "slot": null,
+        "wire_sha256": "2a1536c54d55a425602ec103b9f887b109f8091fde58c1b4b0d45265a461992b"
+      },
+      "refusals": [
+        "foreign_node",
+        "mapped_node",
+        "truncated",
+        "new_mapped_child",
+        "nonempty",
+        "negative",
+        "trailing",
+        "inherited_link",
+        "mapped_child",
+        "foreign_part",
+        "archive_version",
+        "store_foreign_node",
+        "store_mapped_node",
+        "store_nonempty",
+        "store_inherited_link",
+        "store_alternate_context",
+        "wide_null_f18",
+        "wide_null_f78",
+        "wide_null_f258",
+        "wide_null_f2f0",
+        "wide_empty_count",
+        "store_wide_empty_count"
+      ],
+      "runtime_external_accesses": 0,
+      "virtual_flags": [
+        4,
+        0,
+        "nonboolean_refused"
+      ]
+    },
+    {
+      "case": "full_map",
+      "map": {
+        "after_each_operation": "same_entries_and_inverse_lookups",
+        "base": 4,
+        "classes": 30,
+        "entries": 118,
+        "objects": 88,
+        "slot_span": [
+          1,
+          118
+        ]
+      },
+      "proof": {
+        "body_count": 0,
+        "class": [
+          "moSheetMetalMaster_c",
+          1
+        ],
+        "counter": [
+          119,
+          119
+        ],
+        "emitted_sha256": "2a1536c54d55a425602ec103b9f887b109f8091fde58c1b4b0d45265a461992b",
+        "extent": [
+          0,
+          155
+        ],
+        "fields_sha256": "675896042f1f145ca0f6c32bee4fac181960643d420d4c9b99f8420a6f65b7fa",
+        "slot": null,
+        "wire_sha256": "2a1536c54d55a425602ec103b9f887b109f8091fde58c1b4b0d45265a461992b"
+      },
+      "runtime_external_accesses": 0
+    }
+  ],
+  "schema": "kit.sw2026.config-sheet-metal.local.v2"
+}

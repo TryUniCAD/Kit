@@ -49,6 +49,15 @@ def map_check(maps, before):
     require(maps.BaseValue == base and actual == snapshot and all(
         old is new for old, new in zip(snapshot.EntriesValue, actual.EntriesValue, strict=True)
     ), "the bounded owner changed its map")
+    classes, objects = {}, {}
+    for entry in snapshot.EntriesValue:
+        value = entry.EntryValue
+        if isinstance(value, ArchiveNode):
+            objects[id(value)] = entry.IndexValue
+        else:
+            classes[value] = entry.IndexValue
+    require(maps.ClassLookup == classes and maps.ObjectLookup == objects,
+            "the bounded owner changed its inverse map identities")
 
 
 def measure(payload, part, maps, expected, *, authored_value=None):
@@ -59,6 +68,7 @@ def measure(payload, part, maps, expected, *, authored_value=None):
     require((result.StartOffset, result.EndOffset) == (0, len(payload)), "relative extent differs")
     require(result.FieldsValue == expected if isinstance(expected, dict)
             else fingerprint(result.FieldsValue) == expected, "one or more modeled fields differ")
+    map_check(maps, before)
     emitted = WriteCfgMaster(result if authored_value is None else authored_value, 19000, part, maps)
     require(emitted == payload, "serialization differs from the independent wire")
     map_check(maps, before)
@@ -121,6 +131,39 @@ def authored_maps():
     AddEntryMut(maps, part)
     BindNodesMut(maps, (header,))
     return part, maps
+
+
+def full_map_case():
+    part, maps = authored_maps()
+    for slot in range(4, 119):
+        if slot % 4 == 0:
+            descriptor = RuntimeClass(f"AuthoredMasterMap{slot:03d}_c", 1)
+            entry = descriptor
+        else:
+            entry = ArchiveNode(descriptor, {"seed": slot % 2}, IndexValue=slot)
+        require(AddEntryMut(maps, entry) == slot, "authored map allocation differs")
+    external = guard_runtime()
+    payload, node = authored()
+    proof = measure(payload, part, maps, {**node.FieldsValue, "n370": 0}, authored_value=node)
+    slots = proof.pop("mapped_slots")
+    require(slots == list(range(1, 119)) and not external, "authored map is incomplete or used external data")
+    return {"case": "full_map", "proof": proof, "runtime_external_accesses": len(external),
+            "map": {"base": maps.BaseValue, "entries": len(slots), "slot_span": [slots[0], slots[-1]],
+                    "classes": len(maps.ClassLookup), "objects": len(maps.ObjectLookup),
+                    "after_each_operation": "same_entries_and_inverse_lookups"}}
+
+
+def width_refusals(part, maps):
+    refusals = []
+    for field in ("f18", "f78", "f258", "f2f0"):
+        wire, _ = authored(extended_null=field)
+        refusals.append(refuse(f"wide_null_{field}", "archive tag uses a noncanonical width",
+                               lambda: ReadCfgMaster(wire, 19000, part, maps)))
+    wire, node = authored(extended_count=True)
+    reason = "noncanonical inherited list count width"
+    refusals.append(refuse("wide_empty_count", reason, lambda: ReadCfgMaster(wire, 19000, part, maps)))
+    refusals.append(refuse("store_wide_empty_count", reason, lambda: WriteCfgMaster(node, 19000, part, maps)))
+    return refusals
 
 
 def direct_reader(payload, part, maps, factory=None):
@@ -230,6 +273,7 @@ def wire_case():
                lambda: WriteCfgMaster(active, 19000, part, maps)),
         refuse("store_alternate_context", "unsupported resolved flags",
                lambda: WriteCfgMaster(conditional, 19000, part, maps)),
+        *width_refusals(part, maps),
     ]
     map_check(maps, before)
     flags = flag_case(node)
@@ -240,7 +284,7 @@ def wire_case():
 
 if __name__ == "__main__":
     parser = ArgumentParser(description="Verify the bounded Config-0 direct master reader and emitter")
-    parser.add_argument("case", choices=("native", "wire"))
+    parser.add_argument("case", choices=("native", "wire", "full_map"))
     args = parser.parse_args()
-    output = native_case() if args.case == "native" else wire_case()
+    output = {"native": native_case, "wire": wire_case, "full_map": full_map_case}[args.case]()
     print(json.dumps(output, sort_keys=True))
