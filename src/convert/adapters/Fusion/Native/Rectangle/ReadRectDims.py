@@ -156,6 +156,8 @@ def CheckRectBind(
     ):
         raise ValueError(
             "Native rectangle saved driver values or taper bounds disagree"
+            if AllowTaper
+            else "Native rectangle saved driver values or zero taper disagree"
         )
     return Param
 
