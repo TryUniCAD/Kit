@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteArrayMut import (
     WriteArrayMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBoundsMut import (
+    WriteBoundsMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBranchMut import (
     WriteBranchMut,
 )
@@ -17,6 +20,9 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteGhostMut import (
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteLengthMut import (
     WriteLengthMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteMassMut import (
+    WriteMassMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNormalMut import (
     WriteNormalMut,
@@ -52,6 +58,8 @@ KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] 
             "Section": WriteSectionMut,
             "Direct": WriteDirectMut,
             "GhostCount": WriteGhostMut,
+            "MassCaches": WriteMassMut,
+            "BBoxCache": WriteBoundsMut,
         }
     )
 )
