@@ -17,7 +17,7 @@ from tests.Research.SupervisorClient import KRepoRoot
 def MakePauseEnv(ReadyPath: FilePath, PausePath: FilePath) -> dict[str, str]:
     Startup = ReadyPath.parent / "PauseStartup"
     Startup.mkdir()
-    CopyFile(
+    _ = CopyFile(
         FilePath(__file__).with_name("PauseOnSettlement.py"),
         Startup / "sitecustomize.py",
     )
