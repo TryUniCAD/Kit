@@ -67,6 +67,12 @@ Its typed records retain file references, revision logs and bounds for
 reconstruction.
 [Standalone header scope](../../Changes/Solidworks/SolidworksStandaloneHeaders.md)
 
+The internal ordinary assembly Definition codec uses the same independent
+archive framing and a distinct assembly root. It preserves the measured
+saved preferences and constructs fresh save-as-part settings from ten
+explicit native preference values.
+[Assembly Definition scope](../../Changes/Solidworks/Archive/Assembly/SolidworksAssemblyDefinitionCodec.md)
+
 Internal body callbacks handle scalars, canonical CString frames and
 object links in the same graph and counted row scopes. Individual
 stream layouts define the order and meaning of those fields.
