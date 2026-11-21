@@ -1,0 +1,74 @@
+{
+  "application_pe_machine": "0x8664",
+  "cohort": "disclosed",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "controls": {
+    "after": {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "rebuild_errors_or_warnings": 0,
+      "sha256": "615fea5d667496d449707150827caf8228a000568e3c82399a681c8feef7797b",
+      "solid_bodies": 1
+    },
+    "before": {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "rebuild_errors_or_warnings": 0,
+      "sha256": "a247b3c98f986b1bc47c326cee3d7e667275850ab297ab82afc5607a6559f1c5",
+      "solid_bodies": 1
+    }
+  },
+  "distinct_native_processes": 3,
+  "failure": {
+    "argument_index_reported": 1,
+    "case": "EdgeFilletAxial",
+    "checks_passed": 12,
+    "checks_total": 12,
+    "creation_reached": false,
+    "edges_property_put_returned": true,
+    "edges_property_result_after_put": [
+      null
+    ],
+    "error": "Type mismatch.",
+    "failed_inputs": [
+      "null",
+      "IEdge"
+    ],
+    "failed_method": "IsSame",
+    "hresult_signed": -2147352571,
+    "marked_edge_comparison_passed": true,
+    "marked_edge_kind": 1,
+    "native_crash": false,
+    "phase": "author",
+    "phase_job_sha256": "584e7adc1c7e5c4063527c2da2f3f3ba2eeacf0e62785210f71e3da8e725d835",
+    "phase_sha256": "5691fb1bdd396b560e0d0772b05eea072cb64abee6f34c80b43a3c80ef652164",
+    "process_exit_code": 1,
+    "registered_edges_dispatch_id": 21,
+    "reported_edge_count": 1,
+    "same_body_and_boss_comparisons_passed": 4,
+    "stock_bodies": 1,
+    "stock_topology": {
+      "edges": 12,
+      "faces": 6,
+      "vertices": 8
+    },
+    "timed_out": false
+  },
+  "heldout_results": 0,
+  "idle_after": true,
+  "immutable_inputs": true,
+  "job_sha256": "0b384bb47dc044a725c43ede3fdf208d9bb6fbd544f36bff07f332e60ebe763f",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": false,
+  "registered_api_sha256": "f8bc14e15ee1607deda2a3a2b76e33d7448ed522232e53268286b4da6a25e6d4",
+  "schema": "kit.sw2026.edge-fillet-source-attempt.v1",
+  "source_files_saved": 0,
+  "source_lock_sha256": "fc68d5523188b2eef27ec3c7633910161ed28e9c24376edd9f987e8163adb28f",
+  "source_revision": "1caa6a34df8a4f898e8dab5b7cfda69363a32f77",
+  "source_spec_sha256": "d985611e397e943860b8b0ce4b3f9631e6c31f5355bdd784519a2b028a9a51cb",
+  "source_tree": "21862db37d59b7e76eb48a195cc0065d6e4a2247",
+  "writer_output_count": 0
+}

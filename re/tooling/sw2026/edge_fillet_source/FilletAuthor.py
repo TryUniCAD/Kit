@@ -40,6 +40,8 @@ class FilletAuthor(BlindCutAuthor):
         return [float(value) for value in self.get(self.get(result, "MultiplyTransform", frame), "ArrayData")]
 
     def same(self, actual, expected):
+        require(all(value is not None and getattr(value, "_oleobj_", None) is not None
+                    for value in (actual, expected)), "native identity requires two actual dispatch objects")
         return int(self.get(self.app, "IsSame", actual, expected)) == self.constants["swObjectSame"]
 
     def reference(self, value):
@@ -125,17 +127,17 @@ class FilletAuthor(BlindCutAuthor):
         self.set(select_data, "Mark", MARK)
         require(bool(self.get(self.typed(edge, "Entity"), "Select4", False, select_data)),
                 "actual stock edge could not be marked for the constant fillet")
-        require(all(int(self.get(selection, "GetSelectedObjectCount2", mark)) == 1 for mark in (-1, MARK))
-                and self.get(selection, "GetSelectedObjectType3", 1, MARK) == self.constants["swSelEDGES"]
-                and self.same(self.get(selection, "GetSelectedObject6", 1, MARK), edge),
-                "marked selection did not retain the actual resolved edge")
-        array = Swapp.VARIANT(Swapp.pythoncom.VT_ARRAY | Swapp.pythoncom.VT_DISPATCH, (edge,))
-        self.rec.call("set Edges", setattr, definition, "Edges", array,
-                      parameters={"variant": "SAFEARRAY(IDispatch)", "edge": proof})
-        self.rec.data["authored_edge"] = proof
-        self.rec.flush()
         self.confirm_modes(definition, radius)
-        self.confirm_edge(definition, edge)
+        counts = {str(mark): int(self.get(selection, "GetSelectedObjectCount2", mark)) for mark in (-1, MARK)}
+        selected_kind = int(self.get(selection, "GetSelectedObjectType3", 1, MARK))
+        selected = self.get(selection, "GetSelectedObject6", 1, MARK)
+        require(counts == {"-1": 1, str(MARK): 1}
+                and selected_kind == self.constants["swSelEDGES"] and selected is not None
+                and self.same(self.typed(selected, "Edge"), edge),
+                "marked selection did not retain the actual resolved edge")
+        self.rec.data["authored_edge"] = {**proof, "mark": MARK, "selection_counts": counts,
+                                          "selection_kind": selected_kind, "identity_verified": True}
+        self.rec.flush()
         feature = self.get(manager, "CreateFeature", definition)
         require(feature is not None, "native CreateFeature returned no constant edge fillet")
         self.set(feature, "Name", FILLET)
@@ -154,8 +156,10 @@ class FilletAuthor(BlindCutAuthor):
 
     def confirm_edge(self, definition, edge):
         edges = tuple(self.get(definition, "Edges") or ())
-        require(len(edges) == int(self.get(definition, "GetEdgeCount")) == 1 and self.same(edges[0], edge),
-                "native fillet definition lost its exact selected stock edge")
+        require(len(edges) == int(self.get(definition, "GetEdgeCount")) == 1 and edges[0] is not None,
+                "rolled back native fillet must expose one nonnull edge")
+        require(self.same(self.typed(edges[0], "Edge"), edge),
+                "rolled back native fillet points to a different stock edge")
 
     def read_definition(self, feature, boss, endpoints, radius):
         definition = self.typed(self.get(feature, "GetDefinition"), "SimpleFilletFeatureData2")
@@ -166,9 +170,11 @@ class FilletAuthor(BlindCutAuthor):
             edge, proof = self.find_edge(endpoints, boss)
             self.confirm_edge(definition, edge)
             require(not self.get(definition, "Features") and not self.get(definition, "Loops")
-                    and int(self.get(definition, "FilletItemsCount")) == 1
-                    and self.same(self.get(definition, "GetFilletItemAtIndex", 0), edge),
+                    and int(self.get(definition, "FilletItemsCount")) == 1,
                     "native fillet has an alternate input selection or fillet item")
+            item = self.get(definition, "GetFilletItemAtIndex", 0)
+            require(item is not None and self.same(self.typed(item, "Edge"), edge),
+                    "rolled back native fillet item does not bind the same stock edge")
         finally:
             self.get(definition, "ReleaseSelectionAccess")
         parents = [str(self.get(parent, "Name")) for parent in self.get(feature, "GetParents") or ()]
