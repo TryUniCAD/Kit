@@ -1,9 +1,12 @@
+import json as JsonCodec
 import subprocess as Subprocess
 import sys as System
 from pathlib import Path as FilePath
 
+import pytest as Pytest
+
 from tests.Research.Calibration.BuildManifest import BuildManifest
-from tests.Research.Calibration.RunCalibration import KRepoRoot
+from tests.Research.Calibration.RunCalibration import KRepoRoot, ReadCalRun
 
 # the process fixture supplies a reproducible windows error without depending on a sharing race
 KFaultScript = """
@@ -29,7 +32,9 @@ raise SystemExit(Calibration.main())
 
 
 # execution must pass through calibration and its real supervisor before inspecting a failure report
-def RunCalError(RootPath: FilePath, CleanupFails: bool) -> FilePath:
+def RunCalError(
+    RootPath: FilePath, CleanupFails: bool, Expected: dict[str, str | int]
+) -> FilePath:
     ManifestPath = BuildManifest(RootPath)
     OutputPath = RootPath / "DeniedSample"
     Process = Subprocess.run(
@@ -51,9 +56,11 @@ def RunCalError(RootPath: FilePath, CleanupFails: bool) -> FilePath:
         check=False,
         timeout=60,
     )
-    assert Process.returncode == (1 if CleanupFails else 2), (
-        Process.stdout,
-        Process.stderr,
-    )
+    _ = ReadCalRun(Process, 1 if CleanupFails else 2, OutputPath)
+    with Pytest.raises(AssertionError) as Mismatch:
+        _ = ReadCalRun(Process, 0, OutputPath)
+    Prefix = "\nSupervision error: " if CleanupFails else '"supervision_error": '
+    assert Prefix + JsonCodec.dumps(Expected, sort_keys=True) in str(Mismatch.value)
     assert "fixture-private-" not in Process.stdout + Process.stderr
+    assert "fixture-private-" not in str(Mismatch.value)
     return OutputPath

@@ -5,7 +5,6 @@ from pathlib import Path as FilePath
 
 import pytest as Pytest
 
-from tests.Research.Calibration.RunCalibration import TrialDetails
 from tests.Research.Windows.Calibration.RunCalError import RunCalError
 from tests.Research.Windows.WaitForExit import WaitForExit
 
@@ -14,20 +13,18 @@ from tests.Research.Windows.WaitForExit import WaitForExit
 @Pytest.mark.skipif(System.platform != "win32", reason="Windows process boundary")
 @Pytest.mark.parametrize("CleanupFails", (False, True))
 def CheckCalError(TmpPath: FilePath, CleanupFails: bool) -> None:
-    OutputPath = RunCalError(TmpPath, CleanupFails)
-    ReportPath = OutputPath / "Calibration.json"
-    RawReport = ReportPath.read_text(encoding="utf-8")
-    Report = JsonCodec.loads(RawReport)
-    Expected = {
+    Expected: dict[str, str | int] = {
         "stage": "sample_worker_memory",
         "error_type": "PermissionError",
         "errno": AccessDenied,
         "winerror": 5,
     }
+    OutputPath = RunCalError(TmpPath, CleanupFails, Expected)
+    RawReport = (OutputPath / "Calibration.json").read_text(encoding="utf-8")
+    Report = JsonCodec.loads(RawReport)
     assert (
         Report["completed_sweep"] is False and Report["recommended_concurrency"] is None
     )
-    assert JsonCodec.dumps(Expected, sort_keys=True) in TrialDetails(ReportPath)
     assert "fixture-private-" not in RawReport
     TrialPath = OutputPath / "Trial1"
     Launcher = JsonCodec.loads(
