@@ -7,7 +7,7 @@ from AuthorCurves import digest
 from FilletAuthor import FilletAuthor, equal_point, same_points
 from FilletModel import require
 
-from ChamferModel import ROLES, values_si
+from ChamferModel import ROLES, compare_six, values_si
 
 SKETCH, BOSS, CHAMFER = "ChamferStockSketch", "ChamferStockBoss", "DistanceAngleEdgeChamfer"
 EDGE_MARK = 1
@@ -176,6 +176,15 @@ class ChamferAuthor(FilletAuthor):
                 if not any(equal_point(point, old) for old in vertices):
                     vertices.append(point)
         return {"vertices_m": vertices, "area_m2": float(self.get(face, "GetArea")), "reference": self.reference(face)}
+
+    def close_six(self, label, actual, expected, near_zero):
+        error, tolerance, passed = compare_six(actual, expected, near_zero)
+        self.rec.data["checks"].append({"name": label, "actual": actual, "expected": expected,
+                                         "absolute_error": error, "absolute_tolerance": tolerance,
+                                         "method": "half_unit_at_sixth_significant_place_or_near_zero",
+                                         "passed": passed})
+        self.rec.flush()
+        require(passed, f"{label}: native result differs at six significant figures")
 
     def check_face_areas(self, body, expected, label):
         areas = sorted(float(self.get(self.typed(face, "Face2"), "GetArea")) for face in self.get(body, "GetFaces") or ())

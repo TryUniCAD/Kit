@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 single-edge angle-distance chamfer source protocol
 
-**Status: disclosed packet 01 stopped at registered API preflight between its controls. Zero sources were authored. Packet 02 corrects the measured method contract.**
+**Status: disclosed packets 01 and 02 stopped before a source save. Packet 03 corrects the recorded face-area comparison. Native source acquisition is pending.**
 
 This is the source-authoring slice of [B04-SW2026](../../../Documentation/Maintenance/ConversionBacklog.md#b04-sw2026-solidworks-2026-native-reading-and-writing) in [PR #121](https://github.com/TryUniCAD/Kit/pull/121). The oracle owner runs the method on SOLIDWORKS 2026 SP05.2 `34.5.2.0604`. The starting aggregate `745929bcc29cb861571d4a232f7f18847d420f17` has an unqualified chamfer authoring call. Its fillet disclosures and independent fillet pre-writer lock concern a different feature class. [Previous author hook](../../tooling/sw2026/Author.py) · [Fillet archive evidence](EdgeFilletArchive2026.md)
 
@@ -24,6 +24,12 @@ Both driver names and values come from the live feature. The observer reads both
 Disclosed packet 01 (`bc9be3a2372608bb24d0507a3332151de60b112ac130f4fc71afb0ffe10307b0`, source `e147f639a647a9f5ab1b692bb33ed2af0377fc84`) stopped before any source process. Its native `Capture/BatchFailure.json` recorded `registered IChamferFeatureData2.GetIsFlipped arity differs: 1`. The packet, terminal lock and both control records remain in their original locations.
 
 The exact registered 34.0 metadata receipt (`7304ee7613995fa3bc264ef7f517a46d9a18114861f66159fa2d3c033fc530b3`) records `IChamferFeatureData2.GetIsFlipped(Entity)` as method 26 with one required `IDispatch` input and a `BOOL` result. The paired setter takes the entity and a Boolean. The observer queries the actual selected edge only after independently finding it on the rollback stock and proving that it is identical to the edge owned by the definition. It retains the explicit ordinary false flip state check. The fresh disclosed packet keeps the inputs, geometric predictions, control and all eight native lifecycle phases. [Entity-scoped direction query](../../../Documentation/Gotchas/Conversion/Solidworks/Rebuild/ChamferDirectionIsEntityScoped.md)
+
+## Physical comparison correction
+
+Disclosed packet 02 (`0f71495f7b0dcd8cf2dd5d10832344e9a458aab1bdaa771ebb48fdb8fab8741d`, source `c1c1155f75da2c03a8afb790bb818ab5c13b080e`) passed API preflight and both controls in three distinct native processes. Axial A stopped before chamfer insertion at `unbeveled sorted face area 4`. The native source-lock failure is `3326d8fc69c448b9026a2fb138b01d7bc57af8c84bd99e4c3590f86cb8839067` and the disclosed author-phase failure is `f095f9381e8714b4998762dcd4b396df75a2bb5a05abc6333c39d27bdf6f7d20`. Its stock passed one solid, six faces, twelve edges, eight vertices, volume `4.831640625e-05` m³, area `0.008426875` m², centre of mass and extrema. Both original failure files remain in the disclosed packet's workspace.
+
+The authored dimensions `54.25 × 37.5` mm give exact cap area `0.002034375` m². Both native caps returned that value. The prediction was the immediately adjacent binary64 value `0.0020343749999999997` m². Their difference was `4.336808689942018e-19` m². Formatting each value independently with six significant digits produced `0.00203438` and `0.00203437` because they straddle a decimal midpoint. The observer now applies a direct half-unit tolerance at the expected value's sixth significant place and records the absolute error and limit. Near-zero thresholds, input operands, geometry predictions and all ownership and native lifecycle requirements are retained. [Significant-figure comparison gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Rebuild/SignificantFigureRoundingHasMidpoints.md)
 
 ## Reproduce the disclosed run
 

@@ -1,5 +1,6 @@
 import math
 import re
+from decimal import Decimal
 from itertools import product
 
 from FilletModel import AXES, edge_role, require, stock
@@ -103,3 +104,14 @@ def predictions(cases):
              "states": {label: [{"branch": list(branch), "geometry": predict(case, values_si(case, edited), branch)}
                                 for branch in BRANCHES] for label, edited in (("initial", False), ("edited", True))}}
             for case in cases]
+
+
+def compare_six(actual, expected, near_zero):
+    if not (math.isfinite(actual) and math.isfinite(expected)):
+        return None, None, False
+    tolerance = near_zero
+    if abs(expected) >= near_zero:
+        exponent = Decimal(str(expected)).adjusted()
+        tolerance = float(Decimal(5).scaleb(exponent - 6))
+    error = abs(actual - expected)
+    return error, tolerance, error <= tolerance
