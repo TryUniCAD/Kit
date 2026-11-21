@@ -6,20 +6,30 @@ on:
   pull_request:
   merge_group:
     types: [checks_requested]
+  workflow_dispatch:
+    inputs:
+      audit_sha:
+        description: Full source commit SHA to audit without test reuse
+        required: true
+        type: string
+      feature_session:
+        description: Save actual native CAD documents and a per-file feature inventory
+        default: false
+        type: boolean
 
 permissions:
   contents: read
 
 env:
-  AuditSha: ${{ github.sha }}
+  AuditSha: ${{ inputs.audit_sha || github.sha }}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.merge_group.head_sha || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && format('audit-{0}-{1}-{2}', inputs.audit_sha, github.sha, inputs.feature_session) || github.event.merge_group.head_sha || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
 
 jobs:
   test-plan:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Test suite / Plan
     runs-on: ubuntu-24.04
     timeout-minutes: 15
@@ -29,16 +39,27 @@ jobs:
     outputs:
       shards: ${{ steps.plan.outputs.shards }}
     steps:
+      - &AuditSource
+        name: Validate the requested audit source
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        env:
+          RequestedSha: ${{ inputs.audit_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$RequestedSha" =~ ^[0-9a-f]{40}$ ]]
+          test "$RequestedSha" = "$AuditSha"
+
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           fetch-depth: 0
           filter: blob:none
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Confirm the pinned audit revision
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$AuditSha"
@@ -77,7 +98,7 @@ jobs:
       - name: Collect the complete test suite
         run: |
           set -euo pipefail
-          if ! uv run --no-sync --python 3.14 pytest --collect-only -q -p no:cacheprovider > "${RUNNER_TEMP}/Collected.txt"; then
+          if ! env GITHUB_SHA="$AuditSha" uv run --no-sync --python 3.14 pytest --collect-only -q -p no:cacheprovider > "${RUNNER_TEMP}/Collected.txt"; then
             cat "${RUNNER_TEMP}/Collected.txt"
             exit 1
           fi
@@ -170,8 +191,58 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+  feature-session:
+    if: github.event_name == 'workflow_dispatch' && inputs.feature_session
+    name: CAD feature decoding session
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - *AuditSource
+      - name: Checkout the immutable source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          filter: blob:none
+          ref: ${{ env.AuditSha }}
+          path: Source
+      - name: Checkout the session reporting harness
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+          path: AuditHarness
+          sparse-checkout: re/automation/FeatureDecodeSession.py
+          sparse-checkout-cone-mode: false
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: Source/uv.lock
+      - name: Synchronize the source environment
+        working-directory: Source
+        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+      - name: Hydrate sealed original corpus history
+        working-directory: Source
+        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch
+      - name: Decode the pinned native feature corpus
+        working-directory: Source
+        run: |
+          set -euo pipefail
+          uv run --no-sync --python 3.14 python ../AuditHarness/re/automation/FeatureDecodeSession.py \
+            --root "$PWD" --revision "$AuditSha" --output "${RUNNER_TEMP}/FeatureSession"
+      - name: Save decoded documents, receipts, and feature inventory
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: CadFeatureSession
+          path: ${{ runner.temp }}/FeatureSession
+          if-no-files-found: error
+          retention-days: 7
+
   test-shard:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: test-plan
     name: Test suite / Shard (${{ matrix.shard }})
     runs-on: ubuntu-24.04
@@ -181,13 +252,14 @@ jobs:
       matrix:
         shard: ${{ fromJSON(needs.test-plan.outputs.shards) }}
     steps:
+      - *AuditSource
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           fetch-depth: 0
           filter: blob:none
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -248,7 +320,7 @@ jobs:
         if: steps.selection.outputs.research == 'true'
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
           path: ResearchCheckout
           filter: blob:none
           fetch-depth: 0
@@ -271,7 +343,7 @@ jobs:
         env:
           KIT_RESEARCH_CHECKOUT: ${{ github.workspace }}/ResearchCheckout
         run: >-
-          uv run --no-sync --python 3.14 python -m pytest
+          env GITHUB_SHA="$AuditSha" uv run --no-sync --python 3.14 python -m pytest
           -p no:cacheprovider -p tools.TestShards.Reuse.Track.TrackHooks
           --test-deps="${RUNNER_TEMP}/ShardReport"
           --numprocesses logical --dist load --maxschedchunk 1
@@ -288,7 +360,7 @@ jobs:
           retention-days: 7
 
   research-windows:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: test-plan
     name: Test suite / Platform (windows-2025)
     runs-on: windows-2025
@@ -310,13 +382,14 @@ jobs:
       run:
         shell: bash
     steps: &ResearchPlatformSteps
+      - *AuditSource
       - name: Checkout exact candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           fetch-depth: 0
           filter: blob:none
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -355,7 +428,7 @@ jobs:
       - name: Execute the required platform process cases
         id: tests
         run: >-
-          uv run --no-sync --python 3.14 python -m pytest -p no:cacheprovider
+          env GITHUB_SHA="$AuditSha" uv run --no-sync --python 3.14 python -m pytest -p no:cacheprovider
           --report-log="${RUNNER_TEMP}/PlatformReport/Report.jsonl"
           "@${RUNNER_TEMP}/PlatformReport/Selected.txt"
 
@@ -386,7 +459,7 @@ jobs:
           retention-days: 14
 
   research-macos:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: test-plan
     name: Test suite / Platform (macos-26)
     runs-on: macos-26
@@ -409,23 +482,24 @@ jobs:
     steps: *ResearchPlatformSteps
 
   linux-oom-witness:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Linux kernel OOM witness
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       contents: read
     steps:
+      - *AuditSource
       - name: Checkout exact candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
           persist-credentials: false
 
       - name: Observe the bounded Linux kernel memory failure
         shell: bash
         env:
-          WITNESS_REVISION: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          WITNESS_REVISION: ${{ env.AuditSha }}
           WITNESS_REPORT: ${{ runner.temp }}/LinuxOomWitness.json
         run: |
           test "$(git rev-parse HEAD)" = "$WITNESS_REVISION"
@@ -450,7 +524,7 @@ jobs:
       - name: Observe kernel OOM through the research supervisor
         shell: bash
         env:
-          WITNESS_REVISION: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          WITNESS_REVISION: ${{ env.AuditSha }}
           WITNESS_REPORT: ${{ runner.temp }}/LinuxSupervisorOomWitness.json
         run: |
           test "$(git rev-parse HEAD)" = "$WITNESS_REVISION"
@@ -481,17 +555,18 @@ jobs:
           retention-days: 14
 
   test-report:
-    if: ${{ !cancelled() && (github.event_name == 'merge_group' || github.event_name == 'push') && needs.test-plan.result == 'success' }}
+    if: ${{ !cancelled() && (github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch') && needs.test-plan.result == 'success' }}
     needs: [test-plan, test-shard]
     name: Test suite / Report
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
+      - *AuditSource
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -561,7 +636,7 @@ jobs:
           retention-days: 8
 
   verify-end-to-end:
-    if: ${{ !cancelled() && (github.event_name == 'merge_group' || github.event_name == 'push') }}
+    if: ${{ !cancelled() && (github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
     needs: [test-plan, test-shard, test-report]
     name: Run the complete test suite
     runs-on: ubuntu-24.04
@@ -576,7 +651,7 @@ jobs:
           echo "The planned shards and verified reuse covered the complete test suite" >> "$GITHUB_STEP_SUMMARY"
 
   analyze:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Analyze ${{ matrix.language }}
     runs-on: ubuntu-24.04
     timeout-minutes: 60
@@ -598,12 +673,13 @@ jobs:
             queries: ""
             config: ./.github/CodeQL/JavaResearch.yml
     steps:
+      - *AuditSource
       - name: Checkout repository
         # yamllint disable-line rule:comments
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Prepare CodeQL model extensions
         shell: bash
@@ -678,17 +754,18 @@ jobs:
           echo "CodeQL reported no findings"
 
   bandit:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Bandit
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -704,17 +781,18 @@ jobs:
         run: uv run bandit -q -r src Cli tools .github/scripts -x .venv,examples,Parashell,modules,re,tests -s B101,B105,B314,B404,B405,B603,B607
 
   semgrep:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Semgrep
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -733,17 +811,18 @@ jobs:
         run: uv run semgrep scan --config=p/default --error --metrics=off --timeout=30 --exclude=.venv --exclude=examples --exclude=Parashell --exclude=modules --exclude=re
 
   pip-audit:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: pip-audit
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -761,17 +840,18 @@ jobs:
           uv run pip-audit --strict --requirement "${RUNNER_TEMP}/runtime-requirements.txt"
 
   safety:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Safety
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -789,17 +869,18 @@ jobs:
           uv run safety check --file "${RUNNER_TEMP}/runtime-requirements.txt" --output text
 
   checkov:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Checkov
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -815,17 +896,18 @@ jobs:
         run: uv run checkov --directory . --quiet --skip-framework secrets --skip-path .venv --skip-path examples --skip-path re
 
   detect-secrets:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: detect-secrets
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -841,16 +923,17 @@ jobs:
         run: uv run detect-secrets scan --all-files --exclude-files '(^\.venv/|^examples/|^re/|^uv\.lock$)' --only-verified
 
   syft:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Syft
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Install pinned Syft
         env:
@@ -876,16 +959,17 @@ jobs:
             "${RUNNER_TEMP}/Kit.syft.cdx.json"
 
   cyclonedx-sbom:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: CycloneDX SBOM
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -907,17 +991,18 @@ jobs:
           --output-reproducible --mc-type application
 
   dlint:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: dlint
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -936,17 +1021,18 @@ jobs:
           src Cli tools .github/scripts
 
   gitleaks:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Gitleaks
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Install pinned Gitleaks
         env:
@@ -982,16 +1068,17 @@ jobs:
           --redact --verbose .
 
   grype:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Grype
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -1032,16 +1119,17 @@ jobs:
         run: '"${RUNNER_TEMP}/grype" sbom:"${RUNNER_TEMP}/Kit.cdx.json" --fail-on low'
 
   osv-scanner:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: OSV-Scanner
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Install pinned OSV-Scanner
         env:
@@ -1060,18 +1148,19 @@ jobs:
         run: '"${RUNNER_TEMP}/osv-scanner" scan source --lockfile=uv.lock --config .github/config/OsvScanner.toml'
 
   scorecard:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Scorecard
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     permissions:
       contents: read
     steps:
+      - *AuditSource
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Install pinned Scorecard
         env:
@@ -1091,7 +1180,7 @@ jobs:
         env:
           GITHUB_AUTH_TOKEN: ${{ github.token }}
           RepositoryName: ${{ github.repository }}
-          CandidateSha: ${{ github.event_name == 'push' && env.AuditSha || github.event.merge_group.head_sha }}
+          CandidateSha: ${{ env.AuditSha }}
         run: |
           set -euo pipefail
           "${RUNNER_TEMP}/scorecard" --repo="github.com/${RepositoryName}" \
@@ -1101,7 +1190,7 @@ jobs:
 
       - name: Summarize Scorecard results
         env:
-          CandidateSha: ${{ github.event_name == 'push' && env.AuditSha || github.event.merge_group.head_sha }}
+          CandidateSha: ${{ env.AuditSha }}
         run: |
           set -euo pipefail
           for ReportPath in Scorecard.json ScorecardCandidate.json; do
@@ -1113,16 +1202,17 @@ jobs:
             Scorecard.json ScorecardCandidate.json
 
   trivy:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Trivy
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Install pinned Trivy
         env:
@@ -1147,17 +1237,18 @@ jobs:
           --exit-code 1 .
 
   trufflehog:
-    if: github.event_name == 'merge_group' || github.event_name == 'push'
+    if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: TruffleHog
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
+      - *AuditSource
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
+          ref: ${{ env.AuditSha }}
 
       - name: Install pinned TruffleHog
         env:
@@ -1183,7 +1274,11 @@ jobs:
           (^|/)modules/
           (^|/)re/
           EOF
-          "${RUNNER_TEMP}/trufflehog" git file://. \
+          ScanArgs=()
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
+            ScanArgs+=(--branch "$AuditSha")
+          fi
+          "${RUNNER_TEMP}/trufflehog" git file://. "${ScanArgs[@]}" \
             --only-verified \
             --exclude-paths="${RUNNER_TEMP}/TrufflehogExcludes"
 
@@ -1234,7 +1329,7 @@ jobs:
           elif [ "$EVENT_NAME" = merge_group ]; then
             echo "$JOB_RESULTS" | jq --exit-status 'length > 0 and all(.[]; .result == "success")'
             echo "Every acceptance and heavy security job passed on this merge-group candidate" >> "$GITHUB_STEP_SUMMARY"
-          elif [ "$EVENT_NAME" = push ]; then
+          elif [ "$EVENT_NAME" = push ] || [ "$EVENT_NAME" = workflow_dispatch ]; then
             echo "$JOB_RESULTS" | jq --exit-status 'length > 0 and all(.[]; .result == "success")'
             echo "Every acceptance and heavy security job passed for source revision ${AuditSha}" >> "$GITHUB_STEP_SUMMARY"
           else
