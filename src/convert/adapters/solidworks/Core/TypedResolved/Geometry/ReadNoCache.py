@@ -26,6 +26,9 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNa
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Geometry.ReadRevGeom import (
     ReadRevGeom,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ReadThinGeom import (
+    ReadThinGeom,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ReadColdOutput import (
     ReadColdOutput,
 )
@@ -53,6 +56,10 @@ def ReadNoCache(
             Feature.class_name == "moRevolution_c" for Feature in ModelValue.features
         ):
             return ReadRevGeom(LinkValue, ManagerValue, ModelValue, BodyId)
+        if any(
+            Feature.class_name == "moRevolutionThin_c" for Feature in ModelValue.features
+        ):
+            return ReadThinGeom(LinkValue, ManagerValue, ModelValue, BodyId)
         if any(
             SketchValue.TypedCircle is not None for SketchValue in ModelValue.sketches
         ):

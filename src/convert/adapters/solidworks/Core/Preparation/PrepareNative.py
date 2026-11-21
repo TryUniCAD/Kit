@@ -28,6 +28,7 @@ from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartW
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import (
     PlanPublicRevolve,
 )
+from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import PlanThinPart
 from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import (
     PrepareRevolve,
 )
@@ -48,6 +49,8 @@ def PrepareNative(
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
 ) -> PartCandidate | ImportCandidate | StockCandidate | RevolvePart:
+    if PlanThinPart(DocumentValue) is not None:
+        return PrepareRevolve(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if DocumentValue.brep is not None:
         return PrepareImport(
             DocumentValue, TargetValue, WrittenAt, CheckPartOpts(OptionsValue)

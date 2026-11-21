@@ -162,6 +162,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.WithRevolveDoc impo
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.WithSelRevDoc import (
     WithSelRevDoc,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.WithThinDoc import (
+    WithThinDoc,
+)
 from convert.adapters.solidworks.Core.EquationLinks import EquationData
 from convert.adapters.solidworks.Core.EquationTarget import (
     KUnresolvedEqTargets,
@@ -613,6 +616,7 @@ def FinishPartDoc(
     DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive, GraphValue), Archive)
     DocValue = BindCutStock(DocValue)
     DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)
+    DocValue = WithThinDoc(DocValue, Archive, ConfigId, DerivedValue)
     if BindSelectedRevolve:
         DocValue = WithSelRevDoc(DocValue, Archive, ConfigId)
     if (
