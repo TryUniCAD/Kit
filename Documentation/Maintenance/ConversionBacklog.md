@@ -251,6 +251,17 @@ annotation view owners and populated presentation lists retain separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
 
+### B04-SW2026-CONFIG-ANNOTATION-FRAMES
+
+The PR #121 takeover team owns the configuration detailing defaults and
+tolerance frame slice on `codex/solidworks-config-annotation-frames` for
+separate main delivery. It depends on the admitted part/ModelHeader map,
+formatting records and shared field actions. Exit requires the two tracked
+archive replays, guarded owner refusals, and current-revision review and CI.
+Annotation views, populated tolerance owners and complete configuration
+admission have separate dependencies.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAnnotationFrames.md)
+
 ### B04-SW2026-CONFIG-THREAD-MARK
 
 The PR #121 takeover team owns this bounded thread and mark read
