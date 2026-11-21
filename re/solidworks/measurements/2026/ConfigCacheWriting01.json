@@ -1,0 +1,267 @@
+{
+  "base_revision": "7d1e8be708116840984084611b1d10f2f419cd6a",
+  "cases": [
+    {
+      "case": "ladder",
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "records": {
+        "bounds": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "bytes": 4,
+          "exact_byte_identity": true,
+          "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+          "map_counter": 110,
+          "native_interval": [
+            25370,
+            25374
+          ],
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        "mass": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "bytes": 4,
+          "exact_byte_identity": true,
+          "fields_sha256": "34c2e3515121924cbd6d665b1e606b30d1baa87261a4d0b1077b7343b5a92f5e",
+          "map_counter": 108,
+          "native_interval": [
+            25151,
+            25155
+          ],
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        }
+      },
+      "runtime_external_accesses": 0,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    {
+      "case": "concave",
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "records": {
+        "bounds": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "bytes": 4,
+          "exact_byte_identity": true,
+          "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+          "map_counter": 94,
+          "native_interval": [
+            22680,
+            22684
+          ],
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        "mass": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "bytes": 4,
+          "exact_byte_identity": true,
+          "fields_sha256": "34c2e3515121924cbd6d665b1e606b30d1baa87261a4d0b1077b7343b5a92f5e",
+          "map_counter": 94,
+          "native_interval": [
+            22654,
+            22658
+          ],
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        }
+      },
+      "runtime_external_accesses": 0,
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    {
+      "case": "authored",
+      "records": {
+        "changed_selector": {
+          "anchor_slots": [
+            1,
+            2
+          ],
+          "bytes": 329,
+          "exact_byte_identity": true,
+          "fields_sha256": "e414a0fe640a6bb0cd0a340617c6dc9ed10efd1325e8f604ac6e1ec796b4398f",
+          "map_counter": 41,
+          "sha256": "3b932a61f22cda40519186b138208940a741525ebdcf1112a0a6f9c29ba9eeec"
+        },
+        "empty_bounds": {
+          "anchor_slots": [
+            1,
+            2
+          ],
+          "bytes": 4,
+          "exact_byte_identity": true,
+          "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+          "map_counter": 41,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        "empty_mass": {
+          "anchor_slots": [
+            1,
+            2
+          ],
+          "bytes": 4,
+          "exact_byte_identity": true,
+          "fields_sha256": "34c2e3515121924cbd6d665b1e606b30d1baa87261a4d0b1077b7343b5a92f5e",
+          "map_counter": 41,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        "one_slot": {
+          "anchor_slots": [
+            1,
+            2
+          ],
+          "bytes": 305,
+          "exact_byte_identity": true,
+          "fields_sha256": "70229093de36e8adb9f63153002a41fe64cf72c8856ec9eddf6d68ddc1d5c9ad",
+          "map_counter": 41,
+          "sha256": "fb3bcc95fbda1ba12171abeb6b9fc00d3da3a7a4e06f2a01f06c9e327a1626cf"
+        },
+        "two_slots": {
+          "anchor_slots": [
+            1,
+            2
+          ],
+          "bytes": 329,
+          "exact_byte_identity": true,
+          "fields_sha256": "89727816989f7e4682c5cc735d9e9a17dbc796ec2a37ee2fa444fd7008acf178",
+          "map_counter": 41,
+          "sha256": "73bf385093cc0baeb18d75386676986deae5ed97c2e9c18e23008bfc669d6f7d"
+        }
+      },
+      "refusals": [
+        "extra_slot",
+        "inactive_selector",
+        "missing_selector",
+        "inactive_property",
+        "absent_property",
+        "missing_atom_rows",
+        "unmodeled_atom",
+        "missing_property_member",
+        "unmodeled_vector",
+        "populated_bounds",
+        "missing_owner",
+        "wrong_version",
+        "unsupported_kind"
+      ],
+      "runtime_external_accesses": 0
+    },
+    {
+      "case": "circle",
+      "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+      "header_sha256": "dbff4fc3e0c22cc292d30541648df2aef7e7e193c513d005ceb3cbc88e962a9a",
+      "records": {
+        "bounds": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "bytes": 4,
+          "exact_byte_identity": true,
+          "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+          "map_counter": 122,
+          "native_interval": [
+            26035,
+            26039
+          ],
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        "mass": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "bytes": 278,
+          "exact_byte_identity": true,
+          "fields_sha256": "d391c813d771de97eb734d476371e815e4f2d9dba80200c551000a1bd847997e",
+          "map_counter": 120,
+          "native_interval": [
+            25542,
+            25820
+          ],
+          "sha256": "c746956086c2a50c590354c3bf0615f0c1cf31c1051e7c5b5e942ec6a385da95"
+        }
+      },
+      "runtime_external_accesses": 0,
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23"
+    },
+    {
+      "case": "polygon",
+      "config_sha256": "0c18e5880e64c1ff1fef5560cd16e2b57c94a2545ad8ee73371ac79cc0bec631",
+      "header_sha256": "42523f3d74f6ec041b06f5b3012c178627c626c82a9ac3d13faf492848906487",
+      "records": {
+        "bounds": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "bytes": 4,
+          "exact_byte_identity": true,
+          "fields_sha256": "855564ac5118768aff648f73eec458d29df6e74bb45b0167130f42d0b6f8c416",
+          "map_counter": 122,
+          "native_interval": [
+            26065,
+            26069
+          ],
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        "mass": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "bytes": 286,
+          "exact_byte_identity": true,
+          "fields_sha256": "419dcb7686febf942b5fceb7dbf51704514331d63f540bb44a656bf37f4df9a5",
+          "map_counter": 120,
+          "native_interval": [
+            25564,
+            25850
+          ],
+          "sha256": "2160148b4498dce04a212b87fc10490d124eeb6942b8913ed498ba95e9dee9bb"
+        }
+      },
+      "runtime_external_accesses": 0,
+      "source_sha256": "e311ba0626114291e62aacd26f705c8d304baa5d0315f89972fdde66bdee1f14"
+    }
+  ],
+  "guarded_fresh_processes": 5,
+  "native_field_evidence_sha256": "a026f4b0916b5f66c9d9ef63c23900230456691e79076e0c06fe97079c9ec12d",
+  "native_oracle_qualified": false,
+  "native_processes_started": 0,
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.config-cache-write.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/CheckCfgCacheWrite.py": "acae46b0324d0b5b376b6801803876cacc8619f668b891447910f93be959f524",
+    "re/tooling/sw2026/CheckCfgCaches.py": "8e37c8d90ea6bcd5a14a608726d4a7a193c95ef4989932aac81c04cb2a859bc4",
+    "re/tooling/sw2026/ReadWirePartCaches.py": "2288caf633aad6089fcbdcdd238cc46c31f1cf8a6d9a870477efb2764a0425c1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/MassCacheFields.py": "e50fbeb2b2208f7ffd390b90e419fb106c2d6a518663d1932610b8f2563cad01",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/GeometryFields.py": "8d2c6db81cb0525faad7ab1bbc8dee2fab3847bbc226941f555742658d2cff89",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/MassPropFields.py": "1eac2be351aa8e23f96d4be70d3171cb7c03071d8f1a1fd23edaa9aaf52b14ac",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/CheckMassSlot.py": "a222c37eda5f1dc0d66d7b4f490554df5611f8a8c472eda219beefef90d66664",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteActions.py": "bcd5600941d71d038c46cfb2ab86757c510d6af473e797c8e62042bfa6990a54",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteCachesMut.py": "6e613fab2e37b336166bfff1b4aeb46f3dc3c55e7dc0bd11c9e6dccb9a120d10",
+    "src/convert/adapters/solidworks/Archive/Config/Caches/CacheLayouts.py": "bc025c8663abab0b0a233d9f0aa8841e486de88349f5c5e24a0fe6caf802c2bf",
+    "src/convert/adapters/solidworks/Archive/Config/Caches/CacheRules.py": "0dca44fbe9c12c23f7aa3f1e925ef35ddc5f0a60c3f7efc66a2e9a33e1f85184",
+    "src/convert/adapters/solidworks/Archive/Config/Caches/ReadCfgCache.py": "7606065587e89c92e8495f90ae9ea80eeb8d2995f6f23997e98c81c968e25fcf",
+    "src/convert/adapters/solidworks/Archive/Config/Caches/WriteCfgCache.py": "e702276f0c048a9d4f7ad4f1c165e22e2802f13d28abed8840401879fd58a4de",
+    "tests/Convert/Solidworks/Configuration/CacheWriting/CacheWriteTests.py": "83faab71efba4107ce2c3fdffdb679826849e08ea8aec1a3cfee3dad56b89428"
+  }
+}
