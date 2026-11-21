@@ -44,8 +44,8 @@ def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) ->
             Destination = RootPath / SourcePath.relative_to(KRepoRoot)
             Destination.parent.mkdir(parents=True, exist_ok=True)
             _ = Destination.write_bytes(SourcePath.read_bytes())
-    ReadbackGit(RootPath, "add", "re")
-    ReadbackGit(
+    _ = ReadbackGit(RootPath, "add", "re")
+    _ = ReadbackGit(
         RootPath,
         "-c",
         "user.name=Fixture",
@@ -64,7 +64,7 @@ def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) ->
             if TestTarget == "collector"
             else "RunBossWitness.ps1"
         )
-        RelativePath = "re/automation/PairedCaptures/SolidWorksAuthoring/" + FileName
+        RelativePath = "re/automation/CaptureTools/SolidWorksAuthoring/" + FileName
         FileValue = RootPath / RelativePath
         BeforeBlob = ReadbackGit(RootPath, "rev-parse", "HEAD:" + RelativePath)
         Comment = (
@@ -75,7 +75,7 @@ def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) ->
         _ = FileValue.write_bytes(FileValue.read_bytes() + Comment)
         if HasReplacement:
             AfterBlob = ReadbackGit(RootPath, "hash-object", "-w", str(FileValue))
-            ReadbackGit(RootPath, "replace", BeforeBlob, AfterBlob)
+            _ = ReadbackGit(RootPath, "replace", BeforeBlob, AfterBlob)
             assert ReadbackGit(RootPath, "show", "HEAD:" + RelativePath).endswith(
                 "fixture source drift"
             )

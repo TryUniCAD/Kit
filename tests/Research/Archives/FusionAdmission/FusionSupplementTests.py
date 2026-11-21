@@ -36,22 +36,7 @@ def CheckFusionLane(ReplayRepo: FilePath, TmpPath: FilePath, CaseName: str) -> N
     Manifest = ParseJson(EncodeJson(BuildManifest(ReplayRepo)))
     Evidence = TmpPath / "Evidence"
     Evidence.mkdir()
-    Fusion = Manifest["evidence"][1]
-    if CaseName == "normalized":
-        Selected = Evidence / "fusion"
-        Selected.mkdir()
-        (Selected / "phase-b").mkdir()
-        Content = EncodeJson({"status": "complete", "recipes": {"P01": {}}}).encode()
-        _ = (Selected / "phase-b/measurements.json").write_bytes(Content)
-        Fusion["input_sha256"] = DigestBytes(Content).hexdigest()
-    elif CaseName == "bad-verifier":
-        Fusion["verifier_sha256"] = "0" * 64
-    elif CaseName == "bad-handoff":
-        Fusion["handoff_revision"] = "f" * 40
-    elif CaseName == "escape":
-        Fusion["input_directory"] = "../fusion"
-    elif CaseName == "extra-field":
-        Fusion["qualified"] = True
+    SetFusionMut(Manifest["evidence"][1], Evidence, CaseName)
     Payload = EncodeJson(Manifest, sort_keys=True).encode()
     ManifestPath = TmpPath / "Manifest.json"
     _ = ManifestPath.write_bytes(Payload)
@@ -91,3 +76,22 @@ def CheckFusionLane(ReplayRepo: FilePath, TmpPath: FilePath, CaseName: str) -> N
     else:
         assert Result.returncode == 1, (Result.stdout, Result.stderr)
         assert "paired evidence preflight refused" in Result.stderr
+
+
+# each custody fault must alter only the selected evidence input
+def SetFusionMut(Fusion: dict[str, object], Evidence: FilePath, CaseName: str) -> None:
+    if CaseName == "normalized":
+        Selected = Evidence / "fusion"
+        Selected.mkdir()
+        (Selected / "phase-b").mkdir()
+        Content = EncodeJson({"status": "complete", "recipes": {"P01": {}}}).encode()
+        _ = (Selected / "phase-b/measurements.json").write_bytes(Content)
+        Fusion["input_sha256"] = DigestBytes(Content).hexdigest()
+    elif CaseName == "bad-verifier":
+        Fusion["verifier_sha256"] = "0" * 64
+    elif CaseName == "bad-handoff":
+        Fusion["handoff_revision"] = "f" * 40
+    elif CaseName == "escape":
+        Fusion["input_directory"] = "../fusion"
+    elif CaseName == "extra-field":
+        Fusion["qualified"] = True

@@ -1,8 +1,8 @@
 {
   "Version": 1,
   "PullRequest": {
-    "PythonQuality.yml": ["Ruff", "Black"],
-    "PythonSteering.yml": [],
+    "PythonQuality.yml": ["Ruff", "Black", "Pyright", "Mypy"],
+    "PythonSteering.yml": ["Python steering"],
     "ExplicitImports.yml": ["Reject Python wildcard imports"],
     "PathPolicies.yml": ["Verify path policies"],
     "SteeringSync.yml": ["Verify repository skill"],
@@ -20,6 +20,7 @@
     "RationaleComments.yml": [],
     "WorkflowQuality.yml": [
       "Verify CI policy and pytest compatibility",
+      "Qualify reader and writer patches",
       "Research CLI compatibility",
       "Research CLI Windows compatibility"
     ]

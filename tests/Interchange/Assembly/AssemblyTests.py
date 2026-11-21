@@ -5,9 +5,9 @@ from interchange import (
     SpaceVector,
 )
 from interchange.mesh.SurfaceMesh import SurfaceMesh
-from tests.Interchange.Document.DocumentTests import BuildDocument
 from tests.Interchange.Fixtures.AssemblyFixture import (
     BuildAssembly as BuildFixtureAssembly,
+    BuildPiston,
 )
 
 
@@ -29,7 +29,7 @@ def CheckRoundtrip() -> None:
     assert RestoredValue.assembly is not None
     EmbeddedValue = RestoredValue.assembly.GetDocument("document:part")
     assert isinstance(EmbeddedValue, CadDocument)
-    assert EmbeddedValue == BuildDocument()
+    assert EmbeddedValue == BuildPiston()
     assert RestoredValue.assembly.GetChildren("definition:root") == (
         RestoredValue.assembly.instances[0],
     )

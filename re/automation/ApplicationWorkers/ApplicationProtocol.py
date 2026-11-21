@@ -28,16 +28,16 @@ MAC_QUIT_HELPERS = (MAC_QUIT_AUTHORIZATION, MAC_COCOA_QUIT, MAC_APPLICATION_PEER
 MAC_STARTUP_EVIDENCE = "re/automation/ApplicationWorkers/FusionStartupEvidence.py"
 # the controller can address only this reviewed main-thread archive control provider
 MAC_ARCHIVE_CONTROL = "re/automation/ApplicationWorkers/FusionArchiveControl.py"
-STARTUP_MANIFEST = "re/automation/PairedCaptures/Runner/KitCaptureRunner/KitCaptureRunner.manifest"
+STARTUP_MANIFEST = "re/automation/CaptureTools/Runner/KitCaptureRunner/KitCaptureRunner.manifest"
 MAC_REPLACEMENT_LAUNCH = "re/automation/ApplicationWorkers/MacReplacementLaunch.swift"
 COUNTERPART = "re/automation/ApplicationWorkers/FusionCounterpart.py"
 TOOL = "re/automation/PairedCaptures/FusionFreshProcess.py"
-SCOPE_TOOL = "re/automation/PairedCaptures/ScopeControl/FusionScopeControl.py"
+SCOPE_TOOL = "re/automation/CaptureTools/ScopeControl/FusionScopeControl.py"
 SCOPE_INPUTS = {
-    "re/automation/PairedCaptures/ScopeControl/FusionScopeModel.py",
+    "re/automation/CaptureTools/ScopeControl/FusionScopeModel.py",
     "re/automation/PairedCaptures/ScopeControl/ScopeControlSpec.json",
 }
-BOOTSTRAP = "re/automation/PairedCaptures/Runner/KitCaptureRunner/KitCaptureRunner.py"
+BOOTSTRAP = "re/automation/CaptureTools/Runner/KitCaptureRunner/KitCaptureRunner.py"
 
 # windows embedded python must load these exact helpers before reading records
 WINDOWS_HELPERS = {
@@ -57,7 +57,7 @@ INPUTS = {"re/automation/PairedCaptures/FusionCapture.py", "re/automation/Paired
           "re/automation/ApplicationWorkers/SolidWorksProgress.py",
           "re/automation/ApplicationWorkers/SolidWorksAvailability.py",
           "re/automation/ApplicationWorkers/RearmSolidWorks.py",
-          "re/automation/PairedCaptures/SolidWorksAuthoring/ReadP04SolidWorks.ps1"}
+          "re/automation/CaptureTools/SolidWorksAuthoring/ReadP04SolidWorks.ps1"}
 
 
 class WaitingApplication(ValueError):

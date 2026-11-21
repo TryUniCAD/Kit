@@ -7,10 +7,11 @@ import pytest as Pytest
 
 from tests.Research.Calibration.BuildManifest import BuildManifest
 from tests.Research.Calibration.RunCalibration import RunCalibration
+from tests.Research.Windows.Calibration.CheckDecStop import CheckDecStop
 from tests.Research.Windows.VerifyCalTrial import VerifyCalTrial
 
-# the windows success fixture needs enough time for eight serial decoder sessions
-KSerialTrialSeconds = 45
+# hosted windows trials need headroom for eight serial decoder startups under load
+KSerialTrialSeconds = 90
 
 # hosted windows heartbeat processes need headroom for startup and scheduling delays
 KLeaseSeconds = 12
@@ -24,7 +25,9 @@ def CheckWinSweep(TmpPath: FilePath) -> None:
     )
     Manifest = JsonCodec.loads(ManifestPath.read_text(encoding="utf-8"))
     OutputPath = TmpPath / "Sweep"
-    Report = RunCalibration(ManifestPath, OutputPath)
+    Report = RunCalibration(
+        ManifestPath, OutputPath, TimeoutSeconds=4 * KSerialTrialSeconds + 60
+    )
     assert Report["completed_sweep"] is True, Report
     assert Report["recommended_concurrency"] is None
     InputHash = Manifest["bindings"]["source:calibration"]["sha256"]
@@ -47,7 +50,7 @@ def CheckWinReject(TmpPath: FilePath) -> None:
     OutputPath = TmpPath / "Rejected"
     Report = RunCalibration(ManifestPath, OutputPath, ExitCode=2)
     assert Report["completed_sweep"] is False
-    assert Report["stop_reason"] == "child_did_not_complete", Report
+    CheckDecStop(Report, OutputPath)
     assert Report["recommended_concurrency"] is None
     TrialPath = OutputPath / "Trial1"
     Cleanup = JsonCodec.loads((TrialPath / "Cleanup.json").read_text(encoding="utf-8"))

@@ -101,7 +101,25 @@ class ResourceBudget:
             if entry["pool"] != pool or entry["group_protocol"] != 1:
                 continue
             floor = entry["group_peak_memory_mib"] * 1048576
-            estimate = max([floor, *(history.admission_estimate(kind, floor) for history in self.group_histories.values())])
+            members = entry["group_max_members"]
+            estimate = max(
+                [
+                    floor,
+                    *(
+                        history.admission_estimate(kind, floor)
+                        for size, history in self.group_histories.items()
+                        if size <= members
+                    ),
+                ]
+            )
             if estimate <= admission["unreserved_memory_bytes"]:
-                candidates[kind] = entry["group_limit_bytes"]
+                limit = entry["group_limit_bytes"]
+                candidates[kind] = (
+                    limit
+                    if members == 20
+                    else {
+                        "limit_bytes": limit,
+                        "max_members": members,
+                    }
+                )
         return candidates

@@ -50,13 +50,13 @@ def RunCircleProof() -> None:
     from interchange.document.Models.DocumentModel import CadDocument
     from interchange.serialization.JsonCodec import DumpJson, LoadJson
 
-    SourcePath = FilePath(ArgValues[2])
     if ArgValues[1] == "read":
-        Document = OpenDocument(SourcePath, IncludeBrep=False, IncludeTess=False)
-        _ = FilePath(ArgValues[3]).write_text(DumpJson(Document), encoding="utf-8")
+        Document = OpenDocument(FilePath("Source.SLDPRT"), IncludeBrep=False, IncludeTess=False)
+        _ = FilePath("Model.json").write_text(DumpJson(Document), encoding="utf-8")
     elif ArgValues[1] == "replay":
-        Document = LoadJson(SourcePath.read_text(encoding="utf-8"))
-        assert isinstance(Document, CadDocument)
+        Decoded = LoadJson(FilePath("Model.json").read_text(encoding="utf-8"))
+        assert isinstance(Decoded, CadDocument)
+        Document = Decoded
     else:
         raise ValueError("unknown circle proof operation")
     Document.assert_valid()

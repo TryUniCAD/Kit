@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING as TypeChecking, Mapping, Sequence
+from typing import Mapping, Sequence
 
-if TypeChecking:
-    from convert.adapters.solidworks.Core.Native import NativeMarker
+from convert.adapters.solidworks.Core.NativeMarker import NativeMarker
 
 
 # rectangle ownership evidence distinguishes the profile header from actual shape entities

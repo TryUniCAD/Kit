@@ -23,6 +23,9 @@ from tempfile import TemporaryDirectory
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from Artifacts import Artifacts
+from CodexAdvice.ClaudeCall import call_claude
+from CodexAdvice.OllamaCall import call_ollama
+from CodexAdvice.ProviderEnv import provider_env
 from InferenceInputs import checksum
 from Records import canonical, digest, label, read_record
 from Sessions import write_private
@@ -88,16 +91,47 @@ def approved_packet(path):
     return packet
 
 
-def parked_receipt(store, packet):
+def decoder_packet(job, attempt, records):
+    field = records["kind"] == "inference.fields"
+    status = records["assessment"]["status"]
+    descriptions = {
+        "insufficient_discrimination": "The discovery samples lack an independent control.",
+        "ambiguous": "Several candidate byte fields fit the measurements.",
+        "unresolved": "The search found no candidate byte field.",
+        "refuted": "The proposed byte-field encodings failed validation.",
+        "needs-distinguishing-evidence": "The paired CAD observations need a distinguishing control.",
+    }
+    if field and status == "hypothesis":
+        return None
+    summary = descriptions[status]
+    if records["scope"] == "p04-through-all-body-selection":
+        summary += " The unknown is the saved target-body selection policy for a through-all cut."
+    return {
+        "version": 1,
+        "job": job,
+        "report_sha256": records["plan_sha256" if field else "report_sha256"],
+        "attempt": attempt,
+        "fingerprint": records["execution"]["fingerprint"],
+        "model": "gpt-6.2-sol",
+        "question": "Which controlled CAD edit would best distinguish the remaining explanations?",
+        "discovery_summary": summary,
+    }
+
+
+def parked_receipt(store, packet, include_fields=False):
     with read_store((store / "ledger.sqlite3").resolve(), None, (4,)) as db:
         row = db.execute(
             "SELECT kind,state,parked,receipt,result,generation,attempts,fingerprint "
             "FROM jobs WHERE id=?",
             (packet["job"],),
         ).fetchone()
-        if row is None or row["kind"] != "inference.paired-gap":
+        if include_fields and row is None:
+            return None
+        field = include_fields and row is not None and row["kind"] == "inference.fields"
+        if row is None or (not field and row["kind"] != "inference.paired-gap"):
             raise ValueError("expected an existing paired inference job")
-        if row["state"] != "waiting_evidence" or row["parked"] != 1:
+        outcome = "completed" if field else "waiting_evidence"
+        if row["state"] != outcome or (not field and row["parked"] != 1):
             return None
         objects = Artifacts(store, create=False)
         objects.verify(row["receipt"])
@@ -110,26 +144,47 @@ def parked_receipt(store, packet):
             or receipt["generation"] != row["generation"]
             or receipt["attempt"] != row["attempts"]
             or receipt["fingerprint"] != row["fingerprint"]
-            or receipt["outcome"] != "waiting_evidence"
+            or receipt["outcome"] != outcome
             or receipt["result_sha256"] != row["result"]
-            or result["outcome"] != "waiting_evidence"
+            or result["outcome"] != outcome
             or records["execution"]["fingerprint"] != row["fingerprint"]
+            or (
+                include_fields
+                and (row["fingerprint"], row["attempts"])
+                != (packet["fingerprint"], packet["attempt"])
+            )
             or records["kind"] != row["kind"]
-            or records["report_sha256"] != packet["report_sha256"]
+            or records["plan_sha256" if field else "report_sha256"]
+            != packet["report_sha256"]
         ):
             raise ValueError(
                 "current parked evidence does not match the approved packet"
             )
+        if field and records["assessment"]["status"] not in {
+            "unresolved",
+            "ambiguous",
+            "insufficient_discrimination",
+            "refuted",
+        }:
+            return None
         return row["receipt"]
 
 
 def read_answer(path):
     if path.is_symlink() or not path.is_file() or path.stat().st_size > 8192:
         raise ValueError("Codex did not provide a bounded answer")
-    answer = read_small_json(path)
-    if set(answer) != set(ANSWER_FIELDS) or any(
-        not isinstance(answer[key], str) or not 1 <= len(answer[key].strip()) <= length
-        for key, length in ANSWER_FIELDS.items()
+    return validate_answer(read_small_json(path))
+
+
+def validate_answer(answer):
+    if (
+        not isinstance(answer, dict)
+        or set(answer) != set(ANSWER_FIELDS)
+        or any(
+            not isinstance(answer[key], str)
+            or not 1 <= len(answer[key].strip()) <= length
+            for key, length in ANSWER_FIELDS.items()
+        )
     ):
         raise ValueError("Codex answer did not match the required schema")
     clean = {key: value.strip() for key, value in answer.items()}
@@ -141,7 +196,9 @@ def read_answer(path):
     return clean
 
 
-def request_advice(codex, packet, attempts, seconds, destination, is_current):
+def request_advice(
+    executable, packet, attempts, seconds, destination, is_current, efforts, options
+):
     prompt = (
         "Suggest one falsifiable decoding hypothesis and one controlled experiment. "
         "Provide separate observable predictions if the hypothesis is true and false. "
@@ -154,17 +211,19 @@ def request_advice(codex, packet, attempts, seconds, destination, is_current):
         "required": list(ANSWER_FIELDS),
         "additionalProperties": False,
     }
+    if packet.get("experiments"):
+        schema["properties"]["controlled_change"]["enum"] = packet["experiments"]
     with TemporaryDirectory(prefix="kit-codex-advice-") as temporary:
         work = Path(temporary).resolve()
         write_private(work / "Schema.json", schema)
-        for effort in ("medium", "xhigh"):
+        for effort in efforts:
             if not is_current():
                 return None
             attempt_file = destination / f"{effort}.json"
             write_private(attempt_file, {"effort": effort, "status": "started"})
             answer = work / f"{effort}.json"
             argv = [
-                codex,
+                executable,
                 "exec",
                 "--ignore-user-config",
                 "--ignore-rules",
@@ -186,8 +245,11 @@ def request_advice(codex, packet, attempts, seconds, destination, is_current):
                 'web_search="disabled"',
                 "-c",
                 'approval_policy="never"',
-                "--model",
-                packet["model"],
+                *(
+                    ("--model", packet["model"])
+                    if options is None or options.model is not None
+                    else ()
+                ),
                 "-c",
                 f'model_reasoning_effort="{effort}"',
                 "--output-schema",
@@ -197,73 +259,98 @@ def request_advice(codex, packet, attempts, seconds, destination, is_current):
                 "--json",
                 "-",
             ]
+            request = prompt
+            if attempts:
+                request += "\nPrior attempt status: " + attempts[-1]["status"]
             try:
-                process = subprocess.run(
-                    argv,
-                    input=(
-                        prompt
-                        if not attempts
-                        else (
-                            prompt + "\nPrior attempt status: " + attempts[-1]["status"]
-                        )
-                    ),
-                    encoding="utf-8",
-                    cwd=work,
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL,
-                    timeout=seconds,
-                    check=False,
-                )
-            except subprocess.TimeoutExpired:
+                if options is not None and options.provider == "claude":
+                    proposal = call_claude(
+                        executable, options, request, schema, work, seconds
+                    )
+                    suggestion = validate_answer(proposal)
+                elif options is not None and options.provider == "ollama":
+                    suggestion = validate_answer(
+                        call_ollama(options, request, schema, seconds)
+                    )
+                else:
+                    subprocess.run(
+                        argv,
+                        input=request,
+                        encoding="utf-8",
+                        cwd=work,
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL,
+                        timeout=seconds,
+                        check=True,
+                        env=None if options is None else provider_env(options),
+                    )
+                    suggestion = read_answer(answer)
+                if packet.get("experiments") and suggestion["controlled_change"] not in packet["experiments"]:
+                    raise ValueError("provider selected an unavailable experiment")
+            except (subprocess.TimeoutExpired, TimeoutError):
                 attempts.append({"effort": effort, "status": "timeout"})
-                write_private(attempt_file, attempts[-1])
-                continue
-            except OSError:
-                attempts.append({"effort": effort, "status": "launch_failed"})
-                write_private(attempt_file, attempts[-1])
-                break
-            if process.returncode != 0:
+            except subprocess.CalledProcessError as error:
                 attempts.append(
                     {
                         "effort": effort,
                         "status": "provider_failed",
-                        "exit_status": process.returncode,
+                        "exit_status": error.returncode,
                     }
                 )
-                write_private(attempt_file, attempts[-1])
-                break
-            try:
-                suggestion = read_answer(answer)
-            except (OSError, ValueError):
+            except OSError:
+                attempts.append({"effort": effort, "status": "launch_failed"})
+            except ValueError:
                 attempts.append({"effort": effort, "status": "invalid_answer"})
+            else:
+                attempts.append({"effort": effort, "status": "proposal"})
                 write_private(attempt_file, attempts[-1])
-                continue
-            attempts.append({"effort": effort, "status": "proposal"})
+                return suggestion
             write_private(attempt_file, attempts[-1])
-            return suggestion
+            if attempts[-1]["status"] in {"provider_failed", "launch_failed"}:
+                break
     return None
 
 
 def run(args):
     packet = approved_packet(args.approved_packet)
-    output = args.output
+    return advise(
+        args.store, packet, args.output, args.wait_seconds, args.attempt_seconds
+    )
+
+
+def advise(
+    store,
+    packet,
+    output,
+    wait_seconds,
+    attempt_seconds,
+    *,
+    integrated=False,
+    options=None,
+):
     info = output.lstat()
     if (
         not stat.S_ISDIR(info.st_mode)
         or info.st_uid != os.getuid()
         or info.st_mode & 0o077
-        or output.resolve().is_relative_to(args.store.resolve())
+        or output.resolve().is_relative_to(store.resolve())
     ):
         raise ValueError("use an existing owner-private output directory")
-    deadline = time.monotonic() + args.wait_seconds
-    while (receipt := parked_receipt(args.store, packet)) is None:
+    deadline = time.monotonic() + wait_seconds
+    while (receipt := parked_receipt(store, packet, integrated)) is None:
         remaining = deadline - time.monotonic()
         if remaining <= 0:
             return {"status": "no_parked_assessment"}
         time.sleep(min(1, remaining))
-    codex = shutil.which("codex")
-    if codex is None:
-        raise ValueError("Codex CLI is not on PATH")
+    provider = options.provider if options else "codex"
+    executable = None
+    if provider != "ollama":
+        command = shutil.which(provider)
+        if command is None:
+            raise ValueError(f"{provider} CLI is not on PATH")
+        executable = str(Path(command).resolve())
+    if options is not None:
+        packet = {**packet, "model": options.model or "cli-default"}
     destination = output / receipt
     try:
         destination.mkdir(mode=0o700)
@@ -280,22 +367,26 @@ def run(args):
         "approved_packet_sha256": digest(packet),
         "model": packet["model"],
     }
+    if options is not None:
+        evidence.update({"provider": provider, "auth": options.auth})
     write_private(destination / "Request.json", evidence)
     attempts = []
 
     def is_current():
         try:
-            return parked_receipt(args.store, packet) == receipt
+            return parked_receipt(store, packet, integrated) == receipt
         except (OSError, ValueError, TypeError, KeyError, sqlite3.Error):
             return False
 
     proposal = request_advice(
-        str(Path(codex).resolve()),
+        executable,
         packet,
         attempts,
-        args.attempt_seconds,
+        attempt_seconds,
         destination,
         is_current,
+        ("medium",) if integrated else ("medium", "xhigh"),
+        options,
     )
     current = is_current()
     status = "stale" if not current else "proposal" if proposal else "no_proposal"

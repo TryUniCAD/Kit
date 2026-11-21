@@ -49,7 +49,7 @@ This scoped admission does not establish general reverse-extrusion coverage, edi
 
 ## Per-file outcome evidence
 
-The remote corpus process check emits a complete census through `KIT_FUSION_CENSUS`.
+The remote corpus process check emits a complete census through `KIT_FUSION_CENSUS`. Set it to the unused file `FusionReaderCensus.json` directly in the working directory or system temporary directory.
 The workflow retains it as `FusionReaderCensus-<attempt>`.
 Each entry binds the source path, Git blob, SHA-256 and exact reader outcome.
 The report also records corpus, SDK, tool and runtime identities.
@@ -68,3 +68,5 @@ Inspect per-asset reasons and implement missing codec knowledge instead of relax
 - [Separate installed CLI proposal](https://github.com/TryUniCAD/Kit/pull/119)
 - [Reader source](../../../re/automation/FusionReader.py)
 - [SOLIDWORKS reader](SolidworksResearchReader.md)
+
+For a sketch with verified primitive membership, `fusion.geometry_child_ids` contains the native child ids in saved order. [Sketch geometry membership](../../Changes/Fusion/Features/FusionSketchGeometryRoster.md)

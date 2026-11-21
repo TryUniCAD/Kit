@@ -1,0 +1,6839 @@
+{
+  "schema_version": 1,
+  "status": "awaiting_independent_authoring",
+  "scope": {
+    "solidworks": {
+      "description": "Part modelling families: reference geometry, sketches, solid, surface, pattern and sheet metal features. Document, selection, state, configuration, properties, appearance, assembly, drawing, MBD, weldment, structure, cut list, mold, mesh, ScanTo3D, motion, routing, simulation, interchange, custom and strict data families are out of scope for this file.",
+      "families": [
+        "family:planes",
+        "family:reference",
+        "family:sketch",
+        "family:sketchlines",
+        "family:sketchconics",
+        "family:sketchslots",
+        "family:sketchsplines",
+        "family:sketchrelations",
+        "family:sketchdimensions",
+        "family:sketchedit",
+        "family:sketchpattern",
+        "family:extrude",
+        "family:revolve",
+        "family:sweep",
+        "family:loft",
+        "family:boundary",
+        "family:holes",
+        "family:fillet",
+        "family:chamfer",
+        "family:prismatic",
+        "family:bodyboolean",
+        "family:bodytransform",
+        "family:faceedit",
+        "family:shapedeform",
+        "family:pattern",
+        "family:surfaces",
+        "family:surfaceedit",
+        "family:thicken",
+        "family:curves",
+        "family:sheetbase",
+        "family:sheetflange",
+        "family:sheetcorner",
+        "family:sheetflatten"
+      ]
+    },
+    "fusion": {
+      "description": "Every Fusion feature type in the planner catalogue except abstract base classes.",
+      "excluded": [
+        "api:adsk.fusion.Feature",
+        "api:adsk.fusion.MeshFeature"
+      ],
+      "excluded_reason": "Abstract base classes with no createInput or add method; their concrete subclasses have their own recipes."
+    }
+  },
+  "conventions": [
+    "Use millimetres and degrees. World axes are right-handed XYZ.",
+    "XY is the SOLIDWORKS Front plane and the Fusion XY plane; XZ is Top; YZ is Right. Map planes by their basis, not their vendor label.",
+    "Start every case in a new document and save it with no other open documents.",
+    "volume_mm3 is the sum of the volumes of all solid bodies. Surface bodies count as bodies but add no volume.",
+    "Name every driving dimension after its parameter key so the edit can find it.",
+    "Follow the paired capture policy in PairSpecs.json for controls, rebuild, save, reopen and the edit-and-restore cycle.",
+    "A null volume means the result is not closed form. Record the measured value and the stated check instead."
+  ],
+  "seeds": {
+    "block": {
+      "build": [
+        "On XY, draw a corner rectangle from (0, 0) to (40, 20) with driving dimensions seed_width_mm = 40 and seed_depth_mm = 20.",
+        "Extrude it 10 mm in +Z as a new body named SeedBody (seed_height_mm = 10)."
+      ],
+      "bodies": 1,
+      "volume_mm3": "40*20*10"
+    },
+    "cylinder": {
+      "build": [
+        "On XY, draw a circle centred on the origin with driving diameter seed_diameter_mm = 20.",
+        "Extrude it 10 mm in +Z as a new body named SeedBody."
+      ],
+      "bodies": 1,
+      "volume_mm3": "pi*10**2*10"
+    },
+    "two_blocks": {
+      "build": [
+        "Build the block seed: (0, 0, 0) to (40, 20, 10), named BodyA.",
+        "On XY, draw a corner rectangle from (20, 0) to (60, 20) and extrude it 10 mm in +Z as a separate new body named BodyB. Do not merge."
+      ],
+      "bodies": 2,
+      "volume_mm3": "2*40*20*10"
+    },
+    "surface": {
+      "build": [
+        "On XY, draw a corner rectangle from (0, 0) to (40, 20).",
+        "Make a planar surface from it named SeedSurface (area 800 mm²)."
+      ],
+      "bodies": 1,
+      "volume_mm3": null
+    },
+    "sheet": {
+      "build": [
+        "Set sheet metal rules: thickness 1, inside bend radius 1, K-factor 0.5, rectangular relief.",
+        "On XY, draw a corner rectangle from (0, 0) to (40, 20) and make a base flange 1 mm thick in +Z named SeedSheet."
+      ],
+      "bodies": 1,
+      "volume_mm3": "40*20*1"
+    },
+    "bracket": {
+      "build": [
+        "On XY, draw a corner rectangle from (0, 0) to (40, 20) and extrude it 5 mm in +Z (base plate).",
+        "On XY, draw a corner rectangle from (0, 15) to (40, 20) and extrude it from z = 5 to z = 25, merged (wall)."
+      ],
+      "bodies": 1,
+      "volume_mm3": "40*20*5 + 40*5*20"
+    },
+    "mesh_block": {
+      "build": [
+        "Build the block seed.",
+        "Convert SeedBody to a mesh body named SeedMesh with the coarsest refinement (12 triangles), keeping no B-rep copy."
+      ],
+      "bodies": 1,
+      "volume_mm3": "40*20*10"
+    }
+  },
+  "recipes": [
+    {
+      "id": "pair-corner-rectangle",
+      "name": "Dimensioned corner rectangle (P01)",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:corner-rectangle",
+          "family:sketchdimensions:linear-dimension",
+          "family:sketchdimensions:driving-dimension"
+        ],
+        "fusion": [
+          "api:adsk.fusion.SketchLines.addTwoPointRectangle"
+        ]
+      },
+      "pair_recipe": "P01"
+    },
+    {
+      "id": "pair-circle",
+      "name": "Dimensioned circle (P02)",
+      "entries": {
+        "solidworks": [
+          "family:sketchconics:circle",
+          "family:sketchdimensions:diameter-dimension"
+        ]
+      },
+      "pair_recipe": "P02"
+    },
+    {
+      "id": "pair-blind-boss",
+      "name": "Blind rectangular boss (P03)",
+      "entries": {
+        "solidworks": [
+          "family:extrude:boss-base-extrude"
+        ],
+        "fusion": [
+          "api:adsk.fusion.ExtrudeFeature"
+        ]
+      },
+      "pair_recipe": "P03"
+    },
+    {
+      "id": "pair-through-cut",
+      "name": "Through-all cut (P04)",
+      "entries": {
+        "solidworks": [
+          "family:extrude:cut-extrude"
+        ]
+      },
+      "pair_recipe": "P04"
+    },
+    {
+      "id": "pair-revolution",
+      "name": "Full rectangular revolution (P05)",
+      "entries": {
+        "solidworks": [
+          "family:revolve:boss-base-revolve"
+        ],
+        "fusion": [
+          "api:adsk.fusion.RevolveFeature"
+        ]
+      },
+      "pair_recipe": "P05"
+    },
+    {
+      "id": "plane-coincident",
+      "name": "Plane coincident with a face",
+      "entries": {
+        "solidworks": [
+          "family:planes:coincident-plane"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a reference plane coincident with the top face (z = 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected normal (0, 0, 1) through z = 10."
+      },
+      "variations": [
+        "Flip the plane normal."
+      ]
+    },
+    {
+      "id": "plane-offset",
+      "name": "Offset plane",
+      "entries": {
+        "solidworks": [
+          "family:planes:offset-plane"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a plane offset from XY by offset_mm = 15 in +Z."
+      ],
+      "parameters": {
+        "offset_mm": 15
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected z = 15."
+      },
+      "variations": [
+        "Offset in -Z.",
+        "Create two instances at 15 mm spacing."
+      ],
+      "edit": {
+        "parameter": "offset_mm",
+        "value": 25,
+        "volume_mm3": "40*20*10"
+      }
+    },
+    {
+      "id": "plane-mid",
+      "name": "Mid plane between two faces",
+      "entries": {
+        "solidworks": [
+          "family:planes:mid-plane"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a plane midway between the top face and the bottom face."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected z = 5."
+      },
+      "variations": [
+        "Use the two side faces y = 0 and y = 20 (expected y = 10)."
+      ]
+    },
+    {
+      "id": "plane-angle",
+      "name": "Angled plane through an edge",
+      "entries": {
+        "solidworks": [
+          "family:planes:angled-plane"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a plane through the top edge along X at y = 0, z = 10, at angle_deg = 30 to the top face, tilting towards -Y."
+      ],
+      "parameters": {
+        "angle_deg": 30
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected angle between the new normal and (0, 0, 1) of 30 degrees."
+      },
+      "variations": [
+        "Flip the angle direction."
+      ],
+      "edit": {
+        "parameter": "angle_deg",
+        "value": 45,
+        "volume_mm3": "40*20*10"
+      }
+    },
+    {
+      "id": "plane-parallel",
+      "name": "Plane parallel to a plane through a point",
+      "entries": {
+        "solidworks": [
+          "family:planes:parallel-plane"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a plane parallel to XY through the vertex (40, 20, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected z = 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "plane-perpendicular",
+      "name": "Plane normal to an edge at its midpoint",
+      "entries": {
+        "solidworks": [
+          "family:planes:perpendicular-plane"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a plane normal to the bottom edge along X at y = 0, z = 0, through its midpoint (20, 0, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected normal (1, 0, 0) through x = 20."
+      },
+      "variations": [
+        "Place it at the edge end point (0, 0, 0)."
+      ]
+    },
+    {
+      "id": "plane-tangent",
+      "name": "Plane tangent to a cylinder",
+      "entries": {
+        "solidworks": [
+          "family:planes:tangent-plane"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "Create a plane tangent to the cylinder side face and parallel to YZ, on the +X side."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*10**2*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected normal (1, 0, 0) through x = 10."
+      },
+      "variations": [
+        "Tangent on the -X side."
+      ]
+    },
+    {
+      "id": "plane-projected",
+      "name": "Plane at a point projected onto a face",
+      "entries": {
+        "solidworks": [
+          "family:planes:projected-plane"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "Add a 3D sketch point at (30, 0, 5).",
+        "Create a projected plane: project the point onto the cylinder side face and make the plane normal to the face there."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*10**2*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected origin (10, 0, 5), normal (1, 0, 0)."
+      },
+      "variations": []
+    },
+    {
+      "id": "plane-view",
+      "name": "Plane parallel to the screen",
+      "entries": {
+        "solidworks": [
+          "family:planes:view-parallel-plane"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Set the view to Front (looking along -Z).",
+        "Create a plane parallel to the screen through the vertex (40, 20, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected normal (0, 0, 1) through z = 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "ref-plane-three-points",
+      "name": "Plane through three vertices",
+      "entries": {
+        "solidworks": [
+          "family:reference:reference-plane"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a reference plane through the vertices (0, 0, 10), (40, 0, 10) and (0, 20, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the plane origin and unit normal in world coordinates. Expected z = 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "ref-axis",
+      "name": "Axis through two vertices",
+      "entries": {
+        "solidworks": [
+          "family:reference:reference-axis"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a reference axis through the vertices (40, 0, 0) and (40, 0, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the axis point and direction. Expected x = 40, y = 0, direction (0, 0, 1)."
+      },
+      "variations": [
+        "Axis along a cylindrical face of the cylinder seed (expected the Z axis)."
+      ]
+    },
+    {
+      "id": "ref-point",
+      "name": "Point at a face centre",
+      "entries": {
+        "solidworks": [
+          "family:reference:reference-point"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a reference point at the centre of the top face."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the point. Expected (20, 10, 10)."
+      },
+      "variations": [
+        "Point at the midpoint of the edge from (0, 0, 10) to (40, 0, 10) (expected (20, 0, 10))."
+      ]
+    },
+    {
+      "id": "ref-csys",
+      "name": "Coordinate system on a vertex",
+      "entries": {
+        "solidworks": [
+          "family:reference:coordinate-system"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a coordinate system at (40, 0, 0) with its X axis along the +Y edge and its Z axis along +Z."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record origin and axes. Expected X = (0, 1, 0), Y = (-1, 0, 0), Z = (0, 0, 1)."
+      },
+      "variations": []
+    },
+    {
+      "id": "ref-com",
+      "name": "Centre of mass point",
+      "entries": {
+        "solidworks": [
+          "family:reference:center-of-mass-reference"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Insert a centre of mass reference point."
+      ],
+      "parameters": {
+        "seed_width_mm": 40
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the point. Expected (20, 10, 5)."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "seed_width_mm",
+        "value": 60,
+        "volume_mm3": "60*20*10"
+      }
+    },
+    {
+      "id": "ref-bounding-box",
+      "name": "Bounding box",
+      "entries": {
+        "solidworks": [
+          "family:reference:bounding-box"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Insert a bounding box aligned to XY."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the box corners. Expected (0, 0, 0) and (40, 20, 10)."
+      },
+      "variations": []
+    },
+    {
+      "id": "ref-mate-reference",
+      "name": "Mate reference on a face",
+      "entries": {
+        "solidworks": [
+          "family:reference:mate-reference"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a mate reference with the top face as primary entity, mate type coincident, alignment any."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the referenced face, mate type and alignment."
+      },
+      "variations": []
+    },
+    {
+      "id": "sketch-planar",
+      "name": "Planar sketch with a dimensioned triangle",
+      "entries": {
+        "solidworks": [
+          "family:sketch:planar-sketch"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw lines (0, 0)-(30, 0)-(0, 20)-(0, 0) with base_mm = 30 and height_mm = 20."
+      ],
+      "parameters": {
+        "base_mm": 30,
+        "height_mm": 20
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. One closed profile of area 300 mm²."
+      },
+      "variations": [
+        "Sketch on XZ instead."
+      ],
+      "edit": {
+        "parameter": "base_mm",
+        "value": 40,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "sketch-3d",
+      "name": "3D sketch polyline",
+      "entries": {
+        "solidworks": [
+          "family:sketch:three-dimensional-sketch"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "In a 3D sketch draw lines (0, 0, 0)-(30, 0, 0)-(30, 20, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record both line end points. Expected lengths 30 and sqrt(500)."
+      },
+      "variations": []
+    },
+    {
+      "id": "sketch-3d-on-plane",
+      "name": "3D sketch on a plane",
+      "entries": {
+        "solidworks": [
+          "family:sketch:three-dimensional-sketch-on-plane"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "In a 3D sketch, activate the XZ plane and draw a line from (0, 0, 0) to (20, 0, 15)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the line and its plane. Expected length 25 with y = 0 at both ends."
+      },
+      "variations": []
+    },
+    {
+      "id": "sketch-on-face",
+      "name": "Sketch on a face",
+      "entries": {
+        "solidworks": [
+          "family:sketch:sketch-support"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Start a sketch on the top face and draw a circle of diameter 6 at (20, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the sketch support face and transform. Expected origin plane z = 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "sketch-transform",
+      "name": "Sketch with a rotated frame",
+      "entries": {
+        "solidworks": [
+          "family:sketch:sketch-transform"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Create a plane offset 15 mm from XY.",
+        "Start a sketch on it with the sketch X axis along world +Y, and draw a point at sketch (10, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the sketch-to-world transform. Expected the point at world (0, 10, 15)."
+      },
+      "variations": []
+    },
+    {
+      "id": "sketch-closed",
+      "name": "Closed L contour",
+      "entries": {
+        "solidworks": [
+          "family:sketch:closed-contour"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw lines through (0, 0), (30, 0), (30, 10), (10, 10), (10, 20), (0, 20) and back to (0, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. One closed profile of area 400 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "sketch-open",
+      "name": "Open contour",
+      "entries": {
+        "solidworks": [
+          "family:sketch:open-contour"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw connected lines (0, 0)-(20, 0)-(20, 10)-(30, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. No closed profile; total length 40."
+      },
+      "variations": []
+    },
+    {
+      "id": "sketch-multi",
+      "name": "Two disjoint contours",
+      "entries": {
+        "solidworks": [
+          "family:sketch:multiple-contours"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw two 10 × 10 rectangles with lower-left corners at (0, 0) and (20, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Two profiles of 100 mm² each."
+      },
+      "variations": []
+    },
+    {
+      "id": "sketch-construction",
+      "name": "Construction geometry",
+      "entries": {
+        "solidworks": [
+          "family:sketch:construction-geometry"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(20, 10) and a construction diagonal from (0, 0) to (20, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. One profile of 200 mm²; the diagonal is construction and not part of any profile."
+      },
+      "variations": []
+    },
+    {
+      "id": "line",
+      "name": "Dimensioned line",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:line"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line from (0, 0) at an angle of atan(4/3) with length_mm = 50, ending at (30, 40)."
+      ],
+      "parameters": {
+        "length_mm": 50
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "length_mm",
+        "value": 65,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "centerline",
+      "name": "Centerline",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:centerline"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a centerline from (0, -10) to (0, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. The entity is construction."
+      },
+      "variations": []
+    },
+    {
+      "id": "midpoint-line",
+      "name": "Midpoint line",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:midpoint-line"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a midpoint line centred on the origin along X with length_mm = 30."
+      ],
+      "parameters": {
+        "length_mm": 30
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Expected end points (-15, 0) and (15, 0)."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "length_mm",
+        "value": 40,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "sketch-point",
+      "name": "Sketch point",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:point"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, place a point at (12, 7) with dimensions x_mm = 12 and y_mm = 7 from the origin."
+      ],
+      "parameters": {
+        "x_mm": 12,
+        "y_mm": 7
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "x_mm",
+        "value": 18,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "center-rectangle",
+      "name": "Centre rectangle",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:center-rectangle"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a centre rectangle on the origin with width_mm = 30 and height_mm = 20."
+      ],
+      "parameters": {
+        "width_mm": 30,
+        "height_mm": 20
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Corners at (±15, ±10); area 600 mm²."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "width_mm",
+        "value": 40,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "three-point-corner-rectangle",
+      "name": "Three-point corner rectangle",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:three-point-corner-rectangle"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a 3-point corner rectangle with first edge (0, 0)-(24, 18) and width 10 to its left."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. First edge length 30; area 300 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "three-point-center-rectangle",
+      "name": "Three-point centre rectangle",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:three-point-center-rectangle"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a 3-point centre rectangle centred on the origin, half-length 15 along 30 degrees, half-width 5."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Area 300 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "parallelogram",
+      "name": "Parallelogram",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:parallelogram"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a parallelogram through (0, 0), (30, 0), (40, 20) and (10, 20)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Area 600 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "polygon",
+      "name": "Inscribed hexagon",
+      "entries": {
+        "solidworks": [
+          "family:sketchlines:polygon"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a 6-sided polygon centred on the origin, inscribed in a construction circle of diameter_mm = 20, with one vertex on +X."
+      ],
+      "parameters": {
+        "diameter_mm": 20
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Area 3*sqrt(3)/2*10**2 mm²."
+      },
+      "variations": [
+        "Circumscribed instead of inscribed.",
+        "8 sides."
+      ],
+      "edit": {
+        "parameter": "diameter_mm",
+        "value": 30,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "perimeter-circle",
+      "name": "Circle through three points",
+      "entries": {
+        "solidworks": [
+          "family:sketchconics:perimeter-circle"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a perimeter circle through (10, 0), (0, 10) and (-10, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Expected centre (0, 0) and radius 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "centerpoint-arc",
+      "name": "Centre-point arc",
+      "entries": {
+        "solidworks": [
+          "family:sketchconics:centerpoint-arc"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a centre-point arc on the origin with radius_mm = 10 from 0 to 90 degrees."
+      ],
+      "parameters": {
+        "radius_mm": 10
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Arc length 5*pi."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "radius_mm",
+        "value": 15,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "tangent-arc",
+      "name": "Tangent arc",
+      "entries": {
+        "solidworks": [
+          "family:sketchconics:tangent-arc"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line (0, 0)-(20, 0), then a tangent arc from (20, 0) ending at (30, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Arc centre (20, 10), radius 10, tangent to the line."
+      },
+      "variations": []
+    },
+    {
+      "id": "three-point-arc",
+      "name": "Three-point arc",
+      "entries": {
+        "solidworks": [
+          "family:sketchconics:three-point-arc"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a 3-point arc from (-10, 0) to (10, 0) through (0, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Expected centre (0, 0), radius 10, length 10*pi."
+      },
+      "variations": []
+    },
+    {
+      "id": "ellipse",
+      "name": "Ellipse",
+      "entries": {
+        "solidworks": [
+          "family:sketchconics:ellipse"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw an ellipse centred on the origin with major radius major_mm = 20 along X and minor radius minor_mm = 10."
+      ],
+      "parameters": {
+        "major_mm": 20,
+        "minor_mm": 10
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Area 200*pi mm²."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "minor_mm",
+        "value": 15,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "partial-ellipse",
+      "name": "Partial ellipse",
+      "entries": {
+        "solidworks": [
+          "family:sketchconics:partial-ellipse"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a partial ellipse of the same ellipse (20 × 10) from 0 to 90 degrees."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. End points (20, 0) and (0, 10)."
+      },
+      "variations": []
+    },
+    {
+      "id": "parabola",
+      "name": "Parabola",
+      "entries": {
+        "solidworks": [
+          "family:sketchconics:parabola"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a parabola with vertex (0, 0), focus (0, 5), trimmed from x = -10 to x = 10."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. End points (±10, 5)."
+      },
+      "variations": []
+    },
+    {
+      "id": "conic",
+      "name": "Conic with rho 0.5",
+      "entries": {
+        "solidworks": [
+          "family:sketchconics:conic"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a conic from (0, 0) to (20, 0) with end tangents meeting at (10, 10) and rho = 0.5."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Shoulder point (10, 5); stored rho 0.5."
+      },
+      "variations": [
+        "rho 0.3.",
+        "rho 0.7."
+      ]
+    },
+    {
+      "id": "straight-slot",
+      "name": "Straight slot",
+      "entries": {
+        "solidworks": [
+          "family:sketchslots:straight-slot"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a straight slot from (0, 0) to (30, 0) with width_mm = 10."
+      ],
+      "parameters": {
+        "width_mm": 10
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Area 300 + 25*pi mm²."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "width_mm",
+        "value": 6,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "centerpoint-straight-slot",
+      "name": "Centre-point straight slot",
+      "entries": {
+        "solidworks": [
+          "family:sketchslots:centerpoint-straight-slot"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a centre-point straight slot centred on the origin, centre-to-centre length 30 along X, width 10."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Arc centres at (±15, 0); area 300 + 25*pi mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "three-point-arc-slot",
+      "name": "Three-point arc slot",
+      "entries": {
+        "solidworks": [
+          "family:sketchslots:three-point-arc-slot"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a 3-point arc slot along the arc from (-20, 0) through (0, 20) to (20, 0), width 6."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Area 129*pi mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "centerpoint-arc-slot",
+      "name": "Centre-point arc slot",
+      "entries": {
+        "solidworks": [
+          "family:sketchslots:centerpoint-arc-slot"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a centre-point arc slot centred on the origin, radius 20 from 0 to 90 degrees, width 6."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Area 69*pi mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "spline",
+      "name": "Spline through points",
+      "entries": {
+        "solidworks": [
+          "family:sketchsplines:spline"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a spline through (0, 0), (10, 10), (20, 0) and (30, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. The curve passes through all four points."
+      },
+      "variations": [
+        "Closed spline through the same points."
+      ]
+    },
+    {
+      "id": "style-spline",
+      "name": "Style spline",
+      "entries": {
+        "solidworks": [
+          "family:sketchsplines:style-spline"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a degree-3 style spline with control points (0, 0), (10, 10), (20, 10) and (30, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record degree and control points. Expected end points (0, 0) and (30, 0)."
+      },
+      "variations": [
+        "Degree 5."
+      ]
+    },
+    {
+      "id": "spline-on-surface",
+      "name": "Spline on a surface",
+      "entries": {
+        "solidworks": [
+          "family:sketchsplines:spline-on-surface"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "Draw a spline on the cylinder side face through (10, 0, 2), (0, 10, 5) and (-10, 0, 8)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*10**2*10",
+        "effect": "keeps",
+        "check": "Every sampled point lies at radius 10 from the Z axis."
+      },
+      "variations": []
+    },
+    {
+      "id": "equation-curve",
+      "name": "Equation-driven curve",
+      "entries": {
+        "solidworks": [
+          "family:sketchsplines:equation-driven-sketch-curve"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, add an explicit equation curve y = 5*sin(x/5) for x from 0 to 10*pi."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the stored equation and bounds. Expected (5*pi/2, 5) on the curve."
+      },
+      "variations": [
+        "Parametric form x = t, y = 5*sin(t/5)."
+      ]
+    },
+    {
+      "id": "spline-handles",
+      "name": "Spline tangent handles",
+      "entries": {
+        "solidworks": [
+          "family:sketchsplines:spline-handles"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a spline from (0, 0) to (30, 0) and set the start handle direction to 45 degrees with weight 2."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the handle direction and weight at the start point."
+      },
+      "variations": []
+    },
+    {
+      "id": "spline-curvature",
+      "name": "Spline curvature control",
+      "entries": {
+        "solidworks": [
+          "family:sketchsplines:spline-curvature-control"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a spline through (0, 0), (15, 5) and (30, 0) and add a curvature control at (15, 5) with radius 50."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the curvature control. Expected radius of curvature 50 at (15, 5)."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-coincident",
+      "name": "Coincident relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:coincident-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line (0, 0)-(20, 0) and a point near (10, 1); add a coincident relation between the point and the line."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected point y = 0."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-horizontal",
+      "name": "Horizontal relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:horizontal-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line from (0, 0) to about (20, 3) and add a horizontal relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected both ends at y = 0."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-vertical",
+      "name": "Vertical relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:vertical-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line from (0, 0) to about (3, 20) and add a vertical relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected both ends at x = 0."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-parallel",
+      "name": "Parallel relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:parallel-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a fixed line (0, 0)-(20, 10) and a line from (0, 10) to about (20, 18); add a parallel relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected the second line direction (2, 1)."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-perpendicular",
+      "name": "Perpendicular relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:perpendicular-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a fixed line (0, 0)-(20, 0) and a line from (10, 0) to about (12, 15); add a perpendicular relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected the second line vertical."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-tangent",
+      "name": "Tangent relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:tangent-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a fixed circle of diameter 20 on the origin and a horizontal line near y = 12; add a tangent relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected the line at y = 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-concentric",
+      "name": "Concentric relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:concentric-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a fixed circle of diameter 20 on the origin and a circle of diameter 10 near (2, 1); add a concentric relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected both centres at (0, 0)."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-equal",
+      "name": "Equal relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:equal-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line of 20 with a length dimension and a second line of about 15; add an equal relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected both lengths 20."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-collinear",
+      "name": "Collinear relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:collinear-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a fixed line (0, 0)-(10, 0) and a line (15, 2)-(25, 2); add a collinear relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected the second line at y = 0."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-midpoint",
+      "name": "Midpoint relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:midpoint-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a fixed line (0, 0)-(20, 0) and a point near (8, 1); add a midpoint relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected the point at (10, 0)."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-symmetric",
+      "name": "Symmetric relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:symmetric-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a vertical centerline on x = 0, a fixed point (5, 5) and a point near (-4, 6); add a symmetric relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected the second point at (-5, 5)."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-fixed",
+      "name": "Fixed relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:fixed-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line (3, 4)-(13, 4) and add a fixed relation to it."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. The line keeps its coordinates after a rebuild."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-pierce",
+      "name": "Pierce relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:pierce-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Create a 3D sketch line from (10, 10, -5) to (10, 10, 5).",
+        "On XY, draw a point and add a pierce relation to the 3D line."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected the point at (10, 10, 0)."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-normal",
+      "name": "Normal relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:normal-relation"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "In a 3D sketch, draw a line from (20, 10, 10) to about (22, 11, 20) and add a normal relation to the top face."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record the relation type, its entities, and the solved positions. Expected direction (0, 0, 1)."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-equal-curvature",
+      "name": "Equal curvature relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:equal-curvature-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw an arc of radius 10 from (0, 0) centred on (0, 10) and a spline starting at (0, 0); add an equal curvature relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected spline curvature 0.1 at (0, 0)."
+      },
+      "variations": []
+    },
+    {
+      "id": "rel-along-axis",
+      "name": "Along-axis relation",
+      "entries": {
+        "solidworks": [
+          "family:sketchrelations:along-axis-relation"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "In a 3D sketch, draw a line from (0, 0, 0) to about (1, 2, 20) and add an along-Z relation."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the relation type, its entities, and the solved positions. Expected direction (0, 0, 1)."
+      },
+      "variations": []
+    },
+    {
+      "id": "dim-angular",
+      "name": "Angular dimension",
+      "entries": {
+        "solidworks": [
+          "family:sketchdimensions:angular-dimension"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw two lines from the origin: one along +X and one at angle_deg = 35, each 20 long."
+      ],
+      "parameters": {
+        "angle_deg": 35
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the dimension type, value, driving state and the entities it measures."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "angle_deg",
+        "value": 50,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "dim-radius",
+      "name": "Radius dimension",
+      "entries": {
+        "solidworks": [
+          "family:sketchdimensions:radius-dimension"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw an arc centred on the origin from 0 to 120 degrees with radius_mm = 12."
+      ],
+      "parameters": {
+        "radius_mm": 12
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the dimension type, value, driving state and the entities it measures."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "radius_mm",
+        "value": 18,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "dim-arc-length",
+      "name": "Arc length dimension",
+      "entries": {
+        "solidworks": [
+          "family:sketchdimensions:arc-length-dimension"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw an arc of radius 10 centred on the origin starting on +X, with arc_length_mm = 15."
+      ],
+      "parameters": {
+        "arc_length_mm": 15
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the dimension type, value, driving state and the entities it measures. Expected sweep 1.5 rad."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "arc_length_mm",
+        "value": 20,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "dim-ordinate",
+      "name": "Ordinate dimensions",
+      "entries": {
+        "solidworks": [
+          "family:sketchdimensions:ordinate-dimension"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, place points at x = 0, 10 and 25 on y = 0 and add horizontal ordinate dimensions from the first."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the dimension type, value, driving state and the entities it measures. Expected values 0, 10 and 25."
+      },
+      "variations": []
+    },
+    {
+      "id": "dim-driven",
+      "name": "Driven reference dimension",
+      "entries": {
+        "solidworks": [
+          "family:sketchdimensions:driven-reference-dimension"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(30, 20) with width_mm = 30 and height_mm = 20, then add a driven diagonal dimension."
+      ],
+      "parameters": {
+        "width_mm": 30,
+        "height_mm": 20
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the dimension type, value, driving state and the entities it measures. Driven value sqrt(1300)."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "width_mm",
+        "value": 40,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "dim-tolerance",
+      "name": "Dimension tolerance",
+      "entries": {
+        "solidworks": [
+          "family:sketchdimensions:dimension-tolerance"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line of length 30 and give its dimension a symmetric tolerance of ±0.1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the dimension type, value, driving state and the entities it measures. Record the tolerance type and values."
+      },
+      "variations": [
+        "Bilateral +0.2 / -0.1.",
+        "Limit."
+      ]
+    },
+    {
+      "id": "dim-linked",
+      "name": "Linked dimension",
+      "entries": {
+        "solidworks": [
+          "family:sketchdimensions:linked-dimension"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw two separate lines and link their length dimensions to one value len_mm = 25."
+      ],
+      "parameters": {
+        "len_mm": 25
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the dimension type, value, driving state and the entities it measures. Both lines follow the linked value."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "len_mm",
+        "value": 35,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "sk-trim",
+      "name": "Trim entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:trim-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw crossing lines (0, 0)-(20, 20) and (0, 20)-(20, 0).",
+        "Trim the second line back to the intersection, keeping (0, 20)-(10, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. The trimmed line ends at (10, 10)."
+      },
+      "variations": [
+        "Power trim.",
+        "Trim to closest."
+      ]
+    },
+    {
+      "id": "sk-extend",
+      "name": "Extend entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:extend-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a fixed line x = 20 from (20, 0) to (20, 20) and a line (0, 10)-(10, 10); extend the second line to the first."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. The extended line ends at (20, 10)."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-split",
+      "name": "Split entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:split-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line (0, 0)-(30, 0) and split it at (15, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Two lines of length 15."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-fillet",
+      "name": "Sketch fillet",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:sketch-fillet"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(30, 20) and add a sketch fillet of radius_mm = 5 at (30, 20)."
+      ],
+      "parameters": {
+        "radius_mm": 5
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Profile area 600 - (25 - 25*pi/4) mm²."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "radius_mm",
+        "value": 8,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "sk-chamfer",
+      "name": "Sketch chamfer",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:sketch-chamfer"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(30, 20) and add an equal-distance sketch chamfer of 5 at (30, 20)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Profile area 587.5 mm²."
+      },
+      "variations": [
+        "Angle-distance 5 at 30 degrees."
+      ]
+    },
+    {
+      "id": "sk-offset",
+      "name": "Offset entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:offset-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(30, 20) and offset the chain outward by offset_mm = 2."
+      ],
+      "parameters": {
+        "offset_mm": 2
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Record whether corners are arcs or sharp; every point is 2 from the original chain."
+      },
+      "variations": [
+        "Bidirectional.",
+        "Cap ends."
+      ],
+      "edit": {
+        "parameter": "offset_mm",
+        "value": 3,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "sk-offset-surface",
+      "name": "Offset on surface",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:offset-on-surface"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "In a 3D sketch, offset the top circular edge of the cylinder by 3 on the top face, inward."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*10**2*10",
+        "effect": "keeps",
+        "check": "Expected a circle of radius 7 at z = 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-convert",
+      "name": "Convert entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:convert-entities"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Start a sketch on the top face and convert its four edges."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Four lines forming 40 × 20, each linked to an edge."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-silhouette",
+      "name": "Silhouette entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:silhouette-entities"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "Start a sketch on XZ and create silhouette entities of the cylinder."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*10**2*10",
+        "effect": "keeps",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Lines at x = ±10 from z = 0 to 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-intersection",
+      "name": "Intersection curve",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:intersection-curve",
+          "family:curves:intersection-curve"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a plane at z = 5.",
+        "Start a sketch on it and add the intersection curve with SeedBody."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. A 40 × 20 rectangle at z = 5."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-face-curves",
+      "name": "Face curves",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:face-curves"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create face curves on the top face with 3 curves in each direction."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record six iso-parameter lines lying on z = 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-move",
+      "name": "Move entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:move-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(10, 10) and move it by (5, 5)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Corners from (5, 5) to (15, 15)."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-copy",
+      "name": "Copy entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:copy-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(10, 10) and copy it by (15, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Two rectangles; the copy spans (15, 0)-(25, 10)."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-rotate",
+      "name": "Rotate entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:rotate-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line (0, 0)-(20, 0) and rotate it 90 degrees about the origin."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. The line ends at (0, 20)."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-scale",
+      "name": "Scale entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:scale-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(10, 10) and scale it by 2 about the origin."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Area 400 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-stretch",
+      "name": "Stretch entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:stretch-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(30, 20) and stretch its right edge by (10, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Area 800 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-replace",
+      "name": "Replace entity",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:replace-entity"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(30, 20) and extrude it 10.",
+        "In the sketch, replace the right edge with a new line from (35, 0) to (35, 20)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "35*20*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. The extrusion follows the replacement line."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-segment",
+      "name": "Segment entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:segment-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line (0, 0)-(30, 0) and segment it into 3."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Segment points at x = 10 and 20."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-path",
+      "name": "Make path",
+      "entries": {
+        "solidworks": [
+          "family:sketchedit:make-path"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(30, 20) and make a path of its four lines."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the path and its four members."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-linear-pattern",
+      "name": "Linear sketch pattern",
+      "entries": {
+        "solidworks": [
+          "family:sketchpattern:linear-sketch-pattern"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a circle of diameter 4 at (5, 5) and pattern it 4 times along X with spacing_mm = 10."
+      ],
+      "parameters": {
+        "spacing_mm": 10
+      },
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Centres at x = 5, 15, 25, 35."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "spacing_mm",
+        "value": 12,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "sk-circular-pattern",
+      "name": "Circular sketch pattern",
+      "entries": {
+        "solidworks": [
+          "family:sketchpattern:circular-sketch-pattern"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a circle of diameter 4 at (10, 0) and pattern it 6 times around the origin over 360 degrees."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Centres every 60 degrees at radius 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-mirror",
+      "name": "Mirror entities",
+      "entries": {
+        "solidworks": [
+          "family:sketchpattern:mirror-entities"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a centerline on x = 0 and a line (5, 0)-(15, 10); mirror the line about the centerline."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. Mirror line (-5, 0)-(-15, 10) with a symmetric relation."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-dynamic-mirror",
+      "name": "Dynamic mirror",
+      "entries": {
+        "solidworks": [
+          "family:sketchpattern:dynamic-mirror"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, enable dynamic mirror about a centerline on x = 0, then draw a line (5, 0)-(15, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record every sketch entity, constraint and dimension; compare positions with the stated values. A mirrored copy appears with symmetric relations."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-block-definition",
+      "name": "Sketch block definition",
+      "entries": {
+        "solidworks": [
+          "family:sketchpattern:sketch-block-definition"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(10, 5) and make it a block named Tab."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the block definition, its entities and insertion point."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-block-instance",
+      "name": "Sketch block instances",
+      "entries": {
+        "solidworks": [
+          "family:sketchpattern:sketch-block-instance"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Define the Tab block as above, then insert two instances at (0, 0) and (20, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record both instances, their positions and the shared definition."
+      },
+      "variations": []
+    },
+    {
+      "id": "sk-text",
+      "name": "Sketch text",
+      "entries": {
+        "solidworks": [
+          "family:sketchpattern:sketch-text"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, add sketch text KIT at (0, 0) with height 5 in the default font."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the text string, font, height and position."
+      },
+      "variations": [
+        "Text on a curve."
+      ]
+    },
+    {
+      "id": "sk-picture",
+      "name": "Sketch picture",
+      "entries": {
+        "solidworks": [
+          "family:sketchpattern:sketch-picture"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, insert a 30 × 20 mm PNG picture with its lower-left corner at (0, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the picture size, position and that the image bytes are retained."
+      },
+      "variations": []
+    },
+    {
+      "id": "extrude-thin",
+      "name": "Thin extrude of an open line",
+      "entries": {
+        "solidworks": [
+          "family:extrude:thin-extrude"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line (0, 0)-(40, 0).",
+        "Thin-extrude it 10 in +Z with wall thickness_mm = 2 on the +Y side."
+      ],
+      "parameters": {
+        "thickness_mm": 2
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*2*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Mid-plane wall.",
+        "Closed contour thin feature."
+      ],
+      "edit": {
+        "parameter": "thickness_mm",
+        "value": 3,
+        "volume_mm3": "40*3*10"
+      }
+    },
+    {
+      "id": "extrude-surface",
+      "name": "Surface extrude",
+      "entries": {
+        "solidworks": [
+          "family:extrude:surface-extrude"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a line (0, 0)-(40, 0) and surface-extrude it 10 in +Z."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface area 400 mm²."
+      },
+      "variations": [
+        "Capped end."
+      ]
+    },
+    {
+      "id": "extrude-two-direction",
+      "name": "Two-direction extrude",
+      "entries": {
+        "solidworks": [
+          "family:extrude:two-direction-extrude"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(40, 20).",
+        "Extrude depth1_mm = 10 in +Z and depth2_mm = 5 in -Z."
+      ],
+      "parameters": {
+        "depth1_mm": 10,
+        "depth2_mm": 5
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*15",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Z bounds -5 to 10."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "depth2_mm",
+        "value": 8,
+        "volume_mm3": "40*20*18"
+      }
+    },
+    {
+      "id": "extrude-midplane",
+      "name": "Mid-plane extrude",
+      "entries": {
+        "solidworks": [
+          "family:extrude:midplane-extrude"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(40, 20) and extrude it mid-plane with total depth_mm = 10."
+      ],
+      "parameters": {
+        "depth_mm": 10
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Z bounds -5 to 5."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "depth_mm",
+        "value": 16,
+        "volume_mm3": "40*20*16"
+      }
+    },
+    {
+      "id": "extrude-offset-start",
+      "name": "Offset-start extrude",
+      "entries": {
+        "solidworks": [
+          "family:extrude:offset-start-extrude"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(40, 20).",
+        "Extrude 10 in +Z starting from an offset_mm = 5 from the sketch plane."
+      ],
+      "parameters": {
+        "offset_mm": 5
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Z bounds 5 to 15."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "offset_mm",
+        "value": 8,
+        "volume_mm3": "40*20*10"
+      }
+    },
+    {
+      "id": "extrude-up-to",
+      "name": "Extrude up to a plane",
+      "entries": {
+        "solidworks": [
+          "family:extrude:up-to-geometry-extrude"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a plane at plane_z_mm = 30.",
+        "On the top face, draw a circle of diameter 10 at (20, 10) and extrude it up to the plane, merged."
+      ],
+      "parameters": {
+        "plane_z_mm": 30
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 + pi*25*20",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Up to vertex (0, 0, 30).",
+        "Up to next."
+      ],
+      "edit": {
+        "parameter": "plane_z_mm",
+        "value": 40,
+        "volume_mm3": "8000 + pi*25*30"
+      }
+    },
+    {
+      "id": "revolve-cut",
+      "name": "Cut revolve",
+      "entries": {
+        "solidworks": [
+          "family:revolve:cut-revolve"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "On XZ, draw a rectangle from (8, 0) to (10, 2) in (x, z).",
+        "Cut-revolve it 360 degrees about the Z axis."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "1000*pi - pi*(100 - 64)*2",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "revolve-thin",
+      "name": "Thin revolve",
+      "entries": {
+        "solidworks": [
+          "family:revolve:thin-revolve"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XZ, draw a line from (10, 0) to (10, 10) in (x, z).",
+        "Thin-revolve it 360 degrees about Z with thickness_mm = 2 outward."
+      ],
+      "parameters": {
+        "thickness_mm": 2
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*(144 - 100)*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "thickness_mm",
+        "value": 3,
+        "volume_mm3": "pi*(169 - 100)*10"
+      }
+    },
+    {
+      "id": "revolve-surface",
+      "name": "Surface revolve",
+      "entries": {
+        "solidworks": [
+          "family:revolve:surface-revolve"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XZ, draw a line from (10, 0) to (10, 10) and surface-revolve it 360 degrees about Z."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface area 200*pi mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "revolve-two-direction",
+      "name": "Two-direction revolve",
+      "entries": {
+        "solidworks": [
+          "family:revolve:two-direction-revolve"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XZ, draw a rectangle from (10, 0) to (20, 10).",
+        "Revolve about Z by angle1_deg = 90 one way and 45 the other."
+      ],
+      "parameters": {
+        "angle1_deg": 90
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*(400 - 100)*10*135/360",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "angle1_deg",
+        "value": 135,
+        "volume_mm3": "pi*(400 - 100)*10*180/360"
+      }
+    },
+    {
+      "id": "revolve-midplane",
+      "name": "Mid-plane revolve",
+      "entries": {
+        "solidworks": [
+          "family:revolve:midplane-revolve"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XZ, draw a rectangle from (10, 0) to (20, 10) and revolve it mid-plane about Z with total angle 90."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*(400 - 100)*10/4",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Symmetric about XZ."
+      },
+      "variations": []
+    },
+    {
+      "id": "sweep-boss",
+      "name": "Boss sweep",
+      "entries": {
+        "solidworks": [
+          "family:sweep:boss-base-sweep"
+        ],
+        "fusion": [
+          "api:adsk.fusion.SweepFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a path line from (0, 0) to (30, 0).",
+        "On YZ, draw a profile circle of diameter_mm = 4 centred on the origin.",
+        "Sweep the profile along the path as a new body."
+      ],
+      "parameters": {
+        "diameter_mm": 4
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*4*30",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Twist 90 degrees along the path.",
+        "Path with a tangent arc."
+      ],
+      "edit": {
+        "parameter": "diameter_mm",
+        "value": 6,
+        "volume_mm3": "pi*9*30"
+      }
+    },
+    {
+      "id": "sweep-cut",
+      "name": "Cut sweep",
+      "entries": {
+        "solidworks": [
+          "family:sweep:cut-sweep"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face, draw a path line from (0, 10) to (40, 10).",
+        "On YZ at x = 0, draw a circle of diameter 4 centred at (y 10, z 10).",
+        "Cut-sweep along the path."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - pi*4/2*40",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "sweep-surface",
+      "name": "Surface sweep",
+      "entries": {
+        "solidworks": [
+          "family:sweep:surface-sweep"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Path: line (0, 0, 0)-(30, 0, 0). Profile on YZ: line from (0, 0) to (10, 0) in (y, z).",
+        "Surface-sweep the profile along the path."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface area 300 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "sweep-solid-profile",
+      "name": "Solid profile sweep",
+      "entries": {
+        "solidworks": [
+          "family:sweep:solid-profile-sweep"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Make a tool body: a cylinder of diameter 6 and height 20 with its axis vertical.",
+        "Cut-sweep the tool body along the line (0, 10, 8)-(40, 10, 8), tool tip at z = 8."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 6*2*40",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. A 6 mm wide, 2 mm deep slot along the top."
+      },
+      "variations": []
+    },
+    {
+      "id": "sweep-circular-profile",
+      "name": "Circular profile sweep",
+      "entries": {
+        "solidworks": [
+          "family:sweep:circular-profile-sweep"
+        ],
+        "fusion": [
+          "api:adsk.fusion.PipeFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a path arc of radius 20 centred on the origin from 0 to 90 degrees.",
+        "Sweep a circular profile of diameter_mm = 4 along it (no profile sketch)."
+      ],
+      "parameters": {
+        "diameter_mm": 4
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*4*10*pi",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Hollow section with wall 0.5."
+      ],
+      "edit": {
+        "parameter": "diameter_mm",
+        "value": 6,
+        "volume_mm3": "pi*9*10*pi"
+      }
+    },
+    {
+      "id": "sweep-thin",
+      "name": "Thin sweep",
+      "entries": {
+        "solidworks": [
+          "family:sweep:thin-sweep"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Path: line (0, 0, 0)-(30, 0, 0). Profile on YZ: open line from (0, 0) to (10, 0) in (y, z).",
+        "Thin-sweep with thickness 1 to the +Z side."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "10*1*30",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "loft-boss",
+      "name": "Boss loft between squares",
+      "entries": {
+        "solidworks": [
+          "family:loft:boss-base-loft"
+        ],
+        "fusion": [
+          "api:adsk.fusion.LoftFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a 20 × 20 square from (0, 0) to (20, 20).",
+        "On a plane at z = 10, draw a 10 × 10 square from (5, 5) to (15, 15).",
+        "Loft between them with matching corners."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "10/3*(400 + 100 + 200)",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Start tangency normal to profile.",
+        "Guide curve along one edge."
+      ]
+    },
+    {
+      "id": "loft-cut",
+      "name": "Cut loft",
+      "entries": {
+        "solidworks": [
+          "family:loft:cut-loft"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face, draw a 10 × 10 square centred at (20, 10).",
+        "On a plane at z = 4, draw a 4 × 4 square centred at (20, 10).",
+        "Cut-loft between them."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 6/3*(100 + 16 + 40)",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "loft-surface",
+      "name": "Surface loft",
+      "entries": {
+        "solidworks": [
+          "family:loft:surface-loft"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Draw a line (0, 0, 0)-(20, 0, 0) and a line (0, 10, 10)-(20, 10, 10).",
+        "Surface-loft between them."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record a planar strip of area 20*sqrt(200) mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "loft-thin",
+      "name": "Thin loft",
+      "entries": {
+        "solidworks": [
+          "family:loft:thin-loft"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Draw circles of diameter 20 centred on the Z axis at z = 0 and z = 10.",
+        "Thin-loft between them with wall 1 outward."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*(121 - 100)*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "loft-centerline",
+      "name": "Centerline loft",
+      "entries": {
+        "solidworks": [
+          "family:loft:centerline-loft"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Draw a circle of diameter 20 at z = 0 and of diameter 10 at z = 10, both on the Z axis, and a centerline along Z.",
+        "Loft with the centerline."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*10/3*(100 + 25 + 50)",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "loft-to-point",
+      "name": "Loft to a point",
+      "entries": {
+        "solidworks": [
+          "family:loft:loft-to-point"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a 20 × 20 square from (0, 0) to (20, 20) and add a sketch point at (10, 10, 10).",
+        "Loft from the square to the point."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "400*10/3",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "boundary-boss",
+      "name": "Boundary boss",
+      "entries": {
+        "solidworks": [
+          "family:boundary:boundary-boss-base"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Use the two squares of the boss loft (20 × 20 at z = 0, 10 × 10 at z = 10).",
+        "Create a boundary boss in direction 1 only."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "10/3*(400 + 100 + 200)",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "boundary-cut",
+      "name": "Boundary cut",
+      "entries": {
+        "solidworks": [
+          "family:boundary:boundary-cut"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Use the two squares of the cut loft.",
+        "Create a boundary cut between them."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 6/3*(100 + 16 + 40)",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "boundary-surface",
+      "name": "Boundary surface",
+      "entries": {
+        "solidworks": [
+          "family:boundary:boundary-surface"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Draw four lines bounding the square (0, 0, 0)-(20, 20, 0).",
+        "Create a boundary surface from two opposite pairs."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record a planar surface of area 400 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "hole-simple",
+      "name": "Simple blind hole",
+      "entries": {
+        "solidworks": [
+          "family:holes:simple-hole"
+        ],
+        "fusion": [
+          "api:adsk.fusion.HoleFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face at (10, 10), add a simple hole of diameter_mm = 6, depth 5, flat bottom."
+      ],
+      "parameters": {
+        "diameter_mm": 6
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - pi*9*5",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Through all.",
+        "Drill point 118 degrees."
+      ],
+      "edit": {
+        "parameter": "diameter_mm",
+        "value": 8,
+        "volume_mm3": "8000 - pi*16*5"
+      }
+    },
+    {
+      "id": "hole-wizard",
+      "name": "Counterbored hole",
+      "entries": {
+        "solidworks": [
+          "family:holes:hole-wizard"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face at (30, 10), add a counterbored through hole: hole diameter 5.5, counterbore diameter 10, depth 3."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - pi*2.75**2*7 - pi*25*3",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Countersink 90 degrees.",
+        "Tapped M5."
+      ]
+    },
+    {
+      "id": "hole-advanced",
+      "name": "Advanced hole",
+      "entries": {
+        "solidworks": [
+          "family:holes:advanced-hole"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face at (20, 10), add an advanced hole: near side counterbore diameter 10 depth 3, then a diameter 6 hole through."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - pi*25*3 - pi*9*7",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "hole-series",
+      "name": "Hole series through two parts",
+      "entries": {
+        "solidworks": [
+          "family:holes:hole-series"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make an assembly of two block seed parts, the second stacked on the first at z = 10.",
+        "Add a hole series of diameter 6 at (20, 10) through both parts."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "2*(8000 - pi*9*10)",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Each part file carries its own hole."
+      },
+      "variations": []
+    },
+    {
+      "id": "hole-thread",
+      "name": "Modelled thread",
+      "entries": {
+        "solidworks": [
+          "family:holes:thread"
+        ],
+        "fusion": [
+          "api:adsk.fusion.ThreadFeature"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "Add a modelled external thread on the cylinder side face: pitch 2, full length 10, metric profile."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record pitch, length and handedness."
+      },
+      "variations": [
+        "Left hand.",
+        "Cosmetic only."
+      ]
+    },
+    {
+      "id": "hole-cosmetic-thread",
+      "name": "Cosmetic thread",
+      "entries": {
+        "solidworks": [
+          "family:holes:cosmetic-thread"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Add a diameter 6 through hole at (20, 10), then a cosmetic thread M6 × 1 on it, full depth."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - pi*9*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. The thread does not change the volume; record its attributes."
+      },
+      "variations": []
+    },
+    {
+      "id": "hole-stud",
+      "name": "Stud wizard",
+      "entries": {
+        "solidworks": [
+          "family:holes:stud-wizard"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face at (20, 10), add a stud of diameter 6 and length 10 with an M6 thread."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record stud diameter, length and thread."
+      },
+      "variations": []
+    },
+    {
+      "id": "fillet-constant",
+      "name": "Constant-radius edge fillet",
+      "entries": {
+        "solidworks": [
+          "family:fillet:constant-radius-fillet"
+        ],
+        "fusion": [
+          "api:adsk.fusion.FilletFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Fillet the vertical edge at (40, 20) with radius_mm = 2."
+      ],
+      "parameters": {
+        "radius_mm": 2
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - (4 - pi)*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Tangent chain off.",
+        "Curvature-continuous profile."
+      ],
+      "edit": {
+        "parameter": "radius_mm",
+        "value": 3,
+        "volume_mm3": "8000 - (9 - 2.25*pi)*10"
+      }
+    },
+    {
+      "id": "fillet-variable",
+      "name": "Variable-radius fillet",
+      "entries": {
+        "solidworks": [
+          "family:fillet:variable-radius-fillet"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Fillet the vertical edge at (40, 20) with radius 1 at z = 0 and 3 at z = 10, straight transition."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record both end radii."
+      },
+      "variations": []
+    },
+    {
+      "id": "fillet-face",
+      "name": "Face fillet",
+      "entries": {
+        "solidworks": [
+          "family:fillet:face-fillet"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Face-fillet the top face and the side face y = 20 with radius 2."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - (4 - pi)*40",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fillet-full-round",
+      "name": "Full round fillet",
+      "entries": {
+        "solidworks": [
+          "family:fillet:full-round-fillet"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Full-round fillet with side faces z = 0 and z = 10 and centre face x = 40."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - (50 - 12.5*pi)*20",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. The end becomes a half cylinder of radius 5."
+      },
+      "variations": []
+    },
+    {
+      "id": "fillet-asymmetric",
+      "name": "Asymmetric fillet",
+      "entries": {
+        "solidworks": [
+          "family:fillet:asymmetric-fillet"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Asymmetric-fillet the vertical edge at (40, 20) with distances 2 along X and 4 along Y, elliptic profile."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 8*(1 - pi/4)*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fillet-partial",
+      "name": "Partial edge fillet",
+      "entries": {
+        "solidworks": [
+          "family:fillet:partial-edge-fillet"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Fillet the top edge along X at y = 20, z = 10 with radius 2, only from x = 10 to x = 30."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record the partial start and end positions."
+      },
+      "variations": []
+    },
+    {
+      "id": "fillet-setback",
+      "name": "Setback corner",
+      "entries": {
+        "solidworks": [
+          "family:fillet:setback-corner"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Fillet the three edges at vertex (40, 20, 10) with radius 2 and setback distance 4 on each."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record setback distances."
+      },
+      "variations": []
+    },
+    {
+      "id": "fillet-xpert",
+      "name": "FilletXpert",
+      "entries": {
+        "solidworks": [
+          "family:fillet:filletxpert"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Use FilletXpert to add radius 1 to the four vertical edges."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 4*(1 - pi/4)*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "chamfer-angle-distance",
+      "name": "Angle-distance chamfer",
+      "entries": {
+        "solidworks": [
+          "family:chamfer:angle-distance-chamfer"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Chamfer the vertical edge at (40, 20) with distance_mm = 2 at 45 degrees."
+      ],
+      "parameters": {
+        "distance_mm": 2
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 2*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "distance_mm",
+        "value": 3,
+        "volume_mm3": "8000 - 4.5*10"
+      }
+    },
+    {
+      "id": "chamfer-distance-distance",
+      "name": "Distance-distance chamfer",
+      "entries": {
+        "solidworks": [
+          "family:chamfer:distance-distance-chamfer"
+        ],
+        "fusion": [
+          "api:adsk.fusion.ChamferFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Chamfer the vertical edge at (40, 20) with 2 along X and 3 along Y."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 0.5*2*3*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Equal distance 2.",
+        "Distance 2 and angle 30."
+      ]
+    },
+    {
+      "id": "chamfer-vertex",
+      "name": "Vertex chamfer",
+      "entries": {
+        "solidworks": [
+          "family:chamfer:vertex-chamfer"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Chamfer the vertex (40, 20, 10) with 2 along each edge."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 8/6",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "chamfer-offset-face",
+      "name": "Offset face chamfer",
+      "entries": {
+        "solidworks": [
+          "family:chamfer:offset-face-chamfer"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Offset-face chamfer the vertical edge at (40, 20) with distance 2 on both faces."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 2*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "chamfer-face-face",
+      "name": "Face-face chamfer",
+      "entries": {
+        "solidworks": [
+          "family:chamfer:face-face-chamfer"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Face-face chamfer the top face and side face y = 20, symmetric distance 2."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 0.5*4*40",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "rib",
+      "name": "Rib between wall and plate",
+      "entries": {
+        "solidworks": [
+          "family:prismatic:rib"
+        ],
+        "fusion": [
+          "api:adsk.fusion.RibFeature"
+        ]
+      },
+      "seed": "bracket",
+      "build": [
+        "On YZ offset to x = 20, draw a line from (y 15, z 15) to (y 5, z 5).",
+        "Add a rib of thickness_mm = 2, mid-plane, filling towards the wall and plate."
+      ],
+      "parameters": {
+        "thickness_mm": 2
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 + 50*2",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Draft 2 degrees."
+      ],
+      "edit": {
+        "parameter": "thickness_mm",
+        "value": 3,
+        "volume_mm3": "8000 + 50*3"
+      }
+    },
+    {
+      "id": "shell",
+      "name": "Shell removing the top face",
+      "entries": {
+        "solidworks": [
+          "family:prismatic:shell"
+        ],
+        "fusion": [
+          "api:adsk.fusion.ShellFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Shell SeedBody inward with thickness_mm = 1, removing the top face."
+      ],
+      "parameters": {
+        "thickness_mm": 1
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 38*18*9",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Outward.",
+        "Different thickness 2 on one side."
+      ],
+      "edit": {
+        "parameter": "thickness_mm",
+        "value": 2,
+        "volume_mm3": "8000 - 36*16*8"
+      }
+    },
+    {
+      "id": "draft-neutral",
+      "name": "Neutral plane draft",
+      "entries": {
+        "solidworks": [
+          "family:prismatic:neutral-plane-draft"
+        ],
+        "fusion": [
+          "api:adsk.fusion.DraftFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Draft the four side faces by 5 degrees inward going up, with the bottom face as neutral plane."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "10/6*(800 + 4*(40 - 10*tan(radians(5)))*(20 - 10*tan(radians(5))) + (40 - 20*tan(radians(5)))*(20 - 20*tan(radians(5))))",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Outward draft.",
+        "Tangent propagation."
+      ]
+    },
+    {
+      "id": "draft-parting",
+      "name": "Parting line draft",
+      "entries": {
+        "solidworks": [
+          "family:prismatic:parting-line-draft"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Split the side faces with a split line at z = 5.",
+        "Add a parting-line draft of 3 degrees on that line, pull direction +Z."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record the parting line and draft angle."
+      },
+      "variations": []
+    },
+    {
+      "id": "draft-step",
+      "name": "Step draft",
+      "entries": {
+        "solidworks": [
+          "family:prismatic:step-draft"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Split the side faces with a split line at z = 5.",
+        "Add a step draft of 3 degrees, tapered steps."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "draft-xpert",
+      "name": "DraftXpert",
+      "entries": {
+        "solidworks": [
+          "family:prismatic:draftxpert"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Use DraftXpert to draft the four side faces 2 degrees inward, neutral plane the bottom face."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "10/6*(800 + 4*(40 - 10*tan(radians(2)))*(20 - 10*tan(radians(2))) + (40 - 20*tan(radians(2)))*(20 - 20*tan(radians(2))))",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "combine-add",
+      "name": "Combine add",
+      "entries": {
+        "solidworks": [
+          "family:bodyboolean:combine-add"
+        ],
+        "fusion": [
+          "api:adsk.fusion.CombineFeature"
+        ]
+      },
+      "seed": "two_blocks",
+      "build": [
+        "Combine BodyA and BodyB with Add (join)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "60*20*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Keep tools.",
+        "Fusion new component output."
+      ]
+    },
+    {
+      "id": "combine-subtract",
+      "name": "Combine subtract",
+      "entries": {
+        "solidworks": [
+          "family:bodyboolean:combine-subtract"
+        ]
+      },
+      "seed": "two_blocks",
+      "build": [
+        "Combine: subtract BodyB from BodyA."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "20*20*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "combine-common",
+      "name": "Combine common",
+      "entries": {
+        "solidworks": [
+          "family:bodyboolean:combine-common"
+        ]
+      },
+      "seed": "two_blocks",
+      "build": [
+        "Combine BodyA and BodyB with Common (intersect)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "20*20*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "intersect",
+      "name": "Intersect with a surface",
+      "entries": {
+        "solidworks": [
+          "family:bodyboolean:intersect"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Make a planar surface covering z = 5 across the block.",
+        "Use Intersect with SeedBody and the surface, keeping both regions."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. Two solid regions of 4000 each; record whether the surface body is consumed or kept."
+      },
+      "variations": []
+    },
+    {
+      "id": "split-body",
+      "name": "Split by a plane",
+      "entries": {
+        "solidworks": [
+          "family:bodyboolean:split"
+        ],
+        "fusion": [
+          "api:adsk.fusion.SplitBodyFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Split SeedBody with a plane at split_x_mm = 20, keeping both bodies."
+      ],
+      "parameters": {
+        "split_x_mm": 20
+      },
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. Two bodies; record each volume."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "split_x_mm",
+        "value": 10,
+        "volume_mm3": "40*20*10"
+      }
+    },
+    {
+      "id": "delete-body",
+      "name": "Delete a body",
+      "entries": {
+        "solidworks": [
+          "family:bodyboolean:delete-body"
+        ],
+        "fusion": [
+          "api:adsk.fusion.RemoveFeature"
+        ]
+      },
+      "seed": "two_blocks",
+      "build": [
+        "Delete BodyB with a delete/remove body feature."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "keep-body",
+      "name": "Bodies to keep",
+      "entries": {
+        "solidworks": [
+          "family:bodyboolean:keep-body"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Cut a 2 mm slot through all from x = 19 to 21.",
+        "In the bodies-to-keep dialog keep only the body on the -X side."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "19*20*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "save-bodies",
+      "name": "Save bodies to parts",
+      "entries": {
+        "solidworks": [
+          "family:bodyboolean:save-bodies"
+        ]
+      },
+      "seed": "two_blocks",
+      "build": [
+        "Save BodyA and BodyB as two new part files."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "2*8000",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. Each new part holds one body of 8000 mm³ and links back to the source."
+      },
+      "variations": []
+    },
+    {
+      "id": "join-parts",
+      "name": "Join parts in an assembly",
+      "entries": {
+        "solidworks": [
+          "family:bodyboolean:join"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make an assembly with two block seed parts, the second offset by (20, 0, 0).",
+        "Create a joined part from both components."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "60*20*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "move-body",
+      "name": "Move body",
+      "entries": {
+        "solidworks": [
+          "family:bodytransform:move-bodies"
+        ],
+        "fusion": [
+          "api:adsk.fusion.MoveFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Move SeedBody by dx_mm = 10 along X."
+      ],
+      "parameters": {
+        "dx_mm": 10
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. X bounds 10 to 50."
+      },
+      "variations": [
+        "Rotate 90 degrees about Z."
+      ],
+      "edit": {
+        "parameter": "dx_mm",
+        "value": 15,
+        "volume_mm3": "40*20*10"
+      }
+    },
+    {
+      "id": "copy-body",
+      "name": "Copy body",
+      "entries": {
+        "solidworks": [
+          "family:bodytransform:copy-bodies"
+        ],
+        "fusion": [
+          "api:adsk.fusion.CopyPasteBody"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Copy SeedBody and translate the copy by (0, 30, 0)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "2*8000",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "scale-body",
+      "name": "Uniform scale",
+      "entries": {
+        "solidworks": [
+          "family:bodytransform:scale"
+        ],
+        "fusion": [
+          "api:adsk.fusion.ScaleFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Scale SeedBody uniformly by factor 2 about the origin."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000*8",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Non-uniform 2, 1, 1 (volume 16000)."
+      ]
+    },
+    {
+      "id": "mirror-body",
+      "name": "Mirror body",
+      "entries": {
+        "solidworks": [
+          "family:bodytransform:mirror-body"
+        ],
+        "fusion": [
+          "api:adsk.fusion.MirrorFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Mirror SeedBody about YZ without merging."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "2*8000",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Mirror X bounds -40 to 0."
+      },
+      "variations": [
+        "Merge result (touching at x = 0: one body of 16000).",
+        "Mirror a feature instead of a body."
+      ]
+    },
+    {
+      "id": "mirror-part",
+      "name": "Mirror part",
+      "entries": {
+        "solidworks": [
+          "family:bodytransform:mirror-part"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a mirrored part of the seed part about YZ."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. X bounds -40 to 0; link to the source part retained."
+      },
+      "variations": []
+    },
+    {
+      "id": "insert-part",
+      "name": "Insert part",
+      "entries": {
+        "solidworks": [
+          "family:bodytransform:insert-part"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Save a block seed part, then insert it into a new part at the origin."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record the external reference to the source part."
+      },
+      "variations": []
+    },
+    {
+      "id": "derived-part",
+      "name": "Derived part",
+      "entries": {
+        "solidworks": [
+          "family:bodytransform:derived-part"
+        ],
+        "fusion": [
+          "api:adsk.fusion.DeriveFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Save a block seed part in an assembly, then create a derived part from that component."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record the link to the source and that edits to the source propagate."
+      },
+      "variations": []
+    },
+    {
+      "id": "create-derived-parts",
+      "name": "Create derived parts from bodies",
+      "entries": {
+        "solidworks": [
+          "family:bodytransform:create-derived-parts"
+        ]
+      },
+      "seed": "two_blocks",
+      "build": [
+        "Create derived parts for BodyA and BodyB."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "2*8000",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. Two files each holding one body."
+      },
+      "variations": []
+    },
+    {
+      "id": "move-face",
+      "name": "Move face",
+      "entries": {
+        "solidworks": [
+          "family:faceedit:move-face"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Move the face x = 40 by dx_mm = 5 in +X."
+      ],
+      "parameters": {
+        "dx_mm": 5
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "45*20*10",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "dx_mm",
+        "value": 8,
+        "volume_mm3": "48*20*10"
+      }
+    },
+    {
+      "id": "offset-face",
+      "name": "Offset face",
+      "entries": {
+        "solidworks": [
+          "family:faceedit:offset-face"
+        ],
+        "fusion": [
+          "api:adsk.fusion.OffsetFacesFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Offset the top face by distance_mm = 2 outward."
+      ],
+      "parameters": {
+        "distance_mm": 2
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*12",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "distance_mm",
+        "value": 3,
+        "volume_mm3": "40*20*13"
+      }
+    },
+    {
+      "id": "rotate-face",
+      "name": "Rotate face",
+      "entries": {
+        "solidworks": [
+          "family:faceedit:rotate-face"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Rotate the face x = 40 by 5 degrees about its bottom edge, leaning out at the top."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 + 0.5*10*10*tan(radians(5))*20",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "delete-face",
+      "name": "Delete face",
+      "entries": {
+        "solidworks": [
+          "family:faceedit:delete-face"
+        ],
+        "fusion": [
+          "api:adsk.fusion.SurfaceDeleteFaceFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Delete the top face without patching, leaving an open surface body."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record one surface body with five faces and no solid volume."
+      },
+      "variations": []
+    },
+    {
+      "id": "delete-patch-face",
+      "name": "Delete and patch face",
+      "entries": {
+        "solidworks": [
+          "family:faceedit:delete-and-patch-face"
+        ],
+        "fusion": [
+          "api:adsk.fusion.DeleteFaceFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Chamfer the vertical edge at (40, 20) by 2 × 2.",
+        "Delete the chamfer face with patch (heal)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. The sharp edge returns."
+      },
+      "variations": []
+    },
+    {
+      "id": "delete-fill-face",
+      "name": "Delete and fill face",
+      "entries": {
+        "solidworks": [
+          "family:faceedit:delete-and-fill-face"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Delete the top face with fill."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "replace-face",
+      "name": "Replace face",
+      "entries": {
+        "solidworks": [
+          "family:faceedit:replace-face"
+        ],
+        "fusion": [
+          "api:adsk.fusion.ReplaceFaceFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Make a planar surface at z = 12 larger than the block.",
+        "Replace the top face with it."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "40*20*12",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Count the surface body separately."
+      },
+      "variations": []
+    },
+    {
+      "id": "heal-edges",
+      "name": "Heal edges",
+      "entries": {
+        "solidworks": [
+          "family:faceedit:heal-edges"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Split the top face with a split line at x = 20, then heal edges on the result with angle tolerance 1 degree."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. Face count returns to 6."
+      },
+      "variations": []
+    },
+    {
+      "id": "delete-hole",
+      "name": "Delete hole",
+      "entries": {
+        "solidworks": [
+          "family:faceedit:delete-hole"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Add a diameter 6 through hole at (20, 10).",
+        "Delete the hole from the face."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "dome",
+      "name": "Dome",
+      "entries": {
+        "solidworks": [
+          "family:shapedeform:dome"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Add a dome of height 5 to the top face."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Maximum z of 15."
+      },
+      "variations": [
+        "Elliptical dome."
+      ]
+    },
+    {
+      "id": "freeform",
+      "name": "Freeform face",
+      "entries": {
+        "solidworks": [
+          "family:shapedeform:freeform"
+        ],
+        "fusion": [
+          "api:adsk.fusion.FormFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Freeform the top face: raise the centre control point by 3 mm (in Fusion, a T-spline box form edited the same way)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record the control points."
+      },
+      "variations": []
+    },
+    {
+      "id": "deform",
+      "name": "Point deform",
+      "entries": {
+        "solidworks": [
+          "family:shapedeform:deform"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Point-deform the top face at (20, 10, 10) by 3 mm in +Z with radius 10."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "indent",
+      "name": "Indent",
+      "entries": {
+        "solidworks": [
+          "family:shapedeform:indent"
+        ]
+      },
+      "seed": "two_blocks",
+      "build": [
+        "Indent BodyA with BodyB as tool, thickness 1, clearance 0."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "flex",
+      "name": "Flex bend",
+      "entries": {
+        "solidworks": [
+          "family:shapedeform:flex"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Flex SeedBody with a bend of 90 degrees between trim planes x = 10 and x = 30."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "wrap",
+      "name": "Wrap emboss",
+      "entries": {
+        "solidworks": [
+          "family:shapedeform:wrap"
+        ],
+        "fusion": [
+          "api:adsk.fusion.EmbossFeature"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "Sketch the text KIT, height 5, on YZ offset to x = 15.",
+        "Wrap-emboss it onto the cylinder side face with depth 1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Deboss.",
+        "Scribe."
+      ]
+    },
+    {
+      "id": "pattern-linear",
+      "name": "Linear pattern of a boss",
+      "entries": {
+        "solidworks": [
+          "family:pattern:linear-pattern"
+        ],
+        "fusion": [
+          "api:adsk.fusion.RectangularPatternFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face, add a boss of diameter 6 and height 5 at (5, 10).",
+        "Linear-pattern it to count = 3 along X with spacing 15."
+      ],
+      "parameters": {
+        "count": 3
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 + 3*pi*9*5",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Two directions.",
+        "Skip one instance."
+      ],
+      "edit": {
+        "parameter": "count",
+        "value": 2,
+        "volume_mm3": "8000 + 2*pi*9*5"
+      }
+    },
+    {
+      "id": "pattern-circular",
+      "name": "Circular pattern of a hole",
+      "entries": {
+        "solidworks": [
+          "family:pattern:circular-pattern"
+        ],
+        "fusion": [
+          "api:adsk.fusion.CircularPatternFeature"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "Add a diameter 4 through hole at (6, 0).",
+        "Circular-pattern it to count = 4 about the Z axis, equal spacing."
+      ],
+      "parameters": {
+        "count": 4
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "1000*pi - 4*pi*4*10",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "count",
+        "value": 3,
+        "volume_mm3": "1000*pi - 3*pi*4*10"
+      }
+    },
+    {
+      "id": "pattern-curve",
+      "name": "Curve-driven pattern",
+      "entries": {
+        "solidworks": [
+          "family:pattern:curve-driven-pattern"
+        ],
+        "fusion": [
+          "api:adsk.fusion.PathPatternFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face, add a boss of diameter 4 and height 3 at (5, 5).",
+        "Pattern it 3 times along the top edge from (0, 0, 10) to (40, 0, 10), spacing 15."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 + 3*pi*4*3",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "pattern-sketch",
+      "name": "Sketch-driven pattern",
+      "entries": {
+        "solidworks": [
+          "family:pattern:sketch-driven-pattern"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Add a diameter 4 hole, depth 5, at (10, 10).",
+        "On the top face, sketch points at (20, 10) and (30, 10) and pattern the hole to them."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 3*pi*4*5",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "pattern-table",
+      "name": "Table-driven pattern",
+      "entries": {
+        "solidworks": [
+          "family:pattern:table-driven-pattern"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Add a diameter 4 hole, depth 5, at (5, 5).",
+        "Pattern it with a coordinate table of offsets (10, 0) and (20, 5)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 3*pi*4*5",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "pattern-fill",
+      "name": "Fill pattern",
+      "entries": {
+        "solidworks": [
+          "family:pattern:fill-pattern"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Fill the top face with diameter 2 holes, depth 2, on a square layout with spacing 6 and margin 3."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record the instance count."
+      },
+      "variations": []
+    },
+    {
+      "id": "pattern-variable",
+      "name": "Variable pattern",
+      "entries": {
+        "solidworks": [
+          "family:pattern:variable-pattern"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Add a hole of diameter 2, depth 5, at (8, 10) with a driving diameter.",
+        "Variable-pattern it to x = 20 with diameter 3 and to x = 32 with diameter 4."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 - 5*pi*(1 + 2.25 + 4)",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "pattern-mirror",
+      "name": "Mirror feature",
+      "entries": {
+        "solidworks": [
+          "family:pattern:mirror-feature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face, add a boss of diameter 6 and height 5 at (5, 10).",
+        "Mirror the boss feature about a plane at x = 20."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000 + 2*pi*9*5",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "surface-planar",
+      "name": "Planar surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaces:planar-surface"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY, draw a corner rectangle (0, 0)-(40, 20) with width_mm = 40 and make a planar surface."
+      ],
+      "parameters": {
+        "width_mm": 40
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. Area 800 mm²."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "width_mm",
+        "value": 50,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "surface-offset",
+      "name": "Offset surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaces:offset-surface"
+        ],
+        "fusion": [
+          "api:adsk.fusion.OffsetFeature"
+        ]
+      },
+      "seed": "surface",
+      "build": [
+        "Offset SeedSurface by distance_mm = 5 in +Z."
+      ],
+      "parameters": {
+        "distance_mm": 5
+      },
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. The offset surface has area 800 mm² at z = 5."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "distance_mm",
+        "value": 8,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "surface-radiate",
+      "name": "Radiate surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaces:radiate-surface"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Radiate the bottom edge along X at y = 0, z = 0 outward in -Y by 5, parallel to XY."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. New surface area 200 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "surface-ruled",
+      "name": "Ruled surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaces:ruled-surface"
+        ],
+        "fusion": [
+          "api:adsk.fusion.RuledSurfaceFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a ruled surface normal to the top face along the edge (0, 0, 10)-(40, 0, 10), distance 5, pointing -Y."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. New surface area 200 mm²."
+      },
+      "variations": [
+        "Tangent to surface.",
+        "Taper to vector at 10 degrees."
+      ]
+    },
+    {
+      "id": "surface-filled",
+      "name": "Filled surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaces:filled-surface"
+        ],
+        "fusion": [
+          "api:adsk.fusion.PatchFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Draw four lines bounding the square (0, 0, 0)-(20, 20, 0).",
+        "Fill the boundary with a contact-condition surface."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. Planar patch of area 400 mm²."
+      },
+      "variations": [
+        "Tangent condition to a neighbouring face."
+      ]
+    },
+    {
+      "id": "surface-mid",
+      "name": "Mid surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaces:mid-surface"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a mid surface between the top and bottom faces."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. Mid surface of area 800 mm² at z = 5."
+      },
+      "variations": []
+    },
+    {
+      "id": "surface-from-mesh",
+      "name": "Surface from mesh",
+      "entries": {
+        "solidworks": [
+          "family:surfaces:surface-from-mesh"
+        ]
+      },
+      "seed": "mesh_block",
+      "build": [
+        "Create a planar surface from the mesh facets of the top face (z = 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. New surface area 800 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "surface-knit",
+      "name": "Knit surfaces into a solid",
+      "entries": {
+        "solidworks": [
+          "family:surfaceedit:knit-surface"
+        ],
+        "fusion": [
+          "api:adsk.fusion.StitchFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make six planar surfaces bounding the box (0, 0, 0)-(40, 20, 10).",
+        "Knit them with the option to create a solid."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [
+        "Knit without creating a solid."
+      ]
+    },
+    {
+      "id": "surface-extend",
+      "name": "Extend surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaceedit:extend-surface"
+        ],
+        "fusion": [
+          "api:adsk.fusion.ExtendFeature"
+        ]
+      },
+      "seed": "surface",
+      "build": [
+        "Extend the edge x = 40 of SeedSurface by distance_mm = 10, same surface."
+      ],
+      "parameters": {
+        "distance_mm": 10
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. Area 1000 mm²."
+      },
+      "variations": [
+        "Linear extension."
+      ],
+      "edit": {
+        "parameter": "distance_mm",
+        "value": 20,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "surface-trim",
+      "name": "Trim surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaceedit:trim-surface"
+        ],
+        "fusion": [
+          "api:adsk.fusion.TrimFeature"
+        ]
+      },
+      "seed": "surface",
+      "build": [
+        "Sketch a line x = 30 across SeedSurface and trim, keeping the x < 30 side."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. Area 600 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "surface-mutual-trim",
+      "name": "Mutual trim",
+      "entries": {
+        "solidworks": [
+          "family:surfaceedit:mutual-trim"
+        ]
+      },
+      "seed": "surface",
+      "build": [
+        "Make a second planar surface on XZ through y = 10 spanning x 0..40, z -5..5.",
+        "Mutual-trim both surfaces, keeping the y < 10 and z > 0 regions."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. Record the kept regions."
+      },
+      "variations": []
+    },
+    {
+      "id": "surface-untrim",
+      "name": "Untrim surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaceedit:untrim-surface"
+        ],
+        "fusion": [
+          "api:adsk.fusion.UntrimFeature"
+        ]
+      },
+      "seed": "surface",
+      "build": [
+        "Trim a diameter 10 hole at (20, 10) from SeedSurface.",
+        "Untrim the internal hole edge."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. Area back to 800 mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "surface-flatten",
+      "name": "Surface flatten",
+      "entries": {
+        "solidworks": [
+          "family:surfaceedit:surface-flatten"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Surface-revolve a line from (10, 0) to (10, 10) on XZ by 180 degrees about Z.",
+        "Flatten it onto XY."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. Flattened area 100*pi mm²."
+      },
+      "variations": []
+    },
+    {
+      "id": "surface-parting",
+      "name": "Parting surface",
+      "entries": {
+        "solidworks": [
+          "family:surfaceedit:parting-surface"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Add a parting line on the side faces at z = 5 with pull direction +Z.",
+        "Create a parting surface 5 mm wide, perpendicular to the pull."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record surface body count, total surface area and boundary edges. Record the parting surface width and direction."
+      },
+      "variations": []
+    },
+    {
+      "id": "thicken",
+      "name": "Thicken a surface",
+      "entries": {
+        "solidworks": [
+          "family:thicken:thicken"
+        ],
+        "fusion": [
+          "api:adsk.fusion.ThickenFeature"
+        ]
+      },
+      "seed": "surface",
+      "build": [
+        "Thicken SeedSurface by thickness_mm = 2 to the +Z side."
+      ],
+      "parameters": {
+        "thickness_mm": 2
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Solid volume 1600 mm³."
+      },
+      "variations": [
+        "Both sides."
+      ],
+      "edit": {
+        "parameter": "thickness_mm",
+        "value": 3,
+        "volume_mm3": null
+      }
+    },
+    {
+      "id": "thicken-cut",
+      "name": "Thickened cut",
+      "entries": {
+        "solidworks": [
+          "family:thicken:thickened-cut"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Make a planar surface at z = 8 covering the block.",
+        "Thickened-cut with thickness 2 to the -Z side."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "8000 - 40*20*2",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Two solid bodies remain, 6400 mm³ together."
+      },
+      "variations": []
+    },
+    {
+      "id": "cut-with-surface",
+      "name": "Cut with surface",
+      "entries": {
+        "solidworks": [
+          "family:thicken:cut-with-surface"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Make a planar surface at z = 6 covering the block.",
+        "Cut SeedBody with the surface, keeping the region below."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*6",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "curve-helix",
+      "name": "Helix",
+      "entries": {
+        "solidworks": [
+          "family:curves:helix"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "On the top face sketch a circle of diameter 20.",
+        "Create a constant-pitch helix: pitch 2, height 10, start angle 0, clockwise."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*10**2*10",
+        "effect": "keeps",
+        "check": "Record pitch, revolutions and handedness. Length 5*sqrt((20*pi)**2 + 4)."
+      },
+      "variations": [
+        "Variable pitch.",
+        "Tapered 5 degrees."
+      ]
+    },
+    {
+      "id": "curve-spiral",
+      "name": "Spiral",
+      "entries": {
+        "solidworks": [
+          "family:curves:spiral"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "On XY sketch a circle of diameter 10.",
+        "Create a spiral of pitch 5 with 3 revolutions."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record pitch and revolutions. End radius 20."
+      },
+      "variations": []
+    },
+    {
+      "id": "curve-projected",
+      "name": "Projected curve",
+      "entries": {
+        "solidworks": [
+          "family:curves:projected-curve"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "On XZ draw a line from (-5, 2) to (5, 8) in (x, z).",
+        "Project it onto the cylinder side face in +Y."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*10**2*10",
+        "effect": "keeps",
+        "check": "Every sampled point lies at radius 10."
+      },
+      "variations": []
+    },
+    {
+      "id": "curve-composite",
+      "name": "Composite curve",
+      "entries": {
+        "solidworks": [
+          "family:curves:composite-curve"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Make a composite curve from top edges (0, 0)-(40, 0), (40, 0)-(40, 20) and (40, 20)-(0, 20) at z = 10."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record a single curve of length 100."
+      },
+      "variations": []
+    },
+    {
+      "id": "curve-xyz",
+      "name": "Curve through XYZ points",
+      "entries": {
+        "solidworks": [
+          "family:curves:curve-through-xyz-points"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Create a curve through (0, 0, 0), (10, 5, 5) and (20, 0, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 0,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "The curve passes through all three points."
+      },
+      "variations": []
+    },
+    {
+      "id": "curve-ref-points",
+      "name": "Curve through reference points",
+      "entries": {
+        "solidworks": [
+          "family:curves:curve-through-reference-points"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a curve through the vertices (0, 0, 10) and (40, 20, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record a straight curve of length sqrt(2000)."
+      },
+      "variations": []
+    },
+    {
+      "id": "split-line",
+      "name": "Split line",
+      "entries": {
+        "solidworks": [
+          "family:curves:split-line"
+        ],
+        "fusion": [
+          "api:adsk.fusion.SplitFaceFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face sketch a line x = 20 and split the top face with it."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. Seven faces; the two top faces are 400 mm² each."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-base-flange",
+      "name": "Base flange",
+      "entries": {
+        "solidworks": [
+          "family:sheetbase:base-flange"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Set thickness thickness_mm = 1, bend radius 1, K-factor 0.5.",
+        "Make a base flange from a corner rectangle (0, 0)-(40, 20) in +Z."
+      ],
+      "parameters": {
+        "thickness_mm": 1
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*1",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "thickness_mm",
+        "value": 2,
+        "volume_mm3": "40*20*2"
+      }
+    },
+    {
+      "id": "sm-tab",
+      "name": "Tab",
+      "entries": {
+        "solidworks": [
+          "family:sheetbase:tab"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "On the top face, sketch a 10 × 10 rectangle from (40, 5) to (50, 15) touching the edge x = 40, and add a tab."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "800 + 100",
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-convert",
+      "name": "Convert to sheet metal",
+      "entries": {
+        "solidworks": [
+          "family:sheetbase:convert-to-sheet-metal"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Extrude a 40 × 20 rectangle by 1.",
+        "Convert it to sheet metal with the bottom face fixed, thickness 1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*1",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-insert-bends",
+      "name": "Insert bends",
+      "entries": {
+        "solidworks": [
+          "family:sheetbase:insert-bends"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Shell SeedBody by 1, removing the top face.",
+        "Insert bends with radius 1 and K-factor 0.5, ripping the four vertical edges."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-rip",
+      "name": "Rip",
+      "entries": {
+        "solidworks": [
+          "family:sheetbase:rip"
+        ],
+        "fusion": [
+          "api:adsk.fusion.RipFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Shell SeedBody by 1, removing the top face.",
+        "Rip the vertical edge at (40, 20) with gap 0.1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend. Record the rip gap."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-parameters",
+      "name": "Sheet metal parameters",
+      "entries": {
+        "solidworks": [
+          "family:sheetbase:sheet-metal-parameters"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Change the sheet metal parameters to thickness_mm = 1 (unchanged), bend radius 2 and K-factor 0.4."
+      ],
+      "parameters": {
+        "thickness_mm": 1
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "800",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "thickness_mm",
+        "value": 2,
+        "volume_mm3": "1600"
+      }
+    },
+    {
+      "id": "sm-edge-flange",
+      "name": "Edge flange",
+      "entries": {
+        "solidworks": [
+          "family:sheetflange:edge-flange"
+        ],
+        "fusion": [
+          "api:adsk.fusion.FlangeFeature"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Add an edge flange on the top edge y = 20 (full length), 90 degrees, length 10 to the outer virtual sharp."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": [
+        "Length to inner virtual sharp.",
+        "Angle 60 degrees."
+      ]
+    },
+    {
+      "id": "sm-miter-flange",
+      "name": "Miter flange",
+      "entries": {
+        "solidworks": [
+          "family:sheetflange:miter-flange"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Sketch an L profile 10 × 5 on the end face x = 0 and add a miter flange along the edges y = 20 and x = 40."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-swept-flange",
+      "name": "Swept flange",
+      "entries": {
+        "solidworks": [
+          "family:sheetflange:swept-flange"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Sketch a 5 mm line profile at the edge y = 20 and sweep it along the top edges y = 20 and x = 40."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-lofted-bend",
+      "name": "Lofted bend",
+      "entries": {
+        "solidworks": [
+          "family:sheetflange:lofted-bend"
+        ],
+        "fusion": [
+          "api:adsk.fusion.LoftedFlangeFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Sketch an open 40 × 20 rectangle profile at z = 0 and an open circle of diameter 20 at z = 30, each with a small gap.",
+        "Create a formed lofted bend, thickness 1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-sketched-bend",
+      "name": "Sketched bend",
+      "entries": {
+        "solidworks": [
+          "family:sheetflange:sketched-bend"
+        ],
+        "fusion": [
+          "api:adsk.fusion.FoldFeature"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "On the top face, sketch a bend line at x = 20.",
+        "Add a sketched bend of 90 degrees, bend radius 1, fixed face x < 20."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-hem",
+      "name": "Hem",
+      "entries": {
+        "solidworks": [
+          "family:sheetflange:hem"
+        ],
+        "fusion": [
+          "api:adsk.fusion.HemFeature"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Add a closed hem on the edge y = 20 with length 5 and gap 0.1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": [
+        "Open hem.",
+        "Rolled hem."
+      ]
+    },
+    {
+      "id": "sm-jog",
+      "name": "Jog",
+      "entries": {
+        "solidworks": [
+          "family:sheetflange:jog"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "On the top face, sketch a line at x = 20.",
+        "Add a jog with offset 5 and angle 90."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-cross-break",
+      "name": "Cross break",
+      "entries": {
+        "solidworks": [
+          "family:sheetflange:cross-break"
+        ],
+        "fusion": [
+          "api:adsk.fusion.CosmeticBendFeature"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Add a cross break along the diagonal from (0, 0) to (40, 20), angle 1 degree (Fusion: a cosmetic crease bend on the same line)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "800",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend. Volume unchanged."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-closed-corner",
+      "name": "Closed corner",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:closed-corner"
+        ],
+        "fusion": [
+          "api:adsk.fusion.CornerClosureFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make a base flange 40 × 20 × 1 and edge flanges of 10 on the edges y = 20 and x = 40.",
+        "Close the corner with gap 0.1, overlapping."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-welded-corner",
+      "name": "Welded corner",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:welded-corner"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the two-flange corner of the closed corner case.",
+        "Add a welded corner with fillet radius 1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-break-corner",
+      "name": "Break corner chamfer",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:break-corner"
+        ],
+        "fusion": [
+          "api:adsk.fusion.SheetMetalChamferFeature"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Break the four corner edges of SeedSheet with a chamfer of distance_mm = 5."
+      ],
+      "parameters": {
+        "distance_mm": 5
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "800 - 4*12.5",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": [
+        "Fillet break of radius 5 (volume 800 - 4*(25 - 25*pi/4))."
+      ],
+      "edit": {
+        "parameter": "distance_mm",
+        "value": 4,
+        "volume_mm3": "800 - 4*8"
+      }
+    },
+    {
+      "id": "sm-corner-trim",
+      "name": "Corner trim",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:corner-trim"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the two-flange corner, unfold it, and add a corner trim with a circular relief of diameter 3."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-corner-relief",
+      "name": "Corner relief",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:corner-relief"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the two-flange corner and add a two-bend corner relief, circular, diameter 3."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-bend-notch",
+      "name": "Bend notch",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:bend-notch"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make a base flange with one edge flange of 10.",
+        "Add a bend notch of width 2 across the bend at x = 20."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-gusset",
+      "name": "Sheet metal gusset",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:sheet-metal-gusset"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make a base flange with one edge flange of 10.",
+        "Add a rounded gusset at x = 20, profile depth 5, width 3."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-forming-tool",
+      "name": "Forming tool",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:forming-tool"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Apply a dimple forming tool (diameter 6, height 2) at (20, 10) on the top face."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend. Record the tool reference."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-tab-slot",
+      "name": "Tab and slot",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:tab-and-slot"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make a base flange with an edge flange of 10.",
+        "Add tab and slot along the bend edge: 2 tabs of length 5, clearance 0.1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-normal-cut",
+      "name": "Normal cut",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:normal-cut"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make a base flange with an edge flange of 10 on y = 20.",
+        "Cut a diameter 4 hole through the flange at an angle and apply a normal cut."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend. The cut faces are normal to the sheet."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-stamp",
+      "name": "Stamp",
+      "entries": {
+        "solidworks": [
+          "family:sheetcorner:stamp"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Stamp a louver (length 10, width 3, height 1.5) at (20, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-unfold",
+      "name": "Unfold",
+      "entries": {
+        "solidworks": [
+          "family:sheetflatten:unfold"
+        ],
+        "fusion": [
+          "api:adsk.fusion.UnfoldFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make a base flange 40 × 20 × 1 with a 90 degree edge flange of 10 on y = 20.",
+        "Unfold the bend with the base face fixed."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend. Flat length along Y matches the bend allowance."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-fold",
+      "name": "Fold",
+      "entries": {
+        "solidworks": [
+          "family:sheetflatten:fold"
+        ],
+        "fusion": [
+          "api:adsk.fusion.RefoldFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Unfold the edge flange case.",
+        "Fold (refold) the same bend."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend. Geometry matches the unfolded-before state."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-flat-pattern",
+      "name": "Flat pattern",
+      "entries": {
+        "solidworks": [
+          "family:sheetflatten:flat-pattern"
+        ],
+        "fusion": [
+          "api:adsk.fusion.FlatPattern"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the edge flange case and create its flat pattern."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend. Record flat outline and bend lines."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-flatten",
+      "name": "Flatten state",
+      "entries": {
+        "solidworks": [
+          "family:sheetflatten:flatten"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the edge flange case and set it to the flattened state."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-no-bends",
+      "name": "No bends",
+      "entries": {
+        "solidworks": [
+          "family:sheetflatten:no-bends"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the edge flange case and roll back with No Bends."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-bend-lines",
+      "name": "Bend lines",
+      "entries": {
+        "solidworks": [
+          "family:sheetflatten:bend-lines"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Flatten the edge flange case with bend lines shown."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record bend line positions and direction."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-bend-notes",
+      "name": "Bend notes",
+      "entries": {
+        "solidworks": [
+          "family:sheetflatten:bend-notes"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Flatten the edge flange case and turn on bend notes."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record bend note text: direction, angle and radius."
+      },
+      "variations": []
+    },
+    {
+      "id": "sm-flat-config",
+      "name": "Flat pattern configuration",
+      "entries": {
+        "solidworks": [
+          "family:sheetflatten:flat-pattern-configuration"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the edge flange case and add a derived configuration with the flat pattern unsuppressed."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record both configurations and their flat-pattern state."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-arrange",
+      "name": "Arrange bodies in a plane envelope",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.ArrangeFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make two block seed components.",
+        "Arrange them in a 100 × 100 plane envelope on XY with spacing 2."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "2*8000",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. No overlap; record placements."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-base-feature",
+      "name": "Base feature",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.BaseFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Start a base feature, add a 40 × 20 × 10 box body inside it, and finish."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record the base feature boundary in the timeline."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-boss",
+      "name": "Plastic boss",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.BossFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "On the top face at (20, 10), add a plastic boss of outer diameter 8, height 5, hole diameter 3."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-boundary-fill",
+      "name": "Boundary fill",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.BoundaryFillFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make two crossing planes: YZ and XZ, each a 20 × 20 surface.",
+        "Boundary-fill the one +X +Y cell bounded by a box surface 10 × 10 × 10."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-box",
+      "name": "Box primitive",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.BoxFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Create a box primitive 40 × 20 × 10 with corner at the origin."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "40*20*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-cylinder",
+      "name": "Cylinder primitive",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.CylinderFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Create a cylinder primitive of diameter_mm = 20 and height 10 on XY at the origin."
+      ],
+      "parameters": {
+        "diameter_mm": 20
+      },
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*100*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": [],
+      "edit": {
+        "parameter": "diameter_mm",
+        "value": 30,
+        "volume_mm3": "pi*225*10"
+      }
+    },
+    {
+      "id": "fusion-sphere",
+      "name": "Sphere primitive",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.SphereFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Create a sphere primitive of diameter 20 centred on the origin."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "4/3*pi*1000",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-torus",
+      "name": "Torus primitive",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.TorusFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Create a torus with major diameter 40 and minor diameter 10 on XY at the origin."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "2*pi**2*20*25",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-coil",
+      "name": "Coil",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.CoilFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Create a coil on XY at the origin: diameter 20, pitch 3, 3 revolutions, circular section of size 1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record pitch, revolutions and section."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-custom",
+      "name": "Custom feature",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.CustomFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Register a custom feature definition from a trusted add-in and create one instance that adds a 6 mm hole at (20, 10)."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Record the custom feature id and its parameters."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-cut-paste",
+      "name": "Cut and paste a body",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.CutPasteBody"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a new empty component.",
+        "Cut SeedBody and paste it into the new component."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. The body now belongs to the new component."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-combine-groups",
+      "name": "Combine mesh face groups",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshCombineFaceGroupsFeature"
+        ]
+      },
+      "seed": "mesh_block",
+      "build": [
+        "Generate face groups on SeedMesh, then combine the top and +X side groups."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record face group count before and after."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-combine",
+      "name": "Mesh combine",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshCombineFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the two-block seed and convert both bodies to meshes.",
+        "Join the meshes."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "60*20*10",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-convert",
+      "name": "Convert mesh to B-rep",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshConvertFeature"
+        ]
+      },
+      "seed": "mesh_block",
+      "build": [
+        "Convert SeedMesh to a B-rep body with facet method, prismatic."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-generate-groups",
+      "name": "Generate mesh face groups",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshGenerateFaceGroupsFeature"
+        ]
+      },
+      "seed": "mesh_block",
+      "build": [
+        "Generate face groups on SeedMesh with the fast method."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record six face groups."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-reduce",
+      "name": "Mesh reduce",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshReduceFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the cylinder seed and convert it to a fine mesh.",
+        "Reduce it to 50% of faces."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record face counts before and after and the volume change."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-remesh",
+      "name": "Remesh",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshRemeshFeature"
+        ]
+      },
+      "seed": "mesh_block",
+      "build": [
+        "Remesh SeedMesh uniformly with density 0.5."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record face count and volume."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-remove",
+      "name": "Remove mesh faces",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshRemoveFeature"
+        ]
+      },
+      "seed": "mesh_block",
+      "build": [
+        "Remove the two triangles of the top face of SeedMesh."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record an open mesh with 10 triangles."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-repair",
+      "name": "Mesh repair",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshRepairFeature"
+        ]
+      },
+      "seed": "mesh_block",
+      "build": [
+        "Remove the top triangles, then repair (close holes) on SeedMesh."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record a closed mesh and its volume."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-reverse",
+      "name": "Reverse mesh normals",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshReverseNormalFeature"
+        ]
+      },
+      "seed": "mesh_block",
+      "build": [
+        "Reverse all normals of SeedMesh."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the orientation flag and that geometry is unchanged."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-separate",
+      "name": "Separate mesh shells",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshSeparateFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make two disjoint blocks, convert both to one mesh body, then separate by shells."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": "2*8000",
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-shell",
+      "name": "Mesh shell",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshShellFeature"
+        ]
+      },
+      "seed": "mesh_block",
+      "build": [
+        "Shell SeedMesh inward by 1."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "removes",
+        "check": "Record the shelled mesh volume."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-mesh-smooth",
+      "name": "Mesh smooth",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.MeshSmoothFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make the cylinder seed and convert it to a fine mesh.",
+        "Smooth it with strength 0.5."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record volume and face count."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-tessellate",
+      "name": "Convert body to mesh",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.TessellateFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Convert SeedBody to a mesh with the coarsest refinement."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "8000",
+        "effect": "keeps",
+        "check": "Record 12 triangles."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-reverse-normal",
+      "name": "Reverse surface normal",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.ReverseNormalFeature"
+        ]
+      },
+      "seed": "surface",
+      "build": [
+        "Reverse the normal of SeedSurface."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the surface normal (0, 0, -1)."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-silhouette-split",
+      "name": "Silhouette split",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.SilhouetteSplitFeature"
+        ]
+      },
+      "seed": "cylinder",
+      "build": [
+        "Silhouette-split SeedBody viewed along +Y, split faces only."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "pi*10**2*10",
+        "effect": "keeps",
+        "check": "Record body count, volume, centre of mass and the feature tree. The side face is split at x = ±10."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-unstitch",
+      "name": "Unstitch",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.UnstitchFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Unstitch SeedBody into separate faces."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 6,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record six surface bodies."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-volumetric-model",
+      "name": "Volumetric model",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.VolumetricModelFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a volumetric model with SeedBody as boundary body."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the volumetric model settings."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-volumetric-custom",
+      "name": "Volumetric custom lattice",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.VolumetricCustomFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create a volumetric model with SeedBody as boundary and add a custom gyroid lattice of cell size 5."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record the lattice type and cell size."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-volumetric-to-mesh",
+      "name": "Volumetric model to mesh",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.VolumetricModelToMeshFeature"
+        ]
+      },
+      "seed": "block",
+      "build": [
+        "Create the volumetric custom lattice case and convert it to a mesh body."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 2,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record mesh face count and volume."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-web",
+      "name": "Web",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.WebFeature"
+        ]
+      },
+      "seed": "bracket",
+      "build": [
+        "On YZ at x = 20 draw a line from (y 15, z 15) to (y 5, z 5).",
+        "Add a web of thickness 2, symmetric, depth to next."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "adds",
+        "check": "Record body count, volume, centre of mass and the feature tree."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-sm-fillet",
+      "name": "Sheet metal fillet",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.SheetMetalFilletFeature"
+        ]
+      },
+      "seed": "sheet",
+      "build": [
+        "Fillet the four corner edges through the thickness with radius 5."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": "800 - 4*(25 - 25*pi/4)",
+        "effect": "removes",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    },
+    {
+      "id": "fusion-join-by-bend",
+      "name": "Join by bend",
+      "entries": {
+        "fusion": [
+          "api:adsk.fusion.JoinByBendFeature"
+        ]
+      },
+      "seed": "none",
+      "build": [
+        "Make two sheet metal plates 40 × 20 × 1 at right angles with their edges 2 mm apart.",
+        "Join them with a bend."
+      ],
+      "parameters": {},
+      "expect": {
+        "bodies": 1,
+        "volume_mm3": null,
+        "effect": "none",
+        "check": "Record body count, volume, centre of mass and the feature tree. Also record thickness, bend radius, K-factor and every bend."
+      },
+      "variations": []
+    }
+  ]
+}

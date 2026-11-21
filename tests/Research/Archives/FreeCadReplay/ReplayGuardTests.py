@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from json import loads as ParseJson
+from os import environ as Environment, pathsep as PathSep
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExe
@@ -46,12 +47,16 @@ def CheckReplay(TmpPath: FilePath, CaseName: str) -> None:
         [
             PythonExe,
             "-B",
+            "-P",
             "-m",
             "tests.Research.Archives.FreeCadReplay.ObserveReplay",
-            str(SourcePath),
             CaseName,
         ],
-        cwd=KRepoRoot,
+        cwd=TmpPath,
+        env={
+            **Environment,
+            "PYTHONPATH": PathSep.join((str(KRepoRoot), str(KRepoRoot / "src"))),
+        },
         capture_output=True,
         text=True,
         check=False,

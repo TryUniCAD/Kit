@@ -43,6 +43,7 @@ def MainEntry():
         "inference.rescan",
     }
     assert not (Client.Directory / "Observation.json").exists()
+    Interrupted = None
     Client.StartOwner()
     try:
         Client.AwaitEvents("supervisor_started")
@@ -57,32 +58,61 @@ def MainEntry():
             str(Client.Directory / "Store"),
         ]
         UntilTime = time.monotonic() + 120
-        Interrupted = None
         while time.monotonic() < UntilTime:
             for SessionPath in (Client.Directory / "State/sessions").glob(
                 "*/session.json"
             ):
                 Session = json.loads(SessionPath.read_bytes())
-                if process_start(Session["pid"]) == Session["process_start"]:
+                pid, birth = Session["pid"], Session["process_start"]
+                if process_start(pid, live=True) != birth:
+                    continue
+                held = False
+                try:
+                    if os.name == "posix":
+                        try:
+                            os.kill(pid, signal.SIGSTOP)
+                        except ProcessLookupError:
+                            continue
+                        held = True
                     Current = json.loads(
-                        subprocess.check_output([*BaseArgv, "status"], cwd=RootPath)
+                        subprocess.check_output(
+                            [*BaseArgv, "status"], cwd=RootPath, timeout=20
+                        )
                     )
                     Matching = next(
                         Row for Row in Current["jobs"] if Row["id"] == Session["job_id"]
                     )
                     if (
-                        Matching["state"] == "running"
-                        and process_start(Session["pid"]) == Session["process_start"]
+                        Matching["state"] != "running"
+                        or Matching["kind"]
+                        not in {"inference.fields", "inference.rescan"}
+                        or process_start(pid, live=True) != birth
                     ):
-                        Interrupted = Session
-                        break
+                        continue
+                    OwnerInfo = json.loads(
+                        (Client.Directory / "OwnerProcess.json").read_bytes()
+                    )
+                    assert (
+                        process_start(OwnerInfo["pid"], live=True) == OwnerInfo["start"]
+                    )
+                    os.kill(
+                        OwnerInfo["pid"],
+                        signal.SIGKILL if os.name == "posix" else signal.SIGTERM,
+                    )
+                    Interrupted = Session
+                    break
+                finally:
+                    if (
+                        held
+                        and Interrupted is None
+                        and process_start(pid, live=True) == birth
+                    ):
+                        os.kill(pid, signal.SIGCONT)
             if Interrupted is not None:
                 break
             assert Client.Owner.poll() is None
             time.sleep(0.05)
         assert Interrupted is not None, "no real active inference worker was observed"
-        OwnerInfo = json.loads((Client.Directory / "OwnerProcess.json").read_bytes())
-        os.kill(OwnerInfo["pid"], signal.SIGTERM)
         Client.AwaitEvents("supervisor_started", Minimum=2)
         UntilTime = time.monotonic() + 180
         while time.monotonic() < UntilTime:
@@ -165,6 +195,13 @@ def MainEntry():
         WriteRecord(Client.Directory / "SmokeResult.json", Result)
         print(json.dumps(Result, sort_keys=True))
     finally:
+        if os.name == "posix" and Interrupted is not None:
+            pid = Interrupted["pid"]
+            if process_start(pid, live=True) == Interrupted["process_start"]:
+                try:
+                    os.kill(pid, signal.SIGCONT)
+                except ProcessLookupError:
+                    pass
         if Client.Owner is not None:
             Client.StopOwner()
 

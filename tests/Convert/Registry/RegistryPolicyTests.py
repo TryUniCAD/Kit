@@ -99,6 +99,16 @@ def CheckStream() -> None:
 # companion bundle output exercises rollback across every generated staged file
 class BundleAdapter(PairProtocol, ResultAdapter):
 
+    # the same staged companion output exercises both admitted and rejected dependency policies
+    def __init__(
+        self,
+        InfoData: AdapterInfo,
+        *,
+        Requirements: tuple[str, ...] = ("external component file",),
+    ) -> None:
+        super().__init__(InfoData)
+        self.Requirements = Requirements
+
     # path restriction forces bundle rollback through transactional filesystem staging
     @Override
     def CanSupport(
@@ -129,7 +139,7 @@ class BundleAdapter(PairProtocol, ResultAdapter):
             OutputPath,
             self.info.format_id,
             len(b"generated"),
-            requirements=("external component file",),
+            requirements=self.Requirements,
             application_usable=True,
             vendor_loadable=True,
         )

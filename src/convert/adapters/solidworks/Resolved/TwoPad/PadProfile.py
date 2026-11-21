@@ -13,8 +13,7 @@ from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.ArchiveCursor import ArchiveCursor
 from convert.adapters.solidworks.Resolved.ProfileEntry import ReadProfileHead
 from convert.adapters.solidworks.Resolved.ProfileSketch import ProfileSketch
-from convert.adapters.solidworks.Sketch.Cursor import SketchArchive
-from convert.adapters.solidworks.Sketch.DimFields import ReadDimFields
+from convert.adapters.solidworks.Sketch.Cursor import SketchArchive, ReadDimFields
 from convert.adapters.solidworks.Sketch.Geometry import ReadGeoSpansMut
 from convert.adapters.solidworks.Sketch.GeometryTypes import SketchGeometry
 from convert.adapters.solidworks.Sketch.SketchTail import (

@@ -1,9 +1,34 @@
 from __future__ import annotations as Annotations
+from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
+from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
+from convert.adapters.solidworks.Core.Records.NativeClass import NativeClass
+from convert.adapters.solidworks.Core.Records.NativeName import NativeName
+from convert.adapters.solidworks.Core.NativeOperand import (
+    NativeOperand as NativeOperand,
+)
+from convert.adapters.solidworks.Core.Dimensions.BindCounts import BindCounts
+from convert.adapters.solidworks.Core.Dimensions.PatternPairs import PatternPairs
+from convert.adapters.solidworks.Core.Dimensions.ReadPairLength import ReadPairLength
+from convert.adapters.solidworks.Core.NativeScalar import NativeScalar as NativeScalar
+from convert.adapters.solidworks.Core.NativeDimension import (
+    NativeDimension as NativeDimension,
+)
+from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
-from convert.adapters.solidworks.Core.BindInch import BindInch
-from convert.adapters.solidworks.Core.IndexInch import IndexInch
+from convert.adapters.solidworks.Core.BindMirrorField import (
+    BindMirrorField,
+    KMirroredFields,
+)
+from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
+from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
+from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
+from convert.adapters.solidworks.Core.Dimensions.FeatureCounts import FeatureCounts
+from convert.adapters.solidworks.Core.Dimensions.ProjectCounts import ProjectCounts
+from collections import Counter
+from collections.abc import Iterator
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
+from io import StringIO
 import hashlib as Hashlib
 import itertools as Itertools
 import math as MathValue
@@ -19,6 +44,7 @@ from interchange import (
 )
 from convert.Geometry.Opencascade import decode_ascii_brep as DecodeAsciiBrep
 from convert.adapters.base import ParseUntrusted
+from convert.adapters.base.SafeParsing import CheckXmlDoctype
 from convert.adapters.solidworks.Container.Container import SldprtFormatError
 from convert.adapters.solidworks.Container.PlaneBasis import IsOrthonormal, MatrixAxes
 from convert.adapters.solidworks.Container.Format import (
@@ -960,90 +986,6 @@ def DecodeTreeMut(StateData: DecodeState, Author: Sequence[NativeFeature]) -> No
 
 # this definition exists because focused behavior needs one stable owner
 @Dataclass(frozen=True, slots=True)
-class NativeOperand:
-    offset: int
-    kind_code: int
-    entity_index: int
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeScalar:
-    name: str
-    name_offset: int
-    value_offset: int
-    value: float
-    object_id: int | None
-    role: str
-    operands: tuple[NativeOperand, ...]
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeDimension:
-    name: str
-    value_mm: float | None
-    kind: str
-    source_text: str
-    native_value: float | None = None
-    native_offset: int | None = None
-    native_role: str | None = None
-    operands: tuple[NativeOperand, ...] = ()
-    inch_display_value: float | None = None
-    native_stream: str | None = None
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeName:
-    offset: int
-    text_end: int
-    name: str
-    object_id: int | None
-    class_token: int
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeClass:
-    offset: int
-    name: str
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeMarker:
-    offset: int
-    length: int
-    prefix: str
-    native_kind: int
-    locus: str
-    profile_role: int
-    state: float | None
-    object_index: int | None
-    local_id: int | None
-    coordinates_mm: tuple[float, float] | None
-    endpoint_indices: tuple[int, int] | None
-    construction: bool
-    semantic: str
-    data: bytes = b""
-    coordinates_metres: tuple[float, float] | None = None
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeRule:
-    id: str
-    kind: str
-    references: tuple[str, ...]
-    parameter: str | None
-    value: float | None
-    native_offset: int | None
-    native_code: int | None
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
 class NativeProfile:
     kind: str
     coordinates: tuple[float, ...]
@@ -1256,17 +1198,6 @@ class NativeModelA:
     objects: tuple[tuple[int, str], ...]
 
 
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(slots=True)
-class XmlFeature:
-    object_id: int
-    name: str
-    kind: str
-    xml_tag: str
-    properties: dict[str, str]
-    dimensions: list[NativeDimension]
-
-
 # this binding exists because shared behavior needs one stable value
 KeywordOnlyObjects = (
     (6, "Lights and Cameras", "Lights and Cameras"),
@@ -1476,6 +1407,14 @@ def RecordOffset(Record: NativeName) -> int:
     return Record.offset
 
 
+# public instance count spans must have multiple independently learned copies in the same feature
+KFeatureCountCopies: tuple[int, ...] = ()
+
+
+# each handle displacement requires replay on independent inputs
+KSketchCountOffsets: dict[str, int] = {}
+
+
 # native feature construction owns scalar binding and stream span recovery
 def BuildNativeList(
     XmlFeatures: list[XmlFeature],
@@ -1504,6 +1443,12 @@ def BuildNativeList(
         )
         for Index, Record in enumerate(OrderedRecords)
     }
+    Pairs = PatternPairs(Resolved, XmlFeatures, Names, Classes)
+    SketchCounts = {(Owner, ParamName) for Owner, ParamName, *_ in Pairs}
+    Counts = (
+        BindCounts(Resolved, Pairs, KSketchCountOffsets) if KSketchCountOffsets else {}
+    )
+    Counts.update(FeatureCounts(Resolved, XmlFeatures, Names, KFeatureCountCopies))
     ScalarOwner = ScalarOwners(Scalars, OrderedRecords, EndsValue)
     InchByOwner = (
         {OwnerId: IndexInch(Owned) for OwnerId, Owned in ScalarOwner.items()}
@@ -1524,7 +1469,66 @@ def BuildNativeList(
                 for ItemValue in Semantic(Feature.kind, tuple(Feature.dimensions))
             )
         )
+        if (
+            Feature.kind == "Sketch"
+            and Record
+            and Record.name == Feature.name
+            and Display
+            and Display.UnitName == "mm"
+        ):
+            Occurrences = Counter(Entry.name for Entry in Dimensions)
+            ScalarsByName = IndexInch(Owned)
+            Dimensions = tuple(
+                (
+                    ReadPairLength(
+                        Dimension,
+                        ScalarsByName.get(Dimension.name, ()),
+                        Display,
+                        ResolvedStream,
+                    )
+                    if Occurrences[Dimension.name] == 1
+                    else Dimension
+                )
+                for Dimension in Dimensions
+            )
+        Dimensions = ProjectCounts(
+            Dimensions, Counts, SketchCounts, Feature.object_id, ResolvedStream
+        )
         NativeEnd = EndsValue.get(Record.offset) if Record is not None else None
+        if (
+            KMirroredFields
+            and Record
+            and Record.name == Feature.name
+            and NativeEnd is not None
+        ):
+            Dimensions = tuple(
+                (
+                    BindMirrorField(
+                        Resolved,
+                        NativeEnd,
+                        ResolvedStream,
+                        RawDimension,
+                        Bound,
+                        Owned,
+                        Copies,
+                        Display,
+                    )
+                    if (
+                        Copies := KMirroredFields.get(
+                            (Feature.kind, RawDimension.name, RawDimension.kind)
+                        )
+                    )
+                    and sum(
+                        ItemValue.name == RawDimension.name
+                        for ItemValue in Feature.dimensions
+                    )
+                    == 1
+                    else Bound
+                )
+                for RawDimension, Bound in zip(
+                    Feature.dimensions, Dimensions, strict=True
+                )
+            )
         NativeFeatures.append(
             NativeFeature(
                 object_id=Feature.object_id,
@@ -1897,6 +1901,20 @@ def ParseXml(DataValue: bytes) -> XmlTree.Element:
         raise SldprtFormatError(
             f"invalid XML metadata stream: {ErrorInfo}"
         ) from ErrorInfo
+
+
+# keyword framing needs one element encoder so compact and spaced markup use identical text escaping
+def EncodeNativeXml(RootValue: XmlTree.Element) -> bytes:
+    PayloadValue: bytes = XmlTree.tostring(
+        RootValue, encoding="utf-8", short_empty_elements=True
+    )
+    return PayloadValue
+
+
+# qualified keyword values need namespace events because parsed elements omit their prefix declarations
+def ReadXmlEvents(TextValue: str) -> Iterator[tuple[str, object]]:
+    CheckXmlDoctype(TextValue)
+    return XmlTree.iterparse(StringIO(TextValue), events=("start-ns", "start"))
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -4045,7 +4063,10 @@ def Constraints(
                 )
             )
     for Dimension in Feature.dimensions:
-        if Dimension.name in RadialParameters:
+        if Dimension.name in RadialParameters or Dimension.kind in {
+            "instance_count",
+            "sketch_pattern_count",
+        }:
             continue
         Constraints.append(
             NativeRule(
@@ -4371,7 +4392,15 @@ def DimensionValue(
     Dimensions: tuple[NativeDimension, ...], Semantic: str
 ) -> float | None:
     return next(
-        (Dimension.value_mm for Dimension in Dimensions if Dimension.kind == Semantic),
+        (
+            (
+                CountValue(Dimension)
+                if Semantic == "instance_count"
+                else Dimension.value_mm
+            )
+            for Dimension in Dimensions
+            if Dimension.kind == Semantic
+        ),
         None,
     )
 
@@ -4579,21 +4608,10 @@ VERTICAL_AXIS_SUBELEMENT = KVerticalAxisSubElem
 _SKETCH_PLANE_ID_RELATIVE = KSketchPlaneIdRelative  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SKETCH_PLANE_REFERENCE_PREFIX = (
-    KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
-)
-
-# this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_SCAN_BYTES = KSketchPlaneScanBytes  # lgtm[py/unused-global-variable]
-
-
-# this binding exists because shared behavior needs one stable value
-_SURFACE_EXTRUSION_FEATURE_TYPES = (
-    KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
-)
 
 
 # this binding exists because shared behavior needs one stable value

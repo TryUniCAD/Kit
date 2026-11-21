@@ -132,16 +132,17 @@ def HasScopePlan(ledger, batch):
                 installation,
                 row[0],
             ),
-            "existing P04 scope job or priority has a different definition",
+            "existing inference job or priority has a different definition",
         )
-    require(present in (0, len(jobs)), "only part of the P04 scope schedule exists")
+    require(present in (0, len(jobs)), "only part of the inference schedule exists")
     return bool(present)
 
 
 # offline scheduling creates ordinary controller dependencies for the local worker
-def ProvisionScope(store, revision):
+def ProvisionScope(store, revision, Dependencies=()):
     CheckRevision(revision)
     report, plan_binding, sources, batch = ScopeSchedule(revision)
+    batch["jobs"][0]["depends_on"] = sorted(set(batch["jobs"][0]["depends_on"]) | set(Dependencies))
     with (
         Ledger(store) as ledger,
         TemporaryDirectory(prefix="kit-scope-provision-") as scratch,

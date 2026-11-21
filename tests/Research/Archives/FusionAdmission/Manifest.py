@@ -42,7 +42,10 @@ def BuildManifest(RepoRoot: FilePath) -> dict[str, object]:
             }
             for Application, Verifier in (
                 ("solidworks", "re/automation/PrincipalReadbackEvidence.py"),
-                ("fusion", "re/automation/PairedCaptures/FusionRunEvidence.py"),
+                (
+                    "fusion",
+                    "re/automation/CaptureTools/PairedCaptures/FusionRunEvidence.py",
+                ),
             )
         ],
     }

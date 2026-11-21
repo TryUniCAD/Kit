@@ -36,6 +36,14 @@ class Busy(Exception):
     pass
 
 
+# explicit memory limits use the same range in configuration and at launch
+def bound_memory_reserve(value):
+    try:
+        return bounded(value, 0, 1048576)
+    except ValueError:
+        raise ValueError("reserved memory must be set from 0 to 1048576 MiB") from None
+
+
 def read_config(path):
     if sys.platform == "win32" and (sys.version_info < (3, 14) or sys.getwindowsversion().major < 10):
         raise ValueError("Windows supervision requires Windows 10 or newer and Python 3.14 or newer")
@@ -79,7 +87,7 @@ def read_config(path):
         "grace": float(grace), "poll": float(poll),
         "max_log_bytes": bounded(config.get("max_log_bytes", 1048576), 1024, 67108864),
         "reserved_cpus": bounded(config.get("reserved_cpus", 2), 0, 65536),
-        "reserved_memory_mib": bounded(config.get("reserved_memory_mib", 4096), 0, 1048576),
+        "reserved_memory_mib": bound_memory_reserve(config.get("reserved_memory_mib", 4096)),
         "adaptive_limits": adaptive,
     }
 
@@ -146,6 +154,11 @@ class Supervisor:
         self.config = config
         self.linux_oom_observer = linux_oom_observer
         self.windows_claims = claiming and sys.platform == "win32" and config["controller"].get("adapter") == "a03"
+        self.advice_options = None
+        self.catalogue_handoffs = None
+        self.catalogue_pause_path = None
+        self.codex_budget = 0
+        self.codex_executor = None
         self.claim_error = None
         self.root = ROOT
         self.state = config["state"]
@@ -321,6 +334,33 @@ class Supervisor:
             self.queue_application_rearm(rearm_path, rearm_intent, False)
         elif stale is False and rearm_error is not None:
             self.report("application_rearm_failed", session, {"error": rearm_error})
+        if (
+            stale is False
+            and outcome == "waiting_evidence"
+            and self.catalogue_handoffs is not None
+        ):
+            self.catalogue_handoffs.Notify(session.spec["id"])
+        if (
+            stale is False
+            and self.codex_executor is not None
+            and (session.spec["kind"], outcome)
+            in {
+                ("inference.fields", "completed"),
+                ("inference.paired-gap", "waiting_evidence"),
+            }
+        ):
+            from CodexAdvice.Suggest import decoder_packet
+
+            try:
+                packet = decoder_packet(session.spec["id"], session.claim["attempt"], payload["result"]["records"])
+            except (ValueError, KeyError, TypeError):
+                self.report("decoder_advice", session, {"status": "invalid_assessment"})
+            else:
+                if packet and self.codex_budget:
+                    self.codex_budget -= 1
+                    self.codex_executor.submit(self.check_decoder_advice, packet)
+                elif packet:
+                    self.report("decoder_advice", session, {"status": "run_budget_exhausted"})
         session.remove()
         return True
 
@@ -570,6 +610,25 @@ class Supervisor:
     def shutdown(self, number, frame):
         self.stopping = True
 
+    def check_decoder_advice(self, packet):
+        from CodexAdvice.Suggest import advise
+
+        try:
+            output = self.state / "decoder-advice"
+            output.mkdir(mode=0o700, exist_ok=True)
+            result = advise(
+                self.adapter.store,
+                packet,
+                output,
+                0,
+                90,
+                integrated=True,
+                options=self.advice_options,
+            )
+        except (OSError, ValueError, KeyError, TypeError, sqlite3.Error) as error:
+            result = {"status": "failed", "error_type": type(error).__name__}
+        self.report("decoder_advice", None, {"job": packet["job"], **result})
+
     def run(self, idle_seconds, max_seconds):
         self.acknowledger = ThreadPoolExecutor(max_workers=1)
         if self.windows_claims:
@@ -583,8 +642,12 @@ class Supervisor:
                 if self.windows_claims:
                     self.adapter.CloseClaimHelper()
             finally:
+                if self.codex_executor is not None:
+                    self.codex_executor.shutdown()
                 self.acknowledger.shutdown(cancel_futures=True)
                 self.report_application_acks()
+                if self.catalogue_handoffs is not None:
+                    self.catalogue_handoffs.Close(self.report)
 
     def run_sessions(self, idle_seconds, max_seconds):
         signal.signal(signal.SIGTERM, self.shutdown)
@@ -593,11 +656,15 @@ class Supervisor:
         self.capacity = CapacitySnapshot(self.config, self.registry.configuration_sha256)
         self.recover()
         self.synchronize()
+        if self.codex_budget:
+            self.codex_executor = ThreadPoolExecutor(max_workers=1)
         self.recover_application_acks()
         self.recover_application_rearms()
         self.budget.refresh(self.running)
         started = time.monotonic()
         last_work = started
+        catalogue_paused = False
+        handoffs_started = False
         while True:
             now = time.time()
             self.capacity.begin_pass()
@@ -617,9 +684,37 @@ class Supervisor:
             if self.stopping or (max_seconds is not None and time.monotonic() - started >= max_seconds):
                 break
             self.queue_due_application_acks()
-            if self.fill(paused) or self.running or self.application_acks or self.application_ack_retries or settled:
+            requested_pause = (
+                self.catalogue_pause_path is not None
+                and self.catalogue_pause_path.is_file()
+            )
+            if requested_pause and not catalogue_paused:
+                self.report("catalogue_paused", None, {})
+            catalogue_paused = requested_pause
+            if (
+                not catalogue_paused
+                and not handoffs_started
+                and self.catalogue_handoffs is not None
+            ):
+                self.catalogue_handoffs.Start()
+                handoffs_started = True
+            native_pending = (
+                self.catalogue_handoffs is not None
+                and self.catalogue_handoffs.Poll(self.report)
+            )
+            if (
+                (not catalogue_paused and self.fill(paused))
+                or self.running
+                or self.application_acks
+                or self.application_ack_retries
+                or settled
+                or native_pending
+            ):
                 last_work = time.monotonic()
-            elif idle_seconds is not None and time.monotonic() - last_work >= idle_seconds:
+            elif (
+                idle_seconds is not None
+                and time.monotonic() - last_work >= idle_seconds
+            ):
                 break
             time.sleep(self.config["poll"])
         self.capacity.retire()
@@ -678,14 +773,25 @@ def set_pause(config, pool, reason):
 
 
 def main():
+    from CodexAdvice.AdviceOptions import add_options, read_options
+
     parser = argparse.ArgumentParser(description="Local research session supervisor")
     parser.add_argument("--config", type=Path, required=True)
     commands = parser.add_subparsers(dest="command", required=True)
     running = commands.add_parser("run")
     running.add_argument("--idle-seconds", type=float)
     running.add_argument("--max-seconds", type=float)
+    running.add_argument("--catalogue-handoffs", type=Path)
+    running.add_argument("--catalogue-pause-file", type=Path, help=argparse.SUPPRESS)
+    running.add_argument("--reserved-memory-mib", type=int, metavar="MIB")
+    running.add_argument(
+        "--codex-on-stall", nargs="?", type=int, const=16, metavar="MAX_CALLS"
+    )
+    add_options(running)
     status_command = commands.add_parser("status")
-    status_command.add_argument("--claim-occupancy", nargs=3, metavar=("RESOURCE", "FROM_UNIX", "UNTIL_UNIX"))
+    status_command.add_argument(
+        "--claim-occupancy", nargs=3, metavar=("RESOURCE", "FROM_UNIX", "UNTIL_UNIX")
+    )
     pause = commands.add_parser("pause")
     pause.add_argument("pool")
     pause.add_argument("--reason", required=True)
@@ -703,7 +809,37 @@ def main():
     try:
         config = read_config(args.config)
         if args.command == "run":
-            response = Supervisor(config, True).run(args.idle_seconds, args.max_seconds)
+            if args.reserved_memory_mib is not None:
+                config["reserved_memory_mib"] = bound_memory_reserve(
+                    args.reserved_memory_mib
+                )
+            supervisor = Supervisor(config, True)
+            supervisor.catalogue_pause_path = args.catalogue_pause_file
+            if args.catalogue_handoffs is not None:
+                from InferenceGrid.CatalogueHandoffs import ReadHandoffs
+
+                if config["controller"].get("adapter") != "a03":
+                    raise ValueError(
+                        "catalogue handoffs require the built-in A03 controller"
+                    )
+                supervisor.catalogue_handoffs = ReadHandoffs(
+                    args.catalogue_handoffs,
+                    args.config.resolve(),
+                    supervisor.adapter.store,
+                )
+            options = read_options(args)
+            if args.codex_on_stall is not None and options is not None:
+                raise ValueError("use either --codex-on-stall or --advisor")
+            if args.codex_on_stall is not None or options is not None:
+                if os.name != "posix" or config["controller"].get("adapter") != "a03":
+                    raise ValueError(
+                        "decoder advice requires a POSIX host and the a03 controller"
+                    )
+                supervisor.advice_options = options
+                supervisor.codex_budget = (
+                    options.calls if options else bounded(args.codex_on_stall, 1, 256)
+                )
+            response = supervisor.run(args.idle_seconds, args.max_seconds)
         elif args.command == "status":
             response = status(config)
             if args.claim_occupancy is not None:

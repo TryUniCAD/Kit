@@ -60,6 +60,369 @@ B04's parent is not complete merely because controlled constructor probes exist.
 
 ## Important gap boundaries
 
+### B04-SW2026-LOCAL-IMPORT-READBACK
+
+The PR #121 takeover agent owns the strict local geometry reader extraction
+on `codex/solidworks-local-import-readback`. It depends on the terminal fin
+semantics in [PR #171](https://github.com/TryUniCAD/Kit/pull/171) and the typed
+partition rules from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+Exit requires the public SDK integrations to verify both disclosed planar
+solids and their native feature ownership and body counts. The accepted
+revision must also pass the absent-history, mismatched-mark, wrong-owner,
+and metadata controls.
+[Change entry](../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
+
+### B04-SW2026-PARTITION-MARKS
+
+The PR #121 takeover team owns this archive reader on
+`codex/solidworks-partition-marks`. It reuses the active partition and
+rollback validators delivered in [PR #172](https://github.com/TryUniCAD/Kit/pull/172).
+Exit requires the selected and predecessor IDs, the validation-only API
+result, and the guarded ownership and framing controls on the accepted revision.
+Binding these IDs to individual feature records is a separate delivery.
+[Change entry](../Changes/Solidworks/Archive/SolidworksPartitionMarks.md)
+
+### B14-COMPANION-PUBLICATION
+
+The PR #121 takeover agent owns this active destination-safety task. The
+separate main-target PR from `codex/staged-companion-publication` extracts
+the generic file publication correction from
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+It depends on the existing registry and staging directory next to the
+destination. [Change entry](../Changes/Commands/CompanionPublication.md)
+
+Exit requires revision-bound CI and review evidence. The registry integration
+cases must preserve a concurrent companion file with replacement disabled
+and restore earlier originals after a later backup fails.
+[Integration cases](../../tests/Convert/Registry/RegistryRaceTests.py)
+
+### B03-SW2026-ARCHIVE
+
+The [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167) landed the
+[exact-build research record](../../re/solidworks/records/Solidworks2026ArchiveCompatibility.md)
+for the observed signature table, map handoff and count fields. The record
+binds the build manifest and typed traces from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+
+B03's qualified comparisons and codecs and B04's portable writer remain
+separate programme milestones. [PR #158](https://github.com/TryUniCAD/Kit/pull/158)
+continues the programme scope defined in [PR #94](https://github.com/TryUniCAD/Kit/pull/94).
+
+### B03-SW2026-ARCHIVE-CORE
+
+The PR #121 takeover team owns the wire primitive extraction on
+`codex/solidworks-archive-core` for a separate main-target delivery. It depends on
+the exact-build archive evidence above and the
+[pinned primitive rules](../../re/solidworks/records/ArchiveWirePrimitiveSlice2026.md).
+Exit requires the synthetic process integration and the normal CI and review
+gates on the delivered revision. Class descriptors, object maps and linked
+stream integration have separate exits.
+[Change entry](../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
+
+### B03-SW2026-ARCHIVE-OBJECTS
+
+The PR #121 takeover team owns the typed object and map extraction on
+`codex/solidworks-archive-objects` for separate main-target delivery. It
+depends on the [wire primitive PR](https://github.com/TryUniCAD/Kit/pull/173)
+and the [pinned map evidence](../../re/solidworks/records/ArchiveObjectMapSlice2026.md).
+Exit requires the linked graph process checks and the normal CI and review
+gates on the delivered revision. Actual header and configuration stream
+owners have separate exits.
+[Change entry](../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
+
+### B03-SW2026-ARCHIVE-HEADERS
+
+The PR #121 takeover team owns the standalone header extraction on
+`codex/solidworks-archive-headers`. It depends on the
+[typed object maps](https://github.com/TryUniCAD/Kit/pull/174) and
+[pinned standalone header evidence](../../re/solidworks/records/StandaloneHeaderSlice2026.md).
+Exit requires exact replay of both streams in the two tracked part controls,
+including their distinct role test, and the normal CI and review gates.
+Configuration binding, CMgr headers and inline Definition headers have
+separate exits.
+[Change entry](../Changes/Solidworks/SolidworksStandaloneHeaders.md)
+
+### B03-SW2026-KEYWORDS-MODEL
+
+The PR #121 takeover team owns the typed keyword row extraction on
+`codex/solidworks-keyword-typed`. It depends on the accepted
+[KeyWords framing](https://github.com/TryUniCAD/Kit/pull/181) and the
+[field ownership record](../../re/solidworks/records/KeywordModelSlice2026.md).
+Exit requires guarded independent wire assertions, XML readback, refusal
+coverage, and revision-bound CI and review. Neutral graph projection and
+part and assembly writer qualification have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
+
+### B04-SW2026-CONFIG-ATOM-EMISSION
+
+The PR #121 takeover team owns bounded kind-zero atom manager writing
+on codex/solidworks-config-atom-codec. It uses the accepted atom record
+reader and shared archive maps. Exit requires exact native record emission,
+independent typed row and condition contrasts, guarded malformed cases,
+and current revision queue and review evidence. Complete configuration
+writing and native file admission have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
+
+### B04-SW2026-HISTORY-STREAMS
+
+The PR #121 takeover team owns this standalone History and Biography
+codec on `codex/solidworks-stream-history` for separate main delivery.
+It reuses the archive body fields and the branch writer accepted in
+[#199](https://github.com/TryUniCAD/Kit/pull/199).
+Exit requires exact disclosed stream and map comparisons, independently
+authored provenance and count cases, bounded refusals, and current
+revision queue and review evidence. Complete part assembly and native
+writer registration have separate exits.
+[Change entry](../Changes/Solidworks/Archive/Metadata/SolidworksHistoryStreamCodec.md)
+
+### B04-SW2026-DEFINITION
+
+The PR #121 takeover team owns the ordinary part Definition codec on
+`codex/solidworks-ordinary-part-definition`. The delivery depends on PR #199
+for shared field actions. Guarded typed readback and fresh stream generation
+have supporting evidence. Delivery requires current-revision CI and review.
+Native qualification applies to a complete generated part.
+[Change entry](../Changes/Solidworks/Archive/SolidworksOrdinaryPartDefinition.md)
+
+### B04-SW2026-PART-DEFINITION-VIEW
+
+The PR #121 takeover team owns the saved document view reader on
+`codex/solidworks-saved-part-view`. Its complete Definition boundary comes
+from [PR #205](https://github.com/TryUniCAD/Kit/pull/205). Exit requires the
+same orientation and pan/zoom values on the pinned parts, guarded
+orthographic refusals, and current revision review and queue evidence.
+Session window selection and public presentation transfer have separate exits.
+[Change entry](../Changes/Solidworks/Inspection/Presentation/SolidworksSavedPartView.md)
+
+### B04-SW2026-CONFIG-UNITS
+
+The PR #121 takeover team owns this unit-table reader on
+`codex/solidworks-config-unit-tables` for separate main delivery. It reuses
+the [typed maps](../../re/solidworks/records/ArchiveObjectMapSlice2026.md) and
+[body field and counted row codecs](../../re/solidworks/records/BodyValueSlice2026.md).
+Exit requires measured record and map identity for the disclosed ladder
+and concave parts, invalid frame and owner refusals through the queue
+processes, and current revision review and CI. The remaining executors,
+configuration owners and full physical `Config-0` admission have separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigUnitTables.md)
+
+### B04-SW2026-CONFIG-MEMBERS
+
+The PR #121 takeover team owns the next bounded configuration extraction
+on `codex/solidworks-config-member-fields`. It follows the shared body
+executor and unit-table work in [PR #185](https://github.com/TryUniCAD/Kit/pull/185).
+Exit requires exact relation and feature color member readback from the
+disclosed controls, independently authored repeated rows and class map
+cases, and current revision review and CI. The remaining configuration
+layouts and complete physical admission have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
+
+### B04-SW2026-CONFIG-FIELD-ACTIONS
+
+The PR #121 takeover team owns the bounded branch, virtual and fixed
+field read extraction on `codex/solidworks-config-field-actions` for
+separate main delivery. It depends on the unit-table and relation and
+color member readers. Exit requires the two disclosed part controls,
+the guarded invalid record cases and current revision queue and review
+evidence. Full configuration admission and write coverage have separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
+
+### B04-SW2026-CONFIG-FIELD-MODES
+
+The PR #121 takeover team owns the shared field modes and bounded
+layout extraction on `codex/solidworks-config-field-modes`. It depends
+on the accepted body and ModelHeader primitives and shares its
+normalization path with the scene and atom slices. Exit requires
+exact physical leaf and normalized word reads, independent authored
+branch and repeat checks, and current revision review and CI.
+Directly owned bodies and whole configuration admission follow
+separately.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
+
+### B04-SW2026-CONFIG-VIEWS
+
+The PR #121 takeover team owns this bounded `moView_c` reader on
+`codex/solidworks-config-view-context`. It depends on the shared
+member reader and field actions from #187. Exit requires both disclosed
+view groups, the authored archive state and refusal cases, and current
+revision queue and review evidence. Full configuration admission,
+annotation view owners and populated presentation lists retain separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+
+### B04-SW2026-CONFIG-ANNOTATION-FRAMES
+
+The PR #121 takeover team owns the configuration detailing defaults and
+tolerance frame slice on `codex/solidworks-config-annotation-frames` for
+separate main delivery. It depends on the admitted part/ModelHeader map,
+formatting records and shared field actions. Exit requires the two tracked
+archive replays, guarded owner refusals, and current-revision review and CI.
+Annotation views, populated tolerance owners and complete configuration
+admission have separate dependencies.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAnnotationFrames.md)
+
+### B04-SW2026-CONFIG-THREAD-MARK
+
+The PR #121 takeover team owns this bounded thread and mark read
+extraction on `codex/solidworks-config-thread-action` for separate main
+delivery after the configuration field-action slice. Exit requires
+the exact native record and map handoffs, guarded signed-word and
+invalid record cases, and current revision queue and review evidence.
+Populated thread maps and complete configuration support have separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
+
+### B04-SW2026-CONFIG-SECTIONS
+
+The PR #121 takeover team owns this scoped reader on
+`codex/solidworks-config-section-framing`. It reuses the shared body
+executor, standalone model header and inherited maps. Exit requires the
+physical section bounds, true direct alias and empty ghost owner for both
+tracked model controls, guarded framing refusals and current revision review
+and queue evidence. Complete section bodies, broader context and public
+configuration admission retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigSections.md)
+
+### B04-SW2026-ASSEMBLY-DEFINITION
+
+The PR #121 takeover team owns the ordinary version-19000 assembly
+Definition stream on `codex/solidworks-assembly-definition`. It depends on
+[PR #205](https://github.com/TryUniCAD/Kit/pull/205) for the shared Definition
+framing and field codecs. Delivery requires exact scoped stream replay and
+fresh-process control results, configured review and native queue acceptance.
+Assembly composition and public writing have separate exits.
+[Change entry](../Changes/Solidworks/Archive/Assembly/SolidworksAssemblyDefinitionCodec.md)
+
+### B04-SW2026-CONFIG-SECTION-EMISSION
+
+The PR #121 takeover team owns the bounded writer actions on
+`codex/solidworks-config-section-emission` for separate main delivery.
+They depend on the accepted section reader, standalone header selection
+and shared typed body writer. Exit requires the two authored sibling
+frames, exact pinned ghost payload comparisons, guarded refusals and
+current revision review and queue evidence. Full Config-0 generation
+and native admission have separate exits.
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigSectionEmission.md)
+
+### B04-SW2026-ASSEMBLY-HEADER-ALIASES
+
+The PR #121 takeover team owns the shared direct header action on
+`codex/solidworks-assembly-direct`. It depends on section emission from
+[PR #216](https://github.com/TryUniCAD/Kit/pull/216) and the linked reader.
+Exit requires matching alias order and object identity in the guarded
+assembly actions, retained part behavior, and current revision review
+and queue evidence. Complete assembly configuration, mate, and native
+document generation have separate exits.
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksAssemblyHeaderAliases.md)
+
+### B04-SW2026-CONFIG-HEADER-LINK
+
+The PR #121 takeover team owns the bounded part header handoff on
+`codex/solidworks-config-model-header-link` for separate main delivery.
+It depends on the standalone header and typed archive map codecs.
+Exit requires exact named ModelHeader selection, preserved object
+identities at the part's lightweight boundary, malformed physical
+prefix refusals and current revision queue and review evidence.
+Complete configuration admission and the property owner's physical
+link remain separate work.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
+
+### B04-SW2026-FRESH-PART-HEADERS
+
+The PR #121 takeover team owns the fresh ordinary part header graphs
+on `codex/solidworks-fresh-part-headers` for separate main delivery.
+The slice uses the accepted standalone Header, CMgrHdr2 and direct
+ModelHeader map rules. Exit requires independent wire and ownership
+comparisons, existing fixture parity, review and queue evidence.
+Linked part emission and public writer admission have separate exits.
+[Construction evidence](../../re/solidworks/records/FreshPartHeaders2026.md)
+
+### B04-SW2026-CONFIG-LW-MATERIAL
+
+The PR #121 takeover team owns the ordinary material and model-data
+read slice on `codex/solidworks-config-material-owners`. It uses
+the accepted part header handoff and lightweight node grammar.
+Exit requires both measured suffixes and map identities, guarded
+authored contrasts and refusals, and current revision review and queue
+evidence. Complete configuration admission and material assignment
+retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
+### B04-SW2026-CONFIG-CACHES
+
+The PR #121 takeover team owns the bounded part cache reader on
+`codex/solidworks-config-caches` for separate main delivery. It depends
+on the shared body field, counted row and branch readers. Exit requires
+the disclosed mass and empty bounds intervals, malformed record
+refusals and current revision queue and review evidence. Populated
+bounds ownership and complete physical `Config-0` admission have
+separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
+
+The complementary emitter on `codex/solidworks-config-cache-writing` uses
+the accepted shared body writer and cache owner rules. Exit requires exact
+saved field replay, independent one- and two-slot emission, preserved
+maps and current revision review and queue evidence. The prepared scope
+covers empty bounds only.
+[Cache emission](../Changes/Solidworks/Archive/Configuration/SolidworksConfigCacheWriting.md)
+
+### B04-SW2026-CONFIG-ATOMS
+
+The PR #121 takeover team owns this bounded part atom reader on
+`codex/solidworks-config-atom-manager`. It uses the typed maps, header
+objects and accepted concept fields. Exit requires both disclosed
+manager and producer identities, guarded signed state and rejection
+cases, and current revision queue and review evidence. Inline bodies,
+handle modes and full configuration admission retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+
+### B04-SW2026-CONFIG-FONT-FIELDS
+
+The PR #121 takeover team owns this bounded reader on
+`codex/solidworks-config-annotation-font` for separate main delivery.
+It reuses the accepted scalar, text and embedded field readers and the
+part header handoff. Exit requires exact native field and map comparisons,
+guarded malformed cases and current revision queue and review evidence.
+The composed label, annotation and detail definitions have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
+
+### B04-SW2026-CONFIG-LABEL-FIELDS
+
+The PR #121 takeover team owns this bounded reader on
+`codex/solidworks-config-label-fields` for separate main delivery.
+It depends on the shared embedded field reader and the font and width
+layouts. Exit requires exact comparisons of the full label group in
+both disclosed parts, signed condition contrasts, refused active layer
+objects, and current revision queue and review evidence.
+Concrete layer ownership and full physical Config-0 have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigLabelFields.md)
+
+### B04-SW2026-CONFIG-SCENE
+
+The PR #121 takeover team owns this bounded scene and light
+normalization reader on `codex/solidworks-config-light-actions`.
+It follows the ordinary feature-action and thread record slices.
+Exit requires both physical part scene profiles, exact archive
+ownership, the authored normalization contrast, invalid record cases
+and current revision queue and review evidence. Broader presentation
+and complete configuration admission retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigSceneRecords.md)
+
+### B08-SW2026-TERMINAL-FIN
+
+The PR #121 takeover agent owns this active reader compatibility task.
+The separate main-target PR from `codex/solidworks-terminal-fin` extracts
+the current Parasolid fin traversal correction. It depends on the existing
+decoder and the disclosed L1 native fixture.
+[Change entry](../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
+
+Exit requires revision-bound CI and review evidence. The strict public
+reader must preserve the disclosed closed shell and positive signed volume.
+A separately locked capsule passes the current rule and fails the older
+semicircle traversal. Its signed volume and area match the fresh native
+reference. [Fixture and comparisons](../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
+
 ### Fusion schemas
 
 The [saved-document coverage record](../Changes/Fusion/Records/FusionSavedDocumentCoverage.md#remaining-boundaries)

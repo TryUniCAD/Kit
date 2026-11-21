@@ -1,0 +1,225 @@
+{
+  "authored": {
+    "ordinary": {
+      "density_kg_m3": 1000.0,
+      "display_words": [
+        0,
+        0
+      ],
+      "drafting_standard": "moISO_c",
+      "font_count": 0,
+      "journal": {
+        "schema": 0,
+        "sha256": "43b7c75d56f02a885fd7ea66592af16ad33f3ddb82f31b786136d4b96821b3e2",
+        "units": 7
+      },
+      "line_style_count": 0,
+      "next_map_index": 7,
+      "preference_7a": 0,
+      "renderer_empty_wrapper": null,
+      "root": [
+        "uiPartDoc_c",
+        1
+      ],
+      "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+      "size": 459,
+      "splitter_grids": [],
+      "tessellation": [
+        26,
+        4,
+        25,
+        1
+      ],
+      "typed_wire_equal": true
+    },
+    "presentation": {
+      "density_kg_m3": 3167.25,
+      "display_words": [
+        -2147483615,
+        -2080374784
+      ],
+      "drafting_standard": "moDIN_c",
+      "font_count": 0,
+      "journal": {
+        "schema": 0,
+        "sha256": "d99865c0fe2821f5e79e162b38d9f3d215e49d05bd969506aaa1c5d94c8fe768",
+        "units": 295
+      },
+      "line_style_count": 0,
+      "next_map_index": 7,
+      "preference_7a": 1,
+      "renderer_empty_wrapper": null,
+      "root": [
+        "uiPartDoc_c",
+        1
+      ],
+      "sha256": "9f48c5c0334b2e1656cdd42e12d5720f1669f40d935ea4aba43a357fd865c8a8",
+      "size": 1037,
+      "splitter_grids": [],
+      "tessellation": [
+        36,
+        4,
+        32,
+        0
+      ],
+      "typed_wire_equal": true
+    }
+  },
+  "baseline": "16493de95602b732a569923ec89cfee13a87d45d",
+  "complete_part_outputs": 0,
+  "deterministic_fresh_repeat": true,
+  "guarded_external_access_attempts": 0,
+  "guarded_processes": 8,
+  "historical_author_source": "81aff00e947ef3bb39fb479c265782d7ca7a0581",
+  "native_open_runs": 0,
+  "native_sources_read_after_author_and_refusals": true,
+  "private_input_reads": 0,
+  "refusals": {
+    "read_assembly": "SOLIDWORKS part Definition requires the ordinary part CLSID",
+    "read_old_version": "SOLIDWORKS model Definition requires archive version 19000",
+    "read_tail": "SOLIDWORKS model Definition has an unconsumed tail",
+    "write_assembly": "SOLIDWORKS part Definition requires uiPartDoc_c schema 1",
+    "write_future_version": "SOLIDWORKS model Definition requires archive version 19000",
+    "write_invalid_display_bits": "SOLIDWORKS display flags require bit positions below 64",
+    "write_model_data_scene": "SOLIDWORKS part Definition has an alternate scene or OLE owner",
+    "write_renderer_inactive": "SOLIDWORKS part Definition has an inactive renderer owner",
+    "write_renderer_marker": "SOLIDWORKS part Definition has an alternate renderer marker",
+    "write_renderer_objects": "SOLIDWORKS part Definition has renderer objects",
+    "write_root_schema": "SOLIDWORKS part Definition requires uiPartDoc_c schema 1",
+    "write_unknown_density": "SOLIDWORKS part density must be positive"
+  },
+  "saved": {
+    "D19Annulus": {
+      "density_kg_m3": 1000.0,
+      "display_words": [
+        1067879674,
+        1610617865
+      ],
+      "drafting_standard": "moANSI_c",
+      "file_sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439",
+      "font_count": 40,
+      "journal": {
+        "schema": 0,
+        "sha256": "eeccd369bb4f14770b37f6c15a4590bd8d598130f5ef57496d70c01cd555a960",
+        "units": 18
+      },
+      "line_style_count": 7,
+      "next_map_index": 60,
+      "preference_7a": 0,
+      "renderer_empty_wrapper": [
+        6,
+        0,
+        0
+      ],
+      "root": [
+        "uiPartDoc_c",
+        1
+      ],
+      "sha256": "b01c48a44afe1f63f9d7d08f548d3aac96860a4c69fd7365c7eeeaa85beb3aff",
+      "size": 3816,
+      "source_path": "re/solidworks/v2026/corpus/curves-discovery/D19Annulus.SLDPRT",
+      "source_revision": "81aff00e947ef3bb39fb479c265782d7ca7a0581",
+      "splitter_grids": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "tessellation": [
+        80,
+        6,
+        50,
+        1
+      ],
+      "typed_wire_equal": true
+    },
+    "L1": {
+      "density_kg_m3": 1000.0,
+      "display_words": [
+        1067879674,
+        1610617865
+      ],
+      "drafting_standard": "moANSI_c",
+      "file_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "font_count": 40,
+      "journal": {
+        "schema": 0,
+        "sha256": "eeccd369bb4f14770b37f6c15a4590bd8d598130f5ef57496d70c01cd555a960",
+        "units": 18
+      },
+      "line_style_count": 7,
+      "next_map_index": 60,
+      "preference_7a": 0,
+      "renderer_empty_wrapper": [
+        6,
+        0,
+        0
+      ],
+      "root": [
+        "uiPartDoc_c",
+        1
+      ],
+      "sha256": "14d9b75edf4586f8e1db2b166e855e29a03d4c88256e26d24351edb5c43d8a87",
+      "size": 3816,
+      "source_path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "source_revision": "16493de95602b732a569923ec89cfee13a87d45d",
+      "splitter_grids": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "tessellation": [
+        80,
+        6,
+        50,
+        1
+      ],
+      "typed_wire_equal": true
+    }
+  },
+  "schema": "kit.sw2026.ordinary-part-definition.v1",
+  "tool_sha256": {
+    "re/tooling/sw2026/definition/ProveOrdinaryPartDef.py": "94aa0e53e56fefaf99f06f4b2832f4a0e3887941915a414356f4fc06d4febad1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ContainerFields.py": "0c2034100cc9e5819598a1119b2608694bb77f5c0b0a3f5a9b21abe5e50768ae",
+    "src/convert/adapters/solidworks/Archive/Construction/Geometry/IdentityXform.py": "5828cbc26dd182dacad0affd36b3572ea2233639c03cf936800e9621a9343719",
+    "src/convert/adapters/solidworks/Archive/Definition/CheckDefRender.py": "284375fa2ccdfdf50d423abdb3a9363888f369afab61d04063fa3875f6133e81",
+    "src/convert/adapters/solidworks/Archive/Definition/CheckDefScope.py": "363244c4ba3b4f87bf84cca74990bafa23ed7cf21af83d03c67a8793288576b9",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/DefDisplayWords.py": "b15075ffbc8e1a3f3b59b690c83811044f6b5f12a066ae3c78d3c2846f05e975",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeDefHead.py": "1a3371532d4815cba22309ed249ee0d724fabbba2816bd82edd9db8b9c8d5018",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeDefTail.py": "5c6d748256baf63fc33d0879472323fc5e3b624379ed95ad594ef5655151b8a0",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeDocOptions.py": "17ec6484b021c38a62916f6384059697a00f335cd0ccfc439669dcb51e6586b1",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeNotebook.py": "0ccc4bb461121eb3d1c6e32db0226ae623176c822403d00c785af05b55cb4dc2",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakePartDef.py": "3706cac45d77d1cc264472fb8ef9a0acc9286e91d4748cdbe00a51436b209e72",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/ModelDefSettings.py": "6bdc31adcde13b501d92455aedf773387fbae5239a094a70cfbd783629c88e30",
+    "src/convert/adapters/solidworks/Archive/Definition/DefinitionWire.py": "810eb14631b6961a0ce265dc23cdcfeb6697c182d70eb2c3b332597a1b5f5d6f",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DefPrefixFields.py": "cca978b8faefed5516b551d62d270cd50c638815bff192d5d11333744e748b7f",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocEnvironmentFields.py": "d34a017f25d8093f5dea969ff7cf0489231ccccf826ac8ca4c7d3dfbb8e30917",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocHeadFields.py": "4ae8ffe49bd19b9925ee0585576b6e308a8ba074b257db98905d96aa2dd0fe06",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocHelperFields.py": "a9c0960b09987c70a247f9cf4dc64488c0527bd540e13e8e1a1a5d2c794f2c4a",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocStyleFields.py": "ca34220edd97dbe7f7a7647e79a06ebecb214b6000137f0381d9a1514cdbaae4",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocTailFields.py": "8d3aea86feec379c494ba13ef8d260880a5af0940c5c1b28956309be38e75031",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocTransformFields.py": "ba026fa2ead46dbc3462a06cdb93435c8c6da6779a89a0c25250a46acefe8c39",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/ModelDefLayouts.py": "e7436758de78181def0393ce093691fc4be79728feea95602f2a2ead8b9b5737",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/ModelDefSchemas.py": "89d8792a41f8c9a82d722b3f525499217454549e81702f9d217a6175f508a9ae",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/ScalarFields.py": "ca6be763424c41e6d69865f92854d2cad1646046d113a81bf14b48aa5ea1e3d4",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefClsid.py": "47cca2e501b034243c512b273cd6720caccf31de29108fb699efb9a05a03cad1",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefContext.py": "56c4ab1a7824d31350d29a225250530a5e1cf5ed0bae04c69427507f1c9ac831",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefGraph.py": "1ca4e6b1138c4d6bcaaaa2b5a0f6e989535c7174a9afef94d0c6fbc2795b45d4",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefRead.py": "357fe048b462254c66fa882b62cb4b5155f1be1dba739bef9dd4b397d45b2929",
+    "src/convert/adapters/solidworks/Archive/Definition/ReadModelDef.py": "761949fdb99555da0fd3ebe3b20ca414f08ec25e4f643f8ec8c243ed9f745bcc",
+    "src/convert/adapters/solidworks/Archive/Definition/WriteModelDef.py": "2646b26e9b0811a9998c459b7505d67523900971d98b8b26d9c9a9ab5e20c7d1"
+  }
+}

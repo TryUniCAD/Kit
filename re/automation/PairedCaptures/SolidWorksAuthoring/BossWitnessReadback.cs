@@ -256,40 +256,27 @@ public sealed partial class P04Readback
             "The exact witness did not open cleanly in the requested mode: " + report["errors"] + " / " + report["warnings"]);
     }
 
-    void CloseWitness(IModelDoc2 model, bool finalControl = false, string expectedPath = null)
+    void CloseWitness(IModelDoc2 model)
     {
-        if (model != null)
-        {
-            if (finalControl)
-            {
-                Require(expectedPath != null && String.Equals(model.GetPathName(), expectedPath, StringComparison.OrdinalIgnoreCase)
-                    && model.IsOpenedReadOnly() && app.GetDocumentCount() == 1 && !model.Visible,
-                    "Final no-save cleanup no longer identifies the sole invisible owned read-only stock control");
-                app.QuitDoc(model.GetTitle());
-            }
-            else app.CloseDoc(model.GetTitle());
-        }
+        if (model != null) app.CloseDoc(model.GetTitle());
         Require(app.GetDocumentCount() == 0, "The owned SOLIDWORKS process did not close its witness file");
     }
 
-    Dictionary<string, object> WitnessControl(string path, bool finalControl = false)
+    Dictionary<string, object> WitnessControl(string path)
     {
         IModelDoc2 model = null;
-        bool verifiedReadOnly = false;
-        if (finalControl) app.DocumentVisible(false, (int)swDocumentTypes_e.swDocPART);
         try
         {
             Dictionary<string, object> opened;
             model = OpenWitness(path, true, out opened);
             CheckWitnessOpen(model, true, opened);
-            verifiedReadOnly = true;
             Require(model.ForceRebuild3(false), "Stock control rebuild failed");
             var body = (Dictionary<string, object>)FinalBody(model);
             return Row("sha256", WitnessDigest(path), "open", opened, "rebuild", true,
                 "body_count", body["solid_body_count"], "volume_m3", body["volume_m3"],
                 "centroid_m", body["center_of_mass_m"]);
         }
-        finally { CloseWitness(model, finalControl && verifiedReadOnly, path); }
+        finally { CloseWitness(model); }
     }
 
     static double WitnessSize(Dictionary<string, object> shape, int slot)
@@ -356,7 +343,7 @@ public sealed partial class P04Readback
         }
         finally { CloseWitness(model); }
         return Row("open", opened, "read_only", readOnly, "save", save, "measurements", measurements,
-            "controls", Row("before", before, "after", WitnessControl(control, true)));
+            "controls", Row("before", before, "after", WitnessControl(control)));
     }
 
     public static void RunBossPhase(string planPath, string documentPath, string controlPath,
@@ -387,8 +374,6 @@ public sealed partial class P04Readback
                 Require(application.GetDocumentCount() == 0 && (string)plan["build"] == Build
                     && application.RevisionNumber() == "34.4.1", "The held licensed build did not start empty");
                 attached = true;
-                application.UserControlBackground = true;
-                Require(application.UserControlBackground, "The exact owned Boss witness did not retain background lifetime control");
                 var reading = new P04Readback(application).ObserveWitness(documentPath, controlPath, phase == "reopen", plan);
                 VerifyWitnessPeer(process, owner, executable);
                 Require(application.GetDocumentCount() == 0, "The owned process still has documents");

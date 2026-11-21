@@ -35,7 +35,7 @@ from VerifySolidWorksBossWitness import (
 CheckoutRoot = Path(__file__).resolve().parents[2]
 
 # the companion compiler consumes only the approved historical partial sources
-AuthoringRoot = Path("re/automation/PairedCaptures/SolidWorksAuthoring")
+AuthoringRoot = Path("re/automation/CaptureTools/SolidWorksAuthoring")
 
 # a fixed hook leaves the existing queued readback workflow unchanged
 LauncherPath = AuthoringRoot / "RunBossWitness.ps1"

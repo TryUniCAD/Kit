@@ -22,11 +22,11 @@ from tests.Convert.Solidworks.Core.CircleOnly.Samples import KCases, ReadCircleI
 )
 def CheckSourceFree(TmpPath: FilePath, CaseName: str, PlaneId: int) -> None:
     SourcePath = TmpPath / "Source.SLDPRT"
-    ModelPath = TmpPath / "Model.json"
     _ = SourcePath.write_bytes(ReadCircleInput(CaseName))
     ScriptPath = FilePath(__file__).with_name("CircleProcess.py")
     First = RunProcess(
-        [PythonExe, str(ScriptPath), "read", str(SourcePath), str(ModelPath)],
+        [PythonExe, str(ScriptPath), "read"],
+        cwd=TmpPath,
         capture_output=True,
         text=True,
         check=False,
@@ -35,7 +35,8 @@ def CheckSourceFree(TmpPath: FilePath, CaseName: str, PlaneId: int) -> None:
     assert First.returncode == 0, First.stderr
     SourcePath.unlink()
     Second = RunProcess(
-        [PythonExe, str(ScriptPath), "replay", str(ModelPath)],
+        [PythonExe, str(ScriptPath), "replay"],
+        cwd=TmpPath,
         capture_output=True,
         text=True,
         check=False,

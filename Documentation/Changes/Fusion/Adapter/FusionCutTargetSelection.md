@@ -7,3 +7,5 @@ The Cut's counted target list and repeated native dependency pair must agree wit
 Inspection of all eleven pinned P04 Fusion discovery archives verified Cut `446`, target proxy `447`, descriptor `450`, body anchor `315`, historical body `309`, and source boss `277`. Both actor entries are active in component `3`, scope `33`, history `35`. The separate through-all extent proxy is `461`. Hosted public reader scenarios check these identities for all eleven files. [Saved Cut and extent evidence](../../Research/Readers/FusionCutExtentEvidence.md), [Archive integration scenarios](../../../../tests/Research/Archives/ArchiveEvidenceTests.py)
 
 The partial document carries the saved Cut operation and target identity. Cut extent, supporting-face projection, final BRep regeneration and strict editable conversion retain separate qualification requirements.
+
+The Cut reader selects its target descriptor layout explicitly because Mirror uses the same numeric mode. [Mirror and Cut selection mode](../../../Gotchas/Conversion/Fusion/Features/MirrorAndCutSelectionMode.md)
