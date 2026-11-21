@@ -53,28 +53,34 @@ class OwnedProviderProcess:
 
     # every completion path stops remaining descendants and verifies the owned tree is no longer running
     def close(self):
-        if self.windows:
-            try:
-                self.process.signal(9)
-                self.process.wait(timeout=5)
-                self.process.finish()
-            finally:
-                self.process.close()
-            return
-        from Processes import group_running
-
         try:
-            with suppress(ProcessLookupError):
-                os.killpg(self.process.pid, signal.SIGKILL)
-            Deadline = monotonic() + 5
-            while group_running(self.process.pid):
-                if monotonic() >= Deadline:
-                    raise OSError(
-                        "provider_cleanup_failed: owned POSIX descendants did not terminate"
-                    )
-                sleep(0.01)
-        finally:
-            self.process.wait(timeout=5)
+            if self.windows:
+                try:
+                    self.process.signal(9)
+                    self.process.wait(timeout=5)
+                    self.process.finish()
+                finally:
+                    self.process.close()
+                return
+            from Processes import group_running
+
+            try:
+                if group_running(self.process.pid):
+                    try:
+                        with suppress(ProcessLookupError):
+                            os.killpg(self.process.pid, signal.SIGKILL)
+                    except PermissionError:
+                        if group_running(self.process.pid):
+                            raise
+                Deadline = monotonic() + 5
+                while group_running(self.process.pid):
+                    if monotonic() >= Deadline:
+                        raise OSError("owned POSIX descendants did not terminate")
+                    sleep(0.01)
+            finally:
+                self.process.wait(timeout=5)
+        except (OSError, subprocess.TimeoutExpired) as Error:
+            raise OSError("provider_cleanup_failed: " + str(Error)) from Error
 
 
 # stdout retention is capped while the provider is alive rather than after an unbounded disk write
