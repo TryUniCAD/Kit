@@ -117,6 +117,7 @@ KPythonCompatFacades = (
             "MoveBodyFeature",
             "NativeFeatureDefinition",
             "PayloadRole",
+            "PlaneAxis",
             "ReferencePlaneFeature",
             "RevolutionFeature",
             "ScaleFeature",

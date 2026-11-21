@@ -5,6 +5,7 @@ from interchange.Enums.EnumDocument import Capability
 from interchange.Features.FeatureBody import DesignBody
 from interchange.Features.FeatureContract import FeatureDef
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
+from interchange.Features.FeaturePlaneAxis import PlaneAxis
 from interchange.Features.FeatureKinds import (
     ChamferFeature,
     CirclePattern,
@@ -151,6 +152,7 @@ __all__ = (
     "MoveBodyFeature",
     "NativeFeatureDefinition",
     "PayloadRole",
+    "PlaneAxis",
     "ReferencePlaneFeature",
     "RevolutionFeature",
     "ScaleFeature",

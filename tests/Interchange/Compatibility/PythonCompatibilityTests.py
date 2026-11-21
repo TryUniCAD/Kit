@@ -261,8 +261,12 @@ def CheckRegistry() -> None:
             PlaneRevolve,
         )
     )
+    assert KTypeRegistry["PlaneIntersectionAxis"] is InterchangeApi.PlaneAxis
     assert KTypeRegistry["ScopedExtrusionFeature"] is ScopedExtrude
     assert set(KTypeRegistry.values()) == IntendedTypes | {ScopedExtrude}
-    assert set(KTypeRegistry) == {ClassType.__name__ for ClassType in IntendedTypes} | {
-        "ScopedExtrusionFeature"
+    assert set(KTypeRegistry) == {
+        ClassType.__name__ for ClassType in IntendedTypes - {InterchangeApi.PlaneAxis}
+    } | {
+        "PlaneIntersectionAxis",
+        "ScopedExtrusionFeature",
     }
