@@ -1,0 +1,337 @@
+{
+  "cases": {
+    "Right": {
+      "bodies": [
+        {
+          "atom_id": 101,
+          "body_index": 6,
+          "design_id": "sldprt:body:atom:101",
+          "faces": 4,
+          "native_area_m2": 0.02045176817486955,
+          "native_centroid_m": [
+            1.36737455437801e-34,
+            -0.011000000000000013,
+            0.004700000000000001
+          ],
+          "native_volume_m3": 8.312654161398588e-05,
+          "producer_id": 19
+        },
+        {
+          "atom_id": 103,
+          "body_index": 2,
+          "design_id": "sldprt:body:atom:103",
+          "faces": 9,
+          "native_area_m2": 0.05375732699627061,
+          "native_centroid_m": [
+            0.0011152543591470615,
+            -0.011678399017721183,
+            0.00623149998775159
+          ],
+          "native_volume_m3": 0.00036044500442278715,
+          "producer_id": 25
+        }
+      ],
+      "drivers": [
+        {
+          "axis_endpoints_mm": [
+            [
+              0.0,
+              -89.0,
+              4.7
+            ],
+            [
+              0.0,
+              64.0,
+              4.7
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 10534,
+            "field_span": false,
+            "object_index": 264,
+            "offset": 10469,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 6.283185307179586,
+          "selection_mark": 5
+        },
+        {
+          "axis_endpoints_mm": [
+            [
+              0.0,
+              -89.0,
+              4.7
+            ],
+            [
+              0.0,
+              64.0,
+              4.7
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 15922,
+            "field_span": false,
+            "object_index": 323,
+            "offset": 15879,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 6.283185307179586,
+          "selection_mark": 5
+        },
+        {
+          "axis_endpoints_mm": [
+            [
+              0.0,
+              -89.0,
+              4.7
+            ],
+            [
+              0.0,
+              64.0,
+              4.7
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 21546,
+            "field_span": false,
+            "object_index": 394,
+            "offset": 21503,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 1.2588187230009102,
+          "selection_mark": 5
+        }
+      ],
+      "exact_streams": {
+        "Contents/Config-0": {
+          "bytes": 25977,
+          "map_counter": 124,
+          "sha256": "b637aefdfbfe45adb490435f0922f8bde904cbe40202d10dcc70edde7cc6830f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 22567,
+          "map_counter": 397,
+          "sha256": "2eb4347b219d5e8cf0bf57b47e1ac5415a4ee60551bd788d95a462c8195bb173"
+        }
+      },
+      "history_only_legacy": true,
+      "owners": {
+        "consumed_atom_id": 102,
+        "consumer_feature_id": 25,
+        "public_writer_qualified": false,
+        "result_atom_id": 103,
+        "selected_producer_id": 22,
+        "selector_owner": {
+          "class": "moCompSolidBody_c",
+          "end": 19791,
+          "field_span": false,
+          "object_index": 353,
+          "offset": 19661,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "status": "projected_saved_selection",
+        "stock_feature_ids": [
+          19,
+          22
+        ],
+        "untouched_atom_id": 101
+      },
+      "rule_file_reads": 2,
+      "scope": {
+        "array_present": true,
+        "auto_select": false,
+        "count": 1,
+        "feature_scope": true,
+        "stock_owners": [
+          "OuterRevolveStock"
+        ]
+      },
+      "sha256": "bcd3d71ecc082217aa20a0efc91333db9610aceef71177fd090836e4253b23b4",
+      "unexpected_runtime_reads": 0
+    },
+    "Top": {
+      "bodies": [
+        {
+          "atom_id": 102,
+          "body_index": 2,
+          "design_id": "sldprt:body:atom:102",
+          "faces": 4,
+          "native_area_m2": 0.0726147725950745,
+          "native_centroid_m": [
+            0.011200000000000003,
+            3.5862783245831057e-34,
+            -0.00600000000000002
+          ],
+          "native_volume_m3": 0.0006838367560921976,
+          "producer_id": 22
+        },
+        {
+          "atom_id": 103,
+          "body_index": 6,
+          "design_id": "sldprt:body:atom:103",
+          "faces": 9,
+          "native_area_m2": 0.028226870812480882,
+          "native_centroid_m": [
+            0.010157663190375973,
+            0.0015308766493955985,
+            -0.0060984863692937685
+          ],
+          "native_volume_m3": 0.00013562925691979906,
+          "producer_id": 25
+        }
+      ],
+      "drivers": [
+        {
+          "axis_endpoints_mm": [
+            [
+              11.2,
+              0.0,
+              79.0
+            ],
+            [
+              11.2,
+              0.0,
+              -102.00000000000001
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 10526,
+            "field_span": false,
+            "object_index": 264,
+            "offset": 10461,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 6.283185307179586,
+          "selection_mark": 5
+        },
+        {
+          "axis_endpoints_mm": [
+            [
+              11.2,
+              0.0,
+              79.0
+            ],
+            [
+              11.2,
+              0.0,
+              -102.00000000000001
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 15914,
+            "field_span": false,
+            "object_index": 323,
+            "offset": 15871,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 6.283185307179586,
+          "selection_mark": 5
+        },
+        {
+          "axis_endpoints_mm": [
+            [
+              11.2,
+              0.0,
+              79.0
+            ],
+            [
+              11.2,
+              0.0,
+              -102.00000000000001
+            ]
+          ],
+          "axis_mark": 5,
+          "owner": {
+            "class": "moAngleParameter_c",
+            "end": 21538,
+            "field_span": false,
+            "object_index": 394,
+            "offset": 21495,
+            "slot": "f8d8.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "radians": 1.9460421159736774,
+          "selection_mark": 5
+        }
+      ],
+      "exact_streams": {
+        "Contents/Config-0": {
+          "bytes": 25973,
+          "map_counter": 124,
+          "sha256": "c0ecafae80e5fb5c04190454d2414a9ea4260727acb13f200a7f4cd4eeff3c0b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 22559,
+          "map_counter": 397,
+          "sha256": "9d2140b5f0370665f2f030a2bf6aa9cb239e9f0592505d3a197921d4ca27f1c1"
+        }
+      },
+      "history_only_legacy": true,
+      "owners": {
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 25,
+        "public_writer_qualified": false,
+        "result_atom_id": 103,
+        "selected_producer_id": 19,
+        "selector_owner": {
+          "class": "moCompSolidBody_c",
+          "end": 19783,
+          "field_span": false,
+          "object_index": 353,
+          "offset": 19653,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "status": "projected_saved_selection",
+        "stock_feature_ids": [
+          19,
+          22
+        ],
+        "untouched_atom_id": 102
+      },
+      "rule_file_reads": 2,
+      "scope": {
+        "array_present": true,
+        "auto_select": false,
+        "count": 1,
+        "feature_scope": true,
+        "stock_owners": [
+          "InnerRevolveStock"
+        ]
+      },
+      "sha256": "f573b2926d758eda38ce85f2a8c23ef1864607b2acfb42ec585805a8276f8a11",
+      "unexpected_runtime_reads": 0
+    }
+  },
+  "changed_source_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/SelectedCut/ReadRevCutOps.py": "2af111c856bd42db621a14157bca6acc3c88ad0ea564aa55434d346a7105ed06"
+  },
+  "guarded_processes": 2,
+  "native_result_sha256": "66300aa22b70a44f0b70e3e45420b426827ed8ea149a8316199bb7ee9f200258",
+  "new_heldout_credit": 0,
+  "new_native_processes": 0,
+  "packet_sha256": "fa54b00919aec9116c36b0d16a2a447d59621a2e20118f67bb0a9c1eaea380e0",
+  "public_writer": false,
+  "schema": "kit.sw2026.signed-selected-revolve-saved-read.v1",
+  "source_revision": "45d854d2ab8b4e94b2cb44ceb6696cf8343d9dfe"
+}
