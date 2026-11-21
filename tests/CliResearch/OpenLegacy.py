@@ -27,23 +27,18 @@ def OpenLegacy(RootPath: FilePath, ParentPath: FilePath) -> Iterator[FilePath]:
             check=False,
         )
         assert Result.returncode == 0, Result.stderr
-        Sparse = RunProcess(
-            [
-                "git",
-                "-C",
-                str(Checkout),
-                "sparse-checkout",
-                "set",
-                "--cone",
-                "src",
-                "re/automation",
-            ],
-            capture_output=True,
-            text=True,
-            timeout=120,
-            check=False,
-        )
-        assert Sparse.returncode == 0, Sparse.stderr
+        for GitArgs in (
+            ("sparse-checkout", "set", "--cone", "src", "re/automation"),
+            ("read-tree", "-mu", "HEAD"),
+        ):
+            Populated = RunProcess(
+                ("git", "-C", str(Checkout), *GitArgs),
+                capture_output=True,
+                text=True,
+                timeout=120,
+                check=False,
+            )
+            assert Populated.returncode == 0, Populated.stderr
         yield Checkout
     finally:
         if (Checkout / ".git").exists():
