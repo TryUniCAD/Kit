@@ -16,6 +16,7 @@ two signed mass-cache slots. The lengths follow the actual modeled slots and
 atom rows. A populated slot owns its property record. Only two slots carry
 the signed `f1638` selector. An empty bounds cache emits its zero count. A
 populated bounds cache still requires separate tagged-owner evidence.
+The shared field executor registers mass and bounds with separate handlers.
 
 The encoder accepts a typed field model and an existing map snapshot. It
 computes the field bytes and preserves the caller's part and map entries. It
@@ -47,6 +48,8 @@ cases refuse. The original files, modeled values and parent map identities stay
 intact, and the direct reader and writer attempt zero runtime data accesses.
 The host run starts no CAD process. The two optional disclosed controls
 remain external to the repository.
+The independent-handler revision repeats all thirteen exact field frames
+and thirteen refusals with the same five-process result.
 [Exact receipt](../measurements/2026/ConfigCacheWriting01.json)
 
 The normal queue discovers the focused three-process integration boundary

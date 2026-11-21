@@ -15,18 +15,11 @@ from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScala
 
 
 # counted cache slots derive their wire frame from the actual modeled rows
-def WriteCachesMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
+def WriteMassCachesMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     ScopeValue = FrameValue.ScopeValue
     SlotsValue = ReadBodyRows(ScopeValue, RuleValue.NameValue)
     CountValue = len(SlotsValue)
     OutputValue = FrameValue.WriterValue.OutputValue
-    if RuleValue.KindValue == "BBoxCache":
-        if SlotsValue:
-            raise BodyUnsupported(
-                "populated SOLIDWORKS part bounds cache requires typed owners"
-            )
-        OutputValue.extend(EncodeScalar(0, "i32"))
-        return
     if CountValue > 2:
         raise BodyUnsupported("native part cache count is outside zero through two")
     SelectorValue = ReadScopeValue(ScopeValue, RuleValue.OtherName)
