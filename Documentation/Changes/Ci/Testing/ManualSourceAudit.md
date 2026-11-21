@@ -1,0 +1,22 @@
+# Run a full source audit manually
+
+The existing merge-queue workflow accepts `workflow_dispatch` with a required `audit_sha` input.
+Supply the full lowercase 40-character commit SHA from the repository.
+The planner checks the requested value against its actual checkout before collecting tests.
+Every source checkout, candidate security scan, and process witness uses the selected revision.
+Test subprocesses receive that same source SHA for their provenance checks.
+
+```sh
+gh workflow run MergeQueue.yml --ref WORKFLOW_BRANCH -f audit_sha=FULL_SOURCE_SHA
+```
+
+The workflow branch selects the audit harness; `audit_sha` selects the code under verification.
+Keep those two revisions distinct in reports.
+The audit runs the complete suite, Linux/Windows/macOS process checks, and every existing heavy security job.
+It neither downloads accepted test results nor publishes a reusable test-result cache.
+The final gate requires every acceptance and security job to pass.
+PR and native merge-group gates retain their original conditions, pins, permissions, and timeouts.
+
+This is remote audit evidence, separate from native queue acceptance and vendor-application acceptance.
+No local tests ran.
+Initial remote execution will audit main `b46259ae0f847339d8a043799e8b8539a2b909d6`; results remain pending until its complete report is available.

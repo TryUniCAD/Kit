@@ -14,10 +14,13 @@ checked-in desired ruleset and live rules separately.
 
 The [post-merge rationale audit](Documentation/Changes/Ci/PostMergeQueueAudit.md)
 runs the complete queue job set on the immutable PR #127 merge revision and any explicitly recorded repair revision.
-Only pushes to `codex/rationale-merged-audit` trigger that audit phase.
+The historical push trigger uses `codex/rationale-merged-audit`.
+For a new audit, dispatch `MergeQueue.yml` with the full source commit SHA in `audit_sha`.
 Its source checkouts use `AuditSha`, and every test module runs without result reuse.
 Repair audits select the triggering push's full commit SHA so the harness is included in their input.
+Manual audits select the explicit source SHA and verify it before collection; their workflow harness can live on a separate branch.
 This audit evidence is separate from native merge-queue acceptance.
+See [manual source audits](Documentation/Changes/Ci/Testing/ManualSourceAudit.md).
 
 Jobs have one execution phase. Jobs that complete in less than 45 seconds run
 on PRs. Jobs that take 45 seconds or longer run on merge-group candidates.
@@ -95,7 +98,7 @@ live ruleset. The aggregate's 80-minute wait remains within its 90-minute limit.
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
 `Merge queue acceptance` context on PRs with an explicit deferral summary.
 The expensive jobs run on `merge_group.checks_requested` and the existing
-explicit audit branch. PR success establishes eligibility for queue enrollment.
+explicit audit branch or a manual source audit. PR success establishes eligibility for queue enrollment.
 
 The `Scorecard` job uses the checksum-pinned OpenSSF Scorecard CLI instead of
 `ossf/scorecard-action`, which rejects `merge_group` events. It runs the complete
