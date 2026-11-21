@@ -128,7 +128,8 @@ def prepare(prior_packet, output, guest, guest_python):
     bind_pair(results)
     files = {row["path"]: checked(prior_packet / row["path"], row["sha256"], row["bytes"])
              for row in settings["files"] if row["path"].startswith("Tools/") or row["path"] == "Control.SLDPRT"}
-    for source in (TOOLS / "InspectSdkBlindPart.py", HERE.with_name("RunPatternDatumDisplayContrast.py")):
+    for source in (TOOLS / "InspectSdkBlindPart.py", TOOLS / "AuthorRectangleAnchors.py",
+                   HERE.with_name("RunPatternDatumDisplayContrast.py")):
         files["Tools/" + source.name] = git("show", f"{revision}:{source.relative_to(ROOT).as_posix()}")
     files.update({"Case.json": encode(case), "PublicSourceLock.json": lock})
     arms = []
@@ -154,6 +155,10 @@ def prepare(prior_packet, output, guest, guest_python):
     for name, data in {**files, "Trial.json": raw}.items():
         write(packet / name, data)
     verify(packet, pin)
+    verified = run((sys.executable, "-B", str(packet / "Tools/RunPatternDatumDisplayContrast.py"), "--pin", pin, "--verify"),
+                   capture_output=True, check=True, timeout=30)
+    require(not verified.stderr and json.loads(verified.stdout) == {"trial_sha256": pin, "verified": True, "native_processes": 0},
+            "separate-process packet closure preflight differs")
     recipe = {"trial_sha256": pin, "host_native_launches": 0, "arms": arms,
               "guest_argv": ["prlctl", "exec", "Windows 11", "--current-user", str(python), "-B",
                              str(guest / "Packet" / "Tools" / "RunPatternDatumDisplayContrast.py"), "--pin", pin]}

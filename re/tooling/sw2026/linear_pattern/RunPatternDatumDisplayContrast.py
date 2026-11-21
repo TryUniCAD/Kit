@@ -12,7 +12,7 @@ from PatternEnvelopePacket import BUILD, CONTROL, ORACLE, checked, digest
 
 SCHEMA = "kit.sw2026.principal-datum-display-contrast.v1"
 PART = "KitDatumDisplayProbe.SLDPRT"
-TRIAL = "PatternDatumDisplay01"
+TRIAL = "PatternDatumDisplay02"
 NATIVE_ROOT = PureWindowsPath(r"C:\KitPatternDatumDisplay01")
 ARMS = ("plain", "sized")
 BOUND = 5e-9

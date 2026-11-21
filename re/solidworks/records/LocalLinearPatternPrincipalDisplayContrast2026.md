@@ -16,13 +16,15 @@ The root-owned sequence uses one clean short local path, two fresh edit/save pha
 
 The ordinary strict geometry reader still rejects placed principal displays in its cache-free prism profile. This research assay uses the actual typed Config/Resolved writer and linked reader. It does not change the public adapter. The next writer graph must add the registered two-plane axis, actual angled plane dimension and constraints, and the merged seed/pattern lineage. This candidate contains no axis, higher feature, or claim to the private lock's source cases.
 
+The first numbered stage `PatternDatumDisplay01` had a missing `AuthorRectangleAnchors.py` import in its independently frozen observer closure. Its manifest `5fdd5e708dc29f577545ba1b65c32c39bc12366ac58e3a930cfda53f67ebcb82` is preserved with zero native launches. The second numbered packet completes that closure and requires a fresh host `--verify` process before it emits a dispatch recipe. Both generated parts and their common encoded Windows destination remain identical across the two revisions.
+
 ## Reproduction
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/linear_pattern/PreparePatternDatumDisplayContrast.py \
   --prior-packet /absolute/share/Oracle121Takeover/LinearPatternDatumHeight01/Packet \
-  --output /absolute/share/Oracle121Takeover/PatternDatumDisplay01 \
-  --guest-root '\\Mac\Home\Documents\UniCAD\Oracle121Takeover\PatternDatumDisplay01' \
+  --output /absolute/share/Oracle121Takeover/PatternDatumDisplay02 \
+  --guest-root '\\Mac\Home\Documents\UniCAD\Oracle121Takeover\PatternDatumDisplay02' \
   --guest-python 'C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
 ```
 
