@@ -143,3 +143,11 @@ audit, and the Python executable, version and zlib runtime. The protected
 replay verifies that authority before opening either opaque request. Its exact
 file comparator uses the actual earlier Windows-native BuildLock for each slot
 and never the disclosed manifest or a typed tolerance.
+
+Packet 03 SHA-256 is
+`a3c6c51f917e6a28cdcb4a05d7fa3a16695f9961351e9d04ad89c9186c6e500d`.
+The source manifest is byte-identical to packet 02. Both ordinary host
+controls and the six-worker bridge preflight passed on host Python 3.12.
+An altered digest from one disclosed public route was refused. The exact
+protected request loader is unchanged. The two old packets retain their
+original hashes, with no protected request read during this host work.
