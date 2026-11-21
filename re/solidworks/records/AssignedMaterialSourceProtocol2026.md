@@ -19,7 +19,7 @@ Two actual installed catalog entries define a discriminating hypothesis:
 
 The XML value is an **attribute**, not a child node. The earlier capture's `raw_value` is empty, but its attribute metadata retains the actual observation. The installed XSD is hashed as `2afeff3c0983fc895ec724a20a84a96991f795f032e2d6ba73179ddfbaac7657`; Python ElementTree rejected its bytes at line75/column2. This is an observer result, not proof that the native schema or database is invalid. No SI density claim is based on that schema parse. See the [metadata gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Materials/MaterialDensityCatalogValuesNeedNativeUnitChecks.md).
 
-The source job explicitly predeclares the hypothesis `density_SI = 1 * DENS@value`. Every assigned state must independently satisfy native `IMassProperty.Density` with `UseSystemUnits=True`, native mass divided by independent analytic volume, native mass divided by native volume, and predicted mass `rho * width * height * depth`. A disagreement fails the hypothesis and source trial; no observed density is substituted into a passing predictor after the run.
+The source job explicitly predeclares the hypothesis `density_SI = 1 * DENS@value`. Packet 03 measures native density, mass and volume in SI on the selected solid. Each assigned state must satisfy native density, native mass divided by independent analytic volume, native mass divided by native volume, and predicted mass `rho * width * height * depth`. A disagreement fails the source trial and retains the measurements. The density prediction stays fixed.
 
 ## Disclosed designs and lifecycle
 
@@ -36,18 +36,18 @@ The same pristine existing rectangle control with SHA-256 `c0472f9f42bf473a9073a
 
 The complete recursive feature trees and actual part/body material API fields are retained. Material-only comparisons preserve real profile geometry, driving dimensions, origin relations and tree structure. Only the native `MaterialFolder` caption has an explicit presentation comparison rule; its actual name is still recorded. No arbitrary row is dropped to force a count. Part assignment and inherited/body-specific material getters are recorded separately. This does not qualify body overrides, multibody precedence, mass overrides, missing databases or a material writer.
 
-## Frozen packet and invocation
+## Frozen packet 02 and invocation
 
-The private `NativeSourcePacket02.json` manifest has SHA-256 `342283c9e952693fba073c5171a904861dbbcd25e46ed3e10d5d5fc3147fd2c1` and binds exactly13 files. Its Job SHA-256 is `292df06a2fd4f740c2070a32152568271eaf1c95be2675a9564e541f4c0b677f`. The unused packet01 is retained; packet02 adds redundant Intent-file verification without altering case intent or the catalog hypotheses.
+The retained `NativeSourcePacket02.json` manifest has SHA-256 `342283c9e952693fba073c5171a904861dbbcd25e46ed3e10d5d5fc3147fd2c1` and binds 13 files. Its Job SHA-256 is `292df06a2fd4f740c2070a32152568271eaf1c95be2675a9564e541f4c0b677f`. Packet 02 adds Intent-file verification and uses the legacy part mass getter for its comparisons. Packet 01 is retained.
 
-New source tools:
+Exact tool copies in the historical packet:
 
-- [AuthorAssignedMaterials.py](../../tooling/sw2026/materials/AuthorAssignedMaterials.py), SHA-256 `daac77bea3a87c010924229912f1a5c05b5ccf2426ff38f35cf9b89003b13cd9`
-- [MaterialSourceFacts.py](../../tooling/sw2026/materials/MaterialSourceFacts.py), SHA-256 `565084d5ab51db40366d42bd8bbbf1b5cd73afd24afd20a56e5905c303275a81`
+- `AuthorAssignedMaterials.py` has SHA-256 `daac77bea3a87c010924229912f1a5c05b5ccf2426ff38f35cf9b89003b13cd9`
+- `MaterialSourceFacts.py` has SHA-256 `565084d5ab51db40366d42bd8bbbf1b5cd73afd24afd20a56e5905c303275a81`
 
 Their exact dependencies are copied into the private packet's `Tools` directory. Root must commit the exact oracle sources before the run, independently hash all packet members and invoke the host-verifiable `verify` action. The new tools emit no native CAD bytes themselves; SOLIDWORKS authors the source controls.
 
-Root guest invocation using its already verified Python312 executable:
+The historical guest invocation used the verified Python 3.12 executable.
 
 ```powershell
 py.exe -3.12 '\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SdkNamedMaterial01\NativeSourcePacket02\Tools\AuthorAssignedMaterials.py' run '\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SdkNamedMaterial01\NativeSourcePacket02\Job.json' --packet-sha256 292df06a2fd4f740c2070a32152568271eaf1c95be2675a9564e541f4c0b677f
@@ -70,6 +70,20 @@ No hidden qualification is claimed by this disclosed source packet. The original
 
 ## First native result
 
-The physical-density hypothesis failed on both disclosed source designs. Four distinct SOLIDWORKS 2026 SP05.2 processes include two healthy bracketing controls. The actual part getters return each requested material and catalog after an ordinary forced rebuild. The explicit body getter remains empty. Both legacy native density values and independently calculated mass-to-volume ratios remain 1 kg/m³. The unassigned and visual-only comparison states also measure 1 kg/m³. Both author phases stop before saving. Zero original sources were locked. [Compact failed result and exact phase digests](../measurements/2026/AssignedMaterialDensitySource01.json)
+Packet 02 failed both physical-density assertions through the legacy part getter. Four distinct SOLIDWORKS 2026 SP05.2 processes include two healthy bracketing controls. The actual part getters return each requested material and catalog after an ordinary forced rebuild. The explicit body getter remains empty. The legacy density and mass-to-volume ratio remain 1 kg/m³ in the assigned, unassigned and visual-only states. Both author phases stop before saving and lock zero originals. [Compact failed result and exact phase digests](../measurements/2026/AssignedMaterialDensitySource01.json)
 
-The [follow-up diagnostic](../../tooling/sw2026/materials/ObserveMaterialDensity.py) authors the same corner geometry with the same catalog assignment. Its transition omits the visual-only perturbation. It measures the actual sole body with the newer selected-body interface and the original part interface, saves a separate diagnostic file, and measures it again in a fresh read-only process. The same known controls bracket the run. Assignment identity, file persistence and physical density have independent verdicts. [Mass-property API relationship](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IMassProperty.html) · [Selected-body measurement interface](https://help.solidworks.com/2025/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IMassProperty2_members.html?id=2.2.1.211.0)
+The follow-up diagnostic authors the same corner geometry with the same catalog assignment and omits the visual-only perturbation. All four phases pass with two healthy controls. The selected-body `IMassProperty2` gives 1000 kg/m³ unassigned and 2700 kg/m³ assigned and after save, fresh read-only reopen and rebuild. Volume matches the legacy path throughout. The legacy path still gives 1 kg/m³, so the historical combined-API density predicate remains false. The diagnostic saved file is bound by hash in the receipt. [Original diagnostic observer](../../tooling/sw2026/materials/ObserveMaterialDensity.py) · [Selected-body diagnostic receipt](../measurements/2026/AssignedMaterialDensityProbe01.json)
+
+## Packet 03 selected-body measurement
+
+The actual sole visible solid must be a `Body2` with solid type. The observer clears selection, selects that body, obtains `IModelDocExtension.CreateMassProperty2`, sets `UseSystemUnits`, recalculates and records volume, mass and density. It clears selection in a finally block. The legacy observer still records volume, area, centre of mass, mass, density and override flags. Geometric predictions are checked against both volume paths. Physical mass, density, mass-to-volume and edit-ratio assertions use the selected-body observations. The visual-only contrast, requested dimensions, actual parameter identities and original `DENS@value` predictions stay the same. [Current native author](../../tooling/sw2026/materials/AuthorAssignedMaterials.py) · [Current measurement helper](../../tooling/sw2026/materials/MaterialSourceFacts.py)
+
+Freeze the two disclosed cases from a committed checkout.
+
+```sh
+python -I -B re/tooling/sw2026/materials/FreezeMaterialSource03.py freeze /path/to/NativeSourcePacket02.json --revision "$(git rev-parse HEAD)"
+```
+
+The freezer checks all 13 old members by digest and copies only the declared input inventory into a newly created sibling `NativeSourcePacket03`. It replaces the author and facts tools from committed Git objects, writes the corrected observer declaration and updated tool hashes to Job, and invokes the new packet's non-native `verify` action. Neither the prior packet nor its result is opened for writing. The returned Job SHA-256 is the value for the root guest command's `--packet-sha256` when substituting `NativeSourcePacket03` in the historical arguments above. The final sibling manifest carries all input digests.
+
+The ten-process source lifecycle requires both designs, healthy controls, material/appearance discrimination, depth edit, persistence and immutable originals. The one-design diagnostic does not establish those results. There is no held-out lock or material writer qualification.

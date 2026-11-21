@@ -46,6 +46,25 @@ def effective_mass(author):
     return values
 
 
+def selected_mass(author, body):
+    author.get(author.model, 'ClearSelection2', True)
+    try:
+        require(author.get(body, 'Select2', False, author.sw.nothing()), 'selection refused for the actual solid')
+        extension = author.get(author.model, 'Extension')
+        properties = author.typed(author.get(extension, 'CreateMassProperty2'), 'MassProperty2')
+        author.set(properties, 'UseSystemUnits', True)
+        require(author.get(properties, 'Recalculate'), 'selected body mass recalculation failed')
+        values = {name.lower(): float(author.get(properties, name)) for name in ('Volume', 'Mass', 'Density')}
+        require(all(isfinite(value) and value > 0 for value in values.values()),
+                'selected body properties are nonfinite or nonpositive')
+        values['use_system_units'] = bool(author.get(properties, 'UseSystemUnits'))
+        require(values['use_system_units'], 'selected body mass observer did not retain SI units')
+        values['mass_over_volume_density'] = values['mass'] / values['volume']
+        return values
+    finally:
+        author.get(author.model, 'ClearSelection2', True)
+
+
 def observe(author, case, depth):
     selected = dict(case, depth_m=depth)
     base = author.snapshot(selected, 'Original')
@@ -63,13 +82,16 @@ def observe(author, case, depth):
               'body_material': material_identity(author, body, 'GetMaterialPropertyName', name),
               'body_material_id_name': author.get(body, 'GetMaterialIdName2'),
               'body_material_user_name': author.get(body, 'GetMaterialUserName2'),
-              'body_name': str(author.get(body, 'Name')), 'mass': effective_mass(author)}
+              'body_name': str(author.get(body, 'Name')),
+              'legacy_mass': effective_mass(author), 'mass': selected_mass(author, body)}
     width, height = case['width_m'], case['height_m']
-    values = result['mass']
-    author.rec.close_number('independent material prism volume', values['volume'], width * height * depth, absolute=1e-16)
-    author.rec.close_number('independent material prism area', values['area'], 2 * (width * height + width * depth + height * depth))
+    volume = width * height * depth
+    legacy = result['legacy_mass']
+    author.rec.close_number('independent selected body material prism volume', result['mass']['volume'], volume, absolute=1e-16)
+    author.rec.close_number('independent legacy material prism volume', legacy['volume'], volume, absolute=1e-16)
+    author.rec.close_number('independent material prism area', legacy['area'], 2 * (width * height + width * depth + height * depth))
     center = [width / 2, height / 2, depth / 2] if case['kind'] == 'corner' else [0.0, 0.0, depth / 2]
-    for actual, expected in zip(values['com'], center, strict=True):
+    for actual, expected in zip(legacy['com'], center, strict=True):
         author.rec.close_number('independent material prism centroid', actual, expected)
     return result
 
@@ -107,8 +129,9 @@ def appearance_contrast(author, before, case):
         author.rec.close_number('actual authored appearance RGB', observed, expected)
     after = observe(author, case, case['depth_m'])
     require(after['part_material'] == before['part_material'], 'visual-only contrast changed assigned identity')
-    for key in ('volume', 'area', 'mass', 'density'):
+    for key in ('volume', 'mass', 'density'):
         author.rec.close_number('visual-only contrast unchanged ' + key, after['mass'][key], before['mass'][key])
+    author.rec.close_number('visual-only contrast unchanged area', after['legacy_mass']['area'], before['legacy_mass']['area'])
     return {'requested_visual_values': value, 'observed_visual_values': actual, 'state': after}
 
 
@@ -120,7 +143,7 @@ def preserved_model(author, before, after):
     def structure(rows):
         return [(row['type'], row['parent'], None if row['type'] == 'MaterialFolder' else row['name']) for row in rows]
     require(structure(left['tree']) == structure(right['tree']), 'material assignment changed modeled tree structure')
-    for key in ('volume', 'area'):
-        author.rec.close_number('material-only change unchanged ' + key, after['mass'][key], before['mass'][key])
-    for actual, expected in zip(after['mass']['com'], before['mass']['com'], strict=True):
+    author.rec.close_number('material-only change unchanged volume', after['mass']['volume'], before['mass']['volume'])
+    author.rec.close_number('material-only change unchanged area', after['legacy_mass']['area'], before['legacy_mass']['area'])
+    for actual, expected in zip(after['legacy_mass']['com'], before['legacy_mass']['com'], strict=True):
         author.rec.close_number('material-only change unchanged centroid', actual, expected)

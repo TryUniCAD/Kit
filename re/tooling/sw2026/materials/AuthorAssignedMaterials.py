@@ -13,7 +13,8 @@ from AuthorCurves import Recorder, digest, require, write_json
 from AuthorRectangleAnchors import CONTROL, ORACLE, PARAMETERS, RectangleAuthor, control
 from MaterialSourceFacts import apply_material, appearance_contrast, observe, preserved_model, verify_density
 
-SCHEMA = 'kit.sw2026.assigned-material-native-source.v1'
+SCHEMA = 'kit.sw2026.assigned-material-native-source.v2'
+MASS_MEASUREMENT = {'physical': 'IMassProperty2.selected_solid', 'geometry_and_override_diagnostic': 'IMassProperty'}
 TOOLS = {'AuthorAssignedMaterials.py', 'MaterialSourceFacts.py', 'AuthorCurves.py',
          'AuthorRectangleAnchors.py', 'InspectFresh.py', 'OracleIdentity.py', 'Swapp.py'}
 PHASES = ('Author', 'Swap', 'Depth', 'Reopen')
@@ -32,6 +33,7 @@ def verify(packet, expected, runtime=False):
     root = packet.parent.resolve(strict=True)
     job = json.loads(checked(root, packet.name, expected).read_bytes())
     require(job['schema'] == SCHEMA and job['oracle_sha256'] == ORACLE and job['control_sha256'] == CONTROL
+            and job.get('mass_measurement') == MASS_MEASUREMENT
             and job['writer_outputs'] == job['heldout_inputs_read_by_preparer'] == 0,
             'material source job identity/scope differs')
     require(job['cohort_role'] in ('discovery', 'sealed_original') and set(job['tools_sha256']) == TOOLS
