@@ -3,6 +3,7 @@ from convert.adapters.solidworks.Archive.Construction.Views.Annotations.AnnoView
     KNoAnno as UNASSIGNED_ANNOTATIONS,
 )
 from convert.adapters.solidworks.Archive.Construction.Views.Annotations.MakeAnnoView import (
+    KAnnoWorld as WORLD,
     MakeAnnoFrame,
     MakeAnnoView,
     ReadAnnoBasis,

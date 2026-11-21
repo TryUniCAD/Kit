@@ -59,3 +59,9 @@ preserves both body atoms and generates the native direct-parent flag
 from their verified scope. Both corrected files pass the same strict
 observer across cold open, rebuild, D3 edit, save and fresh reopen.
 [Corrected native result](../measurements/2026/GeneratedObliquePatternNative02.json)
+
+## Shared dimension construction
+
+The shared archive constructor now creates all six dimensions, display owners and handles. It verifies the local pattern owner and its separate integer and length factories before it calls the common display initializer. Active D3 and D1 take the next model display IDs in that order. All six dimension IDs follow the persistent allocation order. The actual Back view supplies the count membership. The reserved unassigned view supplies the pitch membership. Native document style supplies the distance projection. Each cache derives from its own parameter and active display assignment.
+
+The [complete container comparison](../../tooling/sw2026/linear_pattern/ProveLocalPatternContainer.py) and [cold SDK comparison](../../tooling/sw2026/linear_pattern/ProveColdPatternRead.py) retain all six corrected file hashes, four linked native input comparisons, the two-stream edit boundary and all twelve strict path and stream reads. A separate older neutral writer proof remains pinned to its original compiler and source tree. No new native process or protected file participated in this refactor. [Shared constructor evidence](../measurements/2026/SdkSharedPatternDrivers01.json)

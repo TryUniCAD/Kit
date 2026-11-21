@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Construction.Circles.RequireRadial impo
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.RequirePatView import (
+    RequirePatView,
+)
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.CheckViewArgs import (
     CheckViewArgs,
 )
@@ -34,6 +37,10 @@ def RequireDisplay(
         return OwnerValue
     _ = RequireNode(HandleValue, "moFeatureDimHandle_c")
     OwnerValue = ArchiveNode.RequireNode(HandleValue.FieldsValue.get("owner"))
+    if OwnerValue.ClassValue == RuntimeClass("moLPattern_c", 1):
+        RequirePatView(OwnerValue, HandleValue, TextKind)
+        CheckViewArgs(DesignIntent, SelectedLeader)
+        return OwnerValue
     if (
         OwnerValue.ClassValue
         not in (

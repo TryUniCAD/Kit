@@ -1,0 +1,39 @@
+{
+  "complete_cold_receipt_sha256": "80dbdab94d67fff4c85f2c66f37b78d810869d6cddafe03c9826e8c1157f39f3",
+  "complete_container_receipt_sha256": "9418ef93251b5fb7d5670219dc5e3b6cce8a1b6514d8bf4e5876eb9a8026401d",
+  "complete_states": 6,
+  "guarded_processes": 20,
+  "guarded_runtime_file_reads": 0,
+  "heldout_inputs_read": 0,
+  "matches_prior_native_container_sha256": {
+    "ColdRaisedPatternA": {
+      "count_only": "8f3910ab68135056024b306ab797f3feec998fe2ced3180d459e7e4d22ac64e0",
+      "original": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+      "pitch_only": "51f37725e0f58184bc34f16480f58d06a5cf265cef5027219174f00586ecb1f7"
+    },
+    "ColdRaisedPatternB": {
+      "count_only": "0e125b9bb41ffa8ab117e588f1e85e1493c79559a01c828b1b2a0ac1cb278522",
+      "original": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+      "pitch_only": "0b0827b042644568419ce6aea6454c9a21a02b00947c4dc2896d883a24e0c460"
+    }
+  },
+  "native_processes_started": 0,
+  "previous_revision": "298bd2bc3354be9b48308a4b69bdac50df84f8fb",
+  "prior_native_disclosed_receipt_sha256": "e5a38cf44c62388c6494e3feb460446745720f7fa34501f0d19b861fdc431995",
+  "public_pattern_writer_qualified": false,
+  "schema": "kit.sw2026.shared-linear-pattern-drivers.v1",
+  "source_readbacks": 4,
+  "source_sha256": {
+    "re/tooling/sw2026/linear_pattern/MakeLocalPatternDrivers.py": "34fc989b18370a351d29a93e44694a244bb353e2902550fbeb75501ed7766c38",
+    "re/tooling/sw2026/linear_pattern/MakePatternAnnotationCatalog.py": "c62636ccbcc1dbe4566e3ba4c1476dc605f6416812039479f13b3fabe38ca16c",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeTextFields.py": "c82b56ee54cb6b0d2dcff947137aaac0bbe30980d5cee15aa68f2c40909c344f",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/RequireDisplay.py": "a0c57f75b95ab982d8a2ac5efecd8edbb2b197a563fc7a9f8f7a81141c86f38c",
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Drivers/MakePatDrive.py": "9d65306d10264aa5f4e19d3e47db7d7d4478fb0bb3434cbea4d3f65b7750db7f",
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Drivers/PatAnnoValues.py": "48979826d0414f2353d0919256bd336cec63e3b45ad577ceac340875ce61016f",
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Drivers/PatDriveStyle.py": "adbb9efa0d1340bb304095bc293435153ddfd3acfe6d4229dc4df45e473dcc96",
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Drivers/PutPatDriveMut.py": "1cacb944f0a84ee43f740e801539d332bf84b769c11983ef093b21796d992682",
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Drivers/RequirePatView.py": "d4eab6d061ec266007d00afc48ebdac49e28f509c0a7cdccf0756d16ae519d9a",
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Drivers/SetPatPointMut.py": "39e077f612296b6774bdca0185254da907d225b7ce6231048f592bf0fc6cf09b",
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Drivers/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  }
+}
