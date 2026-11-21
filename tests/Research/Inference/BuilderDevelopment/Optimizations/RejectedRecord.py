@@ -6,17 +6,40 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from collections.abc import Callable
 from json import dumps as EncodeJson
+from typing import cast as TypeCast
 from pathlib import Path as FilePath
+
+from tests.Research.Inference.BuilderDevelopment.Optimizations.LoadSymbol import (
+    LoadSymbol,
+)
 
 
 # changed endpoint evidence must fail before exposing the request to a different owner or instruction scope
 def RejectRecord(
-    RunPath: FilePath, Record: dict, ModelName: str, ModeName: str
+    RunPath: FilePath, Record: dict[str, object], ModelName: str, ModeName: str
 ) -> None:
-    from CodexAdvice.AdviceOptions import AdviceOptions
-    from InferenceGrid.BuilderDevelopment.Generation.Broker.CallBroker import CallBroker
-    from InferenceGrid.BuilderDevelopment.Generation.ProgramSchema import ProgramSchema
+    AdviceOptions = TypeCast(
+        Callable[[str, str, str | None, int], object],
+        LoadSymbol("CodexAdvice.AdviceOptions", "AdviceOptions"),
+    )
+    CallBroker = TypeCast(
+        Callable[
+            [object, str, dict[str, object], FilePath, dict[str, object], FilePath],
+            dict[str, object],
+        ],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.Broker.CallBroker",
+            "CallBroker",
+        ),
+    )
+    ProgramSchema = TypeCast(
+        Callable[[], dict[str, object]],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.ProgramSchema", "ProgramSchema"
+        ),
+    )
 
     ChangedValue = dict(Record)
     if ModeName == "remote":
@@ -30,7 +53,7 @@ def RejectRecord(
         EncodeJson([] if ModeName == "recordshape" else ChangedValue), encoding="utf-8"
     )
     try:
-        CallBroker(
+        _ = CallBroker(
             AdviceOptions("codex", "login", ModelName, 1),
             "fixture request",
             ProgramSchema(),

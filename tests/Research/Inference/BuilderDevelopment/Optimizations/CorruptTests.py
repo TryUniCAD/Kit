@@ -6,7 +6,6 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from json import loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from tests.Research.Inference.BuilderDevelopment.Optimizations.BrokerHarness import (
@@ -17,6 +16,11 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.PacketInputs impo
 )
 from tests.Research.Inference.BuilderDevelopment.Optimizations.ProbeInputs import (
     ProbeArgs,
+)
+
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    AsRecord,
+    ReadRecord as DecodeJson,
 )
 
 
@@ -57,7 +61,7 @@ def CheckCorrupt(TmpPath: FilePath) -> None:
     ]
     assert (
         sum(
-            CallRow.get("request", {}).get("method") == "turn/start"
+            AsRecord(CallRow.get("request", {})).get("method") == "turn/start"
             for CallRow in Calls
         )
         == 1

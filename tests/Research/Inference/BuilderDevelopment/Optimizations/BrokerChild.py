@@ -7,16 +7,29 @@
 # to you under it immediately and permanently.
 
 from functools import partial as BindCall
-from json import loads as DecodeJson
+from collections.abc import Callable
+from typing import cast as TypeCast
 from os import environ as ProcessEnv
 from pathlib import Path as FilePath
 from sys import argv as CliArgs, executable as PythonExe, path as SearchPaths
 from sys import stdin as InputStream
 
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    ReadConfig,
+)
+from tests.Research.Inference.BuilderDevelopment.Optimizations.LoadSymbol import (
+    LoadSymbol,
+)
+from tests.Research.Inference.BuilderDevelopment.Optimizations.FactoryTypes import (
+    BrokerMaker,
+    LiveProbe,
+    SessionMaker as SessionFactoryType,
+)
+
 
 # a separate controller process exercises the real authenticated broker and provider process lifecycle
 def MainBroker() -> None:
-    ConfigValue = DecodeJson(FilePath(CliArgs[1]).read_text(encoding="utf-8"))
+    ConfigValue = ReadConfig(FilePath(CliArgs[1]).read_text(encoding="utf-8"))
     RepoRoot = FilePath(__file__).resolve().parents[5]
     SourceRoot = FilePath(ConfigValue["source_root"])
     SearchPaths[:0] = [
@@ -24,14 +37,25 @@ def MainBroker() -> None:
         str(RepoRoot / "re/automation"),
         str(RepoRoot),
     ]
-    from CodexAdvice.AdviceOptions import AdviceOptions
-    from InferenceGrid.BuilderDevelopment.Generation.Broker.GenerationBroker import (
-        GenerationBroker,
+    AdviceOptions = TypeCast(
+        Callable[[str, str, str | None, int], object],
+        LoadSymbol("CodexAdvice.AdviceOptions", "AdviceOptions"),
     )
-    from InferenceGrid.BuilderDevelopment.Generation.Transport.CodexSession import (
-        CodexSession,
+    GenerationBroker = TypeCast(
+        BrokerMaker,
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.Broker.GenerationBroker",
+            "GenerationBroker",
+        ),
     )
-    from Processes import process_start as ProcessStart
+    CodexSession = TypeCast(
+        SessionFactoryType,
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.Transport.CodexSession",
+            "CodexSession",
+        ),
+    )
+    ProcessStart = TypeCast(LiveProbe, LoadSymbol("Processes", "process_start"))
 
     ProcessEnv["PYTHONPATH"] = str(RepoRoot)
     FixturePath = (
@@ -52,12 +76,17 @@ def MainBroker() -> None:
     Broker = GenerationBroker(
         AdviceOptions("codex", "login", ConfigValue["model"], 3),
         RunPath,
-        SessionFactory=SessionMaker,
+        SessionMaker,
     )
     with Broker:
         _ = (RunPath / "BrokerReady.json").write_text("{}", encoding="utf-8")
         _ = InputStream.readline()
-    if Broker.session is not None:
-        ServerPid = Broker.session.process.owner.process.pid
+    SessionValue: object = getattr(Broker, "session")
+    if SessionValue is not None:
+        ProcessValue: object = getattr(SessionValue, "process")
+        OwnerValue: object = getattr(ProcessValue, "owner")
+        ChildValue: object = getattr(OwnerValue, "process")
+        ServerPid: object = getattr(ChildValue, "pid")
+        assert isinstance(ServerPid, int)
         assert ProcessStart(ServerPid, live=True) is None
     _ = (RunPath / "BrokerClosed.json").write_text("{}", encoding="utf-8")

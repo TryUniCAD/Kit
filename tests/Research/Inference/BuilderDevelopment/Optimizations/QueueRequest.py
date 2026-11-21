@@ -10,14 +10,19 @@ from json import dumps as EncodeJson
 from socket import create_connection as OpenSocket
 from time import monotonic as MonoTime
 
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    CountField,
+    TextField,
+)
+
 
 # waiting behind another peer must not refresh an expired generation deadline or start inference
-def RejectQueued(Record: dict, RequestValue: dict) -> None:
+def RejectQueued(Record: dict[str, object], RequestValue: dict[str, object]) -> None:
     from tests.Research.Inference.BuilderDevelopment.Optimizations.PeerAuth import (
         PeerRequest,
     )
 
-    Address = ("127.0.0.1", Record["port"])
+    Address = ("127.0.0.1", CountField(Record, "port"))
     with OpenSocket(Address, timeout=5) as Blocking:
         Blocking.sendall(b"{")
         with OpenSocket(Address, timeout=5) as Waiting:
@@ -27,5 +32,5 @@ def RejectQueued(Record: dict, RequestValue: dict) -> None:
                 "deadline": MonoTime() + 0.1,
             }
             Reply = PeerRequest(Waiting, Record, RequestValue)
-    assert "provider_timeout" in Reply.get("error", ""), Reply
+    assert "provider_timeout" in TextField(Reply, "error"), Reply
     print(EncodeJson(Reply), flush=True)

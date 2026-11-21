@@ -6,7 +6,6 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from json import loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from pytest import mark as CaseMark
@@ -18,6 +17,11 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.PacketInputs impo
 )
 from tests.Research.Inference.BuilderDevelopment.Optimizations.ProbeInputs import (
     ProbeArgs,
+)
+
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    ReadRecord as DecodeJson,
+    TextField,
 )
 
 
@@ -46,6 +50,9 @@ def CheckReject(TmpPath: FilePath, ModeName: str) -> None:
             Command, env=EnvValue, capture_output=True, text=True, timeout=20
         )
         assert Process.returncode == 0, Process.stdout + Process.stderr
-        assert "provider_" in DecodeJson(Process.stdout)["error"]
+        ErrorText = TextField(DecodeJson(Process.stdout), "error")
+        assert "provider_" in ErrorText
+        if ModeName == "oversized":
+            assert ErrorText.startswith("provider_output_limit:")
         assert not (TmpPath / "ProviderCalls.jsonl").exists()
         assert not (TmpPath / "Rejected/ModelBudget.json").exists()

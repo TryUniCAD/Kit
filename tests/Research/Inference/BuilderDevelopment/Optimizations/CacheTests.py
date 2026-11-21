@@ -6,7 +6,6 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from json import loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import PIPE as PipeStream, Popen as StartProcess
 from tests.Research.Inference.BuilderDevelopment.Optimizations.BrokerHarness import (
@@ -19,6 +18,13 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.ProbeInputs impor
     ProbeArgs,
 )
 
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    AsRecord,
+    AsRecords,
+    ReadRecord as DecodeJson,
+    TextField,
+)
+
 
 # independent controller stores must coalesce identical work before either reserves another provider call
 def CheckCoalesce(TmpPath: FilePath) -> None:
@@ -27,7 +33,7 @@ def CheckCoalesce(TmpPath: FilePath) -> None:
         BrokerHarness(TmpPath, "First", PacketPath),
         BrokerHarness(TmpPath, "Second", PacketPath),
     ):
-        Workers = []
+        Workers: list[StartProcess[str]] = []
         for RunName in ("First", "Second"):
             Command, EnvValue = ProbeArgs(TmpPath, RunName, PacketPath)
             Workers.append(
@@ -42,7 +48,7 @@ def CheckCoalesce(TmpPath: FilePath) -> None:
         Outputs = [Worker.communicate(timeout=30) for Worker in Workers]
         assert all(Worker.returncode == 0 for Worker in Workers), Outputs
         Results = [DecodeJson(Output) for Output, _ in Outputs]
-        assert sorted(Result["classification"] for Result in Results) == [
+        assert sorted(TextField(Result, "classification") for Result in Results) == [
             "candidate_generated",
             "candidate_reused",
         ]
@@ -51,7 +57,7 @@ def CheckCoalesce(TmpPath: FilePath) -> None:
             for Result in Results
             if Result["classification"] == "candidate_reused"
         )
-        assert Reused["usage"]["total_tokens"] == 0
+        assert AsRecord(Reused["usage"])["total_tokens"] == 0
         assert Reused["native_verified"] is False
     Calls = [
         DecodeJson(LineText)
@@ -59,17 +65,17 @@ def CheckCoalesce(TmpPath: FilePath) -> None:
     ]
     assert (
         sum(
-            CallRow.get("request", {}).get("method") == "turn/start"
+            AsRecord(CallRow.get("request", {})).get("method") == "turn/start"
             for CallRow in Calls
         )
         == 1
     )
-    Reservations = []
+    Reservations: list[dict[str, object]] = []
     for RunName in ("First", "Second"):
         RunPath = TmpPath / RunName
         BudgetPath = RunPath / "ModelBudget.json"
         if BudgetPath.exists():
-            Reservations.extend(DecodeJson(BudgetPath.read_bytes())["calls"])
+            Reservations.extend(AsRecords(DecodeJson(BudgetPath.read_bytes())["calls"]))
         assert (RunPath / "Attempt/Packet.json").is_file()
         assert (RunPath / "Attempt/Candidate.json").is_file()
         assert (RunPath / "Attempt/Generation.json").is_file()

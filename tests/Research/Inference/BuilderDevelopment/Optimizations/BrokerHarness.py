@@ -9,6 +9,7 @@
 from pathlib import Path as FilePath
 from subprocess import PIPE as PipeStream, Popen as StartProcess
 from time import monotonic as MonoTime, sleep as WaitBriefly
+from types import TracebackType
 from tests.Research.SupervisorClient import KRepoRoot
 from tests.Research.Inference.BuilderDevelopment.Optimizations.ProbeInputs import (
     ProbeArgs,
@@ -27,14 +28,15 @@ class BrokerHarness:
         ModelName: str = "gpt-6.1-terra",
         SourceRoot: FilePath = KRepoRoot,
     ) -> None:
+        super().__init__()
         self.RunPath = TmpPath / RunName
         self.Command, self.EnvValue = ProbeArgs(
             TmpPath, RunName, PacketPath, ModelName, "broker", SourceRoot=SourceRoot
         )
-        self.ChildProc = None
+        self.ChildProc: StartProcess[str] | None = None
 
     # readiness is bounded so an initialization defect cannot hang the integration suite
-    def __enter__(self):
+    def __enter__(self) -> "BrokerHarness":
         self.ChildProc = StartProcess(
             self.Command,
             env=self.EnvValue,
@@ -52,7 +54,12 @@ class BrokerHarness:
         return self
 
     # normal controller exit must close its provider and remove the authenticated ownership record
-    def __exit__(self, *Details):
+    def __exit__(
+        self,
+        ErrorType: type[BaseException] | None,
+        ErrorValue: BaseException | None,
+        ErrorTrace: TracebackType | None,
+    ) -> None:
         if self.ChildProc is not None:
             Output, Errors = self.ChildProc.communicate("stop\n", timeout=10)
             assert self.ChildProc.returncode == 0, Output + Errors

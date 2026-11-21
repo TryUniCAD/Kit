@@ -6,14 +6,25 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from json import dumps as EncodeJson, loads as DecodeJson
+from collections.abc import Callable
+from contextlib import AbstractContextManager as ContextScope
+from json import dumps as EncodeJson
+from typing import cast as TypeCast
 from pathlib import Path as FilePath
 from sys import argv as CliArgs, path as SearchPaths, stdin as InputStream
+
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    ReadConfig,
+    ReadRecord,
+)
+from tests.Research.Inference.BuilderDevelopment.Optimizations.LoadSymbol import (
+    LoadSymbol,
+)
 
 
 # independent workers must cross real file locks and sockets before reusing a generation result
 def MainWorker() -> None:
-    ConfigValue = DecodeJson(FilePath(CliArgs[1]).read_text(encoding="utf-8"))
+    ConfigValue = ReadConfig(FilePath(CliArgs[1]).read_text(encoding="utf-8"))
     RepoRoot = FilePath(__file__).resolve().parents[5]
     SourceRoot = FilePath(ConfigValue["source_root"])
     SearchPaths[:0] = [
@@ -21,22 +32,46 @@ def MainWorker() -> None:
         str(RepoRoot / "re/automation"),
         str(RepoRoot),
     ]
-    from CodexAdvice.AdviceOptions import AdviceOptions
-    from InferenceGrid.BuilderDevelopment.Generation.Cache.RequestCache import (
-        RequestCache,
+    AdviceOptions = TypeCast(
+        Callable[[str, str, str | None, int], object],
+        LoadSymbol("CodexAdvice.AdviceOptions", "AdviceOptions"),
     )
-    from InferenceGrid.BuilderDevelopment.Generation.GenerateCandidate import (
-        GenerateCandidate,
+    RequestCache = TypeCast(
+        Callable[
+            [dict[str, object], str, object, dict[str, object]], ContextScope[object]
+        ],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.Cache.RequestCache",
+            "RequestCache",
+        ),
     )
-    from InferenceGrid.BuilderDevelopment.Generation.GenerationPacket import (
-        GenerationPacket,
+    GenerateCandidate = TypeCast(
+        Callable[
+            [dict[str, object], object, FilePath, dict[str, object]], dict[str, object]
+        ],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.GenerateCandidate",
+            "GenerateCandidate",
+        ),
     )
-    from InferenceGrid.BuilderDevelopment.Generation.ProgramSchema import ProgramSchema
+    GenerationPacket = TypeCast(
+        Callable[[dict[str, object]], tuple[dict[str, object], str]],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.GenerationPacket",
+            "GenerationPacket",
+        ),
+    )
+    ProgramSchema = TypeCast(
+        Callable[[], dict[str, object]],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.ProgramSchema", "ProgramSchema"
+        ),
+    )
 
     RunPath = FilePath(ConfigValue["run_root"])
-    PacketValue = DecodeJson(FilePath(ConfigValue["packet_path"]).read_bytes())
+    PacketValue = ReadRecord(FilePath(ConfigValue["packet_path"]).read_bytes())
     ModelOpts = AdviceOptions("codex", "login", ConfigValue["model"], 3)
-    BudgetValue = {
+    BudgetValue: dict[str, object] = {
         "authorized": True,
         "run_root": str(RunPath),
         "state_path": str(RunPath / "ModelBudget.json"),
@@ -52,6 +87,9 @@ def MainWorker() -> None:
             _ = (RunPath / "OwnerReady.json").write_text("{}", encoding="utf-8")
             _ = InputStream.readline()
         return
+    _ = (RunPath / (ConfigValue["attempt"] + ".Ready.json")).write_text(
+        "{}", encoding="utf-8"
+    )
     ResultValue = GenerateCandidate(
         PacketValue,
         ModelOpts,

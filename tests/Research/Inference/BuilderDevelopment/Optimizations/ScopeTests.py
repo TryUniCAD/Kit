@@ -6,7 +6,6 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from json import loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from pytest import mark as CaseMark
@@ -22,6 +21,11 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.PacketInputs impo
 )
 from tests.Research.Inference.BuilderDevelopment.Optimizations.ProbeInputs import (
     ProbeArgs,
+)
+
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    AsRecord,
+    ReadRecord as DecodeJson,
 )
 
 
@@ -53,14 +57,14 @@ def CheckScope(TmpPath: FilePath, ChangeKind: str) -> None:
         assert Changed.returncode == 0, Changed.stdout + Changed.stderr
         Result = DecodeJson(Changed.stdout)
         assert Result["classification"] == "candidate_generated"
-        assert Result.get("cache", {}).get("hit") is False
+        assert AsRecord(Result.get("cache", {})).get("hit") is False
     Calls = [
         DecodeJson(LineText)
         for LineText in (TmpPath / "ProviderCalls.jsonl").read_text().splitlines()
     ]
     assert (
         sum(
-            CallRow.get("request", {}).get("method") == "turn/start"
+            AsRecord(CallRow.get("request", {})).get("method") == "turn/start"
             for CallRow in Calls
         )
         == 2

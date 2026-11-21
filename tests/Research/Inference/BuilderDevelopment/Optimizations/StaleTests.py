@@ -6,7 +6,6 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from json import loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import PIPE as PipeStream, Popen as StartProcess, run as RunProcess
 from time import monotonic as MonoTime, sleep as WaitBriefly
@@ -15,6 +14,12 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.PacketInputs impo
 )
 from tests.Research.Inference.BuilderDevelopment.Optimizations.ProbeInputs import (
     ProbeArgs,
+)
+
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    AsRecords,
+    ReadRecord as DecodeJson,
+    TextField,
 )
 
 
@@ -37,16 +42,16 @@ def CheckPeerProof(TmpPath: FilePath) -> None:
         )
         assert Worker.returncode == 3, Worker.stdout + Worker.stderr
         ResultValue = DecodeJson(Worker.stdout)
-        assert ResultValue["classification"].startswith("provider_")
+        assert TextField(ResultValue, "classification").startswith("provider_")
         assert ResultValue["status"] != "candidate"
         Output, Errors = PeerProc.communicate(timeout=10)
         assert PeerProc.returncode == 0, Output + Errors
     finally:
         if PeerProc.poll() is None:
             PeerProc.terminate()
-            PeerProc.wait(timeout=5)
+            _ = PeerProc.wait(timeout=5)
     Frames = DecodeJson((TmpPath / "Stale/PeerFrames.json").read_bytes())
     assert Frames["closed_before_request"] is True
     assert Frames["extra_bytes"] == 0
-    assert list(Frames["frames"][0]) == ["hello"]
+    assert list(AsRecords(Frames["frames"])[0]) == ["hello"]
     assert not (TmpPath / "Stale/Attempt/Candidate.json").exists()

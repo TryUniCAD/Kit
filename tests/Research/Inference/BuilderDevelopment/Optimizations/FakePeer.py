@@ -6,20 +6,33 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from json import dumps as EncodeJson, loads as DecodeJson
+from collections.abc import Callable
+from json import dumps as EncodeJson
+from typing import cast as TypeCast
 from os import getpid as ProcessId, urandom as RandomBytes
 from pathlib import Path as FilePath
 from socket import AF_INET as InetFamily, SOCK_STREAM as StreamKind, socket as NewSocket
 from sys import argv as CliArgs, path as SearchPaths
 
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    ReadConfig,
+)
+from tests.Research.Inference.BuilderDevelopment.Optimizations.LoadSymbol import (
+    LoadSymbol,
+)
+
 
 # a live unrelated process reproduces a reused local port without receiving an authorized generation request
 def MainPeer() -> None:
-    ConfigValue = DecodeJson(FilePath(CliArgs[1]).read_bytes())
+    ConfigValue = ReadConfig(FilePath(CliArgs[1]).read_bytes())
     RepoRoot = FilePath(__file__).resolve().parents[5]
     SearchPaths[:0] = [str(RepoRoot / "re/automation"), str(RepoRoot)]
-    from InferenceGrid.BuilderDevelopment.Generation.Broker.OwnerIdentity import (
-        OwnerIdentity,
+    OwnerIdentity = TypeCast(
+        Callable[[int], str | None],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.Broker.OwnerIdentity",
+            "OwnerIdentity",
+        ),
     )
     from tests.Research.Inference.BuilderDevelopment.Optimizations.FakeProof import (
         SendBadProof,
@@ -30,7 +43,7 @@ def MainPeer() -> None:
         Listener.bind(("127.0.0.1", 0))
         Listener.listen(1)
         Listener.settimeout(10)
-        Record = {
+        Record: dict[str, object] = {
             "schema_version": 1,
             "pid": ProcessId(),
             "pid_start": OwnerIdentity(ProcessId()),

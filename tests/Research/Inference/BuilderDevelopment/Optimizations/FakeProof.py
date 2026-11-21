@@ -6,20 +6,38 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from collections.abc import Callable
 from os import urandom as RandomBytes
+from socket import socket as SocketType
+from typing import cast as TypeCast
 from time import monotonic as MonoTime
+
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    AsRecord,
+)
+from tests.Research.Inference.BuilderDevelopment.Optimizations.LoadSymbol import (
+    LoadSymbol,
+)
 
 
 # an unrelated endpoint cannot learn the generation prompt before proving possession of the broker secret
-def SendBadProof(Listener) -> dict:
-    from InferenceGrid.BuilderDevelopment.Generation.Broker.BrokerWire import (
-        ReadFrame,
-        SendFrame,
+def SendBadProof(Listener: SocketType) -> dict[str, object]:
+    ReadFrame = TypeCast(
+        Callable[[SocketType, int, float], object],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.Broker.BrokerWire", "ReadFrame"
+        ),
+    )
+    SendFrame = TypeCast(
+        Callable[[SocketType, object, int, float], None],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.Broker.BrokerWire", "SendFrame"
+        ),
     )
 
     Connection, Address = Listener.accept()
     with Connection:
-        FirstFrame = ReadFrame(Connection, 256 * 1024, MonoTime() + 5)
+        FirstFrame = AsRecord(ReadFrame(Connection, 256 * 1024, MonoTime() + 5))
         SendFrame(
             Connection,
             {"nonce": RandomBytes(32).hex(), "proof": "0" * 64},

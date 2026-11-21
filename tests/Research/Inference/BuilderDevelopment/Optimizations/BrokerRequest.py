@@ -6,18 +6,33 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from json import dumps as EncodeJson, loads as DecodeJson
+from collections.abc import Callable
+from json import dumps as EncodeJson
+from typing import cast as TypeCast
 from pathlib import Path as FilePath
 from sys import argv as CliArgs, path as SearchPaths
 from time import monotonic as MonoTime
 
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    ReadConfig,
+    ReadRecord,
+)
+from tests.Research.Inference.BuilderDevelopment.Optimizations.LoadSymbol import (
+    LoadSymbol,
+)
+
 
 # independent peers exercise rejection before any provider request can be authorized
 def MainRequest() -> None:
-    ConfigValue = DecodeJson(FilePath(CliArgs[1]).read_bytes())
+    ConfigValue = ReadConfig(FilePath(CliArgs[1]).read_bytes())
     RepoRoot = FilePath(__file__).resolve().parents[5]
     SearchPaths[:0] = [str(RepoRoot / "re/automation"), str(RepoRoot)]
-    from InferenceGrid.BuilderDevelopment.Generation.ProgramSchema import ProgramSchema
+    ProgramSchema = TypeCast(
+        Callable[[], dict[str, object]],
+        LoadSymbol(
+            "InferenceGrid.BuilderDevelopment.Generation.ProgramSchema", "ProgramSchema"
+        ),
+    )
     from tests.Research.Inference.BuilderDevelopment.Optimizations.RejectedRecord import (
         RejectRecord,
     )
@@ -30,7 +45,7 @@ def MainRequest() -> None:
 
     RunPath = FilePath(ConfigValue["run_root"])
     ModeName = ConfigValue["action"]
-    Record = DecodeJson((RunPath / "ProviderBroker.json").read_bytes())
+    Record = ReadRecord((RunPath / "ProviderBroker.json").read_bytes())
     StartedAt = MonoTime()
     if ModeName in {"remote", "owner", "recordshape", "instructions"}:
         RejectRecord(RunPath, Record, ConfigValue["model"], ModeName)
@@ -38,7 +53,7 @@ def MainRequest() -> None:
     SchemaValue = ProgramSchema()
     if ModeName == "schema":
         SchemaValue["title"] = "fixture wrong schema"
-    RequestValue = {
+    RequestValue: dict[str, object] = {
         "provider": "codex",
         "auth": "login",
         "model": ConfigValue["model"],

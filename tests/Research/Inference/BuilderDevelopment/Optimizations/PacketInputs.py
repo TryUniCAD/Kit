@@ -12,7 +12,7 @@ from pathlib import Path as FilePath
 
 # explicit fixture metadata keeps transport evidence separate from installed native application acceptance
 def WritePacket(TmpPath: FilePath, PacketName: str = "Packet") -> FilePath:
-    PacketValue = {
+    PacketValue: dict[str, object] = {
         "feature": "family:planes:offset-plane",
         "recipe": {
             "id": "plane-offset",

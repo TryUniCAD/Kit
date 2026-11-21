@@ -6,10 +6,15 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from json import loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import PIPE as PipeStream, Popen as StartProcess
 from time import monotonic as MonoTime, sleep as WaitBriefly
+from tests.Research.Inference.BuilderDevelopment.Optimizations.BaselineRun import (
+    TimedBaseline,
+)
+from tests.Research.Inference.BuilderDevelopment.Optimizations.BlockedProof import (
+    ProveBlocked,
+)
 from tests.Research.Inference.BuilderDevelopment.Optimizations.BrokerHarness import (
     BrokerHarness,
 )
@@ -18,6 +23,10 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.PacketInputs impo
 )
 from tests.Research.Inference.BuilderDevelopment.Optimizations.ProbeInputs import (
     ProbeArgs,
+)
+
+from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary import (
+    ReadRecord as DecodeJson,
 )
 
 
@@ -40,6 +49,7 @@ def CheckOwnerExit(TmpPath: FilePath) -> None:
             assert MonoTime() < Deadline
             WaitBriefly(0.01)
         with BrokerHarness(TmpPath, "Waiting", PacketPath):
+            NormalSeconds = TimedBaseline(TmpPath)
             Command, EnvValue = ProbeArgs(TmpPath, "Waiting", PacketPath)
             Worker = StartProcess(
                 Command,
@@ -48,13 +58,12 @@ def CheckOwnerExit(TmpPath: FilePath) -> None:
                 stderr=PipeStream,
                 text=True,
             )
-            WaitBriefly(0.15)
-            assert Worker.poll() is None
+            ProveBlocked(Worker, TmpPath, NormalSeconds)
             Owner.terminate()
-            Owner.wait(timeout=5)
+            _ = Owner.wait(timeout=5)
             Output, Errors = Worker.communicate(timeout=30)
             assert Worker.returncode == 0, Output + Errors
             assert DecodeJson(Output)["classification"] == "candidate_generated"
     finally:
         if Owner.poll() is None:
-            Owner.communicate("release\n", timeout=5)
+            _ = Owner.communicate("release\n", timeout=5)
