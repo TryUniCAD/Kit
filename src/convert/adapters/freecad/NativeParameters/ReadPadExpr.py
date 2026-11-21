@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from convert.adapters.freecad.Native import NativeObject
+from convert.adapters.freecad.ArchiveNodes.NativeObject import NativeObject
 
 
 # the dependency starts with the real pad profile and the unique saved length formula

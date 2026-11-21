@@ -24,6 +24,7 @@ LENGTH = "freecad:parameter:Pad:Length"
 WIDTH = "freecad:parameter:Sketch:constraint:9"
 EXPR = "Sketch.Constraints.width / 2"
 INPUTS = (
+    "src/convert/adapters/freecad/ArchiveNodes/NativeObject.py",
     "src/convert/adapters/freecad/Native.py",
     "src/convert/adapters/freecad/NativeParameters/BindPadExprMut.py",
     "src/convert/adapters/freecad/NativeParameters/IndexSketchDims.py",

@@ -1,17 +1,14 @@
 from __future__ import annotations
 
 from collections.abc import Sequence
-from typing import TYPE_CHECKING
 
+from convert.adapters.freecad.ArchiveNodes.NativeObject import NativeObject
 from convert.adapters.freecad.NativeParameters.IndexSketchDims import IndexSketchDims
 from convert.adapters.freecad.NativeParameters.LinkPadLength import LinkPadLength
 from convert.adapters.freecad.NativeParameters.ReadPadExpr import ReadPadExpr
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Records.RecordParameter import Parameter
 from interchange.geometry.Models.Sketch import Sketch
-
-if TYPE_CHECKING:
-    from convert.adapters.freecad.Native import NativeObject
 
 
 # native reads and exact replay must observe the same owned parameter links before digesting the graph

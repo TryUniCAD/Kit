@@ -95,6 +95,9 @@ from convert.adapters.freecad.Archive import (
     validated_object_name as ValidatedObjectName,
 )
 from convert.adapters.freecad.Format import FORMAT_ID as FormatId, SUFFIX as Suffix
+from convert.adapters.freecad.ArchiveNodes.NativeObject import (
+    NativeObject as NativeObject,
+)
 from convert.adapters.freecad.Protocol import (
     ASSEMBLY_JOINT_GROUP_TYPE_ID as AsmJointGroupTypeId,
     ASSEMBLY_OBJECT_TYPE_PREFIX as AsmObjectTypePrefix,
@@ -150,20 +153,6 @@ KSubtractiveCapableKinds = frozenset({FeatureKind.EXTRUSION, FeatureKind.REVOLUT
 # this definition exists because focused behavior needs one stable owner
 class NativeFreeCad(ValueError):
     KSlots = ()
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(slots=True)
-class NativeObject:
-    name: str
-    type_id: str
-    index: int
-    object_id: str
-    touched: bool
-    dependencies: tuple[str, ...]
-    extensions: tuple[XmlTree.Element, ...]
-    transient_properties: tuple[XmlTree.Element, ...]
-    properties: dict[str, XmlTree.Element]
 
 
 # this definition exists because focused behavior needs one stable owner
