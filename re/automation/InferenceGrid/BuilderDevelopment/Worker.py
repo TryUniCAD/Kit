@@ -23,6 +23,7 @@ from InferenceGrid.BuilderDevelopment.Generation.GenerateCandidate import (
 )
 from InferenceGrid.BuilderDevelopment.Generation.ProgramSchema import ValidateProgram
 from InferenceGrid.BuilderDevelopment.NativePlane.RunPlaneCases import RunPlaneCases
+from InferenceGrid.BuilderDevelopment.Queue import UnwrapInput
 from InferenceInputs import read_json_input
 from InferenceSession import read_session
 from Records import digest, read_record
@@ -245,7 +246,8 @@ def MainWorker():
     Session, Directory = Args.session.resolve(), Args.directory.resolve()
     Packet, Execution = read_session(Session)
     Inputs = {
-        Key: read_json_input(Session, Value) for Key, Value in Packet["inputs"].items()
+        Key: UnwrapInput(read_json_input(Session, Value))
+        for Key, Value in Packet["inputs"].items()
     }
     Job = Inputs["job"]
     from InferenceGrid.BuilderDevelopment.Verification.FreezeExpectations import (

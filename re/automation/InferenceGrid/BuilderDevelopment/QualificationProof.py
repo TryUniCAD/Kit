@@ -10,6 +10,7 @@ from InferenceGrid.BuilderDevelopment.Verification.QualificationCases import (
     CheckReservation,
 )
 from Records import digest, read_record
+from InferenceGrid.BuilderDevelopment.Queue import UnwrapInput
 
 
 # accepted controller receipts preserve the exact stage inputs and dependency ancestry
@@ -22,7 +23,7 @@ def ReceiptInputs(Store, Stage):
     Inputs = {}
     for Role, Pin in Snapshot["inputs"].items():
         Store.verify_object(Pin["sha256"])
-        Inputs[Role] = read_record(Store.objects.path(Pin["sha256"]))
+        Inputs[Role] = UnwrapInput(read_record(Store.objects.path(Pin["sha256"])))
     return Definition, Snapshot, Inputs
 
 

@@ -61,7 +61,9 @@ def SubmitStage(Directory, Job, Stage, Inputs, Dependencies=None, Resource=None)
     with Ledger(Directory / "Store") as State:
         Bindings = {}
         for Role, Value in Inputs.items():
-            Pin = State.objects.put_record(Value)
+            Pin = State.objects.put_record(
+                Value if isinstance(Value, dict) else {"builder_value": Value}
+            )
             Binding = "builder-input:" + Pin
             BindGrid(State, Binding, Pin)
             Bindings[Role] = Binding
@@ -85,6 +87,11 @@ def SubmitStage(Directory, Job, Stage, Inputs, Dependencies=None, Resource=None)
             Definition["depends_on"] = Parents
         State.submit_many([Definition])
     return Identity
+
+
+# the existing metadata transport requires an object even for typed arrays and scalar stage inputs
+def UnwrapInput(Value):
+    return Value["builder_value"] if set(Value) == {"builder_value"} else Value
 
 
 # immutable receipts are the authority for resumed work and never a worker's success string alone
