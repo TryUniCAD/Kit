@@ -82,6 +82,9 @@ admission. The expected one-line change replaces
 `PlanValue.SideMode not in ("one_sided", "two_sided")`. Run that packet
 in another fresh scratch directory.
 
-Host probes cover the unchanged gate and disclosed reader method.
-The sealed replay and actual Windows path/stream/direct receipts are
-pending the oracle owner's execution of the frozen packets.
+The first Windows lane verified both independent Two Directions pairs
+and the ten native process identities that bracket those comparisons.
+It read the four exact saved inputs per pair and regenerated both
+measured outputs in guarded model-only workers. Eight refusal
+contrasts passed. The public gate still requires its own parity proof.
+[Staged Windows parity](../measurements/2026/SdkTwoDirectionRevolveStagedParity01.json)

@@ -37,3 +37,10 @@ linked streams replay exactly and the fresh model-only workers make zero
 external access attempts.
 
 [Generated disclosure receipt](../measurements/2026/SdkSquareRevolveGeneration01.json)
+
+The frozen SP05.2 comparison opens both disclosed generated squares
+with zero errors or warnings. It compares the actual five relations and
+their ordered operands, 175 recursive feature rows and 42 measured
+quantities across seven original and edited states. Both controls pass
+across ten distinct processes. Each edit survives save and fresh reopen.
+[Native disclosure](../measurements/2026/SdkSquareRevolveDisclosedNative01.json)
