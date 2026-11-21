@@ -28,6 +28,9 @@ from convert.adapters.solidworks.Core.Preparation.Patterns.CheckPatResult import
 from convert.adapters.solidworks.Core.Preparation.Patterns.CheckPatScope import (
     CheckPatScope,
 )
+from convert.adapters.solidworks.Core.Preparation.Patterns.MakePatDefault import (
+    MakePatDefault,
+)
 from convert.adapters.solidworks.Core.Preparation.Patterns.ReadPatAngle import (
     ReadPatAngle,
 )
@@ -55,7 +58,7 @@ from interchange.Features.FeatureBoundPlane import BoundDatum
 def PlanLinPattern(
     DocumentValue: CadDocument,
     TargetValue: SelfFileInput,
-    PresentValue: PatPresentInput,
+    PresentValue: PatPresentInput | None = None,
 ) -> LinPatternInput:
     ConfigValue = CheckPatScope(DocumentValue)
     NameValue = ReadPatTarget(DocumentValue, TargetValue)
@@ -86,6 +89,8 @@ def PlanLinPattern(
     )
     CheckPatResult(DocumentValue.bodies[0], PatternStep, CountValue)
     CountId, PitchId = PatternStep.parameter_ids
+    if PresentValue is None:
+        PresentValue = MakePatDefault(SeedValue, ParamId, CountId, PitchId)
     AngleInput = ReadPatPresent(
         PresentValue, AngleStep.name, RadiansValue, ParamId, CountId, PitchId
     )

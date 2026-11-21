@@ -40,6 +40,29 @@ uv run --no-project --offline --python 3.14 --with pefile --with capstone python
   --output "$pattern_proof/Receipt.json"
 ```
 
+## Canonical default presentation
+
+Omitting the typed presentation, or supplying `None`, derives the scoped default after the planner has validated the source geometry and bound the live angle, count and pitch owners. The ordered annotation catalog contains Top and Back in their canonical orientations. The active and shown choices use the reserved unassigned state. The angle uses its actual D1 with Back, design intent, leader zero and zero text shift. Pattern D1 uses the seed centre in XY with zero Z and Back. Dormant D2 uses the seed minimum, and the other display points use the origin. A supplied typed presentation continues through its original validation.
+
+The [disclosed default proof](../../tooling/sw2026/ProveDefaultPatternPlan.py) checks this rule on two independent portable inputs with different geometry and labels. The second input renames all three presentation parameter IDs before normal typed decoding. Each guarded worker matches the complete default recipe to separate authored expectations and to an explicit equivalent. It also compares all ten generated streams and the complete part bytes through the existing research renderer, then reads nine typed streams back in their linked context. Both route comparisons used zero runtime reads. The earlier explicit recipe and refusal observations match in all six positive and sixteen negative replays.
+
+The [disclosed receipt](../measurements/2026/SharedLinearPatternDefaults01.json) is SHA-256 `ef52c12bc4a22a0de666b043ad586871a0bdfa03e877ac62e591b40dfbaa2df7`. Its alternate explicit Top basis changes only `Contents/Config-0`, even though its axes compare equal numerically. [Signed zero gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Patterns/TopAnnotationKeepsPositiveZero.md)
+
+| Disclosed default presentation | Bytes | Complete part SHA-256 |
+| --- | ---: | --- |
+| ColdRaisedPatternA | 10,460 | `0010ceadf1bca13c4de487ed30cfc7822bc19d193ad6f26733a2de48873dbc9f` |
+| ColdRaisedPatternB | 10,448 | `4f9969f02674f396045489e54977e79582c8d38f9420b1fd34b0b73c5be545b2` |
+
+The [earlier locked comparison](LocalLinearPatternHeldoutEvaluation2026.md) provides the authored default rule. The disclosed proof does not access the original locked sources or remeasure the default after integrating the shared emitter. Locked private native parity remains a separate oracle check.
+
+```sh
+pattern_proof="$(mktemp -d)"
+uv run --no-project --offline --python 3.14 --with pefile --with capstone python -I -B \
+  re/tooling/sw2026/ProveDefaultPatternPlan.py \
+  --disclosed /absolute/path/to/GeneratedLocalPatternNative02 \
+  --output "$pattern_proof/Receipt.json"
+```
+
 ## Reproduce
 
 The command below belongs to the original frozen research codec revision named above.

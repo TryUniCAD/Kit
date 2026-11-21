@@ -13,6 +13,9 @@ from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.PatDriveS
 from convert.adapters.solidworks.Archive.Construction.Patterns.Input.PatAngleStyle import (
     PatAngleStyle,
 )
+from convert.adapters.solidworks.Archive.Construction.Patterns.Input.PatAnnoBases import (
+    KPatAnnoBack,
+)
 from convert.adapters.solidworks.Archive.Construction.Patterns.Input.PatPresentInput import (
     PatPresentInput,
 )
@@ -74,8 +77,7 @@ def ReadPatPresent(
     }
     if (
         len(Views) != len(InputValue.AnnoValues)
-        or Views.get(Label.AnnotationName)
-        != ((-1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, -1.0))
+        or Views.get(Label.AnnotationName) != KPatAnnoBack
         or any(
             NameValue is not None
             and (type(NameValue) is not str or NameValue not in Views)

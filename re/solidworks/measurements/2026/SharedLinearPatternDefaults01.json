@@ -1,0 +1,248 @@
+{
+  "base_revision": "0fac2dce58f56ecf3d8625115a1fcd5645a3c5f3",
+  "cases": {
+    "ColdRaisedPatternA": {
+      "annotation_order": [
+        "*Top",
+        "*Back"
+      ],
+      "complete_bytes": 10460,
+      "complete_file_sha256": "0010ceadf1bca13c4de487ed30cfc7822bc19d193ad6f26733a2de48873dbc9f",
+      "driver_order": [
+        "D1",
+        "D3",
+        "D2",
+        "D4",
+        "D5",
+        "D6"
+      ],
+      "exact_typed_stream_replays": 9,
+      "guarded_runtime_reads": 0,
+      "input_sha256": "b22532621b428173bc2707022b452f2728eb16e991ed64c50cce4fd55d9903c6",
+      "label_points_m": {
+        "D1": [
+          0.052000000000000005,
+          0.048,
+          0.0
+        ],
+        "D2": [
+          0.047,
+          0.042,
+          0.0
+        ],
+        "D3": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "D4": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "D5": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "D6": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parameter_ids": [
+        "parameter/angle",
+        "parameter/count",
+        "parameter/pitch"
+      ],
+      "principal_top_signed_zero_contrast": {
+        "changed_streams": [
+          "Contents/Config-0"
+        ],
+        "complete_file_sha256": "350977e2ffe5a6f09c2a9b8daa2fd2ab379e587a1cd28bb8c875b434fd6b6ac5"
+      },
+      "recipe_sha256": "922dc5befdb22e5ea0cabbeb3b2c7b07485f6abd5dcc4ab4279b49f057a69d06",
+      "refused": {
+        "explicit_crossed_driver": "actual active parameter owners",
+        "unrepresented_presentation_metadata": "ordinary neutral part name"
+      },
+      "source_recipe_path_case": "ColdRaisedPatternA",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+        },
+        "Contents/Config-0": {
+          "bytes": 23086,
+          "sha256": "e8449dbb0786c0c2d9c2d61e0a968bdbfcb21c3fdca5f2b169ffe9e6984d63dc"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1465,
+          "sha256": "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 28290,
+          "sha256": "5e26f18ad63fa5d77aec3043773dcef49153e0dd483722d7a0486225273c516b"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 1465,
+          "sha256": "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1939,
+          "sha256": "7d34679f4851719275d4ba5598b4c21dd028c8fd07cd30311b78fca90c6fa7ed"
+        }
+      }
+    },
+    "ColdRaisedPatternB": {
+      "annotation_order": [
+        "*Top",
+        "*Back"
+      ],
+      "complete_bytes": 10448,
+      "complete_file_sha256": "4f9969f02674f396045489e54977e79582c8d38f9420b1fd34b0b73c5be545b2",
+      "driver_order": [
+        "D1",
+        "D3",
+        "D2",
+        "D4",
+        "D5",
+        "D6"
+      ],
+      "exact_typed_stream_replays": 9,
+      "guarded_runtime_reads": 0,
+      "input_sha256": "630b236517ae2f7d01be72413307f74cac472eb11a0e7a6367de1c3ab93a437f",
+      "label_points_m": {
+        "D1": [
+          0.0655,
+          0.038,
+          0.0
+        ],
+        "D2": [
+          0.058,
+          0.031,
+          0.0
+        ],
+        "D3": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "D4": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "D5": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "D6": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parameter_ids": [
+        "angle/rotating-control",
+        "repetition/quantity-control",
+        "layout/pitch-control"
+      ],
+      "principal_top_signed_zero_contrast": {
+        "changed_streams": [
+          "Contents/Config-0"
+        ],
+        "complete_file_sha256": "4f0189428783b62ded0135f9ab556ad574b1ec69de4337e6b344c80e09ef4fb7"
+      },
+      "recipe_sha256": "06d8aeb3d837c18055be057de365ca4c21ad2b9c21a674af8daf41848e471f8b",
+      "refused": {
+        "explicit_crossed_driver": "actual active parameter owners",
+        "unrepresented_presentation_metadata": "ordinary neutral part name"
+      },
+      "source_recipe_path_case": "ColdRaisedPatternB",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1131,
+          "sha256": "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 141,
+          "sha256": "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+        },
+        "Contents/Config-0": {
+          "bytes": 23086,
+          "sha256": "6b80ade0d11fba6b7e35416e994e5418dc92e5f1acf5332398847bb9606756bd"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1471,
+          "sha256": "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 28298,
+          "sha256": "d4fdd3dc1f24c30ccdab1e8efc8e8d68696b15e5f054f26ca189c24402db4449"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 1471,
+          "sha256": "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1961,
+          "sha256": "e3ed195b37d9d3b06423a955b02b6658b33afdbdfd598ccdc3b31482bc14d685"
+        }
+      }
+    }
+  },
+  "disclosed_fixture_authority": {
+    "NativeResult/Result.json": "ae4f5853e4066a0d3f00cf4cbdaac12797b18c55c268ada6431d7e062bd5d23b",
+    "Packet/Build.json": "b04e279af46524b69a3198c50e2ba06a89702327be1885eb5e2283d82f2d84a3",
+    "Packet/Packet.json": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1"
+  },
+  "guarded_worker_processes": 2,
+  "native_processes_started": 0,
+  "new_native_acceptance": 0,
+  "previous_authority": {
+    "re/solidworks/measurements/2026/LocalLinearPatternDatumHeldoutNative01.json": "abaa363a2722c95166fe33cc668baf4555582b172e663ca67b42b775c9bacfb2",
+    "re/solidworks/measurements/2026/SharedLinearPatternPlan01.json": "edb8f7b9905eb8edd42195a4fc5741b2cf52a2588d3b423b0de1bf57ccdd64d3",
+    "re/tooling/sw2026/linear_pattern/evaluation/PlanPatternEvaluation.py": "aa51276846a0a1c2f220388a70343f08757eeb438bbe037df8fe851708d014fd"
+  },
+  "proof_sha256": "6991abbe60a3f944100482c97e11289e8434c5b80653053f8f24ce6be7892752",
+  "protected_inputs_read": 0,
+  "public_writer_registered": false,
+  "schema": "kit.sw2026.default-oblique-pattern-presentation.v1",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Input/PatAnnoBases.py": "2b1fef16b2a28ef46b555d2065ab21a6e8bcfcb18c7f983565426bb4ef23122d",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/MakePatDefault.py": "a3848f94a7bb2bc4ac9e39f59fe972989e7fdf2023dfc467517e25198a999c8b",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/PlanLinPattern.py": "6160708c2cd619f344a70a6f4f4a7a370a088f210c1ffdf927fd5e086df48b43",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/ReadPatPresent.py": "3d44ac0e850069a662af29b7d732ea1903791520a57f7ce2eedc97354a0898ac"
+  }
+}
