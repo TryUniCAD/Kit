@@ -64,7 +64,7 @@ class ChamferAuthor(FilletAuthor):
                 "could not roll back the native chamfer selection")
         try:
             fields = {key: self.get(definition, key) for key in ("Type", "TangentPropagation", "KeepFeatures",
-                      "PropagateFeatureToParts", "GetIsFlipped", "GetEdgeCount", "GetFaceCount", "LoopCount",
+                      "PropagateFeatureToParts", "GetEdgeCount", "GetFaceCount", "LoopCount",
                       "EdgeChamferAngle")}
             fields["distance_by_side_m"] = [float(self.get(definition, "GetEdgeChamferDistance", side)) for side in (0, 1)]
             edges = tuple(self.get(definition, "Edges") or ())
@@ -74,14 +74,18 @@ class ChamferAuthor(FilletAuthor):
             self.rec.data["last_native_definition"] = fields
             self.rec.flush()
             require(fields["Type"] == self.constants["swChamferAngleDistance"]
-                    and not any(fields[key] for key in ("TangentPropagation", "KeepFeatures", "PropagateFeatureToParts",
-                                                        "GetIsFlipped")), "unexpected ordinary angle-distance modes")
+                    and not any(fields[key] for key in ("TangentPropagation", "KeepFeatures", "PropagateFeatureToParts")),
+                    "unexpected ordinary angle-distance modes")
             require(not any(fields["alternate_inputs"].values()) and fields["GetFaceCount"] in (-1, 0)
                     and fields["LoopCount"] in (-1, 0), "chamfer unexpectedly owns alternate inputs")
             require(fields["GetEdgeCount"] == len(edges) == 1 and edges[0] is not None,
                     "chamfer source selection is not one actual edge")
             edge, proof = self.find_edge(endpoints, boss)
-            require(self.same(self.typed(edges[0], "Edge"), edge), "rollback chamfer owns a different stock edge")
+            selected = self.typed(edges[0], "Edge")
+            require(self.same(selected, edge), "rollback chamfer owns a different stock edge")
+            fields["GetIsFlipped"] = self.get(definition, "GetIsFlipped", self.typed(selected, "Entity"))
+            self.rec.flush()
+            require(fields["GetIsFlipped"] is False, "actual selected chamfer edge differs from the requested flip state")
             self.rec.close_number("stored chamfer leading distance", fields["distance_by_side_m"][0], params[0])
             self.rec.close_number("stored chamfer angle", fields["EdgeChamferAngle"], params[1])
         finally:

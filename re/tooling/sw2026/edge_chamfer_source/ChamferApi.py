@@ -5,7 +5,7 @@ INTERFACES = {
     "IFeatureManager": {"FeatureExtrusion3": 23, "InsertFeatureChamfer": 8},
     "IChamferFeatureData2": {"Type": 0, "TangentPropagation": 0, "KeepFeatures": 0,
                             "PropagateFeatureToParts": 0, "Edges": 0, "Faces": 0, "Loops": 0, "Vertex": 0,
-                            "GetEdgeCount": 0, "GetFaceCount": 0, "LoopCount": 0, "GetIsFlipped": 0,
+                            "GetEdgeCount": 0, "GetFaceCount": 0, "LoopCount": 0, "GetIsFlipped": 1,
                             "EdgeChamferAngle": 0, "GetEdgeChamferDistance": 1,
                             "AccessSelections": 2, "ReleaseSelectionAccess": 0},
     "ISelectionMgr": {"GetSelectedObject6": 2, "GetSelectedObjectCount2": 1, "GetSelectedObjectType3": 2,
@@ -58,6 +58,11 @@ def installed_api(sw):
             if name == "IFeatureManager" and names[0] == "InsertFeatureChamfer":
                 require(tuple(arg[0] for arg in member.args) == (3, 3, 5, 5, 5, 5, 5, 5),
                         "registered InsertFeatureChamfer argument types differ from two I4 and six R8")
+            if name == "IChamferFeatureData2" and names[0] == "GetIsFlipped":
+                require(member.memid == 26 and member.invkind == sw.pythoncom.INVOKE_FUNC
+                        and list(names) == ["GetIsFlipped", "Entity"] and member.args == ((9, 1, None),)
+                        and member.rettype == (11, 0, None),
+                        "registered GetIsFlipped requires the actual entity and a Boolean result")
             observed[names[0]] = {"id": member.memid, "invoke_kind": member.invkind, "names": list(names),
                                   "arguments": repr(member.args), "result": repr(member.rettype)}
         require(observed.keys() == INTERFACES[name].keys(), f"unbound {name} members: {INTERFACES[name].keys() - observed.keys()}")

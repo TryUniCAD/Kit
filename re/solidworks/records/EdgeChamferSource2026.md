@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 single-edge angle-distance chamfer source protocol
 
-**Status: disclosed method and independent predictions prepared. Native acquisition is pending.**
+**Status: disclosed packet 01 stopped at registered API preflight between its controls. Zero sources were authored. Packet 02 corrects the measured method contract.**
 
 This is the source-authoring slice of [B04-SW2026](../../../Documentation/Maintenance/ConversionBacklog.md#b04-sw2026-solidworks-2026-native-reading-and-writing) in [PR #121](https://github.com/TryUniCAD/Kit/pull/121). The oracle owner runs the method on SOLIDWORKS 2026 SP05.2 `34.5.2.0604`. The starting aggregate `745929bcc29cb861571d4a232f7f18847d420f17` has an unqualified chamfer authoring call. Its fillet disclosures and independent fillet pre-writer lock concern a different feature class. [Previous author hook](../../tooling/sw2026/Author.py) · [Fillet archive evidence](EdgeFilletArchive2026.md)
 
@@ -18,6 +18,12 @@ The independent analytic model clips a right triangular prism from the selected 
 The API documents the insertion distance, angle and flip option. Its contract does not assign the default edge-only reference to one of the two physical adjacent faces. The packet freezes the two possible transverse placements of the `(distance, distance*tan(angle))` or `(distance, distance/tan(angle))` pair. The unique match is determined from the four actual chamfer-face vertices and must hold across all four snapshots of each case. Each matching hypothesis still has to pass the independent volume, per-face area, total area, centroid, every vertex and exact extrema checks. The chosen side and angle convention remain observations of this specific scope. [Frozen input](../../tooling/sw2026/edge_chamfer_source/DisclosedChamferInputs.json) · [Independent geometry](../../tooling/sw2026/edge_chamfer_source/ChamferModel.py)
 
 Both driver names and values come from the live feature. The observer reads both `GetDimension2` indices if the display type is `swChamferDimension=10`. It identifies two distinct writable model handles by actual value and owner, and uses `IDimension.SetSystemValue3` on the intended handle in the single active configuration. Each saved-open name must contain the actual file's document segment. The full tree, actual parents and driver roles must persist through both saves. [Chamfer display type](https://help.solidworks.com/2026/English/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swDimensionType_e.html) · [Model drivers for a compound display dimension](https://help.solidworks.com/2019/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.idisplaydimension~getdimension2.html) · [Save As names](../../../Documentation/Gotchas/Conversion/Solidworks/Rebuild/DimensionFullNameChangesOnSaveAs.md)
+
+## Registered API correction
+
+Disclosed packet 01 (`bc9be3a2372608bb24d0507a3332151de60b112ac130f4fc71afb0ffe10307b0`, source `e147f639a647a9f5ab1b692bb33ed2af0377fc84`) stopped before any source process. Its native `Capture/BatchFailure.json` recorded `registered IChamferFeatureData2.GetIsFlipped arity differs: 1`. The packet, terminal lock and both control records remain in their original locations.
+
+The exact registered 34.0 metadata receipt (`7304ee7613995fa3bc264ef7f517a46d9a18114861f66159fa2d3c033fc530b3`) records `IChamferFeatureData2.GetIsFlipped(Entity)` as method 26 with one required `IDispatch` input and a `BOOL` result. The paired setter takes the entity and a Boolean. The observer queries the actual selected edge only after independently finding it on the rollback stock and proving that it is identical to the edge owned by the definition. It retains the explicit ordinary false flip state check. The fresh disclosed packet keeps the inputs, geometric predictions, control and all eight native lifecycle phases.
 
 ## Reproduce the disclosed run
 
