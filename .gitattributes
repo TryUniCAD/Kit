@@ -14,6 +14,7 @@
 
 re/solidworks/v2026/heldout/EndConditionSourceLock.json binary
 re/solidworks/measurements/2026/RevolveEndHeldoutSourceLock01.json binary
+re/solidworks/measurements/2026/RevolveEqualLengthSourceLock01.json binary
 
 /re export-ignore
 

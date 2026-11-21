@@ -1,0 +1,140 @@
+{
+  "disclosed_lock_sha256": "d693e56fe4bd12b8c2c263f8f78d1dc10a17a14499d3268105637875d6a2edfc",
+  "oracle_source_revision": "d33d2839cae07d7796d8530ec3f5a261d8c0be40",
+  "rows": {
+    "SquareEndMidA": {
+      "binary_equal_owners": [
+        2,
+        1
+      ],
+      "end_mode": 6,
+      "equal_lengths_verified": true,
+      "line_reference_counts": [
+        2,
+        2
+      ],
+      "references": {
+        "ext1": false,
+        "ext2": false,
+        "ext3": false,
+        "f108": false,
+        "h1": true,
+        "h2": true
+      },
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "eee9b2325e20cc302f43b6ae72c52215ea05dce6f503fb2b3aeffd318dfdcc7c",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25478,
+          "map_counter": 109,
+          "sha256": "b08c8686bd4ac5bcc8d260fb9675d63059b9dad847959655592b71188ab5ba3a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12648,
+          "map_counter": 279,
+          "sha256": "8e2e485b50b7cfd58879db22eb533f043487599b14d87f8112056b20d2ca3904"
+        }
+      },
+      "unary_count": 4,
+      "words": {
+        "ext1": null,
+        "ext2": null,
+        "ext3": null,
+        "f100": 0,
+        "f108": null,
+        "f110": -1,
+        "f114": -1,
+        "f118": 0.0,
+        "f120": 0.0,
+        "f150": 0,
+        "f154": -1,
+        "f28": null,
+        "f30": 0,
+        "f48": null,
+        "f50": -1,
+        "f54": 0,
+        "f5c": 0,
+        "f60": null,
+        "f68": 0,
+        "f80": 14,
+        "f90": 2,
+        "f94": 0,
+        "f98": 0,
+        "fa0": 65534,
+        "fa4": 0,
+        "ff8": 0,
+        "ffc": 0,
+        "has_f78": 0,
+        "refcount": 0
+      }
+    },
+    "SquareEndTwoB": {
+      "binary_equal_owners": [
+        2,
+        1
+      ],
+      "end_mode": 0,
+      "equal_lengths_verified": true,
+      "line_reference_counts": [
+        2,
+        2
+      ],
+      "references": {
+        "ext1": false,
+        "ext2": false,
+        "ext3": false,
+        "f108": false,
+        "h1": true,
+        "h2": true
+      },
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "07f54e3b513b2c3ab08a1683b1cde31d2be7792dbeadb96e300cde3046f1afd5",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25482,
+          "map_counter": 109,
+          "sha256": "b696d30aa7fc6e7104c5ce4038f1b8f2d78744252d53c79889fcc8c09a800e1a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14376,
+          "map_counter": 285,
+          "sha256": "e601d842a34ab5c8887e7fcf3138ebb523bab25326b18c782fbf2c267b82892a"
+        }
+      },
+      "unary_count": 4,
+      "words": {
+        "ext1": null,
+        "ext2": null,
+        "ext3": null,
+        "f100": 0,
+        "f108": null,
+        "f110": -1,
+        "f114": -1,
+        "f118": 0.0,
+        "f120": 0.0,
+        "f150": 0,
+        "f154": -1,
+        "f28": null,
+        "f30": 0,
+        "f48": null,
+        "f50": -1,
+        "f54": 0,
+        "f5c": 0,
+        "f60": null,
+        "f68": 0,
+        "f80": 14,
+        "f90": 2,
+        "f94": 0,
+        "f98": 0,
+        "fa0": 65534,
+        "fa4": 0,
+        "ff8": 0,
+        "ffc": 0,
+        "has_f78": 0,
+        "refcount": 0
+      }
+    }
+  },
+  "schema": "kit.sw2026.revolve-equal-length-disclosed-owners.v1",
+  "tool_sha256": "366f08adda4210985f2c3221699f4e38a75a6b82754a56fe83aa7a4af00c3a45"
+}
