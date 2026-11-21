@@ -35,7 +35,7 @@ def trace_case(run, bodies, name, data, version, header):
         base = reader.MapValue.BaseValue
         lane = list(usage.FieldPath)
         conditions = frame.ContextValue.FlagsValue.get("conditions", 0)
-        read_schema(frame, layout)
+        result = read_schema(frame, layout)
         end, after = reader.Cursor.GetOffset(), reader.MapValue.Snapshot()
         require(base == reader.MapValue.BaseValue == 4
                 and before.CounterValue == after.CounterValue
@@ -58,6 +58,7 @@ def trace_case(run, bodies, name, data, version, header):
             bases.append({**row, "f48": fields["f48"], "f50_present": "f50" in fields})
         else:
             children.append(row)
+        return result
 
     bodies.ReadSchemaMut = trace
     try:
