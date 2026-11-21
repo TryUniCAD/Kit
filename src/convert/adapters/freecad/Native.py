@@ -3848,6 +3848,7 @@ def DecodeNativeDoc(
     ActiveState: OuterState | None,
     OuterDepth: int,
     LegacyVisibility: bool,
+    LegacyPadExpr: bool,
 ) -> tuple[CadDoc, tuple[CadDoc, ...], bool]:
     Native = LoadNative(DataValue)
     ResolvedOuter, UnresolvedOuter = OuterDocsMut(
@@ -3887,7 +3888,7 @@ def DecodeNativeDoc(
         Parameters,
         Consumed,
     )
-    if not LegacyVisibility:
+    if not (LegacyVisibility or LegacyPadExpr):
         BindPadExprMut(FeatureObjects, Features, Sketches, Parameters)
     Bodies = BuildBodies(Native, FeatureIds, BodyIds, OwnerPayloads, Features)
     DecodedBrep = DecodedDocBrep(BrepPayloads, tuple(Bodies))
@@ -3935,6 +3936,7 @@ def ReadNativeFcstd(
     StateValue: OuterState | None = None,
     OuterDepth: int = 0,
     LegacyVisibility: bool = False,
+    LegacyPadExpr: bool = False,
     RecordReplay: bool = False,
     ReplayReads: KReplayReadCache | None = None,
 ) -> CadDoc:
@@ -3945,6 +3947,7 @@ def ReadNativeFcstd(
         StateValue,
         OuterDepth,
         LegacyVisibility,
+        LegacyPadExpr,
         RecordReplay,
         ReplayReads,
         DecodeNativeDoc,

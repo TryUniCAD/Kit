@@ -20,6 +20,11 @@
           "freecad:parameter:Sketch:constraint:9"
         ],
         "forbidden_events": 0,
+        "historical_replay": {
+          "edited_model_declined_exact_replay": true,
+          "exact_restore_sha256": "215d76c07e95dd13f791b404eeacd6f625a0bbefa603e3653b007a73a853184c",
+          "old_explicit_suppression_marker": true
+        },
         "normalized_whole_document_sha256": "ec56d3326392e8c1ecf823c03a00991131877b536e15a3a4e7563f3a1d792e9f",
         "provided_source_reads": 1,
         "saved_expression": "Sketch.Constraints.width / 2",
@@ -49,6 +54,11 @@
           "freecad:parameter:Sketch:constraint:9"
         ],
         "forbidden_events": 0,
+        "historical_replay": {
+          "edited_model_declined_exact_replay": true,
+          "exact_restore_sha256": "c965847aa2a1ba6c1bacc43ae0c911db1610e57497ab5ca19fea5e6aed33ada4",
+          "old_explicit_suppression_marker": true
+        },
         "normalized_whole_document_sha256": "e8d695e39031d7e57bfd7f567229bb29d24fc71cb810081169c4dc9655320855",
         "provided_source_reads": 1,
         "saved_expression": "Sketch.Constraints.width / 2",
@@ -62,6 +72,13 @@
     "C130-P01": {
       "baseline": {
         "dependency_ids": [],
+        "derived_stale_control": {
+          "dependency_ids": [],
+          "diagnostic": "freecad.sheet_alias.unresolved",
+          "saved_depth_mm": 20.0,
+          "strict_read_retained_expression": true,
+          "strict_write_refused_without_mutation": true
+        },
         "forbidden_events": 0,
         "normalized_whole_document_sha256": "7c92b0703e8b95193ebe054d77c6bcb848a4670ee2f322c8b7150b9c8dfa7690",
         "provided_source_reads": 1,
@@ -77,7 +94,19 @@
         "dependency_ids": [
           "freecad:parameter:Sketch:constraint:9"
         ],
+        "derived_stale_control": {
+          "dependency_ids": [],
+          "diagnostic": "freecad.sheet_alias.unresolved",
+          "saved_depth_mm": 20.0,
+          "strict_read_retained_expression": true,
+          "strict_write_refused_without_mutation": true
+        },
         "forbidden_events": 0,
+        "historical_replay": {
+          "edited_model_declined_exact_replay": true,
+          "exact_restore_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+          "old_explicit_suppression_marker": true
+        },
         "normalized_whole_document_sha256": "7c92b0703e8b95193ebe054d77c6bcb848a4670ee2f322c8b7150b9c8dfa7690",
         "provided_source_reads": 1,
         "saved_expression": "Sketch.Constraints.width / 2",
@@ -89,18 +118,26 @@
       }
     }
   },
+  "edited_carriers_declined_exact_replay": 3,
   "fresh_processes": 6,
   "inventory_sha256": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f",
-  "method_sha256": "f4da08e4299b1d8a55989003a315c79775c4d38d959ef2f0087626d1a433e46e",
+  "method_sha256": "bc00c0ed2ceccb2c5b485d8f388f3eb92d5386561f5449543349e38d42795cdb",
   "native_processes": 0,
   "native_products": 0,
+  "pre_binding_archives_restored_exactly_in_memory": 3,
   "production_corpus_credit": 0,
   "production_source_sha256": {
-    "src/convert/adapters/freecad/Native.py": "e21bcaad84063ed3cdec72be61912c27a609f986d24f7e9274c369f2801a9639",
-    "src/convert/adapters/freecad/NativeParameters/BindPadExprMut.py": "a2e3e7f76546e3b06ed1b4d7204058584bb239167d926ef3e172d67a1bf78dd7",
-    "src/convert/adapters/freecad/NativeParameters/FindSketchDim.py": "38bc5c4f137ace41b3483cb1319ae06f43e64aaac9644234c4968c9f830c8f43",
-    "src/convert/adapters/freecad/NativeParameters/LinkPadLength.py": "aec5753352dac65a1cab1a9ae03a2ff27f1f678181acab8d3b3f048ec4c62e15",
-    "src/convert/adapters/freecad/NativeParameters/ReadPadExpr.py": "39e262577c75cc263554d60472eac850bf8976f1e59705103a6f1433d9121dd4"
+    "src/convert/adapters/freecad/Native.py": "0936af738d7f2a7d53a802ae7a66fa8d56a5338508403b53cf2910467adfdf98",
+    "src/convert/adapters/freecad/NativeParameters/BindPadExprMut.py": "1e291a31efbee50355077b4a964041a080a48074da89b67ca2b0c44955acc320",
+    "src/convert/adapters/freecad/NativeParameters/IndexSketchDims.py": "7021cbfc0275706408733390b267a1c2e923eff56f3a71562e909ac39d54f0fc",
+    "src/convert/adapters/freecad/NativeParameters/LinkPadLength.py": "9565af8831b54e8d80808c4cb34e4c0d1bb879479a7fde34e29d43bfe7f663a7",
+    "src/convert/adapters/freecad/NativeParameters/ReadPadExpr.py": "39e262577c75cc263554d60472eac850bf8976f1e59705103a6f1433d9121dd4",
+    "src/convert/adapters/freecad/Replay/HasPadReplay.py": "c25075147b668a7ecd41b43f11f6b16a18ce64df7e63d41cf57db48821d7f786",
+    "src/convert/adapters/freecad/Replay/OuterState.py": "24d9f52d98d0135511f34a11e3de058d3e39a107a3b2f039ac4f36d5197c0971",
+    "src/convert/adapters/freecad/Replay/PrepareBound.py": "18e1873e6c2eb9075e6a8f27b9da0f4731abfec83433a54fb33d2be4d5dcddcf",
+    "src/convert/adapters/freecad/Replay/ReadCache.py": "b8eece48b324e5eb74efcf587132c88941289f3773ec7588ba7d71dabc2c39f5",
+    "src/convert/adapters/freecad/Replay/ReadNativeArc.py": "9407b5b24147b0dad3e3d480e7214c63a6b797356e906df8d5a85dc41ca0d5ad",
+    "src/convert/adapters/freecad/Replay/ReplayReadScope.py": "6b61bb28b20c06c20722a9e8ca7e246138c3fef2fb6980b7c5339bef487ab240"
   },
   "schema": "kit.freecad.native-pad-sketch-expression.v1"
 }

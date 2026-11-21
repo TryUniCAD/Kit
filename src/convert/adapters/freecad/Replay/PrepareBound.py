@@ -7,6 +7,7 @@ from convert.adapters.freecad.Errors.AdapterError import FreeCadAdapterA
 from convert.adapters.freecad.Native import NativeFreeCad, ReadNativeFcstd
 from convert.adapters.freecad.Replay.ApplyFlags import ApplyFlags
 from convert.adapters.freecad.Replay.ApplySketchFlag import ApplySketchFlag
+from convert.adapters.freecad.Replay.HasPadReplay import HasPadReplay
 from convert.adapters.freecad.Replay.NativeIdentity import (
     KReplaySemanticAttr,
     KReplaySketchAttr,
@@ -18,7 +19,7 @@ from interchange.Payloads.PayloadRecord import BrepPayload
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# verified archive bindings can compare current and historical sketch interpretations
+# verified archive bindings must match the historical sketch and expression interpretation
 def PrepareBound(
     DocValue: CadDocument,
     NativeDoc: BrepPayload,
@@ -41,6 +42,14 @@ def PrepareBound(
         IsHistorical = KReplaySketchAttr not in NativeDoc.attributes
         if SemanticDigest(Current) == Expected:
             return PrepareLinked(DocValue, InitialDigest, PrepareBranch, ReplayBytes)
+        if IsUnchanged and HasPadReplay(
+            DataValue,
+            DocValue.source.path,
+            Expected,
+            NativeDoc.attributes.get(KReplaySketchAttr),
+            ReplayReads,
+        ):
+            return PrepareLinked(DocValue, InitialDigest, PrepareBranch, ReplayBytes)
         if IsHistorical:
             Legacy = ReadNativeFcstd(
                 DataValue,
@@ -51,7 +60,13 @@ def PrepareBound(
             if SemanticDigest(Legacy) == Expected:
                 if PrepareBranch is None:
                     return DocValue, ReplayBytes
-                Updated = ApplyFlags(Legacy, Current, DocValue)
+                BeforePadLinks = ReadNativeFcstd(
+                    DataValue,
+                    DocValue.source.path,
+                    LegacyPadExpr=True,
+                    ReplayReads=ReplayReads,
+                )
+                Updated = ApplyFlags(Legacy, BeforePadLinks, DocValue)
                 return PrepareLinked(
                     Updated, SemanticDigest(Updated), PrepareBranch, ReplayBytes
                 )

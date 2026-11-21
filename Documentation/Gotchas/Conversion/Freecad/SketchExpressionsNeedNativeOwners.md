@@ -4,4 +4,4 @@ A Pad can store the formula `Sketch.Constraints.width / 2` and a saved length as
 
 Bind the operand through the actual whole-sketch Profile link and the active named dimensional constraint. Corroborate the original native values before recording the parameter ID. Keep the source expression text and stored quantity available for both qualified and unresolved cases.
 
-Apply the binding before calculating the native replay digest so a fresh replay reparse observes the same model. [Original-path observations](../../../../re/solidworks/records/FreecadLocalSketchExpr2026.md)
+Apply the binding before calculating the native replay digest so a fresh replay reparse observes the same model. A carrier made before the binding can already have the explicit sketch marker. Compare its unchanged model and stored digest with a separate parse using the earlier expression projection and current sketch suppression. [Original-path observations](../../../../re/solidworks/records/FreecadLocalSketchExpr2026.md)

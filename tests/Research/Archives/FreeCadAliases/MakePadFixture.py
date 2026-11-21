@@ -7,7 +7,12 @@ def MakePadFixture(CaseName: str) -> bytes:
     DepthValue = "17" if CaseName == "stale" else "16"
     ObjectName = "Caption" if CaseName == "label" else "Layout"
     Expression = f"{ObjectName}.Constraints.span / 3"
-    Constraint = '<Constrain Type="6" Name="span" Value="48" First="0" />'
+    Active = "0" if CaseName == "inactive" else "1"
+    Driving = "0" if CaseName == "reference" else "1"
+    Constraint = (
+        '<Constrain Type="6" Name="span" Value="48" First="0" '
+        + f'IsActive="{Active}" IsDriving="{Driving}" />'
+    )
     ConstraintRows = Constraint * (2 if CaseName == "duplicate" else 1)
     ProfileLink = (
         '<LinkSub count="1" value="Layout"><Sub value="Edge1"/></LinkSub>'
@@ -20,7 +25,8 @@ def MakePadFixture(CaseName: str) -> bytes:
     <Object type="PartDesign::Pad" name="Boss" id="2"/>
   </Objects>
   <ObjectData Count="2">
-    <Object name="Layout"><Properties Count="3">
+    <Object name="Layout"><Properties Count="4">
+      <Property name="Visibility" type="App::PropertyBool"><Bool value="false"/></Property>
       <Property name="Label" type="App::PropertyString"><String value="Caption"/></Property>
       <Property name="Geometry" type="Part::PropertyGeometryList"><GeometryList count="1">
         <Geometry type="Part::GeomLineSegment">

@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from dataclasses import replace
 from hashlib import sha256
 from io import BytesIO
 from json import dumps, loads
@@ -9,6 +10,7 @@ from subprocess import check_output, run
 import sys
 from tarfile import open as open_tar
 from tempfile import TemporaryDirectory
+from zipfile import ZipFile
 
 REPO = Path(__file__).resolve().parents[3]
 BASE = "f3d8760f214d65fbe71aa4b8bf81a17f553dbb60"
@@ -24,9 +26,15 @@ EXPR = "Sketch.Constraints.width / 2"
 INPUTS = (
     "src/convert/adapters/freecad/Native.py",
     "src/convert/adapters/freecad/NativeParameters/BindPadExprMut.py",
-    "src/convert/adapters/freecad/NativeParameters/FindSketchDim.py",
+    "src/convert/adapters/freecad/NativeParameters/IndexSketchDims.py",
     "src/convert/adapters/freecad/NativeParameters/LinkPadLength.py",
     "src/convert/adapters/freecad/NativeParameters/ReadPadExpr.py",
+    "src/convert/adapters/freecad/Replay/HasPadReplay.py",
+    "src/convert/adapters/freecad/Replay/OuterState.py",
+    "src/convert/adapters/freecad/Replay/PrepareBound.py",
+    "src/convert/adapters/freecad/Replay/ReadCache.py",
+    "src/convert/adapters/freecad/Replay/ReadNativeArc.py",
+    "src/convert/adapters/freecad/Replay/ReplayReadScope.py",
 )
 MUTATIONS = {"os.mkdir", "os.rmdir", "os.remove", "os.rename", "os.link", "os.symlink",
              "os.chmod", "os.truncate", "subprocess.Popen", "os.system", "os.exec",
@@ -82,6 +90,60 @@ def normalize(doc, replay_field):
     return digest(wire(model)), len(removed)
 
 
+def restore_baseline(carrier, pin):
+    from convert import write_document
+    from convert.adapters.freecad.Replay.NativeIdentity import KExplicitSketchProfile, KReplaySketchAttr
+    from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
+    from interchange.document.Models.DocumentModel import CadDocument
+
+    original = CadDocument.from_json(carrier)
+    assert not original.sketches[0].suppressed
+    assert any(p.attributes.get(KReplaySketchAttr) == KExplicitSketchProfile for p in original.brep_payloads)
+    length, = (p for p in original.parameters if p.id == LENGTH)
+    assert length.expression is not None and not length.expression.parameter_ids
+    target = BytesIO()
+    outcome = write_document(original, target, destination_format="freecad.fcstd")
+    assert outcome.metadata["mode"] == "exact_native_roundtrip"
+    assert digest(target.getvalue()) == pin
+    changed = replace(original, sketches=(replace(original.sketches[0], suppressed=True),))
+    assert PrepareReplay(changed, Migrate=False)[1] is None
+    return {"old_explicit_suppression_marker": True, "exact_restore_sha256": pin,
+            "edited_model_declined_exact_replay": True}
+
+
+def observe_stale(original):
+    from convert import open_document, write_document
+    from convert.adapters.registry.RegistryErrors import NotFoundError
+
+    result = BytesIO()
+    with ZipFile(BytesIO(original), "r") as source, ZipFile(result, "w") as target:
+        for member in source.infolist():
+            data = source.read(member)
+            if member.filename == "Document.xml":
+                text = EXPR.encode()
+                assert data.count(text) == 1
+                data = data.replace(text, b"Sketch.Constraints.width / 3")
+            target.writestr(member, data)
+    doc = open_document(result.getvalue(), source_format="freecad.fcstd", strict=True)
+    length, = (param for param in doc.parameters if param.id == LENGTH)
+    assert length.expression is not None and length.expression.source == "Sketch.Constraints.width / 3"
+    assert not length.expression.parameter_ids and length.value.value == 20.0
+    assert length.value.unit == "mm"
+    diagnostic, = (note for note in doc.diagnostics if note.code == "freecad.sheet_alias.unresolved")
+    assert diagnostic.attributes["counts"] == {"unsupported_reference": 1}
+    destination = BytesIO(b"previous output")
+    try:
+        write_document(doc, destination, destination_format="solidworks.sldprt",
+                       allow_carrier=False, values={"require_native_transfers": True})
+    except NotFoundError:
+        assert destination.getvalue() == b"previous output" and destination.tell() == 0
+    else:
+        raise AssertionError("stale source unexpectedly received native publication")
+    return {"strict_read_retained_expression": True, "dependency_ids": [],
+            "saved_depth_mm": 20.0, "diagnostic": diagnostic.code,
+            "strict_write_refused_without_mutation": True}
+
+
 def worker(request):
     sdk = Path(request["sdk"]).resolve()
     source = Path(request["source"])
@@ -117,8 +179,7 @@ def worker(request):
                        if KReplaySemanticAttr in p.attributes]
     assert semantic_values == [SemanticDigest(doc)]
     normalized, diagnostics = normalize(doc, KReplaySemanticAttr)
-    assert not denied
-    return {
+    result = {
         "dependency_ids": list(length.expression.parameter_ids),
         "normalized_whole_document_sha256": normalized,
         "unsupported_reference_diagnostics": diagnostics,
@@ -128,12 +189,22 @@ def worker(request):
         "provided_source_reads": source_reads,
         "source_immutable": True,
         "stored_replay_digest_matches": True,
-        "forbidden_events": len(denied),
+        "forbidden_events": 0,
     }
+    if request.get("stale_control"):
+        result["derived_stale_control"] = observe_stale(source.read_bytes())
+    if request.get("capture"):
+        result["private_carrier"] = doc.to_json(indent=None)
+    if request.get("legacy_document") is not None:
+        result["historical_replay"] = restore_baseline(
+            request["legacy_document"], request["pin"]
+        )
+    assert not denied
+    return result
 
 
-def process(sdk, row):
-    request = {"sdk": str(sdk), "source": row["source_path"], "pin": row["sha256"]}
+def process(sdk, row, **options):
+    request = {"sdk": str(sdk), "source": row["source_path"], "pin": row["sha256"], **options}
     result = run((sys.executable, "-I", "-B", __file__, "--worker"),
                  input=wire(request), stdout=-1, stderr=-1, timeout=90, check=False)
     if result.returncode or result.stderr:
@@ -153,8 +224,12 @@ def measure(census):
         with open_tar(fileobj=BytesIO(base_archive), mode="r:") as archive:
             archive.extractall(root, filter="data")
         for label, row in inputs.items():
-            before = process(root / "src", row)
-            after = process(REPO / "src", row)
+            contrast = label == "C130-P01"
+            before = process(root / "src", row, capture=True, stale_control=contrast)
+            carrier = before.pop("private_carrier")
+            after = process(REPO / "src", row, legacy_document=carrier, stale_control=contrast)
+            if contrast:
+                assert before["derived_stale_control"] == after["derived_stale_control"]
             assert before["dependency_ids"] == [] and after["dependency_ids"] == [WIDTH]
             assert before["unsupported_reference_diagnostics"] == 1 and after["unsupported_reference_diagnostics"] == 0
             assert before["normalized_whole_document_sha256"] == after["normalized_whole_document_sha256"]
@@ -167,6 +242,8 @@ def measure(census):
         "production_source_sha256": {name: digest((REPO/name).read_bytes()) for name in INPUTS},
         "disclosed_results": results,
         "fresh_processes": 6,
+        "pre_binding_archives_restored_exactly_in_memory": 3,
+        "edited_carriers_declined_exact_replay": 3,
         "native_products": 0,
         "native_processes": 0,
         "production_corpus_credit": 0,

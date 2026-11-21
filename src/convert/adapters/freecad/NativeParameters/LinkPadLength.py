@@ -4,11 +4,9 @@ from re import compile as CompileRegex
 
 from convert.Geometry.Formula.Arithmetic import EvalFormula, ReadFormula
 from convert.Geometry.Formula.FormulaUnits import IsMatchingQty
-from convert.adapters.freecad.NativeParameters.FindSketchDim import FindSketchDim
 from convert.adapters.freecad.NativeParameters.ReadEvidence import HasSavedValue
 from interchange.Enums.EnumValues import ValueKind
 from interchange.Records.RecordParameter import Parameter
-from interchange.geometry.Models.Sketch import Sketch
 
 # native object and constraint identifiers stay distinct from display labels
 KSketchDivide = CompileRegex(
@@ -20,10 +18,9 @@ KSketchDivide = CompileRegex(
 # editing requires the exact dependency while saved text and dimensions retain their original provenance
 def LinkPadLength(
     LengthValue: Parameter,
-    SketchValue: Sketch,
     ProfileName: str,
     Source: str,
-    Parameters: Mapping[str, Parameter],
+    Dimensions: Mapping[str, Parameter],
 ) -> Parameter:
     FormulaValue = LengthValue.expression
     if (
@@ -38,7 +35,7 @@ def LinkPadLength(
     Match = KSketchDivide.fullmatch(Source.strip())
     if Match is None or Match["sketch"] != ProfileName:
         return LengthValue
-    Dimension = FindSketchDim(SketchValue, Match["dimension"], Parameters)
+    Dimension = Dimensions.get(Match["dimension"])
     Parsed = ReadFormula(f'sketchLength / {Match["divisor"]}')
     if Dimension is None or Parsed is None or not HasSavedValue(LengthValue):
         return LengthValue

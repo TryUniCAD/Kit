@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 from typing import TYPE_CHECKING
 
+from convert.adapters.freecad.NativeParameters.IndexSketchDims import IndexSketchDims
 from convert.adapters.freecad.NativeParameters.LinkPadLength import LinkPadLength
 from convert.adapters.freecad.NativeParameters.ReadPadExpr import ReadPadExpr
 from interchange.Features.FeatureStep import FeatureStep
@@ -25,6 +26,7 @@ def BindPadExprMut(
     SketchById = {Value.id: Value for Value in Sketches}
     ParamById = {Value.id: Value for Value in Parameters}
     OffsetById = {Value.id: Index for Index, Value in enumerate(Parameters)}
+    DimBySketch: dict[str, dict[str, Parameter]] = {}
     for Native, Feature in zip(Objects, Features, strict=True):
         Evidence = ReadPadExpr(Native)
         SketchValue = SketchById.get(Feature.sketch_id or "")
@@ -39,6 +41,10 @@ def BindPadExprMut(
                 and LengthValue.attributes.get("freecad_property_type")
                 == "App::PropertyLength"
             ):
+                Dimensions = DimBySketch.get(SketchValue.id)
+                if Dimensions is None:
+                    Dimensions = IndexSketchDims(SketchValue, ParamById)
+                    DimBySketch[SketchValue.id] = Dimensions
                 Parameters[OffsetById[ParamId]] = LinkPadLength(
-                    LengthValue, SketchValue, ProfileName, Source, ParamById
+                    LengthValue, ProfileName, Source, Dimensions
                 )

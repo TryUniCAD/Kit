@@ -1,47 +1,22 @@
-from hashlib import sha256 as DigestBytes
-from json import dumps as EncodeJson, loads as ParseJson
-from os import environ as Environment, pathsep as PathSep
 from pathlib import Path as FilePath
-from subprocess import run as RunProcess
-from sys import executable as PythonExe
-from typing import cast as CastValue
 
-from pytest import mark as MarkValue
+from pytest import mark as MarkValue, raises as Raises
 
-from interchange.document.Models.DocumentModel import CadDocument
-from tests.Research.Archives.FreeCadAliases.MakePadFixture import MakePadFixture
-
-# child processes must load the same native decoder as the public registry
-KRepoRoot = FilePath(__file__).resolve().parents[4]
+from convert import write_document as WriteDocument
+from convert.adapters.registry.RegistryErrors import NotFoundError
+from tests.Research.Archives.FreeCadAliases.ReadPadCase import ReadPadCase
 
 
 # exact source ownership and the saved length must agree before the dependency is exposed
 @MarkValue.parametrize(
-    "CaseName", ("native", "stale", "label", "duplicate", "subelement")
+    "CaseName",
+    ("native", "stale", "label", "duplicate", "subelement", "inactive", "reference"),
 )
 def CheckPadExpr(TmpPath: FilePath, CaseName: str) -> None:
-    SourcePath = TmpPath / "LocalSketch.FCStd"
-    Payload = MakePadFixture(CaseName)
-    assert SourcePath.write_bytes(Payload) == len(Payload)
-    Process = RunProcess(
-        [PythonExe, "-B", "-P", "-m", "tests.Research.Archives.FreeCadNativeEndTests"],
-        cwd=TmpPath,
-        env={
-            **Environment,
-            "PYTHONPATH": PathSep.join((str(KRepoRoot), str(KRepoRoot / "src"))),
-        },
-        capture_output=True,
-        text=True,
-        check=False,
-        timeout=120,
-    )
-    assert Process.returncode == 0, Process.stderr + Process.stdout
-    assert SourcePath.read_bytes() == Payload
-    Report = CastValue(dict[str, object], ParseJson(Process.stdout))
-    assert Report["input_sha256"] == DigestBytes(Payload).hexdigest()
-    Document = CadDocument.from_json(EncodeJson(Report["document"]))
+    Document = ReadPadCase(TmpPath, CaseName)
     (SketchValue,) = Document.sketches
     (Feature,) = Document.feature_timeline
+    assert not SketchValue.suppressed
     (DepthValue,) = (
         Value for Value in Document.parameters if Value.owner_id == Feature.id
     )
@@ -58,3 +33,22 @@ def CheckPadExpr(TmpPath: FilePath, CaseName: str) -> None:
         assert DepthValue.expression.parameter_ids == (ParamId,)
     else:
         assert not DepthValue.expression.parameter_ids
+        assert any(
+            Finding.code == "freecad.sheet_alias.unresolved"
+            for Finding in Document.diagnostics
+        )
+    if CaseName in {"inactive", "reference"}:
+        (RuleValue,) = SketchValue.constraints
+        assert RuleValue.suppressed is (CaseName == "inactive")
+        assert RuleValue.driving is (CaseName != "reference")
+    if CaseName == "stale":
+        Target = TmpPath / "refused" / "Unsupported.SLDPRT"
+        with Raises(NotFoundError):
+            _ = WriteDocument(
+                Document,
+                Target,
+                destination_format="solidworks.sldprt",
+                allow_carrier=False,
+                values={"require_native_transfers": True},
+            )
+        assert not Target.parent.exists()
