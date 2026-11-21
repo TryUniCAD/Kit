@@ -11,6 +11,7 @@ Right result before it freezes the broader writer and its exact tool closure.
 
 The disclosed writer passed all four native discovery profiles and eighteen
 processes. The host freeze checked the pre-writer lock and exact disclosed tool
-closure. Held-out qualification and public writer admission require separate
-acceptance.
+closure. The principal-plane comparison qualifies four held-out cases
+through 18 distinct processes with both controls passing and 800 phase
+checks. Public writer and strict readback parity require their own evidence.
 [Invocation and evidence](../../../../../re/solidworks/records/ThinRevolveHeldoutProtocol2026.md)

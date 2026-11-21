@@ -1,0 +1,558 @@
+{
+  "cases": [
+    {
+      "candidate_bytes": 8217,
+      "candidate_sha256": "993ae93811ce899fdf0e8d9840b4de067d39f4cbdbc19acf72bcb00bf2f41948",
+      "cold_root_feature_counts": {
+        "candidate": [
+          19,
+          19
+        ],
+        "source": [
+          19,
+          19
+        ]
+      },
+      "comparisons": {
+        "candidate_to_current_source": {
+          "after-angle": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited_fresh_reopen": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "reopened": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          }
+        },
+        "source_to_pre_writer": {
+          "after-angle": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited_fresh_reopen": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "reopened": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          }
+        }
+      },
+      "edited_driver_roles": [
+        "angle",
+        "wall1"
+      ],
+      "native_phases": {
+        "candidate": [
+          {
+            "checks": 71,
+            "checks_passed": 71,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "reopen",
+            "sha256": "d9f942c5943df1bfa7484d0fe494118a520197be9c50a3c4aa01bb344377f7ad"
+          },
+          {
+            "checks": 23,
+            "checks_passed": 23,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "edited-reopen",
+            "sha256": "69270ffa32a5c684c6c6094ec7dfa47bb5c62197002d5055a161beb2c13e5539"
+          }
+        ],
+        "source": [
+          {
+            "checks": 71,
+            "checks_passed": 71,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "reopen",
+            "sha256": "458803264a555b7e125157cfd18ece01e16d7ca98e2e4b86455c74ef061e80b7"
+          },
+          {
+            "checks": 23,
+            "checks_passed": 23,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "edited-reopen",
+            "sha256": "e903d33d06b1beff1af78a70f86442a8447ba159a346e4a3da8888610bfe96cb"
+          }
+        ]
+      },
+      "passed": true,
+      "repeat_bytes_equal": true,
+      "slot": "Slot01",
+      "source_sha256": "2bc6333309dde252469d589f119bb42741c9e839605862b592b2e7b7a36fd8ac",
+      "typed_streams": 10,
+      "writer_runtime_external_access_attempts": 0
+    },
+    {
+      "candidate_bytes": 8265,
+      "candidate_sha256": "faec0cb26795f11a030c8525ba69cc702f79b00b44cafa8ecce673135b2f0fee",
+      "cold_root_feature_counts": {
+        "candidate": [
+          19,
+          19
+        ],
+        "source": [
+          19,
+          19
+        ]
+      },
+      "comparisons": {
+        "candidate_to_current_source": {
+          "after-angle": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited_fresh_reopen": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "reopened": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          }
+        },
+        "source_to_pre_writer": {
+          "after-angle": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited_fresh_reopen": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "reopened": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          }
+        }
+      },
+      "edited_driver_roles": [
+        "angle",
+        "wall1"
+      ],
+      "native_phases": {
+        "candidate": [
+          {
+            "checks": 71,
+            "checks_passed": 71,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "reopen",
+            "sha256": "2fa49daf543cb76e40f273e4bf39aefb90934e859910c00197c7d2d707c4cca5"
+          },
+          {
+            "checks": 23,
+            "checks_passed": 23,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "edited-reopen",
+            "sha256": "2ca05c6a939d4d6c5ffb7d4c9a8fae685180f6c7dd97bddac0bde39654f240f2"
+          }
+        ],
+        "source": [
+          {
+            "checks": 71,
+            "checks_passed": 71,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "reopen",
+            "sha256": "2dda00740751ca14ac967c581080d75476d583cb597f97ecdc0502f64f6ec376"
+          },
+          {
+            "checks": 23,
+            "checks_passed": 23,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "edited-reopen",
+            "sha256": "b4fda3055133c60d81609113a4fcd6bed7751f7640fce97b29a224549cb58313"
+          }
+        ]
+      },
+      "passed": true,
+      "repeat_bytes_equal": true,
+      "slot": "Slot02",
+      "source_sha256": "d508797e54437b735a755aa32714520e38ed5d2597d78f9d58c07bab11784cae",
+      "typed_streams": 10,
+      "writer_runtime_external_access_attempts": 0
+    },
+    {
+      "candidate_bytes": 8245,
+      "candidate_sha256": "7f8600c422771cfc07ea545b0418edbe910d7e1ac202db86ccf1ea29417e4ae4",
+      "cold_root_feature_counts": {
+        "candidate": [
+          19,
+          19
+        ],
+        "source": [
+          19,
+          19
+        ]
+      },
+      "comparisons": {
+        "candidate_to_current_source": {
+          "after-angle": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited_fresh_reopen": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "reopened": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          }
+        },
+        "source_to_pre_writer": {
+          "after-angle": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited_fresh_reopen": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "reopened": {
+            "driver_count": 2,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          }
+        }
+      },
+      "edited_driver_roles": [
+        "angle",
+        "wall1"
+      ],
+      "native_phases": {
+        "candidate": [
+          {
+            "checks": 71,
+            "checks_passed": 71,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "reopen",
+            "sha256": "891a34844985863111d0bb58f38a2b60ac2c491c43db801804671934858f91d5"
+          },
+          {
+            "checks": 23,
+            "checks_passed": 23,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "edited-reopen",
+            "sha256": "3cbfaac9c83549064f346d21a632868344a692888e6f0fc525ac847d8d05126e"
+          }
+        ],
+        "source": [
+          {
+            "checks": 71,
+            "checks_passed": 71,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "reopen",
+            "sha256": "13951a35b4167c010581d79998a1efd8a9f29889c0792d1be05d2367444375d8"
+          },
+          {
+            "checks": 23,
+            "checks_passed": 23,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "edited-reopen",
+            "sha256": "f7b7163f6fe3e98b93ed944cc4eacdb4376259e21f95048e98d8a2b5a07796c2"
+          }
+        ]
+      },
+      "passed": true,
+      "repeat_bytes_equal": true,
+      "slot": "Slot03",
+      "source_sha256": "91b1b78d83ac40089fd97563791cb9ebcb613c19f0af05de224634fa023d475d",
+      "typed_streams": 10,
+      "writer_runtime_external_access_attempts": 0
+    },
+    {
+      "candidate_bytes": 8272,
+      "candidate_sha256": "2fb65abb9b831a819a9d5cc557b0c5559c8254229678ce607f22249f63b9f04f",
+      "cold_root_feature_counts": {
+        "candidate": [
+          19,
+          19
+        ],
+        "source": [
+          19,
+          19
+        ]
+      },
+      "comparisons": {
+        "candidate_to_current_source": {
+          "after-angle": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "after-wall1": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited_fresh_reopen": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "reopened": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          }
+        },
+        "source_to_pre_writer": {
+          "after-angle": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "after-wall1": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "edited_fresh_reopen": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          },
+          "reopened": {
+            "driver_count": 3,
+            "numeric_geometry_checks": 11,
+            "tree_rows": 25
+          }
+        }
+      },
+      "edited_driver_roles": [
+        "angle",
+        "wall1",
+        "wall2"
+      ],
+      "native_phases": {
+        "candidate": [
+          {
+            "checks": 95,
+            "checks_passed": 95,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "reopen",
+            "sha256": "5fc7fcf52038f18bf9a2c31c010ebc012f9ceaacbf29bc216118dd1aee6ecb2e"
+          },
+          {
+            "checks": 23,
+            "checks_passed": 23,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "edited-reopen",
+            "sha256": "fa0639f1984c9ab9e0727e03fc88a126173df83a2989ce93b00353f67ea2014f"
+          }
+        ],
+        "source": [
+          {
+            "checks": 95,
+            "checks_passed": 95,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "reopen",
+            "sha256": "904a7f73b4c62a89e2a7a45ba6600e2fd8b916d2ed667f8a3b5b00c7fe67cb27"
+          },
+          {
+            "checks": 23,
+            "checks_passed": 23,
+            "cold_bodies": 1,
+            "open_status": {
+              "errors": 0,
+              "opened": true,
+              "warnings": 0
+            },
+            "passed": true,
+            "phase": "edited-reopen",
+            "sha256": "625c05082e14ce8b7f81a7eda21f123f26eade2678845b8553fb3955e994d512"
+          }
+        ]
+      },
+      "passed": true,
+      "repeat_bytes_equal": true,
+      "slot": "Slot04",
+      "source_sha256": "2920dae731cc8ccd366b540413340964bb83d0246c467417551a29e35e6a5a5a",
+      "typed_streams": 10,
+      "writer_runtime_external_access_attempts": 0
+    }
+  ],
+  "control-after": {
+    "passed": true,
+    "sha256": "1ddb41bd5bf389f077bd18b62ac669bd1e9e8f416305a15cf95ef53c53671961"
+  },
+  "control-before": {
+    "passed": true,
+    "sha256": "e4cd73d27c100515be98c0ab40f570eb96521a3efb6c80e8e668ed9a374cefbf"
+  },
+  "disclosed_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+  "distinct_processes": 18,
+  "finished_at": 1795236060.9874423,
+  "freeze_sha256": "8c6c5edb5dbd4b8147e77ef3d87ad80982829b431c0d13d0c5c220968e59635a",
+  "fresh_processes": 18,
+  "generation_sha256": "4203f14d32088ad7f8d6a27fe3ea12012688590dff9e68003bd7cdc1f8e2f351",
+  "heldout_writer_cases_qualified": 4,
+  "idle_after": true,
+  "immutable_inputs_reverified": true,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "original_native_files_read_during_generation": 0,
+  "passed": true,
+  "principal_disclosed_sha256": "f0cae9a898ea4ed54a7e181b8631da6ff17569eca430558c4c77004b36d37127",
+  "profile": "principal",
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.thin-revolve-independent-evaluation.v1",
+  "source_lock_sha256": "e81db7caf2db600543f6f85b61b3a47a27cfd4b670f8e6a55f45dc79e6637653",
+  "started_at": 1795235340.651552,
+  "whole_source_conversion": false,
+  "writer_revision": "025f59224d12a85bddaf33867d56a11783ada238",
+  "writer_runtime_external_access_attempts": 0,
+  "writer_src_tree": "4959dee11a78cd683ca041e8fff46c1745bc4287"
+}

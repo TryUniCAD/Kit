@@ -1,0 +1,86 @@
+{
+  "frozen_code_sha256": "14bb7603e3bde1aec78932d0bd5faaf77a2629203434b46b0e9afdb2d540bbcd",
+  "guarded_workers": 10,
+  "heldout_candidate_matches": 2,
+  "measurements": {
+    "Slot01/coordinates-only": {
+      "refused": "coordinates-only",
+      "runtime_external_access_attempts": 0
+    },
+    "Slot01/free-datum": {
+      "refused": "free-datum",
+      "runtime_external_access_attempts": 0
+    },
+    "Slot01/qualified": {
+      "active_origin_coincidence": true,
+      "body_topology": [
+        8,
+        12,
+        6
+      ],
+      "exact_streams": 10,
+      "fresh_locator_sha256": "8d1c65d52fa742bcbb1313e76ee2367ecf775289cf92028f434bc35334b31dbb",
+      "guarded_public_routes": 5,
+      "live_parameters": 3,
+      "native_candidate_sha256": "2a4a1e9a45197b2b93b4d63f8d054be460b4bd83be51ba18257e2c78d4c90b28",
+      "readback_distance_ulps": {
+        "Height": 0.0,
+        "Length": 0.0,
+        "Width": 0.0
+      },
+      "runtime_external_access_attempts": 0
+    },
+    "Slot01/suppressed": {
+      "refused": "suppressed",
+      "runtime_external_access_attempts": 0
+    },
+    "Slot01/wrong-corner": {
+      "refused": "wrong-corner",
+      "runtime_external_access_attempts": 0
+    },
+    "Slot02/coordinates-only": {
+      "refused": "coordinates-only",
+      "runtime_external_access_attempts": 0
+    },
+    "Slot02/free-datum": {
+      "refused": "free-datum",
+      "runtime_external_access_attempts": 0
+    },
+    "Slot02/qualified": {
+      "active_origin_coincidence": true,
+      "body_topology": [
+        8,
+        12,
+        6
+      ],
+      "exact_streams": 10,
+      "fresh_locator_sha256": "99b11b92706c3b95badfaa486122ce4dbe733b9f68975cbd1278e8e82f325bb0",
+      "guarded_public_routes": 5,
+      "live_parameters": 3,
+      "native_candidate_sha256": "a9069ba24a39ea8f52380e7f63e287b8dfb4dd5d58829c7cf24f5fe79270d680",
+      "readback_distance_ulps": {
+        "Height": 0.0,
+        "Length": 1.0,
+        "Width": 0.0
+      },
+      "runtime_external_access_attempts": 0
+    },
+    "Slot02/suppressed": {
+      "refused": "suppressed",
+      "runtime_external_access_attempts": 0
+    },
+    "Slot02/wrong-corner": {
+      "refused": "wrong-corner",
+      "runtime_external_access_attempts": 0
+    }
+  },
+  "new_benchmark_conversions": 0,
+  "new_native_oracle_launches": 0,
+  "passed": true,
+  "prior_native_job_sha256": "cb10b3182e31b8480a393bb9f0fca7a08ec8be5a49a942779440df76f4de9f83",
+  "prior_native_result_sha256": "21e671183cc6caf6b5c801e7de38f847d58f3bf2a299385e9abf4fe35a953189",
+  "schema": "kit.sw2026.public-top-corner-parity.v1",
+  "source_commit": "cc9bad9637dad4281a4e41b28e7b6fdb29dd0fc5",
+  "source_tree": "2b450d3861463ea0ae0251ff1f22b613bd2f3b56",
+  "writer_external_reads": 0
+}

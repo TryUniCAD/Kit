@@ -283,3 +283,16 @@ the existing `AttachedTopBoxHeldoutsEvaluate01` packet and its exact
 completed result. Use a new guest-local scratch directory and a new
 sanitized receipt path. The native comparison remains separately linked
 above. [Public parity tool](../../tooling/sw2026/attached_top_box_source/ProveTopCornerPublic.py)
+
+Ten isolated workers on commit
+`cc9bad9637dad4281a4e41b28e7b6fdb29dd0fc5` verify both locked boxes.
+The public and direct stream routes reproduce the two complete
+native-measured files and all twenty exact linked streams. The public
+stream and both file routes agree at fresh locators. The strict reader
+preserves the fixed corner, all three driving lengths, the named body
+and its signed solid. Eight negative cases refuse before staging and
+all workers record zero external input access during construction.
+The separate strict readback compares lengths in common units up to
+the observed one-ULP conversion difference. This adds zero raw FCStd
+conversions. [Public parity receipt](../measurements/2026/SdkTopCornerPublicParity01.json) ·
+[Readback arithmetic](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/TopCornerDriverLengthCanRoundByOneUlp.md)

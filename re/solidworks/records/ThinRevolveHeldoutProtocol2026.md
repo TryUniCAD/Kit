@@ -31,4 +31,18 @@ The oracle owner calls `py -3.12 -B RunThinHeldout.py native PACKET --pin MANIFE
 
 Every lane requires a zero-warning open with one cold body, a clean rebuild, the complete recursively ordered feature tree, the actual profile and selected axis, and independently edited D1, D3 and D4 when active. It checks the native save and fresh reopen and compares volume, area, centre and bounds to six significant figures. Each new source is compared to its own pre-writer native records before candidate comparison. The raw native records and CAD files stay on the guest. The optional share receipt uses slot aliases, checksums, counts and per-stage outcomes. The public writer and whole-source conversion remain outside this evaluation.
 
+All four independent cases passed in 18 distinct SP05.2 processes with
+both controls healthy. The four cases cover the one-direction,
+opposite-direction, mid-plane and unequal two-direction wall modes.
+The 16 source and candidate phases pass 800 numeric checks, including
+clean one-body cold opens and separate edits of every active driver.
+The 17 paired generated states match the ordered tree and 187 native
+geometric quantities. Repeated guarded generation replays ten exact
+linked streams per candidate with no runtime reads. The prior source
+and generated files retain their pinned identities. Generation SHA-256
+is `4203f14d32088ad7f8d6a27fe3ea12012688590dff9e68003bd7cdc1f8e2f351`,
+and the terminal receipt SHA-256 is
+`ec5eec4fc88ed11cbbd63f90a30cd3e47065393b8c647254dff7a44bde430f13`.
+[Exact held-out native receipt](../measurements/2026/SdkThinRevolveHeldoutNative01.json)
+
 [Host freezer](../../tooling/sw2026/revolve/ThinArchive/FreezeThinHeldout.py) · [Guest supervisor](../../tooling/sw2026/revolve/ThinArchive/RunThinHeldout.py) · [18-process native comparison](../../tooling/sw2026/revolve/ThinArchive/ThinHeldoutNative.py)

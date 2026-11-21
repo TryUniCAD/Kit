@@ -1,6 +1,6 @@
 # Internal thin revolve construction on principal planes
 
-Workstream `B04-SW2026-REVOLVE-THIN`, delivery PR #121. The portable `ThinRevolve` definition binds one explicit angular sweep and one or two feature-owned positive wall drivers. SOLIDWORKS preparation supports the bounded forward partial open axial line and independent ordered construction axis on the three canonical principal frames. Public writer admission stays closed pending independent native comparison. [Front construction and comparison](ThinRevolveConstruction2026.md) · [Field ownership](ThinRevolveWireOwners2026.md)
+Workstream `B04-SW2026-REVOLVE-THIN`, delivery PR #121. The portable `ThinRevolve` definition binds one explicit angular sweep and one or two feature-owned positive wall drivers. SOLIDWORKS preparation supports the bounded forward partial open axial line and independent ordered construction axis on the three canonical principal frames. The internal writer has passed independent native qualification for the measured modes. Public admission needs separate output and strict readback parity. [Front construction and comparison](ThinRevolveConstruction2026.md) · [Field ownership](ThinRevolveWireOwners2026.md) · [Independent native comparison](ThinRevolveHeldoutProtocol2026.md)
 
 ## Exact disclosed evidence
 

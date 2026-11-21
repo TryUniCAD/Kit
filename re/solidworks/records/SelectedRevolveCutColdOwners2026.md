@@ -36,6 +36,13 @@ The array membership and selected stock prove neither the cold `f108` convention
 
 First trace the multi-solid branch and whether `moRevCut_c` resolves its wrapper by generated base feature and atom before rebound faces. Use the result to freeze a disclosed same-locator comparison with a stock base feature ID and the constructor sentinel as the only selector-variable dimension, if both branches are supported by the actual path. Enter with the same neutral geometry, current cold atom policy and healthy controls. Require binding of the exact selected stock, three live D1s, four/nine faces, volume, area and centre of mass before and after an independent angle edit. Require zero open/rebuild/save warnings and fresh reopen. The saved read then verifies the produced atom, final representative, chooser order, mirrors and actual remap fields. No generated file, native readiness, public writer eligibility or held-out credit follows from the present graph probe.
 
+The aggregate reproduced all eight isolated worker results with the
+principal-plane thin constructor and signed rectangle routes present.
+The existing pre-writer source lock and selected-cut reader integration
+are both ancestors of the measured source tree. The original scoped
+supervisor and its three-file delta remain available at their pinned
+revision. [Aggregate process evidence](../measurements/2026/SelectedRevolveCutColdAggregate01.json)
+
 ```sh
 REV_PROOF="$(mktemp -d)"
 python3.14 -I -B re/tooling/sw2026/revolve/SelectedCut/ProveStockCutOwners.py \
