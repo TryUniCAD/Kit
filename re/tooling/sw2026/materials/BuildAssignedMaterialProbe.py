@@ -19,7 +19,6 @@ from SdkRectDimRejects import input_value
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
 from convert.adapters.solidworks.Archive.Config.MakeLinkContext import MakeLinkContext
-from convert.adapters.solidworks.Archive.Config.Material.MatTypes import KDensityClass, KMaterialClass
 from convert.adapters.solidworks.Archive.Config.ReadConfigMut import ReadConfigMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import PersistentIds
@@ -27,12 +26,14 @@ from convert.adapters.solidworks.Archive.Construction.Part.CheckPartInput import
 from convert.adapters.solidworks.Archive.Construction.Part.FinishBlindMut import FinishBlindMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartBaseMut import MakePartBaseMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartProfMut import MakePartProfMut
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.BindPartMaterialMut import BindPartMaterialMut
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.MakePhysicalDensity import MakePhysicalDensity
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.PartMaterialInput import PartMaterialInput
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectRectDims import ProjectRectDims
 from convert.adapters.solidworks.Archive.Construction.Presentation.MakeModelVisual import MakeModelVisual
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeRectDimsMut import MakeRectDimsMut
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeSketchKeys import MakeSketchKeys
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
-from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Resolved.ReadResolvedMut import ReadResolvedMut
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -64,25 +65,11 @@ def material_intent(document, assignment):
     material, = document.materials
     catalog, catalog_id = assignment["catalog"], assignment["catalog_id"]
     require(material.id == assignment["material_ref"], "material reference does not resolve")
-    require(type(catalog) is str and all(
-        token and token.isprintable() and "|" not in token and "/" not in token and chr(92) not in token
-        for token in (catalog, material.name)
-    ), "catalog and material must be distinct printable identity tokens")
-    require(catalog_id is None or type(catalog_id) is int and 0 <= catalog_id < 2**31,
-            "catalog identifier is absent or an explicit positive signed identifier")
-    tokens = (catalog, material.name) if catalog_id is None else (catalog, material.name, str(catalog_id))
-    return float(material.Density), "|".join(tokens)
+    require(catalog_id is None, "the measured construction requires the two-token catalog identity")
+    return PartMaterialInput(catalog, material.name, float(material.Density))
 
 
-def make_density(density):
-    parameter = ArchiveNode(KDensityClass, {
-        "f18": None, "f0c": 0, "f28": 0x40000000, "f08": -1, "f2c": 0,
-        "f20": "", "f48": None, "f58": density, "f68": 0,
-    })
-    return ArchiveNode(KMaterialClass, {"f08": parameter})
-
-
-def compose(document, inputs, dimensions, modes, density, identity):
+def compose(document, inputs, dimensions, modes, material):
     plan = ProjectRectDims(document)
     CheckPartInput(document, inputs, plan)
     allocator = PersistentIds()
@@ -93,14 +80,17 @@ def compose(document, inputs, dimensions, modes, density, identity):
     require(root["f1420"] is None and configuration["fc50"] == -1 and configuration["f78"] is None,
             "the ordinary unassigned constructors do not match the experimental baseline")
     part, active_density, active_identity = modes
-    if part:
-        root["f1420"] = make_density(density)
-    if active_density:
-        configuration["fc50"] = density
-    if active_identity:
-        visual = MakeModelVisual()
-        visual.FieldsValue["f20"]["f20"] = identity
-        configuration["f78"] = visual
+    if modes == MODES["all"]:
+        BindPartMaterialMut(system, material)
+    else:
+        if part:
+            root["f1420"] = MakePhysicalDensity(material.DensityValue)
+        if active_density:
+            configuration["fc50"] = material.DensityValue
+        if active_identity:
+            visual = MakeModelVisual()
+            visual.FieldsValue["f20"]["f20"] = material.IdentityValue
+            configuration["f78"] = visual
     return FinishBlindMut(system, profile, inputs, plan, allocator,
                           MakeSketchKeys(sketch, inputs.DocumentUnits.LengthUnit))
 
@@ -144,13 +134,14 @@ def main():
     document, inputs = FromData(request["document"]), settings(request["settings"])
     dimensions = input_value(request["rectangle_dimensions"], inputs)
     modes = MODES[request["mode"]]
-    density, identity = material_intent(document, request["assignment"])
+    material = material_intent(document, request["assignment"])
+    density, identity = material.DensityValue, material.IdentityValue
     geometry_document = replace(document, materials=())
-    candidate = compose(geometry_document, inputs, dimensions, modes, density, identity)
-    repeated = compose(geometry_document, inputs, dimensions, modes, density, identity)
+    candidate = compose(geometry_document, inputs, dimensions, modes, material)
+    repeated = compose(geometry_document, inputs, dimensions, modes, material)
     require(candidate.BytesValue == repeated.BytesValue, "repeated neutral construction changed bytes")
     measured = inspect(candidate, modes, density, identity)
-    baseline = compose(geometry_document, inputs, dimensions, MODES["unassigned"], density, identity)
+    baseline = compose(geometry_document, inputs, dimensions, MODES["unassigned"], material)
     changes = {name for name, item in candidate.StreamsValue.items() if item != baseline.StreamsValue[name]}
     permitted = {"Contents/Config-0", "Contents/Config-0-ResolvedFeatures", "Contents/CMgr"}
     require(changes <= permitted and (("Contents/Config-0" in changes) == modes[0])

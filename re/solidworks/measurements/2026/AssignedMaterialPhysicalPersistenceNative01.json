@@ -1,0 +1,500 @@
+{
+  "cases": {
+    "AlAll": {
+      "edit": {
+        "input_after_sha256": "75a2047838b92cdcbffab48e1a11351c75a757688381d1a79622c8059ae46231",
+        "numeric_checks": 40,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "record_sha256": "62c30f4909a3b30b46075f069996aef3756c74e3071f35f06b63d912041b4881",
+        "save": {
+          "bytes": 59380,
+          "diagnostics": [
+            true,
+            0,
+            0
+          ],
+          "sha256": "c2a53122845d48803b4aa376b1a7f4bf80e07186d47f7ba634b355569a9caa5a"
+        },
+        "states": {
+          "after_save": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.011375,
+              "D1@Sketch1": 0.054,
+              "D2@Sketch1": 0.018000000000000002
+            },
+            "mass_properties": {
+              "area": 0.0035820000000000005,
+              "com": [
+                0.0,
+                0.0,
+                0.0056875
+              ],
+              "density": 1.0,
+              "mass": 1.1056500000000002e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.1056500000000002e-05
+            },
+            "material": {
+              "database": "solidworks din materials",
+              "material": "3.0205 (EN-AW 1200)"
+            },
+            "selected_mass_properties": {
+              "density": 2700.0,
+              "mass": 0.029852550000000005,
+              "mass_over_volume_density": 2700.0,
+              "use_system_units": true,
+              "volume": 1.1056500000000002e-05
+            },
+            "tree_rows": 25
+          },
+          "cold": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.00825,
+              "D1@Sketch1": 0.054,
+              "D2@Sketch1": 0.018000000000000002
+            },
+            "mass_properties": {
+              "area": 0.0031320000000000007,
+              "com": [
+                6.271677421526888e-20,
+                0.0,
+                0.004125
+              ],
+              "density": 1.0,
+              "mass": 8.019000000000002e-06,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 8.019000000000002e-06
+            },
+            "material": {
+              "database": "solidworks din materials",
+              "material": "3.0205 (EN-AW 1200)"
+            },
+            "selected_mass_properties": {
+              "density": 2700.0,
+              "mass": 0.021651300000000002,
+              "mass_over_volume_density": 2700.0,
+              "use_system_units": true,
+              "volume": 8.019e-06
+            },
+            "tree_rows": 25
+          },
+          "edited": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.011375,
+              "D1@Sketch1": 0.054,
+              "D2@Sketch1": 0.018000000000000002
+            },
+            "mass_properties": {
+              "area": 0.0035820000000000005,
+              "com": [
+                0.0,
+                0.0,
+                0.0056875
+              ],
+              "density": 1.0,
+              "mass": 1.1056500000000002e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.1056500000000002e-05
+            },
+            "material": {
+              "database": "solidworks din materials",
+              "material": "3.0205 (EN-AW 1200)"
+            },
+            "selected_mass_properties": {
+              "density": 2700.0,
+              "mass": 0.029852550000000005,
+              "mass_over_volume_density": 2700.0,
+              "use_system_units": true,
+              "volume": 1.1056500000000002e-05
+            },
+            "tree_rows": 25
+          },
+          "rebuilt": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.00825,
+              "D1@Sketch1": 0.054,
+              "D2@Sketch1": 0.018000000000000002
+            },
+            "mass_properties": {
+              "area": 0.0031320000000000007,
+              "com": [
+                6.271677421526888e-20,
+                0.0,
+                0.004125
+              ],
+              "density": 1.0,
+              "mass": 8.019000000000002e-06,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 8.019000000000002e-06
+            },
+            "material": {
+              "database": "solidworks din materials",
+              "material": "3.0205 (EN-AW 1200)"
+            },
+            "selected_mass_properties": {
+              "density": 2700.0,
+              "mass": 0.021651300000000005,
+              "mass_over_volume_density": 2700.0,
+              "use_system_units": true,
+              "volume": 8.019000000000002e-06
+            },
+            "tree_rows": 25
+          }
+        }
+      },
+      "reopen": {
+        "input_after_sha256": "c2a53122845d48803b4aa376b1a7f4bf80e07186d47f7ba634b355569a9caa5a",
+        "numeric_checks": 20,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "record_sha256": "82d2dd9c008b5dca8870b92c2789701d08a47adfcfe570d0d44be3ef7ef64a09",
+        "states": {
+          "fresh_rebuild": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.011375,
+              "D1@Sketch1": 0.054,
+              "D2@Sketch1": 0.018000000000000002
+            },
+            "mass_properties": {
+              "area": 0.0035820000000000005,
+              "com": [
+                0.0,
+                0.0,
+                0.0056875
+              ],
+              "density": 1.0,
+              "mass": 1.1056500000000002e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.1056500000000002e-05
+            },
+            "material": {
+              "database": "solidworks din materials",
+              "material": "3.0205 (EN-AW 1200)"
+            },
+            "selected_mass_properties": {
+              "density": 2700.0,
+              "mass": 0.029852550000000005,
+              "mass_over_volume_density": 2700.0,
+              "use_system_units": true,
+              "volume": 1.1056500000000002e-05
+            },
+            "tree_rows": 25
+          },
+          "fresh_reopen": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.011375,
+              "D1@Sketch1": 0.054,
+              "D2@Sketch1": 0.018000000000000002
+            },
+            "mass_properties": {
+              "area": 0.0035820000000000005,
+              "com": [
+                0.0,
+                0.0,
+                0.0056875
+              ],
+              "density": 1.0,
+              "mass": 1.1056500000000002e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.1056500000000002e-05
+            },
+            "material": {
+              "database": "solidworks din materials",
+              "material": "3.0205 (EN-AW 1200)"
+            },
+            "selected_mass_properties": {
+              "density": 2700.0,
+              "mass": 0.029852550000000005,
+              "mass_over_volume_density": 2700.0,
+              "use_system_units": true,
+              "volume": 1.1056500000000002e-05
+            },
+            "tree_rows": 25
+          }
+        }
+      }
+    },
+    "SteelAll": {
+      "edit": {
+        "input_after_sha256": "dcbc22d25d2fd8133a1e294d627b599797f17ef3ab4f7bd6f8dd841332004b66",
+        "numeric_checks": 40,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "record_sha256": "bfb8193080f133716bd26c0e440027fed844874f0e33fc002779cc92a68d1353",
+        "save": {
+          "bytes": 53575,
+          "diagnostics": [
+            true,
+            0,
+            0
+          ],
+          "sha256": "b29c08b5a326c311552e6af09fa330b75c0225a4de6f8d4ced9974188b7a8300"
+        },
+        "states": {
+          "after_save": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.009875,
+              "D1@Sketch1": 0.037,
+              "D2@Sketch1": 0.028999999999999998
+            },
+            "mass_properties": {
+              "area": 0.0034495000000000003,
+              "com": [
+                0.0041249999999999985,
+                -0.007750000000000001,
+                0.0049375
+              ],
+              "density": 1.0,
+              "mass": 1.0595875e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.0595875e-05
+            },
+            "material": {
+              "database": "solidworks materials",
+              "material": "1023 Carbon Steel Sheet (SS)"
+            },
+            "selected_mass_properties": {
+              "density": 7858.000032,
+              "mass": 0.083262386089068,
+              "mass_over_volume_density": 7858.000032,
+              "use_system_units": true,
+              "volume": 1.0595875e-05
+            },
+            "tree_rows": 25
+          },
+          "cold": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.0125,
+              "D1@Sketch1": 0.037,
+              "D2@Sketch1": 0.028999999999999998
+            },
+            "mass_properties": {
+              "area": 0.003796,
+              "com": [
+                0.0041249999999999985,
+                -0.00775,
+                0.00625
+              ],
+              "density": 1.0,
+              "mass": 1.34125e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.34125e-05
+            },
+            "material": {
+              "database": "solidworks materials",
+              "material": "1023 Carbon Steel Sheet (SS)"
+            },
+            "selected_mass_properties": {
+              "density": 7858.000032,
+              "mass": 0.10539542542920001,
+              "mass_over_volume_density": 7858.000032,
+              "use_system_units": true,
+              "volume": 1.34125e-05
+            },
+            "tree_rows": 25
+          },
+          "edited": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.009875,
+              "D1@Sketch1": 0.037,
+              "D2@Sketch1": 0.028999999999999998
+            },
+            "mass_properties": {
+              "area": 0.0034495000000000003,
+              "com": [
+                0.0041249999999999985,
+                -0.007750000000000001,
+                0.0049375
+              ],
+              "density": 1.0,
+              "mass": 1.0595875e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.0595875e-05
+            },
+            "material": {
+              "database": "solidworks materials",
+              "material": "1023 Carbon Steel Sheet (SS)"
+            },
+            "selected_mass_properties": {
+              "density": 7858.000032,
+              "mass": 0.083262386089068,
+              "mass_over_volume_density": 7858.000032,
+              "use_system_units": true,
+              "volume": 1.0595875e-05
+            },
+            "tree_rows": 25
+          },
+          "rebuilt": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.0125,
+              "D1@Sketch1": 0.037,
+              "D2@Sketch1": 0.028999999999999998
+            },
+            "mass_properties": {
+              "area": 0.003796,
+              "com": [
+                0.0041249999999999985,
+                -0.00775,
+                0.00625
+              ],
+              "density": 1.0,
+              "mass": 1.34125e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.34125e-05
+            },
+            "material": {
+              "database": "solidworks materials",
+              "material": "1023 Carbon Steel Sheet (SS)"
+            },
+            "selected_mass_properties": {
+              "density": 7858.000032,
+              "mass": 0.1053954254292,
+              "mass_over_volume_density": 7858.000032,
+              "use_system_units": true,
+              "volume": 1.3412499999999999e-05
+            },
+            "tree_rows": 25
+          }
+        }
+      },
+      "reopen": {
+        "input_after_sha256": "b29c08b5a326c311552e6af09fa330b75c0225a4de6f8d4ced9974188b7a8300",
+        "numeric_checks": 20,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "record_sha256": "4ab5d481215415a577fc6ba78a43071b5b5417f6ca3e8910ec76306c4683bd81",
+        "states": {
+          "fresh_rebuild": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.009875,
+              "D1@Sketch1": 0.037,
+              "D2@Sketch1": 0.028999999999999998
+            },
+            "mass_properties": {
+              "area": 0.0034495000000000003,
+              "com": [
+                0.0041249999999999985,
+                -0.007750000000000001,
+                0.0049375
+              ],
+              "density": 1.0,
+              "mass": 1.0595875e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.0595875e-05
+            },
+            "material": {
+              "database": "solidworks materials",
+              "material": "1023 Carbon Steel Sheet (SS)"
+            },
+            "selected_mass_properties": {
+              "density": 7858.000032,
+              "mass": 0.083262386089068,
+              "mass_over_volume_density": 7858.000032,
+              "use_system_units": true,
+              "volume": 1.0595875e-05
+            },
+            "tree_rows": 25
+          },
+          "fresh_reopen": {
+            "body_count": 1,
+            "drivers_m": {
+              "D1@Boss-Extrude1": 0.009875,
+              "D1@Sketch1": 0.037,
+              "D2@Sketch1": 0.028999999999999998
+            },
+            "mass_properties": {
+              "area": 0.0034495000000000003,
+              "com": [
+                0.0041249999999999985,
+                -0.007750000000000001,
+                0.0049375
+              ],
+              "density": 1.0,
+              "mass": 1.0595875e-05,
+              "mass_over_volume_density": 1.0,
+              "override_mass": false,
+              "use_system_units": true,
+              "user_assigned": false,
+              "volume": 1.0595875e-05
+            },
+            "material": {
+              "database": "solidworks materials",
+              "material": "1023 Carbon Steel Sheet (SS)"
+            },
+            "selected_mass_properties": {
+              "density": 7858.000032,
+              "mass": 0.083262386089068,
+              "mass_over_volume_density": 7858.000032,
+              "use_system_units": true,
+              "volume": 1.0595875e-05
+            },
+            "tree_rows": 25
+          }
+        }
+      }
+    }
+  },
+  "cold_job_sha256": "9314fb1c0192ec5fbfb460bbaaed1b6ac2c89aa5e1097065eade06bb0f4e27d5",
+  "controls_healthy": true,
+  "distinct_native_processes": 6,
+  "heldout_credit": 0,
+  "numeric_candidate_checks": 120,
+  "persistence_job_sha256": "4f861abc3d3693ebcbdb119985a007931b659f74903ee5bcf60053d1d47194b8",
+  "product_acceptance": false,
+  "result_sha256": "a4d2c20729d38ee39877a90b5209a5eeaa0bcb09d184fa0af33de6414955417f",
+  "schema": "kit.sw2026.assigned-material-native-persistence-receipt.v1",
+  "sealed_sources_opened": false
+}
