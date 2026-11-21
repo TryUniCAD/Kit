@@ -118,6 +118,16 @@ def CheckTotalAngularRev() -> None:
     assert Edited.feature_timeline[0].definition == Total
     assert len(Edited.parameters) == 1
     assert GetAngleSpan(1.6, Total.AgainstParameterId, Total.SideMode) == (-0.8, 0.8)
+    Invalid = ReplaceValue(
+        Edited,
+        parameters=(
+            ReplaceValue(
+                Edited.parameters[0],
+                value=ParameterValue(FullTurn + 0.1, ValueKind.KAngle, "rad"),
+            ),
+        ),
+    )
+    assert any("at most one turn" in Error for Error in Invalid.validate())
 
 
 # broken selection links and foreign or wrong unit parameters cannot drive a revolution
