@@ -27,6 +27,16 @@ A shape or mesh alone cannot supply that history.
 The definition contract validates the supplied feature definition.
 It does not prove that every writer can emit that feature.
 
+## Plane intersection axes
+
+`PlaneAxis` represents a finite directed reference axis from two ordered support-plane selections.
+Its first and second selection IDs must match the reference step's `selection_ids` in order.
+Each selection directly identifies a different local `SupportPlane`.
+The start and end are distinct finite model-space points in millimetres, in the same frame as the selected supports.
+Both points and the segment direction must agree with the intersection of the two planes.
+Reversing the segment changes its direction while preserving both selection roles.
+The serialized type is `PlaneIntersectionAxis`.
+
 ## Supporting records
 
 A sketch contains geometry and constraints on a support plane.

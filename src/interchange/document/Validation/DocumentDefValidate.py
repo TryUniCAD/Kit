@@ -3,6 +3,7 @@ from typing import Mapping as TypeMap
 from interchange.document.Validation.AngleRevValidate import GetAngleRevErrs
 from interchange.document.Validation.BoundPlaneValidate import CheckBoundPlane
 from interchange.document.Validation.DistExtValidate import GetDistExtErrs
+from interchange.document.Validation.PlaneAxisValidate import GetAxisErrors
 from interchange.document.Validation.PlaneRevValidate import GetPlaneRevErrs
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.BoundScaleValues import GetScaleValues
@@ -10,6 +11,7 @@ from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
+from interchange.Features.FeaturePlaneAxis import PlaneAxis
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.FeatureStep import FeatureStep
@@ -53,6 +55,8 @@ def GetDefErrors(
     Definition = StepValue.definition
     if isinstance(Definition, ScopedExtrude):
         return GetScopeErrors(StepValue, Definition, IdentitySets["bodies"])
+    if isinstance(Definition, PlaneAxis):
+        return GetAxisErrors(StepValue, Definition, Selections, Frames)
     if isinstance(Definition, PlaneRevolve):
         return GetPlaneRevErrs(
             StepValue, Definition, Selections, IdentitySets["support_planes"]
