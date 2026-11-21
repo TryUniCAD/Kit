@@ -1,32 +1,38 @@
 from pathlib import Path as FilePath
 from sys import getprofile as GetProfile, setprofile as SetProfile
 from types import FrameType
+from typing import cast as CastValue
 
 from convert import open_document as OpenDocument
 from convert.adapters.freecad.Native import ReadNativeFcstd
+from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
+from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
 from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
 from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from tests.Research.Archives.FreeCadAliases.MakePadFixture import MakePadFixture
+from tests.Research.Archives.FreeCadAliases.MakePadParent import MakePadParent
 from tests.Research.Archives.FreeCadAliases.PreLinkCarrier import PreLinkCarrier
 
 
-# replay needs the complete verified earlier projection without reopening its scoped archive
+# replay must learn the earlier pad projection through the actual parent archive and reuse it
 def CheckCachedPad(TmpPath: FilePath) -> None:
-    SourcePath = TmpPath / "Source.FCStd"
-    Original = MakePadFixture("native")
-    assert SourcePath.write_bytes(Original) == len(Original)
-    Carried = PreLinkCarrier(OpenDocument(SourcePath, source_format="freecad.fcstd"))
+    Child = TmpPath.resolve() / "Child.FCStd"
+    Parent = Child.with_name("Parent.FCStd")
+    ChildBytes = MakePadFixture("native")
+    ParentBytes = MakePadParent()
+    assert Child.write_bytes(ChildBytes) == len(ChildBytes)
+    assert Parent.write_bytes(ParentBytes) == len(ParentBytes)
+    Opened = OpenDocument(Parent, source_format="freecad.fcstd")
+    Carried = AnnotateNative(PrepareChildren(Opened, PreLinkCarrier))
     Cache: KReplayReadCache = {}
-    _ = ReadNativeFcstd(
-        Original, str(SourcePath), LegacyPadExpr=True, ReplayReads=Cache
-    )
-    assert len(Cache) == 1
-    Calls: list[str] = []
+    Calls: list[tuple[str, int]] = []
 
-    # recording the production code object distinguishes the shortcut from a fresh archive read
+    # native archive entry and depth distinguish parent decoding from a standalone retry
     def RecordRead(Frame: FrameType, Event: str, ArgValue: object) -> None:
         if Event == "call" and Frame.f_code is ReadNativeFcstd.__code__:
-            Calls.append(Event)
+            PathValue = CastValue(str, Frame.f_locals["SourcePath"])
+            Depth = CastValue(int, Frame.f_locals["OuterDepth"])
+            Calls.append((PathValue, Depth))
 
     Previous = GetProfile()
     try:
@@ -34,5 +40,5 @@ def CheckCachedPad(TmpPath: FilePath) -> None:
         Prepared, Output = PrepareReplay(Carried, Migrate=True, ReplayReads=Cache)
     finally:
         SetProfile(Previous)
-    assert not Calls
-    assert Prepared == Carried and Output == Original
+    assert Calls == [(str(Parent), 0), (str(Child), 1)] * 2
+    assert Prepared == Carried and Output == ParentBytes
