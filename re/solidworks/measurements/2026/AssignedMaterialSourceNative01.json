@@ -1,0 +1,184 @@
+{
+  "controls_healthy": true,
+  "disclosed_originals": 2,
+  "distinct_processes": 10,
+  "heldout_credit": 0,
+  "job_sha256": "3289913b17116604a52279a8dca2aba788ec173a2a9f89472605ba699960c477",
+  "native_build": "34.5.2.0604",
+  "native_result_sha256": "cb044d2a615d819e8ac642f3eea4bf5f313b8b61c5bd70570e7e3c90895a26f1",
+  "numeric_candidate_checks": 904,
+  "passed": true,
+  "phases": {
+    "ControlAfter": {
+      "numeric_checks": null,
+      "pass": true,
+      "record_sha256": "fdb08c7ed7c16c7b3c5a3886661ada645995bab01066c85ba8a221111484b4b4"
+    },
+    "ControlBefore": {
+      "numeric_checks": null,
+      "pass": true,
+      "record_sha256": "f00621e452baad0e6f7101f79991f17428128dd6cdc6dfc84bce574e42fbfab3"
+    },
+    "D01Corner/Author": {
+      "density_kg_m3": 2700.0,
+      "legacy_density_kg_m3": 1.0,
+      "mass_kg": 0.009471462890625003,
+      "material": {
+        "database": "SOLIDWORKS DIN Materials",
+        "material": "3.0205 (EN-AW 1200)"
+      },
+      "numeric_checks": 147,
+      "pass": true,
+      "record_sha256": "265069d97814ee17821908d07d3303a80a0f6a9667353656667891aa4e767cb4",
+      "saved": {
+        "bytes": 54627,
+        "diagnostics": [
+          true,
+          0,
+          0
+        ],
+        "sha256": "6f3683065b2e401812a52c03e8c9913d8ea76ff82444dd975a174977f3b5740f"
+      },
+      "volume_m3": 3.507949218750001e-06
+    },
+    "D01Corner/Depth": {
+      "density_kg_m3": 7858.000032,
+      "legacy_density_kg_m3": 1.0,
+      "mass_kg": 0.03635445393710812,
+      "material": {
+        "database": "SOLIDWORKS Materials",
+        "material": "1023 Carbon Steel Sheet (SS)"
+      },
+      "numeric_checks": 114,
+      "pass": true,
+      "record_sha256": "3cab36412d4d3751e50acf3fb38cf4ac16b15df41a1b7b8776efa0fbda29ba60",
+      "saved": {
+        "bytes": 56418,
+        "diagnostics": [
+          true,
+          0,
+          0
+        ],
+        "sha256": "55ec08dca438f20b0b5623eb2e36905279899035ba44aaeddf0427aa5ebf7370"
+      },
+      "volume_m3": 4.62642578125e-06
+    },
+    "D01Corner/Reopen": {
+      "density_kg_m3": 7858.000032,
+      "legacy_density_kg_m3": 1.0,
+      "mass_kg": 0.03635445393710813,
+      "material": {
+        "database": "SOLIDWORKS Materials",
+        "material": "1023 Carbon Steel Sheet (SS)"
+      },
+      "numeric_checks": 73,
+      "pass": true,
+      "record_sha256": "9fa26ef00144308839bd366852c9dde9079901967212f4e64ecaa661bd972908",
+      "volume_m3": 4.626425781250001e-06
+    },
+    "D01Corner/Swap": {
+      "density_kg_m3": 7858.000032,
+      "legacy_density_kg_m3": 1.0,
+      "mass_kg": 0.027565465073191884,
+      "material": {
+        "database": "SOLIDWORKS Materials",
+        "material": "1023 Carbon Steel Sheet (SS)"
+      },
+      "numeric_checks": 118,
+      "pass": true,
+      "record_sha256": "8735824e8b00dfb756ee261ef2a3571de77bd5e6eb863f4cb0973fba9c93a907",
+      "saved": {
+        "bytes": 55355,
+        "diagnostics": [
+          true,
+          0,
+          0
+        ],
+        "sha256": "af2c822de8ee4cf274f4d5d15ad419dba16b129b31af8b28945c21850857d62c"
+      },
+      "volume_m3": 3.507949218750001e-06
+    },
+    "D02Center/Author": {
+      "density_kg_m3": 7858.000032,
+      "legacy_density_kg_m3": 1.0,
+      "mass_kg": 0.03569622365317763,
+      "material": {
+        "database": "SOLIDWORKS Materials",
+        "material": "1023 Carbon Steel Sheet (SS)"
+      },
+      "numeric_checks": 147,
+      "pass": true,
+      "record_sha256": "47b06be2a76afc7f286a9bdbbd869928aea2603c5f631f4dc9d768841e9453cd",
+      "saved": {
+        "bytes": 65630,
+        "diagnostics": [
+          true,
+          0,
+          0
+        ],
+        "sha256": "603b8387e59ce3f9095a4d9d32f06525422a8d825c969dce7fb82eb2d478074e"
+      },
+      "volume_m3": 4.5426601562500005e-06
+    },
+    "D02Center/Depth": {
+      "density_kg_m3": 2700.0,
+      "legacy_density_kg_m3": 1.0,
+      "mass_kg": 0.0079593205078125,
+      "material": {
+        "database": "SOLIDWORKS DIN Materials",
+        "material": "3.0205 (EN-AW 1200)"
+      },
+      "numeric_checks": 114,
+      "pass": true,
+      "record_sha256": "fe7c83e1ee0f5053fd93ab1f072bea63b5f6c637420a5afb257cd511965ce787",
+      "saved": {
+        "bytes": 65731,
+        "diagnostics": [
+          true,
+          0,
+          0
+        ],
+        "sha256": "1680a7e30de015cc2a88016d6ca0887636a4ee75716e597b6db7fbede97cfb05"
+      },
+      "volume_m3": 2.947896484375e-06
+    },
+    "D02Center/Reopen": {
+      "density_kg_m3": 2700.0,
+      "legacy_density_kg_m3": 1.0,
+      "mass_kg": 0.0079593205078125,
+      "material": {
+        "database": "SOLIDWORKS DIN Materials",
+        "material": "3.0205 (EN-AW 1200)"
+      },
+      "numeric_checks": 73,
+      "pass": true,
+      "record_sha256": "b96b0d500f990ce80315d3ee22368a63e7e509c09df26269ecbb9b687e1c77c9",
+      "volume_m3": 2.947896484375e-06
+    },
+    "D02Center/Swap": {
+      "density_kg_m3": 2700.0,
+      "legacy_density_kg_m3": 1.0,
+      "mass_kg": 0.012265182421875,
+      "material": {
+        "database": "SOLIDWORKS DIN Materials",
+        "material": "3.0205 (EN-AW 1200)"
+      },
+      "numeric_checks": 118,
+      "pass": true,
+      "record_sha256": "b6bb52a393df3264356d868299efd211bcf6877fd645f23fe80837b5e7aba9a0",
+      "saved": {
+        "bytes": 67282,
+        "diagnostics": [
+          true,
+          0,
+          0
+        ],
+        "sha256": "e1c79ba4b22508f465ee624a6fe2b41f04f5efdf60012c0ef909cbed1195ec23"
+      },
+      "volume_m3": 4.54266015625e-06
+    }
+  },
+  "schema": "kit.sw2026.disclosed-part-material-source-native.v1",
+  "source_lock_sha256": "c3df77f9b43fb272d16c92da59dc22486e6dd6c8c503c322dcd23fe20960ecba",
+  "writer_outputs": 0
+}

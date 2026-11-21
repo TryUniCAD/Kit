@@ -1,0 +1,814 @@
+{
+  "cases": {
+    "Control": {
+      "baseline_refusal": null,
+      "file_bytes": 59315,
+      "file_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "map_counters": {
+        "configuration": 110,
+        "manager": 19,
+        "resolved_features": 288
+      },
+      "material_tree": null,
+      "owners": {
+        "active_color_texture": [
+          "f90"
+        ],
+        "active_config_density": -1.0,
+        "active_config_material": "Steel",
+        "custom_material_rows": 0,
+        "manager_hatch_calls": 0,
+        "manager_texture_calls": 0,
+        "part_density": {
+          "f58": 1000.0,
+          "f60": null,
+          "f68": 0
+        }
+      },
+      "runtime_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "exact": true,
+          "sha256": "599e3fea664a9788e402297ed0997b680efbf72cfc8a714abe6a8a140ef2d541",
+          "typed_replay_sha256": "599e3fea664a9788e402297ed0997b680efbf72cfc8a714abe6a8a140ef2d541"
+        },
+        "Contents/Config-0": {
+          "bytes": 25390,
+          "exact": true,
+          "sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+          "typed_replay_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14407,
+          "exact": true,
+          "sha256": "33a190c0632c1cfb61a493671d5811c9ea3e9f81a4233adf801d28a8780af525",
+          "typed_replay_sha256": "33a190c0632c1cfb61a493671d5811c9ea3e9f81a4233adf801d28a8780af525"
+        }
+      }
+    },
+    "D01Corner/Author": {
+      "baseline_refusal": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "file_bytes": 54627,
+      "file_sha256": "6f3683065b2e401812a52c03e8c9913d8ea76ff82444dd975a174977f3b5740f",
+      "map_counters": {
+        "configuration": 110,
+        "manager": 21,
+        "resolved_features": 300
+      },
+      "material_tree": {
+        "branches": [
+          {
+            "attributes": [
+              "id"
+            ],
+            "children": 3,
+            "tag": "curves"
+          },
+          {
+            "attributes": [
+              "name"
+            ],
+            "children": 1,
+            "tag": "classification"
+          },
+          {
+            "attributes": [],
+            "children": 1,
+            "tag": "configurationslist"
+          }
+        ],
+        "bytes": 6042,
+        "element_names": [
+          "ALPX",
+          "C",
+          "DENS",
+          "EX",
+          "GXY",
+          "KX",
+          "NUXY",
+          "SIGXT",
+          "SIGYLD",
+          "cgshader2",
+          "classification",
+          "configuration",
+          "configurationslist",
+          "curves",
+          "custom",
+          "material",
+          "physicalproperties",
+          "point",
+          "prop",
+          "pwshader2",
+          "shaders",
+          "sheetmetalOption",
+          "sheetmetalThicknessRange",
+          "swatchcolor",
+          "swtexture",
+          "xhatch",
+          "{http://www.solidworks.com/sldcolorswatch}Optical",
+          "{http://www.solidworks.com/sldmaterials}materials"
+        ],
+        "root": "{http://www.solidworks.com/sldmaterials}materials",
+        "sha256": "76c1b9393a30433ef554eb607958df54344f5409341c421aaff4421dade2b50f"
+      },
+      "owners": {
+        "active_color_texture": [
+          "f80",
+          "f90"
+        ],
+        "active_config_density": 2700.0,
+        "active_config_material": "SOLIDWORKS DIN Materials|3.0205 (EN-AW 1200)|258",
+        "custom_material_rows": 0,
+        "manager_hatch_calls": 1,
+        "manager_texture_calls": 1,
+        "part_density": {
+          "f58": 2700.0,
+          "f60": null,
+          "f68": 0
+        }
+      },
+      "runtime_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2585,
+          "exact": true,
+          "sha256": "40d6f5813763fc418e2557a46d643bebd94a60fe18668bcefb2449d02db2d393",
+          "typed_replay_sha256": "40d6f5813763fc418e2557a46d643bebd94a60fe18668bcefb2449d02db2d393"
+        },
+        "Contents/Config-0": {
+          "bytes": 26294,
+          "exact": true,
+          "sha256": "c27dda1efd3d052077b85a724a78daff2d16450f8f7e10c3f71a071cf278eef6",
+          "typed_replay_sha256": "c27dda1efd3d052077b85a724a78daff2d16450f8f7e10c3f71a071cf278eef6"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15069,
+          "exact": true,
+          "sha256": "861d624d93d1aa7da0d5ea2b25b17067baa7bb1242937ee52a31ca24480778d6",
+          "typed_replay_sha256": "861d624d93d1aa7da0d5ea2b25b17067baa7bb1242937ee52a31ca24480778d6"
+        }
+      }
+    },
+    "D01Corner/Depth": {
+      "baseline_refusal": "unsupported SOLIDWORKS body class gcXhatch_c schema 1",
+      "file_bytes": 56418,
+      "file_sha256": "55ec08dca438f20b0b5623eb2e36905279899035ba44aaeddf0427aa5ebf7370",
+      "map_counters": {
+        "configuration": 110,
+        "manager": 21,
+        "resolved_features": 300
+      },
+      "material_tree": {
+        "branches": [
+          {
+            "attributes": [
+              "id"
+            ],
+            "children": 3,
+            "tag": "curves"
+          },
+          {
+            "attributes": [
+              "name"
+            ],
+            "children": 1,
+            "tag": "classification"
+          },
+          {
+            "attributes": [],
+            "children": 1,
+            "tag": "configurationslist"
+          }
+        ],
+        "bytes": 6572,
+        "element_names": [
+          "ALPX",
+          "C",
+          "DENS",
+          "EX",
+          "GXY",
+          "KX",
+          "NUXY",
+          "RK",
+          "SIGXT",
+          "SIGYLD",
+          "cgshader2",
+          "classification",
+          "configuration",
+          "configurationslist",
+          "curves",
+          "custom",
+          "data",
+          "material",
+          "materialcurve",
+          "materialmodel",
+          "physicalproperties",
+          "point",
+          "prop",
+          "pwshader2",
+          "shaders",
+          "sheetmetalOption",
+          "sheetmetalThicknessRange",
+          "swatchcolor",
+          "swtexture",
+          "xhatch",
+          "{http://www.solidworks.com/sldcolorswatch}Optical",
+          "{http://www.solidworks.com/sldmaterials}materials"
+        ],
+        "root": "{http://www.solidworks.com/sldmaterials}materials",
+        "sha256": "c892653fc627bf817520ea3468f14ecda169db253a559722c42537df1c601305"
+      },
+      "owners": {
+        "active_color_texture": [
+          "f90"
+        ],
+        "active_config_density": 7858.000032,
+        "active_config_material": "SOLIDWORKS Materials|1023 Carbon Steel Sheet (SS)|82",
+        "custom_material_rows": 0,
+        "manager_hatch_calls": 1,
+        "manager_texture_calls": 0,
+        "part_density": {
+          "f58": 7858.000032,
+          "f60": null,
+          "f68": 0
+        }
+      },
+      "runtime_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2585,
+          "exact": true,
+          "sha256": "e3bd29b3f858aa71ac369c89f0182bf6a559d81bc966e0616bc3f2c5555f53cd",
+          "typed_replay_sha256": "e3bd29b3f858aa71ac369c89f0182bf6a559d81bc966e0616bc3f2c5555f53cd"
+        },
+        "Contents/Config-0": {
+          "bytes": 26042,
+          "exact": true,
+          "sha256": "af02cd8ea14b51b7e746b82354e43c08b34521ff767ab8ab4b4e5d4d1dc38e2f",
+          "typed_replay_sha256": "af02cd8ea14b51b7e746b82354e43c08b34521ff767ab8ab4b4e5d4d1dc38e2f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15343,
+          "exact": true,
+          "sha256": "98b63fde3910953b2f1661d160e23bcb40cbe15b0885e2b1de3eb7423b4e582a",
+          "typed_replay_sha256": "98b63fde3910953b2f1661d160e23bcb40cbe15b0885e2b1de3eb7423b4e582a"
+        }
+      }
+    },
+    "D01Corner/Swap": {
+      "baseline_refusal": "unsupported SOLIDWORKS body class gcXhatch_c schema 1",
+      "file_bytes": 55355,
+      "file_sha256": "af2c822de8ee4cf274f4d5d15ad419dba16b129b31af8b28945c21850857d62c",
+      "map_counters": {
+        "configuration": 110,
+        "manager": 21,
+        "resolved_features": 300
+      },
+      "material_tree": {
+        "branches": [
+          {
+            "attributes": [
+              "id"
+            ],
+            "children": 3,
+            "tag": "curves"
+          },
+          {
+            "attributes": [
+              "name"
+            ],
+            "children": 1,
+            "tag": "classification"
+          },
+          {
+            "attributes": [],
+            "children": 1,
+            "tag": "configurationslist"
+          }
+        ],
+        "bytes": 6572,
+        "element_names": [
+          "ALPX",
+          "C",
+          "DENS",
+          "EX",
+          "GXY",
+          "KX",
+          "NUXY",
+          "RK",
+          "SIGXT",
+          "SIGYLD",
+          "cgshader2",
+          "classification",
+          "configuration",
+          "configurationslist",
+          "curves",
+          "custom",
+          "data",
+          "material",
+          "materialcurve",
+          "materialmodel",
+          "physicalproperties",
+          "point",
+          "prop",
+          "pwshader2",
+          "shaders",
+          "sheetmetalOption",
+          "sheetmetalThicknessRange",
+          "swatchcolor",
+          "swtexture",
+          "xhatch",
+          "{http://www.solidworks.com/sldcolorswatch}Optical",
+          "{http://www.solidworks.com/sldmaterials}materials"
+        ],
+        "root": "{http://www.solidworks.com/sldmaterials}materials",
+        "sha256": "c892653fc627bf817520ea3468f14ecda169db253a559722c42537df1c601305"
+      },
+      "owners": {
+        "active_color_texture": [
+          "f90"
+        ],
+        "active_config_density": 7858.000032,
+        "active_config_material": "SOLIDWORKS Materials|1023 Carbon Steel Sheet (SS)|82",
+        "custom_material_rows": 0,
+        "manager_hatch_calls": 1,
+        "manager_texture_calls": 0,
+        "part_density": {
+          "f58": 7858.000032,
+          "f60": null,
+          "f68": 0
+        }
+      },
+      "runtime_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2631,
+          "exact": true,
+          "sha256": "1096688f42003d3b3ae65a4c1e121bbbabf5dd588d119ec25324e55fc4b8c92e",
+          "typed_replay_sha256": "1096688f42003d3b3ae65a4c1e121bbbabf5dd588d119ec25324e55fc4b8c92e"
+        },
+        "Contents/Config-0": {
+          "bytes": 26082,
+          "exact": true,
+          "sha256": "133ab3e3687e49e5d03e85fdf11bd4aa49f06b607aaded761b5b70bfeb669bae",
+          "typed_replay_sha256": "133ab3e3687e49e5d03e85fdf11bd4aa49f06b607aaded761b5b70bfeb669bae"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15351,
+          "exact": true,
+          "sha256": "feea038d21659124133373a45d57a64ad70ac995990b164d98ff79b95c6d63ac",
+          "typed_replay_sha256": "feea038d21659124133373a45d57a64ad70ac995990b164d98ff79b95c6d63ac"
+        }
+      }
+    },
+    "D02Center/Author": {
+      "baseline_refusal": "unsupported SOLIDWORKS body class gcXhatch_c schema 1",
+      "file_bytes": 65630,
+      "file_sha256": "603b8387e59ce3f9095a4d9d32f06525422a8d825c969dce7fb82eb2d478074e",
+      "map_counters": {
+        "configuration": 110,
+        "manager": 21,
+        "resolved_features": 305
+      },
+      "material_tree": {
+        "branches": [
+          {
+            "attributes": [
+              "id"
+            ],
+            "children": 3,
+            "tag": "curves"
+          },
+          {
+            "attributes": [
+              "name"
+            ],
+            "children": 1,
+            "tag": "classification"
+          },
+          {
+            "attributes": [],
+            "children": 1,
+            "tag": "configurationslist"
+          }
+        ],
+        "bytes": 6572,
+        "element_names": [
+          "ALPX",
+          "C",
+          "DENS",
+          "EX",
+          "GXY",
+          "KX",
+          "NUXY",
+          "RK",
+          "SIGXT",
+          "SIGYLD",
+          "cgshader2",
+          "classification",
+          "configuration",
+          "configurationslist",
+          "curves",
+          "custom",
+          "data",
+          "material",
+          "materialcurve",
+          "materialmodel",
+          "physicalproperties",
+          "point",
+          "prop",
+          "pwshader2",
+          "shaders",
+          "sheetmetalOption",
+          "sheetmetalThicknessRange",
+          "swatchcolor",
+          "swtexture",
+          "xhatch",
+          "{http://www.solidworks.com/sldcolorswatch}Optical",
+          "{http://www.solidworks.com/sldmaterials}materials"
+        ],
+        "root": "{http://www.solidworks.com/sldmaterials}materials",
+        "sha256": "c892653fc627bf817520ea3468f14ecda169db253a559722c42537df1c601305"
+      },
+      "owners": {
+        "active_color_texture": [
+          "f90"
+        ],
+        "active_config_density": 7858.000032,
+        "active_config_material": "SOLIDWORKS Materials|1023 Carbon Steel Sheet (SS)|82",
+        "custom_material_rows": 0,
+        "manager_hatch_calls": 1,
+        "manager_texture_calls": 0,
+        "part_density": {
+          "f58": 7858.000032,
+          "f60": null,
+          "f68": 0
+        }
+      },
+      "runtime_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2367,
+          "exact": true,
+          "sha256": "b40e08ef49c438ed5c2b6e2d9dc26522cccb40cebc9dfa039a86aed95986afd1",
+          "typed_replay_sha256": "b40e08ef49c438ed5c2b6e2d9dc26522cccb40cebc9dfa039a86aed95986afd1"
+        },
+        "Contents/Config-0": {
+          "bytes": 26076,
+          "exact": true,
+          "sha256": "486a24a1218b0891246d9f5f1b7de75be806c1c9575d7a72c3baa238e6e34dae",
+          "typed_replay_sha256": "486a24a1218b0891246d9f5f1b7de75be806c1c9575d7a72c3baa238e6e34dae"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15645,
+          "exact": true,
+          "sha256": "054b8fd3a7055146da679b3ff02d13464e87f17e8accec87097b4333debd37d9",
+          "typed_replay_sha256": "054b8fd3a7055146da679b3ff02d13464e87f17e8accec87097b4333debd37d9"
+        }
+      }
+    },
+    "D02Center/Depth": {
+      "baseline_refusal": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "file_bytes": 65731,
+      "file_sha256": "1680a7e30de015cc2a88016d6ca0887636a4ee75716e597b6db7fbede97cfb05",
+      "map_counters": {
+        "configuration": 110,
+        "manager": 21,
+        "resolved_features": 305
+      },
+      "material_tree": {
+        "branches": [
+          {
+            "attributes": [
+              "id"
+            ],
+            "children": 3,
+            "tag": "curves"
+          },
+          {
+            "attributes": [
+              "name"
+            ],
+            "children": 1,
+            "tag": "classification"
+          },
+          {
+            "attributes": [],
+            "children": 1,
+            "tag": "configurationslist"
+          }
+        ],
+        "bytes": 6042,
+        "element_names": [
+          "ALPX",
+          "C",
+          "DENS",
+          "EX",
+          "GXY",
+          "KX",
+          "NUXY",
+          "SIGXT",
+          "SIGYLD",
+          "cgshader2",
+          "classification",
+          "configuration",
+          "configurationslist",
+          "curves",
+          "custom",
+          "material",
+          "physicalproperties",
+          "point",
+          "prop",
+          "pwshader2",
+          "shaders",
+          "sheetmetalOption",
+          "sheetmetalThicknessRange",
+          "swatchcolor",
+          "swtexture",
+          "xhatch",
+          "{http://www.solidworks.com/sldcolorswatch}Optical",
+          "{http://www.solidworks.com/sldmaterials}materials"
+        ],
+        "root": "{http://www.solidworks.com/sldmaterials}materials",
+        "sha256": "4dc5aacdf30c2774dea4e39226008b21e7847d43cb6577de4328cc23b4370194"
+      },
+      "owners": {
+        "active_color_texture": [
+          "f80",
+          "f90"
+        ],
+        "active_config_density": 2700.0,
+        "active_config_material": "SOLIDWORKS DIN Materials|3.0205 (EN-AW 1200)|258",
+        "custom_material_rows": 0,
+        "manager_hatch_calls": 1,
+        "manager_texture_calls": 1,
+        "part_density": {
+          "f58": 2700.0,
+          "f60": null,
+          "f68": 0
+        }
+      },
+      "runtime_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2803,
+          "exact": true,
+          "sha256": "dc30618ad8006974a28ee7268a87d8fb4bb6752e93ec47a8d6ad81ba6d2e51bb",
+          "typed_replay_sha256": "dc30618ad8006974a28ee7268a87d8fb4bb6752e93ec47a8d6ad81ba6d2e51bb"
+        },
+        "Contents/Config-0": {
+          "bytes": 26260,
+          "exact": true,
+          "sha256": "574a2ee930455626a4440ff3d0690ab3bc645f1dc9e10f0538f3c12cf4681353",
+          "typed_replay_sha256": "574a2ee930455626a4440ff3d0690ab3bc645f1dc9e10f0538f3c12cf4681353"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15883,
+          "exact": true,
+          "sha256": "6f57a1e63bdc70f24d88b4afd3fe5064354c5ef00890e7e34916fc82090dbc2a",
+          "typed_replay_sha256": "6f57a1e63bdc70f24d88b4afd3fe5064354c5ef00890e7e34916fc82090dbc2a"
+        }
+      }
+    },
+    "D02Center/Swap": {
+      "baseline_refusal": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "file_bytes": 67282,
+      "file_sha256": "e1c79ba4b22508f465ee624a6fe2b41f04f5efdf60012c0ef909cbed1195ec23",
+      "map_counters": {
+        "configuration": 110,
+        "manager": 21,
+        "resolved_features": 305
+      },
+      "material_tree": {
+        "branches": [
+          {
+            "attributes": [
+              "id"
+            ],
+            "children": 3,
+            "tag": "curves"
+          },
+          {
+            "attributes": [
+              "name"
+            ],
+            "children": 1,
+            "tag": "classification"
+          },
+          {
+            "attributes": [],
+            "children": 1,
+            "tag": "configurationslist"
+          }
+        ],
+        "bytes": 6042,
+        "element_names": [
+          "ALPX",
+          "C",
+          "DENS",
+          "EX",
+          "GXY",
+          "KX",
+          "NUXY",
+          "SIGXT",
+          "SIGYLD",
+          "cgshader2",
+          "classification",
+          "configuration",
+          "configurationslist",
+          "curves",
+          "custom",
+          "material",
+          "physicalproperties",
+          "point",
+          "prop",
+          "pwshader2",
+          "shaders",
+          "sheetmetalOption",
+          "sheetmetalThicknessRange",
+          "swatchcolor",
+          "swtexture",
+          "xhatch",
+          "{http://www.solidworks.com/sldcolorswatch}Optical",
+          "{http://www.solidworks.com/sldmaterials}materials"
+        ],
+        "root": "{http://www.solidworks.com/sldmaterials}materials",
+        "sha256": "4dc5aacdf30c2774dea4e39226008b21e7847d43cb6577de4328cc23b4370194"
+      },
+      "owners": {
+        "active_color_texture": [
+          "f80",
+          "f90"
+        ],
+        "active_config_density": 2700.0,
+        "active_config_material": "SOLIDWORKS DIN Materials|3.0205 (EN-AW 1200)|258",
+        "custom_material_rows": 0,
+        "manager_hatch_calls": 1,
+        "manager_texture_calls": 1,
+        "part_density": {
+          "f58": 2700.0,
+          "f60": null,
+          "f68": 0
+        }
+      },
+      "runtime_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2849,
+          "exact": true,
+          "sha256": "c91f8b3190c04b4508e41ac4a0fe03287f20d3e791f1ee3d6beb60ce08dd3eac",
+          "typed_replay_sha256": "c91f8b3190c04b4508e41ac4a0fe03287f20d3e791f1ee3d6beb60ce08dd3eac"
+        },
+        "Contents/Config-0": {
+          "bytes": 26300,
+          "exact": true,
+          "sha256": "a014c27ec89173e9f3ad80a275c22df0e11784c3ee3c82d4b2c3dd4cfceb7163",
+          "typed_replay_sha256": "a014c27ec89173e9f3ad80a275c22df0e11784c3ee3c82d4b2c3dd4cfceb7163"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15891,
+          "exact": true,
+          "sha256": "6a9420603c8426735c8e8f71f1a6d693306a95ea7889309daa7401906ba1f0da",
+          "typed_replay_sha256": "6a9420603c8426735c8e8f71f1a6d693306a95ea7889309daa7401906ba1f0da"
+        }
+      }
+    },
+    "Diagnostic": {
+      "baseline_refusal": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "file_bytes": 55612,
+      "file_sha256": "04ddbe3934185b0c484ca60579312aac6dc0d2412317cda58d8c518f8d214583",
+      "map_counters": {
+        "configuration": 110,
+        "manager": 21,
+        "resolved_features": 300
+      },
+      "material_tree": {
+        "branches": [
+          {
+            "attributes": [
+              "id"
+            ],
+            "children": 3,
+            "tag": "curves"
+          },
+          {
+            "attributes": [
+              "name"
+            ],
+            "children": 1,
+            "tag": "classification"
+          },
+          {
+            "attributes": [],
+            "children": 1,
+            "tag": "configurationslist"
+          }
+        ],
+        "bytes": 6042,
+        "element_names": [
+          "ALPX",
+          "C",
+          "DENS",
+          "EX",
+          "GXY",
+          "KX",
+          "NUXY",
+          "SIGXT",
+          "SIGYLD",
+          "cgshader2",
+          "classification",
+          "configuration",
+          "configurationslist",
+          "curves",
+          "custom",
+          "material",
+          "physicalproperties",
+          "point",
+          "prop",
+          "pwshader2",
+          "shaders",
+          "sheetmetalOption",
+          "sheetmetalThicknessRange",
+          "swatchcolor",
+          "swtexture",
+          "xhatch",
+          "{http://www.solidworks.com/sldcolorswatch}Optical",
+          "{http://www.solidworks.com/sldmaterials}materials"
+        ],
+        "root": "{http://www.solidworks.com/sldmaterials}materials",
+        "sha256": "76c1b9393a30433ef554eb607958df54344f5409341c421aaff4421dade2b50f"
+      },
+      "owners": {
+        "active_color_texture": [
+          "f80",
+          "f90"
+        ],
+        "active_config_density": 2700.0,
+        "active_config_material": "SOLIDWORKS DIN Materials|3.0205 (EN-AW 1200)|258",
+        "custom_material_rows": 0,
+        "manager_hatch_calls": 1,
+        "manager_texture_calls": 1,
+        "part_density": {
+          "f58": 2700.0,
+          "f60": null,
+          "f68": 0
+        }
+      },
+      "runtime_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2585,
+          "exact": true,
+          "sha256": "e96c4dc3646c2dcdb0ab40517009dbdbd4931eb86a96d7a5b17f256cd6ef108e",
+          "typed_replay_sha256": "e96c4dc3646c2dcdb0ab40517009dbdbd4931eb86a96d7a5b17f256cd6ef108e"
+        },
+        "Contents/Config-0": {
+          "bytes": 26294,
+          "exact": true,
+          "sha256": "5da5363400dd14c132c145167760cb6ee9933feb6f4d0bd73a5b1cceb0a0f26b",
+          "typed_replay_sha256": "5da5363400dd14c132c145167760cb6ee9933feb6f4d0bd73a5b1cceb0a0f26b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15069,
+          "exact": true,
+          "sha256": "cef4349eb07028839313447a8a0670165bcad6a1f36c436126f07d194485e1b5",
+          "typed_replay_sha256": "cef4349eb07028839313447a8a0670165bcad6a1f36c436126f07d194485e1b5"
+        }
+      }
+    }
+  },
+  "module_sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+  "native_build": "34.5.2.0604",
+  "native_processes_started": 0,
+  "native_ranges": [
+    {
+      "bytes": 507,
+      "end_exclusive": "0x3c8d689b",
+      "file_offset": 1793184,
+      "name": "restore",
+      "sha256": "e858c077b7f4b3020c44002e50a00ed869a898db7a1f4e0ce6780a4b00aedcef",
+      "start": "0x3c8d66a0"
+    },
+    {
+      "bytes": 296,
+      "end_exclusive": "0x3c8d69c8",
+      "file_offset": 1793696,
+      "name": "save",
+      "sha256": "8eeb6c081fc85fc6b44ff9af756f98d305b6734b42d1ab1e86ce49743c2afacc",
+      "start": "0x3c8d68a0"
+    },
+    {
+      "bytes": 1126,
+      "end_exclusive": "0x3c8350e6",
+      "file_offset": 1131136,
+      "name": "hatch",
+      "sha256": "d4ad43031fa8e91e1f716ff4ec6adc022c23d69ed10c3884a2c201776b7a3f98",
+      "start": "0x3c834c80"
+    }
+  ],
+  "production_grammar_enabled": false,
+  "proof_sha256": "13349ff2f5de39d3d19864796123a6584a2fcccc0d07b68324f3a06ad347816e",
+  "schema": "kit.sw2026.assigned-material-archive-exploration.v1",
+  "writer_qualified": false
+}
