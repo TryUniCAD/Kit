@@ -168,3 +168,13 @@ feature inventory, then verifies the selected construction axis in that
 profile.
 [Original cut failure](../measurements/2026/RevolveCutDiscoveryFailed01.json) ·
 [Profile feature discovery](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Process/MultipleAuthoredSketchFeatures.md)
+
+The second cut batch creates and measures both annular stocks in each
+case. It verifies both sketch selections, and both scoped rows verify
+their selected stock. The general `FeatureRevolve2` call returns no
+cut for any of the three cases with the recorded Boolean flags. Both
+controls pass. The next source capture tests the dedicated
+`FeatureRevolveCut2` entry on the same models and keeps the marked
+selections and independent geometry checks.
+[Second cut attempt](../measurements/2026/RevolveCutDiscoveryFailed02.json) ·
+[Dedicated cut entry](https://help.solidworks.com/2025/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IFeatureManager~FeatureRevolveCut2.html)

@@ -29,6 +29,11 @@ END_NAMES = (
     "OffsetDistance1", "OffsetDistance2", "ThinType", "ThinThickness1", "ThinThickness2",
     "Merge", "UseFeatScope", "UseAutoSelect",
 )
+CUT_NAMES = (
+    "Angle", "ReverseDir", "Angle2", "RevType", "Options",
+    "UseFeatScope", "UseAutoSelect", "AssemblyFeatureScope",
+    "AutoSelectComponents", "PropagateFeatureToParts",
+)
 LENGTH_TYPES = ("swLinearDimension", "swHorLinearDimension", "swVertLinearDimension")
 ENUMS = {
     "swEndConditions_e": ("swEndCondBlind",),
@@ -70,13 +75,20 @@ def constants_from_registration(sw):
     return result
 
 
-def feature_arguments(case, constants, *, cut=False, thin=False, merge=True, scoped=False):
+def feature_arguments(case, constants, *, thin=False, merge=True):
     blind = constants["swEndCondBlind"]
     mode = WALL_TYPES[case["wall_mode"]] if thin else "swThinWallOneDirection"
     first, second = case["wall_m"] if thin else (0.0, 0.0)
     return (
-        True, True, thin, cut, case["reverse"], False, blind, blind, radians(case["angle_deg"]), 0.0,
-        False, False, 0.0, 0.0, constants[mode], first, second, merge, scoped, not scoped,
+        True, True, thin, False, case["reverse"], False, blind, blind, radians(case["angle_deg"]), 0.0,
+        False, False, 0.0, 0.0, constants[mode], first, second, merge, False, True,
+    )
+
+
+def cut_arguments(case, constants, scoped):
+    return (
+        radians(case["angle_deg"]), case["reverse"], 0.0, constants["swRevolveTypeOneDirection"], 0,
+        scoped, not scoped, False, False, False,
     )
 
 
@@ -187,14 +199,19 @@ def author_type(base, planes, sw, constants):
                 selected_name = STOCK_NAMES[("inner", "outer").index(case["scope"])]
                 target = self.stock_bodies()[selected_name][0]
             selected = self.mark_feature_inputs(case, profile, original, target)
-            arguments = feature_arguments(case, constants, cut=cut, thin=thin, merge=merge, scoped=target is not None)
+            if cut:
+                method, names = "FeatureRevolveCut2", CUT_NAMES
+                arguments = cut_arguments(case, constants, target is not None)
+            else:
+                method, names = "FeatureRevolve2", END_NAMES
+                arguments = feature_arguments(case, constants, thin=thin, merge=merge)
             self.rec.data.setdefault("feature_requests", []).append({
-                "name": name, "selection": selected,
-                "arguments": dict(zip(END_NAMES, arguments, strict=True)),
+                "name": name, "method": method, "selection": selected,
+                "arguments": dict(zip(names, arguments, strict=True)),
             })
             self.rec.flush()
-            feature = self.get(self.get(self.model, "FeatureManager"), "FeatureRevolve2", *arguments)
-            need(feature is not None, "FeatureRevolve2 returned no feature")
+            feature = self.get(self.get(self.model, "FeatureManager"), method, *arguments)
+            need(feature is not None, method + " returned no feature")
             self.set(feature, "Name", name)
 
         def build(self, case, session):
