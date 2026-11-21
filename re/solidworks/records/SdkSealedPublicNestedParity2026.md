@@ -61,3 +61,19 @@ The guest writes the sanitized `Result.json` exclusively. A refusal returns a
 nonzero process code and its exact stage, route when applicable, and safe
 predicate diagnostic. The host preflight alone gives no public held-out
 parity credit.
+
+## Host preflight
+
+The frozen packet SHA-256 is
+`aeae7304158b9a2743c29e25255d75f6165cea452fc09441a7878b2f77f520d7`.
+The code manifest SHA-256 is
+`e41b001e1b708574399403839c8f15c7835c2d6003d3be650f1d02d01d71ea8f`.
+Four guarded SDK workers reproduced the complete three-file and four-file
+disclosed bundles on both routes. Each reported eight native transfers,
+both usability flags and zero runtime input reads. The host private-entry
+control refused before any source path lookup, and verification refused an
+altered packet digest. The guest result remains a separate receipt.
+
+The freeze explicitly retrieves each tracked research helper by blob path.
+Git omits the research tree from release archives.
+[Archive behavior](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Tooling/ReleaseArchivesOmitResearchTools.md)
