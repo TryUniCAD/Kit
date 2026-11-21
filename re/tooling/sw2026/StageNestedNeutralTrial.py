@@ -8,6 +8,7 @@ import sys
 from AuditNestedNeutralComposition import CASES, HERE as WORKER, ROOT, checked, digest, require
 from InspectSdkNestedAssembly import ORACLE, SCHEMA, SOURCE_LOCK, TOOLS
 from PrepareSdkNestedTrial import windows_path, write
+import SdkNestedExpectations
 from SdkNestedExpectations import prediction, verify_prediction
 
 
@@ -50,11 +51,13 @@ def stage(source, folder, edit):
             and packet["source_lock_sha256"] == SOURCE_LOCK and set(packet["tools_sha256"]) == set(TOOLS),
             "disclosed native fixture lacks its ordinary oracle")
     request = json.loads(checked(source / "NeutralRequest.json", old["request_sha256"]))
+    request["part_tree_profile"] = "neutral_standard"
     native = set_destination(request, folder)
     expected = prediction(request, "plate", edit)
     require(verify_prediction(request, expected) == native, "independent prediction did not bind the new working directory")
     revision = git("rev-parse", "HEAD").decode().strip()
-    paths = tuple(path.relative_to(ROOT).as_posix() for path in (WORKER, Path(__file__).resolve()))
+    predictor = Path(SdkNestedExpectations.__file__).resolve()
+    paths = tuple(path.relative_to(ROOT).as_posix() for path in (WORKER, Path(__file__).resolve(), predictor))
     witness = {"revision": revision, "sdk_tree": git("rev-parse", f"{revision}:src").decode().strip(),
                "tool_sha256": {name: digest(git("show", f"{revision}:{name}")) for name in paths}}
     require(not git("diff", "--name-only", revision, "--", "src", *paths)
@@ -92,12 +95,15 @@ def stage(source, folder, edit):
                    "typed_stream_round_trips_per_build": sum(len(row["streams"]) for row in first["documents"].values())})
     tools = folder / "Tools"
     tools.mkdir()
+    hashes = {}
     for name, pin in packet["tools_sha256"].items():
+        raw = predictor.read_bytes() if name == predictor.name else checked(source / "Tools" / name, pin)
+        hashes[name] = digest(raw)
         with (tools / name).open("xb") as destination:
-            destination.write(checked(source / "Tools" / name, pin))
-    with (folder / "ToolsManifest.json").open("xb") as destination:
-        destination.write(checked(source / "ToolsManifest.json", packet["tools_manifest_sha256"]))
-    observer_digest = write(folder / "Packet.json", {**packet, "schema": SCHEMA, "fixture_sha256": frozen})
+            destination.write(raw)
+    tools_sha = write(folder / "ToolsManifest.json", {"schema": "kit.sw2026.sdk-nested-native-tools.v1", "files": hashes})
+    observer_digest = write(folder / "Packet.json", {**packet, "schema": SCHEMA, "fixture_sha256": frozen,
+                            "tools_sha256": hashes, "tools_manifest_sha256": tools_sha})
     observer = tools / "InspectSdkNestedAssembly.py"
     proof_path = folder / "Packet.json"
     process = run((sys.executable, "-B", str(observer), "verify", str(proof_path), "--packet-sha256", observer_digest),

@@ -1,0 +1,48 @@
+{
+  "cases": [
+    {
+      "case": "SdkNestedNeutralNative02",
+      "controls_healthy": true,
+      "edit_save_reopen_completed": false,
+      "expected_leaf_environment_caption": "Environment",
+      "fixture_sha256": "4ed525d9ee986d38ba442623b590371b14cec604a9e804a60e9cf55592756b0f",
+      "frozen_inputs_unchanged": true,
+      "generated_trace_sha256": "2a96f2ab614dd6fe7d284b167820990aff1c284a6a7a0e1f4763f453f8f6917b",
+      "native_acceptance": false,
+      "native_processes": 3,
+      "observed_leaf_environment_caption": "Lights and Cameras",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "packet_sha256": "1133763325ddc3a27147bc9bcd995571ef75cc57dbc13021b1438b9655c30fd8",
+      "prediction_sha256": "2f09f0bad406cd4ab206f77d364edc22eacfa86d447307317714e9407f19d29e",
+      "result_sha256": "85893e4f8972b2b7f32cffe64a94fce6ace29e04d893bfbef37fba805eda4cc2",
+      "source_manifest_sha256": "f5c7a2d66f048c23b328caf7ea11cd5b00f6169211592fb293fecec0886997e2",
+      "stopped_on_feature_tree": true
+    },
+    {
+      "case": "SdkRepeatedNeutralNative02",
+      "controls_healthy": true,
+      "edit_save_reopen_completed": false,
+      "expected_leaf_environment_caption": "Environment",
+      "fixture_sha256": "5083d4461b935e2052469961aa11d2ef0b0994573841848c12f0fbfff08b9daf",
+      "frozen_inputs_unchanged": true,
+      "generated_trace_sha256": "59e20d12a9330bcc20b4cb859d86adfd216d931df1efdec20fcfbdb3f1f643fd",
+      "native_acceptance": false,
+      "native_processes": 3,
+      "observed_leaf_environment_caption": "Lights and Cameras",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "packet_sha256": "46c8ca9c64a8383989e9dc09d27efc573a0c1aa5dd3468d820ded95ed0cfc594",
+      "prediction_sha256": "0e2fd82779498492cb705f59a1419db94faafa025e54d68f03725ea36f06a3e5",
+      "result_sha256": "0d6986e79a63d6fca38bc0183737d7245c8ef5405fa031543d6ee6522ee7d0a6",
+      "source_manifest_sha256": "f5c7a2d66f048c23b328caf7ea11cd5b00f6169211592fb293fecec0886997e2",
+      "stopped_on_feature_tree": true
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "schema": "kit.sw2026.neutral-nested-tree-diagnostic.v1",
+  "source_revision": "4d7deb8495646c4e148401bb6da723ab0275d3db"
+}

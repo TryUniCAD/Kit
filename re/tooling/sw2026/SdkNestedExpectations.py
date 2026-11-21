@@ -34,6 +34,8 @@ def save_order(request):
 def expected_trees(request):
     part = next(row["request"] for row in request["definitions"] if row["kind"] == "part")
     assembly = next(row["request"] for row in request["definitions"] if row["kind"] == "assembly")
+    part_profile = request.get("part_tree_profile", "explicit")
+    require(part_profile in ("explicit", "neutral_standard"), "unknown part display tree profile")
     trees = {}
     for row in request["definitions"]:
         adapted = {"assembly": row["request"] if row["kind"] == "assembly" else assembly,
@@ -47,6 +49,12 @@ def expected_trees(request):
             sketch, = document["sketches"]["$tuple"]
             feature, = document["feature_timeline"]["$tuple"]
             tree["child"][-2][0], tree["child"][-1][0] = sketch["name"], feature["name"]
+            if part_profile == "neutral_standard":
+                folder = next(entry for entry in tree["child"] if entry[1] == "EnvFolder")
+                old_name, folder[0] = folder[0], "Lights and Cameras"
+                for entry in tree["child"]:
+                    if entry[2] == old_name and entry[1] in ("AmbientLight", "DirectionLight"):
+                        entry[2] = folder[0]
             trees[row["id"]] = tree["child"]
     return trees
 
