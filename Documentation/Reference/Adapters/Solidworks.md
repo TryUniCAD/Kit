@@ -338,6 +338,13 @@ density parameter, model data with an absent scene and empty body visual
 counts. Each concrete owner retains its actual archive slot.
 [Lightweight material scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigMaterialOwners.md)
 
+The internal assigned-material inspector checks the single active part
+configuration against its physical density parameter, native material ID and
+saved material XML association. Its result identifies appearance and full
+material XML semantics as pending. Use the inspection record for the bounded
+profile and disclosed verification command.
+[Assigned material archive inspection](../../Changes/Solidworks/Inspection/Materials/SolidworksAssignedMaterialRead.md)
+
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
 of the lightweight section, it inserts the original header objects

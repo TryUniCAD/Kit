@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Archive.Bodies.CheckConfigLink import CheckConf
 from convert.adapters.solidworks.Archive.Bodies.ReadBodyMut import ReadBodyMut
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Archive.Config.MakeConfigCtx import MakeConfigCtx
+from convert.adapters.solidworks.Archive.Config.Material.BindMatReadMut import (
+    BindMatReadMut,
+)
 from convert.adapters.solidworks.Archive.Config.RequireConfig import RequireConfig
 from convert.adapters.solidworks.Archive.Header.ReadHeadItems import ReadHeadItems
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
@@ -29,10 +32,13 @@ def ReadConfigMut(
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
     ReadItems: Callable[[ArchiveNode], tuple[ArchiveNode, ...]] = ReadHeadItems,
     PartRelations: bool = False,
+    ReadMaterial: bool = False,
 ) -> ConfigGraph:
     ContextValue = MakeConfigCtx(
         VersionValue, HeaderValue, UsageValue, ReadItems, PartRelations=PartRelations
     )
+    if ReadMaterial:
+        BindMatReadMut(ContextValue)
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
         ArchiveMaps(1),
