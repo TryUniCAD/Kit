@@ -98,3 +98,60 @@ Earlier version lanes and additional archive owners have separate exits.
 · [Authored queue case](../../../tests/Convert/Solidworks/Archive/HistoryWireTest.py)
 · [Output coordinates queue case](../../../tests/Convert/Solidworks/Archive/HistoryEditTest.py)
 · [Date-code map queue case](../../../tests/Convert/Solidworks/Archive/HistoryMapTest.py)
+
+## Prospective held-out stream comparison
+
+The earliest located donor-free History and Biography constructor is
+the research `Metadata.py` at `f747a206c2ba476c2907014acc964cc4b0b3e8ca`
+and its parallel copy `8ed44583a140e7a7ad16ac52e1e9d0a1569b7815`.
+Both record 2026-11-15 03:36:53 UTC. They construct roots from supplied
+provenance and an empty Biography, then encode them with the shared archive
+store. The initial SDK `MakeFreshHist` arrived on 2026-11-18 at
+`bf06a789ee5521aa563d20fa6aa199072405063e`.
+
+The earlier `SmallHistory.py` at `b104740a35e4a3abb6ed662cf132ba6a30e73cbe`
+supplies the start/end, Biography, version and date-code field grammar.
+Its `RoundTrip.py` caller loads existing roots and can encode them back to
+their original bytes. It has no constructor for fresh provenance or session
+history. The superseded November 13 prototype did generate stream envelopes
+but its version history packs a fixed time and date code with no model inputs,
+and its Biography contains fixed host telemetry. Those operations were removed
+with the recorded-payload writer.
+[First authored constructor](https://github.com/TryUniCAD/Kit/blob/f747a206c2ba476c2907014acc964cc4b0b3e8ca/re/tooling/sw2026/builders/Metadata.py)
+
+The polygon source lock records exact original file custody at
+2026-11-15 03:32:53.916967 UTC. Its baseline contains the earlier schema
+and predates the fresh metadata constructor. The November 16 camera and
+tree locks postdate that constructor. The selected H3 and H7 originals
+are absent from the disclosed Biography and PR #206 fitting cohorts.
+Their prior native lifecycle receipt joins the exact source hashes and
+records clean original phases, unchanged originals and zero source reads by
+the generated-output writers. The separate polygon depth-edit receipt uses
+different source hashes. [Pinned chronology and source identities](../measurements/2026/HistoryHeldoutProtocol01.json)
+· [Original native lifecycle](https://github.com/TryUniCAD/Kit/blob/41ee633c85336eba196e1579834e1dd871cc17b7/re/solidworks/records/SdkOriginalPolygonNative2026.md)
+
+Prepare and check the frozen bundle on the host from the committed revision.
+
+```sh
+python -I -B re/tooling/sw2026/VerifyHeldoutHistory.py stage /path/to/unused/HistoryHeldout01 --revision "$(git rev-parse HEAD)"
+python -I -B /path/to/HistoryHeldout01/VerifyHeldoutHistory.py verify --packet-sha256 <packet-sha256>
+```
+
+The host preflight uses an independently framed populated Biography and
+single-state History with a real date owner. Root runs `root-replay` in the
+Windows guest, with `--packet-sha256`, `--source-root` pointing to the
+locked originals' containing directory and `--receipt` pointing to a new
+result file outside the frozen bundle. It reruns the preflight before reading either original, verifies
+both input hashes before and after each comparison, and uses a fresh
+audited interpreter for each input. The exact version-19000 stream pairs must
+re-emit with identical bytes, valid root/class/date ownership and exact
+logical spans. The result contains aggregate counts, hashes and verdicts.
+Source bytes and typed values remain in guest memory.
+
+A successful protected replay addresses the held-out requirement for this
+standalone decoder and typed re-emitter. The geometry authoring and native
+controls are prior evidence for the originals' exact file hashes. This
+protocol runs no new CAD process and creates no native output artifact.
+The fresh-history constructor, empty-Biography policy, cross-stream provenance
+and public writer admission still require their own complete generated
+document lifecycle evidence. The protected replay result is pending.
