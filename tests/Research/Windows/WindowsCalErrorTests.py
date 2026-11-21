@@ -6,7 +6,7 @@ from pathlib import Path as FilePath
 import pytest as Pytest
 
 from tests.Research.Windows.Calibration.RunCalError import RunCalError
-from tests.Research.Windows.WaitForExit import WaitForExit
+from tests.Research.Windows.Calibration.WaitForCalExit import WaitForCalExit
 
 
 # a refused observation must preserve its native codes without exposing private exception text or leaving claims
@@ -30,7 +30,7 @@ def CheckCalError(TmpPath: FilePath, CleanupFails: bool) -> None:
     Launcher = JsonCodec.loads(
         (TrialPath / "SupervisorProcess.json").read_text(encoding="utf-8")
     )
-    WaitForExit(Launcher["pid"])
+    WaitForCalExit(Launcher["pid"], Launcher["process_start"])
     assert not (OutputPath / "Trial2").exists()
     if CleanupFails:
         assert Report["stop_reason"] == "calibration_error"
