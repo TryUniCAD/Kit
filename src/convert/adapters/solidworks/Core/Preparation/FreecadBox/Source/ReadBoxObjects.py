@@ -48,9 +48,13 @@ def ReadBoxObjects(
     return Known
 
 
-# only the exact release property set and the two authored source dependencies are admitted
+# the release property roster and actual support determine the admitted dependencies
 def ReadBoxProps(
-    FeatureData: Mapping[str, object], BodyName: str, Release: str
+    FeatureData: Mapping[str, object],
+    BodyName: str,
+    Release: str,
+    *,
+    TopAttached: bool = True,
 ) -> Mapping[str, object]:
     Properties = NativeRecord(FeatureData["properties"])
     Expected = KFeatureProps
@@ -66,7 +70,8 @@ def ReadBoxProps(
     )
     RequireBox(
         FeatureData["extensions"] == ReadBoxExts(Release)
-        and FeatureData["dependencies"] == [BodyName, "XZ_Plane"],
+        and FeatureData["dependencies"]
+        == ([BodyName, "XZ_Plane"] if TopAttached else [BodyName]),
         "FreeCAD primitive uses another attachment engine or owner",
     )
     return Properties

@@ -94,13 +94,25 @@ def CheckBoxAttach(
     Properties: Mapping[str, object], FeatureName: str, PlaneId: str, Release: str
 ) -> dict[str, str]:
     CheckTopPlace(Properties, Release)
+    Flags = ReadBoxFlags(Properties, FeatureName, "5", Release)
+    return {
+        "FreeCAD Attachment Support Id": PlaneId,
+        "FreeCAD Attachment Map Mode": "5",
+    } | Flags
+
+
+# the measured box variants share literal primitive fields independent of their datum
+def ReadBoxFlags(
+    Properties: Mapping[str, object], FeatureName: str, ModeValue: str, Release: str
+) -> dict[str, str]:
     RequireProp(Properties, "BaseFeature", "Link", "Link", "")
     RequireProp(
         Properties, "AttacherType", "String", "String", "Attacher::AttachEngine3D"
     )
     MapMode = ReadPropText(Properties, "MapMode", "Enumeration", "Integer")
     RequireBox(
-        MapMode == "5", "FreeCAD property MapMode is outside the admitted box policy"
+        MapMode == ModeValue,
+        "FreeCAD property MapMode is outside the admitted box policy",
     )
     RequireProp(Properties, "MapReversed", "Bool", "Bool", "false")
     Refine = ReadPropText(Properties, "Refine", "Bool", "Bool")
@@ -116,7 +128,4 @@ def CheckBoxAttach(
         float(ReadPropText(Properties, "MapPathParameter", "Float", "Float")) == 0.0,
         "FreeCAD attachment has an active path coordinate",
     )
-    return {
-        "FreeCAD Attachment Support Id": PlaneId,
-        "FreeCAD Attachment Map Mode": MapMode,
-    } | ReadAttachText(Properties, Release)
+    return ReadAttachText(Properties, Release)

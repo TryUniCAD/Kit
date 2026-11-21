@@ -1,4 +1,5 @@
 from collections.abc import Mapping
+from typing import Literal
 
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.SourceFields import (
     RequireBox,
@@ -12,6 +13,15 @@ from interchange.geometry.Models.SupportPlane import SupportPlane
 # actual datum identity and basis distinguish the admitted xz plane from geometry alone
 def ReadTopPlane(
     Planes: tuple[SupportPlane, ...], Objects: Mapping[str, Mapping[str, object]]
+) -> SupportPlane:
+    return ReadBoxPlane(Planes, Objects, "XZ-plane")
+
+
+# both lowerings must use an actual owned datum with its native frame
+def ReadBoxPlane(
+    Planes: tuple[SupportPlane, ...],
+    Objects: Mapping[str, Mapping[str, object]],
+    PlaneName: Literal["XY-plane", "XZ-plane"],
 ) -> SupportPlane:
     RequireBox(
         {PlaneValue.name for PlaneValue in Planes} == set(KPlaneFrames)
@@ -36,4 +46,4 @@ def ReadTopPlane(
             and PlaneValue.attributes.get("principal_index") == OwnerIndex,
             "FreeCAD datum is no longer an ordinary owned origin plane",
         )
-    return next(PlaneValue for PlaneValue in Planes if PlaneValue.name == "XZ-plane")
+    return next(PlaneValue for PlaneValue in Planes if PlaneValue.name == PlaneName)

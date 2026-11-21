@@ -47,11 +47,14 @@ def CheckBoxCache(
 
 # signed world bounds and mass properties follow the authored rigid plane attachment
 def ReadBoxGeometry(
-    DocumentValue: CadDocument, Sizes: tuple[float, float, float]
+    DocumentValue: CadDocument,
+    Sizes: tuple[float, float, float],
+    *,
+    TopAttached: bool = True,
 ) -> dict[str, object]:
     Length, Width, Height = Sizes
-    Minimum = (0.0, -Height, 0.0)
-    Maximum = (Length, 0.0, Width)
+    Minimum = (0.0, -Height, 0.0) if TopAttached else (0.0, 0.0, 0.0)
+    Maximum = (Length, 0.0, Width) if TopAttached else Sizes
     Shape = DocumentValue.brep
     if Shape is not None:
         CheckBoxCache(Shape, Minimum, Maximum)
