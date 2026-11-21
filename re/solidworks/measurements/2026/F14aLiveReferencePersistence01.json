@@ -1,0 +1,220 @@
+{
+  "candidate_reference_resolutions": 216,
+  "cases": {
+    "Freecad102": {
+      "distinct_role_equality": {
+        "edge": 0,
+        "face": 0,
+        "vertex": 0
+      },
+      "fresh_reopen_sha256": "63d8f82ec2ab5a672949eb9a655e0a4c5c534f45bb6b3ef92edc66f06f361830",
+      "generated_sha256": "13608463d0c389e53f4a78ccd7d8768e34080f497d81ac34a1fc35bc1b97b95f",
+      "height_edit_m": [
+        0.01,
+        0.01587
+      ],
+      "original_fcstd_sha256": "2690f8a7f26e9096c917f0e2d4b9d311985a52dc1153546471064525ba8f68df",
+      "phase_records_sha256": [
+        "e5080a6e6af9d3331aff7da0af45bb80b74367e44bbace06720a978515d381bf",
+        "b4edc9c2cf9725fbe6959279768f02a21a019a850518df5f6a3c35df3762808b"
+      ],
+      "role_counts_by_state": {
+        "edge": 12,
+        "face": 6,
+        "producer": 1,
+        "vertex": 8
+      },
+      "source_body_xml_id": 2272,
+      "source_primitive_xml_id": 2280,
+      "source_shape_map_sha256": "b500a5ff8a5ab524939e702559cfc8e802aaf9de72f0d5666ecb35cec49108b9"
+    },
+    "Freecad114": {
+      "distinct_role_equality": {
+        "edge": 0,
+        "face": 0,
+        "vertex": 0
+      },
+      "fresh_reopen_sha256": "f4ff640eac20d1e165f6cc517832ff45a150958c7cad72e3a2bad9bf23eb4c7b",
+      "generated_sha256": "51f6e11f730f85035c840bc03925a7b7b452db15b5fa00bddfb3683163c36b1d",
+      "height_edit_m": [
+        0.01,
+        0.01619
+      ],
+      "original_fcstd_sha256": "c79cd3693db356fdf0d81f367ce56dc57f15b74b3bd5833811f8170bb30377b8",
+      "phase_records_sha256": [
+        "e4ed907a9d1b6c80c6c68996ae45a72e55f2addf4b8970fc7c1bd2bba2fe9566",
+        "b6ca3788c6d0ffb0c83f04b9c846067f178008efec9a4d2d6fccd921918767f7"
+      ],
+      "role_counts_by_state": {
+        "edge": 12,
+        "face": 6,
+        "producer": 1,
+        "vertex": 8
+      },
+      "source_body_xml_id": 4912,
+      "source_primitive_xml_id": 4921,
+      "source_shape_map_sha256": "94bd618a1edcc5492f0dd0322b8acda56e98c7bb271903c8543731171e3be3e2"
+    }
+  },
+  "control_reference_resolutions": 8,
+  "controls": {
+    "ControlAfter": {
+      "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "producer": "Boss-Extrude1",
+      "record_sha256": "6586d35ea70bc474b3f3d30d6508513c3fdd3f6add2940d9ed61ea6b67997b1f",
+      "reference_record_sha256": "b30ebb04295901f613afedbf45c30ecf662083f796ad2e80ebc59945abc29d57",
+      "self_resolved_token_bytes": {
+        "edge": 547,
+        "face": 573,
+        "producer": 20,
+        "vertex": 529
+      }
+    },
+    "ControlBefore": {
+      "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "producer": "Boss-Extrude1",
+      "record_sha256": "fe592b04f901f75d5bc297c17b376f17ff5440b65c69b27f3afd63bd2fc120c1",
+      "reference_record_sha256": "159e650649b6e46e89e1c735c93e354caab4c95777f7fabf11cdc814e9b6954d",
+      "self_resolved_token_bytes": {
+        "edge": 547,
+        "face": 573,
+        "producer": 20,
+        "vertex": 529
+      }
+    }
+  },
+  "corpus_conversions_counted": 0,
+  "distinct_native_processes": 6,
+  "distinct_role_comparisons": 6,
+  "downstream_live_persistence_passed": true,
+  "geometry_states": 12,
+  "heldout_inputs_read": 0,
+  "matched_object_equality": 1,
+  "matched_persistent_id_equality": 1,
+  "matched_resolver_status": 0,
+  "native_processes_started_by_audit": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "per_case_reference_observations": {
+    "token_bytes_by_state": {
+      "Baseline": {
+        "edge": {
+          "567": 8,
+          "571": 4
+        },
+        "face": {
+          "593": 2,
+          "597": 4
+        },
+        "producer": {
+          "20": 1
+        },
+        "vertex": {
+          "553": 8
+        }
+      },
+      "Edited": {
+        "edge": {
+          "567": 8,
+          "571": 4
+        },
+        "face": {
+          "593": 2,
+          "597": 4
+        },
+        "producer": {
+          "20": 1
+        },
+        "vertex": {
+          "553": 8
+        }
+      },
+      "FreshOpen": {
+        "edge": {
+          "571": 8,
+          "575": 4
+        },
+        "face": {
+          "597": 2,
+          "601": 4
+        },
+        "producer": {
+          "20": 1
+        },
+        "vertex": {
+          "557": 8
+        }
+      },
+      "Saved": {
+        "edge": {
+          "571": 8,
+          "575": 4
+        },
+        "face": {
+          "597": 2,
+          "601": 4
+        },
+        "producer": {
+          "20": 1
+        },
+        "vertex": {
+          "557": 8
+        }
+      }
+    },
+    "transitions": {
+      "BaselineToEdited": {
+        "boundary_token_byte_delta": 0,
+        "digest_changes": {
+          "edge": 0,
+          "face": 0,
+          "producer": 0,
+          "vertex": 0
+        },
+        "producer_byte_delta": 0
+      },
+      "EditedToSaved": {
+        "boundary_token_byte_delta": 4,
+        "digest_changes": {
+          "edge": 12,
+          "face": 6,
+          "producer": 0,
+          "vertex": 8
+        },
+        "producer_byte_delta": 0
+      },
+      "SavedToFreshOpen": {
+        "boundary_token_byte_delta": 0,
+        "digest_changes": {
+          "edge": 12,
+          "face": 6,
+          "producer": 0,
+          "vertex": 8
+        },
+        "producer_byte_delta": 0
+      }
+    }
+  },
+  "previous_failed_result_sha256": "6bc759f108d1d4da3c771ec1841f2c70e868c8c1a68cb9934fd71a7de5d4d7f3",
+  "probe_sha256": "05f1e6da9ade4004206eabb7ac6aa94726048b2c0573c94de73df0e0e3d45df3",
+  "public_writer_qualified": false,
+  "pywin32_distribution_version": "312",
+  "registered_reference_members": {
+    "GetObjectByPersistReference3": 101,
+    "GetPersistReference3": 98,
+    "IsSamePersistentID": 196
+  },
+  "registered_wrapper_sha256": "d8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959",
+  "result_sha256": "3bc37b57f04e8424ed1362fd8584d56a7a0dfd6459962ea9859755f1530fd291",
+  "schema": "kit.sw2026.f14a-live-persistence-proof.v1",
+  "source_lineage_receipt_sha256": "ff4edb3b60ebc6d76714f14c56210acc7be2dd5fc9025042e5c2f6bf80bd6266",
+  "source_reference_transfer_qualified": false,
+  "transport": {
+    "c_contiguous": true,
+    "dimensions": 1,
+    "format": "B",
+    "item_size": 1,
+    "python_type": "memoryview"
+  },
+  "vendor_reference_bytes_emitted": 0
+}

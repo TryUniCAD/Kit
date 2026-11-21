@@ -1,0 +1,5 @@
+# Verify live native reference persistence on two generated F14a boxes
+
+The exact SOLIDWORKS 2026 SP05.2 run verifies 216 live candidate and eight control reference resolutions. Each box keeps six face, twelve edge, eight vertex and one producing feature reference through one driving Height edit, Save As and fresh reopen. The PIDs and their creation times prove six fresh native processes. The offline audit rechecks raw receipt digests, actual role and producer ownership, native equality, transport shape and lifecycle pairing, then emits only normalized facts and file or phase digests. [Reproduction and scope](../../../../../re/solidworks/records/FreecadF14aTopologyLineage2026.md#exact-build-live-reference-result)
+
+The measurement applies to the two disclosed downstream generated parts. The source `Body.Shape` element-map input remains a separate SDK owner. The study preserves the first failed capture receipt and supplies no intact-source writer, held-out or corpus conversion credit. [Source input boundary](../../../../../re/solidworks/records/FreecadF14aReferenceInputs2026.md)
