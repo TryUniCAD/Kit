@@ -28,6 +28,7 @@ def worker(request):
     from convert import open_document, write_document
     from convert.api.ApiContext import GetRegistry
     from convert.adapters.base.WriteOptions import WriteOptions
+    from convert.adapters.registry import AdapterNotFoundError
 
     for name in ("ascii", "utf-8", "utf-8-sig", "utf-16-le", "utf-16-be", "latin-1"):
         codecs.lookup(name)
@@ -70,7 +71,7 @@ def worker(request):
             target = BytesIO(initial)
             try:
                 write_document(document, target, destination_format=HOW, allow_carrier=False, values=options)
-            except (ValueError, TypeError, LookupError) as error:
+            except (ValueError, TypeError, AdapterNotFoundError) as error:
                 assert target.getvalue() == initial and target.tell() == 0 and not denied
                 return {"variant": name, "reason": str(error), "runtime_external_attempts": denied}
             raise ValueError("unsupported public revolve unexpectedly emitted")
