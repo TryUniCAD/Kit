@@ -500,6 +500,16 @@ current revision review and queue evidence. Full Config-0 generation
 and native admission have separate exits.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigSectionEmission.md)
 
+### B04-SW2026-NESTED-PUBLICATION
+
+The PR #121 takeover team owns this internal publication boundary on
+`codex/solidworks-nested-publication`. It reuses the neutral nested plan and
+the ordinary staged registry transaction. Exact disclosed bundle parity,
+sibling collision preflight and controlled rollback establish this transport.
+The staged neutral lifecycle and held-out qualification precede normal
+writer activation.
+[Guarded publication evidence](../../re/solidworks/records/SdkNestedAssemblyPublication2026.md)
+
 ### B04-SW2026-ASSEMBLY-HEADER-ALIASES
 
 The PR #121 takeover team owns the shared direct header action on

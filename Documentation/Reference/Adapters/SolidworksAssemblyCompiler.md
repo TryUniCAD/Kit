@@ -12,6 +12,23 @@ The separate option and emission helpers remain internal. Their research-only wr
 
 The native proposal requires clean controlled open/rebuild, exact trees and references, analytical geometry, a driving edit, child-first synchronized save and fresh reopen. A passing byte round trip or host registry test alone does not enable the route.
 
+## Internal nested bundle publication
+
+`WriteNestedAsm(document, destination, options, WrittenAt=...)` writes the
+complete owned neutral hierarchy into one host directory using ordinary
+registry staging. On other hosts supply
+`WriteOptions(values={"native_destination": windows_path, "allow_carrier": True})`.
+Use the existing unmeasured-write permission for the private verification
+route. The return value describes the requested assembly and reports the
+companion filenames and byte totals. Both native usability flags stay false.
+
+The internal publisher requires a fresh filesystem destination. The file
+scan covers every companion as well as the root. The shared registry
+preserves prior entries and rolls back earlier publications on a handled
+late conflict. Normal SOLIDWORKS writer selection retains its established
+flat assembly profiles.
+[Publication scope and evidence](../../../re/solidworks/records/SdkNestedAssemblyPublication2026.md)
+
 [Scope and evidence record](../../../re/solidworks/records/PortableAssemblyCompiler2026.md)
 
 [Change entry](../../Changes/Solidworks/Construction/Assembly/SolidworksPortableAssemblyCompiler.md)
