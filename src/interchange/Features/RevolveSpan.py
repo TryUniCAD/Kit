@@ -3,7 +3,7 @@ from math import tau as FullTurn
 from sys import float_info as FloatInfo
 
 # shared mode names keep editable references and sweep evaluation in agreement
-KAngleModes = ("one_sided", "two_sided", "symmetric")
+KAngleModes = ("one_sided", "two_sided", "symmetric", "symmetric_full")
 
 
 # angular limits retain directional intent and reject degenerate or excessive sweeps
@@ -24,6 +24,12 @@ def GetAngleSpan(
                 "one sided angular revolution cannot have an against angle"
             )
         Start, EndPoint = min(0.0, Along), max(0.0, Along)
+    elif SideMode == "symmetric_full":
+        if Against is not None or Along <= 0.0:
+            raise ValueError(
+                "symmetric full angular revolution requires one positive total angle"
+            )
+        Start, EndPoint = -Along / 2.0, Along / 2.0
     else:
         if Against is None or Against <= 0.0 or Along <= 0.0:
             raise ValueError(
