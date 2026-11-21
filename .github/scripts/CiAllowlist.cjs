@@ -73,12 +73,15 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
       event: Event,
       required: [QueueGate, ...QueueJobs],
       matching: [ShardJobs],
+      optional: ["CAD feature decoding session"],
+      skip: ["CAD feature decoding session"],
     });
     return Workflows;
   }
 
   const QueueDeferred = [
     ...QueueJobs,
+    "CAD feature decoding session",
     "Analyze ${{ matrix.language }}",
     "Test suite / Shard (${{ matrix.shard }})",
   ];

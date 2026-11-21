@@ -16,6 +16,7 @@ Keep those two revisions distinct in reports.
 The audit runs the complete suite, Linux/Windows/macOS process checks, and every existing heavy security job.
 It neither downloads accepted test results nor publishes a reusable test-result cache.
 The final gate requires every acceptance and security job to pass.
+Add `-f feature_session=true` to preserve actual CAD feature decodes and their per-file inventory as described in [the feature-session entry](CadFeatureDecodeSession.md).
 PR and native merge-group gates retain their original conditions, pins, permissions, and timeouts.
 Manual audit concurrency uses a separate namespace from native queue candidates.
 It includes both source and harness SHAs, so audits from different harness revisions cannot replace one another's pending runs.

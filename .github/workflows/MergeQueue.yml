@@ -12,6 +12,10 @@ on:
         description: Full source commit SHA to audit without test reuse
         required: true
         type: string
+      feature_session:
+        description: Save actual native CAD documents and a per-file feature inventory
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -184,6 +188,53 @@ jobs:
         with:
           name: ShardPlan
           path: ${{ runner.temp }}/ShardPlan
+          if-no-files-found: error
+          retention-days: 7
+
+  feature-session:
+    if: github.event_name == 'workflow_dispatch' && inputs.feature_session
+    name: CAD feature decoding session
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - *AuditSource
+      - name: Checkout the immutable source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          filter: blob:none
+          ref: ${{ env.AuditSha }}
+          path: Source
+      - name: Checkout the session reporting harness
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+          path: AuditHarness
+          sparse-checkout: re/automation/FeatureDecodeSession.py
+          sparse-checkout-cone-mode: false
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: Source/uv.lock
+      - name: Synchronize the source environment
+        working-directory: Source
+        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+      - name: Decode the pinned native feature corpus
+        working-directory: Source
+        run: |
+          set -euo pipefail
+          uv run --no-sync --python 3.14 python ../AuditHarness/re/automation/FeatureDecodeSession.py \
+            --root "$PWD" --revision "$AuditSha" --output "${RUNNER_TEMP}/FeatureSession"
+      - name: Save decoded documents, receipts, and feature inventory
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: CadFeatureSession
+          path: ${{ runner.temp }}/FeatureSession
           if-no-files-found: error
           retention-days: 7
 
