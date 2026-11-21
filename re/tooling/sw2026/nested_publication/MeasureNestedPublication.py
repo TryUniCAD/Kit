@@ -13,6 +13,7 @@ from tempfile import TemporaryDirectory
 
 HERE = Path(__file__).resolve()
 ROOT = HERE.parents[4]
+ACCESS_MODE_MASK = getattr(os, "O_ACCMODE", os.O_RDONLY | os.O_WRONLY | os.O_RDWR)
 BASE = "4d7deb8495646c4e148401bb6da723ab0275d3db"
 REFERENCE = ROOT / "re/solidworks/measurements/2026/SdkNestedNeutralComposition01.json"
 REFERENCE_SHA = "4b950c7909de76c2691067c64af80e275c0c10b408ea35367f3ae7083929402d"
@@ -87,7 +88,7 @@ class Audit:
             if location.is_absolute() and location.is_relative_to(self.area):
                 if mode is None and location.is_dir() and location.parent == self.target.parent:
                     return
-                if flags & os.O_ACCMODE == os.O_WRONLY and flags & os.O_EXCL and location.name in self.names:
+                if flags & ACCESS_MODE_MASK == os.O_WRONLY and flags & os.O_EXCL and location.name in self.names:
                     if location.parent != self.target.parent:
                         self.staged_write_attempts.append(location.name)
                         if self.mode == "stage-denied" and location.name == self.last.name:
