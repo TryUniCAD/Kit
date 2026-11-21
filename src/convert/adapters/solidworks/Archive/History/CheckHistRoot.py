@@ -1,24 +1,16 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
+from convert.adapters.solidworks.Archive.History.CheckHistRefs import CheckHistRefs
+from convert.adapters.solidworks.Archive.History.HistoryTypes import (
+    KHistoryRootTypes,
+    KVersionHistClass,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
 
-# standalone history streams require concrete supported roots and cannot admit an unknown prefix or empty version sequence
+# validated streams require their actual root role and complete version history references
 def CheckHistRoot(NodeValue: ArchiveNode | None) -> ArchiveNode:
-    if (
-        NodeValue is None
-        or type(NodeValue.ClassValue) is not RuntimeClass
-        or NodeValue.ClassValue
-        not in (RuntimeClass("moBiography_c", 1), RuntimeClass("moVersionHistory_c", 1))
-    ):
-        raise BodyUnsupported(
-            "ordinary history stream has an unsupported concrete root"
-        )
-    if (
-        NodeValue.ClassValue.NameValue == "moVersionHistory_c"
-        and not NodeValue.FieldsValue.get("states")
-    ):
-        raise BodyUnsupported(
-            "ordinary history requires a nonempty current version sequence"
-        )
+    if NodeValue is None or NodeValue.ClassValue not in KHistoryRootTypes:
+        raise BodyUnsupported("SOLIDWORKS history has an unsupported concrete root")
+    if NodeValue.ClassValue == KVersionHistClass:
+        CheckHistRefs(NodeValue)
     return NodeValue

@@ -89,8 +89,8 @@ read its complete standards index and every applicable rule before coding.
   New specialised tests must use this same execution path.
 - Use `Pull Request / CI Agg` for overall CI health. Register every applicable
   PR and merge-queue CI job in the [CI allowlist](.github/scripts/CiAllowlist.cjs).
-  Keep automated review out of the allowlist and its workflows. Assign each
-  validation to one phase using its complete observed job duration. Jobs below
+  Keep automated review out of the allowlist and its workflows. Run Pyright,
+  Mypy and Python steering in both phases. Assign other validations to one phase using its complete observed job duration. Jobs below
   45 seconds, including light change-range checks, run on PRs. Jobs at or above
   45 seconds run on merge-group candidates. Security scans and test planning
   run on the candidate. Preserve the former job set during trusted-base rollout

@@ -401,6 +401,18 @@ and current revision queue and review evidence. Complete configuration
 writing and native file admission have separate exits.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigAtomEmission.md)
 
+### B04-SW2026-HISTORY-STREAMS
+
+The PR #121 takeover team owns this standalone History and Biography
+codec on `codex/solidworks-stream-history` for separate main delivery.
+It reuses the archive body fields and the branch writer accepted in
+[#199](https://github.com/TryUniCAD/Kit/pull/199).
+Exit requires exact disclosed stream and map comparisons, independently
+authored provenance and count cases, bounded refusals, and current
+revision queue and review evidence. Complete part assembly and native
+writer registration have separate exits.
+[Change entry](../Changes/Solidworks/Archive/Metadata/SolidworksHistoryStreamCodec.md)
+
 ### B04-SW2026-DEFINITION
 
 PR #205 delivered the internal ordinary version-19000 part Definition codec

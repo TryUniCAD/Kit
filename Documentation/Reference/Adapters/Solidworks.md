@@ -548,6 +548,12 @@ from typed rows. Its bounded emission preserves native state normalization
 under the actual archive conditions.
 [Atom manager emission](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigAtomEmission.md)
 
+The internal version-19000 History and Biography codec uses an independent
+archive map for each stream. It preserves existing biography telemetry
+and supports fresh history with explicit creation and build provenance.
+Its writer reads the emitted bytes to report their object offsets.
+[Standalone history scope](../../Changes/Solidworks/Archive/Metadata/SolidworksHistoryStreamCodec.md)
+
 The parametric part writer accepts a neutral millimetre document with one
 active configuration, one sketch, one boss and one solid. It admits these
 profiles:

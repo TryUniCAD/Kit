@@ -1,80 +1,73 @@
 from types import MappingProxyType
+
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Header.HeaderFields import KStampFields
-from convert.adapters.solidworks.Archive.History.BiographyLayouts import (
-    KBiographyLayouts,
+from convert.adapters.solidworks.Archive.History.BioLayouts import KBiographyLayouts
+from convert.adapters.solidworks.Archive.History.HistoryTypes import (
+    KDateHistClass,
+    KHistoryRootTypes,
+    KVersionHistClass,
 )
 
-# ordinary version history and biography share the same typed metadata executor and independent stream maps
+# history stamps share the independent header stamp field order and wire widths
+KHistStampFields = tuple(
+    (
+        NativeField("Text", FieldName)
+        if WireName == "text"
+        else NativeField("Scalar", FieldName, {"H": "u16", "I": "u32"}[WireName])
+    )
+    for FieldName, WireName in KStampFields
+)
+
+# version state framing depends on its own stored file version before the date link
+KVersionFields = (
+    NativeField("Embed", "f08", "moStamp_c"),
+    NativeField("Scalar", "f30", "u32"),
+    NativeField(
+        "Branch",
+        "f30",
+        BodyValue=(NativeField("Fail", "history state requires version 19000"),),
+        ModeValue="NotEquals",
+        MaskValue=19000,
+    ),
+    NativeField("Node", "f38", KDateHistClass.NameValue),
+)
+
+# each history count has a nonempty range because the native loader uses its final entry
 KHistoryLayouts = MappingProxyType(
     {
-        "moStamp_c": tuple(
-            (
-                NativeField("Text", NameValue)
-                if WireName == "text"
-                else NativeField(
-                    "Scalar", NameValue, {"H": "u16", "I": "u32"}[WireName]
-                )
-            )
-            for NameValue, WireName in KStampFields
-        ),
         **KBiographyLayouts,
+        "moStamp_c": KHistStampFields,
         "moDateCodeState_c": (NativeField("Scalar", "f08", "i32"),),
-        "moDateCodeHistory_c": (
+        KDateHistClass.NameValue: (
             NativeField(
                 "Array",
                 "states",
                 "i32",
                 CountValue="n",
-                ModeValue="Positive",
                 BodyValue=(NativeField("Embed", "st", "moDateCodeState_c"),),
             ),
-        ),
-        "moVersionState_c": (
-            NativeField("Embed", "f08", "moStamp_c"),
-            NativeField("Scalar", "f30", "u32"),
             NativeField(
                 "Branch",
-                "",
-                BodyValue=(
-                    NativeField(
-                        "Fail", "history state requires ordinary version 19000"
-                    ),
-                ),
-                ModeValue="Expression",
-                ExpressionValue=(
-                    "compare",
-                    ("NotEq",),
-                    ("lookup", ("scope",), ("literal", "f30")),
-                    ("literal", 19000),
-                ),
+                "n",
+                OtherValue=(NativeField("Fail", "date code history requires states"),),
+                ModeValue="Nonzero",
             ),
-            NativeField("Node", "f38", "moDateCodeHistory_c"),
         ),
-        "moVersionHistory_c": (
+        "moVersionState_c": KVersionFields,
+        KVersionHistClass.NameValue: (
             NativeField(
                 "Array",
                 "states",
                 "i32",
                 CountValue="n",
-                ModeValue="Positive",
                 BodyValue=(NativeField("Embed", "st", "moVersionState_c"),),
             ),
             NativeField(
                 "Branch",
-                "",
-                BodyValue=(
-                    NativeField(
-                        "Fail", "ordinary history requires at least one version state"
-                    ),
-                ),
-                ModeValue="Expression",
-                ExpressionValue=(
-                    "compare",
-                    ("LtE",),
-                    ("lookup", ("scope",), ("literal", "n")),
-                    ("literal", 0),
-                ),
+                "n",
+                OtherValue=(NativeField("Fail", "version history requires states"),),
+                ModeValue="Nonzero",
             ),
             NativeField("Scalar", "f28", "i32"),
             NativeField("Scalar", "f2c", "u32"),
@@ -86,7 +79,10 @@ KHistoryLayouts = MappingProxyType(
     }
 )
 
-# compiled runtime metadata establishes schema one independently from the default chosen by an object helper
+# runtime descriptors establish exact schema numbers for the three tagged owners
 KHistorySchemas = MappingProxyType(
-    {"moBiography_c": (1,), "moDateCodeHistory_c": (1,), "moVersionHistory_c": (1,)}
+    {
+        ClassValue.NameValue: (ClassValue.SchemaValue,)
+        for ClassValue in (*KHistoryRootTypes, KDateHistClass)
+    }
 )

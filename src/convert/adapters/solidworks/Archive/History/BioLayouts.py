@@ -1,25 +1,12 @@
 from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.History.BioSpanFields import KBioSpanFields
 
 # saved biography embeds ordered native telemetry records without allocating extra archive map entries
 KBiographyLayouts = MappingProxyType(
     {
-        "moStartEndRecord_c": (
-            NativeField("Scalar", "f08", "u32"),
-            NativeField("Scalar", "f0c", "u32"),
-            NativeField("Scalar", "f10", "u32"),
-            *(
-                FieldValue
-                for Index in range(6)
-                for FieldValue in (
-                    NativeField("Text", f"s{Index}"),
-                    NativeField("Scalar", f"l{Index}", "i32"),
-                    NativeField("Scalar", f"a{Index}", "u32"),
-                    NativeField("Scalar", f"b{Index}", "u32"),
-                )
-            ),
-        ),
+        "moStartEndRecord_c": KBioSpanFields,
         "moBiographyRecord_c": (
             NativeField("Scalar", "f08", "u32"),
             NativeField("Scalar", "f0c", "i32"),
