@@ -63,7 +63,7 @@ With geometry disabled, the body summary accounts for both halves of a typed mid
 
 The shared archive codec preserves an ordinary version-19000 revolve's actual axis, end specification, angular display and live parameter. A full turn and both measured partial directions re-emit the six linked streams exactly. [Typed ordinary revolve archive](../../Changes/Solidworks/Archive/SolidworksOrdinaryRevolveArchive.md)
 
-The normal reader reconstructs a closed solid for the measured cache-free ordinary rectangular revolve. It uses the real selected sketch axis, positive angular parameter and signed sweep direction. [Cache-free revolve geometry](../../Changes/Solidworks/Reading/Parts/SolidworksCacheFreeRevolveGeometry.md)
+The normal reader reconstructs a closed solid for the measured cache-free ordinary rectangular revolve. It uses the real selected sketch axis, positive angular parameter and signed sweep direction. The computed body uses its verified creator's printable ASCII name. [Cache-free revolve geometry](../../Changes/Solidworks/Reading/Parts/SolidworksCacheFreeRevolveGeometry.md) · [Derived body names](../../Changes/Solidworks/Reading/Parts/SolidworksColdRevolveNames.md)
 
 The internal pocket composer builds a Front-plane rectangular blind boss followed by a reversed circular blind cut from neutral history. It preserves a free circle or the actual fixed-centre radius or diameter. Three disclosed designs pass 30 exact generated stream comparisons and 275 native open, edit, save and reopen checks. Held-out comparison and public admission remain open. [SDK blind pocket](../../Changes/Solidworks/Construction/SolidworksSdkBlindPocket.md)
 

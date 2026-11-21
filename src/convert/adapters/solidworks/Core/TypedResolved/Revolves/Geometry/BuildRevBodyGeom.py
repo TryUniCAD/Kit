@@ -71,4 +71,5 @@ def BuildRevBody(OwnerValue: RevolveOwner, BodyId: str) -> PartGeometry:
             "angle_radians": Angle,
             "reversed": OwnerValue.IsReverse,
         },
+        ProducerValue=OwnerValue.NodeValue,
     )
