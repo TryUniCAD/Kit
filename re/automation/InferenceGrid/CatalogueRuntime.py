@@ -53,6 +53,8 @@ def ReadRun(Directory, SourceRoot, Format):
     Run = read_record(Directory / "CatalogueRun.json")
     if Run.get("version") != 1 or Run.get("plan_sha256") != digest(Plan):
         raise ValueError("saved catalogue run does not match its prepared plan")
+    if Format == "auto" and (Directory / "FileScope.json").is_file():
+        Format = None
     if Format is not None and set(Plan["catalogues"]) != {Format}:
         raise ValueError("saved catalogue run uses a different format")
     CheckRevision(Plan["source_revision"])

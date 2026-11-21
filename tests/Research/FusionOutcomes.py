@@ -26,7 +26,7 @@ def CheckOutcomes(CensusPath: FilePath, TempPath: FilePath) -> None:
         timeout=60,
         check=False,
     )
-    assert SameRun.returncode == 0, SameRun.stderr
+    assert SameRun.returncode == 0, (SameRun.stdout, SameRun.stderr)
     for CaseName in ("missing", "improved", "duplicate", "source"):
         Changed = JsonCodec.loads(CensusPath.read_text())
         if CaseName == "missing":

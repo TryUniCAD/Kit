@@ -15,7 +15,7 @@ from tests.Research.SupervisorClient import SessionHost
 
 
 # a separate provider log detects duplicate requests even when the supervisor overwrites an attempt record
-def SetProviderMut(Harness: SessionHost, TmpPath: FilePath) -> None:
+def SetProviderMut(Environment: dict[str, str], TmpPath: FilePath) -> None:
     Provider = TmpPath / "codex"
     _ = Provider.write_text(
         f"""#!{PythonExe}
@@ -25,14 +25,14 @@ args = sys.argv[1:]
 if args[args.index('--model')+1] != 'gpt-6.2-sol' or 'model_reasoning_effort="medium"' not in args: sys.exit(2)
 prompt = sys.stdin.read()
 if 'private-design-name' in prompt: sys.exit(3)
-pathlib.Path(args[args.index('--output-last-message')+1]).write_text(json.dumps(dict(hypothesis='field stores depth', controlled_change='vary depth', prediction_if_true='field changes', prediction_if_false='field stays fixed')))
+schema = json.loads(pathlib.Path(args[args.index('--output-schema')+1]).read_text())
+choices = schema['properties']['controlled_change'].get('enum', ['vary depth'])
+pathlib.Path(args[args.index('--output-last-message')+1]).write_text(json.dumps(dict(hypothesis='field stores depth', controlled_change=choices[-1], prediction_if_true='field changes', prediction_if_false='field stays fixed')))
 """,
         encoding="utf-8",
     )
     Provider.chmod(0o700)
-    Harness.Environment["PATH"] = (
-        str(TmpPath) + PathSeparator + Harness.Environment["PATH"]
-    )
+    Environment["PATH"] = str(TmpPath) + PathSeparator + Environment["PATH"]
 
 
 # a proposal can be saved only for the accepted receipt of the same deterministic result

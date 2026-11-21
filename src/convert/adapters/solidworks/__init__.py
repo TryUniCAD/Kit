@@ -28,8 +28,11 @@ from convert.adapters.solidworks.Container.Container import (
     build_sldprt as BuildSldprt,
 )
 from convert.adapters.solidworks.Core.Display import neutral_meshes as NeutralMeshes
-from convert.adapters.solidworks.Core.Native import (
+from convert.adapters.solidworks.Core.Records.NativeClass import (
     NativeClass as NativeClass,
+)
+from convert.adapters.solidworks.Core.Records.NativeName import NativeName as NativeName
+from convert.adapters.solidworks.Core.Native import (
     NativeConfiguration as NativeConfig,
     NativeConstraint as NativeRule,
     NativeDimension as NativeDimension,
@@ -37,7 +40,6 @@ from convert.adapters.solidworks.Core.Native import (
     NativeFeature as NativeFeature,
     NativeMarker as NativeMarker,
     NativeModel as NativeModel,
-    NativeName as NativeName,
     NativeOperand as NativeOperand,
     NativeOperation as NativeOperation,
     NativePlane as NativePlane,

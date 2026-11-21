@@ -1,0 +1,5 @@
+# Recovering an edited extrusion graph
+
+A FreeCAD research run can reconstruct an embedded extrusion graph after a confirmed native depth edit. Input-edited-graph.json records the source hash, each changed parameter and extrusion field, and the resulting candidate. The mapping requires the original expression, a unique sheet alias, a driving parameter owned by the feature, and the original millimetre value in both the parameter and its feature definition. The decoder checks the resulting document and replays native checks on the sketch, plane, body tip, extrusion and sheet.
+
+Five native saves yielded the forward length changing from 11 to 14 mm, the second length from 5 to 8 mm, or symmetric total thickness from 16 to 20 mm. The feature retained its original ID and the forward and reversed variants retained their distinct directions. These are research candidates. Verification of the whole file and an independent edit–save–reopen cycle for an output derived from a candidate remain open.
