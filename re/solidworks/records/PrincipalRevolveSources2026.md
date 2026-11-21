@@ -2,7 +2,8 @@
 
 Five fresh SOLIDWORKS 2026 SP05.2 parts passed native authoring, rebuild
 and fresh reopen. The two independent Top and Right inputs also passed
-driving-angle edits and remain sealed with their authored specifications.
+driving-angle edits. The original saves and authored specifications
+were sealed before the writer implementation.
 Both controls passed across twelve distinct SOLIDWORKS processes. The
 lock predates the SDK Top and Right preparation extension and contains zero writer
 outputs. [Source lock](../v2026/heldout/PrincipalRevolveSourceLock01.json)
@@ -92,9 +93,30 @@ Body count matches exactly. All 72 mass, volume, area and
 centre-of-mass values match to six significant figures, with a
 `10^-12` metre zero threshold for centre-of-mass components.
 Both controls pass across ten distinct processes. These
-disclosed cases supply preparation evidence while the two new
-held-out sources remain sealed.
+disclosed cases supply preparation evidence. The two held-out
+sources were still sealed during this batch.
 [Native comparison](../measurements/2026/SdkPrincipalRevolveNative01.json) · [Comparison tool](../../tooling/sw2026/revolve/PrincipalWriter/ComparePrincipalRevolves.py)
+
+## Independent native evaluation
+
+Both pre-writer locked sources matched their generated Top and
+Right candidates through native open, rebuild, D1 edit, save
+and fresh reopen. All ten process births were distinct and
+both controls passed. Each pair retained all 25 recursive
+feature rows, the actual solid label, four sketch relations,
+the selected axis and signed geometry. The 36 mass-property
+values match to six significant figures under the preregistered
+near-zero centre rule. Eight strict SDK process reads reproduce
+80 typed streams and retain the actual D1 and axis owners.
+
+Both candidate hashes precede the first native open of the
+originals. The corrected Windows observer recovered from a
+portable audit-hook error using these same candidates and the
+same production SDK tree. The cold SDK label is recorded as
+`Body 1` separately from the native and strict saved label
+`OrdinaryBossRevolve`. Full original-source preparation, public
+writer admission and original FCStd conversions remain open.
+[Evaluation receipt](../measurements/2026/SdkPrincipalRevolveHeldoutNative01.json) · [Generation pin](../v2026/heldout/PrincipalRevolveGenerationPin01.json) · [Method and recovery](PrincipalRevolveHeldoutProtocol2026.md)
 
 ## Oracle procedure
 

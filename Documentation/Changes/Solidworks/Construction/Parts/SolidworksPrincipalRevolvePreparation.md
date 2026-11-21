@@ -34,3 +34,10 @@ from authored neutral intent in guarded processes before opening
 native references, then compares recursive feature trees, signed
 geometry and edited reopens between healthy controls.
 [Evaluation method](../../../../../re/solidworks/records/PrincipalRevolveHeldoutProtocol2026.md)
+
+Both pre-writer locked cases passed with their 25-row native
+trees, actual body names and all 36 mass-property comparisons.
+Both controls passed in ten fresh processes. The strict SDK
+replayed 80 streams across source, generated and saved inputs.
+The cold SDK label remains a separately recorded fallback.
+[Independent results](../../../../../re/solidworks/measurements/2026/SdkPrincipalRevolveHeldoutNative01.json)

@@ -29,6 +29,13 @@ across ten distinct processes. The guarded SDK preparation uses
 authored neutral documents and no runtime input reads. These
 native discovery cases add zero FCStd conversions.
 
+Two [independently locked Top and Right boss revolves](measurements/2026/SdkPrincipalRevolveHeldoutNative01.json)
+also pass with the 25-row recursive trees, the selected axis and
+live D1. The 36 paired mass-property values match at the measured
+precision and the 80 observed streams replay exactly. The two
+source shapes are authored native controls for the principal-frame
+writer rule. The FCStd conversion count remains unchanged.
+
 The default planar assembly trial opens the generated parent and child,
 applies a mate dimension edit,
 saves both files and opens them again in a fresh process. Four native
