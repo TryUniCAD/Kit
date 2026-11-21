@@ -1,5 +1,8 @@
 from dataclasses import replace as ReplaceValue
 
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.BindPrismCreate import (
+    BindPrismCreate,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.CheckColdBind import (
     CheckColdBind,
 )
@@ -17,7 +20,7 @@ from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# only a fully proved cold output may replace the folder caption while all existing geometry and payload semantics remain intact
+# a cold output binds its proven creator and name to the same neutral body ownership
 def WithColdName(
     Document: CadDocument, GeometryValue: PartGeometry | None
 ) -> CadDocument:
@@ -26,7 +29,9 @@ def WithColdName(
     OutputValue = GeometryValue.ColdValue
     if OutputValue is None:
         return UseProducerName(Document, GeometryValue)
-    _ = CheckColdBind(Document, GeometryValue, OutputValue.BossValue)
+    FeatureValue = CheckColdBind(Document, GeometryValue, OutputValue.BossValue)
+    if GeometryValue.CreatorValue is OutputValue.BossValue:
+        Document = BindPrismCreate(Document, FeatureValue)
     ModelValue = GeometryValue.BrepValue
     ProofValue = ColdNameProof(OutputValue)
     BodyValue = Document.bodies[0]
@@ -59,11 +64,16 @@ def WithColdName(
 
 # a derived cold label may follow only its actual typed producer and owned neutral solid
 def UseProducerName(Document: CadDocument, GeometryValue: PartGeometry) -> CadDocument:
-    BossValue = GeometryValue.ProducerValue
+    BossValue = GeometryValue.CreatorValue or GeometryValue.ProducerValue
     if BossValue is None:
         return Document
     try:
         FeatureValue = CheckColdBind(Document, GeometryValue, BossValue)
+    except (ValueError, TypeError, KeyError):
+        return Document
+    if GeometryValue.CreatorValue is BossValue:
+        Document = BindPrismCreate(Document, FeatureValue)
+    try:
         LabelValue = ReadNativeName(BossValue)
     except (ValueError, TypeError, KeyError):
         return Document

@@ -115,6 +115,8 @@ The default strict reader reconstructs the four qualified circle profiles withou
 
 For an ordinary cache-free prism with one actual output atom, the reader retains the atom's printable ASCII body name after validating its relationships and the computed B-rep. The name evidence reports `native_kernel_identity=false`. [Cache-free body names](../../Changes/Solidworks/Reading/Names/SolidworksCachelessBodyNames.md)
 
+When the linked history proves the sole body creator of the rectangular prism, the strict reader exposes that boss as `create`. The logical body label follows its typed producer if there is no authored output atom. [Initial body creation](../../Changes/Solidworks/Reading/Parts/SolidworksColdPrismCreator.md)
+
 On the verified cache-backed single-solid profile, the normal part reader projects the actual native body label and sets `BrepBody.design_body_id` to the existing design body. The binding requires agreement between the active partition, the actual extrusion output atom and complete decoded topology. Check `metadata["solidworks.native_body_names"]` for the ownership result. History-only and unsupported body profiles keep their existing behavior. [Native single-solid body names](../../Changes/Solidworks/Reading/Names/SolidworksNativeBodyNames.md)
 
 For the measured single planar local BaseBody profile, the reader binds the body to its existing design ID and preserves the native label. The actual LocalBodies group and import feature select the managed atom. Derived labels use the storage key and any agreeing kernel name, and explicitly named bodies retain their Unicode label. [Local imported-body names](../../Changes/Solidworks/Reading/Names/SolidworksLocalBodyNames.md)

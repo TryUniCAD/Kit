@@ -7,3 +7,5 @@ The first portable reconstruction reached the real `RequireExtrusion` check with
 Map this difference only after proving a single actual extrusion/profile with stock support roots, no prior body-producing feature or dependency, and one final solid body owned by that same boss. The first boss then creates the body; there is no earlier body operand to preserve. Keep the original `join` label and dependency in the inverse source ledger.
 
 Do not rewrite joins on existing bodies, multi-body features, cuts, imported geometry or unrecognized history. The constructor's exact type/operation/dependency guard remains unchanged. A native operation-family label alone does not prove the neutral initial-body operation.
+
+The strict cache-free rectangular prism reader now makes this distinction after its existing typed history and neutral B-rep ownership checks. Cached and history-only readers continue to use the native operation family. [Scoped readback](../../../../../../re/solidworks/records/SdkColdPrismCreator2026.md)

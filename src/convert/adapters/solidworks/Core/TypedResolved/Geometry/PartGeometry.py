@@ -16,3 +16,4 @@ class PartGeometry:
     EvidenceValue: Mapping[str, object]
     ColdValue: ColdOutput | None = None
     ProducerValue: ArchiveNode | None = None
+    CreatorValue: ArchiveNode | None = None
