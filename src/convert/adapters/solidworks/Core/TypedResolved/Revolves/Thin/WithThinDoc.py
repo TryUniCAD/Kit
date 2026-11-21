@@ -14,10 +14,13 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.BindThinDoc im
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ReadThinOwner import (
     ReadThinOwner,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.Saved.BindSavedThin import (
+    BindSavedThin,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# only a complete cold graph should replace its prior generic native projection
+# only complete cold and saved owner graphs can replace the prior generic native projection
 def WithThinDoc(
     DocumentValue: CadDocument,
     Archive: SldprtArchive,
@@ -29,14 +32,16 @@ def WithThinDoc(
         ConfigId != 0
         or not isinstance(ClassNames, tuple)
         or "moRevolutionThin_c" not in ClassNames
-        or not IsCacheAbsent(Archive)
     ):
         return DocumentValue
     try:
         LinkValue = ReadNativeLink(Archive, ConfigId)
-        Manager = ReadCmgrMut(Archive.require("Contents/CMgr"), 19000)
-        OwnerValue = ReadThinOwner(LinkValue, Manager)
-        Projected = BindThinDoc(DocumentValue, LinkValue, OwnerValue)
+        if IsCacheAbsent(Archive):
+            Manager = ReadCmgrMut(Archive.require("Contents/CMgr"), 19000)
+            OwnerValue = ReadThinOwner(LinkValue, Manager)
+            Projected = BindThinDoc(DocumentValue, LinkValue, OwnerValue)
+        else:
+            Projected = BindSavedThin(DocumentValue, Archive, LinkValue)
         Projected.assert_valid()
         return Projected
     except (ValueError, TypeError, KeyError) as ErrorInfo:

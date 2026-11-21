@@ -1,0 +1,7 @@
+# Read saved SOLIDWORKS thin boss revolves
+
+Use the normal strict part reader for the measured SOLIDWORKS 2026 SP05.2 thin boss profile. A forward partial sweep of one open line on a canonical principal plane projects a `ThinRevolve` with its actual selected construction axis and live D1, D3 and applicable D4 values. An edited native save can retain an inactive radial display, which remains outside the editable driver inventory.
+
+With geometry enabled, the reader keeps the native partition and delta payloads and binds the closed solid to the verified feature and design body. A semantic read verifies the same owners and publishes no B-rep payload. An unresolved owner, rollback mark or geometric boundary prevents the typed projection. Thin cuts, cap ends, additional profile geometry and unmeasured rotations remain outside this profile.
+
+Twelve disclosed source and edited files passed both strict read modes. The proof compares driver and body ownership, measured volume, area and bounds, retains two exact typed streams per state, and exercises five refusal cases. Six independently native-tested cold files reproduce their original byte hashes from the existing neutral preparation path. [Reader evidence and command](../../../../../re/solidworks/records/ThinRevolveSavedRead2026.md) · [Cache mark ownership](../../../../Gotchas/Conversion/Solidworks/Archive/Revolve/ThinCacheUsesTwoMarks.md)

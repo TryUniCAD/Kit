@@ -7,7 +7,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.BodyNameGraph impo
 
 
 # public body identity evidence must name its actual native domains without fabricated identifiers
-def BodyNameProof(GraphValue: BodyNameGraph) -> Mapping[str, object]:
+def BodyNameProof(
+    GraphValue: BodyNameGraph, *, HasBrep: bool = True
+) -> Mapping[str, object]:
     AtomFields = GraphValue.AtomValue.FieldsValue
     if GraphValue.LocalStoreKey is not None:
         return MappingProxyType(
@@ -23,7 +25,7 @@ def BodyNameProof(GraphValue: BodyNameGraph) -> Mapping[str, object]:
                 "last_modifying_feature_id": GraphValue.FeatureId,
                 "name_owner": GraphValue.LocalNameOwner,
                 "body_count": 1,
-                "complete_brep_binding": True,
+                "complete_brep_binding": HasBrep,
                 "qualified_encoding": (
                     "printable_ascii"
                     if GraphValue.NameValue.isascii()
@@ -47,7 +49,7 @@ def BodyNameProof(GraphValue: BodyNameGraph) -> Mapping[str, object]:
                 else "implicit_kernel"
             ),
             "body_count": 1,
-            "complete_brep_binding": True,
+            "complete_brep_binding": HasBrep,
             "qualified_encoding": (
                 "printable_ascii"
                 if GraphValue.NameValue.isascii()

@@ -13,12 +13,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ThinWallOwner 
 def CheckThinDims(
     NodesValue: tuple[ArchiveNode, ...],
     AngleValue: RevolveAngle,
-    FirstValue: ThinWallOwner,
-    SecondValue: ThinWallOwner,
+    *LengthValues: ThinWallOwner,
 ) -> None:
+    OwnersValue: tuple[RevolveAngle | ThinWallOwner, ...] = (AngleValue, *LengthValues)
     DriverNodes = tuple(
         ItemValue
-        for Driver in (AngleValue, FirstValue, SecondValue)
+        for Driver in OwnersValue
         for ItemValue in (
             Driver.DisplayValue,
             Driver.HandleValue,
@@ -27,18 +27,16 @@ def CheckThinDims(
         )
     )
     CountsValue = Counter(ItemValue.ClassValue.NameValue for ItemValue in DriverNodes)
+    OwnerClasses = CountsValue.keys() | {"moDisplayRadialDim_c", "ThreeDRadiusDim_c"}
     LinkedNodes = tuple(
         ItemValue
         for ItemValue in NodesValue
-        if ItemValue.ClassValue.NameValue in CountsValue
+        if ItemValue.ClassValue.NameValue in OwnerClasses
     )
-    DimensionIds = {
-        Driver.DimensionValue.FieldsValue["f50"]
-        for Driver in (AngleValue, FirstValue, SecondValue)
-    }
+    DimensionIds = {Driver.DimensionValue.FieldsValue["f50"] for Driver in OwnersValue}
     if (
         len(set(DriverNodes)) != len(DriverNodes)
-        or len(DimensionIds) != 3
+        or len(DimensionIds) != len(OwnersValue)
         or set(LinkedNodes) != set(DriverNodes)
     ):
         raise ValueError(

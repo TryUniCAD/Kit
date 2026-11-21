@@ -1,9 +1,8 @@
-from collections import Counter
 from collections.abc import Mapping
-from convert.adapters.solidworks.Archive.Construction.System.SystemClasses import (
-    KSystemFolders,
-)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckSingleBoss import (
+    CheckSingleBoss,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsLineState
 
 
@@ -15,24 +14,7 @@ def CheckPrismRoots(
     SolidClass: str = "moExtrusion_c",
     RequiredClasses: tuple[str, ...] = ("moEndSpec_c", "moFromEndSpec_c"),
 ) -> None:
-    CountsValue = Counter(
-        NodeValue.ClassValue.NameValue for NodeValue in Features.values()
-    )
-    Expected = dict.fromkeys(
-        KSystemFolders
-        | {
-            "moDetailCabinet_c",
-            "moOriginProfileFeature_c",
-            "moProfileFeature_c",
-            SolidClass,
-        },
-        1,
-    )
-    Expected["moRefPlane_c"] = 3
-    if CountsValue != Expected:
-        raise ValueError(
-            "cache free prism requires the whole ordinary single boss inventory"
-        )
+    CheckSingleBoss(Features, SolidClass)
     for ClassName in (
         "moPart_c",
         "moProfileFeature_c",

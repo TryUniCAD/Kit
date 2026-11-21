@@ -5,9 +5,6 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis
     ReadPrincAxis,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismAtom import (
-    CheckPrismAtom,
-)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsLineState
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
@@ -33,7 +30,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.CheckThinAxis 
 )
 
 
-# the thin boss must use its sole actual open sketch and no resolved body attachment
+# the thin boss must use its sole actual open sketch before considering the output body
 def ReadThinParent(
     NodeValue: ArchiveNode, Features: Mapping[int, ArchiveNode]
 ) -> ArchiveNode:
@@ -52,10 +49,7 @@ def ReadThinParent(
         != (0, 0, 5, 1, 0)
         or not IsLineState(FieldsValue.get("f818"))
     ):
-        raise ValueError(
-            "SOLIDWORKS thin sweep requires its actual cold forward profile"
-        )
-    CheckPrismAtom(NodeValue)
+        raise ValueError("SOLIDWORKS thin sweep requires its actual forward profile")
     return ParentsValue[0]
 
 

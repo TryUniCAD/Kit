@@ -1,0 +1,1346 @@
+{
+  "exact_saved_config_and_resolved_streams": 24,
+  "faults": {
+    "active_radius": {
+      "diagnostic": "thin wall has unqualified parameter or display state",
+      "refused": true
+    },
+    "detached_face_producer": {
+      "diagnostic": "thin face has an unresolved native producer",
+      "refused": true
+    },
+    "different_body_tag": {
+      "diagnostic": "native body atom and feature identity domains disagree",
+      "refused": true
+    },
+    "guard": {
+      "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+      "grammar_reads": 10,
+      "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+      "unexpected_attempts": []
+    },
+    "same_body_tag_wrong_sector": {
+      "diagnostic": "SOLIDWORKS thin cache has a vertex outside the editable sector",
+      "refused": true
+    },
+    "wrong_kernel_mark": {
+      "diagnostic": "kernel rollback marks differ from their archive owners",
+      "refused": true
+    }
+  },
+  "host_disclosed_processes": 19,
+  "native_execution": false,
+  "new_heldout_results": 0,
+  "proof_tool_sha256": {
+    "AuditThinSaved.py": "ac42b5ffa9c1cda0b7da5eb35636ae2411b3380dc112dcc0344033dd6c7759bf",
+    "ThinSavedCases.py": "6f29900b9842549ca426b76ad82cfde6c03510ded266295f583a9e1ecc7ab9e9",
+    "ThinSavedFaults.py": "36f6bc3f3d8501208ad1f2ae8905db74634085063a8feb1af01c8debd985b3af",
+    "ThinSavedRead.py": "4e8701bd322da306b578cf2b4ea5e41c0ffa6597d26ad805d6c0d55fd87cdcb4"
+  },
+  "qualified_saved_reads": 24,
+  "results": {
+    "front": {
+      "cases": {
+        "ThinMidplane": {
+          "cold": {
+            "candidate_sha256": "b7f9540c96229ed80fe7f7a19c824269badf305d4d14bf99a237345225d8282b",
+            "checks": {
+              "analytic_brep": {
+                "actual_body_creator": true,
+                "analytic_body": true,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              },
+              "model_only": {
+                "actual_body_creator": true,
+                "analytic_body": false,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              }
+            },
+            "package_layout_reads": 1,
+            "unexpected_runtime_reads": 0,
+            "writer_runtime_reads": 0
+          },
+          "edited": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 13,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 4596.151070471491,
+              "bounds_mm": [
+                -5.738710403330297,
+                -14.11,
+                -33.364999999999995,
+                38.074999999999996,
+                19.97,
+                0.0
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 4950.554210423741
+            },
+            "native_payloads": {
+              "deltas": "5d424e9a3e46ed7e915aa88c24d8ec4ed9ac05341b377bb5939d7229ab0ee145",
+              "partition": "5448f51c4e82786ec15aa3049e4ecbe348e8fe17f6c67eb4d1cea95c6a9781d9"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 10063,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9998,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11919,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11853,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": {
+              "class": "moDisplayRadialDim_c",
+              "end": 16259,
+              "field_span": false,
+              "object_index": 280,
+              "offset": 14555,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "source_sha256": "4bb79ca69e5f5b85ec02f6eae9690810aa849d02b5d69dc1843a8c377787088b",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 2288,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 16267,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 11106,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25216,
+                "map_counter": 109,
+                "sha256": "0ed64587c01fd2d256d020eba9216f5879cc0a1bf0e53015d3e396a93f9df39a"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 16271,
+                "map_counter": 287,
+                "sha256": "5afed57654594d71162d86303d033f5e9473ee16d28a5c29b337a07343e8a573"
+              }
+            },
+            "strict_default_document_sha256": "df7364a59742b82f89bd7df6939409b478c7ee860851e9a5e878e67d19b2225c",
+            "strict_semantic_document_sha256": "a894df0950c354cfbc221a8b1eda29ef448d3e97891c68fa4a304914b675d88d"
+          },
+          "original": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 7,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 3033.3342691324265,
+              "bounds_mm": [
+                14.123595053481267,
+                -14.11,
+                -31.506039467967675,
+                37.745,
+                19.97,
+                0.0
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 2400.004877298203
+            },
+            "native_payloads": {
+              "deltas": "a95127608268d3ee1f4cee8fa49fd44b26e1e4af2c5401a0fd565441651f0da8",
+              "partition": "adab45cf60c28eeb1e21a8183bc08e027fbf64c92e127d4dc4f5bfb6c5d7b7d3"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 9899,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9834,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11755,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11689,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": null,
+            "source_sha256": "9020b54302c1732b05fa9871844e94e4b446713ec1f12dd29d14deb0c5f4d514",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 1446,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 14401,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 10942,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25202,
+                "map_counter": 109,
+                "sha256": "7c7e9d4e57be68910cb4804c4bd45ba3dae1a85ec92c312fbbe41e0516c71aed"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 14405,
+                "map_counter": 279,
+                "sha256": "278549696d6b27190cb06c23b672e153d9fec8054d87ec73992f709f09bb4c79"
+              }
+            },
+            "strict_default_document_sha256": "6be7a958406c3971281024e080605f7f6ba135cc25acf28461c81e523b5f79b0",
+            "strict_semantic_document_sha256": "d7e805882d6018858e12a8ae6a670190dd58adf89efa76e2b087acd102561a33"
+          }
+        },
+        "ThinOne": {
+          "cold": {
+            "candidate_sha256": "3acb4aabf6b0d223c4e559a0356b79e57ee0e3b68b7fb12a8fb831853c1463f7",
+            "checks": {
+              "analytic_brep": {
+                "actual_body_creator": true,
+                "analytic_body": true,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              },
+              "model_only": {
+                "actual_body_creator": true,
+                "analytic_body": false,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              }
+            },
+            "package_layout_reads": 1,
+            "unexpected_runtime_reads": 0,
+            "writer_runtime_reads": 0
+          },
+          "edited": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 13,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 4760.830341880054,
+              "bounds_mm": [
+                -6.1129411520783785,
+                -14.11,
+                -34.559999999999995,
+                39.269999999999996,
+                19.97,
+                0.0
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 5134.44952535866
+            },
+            "native_payloads": {
+              "deltas": "5d424e9a3e46ed7e915aa88c24d8ec4ed9ac05341b377bb5939d7229ab0ee145",
+              "partition": "296d8357f8a57f628424fff7bd48b9edbd4fb73f8ae1bfdee496a221ae6761cd"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 10033,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9968,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11889,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11823,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": {
+              "class": "moDisplayRadialDim_c",
+              "end": 16229,
+              "field_span": false,
+              "object_index": 280,
+              "offset": 14525,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "source_sha256": "f3519a5a7d54e2294d7579a0696a197770cb3bf4d5e809eea3857022c1efea0b",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 1977,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 16237,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 11076,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25206,
+                "map_counter": 109,
+                "sha256": "42ac596dda83e6b2ddc8c0e4af2c8dee6500b16fded8493fb35e1b8fb4aaaeb1"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 16241,
+                "map_counter": 287,
+                "sha256": "1298e81d6d963e450d7ae0d8f445c40610c683d86e265a2dfc4fc9c45b0de14f"
+              }
+            },
+            "strict_default_document_sha256": "ffddca1e0a6f9c8d04141f689a1f186303492185d2d5d06e9fbf9ce7bc800749",
+            "strict_semantic_document_sha256": "5691f2e3d1af049a6a2479fb8394b1e6824e5ec8018b9872b595a0b9d06b24d5"
+          },
+          "original": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 7,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 3111.725195797006,
+              "bounds_mm": [
+                14.383705570052463,
+                -14.11,
+                -32.33100463036489,
+                38.60999999999999,
+                19.97,
+                0.0
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 2464.5371812727994
+            },
+            "native_payloads": {
+              "deltas": "a95127608268d3ee1f4cee8fa49fd44b26e1e4af2c5401a0fd565441651f0da8",
+              "partition": "e1ef9e545d16a6478e17261a8c8cdf8cd61633af02ff6324d0dd9212c3a59555"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 9899,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9834,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11755,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11689,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": null,
+            "source_sha256": "d496a17dc86cdc93796b0aab8c22f74ace923eba09cfca71a8cc7a02761be491",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 1259,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 14401,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 10942,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25202,
+                "map_counter": 109,
+                "sha256": "451bf154df7466ce27f3fa0fbb3b661258f8c174d8ce49bcee06d22190c9543d"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 14405,
+                "map_counter": 279,
+                "sha256": "16a1ec89846b432cece512c311ac3e022ddf4e5a2c050955b1c70eaee760d3ec"
+              }
+            },
+            "strict_default_document_sha256": "fe75c83a7f83fabf77d51b59d5782e1442e4416ffd5f2d6a642851c63d7f2990",
+            "strict_semantic_document_sha256": "4a708bdd4d86d773c782043ad84b6ef742143f3f1144548374392f1ecf146486"
+          }
+        },
+        "ThinOpposite": {
+          "cold": {
+            "candidate_sha256": "a77d2b1152cf1bf8dc4f17487ab25a62f89460f51769fb99a5949b8caaf489c9",
+            "checks": {
+              "analytic_brep": {
+                "actual_body_creator": true,
+                "analytic_body": true,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              },
+              "model_only": {
+                "actual_body_creator": true,
+                "analytic_body": false,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              }
+            },
+            "package_layout_reads": 1,
+            "unexpected_runtime_reads": 0,
+            "writer_runtime_reads": 0
+          },
+          "edited": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 13,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 4431.47179906293,
+              "bounds_mm": [
+                -5.364479654582218,
+                -14.11,
+                -32.169999999999995,
+                36.879999999999995,
+                19.97,
+                0.0
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 4766.658895488821
+            },
+            "native_payloads": {
+              "deltas": "5d424e9a3e46ed7e915aa88c24d8ec4ed9ac05341b377bb5939d7229ab0ee145",
+              "partition": "13c2dfb37dc3e93f3b2efd424208b070347b8dfc4fc947d518ddcfc3b2ff276f"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 10063,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9998,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11919,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11853,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": {
+              "class": "moDisplayRadialDim_c",
+              "end": 16259,
+              "field_span": false,
+              "object_index": 280,
+              "offset": 14555,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "source_sha256": "8a7d0b24433bd0a3e5fadf8f71a1e7423b91e114eb72614cd32949296f7a0895",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 1977,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 16267,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 11106,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25216,
+                "map_counter": 109,
+                "sha256": "f41c7a10353c589540ce59c62a3ce7006f7d2a7033c4a26fd9f6b5be4566e7fe"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 16271,
+                "map_counter": 287,
+                "sha256": "731442f0f4b3b7d24bb5fc0a20b7970b56890a0f3178d7d7cbf0f4ea7e370c44"
+              }
+            },
+            "strict_default_document_sha256": "6bc3914fb799093534d01c326fd02c11a6e9f54d7004a3d63c8190b27633b6bd",
+            "strict_semantic_document_sha256": "badcab933c21da7f0a8ddd9929de0b8daaa0206ba5ccd9799f025272b3a1781b"
+          },
+          "original": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 7,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 2954.943342467846,
+              "bounds_mm": [
+                13.863484536910072,
+                -14.11,
+                -30.681074305570455,
+                36.879999999999995,
+                19.97,
+                0.0
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 2335.4725733236005
+            },
+            "native_payloads": {
+              "deltas": "a95127608268d3ee1f4cee8fa49fd44b26e1e4af2c5401a0fd565441651f0da8",
+              "partition": "434a920bebd214bd1483eabd59a91f992cf8d82f0ee1d74e6814234b53e1b8f7"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 9899,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9834,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11755,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11689,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": null,
+            "source_sha256": "9e8b6ee638898f28be5bee7da0d07214436a5d23dc7f910a3bddd0d6529fa04c",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 1259,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 14401,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 10942,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25202,
+                "map_counter": 109,
+                "sha256": "e7fb1939ab29545b91e96a44c26ca2fcc468d8876a8e3f94355e4ebe8e97fcae"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 14405,
+                "map_counter": 279,
+                "sha256": "ab8a871b07112fc2769bd5ec9fae352f717bd04e4bec0a480a77824ca18d75ca"
+              }
+            },
+            "strict_default_document_sha256": "cfde675c97e1ff638f37fe36397c25c04695fc65a7772e6c9d93447ee833c101",
+            "strict_semantic_document_sha256": "5b3ce208c79055ebde6cd9ad7e195dbd3e08c986be4fb2001c1cded952f0d6e1"
+          }
+        },
+        "ThinUnequal": {
+          "cold": {
+            "candidate_sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+            "checks": {
+              "analytic_brep": {
+                "actual_body_creator": true,
+                "analytic_body": true,
+                "driver_count": 3,
+                "strict_typed_thin": true
+              },
+              "model_only": {
+                "actual_body_creator": true,
+                "analytic_body": false,
+                "driver_count": 3,
+                "strict_typed_thin": true
+              }
+            },
+            "package_layout_reads": 1,
+            "unexpected_runtime_reads": 0,
+            "writer_runtime_reads": 0
+          },
+          "edited": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 15,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 5239.630279812582,
+              "bounds_mm": [
+                -6.1129411520783785,
+                -14.11,
+                -34.559999999999995,
+                39.269999999999996,
+                19.97,
+                0.0
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 13031.600917786907
+            },
+            "native_payloads": {
+              "deltas": "ecf964544cacc58fee52281659b73829c708eb4244d2cac11aeae6d653f62538",
+              "partition": "2b4d1697e095c38bb21419445d1fa7b2d11960cb2f524e9dea685d4237373991"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 10057,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9992,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11913,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11847,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D4": {
+                "class": "moLengthParameter_c",
+                "end": 13654,
+                "field_span": false,
+                "object_index": 276,
+                "offset": 13611,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": {
+              "class": "moDisplayRadialDim_c",
+              "end": 16411,
+              "field_span": false,
+              "object_index": 280,
+              "offset": 14707,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "source_sha256": "c9a6b88887dfa396eb29e07ea38124b4bbf94809efeea4271fb5832814b350fa",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 3052,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 16419,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 11100,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25214,
+                "map_counter": 109,
+                "sha256": "f35d2c71391a9ccbc7af374cb1665b81486f73dbca54b39540aa9f11b034301a"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 16423,
+                "map_counter": 287,
+                "sha256": "629ba42e35abd6b5dab9445011223fdc0de33f079952ad4a431f0d2845cffe0b"
+              }
+            },
+            "strict_default_document_sha256": "902a6f0802d5d0b849ce822f78275860de0346cc22d63997ef413a2d209d6eae",
+            "strict_semantic_document_sha256": "122c01cbd86cb09261202a83f78b8cef6959759b7c2b8fcba33148c4b41ea0e4"
+          },
+          "original": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 7,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 3461.9614951887647,
+              "bounds_mm": [
+                13.352284677752806,
+                -14.11,
+                -32.33100463036489,
+                38.60999999999999,
+                19.97,
+                0.0
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 6969.255961843151
+            },
+            "native_payloads": {
+              "deltas": "a95127608268d3ee1f4cee8fa49fd44b26e1e4af2c5401a0fd565441651f0da8",
+              "partition": "9e58b688d9805e532a40243adb59c96e2ce1b62fcba93be09e28fd037a5881e6"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 9899,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9834,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11755,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11689,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D4": {
+                "class": "moLengthParameter_c",
+                "end": 13496,
+                "field_span": false,
+                "object_index": 276,
+                "offset": 13453,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": null,
+            "source_sha256": "0d1d8490ba8219b16989c4f0f5ed94b2b8af7fe284ba64c4699431bea9f3b33b",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 1448,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 14559,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 10942,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25202,
+                "map_counter": 109,
+                "sha256": "347a906d938ee430dedd697987697eb664e9830909518b7371ba41ab6bd34b2e"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 14563,
+                "map_counter": 279,
+                "sha256": "5e9a62a9bc9072d55a07a0c09fa98c85927e1b3a9a9d5b0eccfab67a55c06a19"
+              }
+            },
+            "strict_default_document_sha256": "22744ceee9a2df4f4e000e6383b5d70000379b123f4b70b8b0f850e1b15f28db",
+            "strict_semantic_document_sha256": "50a69644db1e350d74509382d1d9fa2aaabf5bd15d6c263c594e117f95505729"
+          }
+        }
+      },
+      "cold_build_sha256": "33a91b5797f3e5c8374f962ff9803e7770b248b8e0150633f7ddd5e42e9285f0",
+      "cold_native_terminal_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+      "controls": {
+        "control-after": {
+          "passed": true,
+          "sha256": "c204855cf0522e1589a360e5a22d6862a83d85a18841bb225d6ab9a2d3caf4c4"
+        },
+        "control-before": {
+          "passed": true,
+          "sha256": "0ed1031aab3ec5f89bb838f84d9e026361fa046b38a68292419f9d9a4e0c5fa2"
+        }
+      },
+      "source_authoring_revision": "fd18c4b0bc1e8a4a375b8ce96445d87252ed0bc1",
+      "source_lock_sha256": "f851a26cc549433b5a342b2b7801171f56e356b50866b7f84929353966d6fe25",
+      "source_model_spec_sha256": "dc2fe59f7401905e84f325468384d2f60b78b9f8408204c5b0995c6d8590154d",
+      "source_oracle_build": "34.5.2.0604",
+      "source_oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "source_processes": 14
+    },
+    "principal": {
+      "cases": {
+        "ThinRightCenterControl": {
+          "cold": {
+            "candidate_sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+            "checks": {
+              "analytic_brep": {
+                "actual_body_creator": true,
+                "analytic_body": true,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              },
+              "model_only": {
+                "actual_body_creator": true,
+                "analytic_body": false,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              }
+            },
+            "package_layout_reads": 1,
+            "unexpected_runtime_reads": 0,
+            "writer_runtime_reads": 0
+          },
+          "edited": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 13,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 10597.44083421672,
+              "bounds_mm": [
+                -62.84338521448292,
+                -24.709999999999994,
+                -61.86499999999998,
+                0.0,
+                36.8,
+                -18.653189251534005
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 17569.543413069296
+            },
+            "native_payloads": {
+              "deltas": "5d424e9a3e46ed7e915aa88c24d8ec4ed9ac05341b377bb5939d7229ab0ee145",
+              "partition": "d2c20bad48c747097ac695f238f81b59e145fa66fba74d40b32c1e8adbd65757"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 10205,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 10140,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 12061,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11995,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": {
+              "class": "moDisplayRadialDim_c",
+              "end": 16401,
+              "field_span": false,
+              "object_index": 280,
+              "offset": 14697,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "source_sha256": "ce3a4303b3265fab59837ba61801138c8e0efaf23921c68fe42a8965b01e4259",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 2288,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 16409,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 11248,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25236,
+                "map_counter": 109,
+                "sha256": "e23d1a5b3bc3ddb936332c698abec3d7acd0fc2cc4bd8c1bb31cf061af7d68f3"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 16413,
+                "map_counter": 287,
+                "sha256": "34459cd2596236cd3398f1120ec8ba32b085493dd2915148b263ff8b3f8728c4"
+              }
+            },
+            "strict_default_document_sha256": "803eef7746fc6ba91a598784c0a2c186ec0f19718b7cd9a6c3aaad9a736f1b9c",
+            "strict_semantic_document_sha256": "8d6e99d3bbcb718bf567fead16ef4d0da45958440c96747c9a3773cecc01c37f"
+          },
+          "original": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 7,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 16962.97847733562,
+              "bounds_mm": [
+                -68.335,
+                -24.709999999999994,
+                -62.05499999999999,
+                0.0,
+                36.8,
+                27.963013695441976
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 31281.45058107239
+            },
+            "native_payloads": {
+              "deltas": "a95127608268d3ee1f4cee8fa49fd44b26e1e4af2c5401a0fd565441651f0da8",
+              "partition": "e0cf0351a2af96b03142269e425833071fc7e6d17a633b54fbb13ef0fe2be82b"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 9971,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9906,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11827,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11761,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": null,
+            "source_sha256": "4220ae33c17a2d6f1fda6bd81769dda049544e00acab9633f1acdf068011875c",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 1446,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 14473,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 11014,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25202,
+                "map_counter": 109,
+                "sha256": "bb44941bba971b3f0dfe28a225a4eb1fae5e63aad3135ae4b2bcb3b250449286"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 14477,
+                "map_counter": 279,
+                "sha256": "261941383a74ba749667602e6d005f3bd0f479135fcb5b066ce64ce0afb40393"
+              }
+            },
+            "strict_default_document_sha256": "e2af3c09f89dd8094aedbb38124e9f87281ebdc33f55a344fc7dd7a8294d9d85",
+            "strict_semantic_document_sha256": "5c1c8820f2448eb0e407953edb8bfa18064fadcceb17c10994a7dc3e80028a6f"
+          }
+        },
+        "ThinTopOppositeControl": {
+          "cold": {
+            "candidate_sha256": "7cbe6b2b3c5426d8cb601d2a9d653998e5de9bc08ccdd98b414afe4bc65604b4",
+            "checks": {
+              "analytic_brep": {
+                "actual_body_creator": true,
+                "analytic_body": true,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              },
+              "model_only": {
+                "actual_body_creator": true,
+                "analytic_body": false,
+                "driver_count": 2,
+                "strict_typed_thin": true
+              }
+            },
+            "package_layout_reads": 1,
+            "unexpected_runtime_reads": 0,
+            "writer_runtime_reads": 0
+          },
+          "edited": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 13,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 10718.45228258189,
+              "bounds_mm": [
+                -27.785674962150317,
+                -43.56,
+                -28.400000000000006,
+                46.71,
+                0.0,
+                21.33
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 13426.607583761455
+            },
+            "native_payloads": {
+              "deltas": "5d424e9a3e46ed7e915aa88c24d8ec4ed9ac05341b377bb5939d7229ab0ee145",
+              "partition": "d7a5f9d8d43434c892af0e38b03983380a91ce49ad80f6d319c916e9ea332091"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 10205,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 10140,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 12061,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11995,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": {
+              "class": "moDisplayRadialDim_c",
+              "end": 16401,
+              "field_span": false,
+              "object_index": 280,
+              "offset": 14697,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "source_sha256": "21f46c077d21ce1f66a73720f9677daff1ac88f4aa183235c24351e31aed8d05",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 1977,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 16409,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 11248,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25238,
+                "map_counter": 109,
+                "sha256": "49e7d8d3d9e6c05acf58dc39dc9b605a52b52619031f296e72352b952412309a"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 16413,
+                "map_counter": 287,
+                "sha256": "9e8570c366c0ab6dacf8f33789127de95a4ae4dcc6497c299a7cb535f0709454"
+              }
+            },
+            "strict_default_document_sha256": "b3e65b62f4a77aca272124d16e8ee094aa9b0fee7e8a2e22ae4759b448b384e1",
+            "strict_semantic_document_sha256": "3154dde7dd94cf21228ea1278d933d560d3453b4a28f90f5ddd435df31780971"
+          },
+          "original": {
+            "guard": {
+              "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+              "grammar_reads": 2,
+              "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+              "unexpected_attempts": []
+            },
+            "kernel_marks": {
+              "current": 7,
+              "predecessor": 3
+            },
+            "measurements": {
+              "area_mm2": 6439.292880654907,
+              "bounds_mm": [
+                8.909998844309934,
+                -43.149200469722224,
+                -28.400000000000006,
+                46.71,
+                0.0,
+                21.33
+              ],
+              "edges": 12,
+              "faces": 6,
+              "vertices": 8,
+              "volume_mm3": 4637.22924756325
+            },
+            "native_payloads": {
+              "deltas": "a95127608268d3ee1f4cee8fa49fd44b26e1e4af2c5401a0fd565441651f0da8",
+              "partition": "8db0a24f1c4c6c8d34406666834fb6d4f8e9e7b9f7c43a6ca54326c8eb0597b8"
+            },
+            "native_tree_rows": 25,
+            "native_tree_sha256": "95320094a7099b478f5ed67621783ff8408542309933223225d2180faa64a80d",
+            "parameters": {
+              "D1": {
+                "class": "moAngleParameter_c",
+                "end": 9971,
+                "field_span": false,
+                "object_index": 258,
+                "offset": 9906,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "D3": {
+                "class": "moLengthParameter_c",
+                "end": 11827,
+                "field_span": false,
+                "object_index": 270,
+                "offset": 11761,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            },
+            "saved_radial_display": null,
+            "source_sha256": "856e9ef1568469bbe54d0418918d79bd6998b76ae552775dbe77e3d775450721",
+            "stored_body": {
+              "atom_manager_id": 101,
+              "body_count": 1,
+              "body_match_tag": 1259,
+              "body_transmit_index": 2,
+              "complete_brep_binding": true,
+              "configuration_stream": "Contents/Config-0",
+              "last_modifying_feature_id": 33,
+              "name_owner": "implicit_kernel",
+              "partition_stream": "Contents/Config-0-Partition",
+              "profile": "ordinary_current_single_solid_names",
+              "qualified_encoding": "printable_ascii",
+              "status": "complete"
+            },
+            "stored_thin_spec": {
+              "class": "moThinSpec_c",
+              "end": 14473,
+              "field_span": false,
+              "object_index": 263,
+              "offset": 11014,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "streams": {
+              "Contents/Config-0": {
+                "bytes": 25204,
+                "map_counter": 109,
+                "sha256": "059252e246ddb7e4dc992d38f3265f2134f3312b1ecfe10130c1e8c3605523e2"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "bytes": 14477,
+                "map_counter": 279,
+                "sha256": "0d696bdf142673f014314e57bb9b67b81dd25d7a070cb587c2c5abcc41aaceb0"
+              }
+            },
+            "strict_default_document_sha256": "21b6e95f900ccbfc4849d66ec57a0c9cb99c567ff984d11bfc1245ab68cf4447",
+            "strict_semantic_document_sha256": "0501258a2288a38aace7d040a11a66d9181fac812bd079168f1bd37010f79f9d"
+          }
+        }
+      },
+      "cold_build_sha256": "21228b9c95c2135a826bbbdb7d1c0abd37ff94de08d34fc6f59c934d64fe9a6a",
+      "cold_native_terminal_sha256": "f0cae9a898ea4ed54a7e181b8631da6ff17569eca430558c4c77004b36d37127",
+      "controls": {
+        "control-after": {
+          "passed": true,
+          "sha256": "4949e86580690d3dce2a4d0ec8f2fb18b1a1411749f59eeacbd7a1240e0661e1"
+        },
+        "control-before": {
+          "passed": true,
+          "sha256": "767933a60146f6875563787d894c98dd5f1b74d057d71b9156e86fd510d38907"
+        }
+      },
+      "source_authoring_revision": "5eb8c980f25f3ff88ecaeaad315daf9d10894ea8",
+      "source_lock_sha256": "7475170f6f524ba33fe826b54976f7d2793c9bd603851d1a31866220d26c6253",
+      "source_model_spec_sha256": "72341240e566c2fe027716478fa3e07b389cf4e5451e463f3c14698afe23e694",
+      "source_oracle_build": "34.5.2.0604",
+      "source_oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "source_processes": 8
+    }
+  },
+  "schema": "kit.sw2026.thin-native-saved-read.v1"
+}

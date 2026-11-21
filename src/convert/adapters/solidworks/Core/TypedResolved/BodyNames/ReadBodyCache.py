@@ -1,13 +1,11 @@
 from collections.abc import Mapping
 
-from convert.Geometry.Parasolid import DecodeBrepModel, DecodePartData
-from convert.adapters.solidworks.Archive.Partition.CheckXmtGraph import CheckXmtGraph
-from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import (
-    ReadActiveNodes,
-)
-from convert.adapters.solidworks.Archive.Partition.ReadXmtHistory import ReadXmtHistory
+from convert.Geometry.Parasolid import DecodeBrepModel
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyKernel import (
+    ReadBodyKernel,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -15,14 +13,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 def ReadBodyCache(
     Document: CadDocument, Archive: SldprtArchive, StreamName: str
 ) -> Mapping[int, XmtNode]:
-    StreamValue = Archive.require(StreamName)
-    Payloads = DecodePartData(StreamValue, StreamName)
-    if tuple(Payload.kind for Payload in Payloads) != ("partition", "deltas") or any(
-        Payload.schema != "SCH_3701250_37102_13006" for Payload in Payloads
-    ):
-        raise ValueError(
-            "selected body cache is not the witnessed active and rollback profile"
-        )
+    Payloads, NodesValue, _ = ReadBodyKernel(Archive.require(StreamName), StreamName)
     ActivePayload = Payloads[0]
     Attached = tuple(
         Payload
@@ -38,7 +29,4 @@ def ReadBodyCache(
     DecodedValue = DecodeBrepModel(ActivePayload.data)
     if DecodedValue is None or DecodedValue != Document.brep:
         raise ValueError("public geometry does not match the selected native partition")
-    NodesValue = ReadActiveNodes(ActivePayload.data)
-    CheckXmtGraph(NodesValue)
-    ReadXmtHistory(Payloads[1].data, NodesValue)
     return NodesValue

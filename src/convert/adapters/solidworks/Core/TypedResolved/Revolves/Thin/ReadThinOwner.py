@@ -1,4 +1,7 @@
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismAtom import (
+    CheckPrismAtom,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismMgr import (
     CheckPrismMgr,
 )
@@ -19,17 +22,8 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Geometry.ReadRevGeom import (
     KRevolveGeomClasses,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.CheckThinDims import (
-    CheckThinDims,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.MakeThinMerid import (
-    MakeThinMerid,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ReadThinSpecs import (
-    ReadThinSpecs,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ReadThinSweep import (
-    ReadThinSweep,
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.MakeThinOwner import (
+    MakeThinOwner,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ThinRevOwner import (
     ThinRevOwner,
@@ -66,16 +60,5 @@ def ReadThinOwner(LinkValue: NativeLink, ManagerValue: CmgrGraph) -> ThinRevOwne
         for NodeValue in Features.values()
         if NodeValue.ClassValue.NameValue == "moRevolutionThin_c"
     )
-    SweepValue = ReadThinSweep(LinkValue, FeatureValue, Features)
-    ModeValue, FirstValue, SecondValue = ReadThinSpecs(FeatureValue)
-    CheckThinDims(NodesValue, SweepValue.EndValue.AlongValue, FirstValue, SecondValue)
-    Meridian = MakeThinMerid(
-        SweepValue.ProfileGraph,
-        ModeValue,
-        FirstValue.MetresValue,
-        SecondValue.MetresValue,
-    )
-    WallsValue = (
-        (FirstValue, SecondValue) if ModeValue == "two_sided" else (FirstValue,)
-    )
-    return ThinRevOwner(SweepValue, ModeValue, WallsValue, Meridian)
+    CheckPrismAtom(FeatureValue)
+    return MakeThinOwner(LinkValue, FeatureValue, Features, NodesValue)

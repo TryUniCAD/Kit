@@ -11,8 +11,11 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ThinWallOwner 
 
 
 # an owned wall thickness comes from the live length parameter behind its exact local display
-def ReadThinDim(DisplayNode: object, NameValue: str, IsActive: bool) -> ThinWallOwner:
-    DisplayValue = RequireNative(DisplayNode, "moDisplayDistanceDim_c")
+def ReadThinDim(
+    DisplayNode: object, NameValue: str, IsActive: bool, *, IsRadial: bool = False
+) -> ThinWallOwner:
+    DisplayClass = "moDisplayRadialDim_c" if IsRadial else "moDisplayDistanceDim_c"
+    DisplayValue = RequireNative(DisplayNode, DisplayClass)
     RowsValue = NativeRows(DisplayValue.FieldsValue.get("f850"))
     if len(RowsValue) != 1 or DisplayValue.FieldsValue.get("n850") != 1:
         raise ValueError("SOLIDWORKS thin wall display requires one local target")
@@ -22,9 +25,8 @@ def ReadThinDim(DisplayNode: object, NameValue: str, IsActive: bool) -> ThinWall
         for FieldName in ("fe8", "f100")
     ):
         raise ValueError("SOLIDWORKS thin wall display carries an alternate handle")
-    Dimension = RequireNative(
-        HandleValue.FieldsValue.get("ff0"), "ParallelPlaneDistanceDim_c"
-    )
+    ModelClass = "ThreeDRadiusDim_c" if IsRadial else "ParallelPlaneDistanceDim_c"
+    Dimension = RequireNative(HandleValue.FieldsValue.get("ff0"), ModelClass)
     FieldsValue = Dimension.FieldsValue
     Parameter = RequireNative(FieldsValue.get("f28"), "moLengthParameter_c")
     ParamFields = Parameter.FieldsValue
