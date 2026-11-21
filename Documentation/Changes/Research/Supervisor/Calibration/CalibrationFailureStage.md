@@ -9,5 +9,7 @@ in the CLI's failure report. [Operator guide](../../../../Reference/Research/Off
 Hosted calibration assertions show the detail for an unexpected exit or an
 unexpected Windows decoder-rejection stop reason. A Windows process case
 injects an access denial during worker memory sampling and checks the saved
-detail, incomplete sweep, and empty owned state. The Windows case runs in the
-existing merge queue platform job. [Calibration gotcha](../../../../Gotchas/Research/Supervisor/CalibrationFailureNeedsStage.md)
+detail, incomplete sweep, and empty owned state. A second run injects another
+exception after real supervisor settlement and checks that the exit-1 report
+still contains the original error. Both cases run in the existing merge queue
+platform job. [Calibration gotcha](../../../../Gotchas/Research/Supervisor/CalibrationFailureNeedsStage.md)
