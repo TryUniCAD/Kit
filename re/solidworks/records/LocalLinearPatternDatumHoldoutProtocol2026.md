@@ -32,4 +32,4 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/PatternDatumHoldoutPacket.py \
 
 The resulting `Recipe.json` gives the exact `guest_seal_argv` and `guest_author_argv_prefix`. The sole oracle owner runs the seal command, then appends the returned `intent_lock_sha256` to the author argv prefix. Preserve both public receipts by digest after the author phase. No host task reads private inputs, source files, dimensions, case names or redirection logs.
 
-The host stage checks the published archive closure and both control pins. Native type-library and health checks, authoring and source lock remain pending the root-owned oracle.
+The host stage checked the published archive closure and both control pins. The exact Windows 11 oracle subsequently completed all 16 processes with successful control brackets. The prior intent and both source slots are locked, including their pitch and count edits. The source receipt records the original source tree before pattern writer work and zero outputs. [Intent lock](../measurements/2026/LocalLinearPatternDatumIntentLock01.json) · [Source lock](../measurements/2026/LocalLinearPatternDatumSourceLock01.json)
