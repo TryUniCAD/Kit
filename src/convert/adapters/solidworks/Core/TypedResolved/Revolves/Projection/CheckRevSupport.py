@@ -9,8 +9,11 @@ from interchange.geometry.Models.Sketch import Sketch
 
 # a newly supported principal sketch must keep the same datum and transform as its selected world axis
 def CheckRevSupport(
-    DocumentValue: CadDocument, SketchValue: Sketch, OwnerValue: RevolveOwner,
-    *, CheckFront: bool = False,
+    DocumentValue: CadDocument,
+    SketchValue: Sketch,
+    OwnerValue: RevolveOwner,
+    *,
+    CheckFront: bool = False,
 ) -> None:
     FrameValue = OwnerValue.FrameValue.SupportValue
     if FrameValue.z_axis.z == 1.0 and not CheckFront:

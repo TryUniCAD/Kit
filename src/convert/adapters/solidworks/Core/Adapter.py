@@ -590,7 +590,9 @@ def ReadNativePart(
         DataValue,
         Label,
         Model.WidthDepth.ConfigValue if Model.WidthDepth is not None else None,
-        BindSelectedRevolve=Settings.include_brep and not Settings.extract_raw_brep and not Model.equations,
+        BindSelectedRevolve=Settings.include_brep
+        and not Settings.extract_raw_brep
+        and not Model.equations,
     )
 
 

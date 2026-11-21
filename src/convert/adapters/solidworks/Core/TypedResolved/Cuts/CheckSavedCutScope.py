@@ -4,7 +4,9 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.CheckCutWrapper import (
     CheckCutWrapper,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadSaveScope import ReadSaveScope
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadSaveScope import (
+    ReadSaveScope,
+)
 
 
 # a saved body selection must agree with the consumed atom without inferring an unstored selection mode

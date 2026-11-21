@@ -1,6 +1,8 @@
 from dataclasses import dataclass as Dataclass
 
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cache.StockCacheBody import StockCacheBody
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cache.StockCacheBody import (
+    StockCacheBody,
+)
 from interchange.brep.Topology.BrepModel import BrepModel
 
 

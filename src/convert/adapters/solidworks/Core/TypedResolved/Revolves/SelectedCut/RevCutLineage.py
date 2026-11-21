@@ -1,8 +1,12 @@
 from dataclasses import dataclass as Dataclass
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockCutAtoms import StockCutAtoms
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveOwner import RevolveOwner
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockCutAtoms import (
+    StockCutAtoms,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveOwner import (
+    RevolveOwner,
+)
 
 
 # persisted stock order and selected atom ownership describe separate physical and timeline identities

@@ -37,7 +37,8 @@ def BindRevStep(
     return ReplaceValue(
         StepValue,
         kind=FeatureKind.KRevolution,
-        input_feature_ids=(f"sldprt:feature:{ProfileId}",) + ((StockId,) if StockId is not None else ()),
+        input_feature_ids=(f"sldprt:feature:{ProfileId}",)
+        + ((StockId,) if StockId is not None else ()),
         sketch_id=f"sldprt:sketch:{ProfileId}",
         parameter_ids=ParamIds,
         selection_ids=(SelectValue.id,),

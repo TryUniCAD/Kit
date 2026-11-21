@@ -1,5 +1,9 @@
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveOwner import RevolveOwner
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.RevCutBand import RevCutBand
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveOwner import (
+    RevolveOwner,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.RevCutBand import (
+    RevCutBand,
+)
 
 
 # the two vertical profile lines identify the actual cylindrical walls irrespective of array order
@@ -11,7 +15,8 @@ def ReadRevBand(OwnerValue: RevolveOwner) -> RevCutBand:
     WallMarks = {
         Points[LineValue.StartValue].PositionValue[0]: LineValue.PermanentId
         for LineValue in LoopValue.LinesValue
-        if Points[LineValue.StartValue].PositionValue[0] == Points[LineValue.EndValue].PositionValue[0]
+        if Points[LineValue.StartValue].PositionValue[0]
+        == Points[LineValue.EndValue].PositionValue[0]
     }
     if len(XValues) != 2 or len(YValues) != 2 or WallMarks.keys() != set(XValues):
         raise ValueError("selected revolve cut requires actual rectangular wall owners")
@@ -20,4 +25,6 @@ def ReadRevBand(OwnerValue: RevolveOwner) -> RevCutBand:
         raise ValueError("selected revolve cut requires four distinct contour marks")
     LowerX, Right = XValues
     Bottom, UpperY = YValues
-    return RevCutBand((LowerX, Right), (Bottom, UpperY), (WallMarks[LowerX], WallMarks[Right]), Marks)
+    return RevCutBand(
+        (LowerX, Right), (Bottom, UpperY), (WallMarks[LowerX], WallMarks[Right]), Marks
+    )

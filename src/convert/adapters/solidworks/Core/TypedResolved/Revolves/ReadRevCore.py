@@ -36,7 +36,9 @@ def ReadRevCore(
         ProfileValue.FieldsValue.get("f3dc") != 0
         or ProfileValue.FieldsValue.get("pd_f110") is not None
     ):
-        raise ValueError("ordinary revolve profile branch is outside measured semantics")
+        raise ValueError(
+            "ordinary revolve profile branch is outside measured semantics"
+        )
     FieldsValue = NodeValue.FieldsValue
     ReverseValue = FieldsValue.get("f824")
     if (
@@ -48,13 +50,23 @@ def ReadRevCore(
         or FieldsValue.get("f8e8") != 0
         or not IsLineState(FieldsValue.get("f818"))
     ):
-        raise ValueError("ordinary revolve direction type or converted sketch state is unqualified")
+        raise ValueError(
+            "ordinary revolve direction type or converted sketch state is unqualified"
+        )
     EndValue = ReadRevEnd(LinkValue, FieldsValue, bool(ReverseValue))
     AxisValue = ReadRevAxisRef(NodeValue, ProfileValue, RootValue)
     SketchValue = RequireNative(ProfileValue.FieldsValue.get("pd_f80"), "sgSketch")
     ProfileGraph = ReadRevProfile(SketchValue, AxisValue, LinkValue)
-    FrameValue = ReadRevFrame(ProfileValue, RootValue, Features, ProfileGraph, bool(ReverseValue))
+    FrameValue = ReadRevFrame(
+        ProfileValue, RootValue, Features, ProfileGraph, bool(ReverseValue)
+    )
     return RevolveOwner(
-        NodeValue, ProfileValue, SketchValue, EndValue, AxisValue, ProfileGraph,
-        FrameValue, bool(ReverseValue),
+        NodeValue,
+        ProfileValue,
+        SketchValue,
+        EndValue,
+        AxisValue,
+        ProfileGraph,
+        FrameValue,
+        bool(ReverseValue),
     )
