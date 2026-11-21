@@ -60,6 +60,9 @@ REFUSALS = {
     "reflection": "view rotation must preserve orientation",
     "shear": "view rotation rows must be orthonormal",
     "zero_scale": "view scale must be positive",
+    "nan_pan": "view coordinate or scale must be finite",
+    "infinite_zoom": "view coordinate or scale must be finite",
+    "infinite_matrix": "view coordinate or scale must be finite",
 }
 
 
@@ -145,6 +148,12 @@ def wire(case):
         model["f08"]["m1"] = -0.75
     elif case == "zero_scale":
         pan["f70"] = 0.0
+    elif case == "nan_pan":
+        pan["f58"] = float("nan")
+    elif case == "infinite_zoom":
+        pan["f70"] = float("inf")
+    elif case == "infinite_matrix":
+        model["f08"]["m8"] = float("-inf")
     fields.update(fae8=model, faf0=pan)
     return WriteModelDef(graph).OutputValue
 

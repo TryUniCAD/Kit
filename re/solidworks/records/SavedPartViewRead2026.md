@@ -2,7 +2,7 @@
 
 Task `B04-SW2026-PART-DEFINITION-VIEW` extracts the saved orthographic
 view projection from PR #121. The delivery uses accepted main
-`91df941c98d2e96633eb0fd0f0a1adfbf70d3039` and its existing whole
+`2c3330b3e79cb199655e590eb63458f5bef316f2` and its existing whole
 part Definition codec. Six source modules carry the bounded camera
 contract. `ReadPartView` connects it to the complete typed stream.
 [Change entry](../../../Documentation/Changes/Solidworks/Inspection/Presentation/SolidworksSavedPartView.md)
@@ -51,8 +51,11 @@ receiver checks exact projection and full typed re-emission. Eight
 other complete typed definitions refuse unsupported perspective,
 pan orientation, hidden orientation translation, a negative-zero
 orientation offset, redundant explicit identity, reflection, shear,
-and zero zoom. Two further contrasts refuse an alternate version and
-trailing data. All five workers report zero guarded external access.
+and zero zoom. Three separately framed inputs preserve NaN pan,
+positive infinite zoom and negative infinite matrix coefficients
+through the full Definition codec. The pose projection refuses each
+nonfinite scalar. Two further contrasts refuse an alternate version
+and trailing data. All five workers report zero guarded external access.
 
 Run the [process probe](../../tooling/sw2026/CheckSavedPartView.py) from the checkout root.
 

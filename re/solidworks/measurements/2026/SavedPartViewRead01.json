@@ -1,5 +1,5 @@
 {
-  "accepted_base": "91df941c98d2e96633eb0fd0f0a1adfbf70d3039",
+  "accepted_base": "2c3330b3e79cb199655e590eb63458f5bef316f2",
   "analytic": {
     "definition_bytes": 535,
     "definition_map_counter": 7,
@@ -40,8 +40,11 @@
   "python": "3.14.7",
   "refusals": {
     "explicit_identity": "source camera matrix presence cannot be regenerated",
+    "infinite_matrix": "view coordinate or scale must be finite",
+    "infinite_zoom": "view coordinate or scale must be finite",
     "model_negative_zero": "source camera contains unrepresented affine state",
     "model_pan": "source camera contains unrepresented affine state",
+    "nan_pan": "view coordinate or scale must be finite",
     "pan_matrix": "source camera requires ordinary orthographic transform modes",
     "perspective": "source camera requires ordinary orthographic transform modes",
     "reflection": "view rotation must preserve orientation",
@@ -54,7 +57,7 @@
   "schema": "kit.sw2026.saved-part-view-read.v1",
   "scope": "Complete ordinary part Definition inspection of saved orientation and pan zoom",
   "source_sha256": {
-    "re/tooling/sw2026/CheckSavedPartView.py": "5128f974c5e84c7fc95e66bf0a7fd828613ee74b4264102fd21b5f69ad6d2f13",
+    "re/tooling/sw2026/CheckSavedPartView.py": "19d6f3e21bcf9011b1ef4ed6d9dacea769aec3321ca763700c1d48d54f50783c",
     "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/GeometryFields.py": "8fed1b002d7861e5c6546baa193764bb3bf3a1fcb7e0249c2b87f4d9f9eaf132",
     "src/convert/adapters/solidworks/Archive/Definition/Fields/DocHeadFields.py": "4ae8ffe49bd19b9925ee0585576b6e308a8ba074b257db98905d96aa2dd0fe06",
     "src/convert/adapters/solidworks/Archive/Definition/ReadModelDef.py": "90066347da5dc40a76a68bda0807f99c90c654cfccdfa44b6ee532a56f0bbeda",
@@ -66,7 +69,7 @@
     "src/convert/adapters/solidworks/Archive/Views/ReadViewPair.py": "1afb754d6e3e8ee3f05cf337ed5e570a67f840c096f128885d63e5173a79ffb6",
     "src/convert/adapters/solidworks/Archive/Views/RequireScalar.py": "6a0831d9643a5ee453672165e512c88eacd4fd42e926829f24363cd09d2cc51a",
     "src/convert/adapters/solidworks/Archive/Views/ViewInput.py": "8a24d35109185bb1255bd804ab450181a59661ca178717f305b05e61455b0d22",
-    "tests/Convert/Solidworks/ArchiveDefinition/SavedViewTests.py": "a3810489a23ca33073d2f169394d52de05f6200daa27ddd1344fbdb24e83cf76"
+    "tests/Convert/Solidworks/ArchiveDefinition/SavedViewTests.py": "a86cdb8e15e977a6545ed8d8c9deb7f60dcbc42709e7ba9abe0ef784f2a39127"
   },
   "sources": {
     "ladder": {

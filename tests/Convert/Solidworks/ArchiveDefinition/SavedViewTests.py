@@ -51,8 +51,12 @@ def TestSavedView() -> None:
         == "738d95b1f47791cf8570a6454130420c21550ff69e9cfdf822fb872af814ee32"
     )
     Refusals = CastValue(dict[str, str], Evidence["refusals"])
-    assert len(Refusals) == 10
+    assert len(Refusals) == 13
     assert (
         Refusals["model_negative_zero"]
         == "source camera contains unrepresented affine state"
+    )
+    assert all(
+        Refusals[NameValue] == "view coordinate or scale must be finite"
+        for NameValue in ("nan_pan", "infinite_zoom", "infinite_matrix")
     )

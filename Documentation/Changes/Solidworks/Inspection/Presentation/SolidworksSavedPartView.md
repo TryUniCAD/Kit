@@ -8,9 +8,9 @@ matrix, native pan coordinates and positive zoom scale.
 
 Two native part saves, a generated identity control and an independently
 authored quarter-turn Definition retain all thirteen binary64 values.
-The complete Definition payloads re-encode exactly. Ten refusals cover
-perspective, alternate affine state, malformed rotation, version and stream
-framing.
+The complete Definition payloads re-encode exactly. Thirteen refusals cover
+perspective, alternate affine state, malformed rotation, nonfinite
+coefficients, version and stream framing.
 [Guarded evidence](../../../../../re/solidworks/records/SavedPartViewRead2026.md)
 
 This inspection entry point covers the saved document pair. Active
