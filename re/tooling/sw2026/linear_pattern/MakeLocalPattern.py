@@ -4,13 +4,11 @@ from convert.adapters.solidworks.Archive.Construction.BodyScope.BindStockMut imp
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import SetCfgStampMut
 from convert.adapters.solidworks.Archive.Construction.Nodes.AtomSeeds import KAtomLists, KAtomWords
 from convert.adapters.solidworks.Archive.Construction.Nodes.InitFeatureMut import InitFeatureMut
-from convert.adapters.solidworks.Archive.Construction.PlanarMates.CompRefFields import CompRefFields
-from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import DatumTime
-from convert.adapters.solidworks.Archive.Construction.PlanarMates.SignedStamp import SignedStamp
-from convert.adapters.solidworks.Archive.Construction.PlanarMates.WrapperFields import WrapperFields
+from convert.adapters.solidworks.Archive.Construction.Patterns.Direction.MakePatDir import MakePatDir
+from convert.adapters.solidworks.Archive.Construction.Patterns.Direction.ReadPatDir import ReadPatDir
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNodeName
 
-from CheckPatternAngleOwners import matrix, node_fields, point as read_point, require
+from CheckPatternAngleOwners import point as read_point, require
 from MakeLocalPatternDrivers import check_styles, make_drivers
 from MakePatternAngularPlane import AngularPlaneIntent, make_angular_plane_mut, typed_node
 from MakePatternAnnotationCatalog import add_catalog_mut
@@ -18,10 +16,8 @@ from MakePatternHingeAxis import make_hinge_mut
 from MakePatternPrincipalDisplay import point
 from MakePatternSeed import RaisedSeedGraph, RaisedSeedIntent, bind_plate_lineage_mut, make_raised_seed
 from PatternAngleGeometry import offsets
-from PatternAngleWire import ANGLE_PLANE
 from PatternBoxGeometry import whole_solid_measure
-from PatternHingeGeometry import AXIS, ORIGIN
-from PatternPlaneDirectionRule import resolve_local_plane
+from PatternHingeGeometry import ORIGIN
 
 
 @dataclass(frozen=True, slots=True)
@@ -83,29 +79,17 @@ def initial_pattern(seed, name):
 
 
 def direction_fields(plane):
-    data = node_fields(plane.FieldsValue["f6f8"], ANGLE_PLANE)
-    base = read_point(data["root"])
-    horizontal, _, normal = matrix(data["f20"])
-    require(base == ORIGIN and horizontal == AXIS and normal == read_point(data["normal"]) and normal[2] == 0.0,
-            "pattern direction requires the actual bounded through-origin angular datum")
-    borders = tuple(data[f"b{index}"] for index in range(4))
-    return resolve_local_plane(base, horizontal, normal, borders)
+    line = ReadPatDir(plane)
+    return {"fc8": line.PointValue, "fe0": line.DirectionValue, "fb0": 0.0, "fb8": line.SpanValue, "f68": 1}
 
 
 def direction_node(seed, plane, headers, line):
-    root = seed.system.RootValue
-    identity = plane.FieldsValue["f08"]
-    created = DatumTime(headers[0], identity)
-    require(plane.FieldsValue["owner"] is root and seed.allocator.Allocations.get((plane, "f08")) == identity
-            and (created, DatumTime(headers[1], identity)) == (seed.settings.HeaderValue.CreatedAt,) * 2,
-            "selected direction requires the actual generated plane and both creation logs")
-    reference_fields = CompRefFields(root.FieldsValue["f990"])
-    reference_fields.update(ff0={"f00": identity, "f08": created}, ff8=None, f100=0)
-    reference = typed_node("moCompRefPlane_c", reference_fields)
-    fields = WrapperFields(reference)
-    fields.update(f08=SignedStamp(headers[0].FieldsValue["f40"]), f0c=seed.system.ConfigValues[0].FieldsValue["f08"],
-                  f68=line["f68"], fb0=line["fb0"], fb8=line["fb8"], fc8=point(line["fc8"]), fe0=point(line["fe0"]), ff8=0)
-    return typed_node("moLineRef_w", fields)
+    wrapper = MakePatDir(seed.system, seed.settings, seed.allocator, plane, (headers[0], headers[1]))
+    fields = wrapper.FieldsValue
+    require(line == {"fc8": read_point(fields["fc8"]), "fe0": read_point(fields["fe0"]),
+                     "fb0": fields["fb0"], "fb8": fields["fb8"], "f68": fields["f68"]},
+            "selected direction fields differ from the actual generated plane")
+    return wrapper
 
 
 def make_pattern(seed_intent, axis_name, plane_intent, annotation, pattern_intent):

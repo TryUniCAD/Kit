@@ -1,0 +1,5 @@
+# Share SOLIDWORKS oblique pattern direction construction
+
+The internal archive constructor derives the selected direction line from the actual finite display of a through-origin angular datum. It binds the plane's persistent ID, the active local part configuration, and the real creation event in both part headers. Each wrapper carries its own local component reference. The pattern retains the signed travel setting separately.
+
+Six modeled cases preserved their stream sizes, hashes, and map counters. Both original containers were byte-identical to the disclosed files that passed SOLIDWORKS 2026 SP05.2. The ordered geometry matched ten disclosed native snapshots exactly. Twenty-two guarded processes covered generation and ownership, including 32 malformed-input refusals, with zero runtime file reads. [Field rules and evidence](../../../../../re/solidworks/records/LocalLinearPatternPlaneDirectionRule2026.md#shared-archive-construction) · [Native lifecycle](../../../../../re/solidworks/measurements/2026/GeneratedObliquePatternNative02.json)
