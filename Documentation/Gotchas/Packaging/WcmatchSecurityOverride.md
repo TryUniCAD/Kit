@@ -10,3 +10,5 @@ Retain the required bracex upgrade and verify the locked Python floor remains su
 Keep Semgrep and the security scanners enabled to establish compatibility on the merge-group candidate.
 Semgrep 1.185.0 declares `wcmatch~=8.3`; lock consistency alone therefore does not establish path-selection compatibility.
 The Semgrep job exercises its actual CLI and Python rule-level include and exclude filters against positive and negative files before scanning the repository.
+
+The same repair also landed through [the main-branch security change](../../Changes/Ci/Dependencies/WcmatchSecurityUpgrade.md), with [independent OSV evidence](https://github.com/TryUniCAD/Kit/actions/runs/44841247170/job/136649880512).

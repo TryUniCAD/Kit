@@ -168,7 +168,6 @@ reportUnusedVariable = "error"
 exclude-newer = "7 days"
 environments = ["python_full_version >= '3.11.5'"]
 override-dependencies = [
-    "wcmatch>=11.2,<12",
     "asteval>=1.0.9,<2",
     "lxml>=6.1.0,<7",
     "click>=8.3.3,<8.5",
@@ -183,4 +182,5 @@ override-dependencies = [
     "nltk @ git+https://github.com/nltk/nltk.git@ba6b259aa94a85168c031ad60e4072538c30b513",
     "protobuf>=5.29.6,<6",
     "soupsieve>=4.0.0",
+    "wcmatch>=11.2,<12",
 ]
