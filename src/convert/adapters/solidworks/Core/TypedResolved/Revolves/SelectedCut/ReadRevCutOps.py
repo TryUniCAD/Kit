@@ -1,5 +1,8 @@
 from math import tau as FullTurn
 
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis import (
+    ReadPrincAxis,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckTreeAlias import (
@@ -12,7 +15,6 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.ReadRevCore import 
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveOwner import (
     RevolveOwner,
 )
-from interchange.geometry.Models.Transform import KTransformIdentity
 
 
 # each ordered operation must own a different actual profile and axis wrapper plus a live driver
@@ -34,6 +36,7 @@ def ReadRevCutOps(
     Second = ReadRevCore(LinkValue, SecondNode, SecondProfile, Features, 0)
     CutValue = ReadRevCore(LinkValue, CutNode, CutProfile, Features, 1)
     Owners = (First, Second, CutValue)
+    _ = ReadPrincAxis(First.FrameValue.SupportValue)
     NodesToBind = tuple(
         Value
         for Owner in Owners
@@ -54,7 +57,6 @@ def ReadRevCutOps(
         len(set(NodesToBind)) != len(NodesToBind)
         or any(
             Owner.FrameValue != First.FrameValue
-            or Owner.FrameValue.SupportValue != KTransformIdentity
             or Owner.IsReverse
             or Owner.AngleValue.NameValue != "D1"
             or Owner.EndValue.ModeValue != "one_sided"
@@ -66,7 +68,7 @@ def ReadRevCutOps(
         or not (0 < CutValue.AngleValue.RadiansValue < FullTurn)
     ):
         raise ValueError(
-            "selected revolve cut requires independent D1 owners, coaxial full stocks and a partial Front cut"
+            "selected revolve cut requires independent D1 owners, coaxial full stocks and a partial cut"
         )
     CheckTreeAlias(LinkValue, NodesToBind)
     return Owners
