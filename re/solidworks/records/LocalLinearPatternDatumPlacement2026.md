@@ -62,4 +62,15 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/AuditPatternDatumHeight.py \
   --result-sha256 NATIVE_RESULT_SHA256 --output "$(mktemp -d)/DatumHeightEvidence.json"
 ```
 
-This stage is a frozen disclosed source experiment. Native phase and archive measurements await the root-owned oracle.
+## Measured height discriminator
+
+Packet `a193b7e1eeaa9641f92e89a8e3c6697fe6843568ffc30a410979089ef4d07ceb` completed four candidate phases and both pristine controls across six distinct exact-build processes. Both saves and fresh reopens were clean. All 122 numerical checks passed, and the exact XY profiles, actual datum/hinge/seed ownership, pitch, count and tree matched. The verified Automation property gets had DISPIDs 4 for `IRefPlane.BoundingBox` and 3 for `IMathPoint.ArrayData`, each no-argument with VARIANT result. The native receipt SHA-256 is `5e28d6a87d55e1de2ee31ebe57d3321fe6bf1759ccd6d6a5bb99dbb264777fb8`. [Exact host audit receipt](../measurements/2026/LocalLinearPatternDatumHeightNative01.json)
+
+| Arm | `fc8` model-space point (m) | Error from live diagonal midpoint (m) | Error from frozen hinge-square prediction (m) | Error from stock projection (mm) |
+| --- | --- | ---: | ---: | ---: |
+| Short, 8.625 mm seed boss | `(0.003354337793253686,0.003354337793253686,0.004312500000000001)` | `6.133173666733497e-19` | `1.5023145987371592e-18` | 69.5024620246 |
+| Tall, 20.375 mm seed boss | `(0.00792401536667175,0.00792401536667175,0.010187500000000002)` | `0` | `3.0046291974743185e-18` | 63.0399620246 |
+
+Each saved point matches its typed local rectangle midpoint bit-for-bit. Each live display diagonal matches the corresponding two typed saved corners exactly. The display centre's model-space transverse coordinate shifts 6.4625 mm between arms at every stage, with the projected stock XY fixed. The predicted hinge-square and independent shape checks pass. The stock projection is refuted for this independent pair. Each arm repeats the same display rectangle at preselection, creation, rebuilt and fresh-reopen stages, leaving the native point update trigger unresolved.
+
+The two native saves each re-emit both linked streams exactly, with identical concrete read and write map states. The next slots are 112 and 472 and the span `30355–30379` carries the 24 point bytes in each ResolvedFeatures stream. The host receipt also retains the typed owner identities and raw points. The measured relation applies to this disclosed through-origin constrained angle family. Source sizing and wrapper construction still require their causal loader path and any complete writer needs independent native qualification.
