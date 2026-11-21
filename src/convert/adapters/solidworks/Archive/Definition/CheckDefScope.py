@@ -5,14 +5,21 @@ from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsup
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleNum import (
     ReadStyleNum,
 )
+from convert.adapters.solidworks.Archive.Definition.CheckAsmDef import CheckAsmDef
 from convert.adapters.solidworks.Archive.Definition.CheckDefRender import CheckDefRender
 
 
 # the ordinary definition cannot represent optional sketch scene ole or variation owners
-def CheckDefScope(FieldsValue: Mapping[str, object]) -> None:
+def CheckDefScope(FieldsValue: Mapping[str, object], *, Assembly: bool = False) -> None:
+    KindValue = "assembly" if Assembly else "part"
     if FieldsValue.get("fa74") != 1 or FieldsValue.get("fac8") != 0:
-        raise BodyUnsupported("SOLIDWORKS part Definition has an alternate UI prefix")
-    if ReadStyleNum(FieldsValue.get("f1688"), "SOLIDWORKS part density", 0.0) <= 0:
+        raise BodyUnsupported(
+            f"SOLIDWORKS {KindValue} Definition has an alternate UI prefix"
+        )
+    if (
+        not Assembly
+        and ReadStyleNum(FieldsValue.get("f1688"), "SOLIDWORKS part density", 0.0) <= 0
+    ):
         raise ValueError("SOLIDWORKS part density must be positive")
     if (
         any(
@@ -21,7 +28,9 @@ def CheckDefScope(FieldsValue: Mapping[str, object]) -> None:
         )
         or FieldsValue.get("f11a0") != []
     ):
-        raise BodyUnsupported("SOLIDWORKS part Definition has optional UI objects")
+        raise BodyUnsupported(
+            f"SOLIDWORKS {KindValue} Definition has optional UI objects"
+        )
     ModelData = FieldsValue.get("fbf0")
     BaseValue = FieldsValue.get("basedoc")
     OleValue = BaseValue.get("ole") if IsObjectDict(BaseValue) else None
@@ -32,6 +41,8 @@ def CheckDefScope(FieldsValue: Mapping[str, object]) -> None:
         or OleValue.get("f7f8") != []
     ):
         raise BodyUnsupported(
-            "SOLIDWORKS part Definition has an alternate scene or OLE owner"
+            f"SOLIDWORKS {KindValue} Definition has an alternate scene or OLE owner"
         )
-    CheckDefRender(FieldsValue)
+    CheckDefRender(FieldsValue, Assembly=Assembly)
+    if Assembly:
+        CheckAsmDef(FieldsValue)

@@ -7,23 +7,30 @@ from convert.adapters.solidworks.Container.Definition import KAsmClsid, KPartCls
 # the ordinary profile binds the part identity before interpreting any of its fields
 KPartDefClass = RuntimeClass("uiPartDoc_c", 1)
 
+# the ordinary assembly clsid owns the separate native settings tail
+KAsmDefClass = RuntimeClass("uiAssemblyDoc_c", 1)
+
 # the serialized guid resolves the untagged outer document owner before reads of the selected class
 KModelDefClsids = MappingProxyType(
     {
         KPartDefClass: KPartClsid,
-        RuntimeClass("uiAssemblyDoc_c", 1): KAsmClsid,
+        KAsmDefClass: KAsmClsid,
     }
 )
 
 
 # the untagged definition cannot use a fallback class when the file type differs
-def ReadDefClass(ClsidValue: bytes, *, OrdinaryOnly: bool = False) -> RuntimeClass:
-    if OrdinaryOnly:
-        if ClsidValue != KPartClsid:
+def ReadDefClass(
+    ClsidValue: bytes, *, OrdinaryOnly: bool = False, Assembly: bool = False
+) -> RuntimeClass:
+    if Assembly or OrdinaryOnly:
+        ClassValue = KAsmDefClass if Assembly else KPartDefClass
+        if ClsidValue != KModelDefClsids[ClassValue]:
+            KindValue = "assembly" if Assembly else "part"
             raise BodyUnsupported(
-                "SOLIDWORKS part Definition requires the ordinary part CLSID"
+                f"SOLIDWORKS {KindValue} Definition requires the ordinary {KindValue} CLSID"
             )
-        return KPartDefClass
+        return ClassValue
     for ClassValue, ExpectedClsid in KModelDefClsids.items():
         if ClsidValue == ExpectedClsid:
             return ClassValue

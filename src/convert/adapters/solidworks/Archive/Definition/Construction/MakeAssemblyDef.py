@@ -12,9 +12,9 @@ from convert.adapters.solidworks.Archive.Definition.Construction.MakeSavePartSet
 from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
     ModelDefInput,
 )
+from convert.adapters.solidworks.Archive.Definition.ModelDefClsid import KAsmDefClass
 from convert.adapters.solidworks.Archive.Definition.ModelDefGraph import ModelDefGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
 
 # fresh assemblies build their own inline options after the shared document state
@@ -38,6 +38,6 @@ def MakeAssemblyDef(
         }
     )
     return ModelDefGraph(
-        ArchiveNode(RuntimeClass("uiAssemblyDoc_c", 1), FieldValues),
+        ArchiveNode(KAsmDefClass, FieldValues),
         Settings.VersionValue,
     )

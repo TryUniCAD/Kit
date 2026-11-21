@@ -1,0 +1,435 @@
+{
+  "authored_renderer": {
+    "definition": {
+      "assembly_tail": {
+        "f1840": 0,
+        "f19b0": 0,
+        "f19b8": 0.0127,
+        "f19c0": 0,
+        "f19c8": 0,
+        "f1a38": "",
+        "f1a40": "",
+        "f1a48": 0,
+        "f1afc": 10
+      },
+      "bytes": 559,
+      "compression": 0,
+      "display_words": [
+        4,
+        -2147450879
+      ],
+      "font_count": 0,
+      "journal": [
+        0,
+        "Assembly \u03b4"
+      ],
+      "map": [
+        [
+          1,
+          "RuntimeClass",
+          "moDIN_c",
+          1
+        ],
+        [
+          2,
+          "ArchiveNode",
+          "moDIN_c",
+          1
+        ],
+        [
+          3,
+          "RuntimeClass",
+          "uiLineFontMgr_c",
+          1
+        ],
+        [
+          4,
+          "ArchiveNode",
+          "uiLineFontMgr_c",
+          1
+        ],
+        [
+          5,
+          "RuntimeClass",
+          "uoJournal_c",
+          0
+        ],
+        [
+          6,
+          "ArchiveNode",
+          "uoJournal_c",
+          0
+        ]
+      ],
+      "next_map_index": 7,
+      "preferences": {
+        "f08": 0,
+        "f0c": 1,
+        "f10": 0.0,
+        "f18": 0,
+        "f20": 1.25,
+        "f28": 1,
+        "f2c": 0,
+        "f30": 0,
+        "f34": 1,
+        "f38": 1,
+        "f3c": -11
+      },
+      "renderer": {
+        "f08": 1,
+        "f0c": 0,
+        "list": {
+          "items": [],
+          "n": 0
+        }
+      },
+      "root": [
+        "uiAssemblyDoc_c",
+        1
+      ],
+      "sha256": "1f4252804c2bc9ea883ac3ee164df22aaece74b30a3a9be2c2998fd769bfb417",
+      "standard": "moDIN_c",
+      "style_count": 0,
+      "tessellation": [
+        15,
+        30,
+        94,
+        0
+      ],
+      "view_environment_count": 0
+    },
+    "offset": 288,
+    "part_word_rejection": "SOLIDWORKS assembly Definition has an alternate renderer profile",
+    "second_word_rejection": "SOLIDWORKS assembly Definition has an alternate renderer profile",
+    "wrapper_frame": "0101000000000000000000"
+  },
+  "base_revision": "794d0cb03a8dae8ad7af9fb8d397fc9114b9b267",
+  "fcstd_conversion_credit": 0,
+  "generated": [
+    {
+      "assembly_tail": {
+        "f1840": 0,
+        "f19b0": 0,
+        "f19b8": 0.0127,
+        "f19c0": 0,
+        "f19c8": 0,
+        "f1a38": "",
+        "f1a40": "",
+        "f1a48": 0,
+        "f1afc": 10
+      },
+      "bytes": 549,
+      "compression": 0,
+      "display_words": [
+        4,
+        -2147450879
+      ],
+      "font_count": 0,
+      "journal": [
+        0,
+        "Assembly \u03b4"
+      ],
+      "map": [
+        [
+          1,
+          "RuntimeClass",
+          "moDIN_c",
+          1
+        ],
+        [
+          2,
+          "ArchiveNode",
+          "moDIN_c",
+          1
+        ],
+        [
+          3,
+          "RuntimeClass",
+          "uiLineFontMgr_c",
+          1
+        ],
+        [
+          4,
+          "ArchiveNode",
+          "uiLineFontMgr_c",
+          1
+        ],
+        [
+          5,
+          "RuntimeClass",
+          "uoJournal_c",
+          0
+        ],
+        [
+          6,
+          "ArchiveNode",
+          "uoJournal_c",
+          0
+        ]
+      ],
+      "next_map_index": 7,
+      "preferences": {
+        "f08": 0,
+        "f0c": 1,
+        "f10": 0.0,
+        "f18": 0,
+        "f20": 1.25,
+        "f28": 1,
+        "f2c": 0,
+        "f30": 0,
+        "f34": 1,
+        "f38": 1,
+        "f3c": -11
+      },
+      "renderer": null,
+      "root": [
+        "uiAssemblyDoc_c",
+        1
+      ],
+      "sha256": "f18c7717493aad07d75f0d547fdfde5825fa980bd2d8a0673c5602ce6450877e",
+      "standard": "moDIN_c",
+      "style_count": 0,
+      "tessellation": [
+        15,
+        30,
+        94,
+        0
+      ],
+      "view_environment_count": 0
+    },
+    {
+      "assembly_tail": {
+        "f1840": 0,
+        "f19b0": 0,
+        "f19b8": 0.0127,
+        "f19c0": 0,
+        "f19c8": 0,
+        "f1a38": "",
+        "f1a40": "",
+        "f1a48": 0,
+        "f1afc": 10
+      },
+      "bytes": 548,
+      "compression": 1,
+      "display_words": [
+        8,
+        -2147450878
+      ],
+      "font_count": 0,
+      "journal": [
+        0,
+        "\u4e0a\u90e8 journal"
+      ],
+      "map": [
+        [
+          1,
+          "RuntimeClass",
+          "moGB_c",
+          1
+        ],
+        [
+          2,
+          "ArchiveNode",
+          "moGB_c",
+          1
+        ],
+        [
+          3,
+          "RuntimeClass",
+          "uiLineFontMgr_c",
+          1
+        ],
+        [
+          4,
+          "ArchiveNode",
+          "uiLineFontMgr_c",
+          1
+        ],
+        [
+          5,
+          "RuntimeClass",
+          "uoJournal_c",
+          0
+        ],
+        [
+          6,
+          "ArchiveNode",
+          "uoJournal_c",
+          0
+        ]
+      ],
+      "next_map_index": 7,
+      "preferences": {
+        "f08": 0,
+        "f0c": 1,
+        "f10": 0.9,
+        "f18": 0,
+        "f20": 1.25,
+        "f28": 1,
+        "f2c": 0,
+        "f30": 0,
+        "f34": 1,
+        "f38": 1,
+        "f3c": -12
+      },
+      "renderer": null,
+      "root": [
+        "uiAssemblyDoc_c",
+        1
+      ],
+      "sha256": "233842a961645bd80f40e7754d7a1dcebc9ce2df1be203a135869573353646ac",
+      "standard": "moGB_c",
+      "style_count": 0,
+      "tessellation": [
+        16,
+        29,
+        141,
+        1
+      ],
+      "view_environment_count": 0
+    }
+  ],
+  "guarded_processes": 15,
+  "heldout_inputs_read": 0,
+  "historical_corpus_revision": "7d9e15658f5e2d19db2d2f6afe5a995c26ebc54a",
+  "historical_inventory_sha256": "29c46bb51ff0ff883c939b9dfd10bf0ebdf83f17bca962557b9260516c7e0c21",
+  "native_launches": 0,
+  "proof_sha256": "24dea78563071c9dcb1b3b8b39d3a6abd8a5df716b951bfe662cf857b5e684d0",
+  "public_writer_enabled": false,
+  "refusals": {
+    "assembly_mode_read": "SOLIDWORKS assembly Definition requires the ordinary assembly CLSID",
+    "assembly_mode_write": "SOLIDWORKS assembly Definition requires uiAssemblyDoc_c schema 1",
+    "encoded_preference_bit": "SOLIDWORKS assembly Definition has an alternate boolean",
+    "encoded_preference_fraction": "SOLIDWORKS save-as-part fraction exceeds the native range",
+    "escaped_small_null": "SOLIDWORKS body uiAssemblyDoc_c field fac0 at 36: SOLIDWORKS archive tag uses a noncanonical width",
+    "missing_preference": "SOLIDWORKS save-as-part preferences require every slot from 5fc through 605",
+    "nonboolean_preference": "SOLIDWORKS assembly preference 5fc must be boolean",
+    "nonfinite_preference": "SOLIDWORKS assembly preference 5ff is outside its finite authored domain",
+    "overflow_preference": "SOLIDWORKS assembly preference 605 must fit a signed long",
+    "part_mode_read": "SOLIDWORKS part Definition requires the ordinary part CLSID",
+    "part_mode_write": "SOLIDWORKS part Definition requires uiPartDoc_c schema 1",
+    "trailing_bytes": "SOLIDWORKS model Definition has an unconsumed tail",
+    "truncated_tail": "SOLIDWORKS body uiAssemblyDoc_c field uiAssemblyDoc_c.Serialize.own at 545: SOLIDWORKS body uiAssemblyDoc_c/uiAssemblyDoc_c.Serialize.own field uiAssemblyDoc_c.Serialize.own/f1afc at 545: truncated SOLIDWORKS archive field at 545",
+    "version": "SOLIDWORKS model Definition requires archive version 19000"
+  },
+  "renderer_placement_reference": {
+    "absent_sha256": "f18c7717493aad07d75f0d547fdfde5825fa980bd2d8a0673c5602ce6450877e",
+    "offset": 288,
+    "present_sha256": "1f4252804c2bc9ea883ac3ee164df22aaece74b30a3a9be2c2998fd769bfb417",
+    "reference_files": {
+      "re/tooling/sw2026/builders/Definition.py": "b7fd7a3b226493623059a6cde7d5e464ae3e3ee8accd8101c7104be3bdec8a45",
+      "re/tooling/sw2026/serial/defs/Definition.py": "04dfa56204c742603a8a832ffd5146678d39cd12b6ffa6518137d2b4756a6702"
+    },
+    "revision": "ed0a90a0e8e913b4eb28f9c2dc6c92a814e32472",
+    "wrapper_frame": "0101000000000000000000"
+  },
+  "runtime_external_attempts": 0,
+  "saved": [
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assemblies/A0_one.SLDASM",
+      "file_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "map_sha256": "8b1f08d1fa44ecf113d702588411c2ab3841c4e36eeeecc918cbef333b36c87f",
+      "next_map_index": 60,
+      "sha256": "277828eba47fa279ab56a0c22bdb72936abcdff4f97c1e1e6bd227de98ebb1a1"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assemblies/A1_two.SLDASM",
+      "file_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "map_sha256": "8b1f08d1fa44ecf113d702588411c2ab3841c4e36eeeecc918cbef333b36c87f",
+      "next_map_index": 60,
+      "sha256": "1b9bec06510f34ff99269d06f16ca51c408bbab70e762c6c9770e106533d9f0a"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-discovery/A07EmptyAssembly.SLDASM",
+      "file_sha256": "c935cee2d4742885115a9ca3640a9714222525474c3c82f5c72922926b95840b",
+      "map_sha256": "8b1f08d1fa44ecf113d702588411c2ab3841c4e36eeeecc918cbef333b36c87f",
+      "next_map_index": 60,
+      "sha256": "f2c00aa356a6da26f786bbfa7386097921a97ccf76c7f81d2b99a9e9bab47932"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-discovery/A08SingleAssembly.SLDASM",
+      "file_sha256": "9f98f7a6e3271187a20d41bb8c701399723f6448a86ff8471b525a45af50621f",
+      "map_sha256": "8b1f08d1fa44ecf113d702588411c2ab3841c4e36eeeecc918cbef333b36c87f",
+      "next_map_index": 60,
+      "sha256": "277828eba47fa279ab56a0c22bdb72936abcdff4f97c1e1e6bd227de98ebb1a1"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-discovery/A09RepeatedAssembly.SLDASM",
+      "file_sha256": "4fc4d78edc4d4cb07f650d33cf77e5042af7939051b463d290cafb8b8b128180",
+      "map_sha256": "8b1f08d1fa44ecf113d702588411c2ab3841c4e36eeeecc918cbef333b36c87f",
+      "next_map_index": 60,
+      "sha256": "1b9bec06510f34ff99269d06f16ca51c408bbab70e762c6c9770e106533d9f0a"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-synchronized/A12SyncedEmpty.SLDASM",
+      "file_sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+      "map_sha256": "8b1f08d1fa44ecf113d702588411c2ab3841c4e36eeeecc918cbef333b36c87f",
+      "next_map_index": 60,
+      "sha256": "f2c00aa356a6da26f786bbfa7386097921a97ccf76c7f81d2b99a9e9bab47932"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-synchronized/A13SyncedSingle.SLDASM",
+      "file_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+      "map_sha256": "8b1f08d1fa44ecf113d702588411c2ab3841c4e36eeeecc918cbef333b36c87f",
+      "next_map_index": 60,
+      "sha256": "277828eba47fa279ab56a0c22bdb72936abcdff4f97c1e1e6bd227de98ebb1a1"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-synchronized/A14SyncedRepeat.SLDASM",
+      "file_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+      "map_sha256": "8b1f08d1fa44ecf113d702588411c2ab3841c4e36eeeecc918cbef333b36c87f",
+      "next_map_index": 60,
+      "sha256": "1b9bec06510f34ff99269d06f16ca51c408bbab70e762c6c9770e106533d9f0a"
+    }
+  ],
+  "saved_preferences": {
+    "f08": 0,
+    "f0c": 0,
+    "f10": 0.75,
+    "f18": 0,
+    "f20": 0.000125,
+    "f28": 0,
+    "f2c": 1,
+    "f30": 1,
+    "f34": 1,
+    "f38": 1,
+    "f3c": 0
+  },
+  "saved_renderer": {
+    "f08": 1,
+    "f0c": 0,
+    "list": {
+      "items": [],
+      "n": 0
+    }
+  },
+  "saved_stream_counts": {
+    "1b9bec06510f34ff99269d06f16ca51c408bbab70e762c6c9770e106533d9f0a": 3,
+    "277828eba47fa279ab56a0c22bdb72936abcdff4f97c1e1e6bd227de98ebb1a1": 3,
+    "f2c00aa356a6da26f786bbfa7386097921a97ccf76c7f81d2b99a9e9bab47932": 2
+  },
+  "schema": "kit.sw2026.ordinary-assembly-definition.v1",
+  "sources": {
+    "src/convert/adapters/solidworks/Archive/Definition/CheckAsmDef.py": "d3c092f80777105bf0b771832799eafd0d660c7187ab1e35182c2a630e7806fd",
+    "src/convert/adapters/solidworks/Archive/Definition/CheckDefRender.py": "1c10de25fb9177d3161fa894512164b3f77b4e22b839edde974e5b5e9e4b3269",
+    "src/convert/adapters/solidworks/Archive/Definition/CheckDefScope.py": "8d17e11d8df8e4b57fdb3c800ed2b818a29afdd169e213b1687bbd954c41070b",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeAssemblyDef.py": "1fc0c777388893cbd56631fa99ea6c1dcd0e386a0877bdfe1f0f14b64f435be2",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeSavePartSettings.py": "50d615637e5ae15edefeef1983547aa511b0894c516bd18bee18d5b42f6ed865",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/ReadSavePartValue.py": "17120f7d66fd1c80d6254487546358771fdad6c51a0498145a7fc401ff0e2875",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/SavePartSlots.py": "68cd400963c7a02e50265de6c6cccee17904a302d107be0a9f615391eb26323d",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/AsmDefLayouts.py": "6047e04a7117fb5b653c2139bf0fb6407f45c2b944b214cb23aa9270d6ec1490",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/AssemblyDefTail.py": "86ee47224ad412419b9e15b837698db20063a8a675b478db28e9b37d28f90718",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefClsid.py": "6012f44e2a73bae675794cfa7b3018e6229dee3fc52ff287a350fe7d0bc6f145",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefContext.py": "5de4177de47ce2fac61d43038cb14a388421c2b21a122fbefbfe12f08962962d",
+    "src/convert/adapters/solidworks/Archive/Definition/ReadModelDef.py": "99bee93318fa6a81208c31fecf032db84d38ce1df926dec300e9fe4a35080046",
+    "src/convert/adapters/solidworks/Archive/Definition/WriteModelDef.py": "fc91fd8443ded020f43d2748b9c49ec52584c7257daeb6ebbb9c76c672b117a3"
+  }
+}

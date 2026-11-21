@@ -14,6 +14,7 @@ from convert.adapters.solidworks.Archive.Definition.Fields.DefPrefixFields impor
     KDefPrefixFields,
 )
 from convert.adapters.solidworks.Archive.Definition.ModelDefClsid import (
+    KAsmDefClass,
     KModelDefClsids,
     KPartDefClass,
 )
@@ -28,22 +29,26 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 # each native definition derives the root identity and every wire byte from modeled fields
 def WriteModelDef(
-    GraphValue: ModelDefGraph, *, OrdinaryOnly: bool = False
+    GraphValue: ModelDefGraph, *, OrdinaryOnly: bool = False, Assembly: bool = False
 ) -> DefinitionWire:
     DocumentValue = GraphValue.DocumentValue
     ClassValue = DocumentValue.ClassValue
-    if OrdinaryOnly and ClassValue != KPartDefClass:
+    ExpectedClass = KAsmDefClass if Assembly else KPartDefClass
+    if (Assembly or OrdinaryOnly) and ClassValue != ExpectedClass:
+        KindValue = "assembly" if Assembly else "part"
         raise BodyUnsupported(
-            "SOLIDWORKS part Definition requires uiPartDoc_c schema 1"
+            f"SOLIDWORKS {KindValue} Definition requires {ExpectedClass.NameValue} schema 1"
         )
     if not isinstance(ClassValue, RuntimeClass):
         raise BodyUnsupported("SOLIDWORKS model Definition requires a concrete class")
     ClsidValue = KModelDefClsids.get(ClassValue)
     if ClsidValue is None:
         raise BodyUnsupported("unsupported SOLIDWORKS model Definition class")
-    ContextValue = ModelDefContext(GraphValue.VersionValue, OrdinaryOnly=OrdinaryOnly)
-    if OrdinaryOnly:
-        CheckDefScope(DocumentValue.FieldsValue)
+    ContextValue = ModelDefContext(
+        GraphValue.VersionValue, OrdinaryOnly=OrdinaryOnly, Assembly=Assembly
+    )
+    if Assembly or OrdinaryOnly:
+        CheckDefScope(DocumentValue.FieldsValue, Assembly=Assembly)
     WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteBodyMut)
     FrameValue = WriteFrame(
         WriterValue,
