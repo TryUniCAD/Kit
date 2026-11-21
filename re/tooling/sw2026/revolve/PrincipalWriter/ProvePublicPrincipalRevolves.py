@@ -8,6 +8,8 @@ from pathlib import Path, PureWindowsPath
 from subprocess import run
 import sys
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 from BuildPrincipalRevolves import authored_neutral, measure
 
 
@@ -79,7 +81,8 @@ def worker(request):
     finally:
         active = False
     raw = public.getvalue()
-    assert raw == direct.getvalue() and digest(raw) == request["candidate_sha256"]
+    assert raw == direct.getvalue(), "normal registry and direct writer emitted different bytes"
+    assert digest(raw) == request["candidate_sha256"], f"public candidate SHA-256 differs: {digest(raw)}"
     for receipt in (direct_receipt, public_receipt):
         assert receipt.path is None and receipt.bytes_written == len(raw)
         assert receipt.vendor_loadable and receipt.application_usable
