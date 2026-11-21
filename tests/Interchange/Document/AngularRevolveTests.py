@@ -88,7 +88,7 @@ def CheckAngularRev() -> None:
 
 
 # the complete wire round trip must keep a centred feature editable through its single real driver
-def CheckTotalAngularRev() -> None:
+def CheckRevTotal() -> None:
     Document = BuildAngularRev()
     StepValue = Document.feature_timeline[0]
     Definition = StepValue.definition
@@ -117,7 +117,10 @@ def CheckTotalAngularRev() -> None:
     Edited.AssertValid()
     assert Edited.feature_timeline[0].definition == Total
     assert len(Edited.parameters) == 1
-    assert GetAngleSpan(1.6, Total.AgainstParameterId, Total.SideMode) == (-0.8, 0.8)
+    assert Total.AgainstParameterId is None
+    Angle = Edited.parameters[0].value.value
+    assert isinstance(Angle, (float, int))
+    assert GetAngleSpan(Angle, None, Total.SideMode) == (-0.8, 0.8)
     Invalid = ReplaceValue(
         Edited,
         parameters=(
