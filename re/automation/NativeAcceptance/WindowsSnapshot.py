@@ -1,5 +1,5 @@
 import ctypes
-from ctypes import wintypes
+import ctypes.wintypes as wintypes
 from contextlib import contextmanager
 import msvcrt
 
