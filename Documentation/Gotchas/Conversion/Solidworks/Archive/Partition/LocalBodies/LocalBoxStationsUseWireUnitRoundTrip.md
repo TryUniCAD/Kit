@@ -1,0 +1,5 @@
+# Compare local box stations through wire units
+
+The local prism writer divides millimetres by `1000` to store the stations in metres. The strict reader's analytic point path divides the stored values by the binary64 representation of `0.001`. The disclosed `10.875` mm upper station therefore reads as `10.874999999999998` mm in both generated label arms. [Prism unit conversion](../../../../../../../src/convert/adapters/solidworks/Archive/Partition/LocalPrism/PrismVectors.py) · [Analytic point reader](../../../../../../../src/convert/Geometry/Parasolid.py)
+
+For this exact producer/reader comparison, compute the expected projection with `(millimetres / 1000) / 0.001` before testing the eight corners and twelve linked edges. The disclosed trace records the maximum station difference of `1.7763568394002505e-15` mm and separately verifies signed volume and centre. This keeps the incidence and station checks exact in the observed unit representation. [Disclosed pair](../../../../../../../re/solidworks/measurements/2026/DisclosedBakedLabelPair01.json)
