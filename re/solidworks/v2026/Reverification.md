@@ -5,7 +5,8 @@ Parallels VM "Windows 11" (ARM64 host, x64 emulation). Driven from macOS with
 `prlctl exec "Windows 11" --current-user ...` and COM ProgID `SldWorks.Application.34`
 (`re/tooling/sw2026/Swapp.py`).
 
-Every 2025 statement below was checked against 2026 binaries or 2026-saved files before reuse.
+The comparisons below bind specific 2025 observations to 2026 binary or saved-file evidence.
+The [seven prerequisite groups](../records/ArchivePrerequisites2026.md) record the exact pins and scope.
 Status words follow `Documentation/Reference/Research/Methodology.md`: **confirmed**, **partial**,
 **changed** (held in 2025, different in 2026), **refuted**.
 
@@ -45,7 +46,7 @@ recorded addresses and binary digests are unchanged by the relocation.
 | --- | --- | --- |
 | `file_id` selects a signature triplet from a 1,000-row table in `sldmfcu.dll` `.rdata` at file offset `0x566c40`. | **Confirmed, moved.** The arrays occupy 16,000 bytes. The ID array starts at file offset `0x582ed0` and the triplet array starts at `0x583e70`. | All 1,000 rows match the recorded 2025 table at the same indexes, after normalizing signature byte order. All 13 case triplets match their ID's row. The earlier `smoke_box.SLDPRT` observation used row 598. |
 | SOLIDWORKS uses `su_CArchive` in `swccu.dll`. | **Confirmed.** The archive methods are exported by name. | `ReadObject`, `ReadClass` and `getMapCount` exports have ordinals 708, 937 and 966. |
-| `m_lpBufCur` at `0x38`, `m_lpBufMax` at `0x40`, `m_nMapCount` at `0x50`. | **Confirmed.** The character reader compares the cursor with the limit. The map-count accessors use `this+0x50`. | `swccu.dll` character reader, `getMapCount` and `setMapCount`. |
+| `m_lpBufCur` at `0x38`, `m_lpBufMax` at `0x40`, `m_lpBufStart` at `0x48`, `m_nMapCount` at `0x50`. | **Confirmed for the measured archive.** The character reader compares cursor and limit. The map-count accessors use `this+0x50`. The L1 runtime span and first object-body cursor agree with the decoded Config-0 root from `+0x48`. | `swccu.dll` character reader and map accessors. [Native L1 buffer corroboration](../records/ArchivePrerequisites2026.md#independent-check-of-the-omitted-buffer-start-offset). |
 | Archive tag grammar uses `0xffff` for a new class, the `0x8000` class bit, `0x7fff` for a wide escape and zero for null. | **Confirmed.** The wide escape consumes a `u32`. | `ReadClass` at `0x31a3a2d0` and the [archive tag grammar](../records/ArchiveTagGrammar2026.md). |
 | A new class and a new object each add one map slot. Existing object references and null add zero. | **Confirmed.** The first instance of an unregistered class adds two slots. A new instance of a registered class adds one. | `ReadClass` inserts the new descriptor and `ReadObject` maps the new object. The eight-control instrument confirms the rule. |
 | The `u16` at `ResolvedFeatures` byte 604 equalled twice the feature count on the ladder. | **Confirmed for the ladder.** The field is the archive count of `moHistoryFolder_c.f3c8` items. | The values are 2, 4, 6 and 8 in L1 through L4 and zero in E0. The one-boss P04 fixture has zero items. The A0 assembly has one. |
