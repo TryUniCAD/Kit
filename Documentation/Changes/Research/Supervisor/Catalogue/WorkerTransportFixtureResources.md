@@ -24,3 +24,7 @@ their existing reservations and gates.
 
 The [reservation gotcha](../../../../Gotchas/Research/Workers/Inference/FixtureWorkerReservations.md)
 records the observed queued state and its fixture-specific correction.
+
+At `df53de5`, both affected real-process cases passed on macOS in 25.89 seconds.
+Neither created a model budget or native archive. Black, steering and changed-path
+checks passed. Windows and Linux execution were not performed.
