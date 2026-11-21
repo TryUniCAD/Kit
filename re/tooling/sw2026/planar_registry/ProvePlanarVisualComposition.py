@@ -59,6 +59,12 @@ def inject(fault, bundle, recipe):
     elif fault == "mismatched-creation-log":
         log = child.HeaderValue.FieldsValue["f20"].FieldsValue
         log["items"] = (*log["items"], MakeRootLog(child.ProfileValue.ProfileValue, recipe.HeaderValue))
+    elif fault == "crossed-render-cursor":
+        child.DefinitionValue.DocumentValue.FieldsValue["f1110"]["f08"] += 1
+    elif fault == "aliased-shader":
+        model = child.SystemValue.RootValue.FieldsValue["f78"]
+        config = child.CurrentConfig.FieldsValue["f78"]
+        config.FieldsValue["f88"] = model.FieldsValue["f88"]
     return child
 
 
@@ -114,11 +120,19 @@ def compose(root, request):
     require(not any(key.startswith("kit.research_") for key in document.metadata),
             "a research source status cannot authorize native output")
     self_view = None
+    rendered = None
+    confirm = None
     if request["self_appearance"] is not None:
         from convert.adapters.solidworks.Archive.Construction.Part.Displays.PartSelfView import PartSelfView
         view = request["self_appearance"]
         require(set(view) == {"state", "appearance"}, "part self appearance request is incomplete")
-        self_view = PartSelfView(view["state"], view["appearance"])
+        appearance = view["appearance"]
+        if type(appearance) is dict:
+            from PlanarRendererInput import confirm_look, from_json
+            rendered = appearance
+            confirm = confirm_look
+            appearance = from_json(rendered)
+        self_view = PartSelfView(view["state"], appearance)
     view = request["display"]
     intent = None
     if view is not None:
@@ -137,7 +151,7 @@ def compose(root, request):
     arguments = child, recipe, plan.Occurrences, plan.MatesValue, plan.FixedIndex
     fault = request["fault"]
     if fault in {"detached-stamp", "foreign-mate", "unbound-child-store", "missing-child-store",
-                 "foreign-renderer", "mismatched-creation-log"}:
+                 "foreign-renderer", "mismatched-creation-log", "crossed-render-cursor", "aliased-shader"}:
         base = MakePlanarGroup(*arguments)
         child = inject(fault, base, recipe)
         EmitAsmStreams(base.StateValue, child, recipe, (base.HeaderValue, base.TopHeader),
@@ -157,7 +171,9 @@ def compose(root, request):
                 "the actual assembly emitter differs from the independent typed display tree")
         result["parent_store"] = parent_store(parent, reg)
     if self_view is not None:
-        result["child_store"] = child_store(child_file, reg, rich=False)
+        result["child_store"] = child_store(child_file, reg, rich=rendered is not None)
+    if confirm is not None:
+        result["renderer"] = confirm(child_file, reg, rendered)
     require(bundle.ChildValue is child and not audit.DeniedReads and not excluded_modules(),
             "composition did not keep its actual neutral child and zero-runtime-input boundary")
     return {"pid": os.getpid(), "runtime_input_reads": len(audit.DeniedReads), "identity": identity,

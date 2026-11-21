@@ -4,6 +4,15 @@ from convert.adapters.solidworks.Archive.Construction.Part.Displays.MakePartVis 
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.Rendering.PartLookInput import (
+    PartLookInput,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.Rendering.PlanLookIds import (
+    PlanLookIds,
+)
+from convert.adapters.solidworks.Archive.Definition.EmptyManagers.ReadEmptyMgrs import (
+    ReadEmptyMgrs,
+)
 from convert.adapters.solidworks.Archive.VisualStates.WriteAsmVisual import (
     KVisualStream,
 )
@@ -28,3 +37,10 @@ def CheckSelfVisual(ChildValue: PartCandidate) -> None:
     )
     if Predicted != StoredValue:
         raise ValueError("planar child visual store does not match its model owners")
+    RenderValue = ViewValue.AppearanceValue
+    if type(RenderValue) is PartLookInput:
+        _, _, StateValue = PlanLookIds(RenderValue)
+        if ReadEmptyMgrs(ChildValue.DefinitionValue) != StateValue:
+            raise ValueError(
+                "planar child visual store requires its actual independent appearance allocator"
+            )

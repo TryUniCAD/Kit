@@ -1,0 +1,2188 @@
+{
+  "base": "aa76928bfd03d3bcff777f27cbf91237caa13c92",
+  "cases": {
+    "A20": {
+      "fresh_parent": {
+        "bytes": 11162,
+        "sha256": "5270210913a6b3a64d6cca76c4209237c0b5bcda4cecd257e7636e74437daca0",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2328,
+            "sha256": "59069386023c4e26d5c15d4acd2fda54c0db7867b68bdc5ee8876875b32c03d3"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "390194513a7588740a2cff78f433c9240787fb139c8c7223b079f5905181002f"
+          },
+          "Contents/Config-0": {
+            "bytes": 23869,
+            "sha256": "b57568c5dd0216dd01a223bcf3a1adf55de0d4b2eba787e5f9bf199b1b98a9be"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 7161,
+            "sha256": "e7b6881b75641190df1156734b6e88e2a954dbe1535add65c51590973d7fa9d2"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1109,
+            "sha256": "610a5097e9b1b5b13adb2a1487ad50078bb7603de69e10a8c91f81d447a59f3c"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5265,
+            "sha256": "cb508cb61dc899a1fc6fd4d63cd1a9478e59b69811110c954962c386ce67b8b0"
+          },
+          "Contents/Definition": {
+            "bytes": 543,
+            "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+          },
+          "Header2": {
+            "bytes": 1109,
+            "sha256": "b1a931e29870a53923f65b15ff9b4b8d1d5e3fbb5e8661c25f57c90b24dfa367"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1375,
+            "sha256": "51288b2f8c90a5bf39631af10ed7a2002a5551b6801323eb5f5fa5e27cf6e3ec"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2232,
+            "sha256": "7d9d1dea0df7d11d055440d2ec48a351dfc0f91156b88b05a9718f7003c89b7c"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1496,
+            "sha256": "1e38b74161a2a1161252ee2bb533d6daf19555b426ef96bc7f5fa3149f908df8"
+          }
+        }
+      },
+      "fresh_part": {
+        "bytes": 9837,
+        "sha256": "0d03e4060be916b55211846ca8263e606c6e5b4e286c5ca7a162e06a5a0d21dc",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1970,
+            "sha256": "67397a1eff69f0e8ebb97b8a4daa0500aa1c0b9ea802d12bedcca8c46d51b7e6"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "dbd2b5373f1fe8d838cde1113c9f9e5a822419269713b2cc17e8347064990502"
+          },
+          "Contents/Config-0": {
+            "bytes": 22917,
+            "sha256": "4f9def1997902b18338bffd3c8e63ef0c47a951156cca63a02deab1fda4f1c90"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 617,
+            "sha256": "a94d6f3f1159c4f926afb9fd3e05ea8b4aa1e69a779b172432da90de42d3f851"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17289,
+            "sha256": "079d41deedc2918bfdd64ea01094f3235c6aa5a4464e7381f2d189511ac6e288"
+          },
+          "Contents/Definition": {
+            "bytes": 491,
+            "sha256": "e9c366f753de96533cd5cdd72d9685ad3061d4b4f96c3422e7a6ca4d1d138f11"
+          },
+          "Header2": {
+            "bytes": 617,
+            "sha256": "effde5222d7397a02fa848438e49db598c816520d566f4464e7c94b313e819da"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1789,
+            "sha256": "c90fb447daf063b2c301824d717ece4c51ee7ef192bd15069a9df52b91f2f92d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1489,
+            "sha256": "99b5058720a7affe179bf395f8c1439271b26eb259c90d1c9bfa7fe1dbbb0441"
+          }
+        }
+      },
+      "fresh_renderer": {
+        "active_configuration_density": -1.0,
+        "byte_identity": true,
+        "bytes": 1789,
+        "classic_roughness": 0.6000000238418579,
+        "definition_next_appearance_id": 12,
+        "dspbr_roughness": 0.20000000298023224,
+        "empty_bom_present": true,
+        "exact_payload": true,
+        "holder_asset": "<SystemTexture>\\graphics\\materials\\color.p2m",
+        "holder_id": 10,
+        "live_asset": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+        "model_and_configuration_id": 11,
+        "opaque_bytes": 0,
+        "physical_density_parameter": null,
+        "primary_rgb": [
+          228,
+          228,
+          228
+        ],
+        "provisional_schemas": [],
+        "reflectance": 0.04000000283122063,
+        "refraction_index": 1.5,
+        "sha256": "c90fb447daf063b2c301824d717ece4c51ee7ef192bd15069a9df52b91f2f92d",
+        "terminal_map": 26
+      },
+      "legacy_same_bytes": true,
+      "packed_author_input_sha256": "4a16d543625fb7508206fa15652c4d70579dd8c5f27741b840c5d38c0cf3ee21",
+      "source": {
+        "mapped_payload_equal": true,
+        "roles": {
+          "definition_next_appearance_id": 10,
+          "empty_bom_present": true,
+          "holder_id": 3,
+          "model_and_configuration_id": 9
+        },
+        "store": {
+          "active_configuration_density": -1.0,
+          "byte_identity": true,
+          "bytes": 1789,
+          "opaque_bytes": 0,
+          "physical_density_parameter": [
+            1000.0,
+            0
+          ],
+          "provisional_schemas": [],
+          "sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+          "terminal_map": 26
+        }
+      },
+      "source_locks": {
+        "child_sha256": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115",
+        "native_record_sha256": "46d29bdc6b1478935d7c53f74cab10f2d95e6483f0db81545ef0aa318b9b4db8",
+        "parent_sha256": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd"
+      },
+      "source_ordered_datum_and_clock_boundary": {
+        "child_store": [
+          [
+            "Sketch1",
+            26,
+            18,
+            1794690249,
+            2592000
+          ],
+          [
+            "Origin",
+            5,
+            17,
+            1794529625,
+            2592000
+          ],
+          [
+            "Right Plane",
+            4,
+            16,
+            1794529625,
+            2592000
+          ],
+          [
+            "Top Plane",
+            3,
+            15,
+            1794529625,
+            2592000
+          ],
+          [
+            "Front Plane",
+            2,
+            14,
+            1794529625,
+            2592000
+          ]
+        ],
+        "parent_store": [
+          [
+            "Right Plane",
+            5,
+            14,
+            1794529626,
+            2592000
+          ],
+          [
+            "Top Plane",
+            4,
+            13,
+            1794529626,
+            2592000
+          ],
+          [
+            "Front Plane",
+            3,
+            12,
+            1794529626,
+            2592000
+          ]
+        ]
+      },
+      "source_refusals": {
+        "crossed-installation-alias": "renderer source requires a consistent live and detached resource alias",
+        "crossed-selected-config": "renderer source alters its active selected configuration appearance",
+        "stale-definition-allocator": "renderer source has a conflicting independent Definition allocator",
+        "wrong-derived-reflectance": "unrepresented renderer source field model.f88.f12c"
+      },
+      "whole_source_guard": "assembly root contains unprojected model content"
+    },
+    "A21": {
+      "fresh_parent": {
+        "bytes": 11602,
+        "sha256": "b61fc46d6ce764c02f1246e009f5ab7734249b4ffb735367874946a716bdf497",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2662,
+            "sha256": "cfca459fccd27c22992c6bbbda59cdb5e9e7678bdffd9506081f9a471fd32ddc"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "b617656ee8e4d46d389b196be77db0f16f078f79bc2e9f406c4da6ff3a046c27"
+          },
+          "Contents/Config-0": {
+            "bytes": 24531,
+            "sha256": "dfe50e46855699beffdd731a44f60b705ba0b4071bfa8d630a17a0ff99da6e98"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 7443,
+            "sha256": "6c599f66c10c173c94e2a465d0ed1b4f146cb7e410f36982c5b2871973e7c19e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1101,
+            "sha256": "21e572e15cf4dd665ff30902796b501ba1cc66e2e62006c70cfa255d657bb27e"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5265,
+            "sha256": "abaf8d9402bcf415825fe3a30776f0487e6be98cebfc523e6408b5650644c9df"
+          },
+          "Contents/Definition": {
+            "bytes": 543,
+            "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+          },
+          "Header2": {
+            "bytes": 1101,
+            "sha256": "c727923fce863c6fbc8406a15789b6d830ab10aeae7d6f291f6291a82ca80652"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1563,
+            "sha256": "a809abc498e0c00f260bf14147cece616ed134218a61c04423a50f14feb4844a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2773,
+            "sha256": "aa13660a1dd5e8881f2a2ba02494e2a6b62385e4e6e6963c19f9e8c7ae462a93"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1557,
+            "sha256": "8a27559bd334477dd683203a12c62bc70d718df0d39175403b8427be85e3bdde"
+          }
+        }
+      },
+      "fresh_part": {
+        "bytes": 9838,
+        "sha256": "ae7c192c03238b78667af60696a1def5b898825704b35f85a295658cd9c2438e",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1970,
+            "sha256": "21aa90f9141f85376f93d2e74a404e26d9840bd3936f20f80c83a69ae840fa75"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "dbd2b5373f1fe8d838cde1113c9f9e5a822419269713b2cc17e8347064990502"
+          },
+          "Contents/Config-0": {
+            "bytes": 22917,
+            "sha256": "a643c7e0961a5255a2857c8a203969a00cba56520f75e53a682dcda81c475c6c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 617,
+            "sha256": "a94d6f3f1159c4f926afb9fd3e05ea8b4aa1e69a779b172432da90de42d3f851"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17289,
+            "sha256": "079d41deedc2918bfdd64ea01094f3235c6aa5a4464e7381f2d189511ac6e288"
+          },
+          "Contents/Definition": {
+            "bytes": 491,
+            "sha256": "78c19cf38e96c35ae77e8c3dcff1db3feccb9a5af0a9770eb90e3cbfd2b4b081"
+          },
+          "Header2": {
+            "bytes": 617,
+            "sha256": "effde5222d7397a02fa848438e49db598c816520d566f4464e7c94b313e819da"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1789,
+            "sha256": "0c4dfcf48045a215a1c3ced3e3be808bf7981e5b94401601a863fceb010a8734"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1489,
+            "sha256": "99b5058720a7affe179bf395f8c1439271b26eb259c90d1c9bfa7fe1dbbb0441"
+          }
+        }
+      },
+      "fresh_renderer": {
+        "active_configuration_density": -1.0,
+        "byte_identity": true,
+        "bytes": 1789,
+        "classic_roughness": 0.6000000238418579,
+        "definition_next_appearance_id": 13,
+        "dspbr_roughness": 0.20000000298023224,
+        "empty_bom_present": true,
+        "exact_payload": true,
+        "holder_asset": "<SystemTexture>\\graphics\\materials\\color.p2m",
+        "holder_id": 11,
+        "live_asset": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+        "model_and_configuration_id": 12,
+        "opaque_bytes": 0,
+        "physical_density_parameter": null,
+        "primary_rgb": [
+          228,
+          228,
+          228
+        ],
+        "provisional_schemas": [],
+        "reflectance": 0.04000000283122063,
+        "refraction_index": 1.5,
+        "sha256": "0c4dfcf48045a215a1c3ced3e3be808bf7981e5b94401601a863fceb010a8734",
+        "terminal_map": 26
+      },
+      "legacy_same_bytes": true,
+      "packed_author_input_sha256": "e1145cf4c68a812a3bb35115ba5a014edaa51c463ffacc8ab481e9439a422282",
+      "source": {
+        "mapped_payload_equal": true,
+        "roles": {
+          "definition_next_appearance_id": 11,
+          "empty_bom_present": true,
+          "holder_id": 3,
+          "model_and_configuration_id": 10
+        },
+        "store": {
+          "active_configuration_density": -1.0,
+          "byte_identity": true,
+          "bytes": 1789,
+          "opaque_bytes": 0,
+          "physical_density_parameter": [
+            1000.0,
+            0
+          ],
+          "provisional_schemas": [],
+          "sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+          "terminal_map": 26
+        }
+      },
+      "source_locks": {
+        "child_sha256": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff",
+        "native_record_sha256": "e8fae71fbd9403e2d4fcd9952606fda9876cdd551ce161f6afe029a104af643c",
+        "parent_sha256": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0"
+      },
+      "source_ordered_datum_and_clock_boundary": {
+        "child_store": [
+          [
+            "Sketch1",
+            26,
+            18,
+            1794690249,
+            2592000
+          ],
+          [
+            "Origin",
+            5,
+            17,
+            1794529625,
+            2592000
+          ],
+          [
+            "Right Plane",
+            4,
+            16,
+            1794529625,
+            2592000
+          ],
+          [
+            "Top Plane",
+            3,
+            15,
+            1794529625,
+            2592000
+          ],
+          [
+            "Front Plane",
+            2,
+            14,
+            1794529625,
+            2592000
+          ]
+        ],
+        "parent_store": [
+          [
+            "Right Plane",
+            5,
+            14,
+            1794529626,
+            2592000
+          ],
+          [
+            "Top Plane",
+            4,
+            13,
+            1794529626,
+            2592000
+          ],
+          [
+            "Front Plane",
+            3,
+            12,
+            1794529626,
+            2592000
+          ]
+        ]
+      },
+      "source_refusals": {
+        "crossed-installation-alias": "renderer source requires a consistent live and detached resource alias",
+        "crossed-selected-config": "renderer source alters its active selected configuration appearance",
+        "stale-definition-allocator": "renderer source has a conflicting independent Definition allocator",
+        "wrong-derived-reflectance": "unrepresented renderer source field model.f88.f12c"
+      },
+      "whole_source_guard": "assembly root contains unprojected model content"
+    }
+  },
+  "guarded_renderer_writes": 12,
+  "guarded_writer_refusals": {
+    "aliased-shader": "part self visibility lost the actual live renderer owners",
+    "asset-not-absolute": "part rendering requires an absolute Windows data-directory alias",
+    "bad-material-resource": "part rendering requires an explicit ordinary stock color resource",
+    "crossed-render-cursor": "planar child visual store requires its actual independent appearance allocator",
+    "malformed-bom-marker": "empty BOM presence requires an explicit boolean",
+    "no-space-for-events": "part rendering needs two nonwrapping appearance allocation events",
+    "wrong-template": "part rendering requires the opaque nontextured basic shader"
+  },
+  "independent": {
+    "base": {
+      "child": {
+        "bytes": 10059,
+        "sha256": "5804a2442ecb5e77c9fc412c845600990c398f74ca42a1e2742af523bd982eeb",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1936,
+            "sha256": "78ca1862e934329a65b670ddadcb061cdb975280a87c3ac5941bb9daa0473717"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "dbd2b5373f1fe8d838cde1113c9f9e5a822419269713b2cc17e8347064990502"
+          },
+          "Contents/Config-0": {
+            "bytes": 22893,
+            "sha256": "63d578acdc23bfc4167b46ee20a58a714e1d6f16d88c4b3cebf3a241f6d711dc"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 647,
+            "sha256": "aa998a1add3397529dfb1f14bd6298b1c814457edab89bbf8f9d6b63f2d999af"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17289,
+            "sha256": "d5fe80c8c093546033dc49159c916b2b660585b7c31a45f2a513cebf81c8b209"
+          },
+          "Contents/Definition": {
+            "bytes": 469,
+            "sha256": "d685baf89f6b3b7fcbaaa27f3372b216f86a0492ad5ee2decab853d2c970b148"
+          },
+          "Header2": {
+            "bytes": 647,
+            "sha256": "1082258c449fd3e030d97fd4cb28c42b76b6b37f4e6ff0625589abbf3d69b87d"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1779,
+            "sha256": "cb03d16c8372b67483a033e5857ac19f66ba3c4e98cb8975b20f0dfaedfe51c1"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1542,
+            "sha256": "d128ee06c9fa91d105c2033f4b00abd2c68ff9d195fa5f68b025171f14b0a828"
+          }
+        }
+      },
+      "child_store": {
+        "appearance_roles": {
+          "configuration": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.375,
+            "packed_colour": 5491473,
+            "realview_id": [
+              2147483647,
+              1
+            ],
+            "realview_roughness": 0.625,
+            "resource_locator": "C:\\RenderProfiles\\data\\graphics\\materials\\color.p2m"
+          },
+          "holder": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.375,
+            "packed_colour": 5491473,
+            "realview_id": [
+              2147483646,
+              1
+            ],
+            "realview_roughness": 0.625,
+            "resource_locator": "<SystemTexture>\\graphics\\materials\\color.p2m"
+          },
+          "model": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.375,
+            "packed_colour": 5491473,
+            "realview_id": [
+              2147483647,
+              1
+            ],
+            "realview_roughness": 0.625,
+            "resource_locator": "C:\\RenderProfiles\\data\\graphics\\materials\\color.p2m"
+          }
+        },
+        "byte_identity": true,
+        "bytes": 1779,
+        "linked_features": [
+          [
+            18,
+            "Sketch1",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            17,
+            "Origin",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            16,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            15,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            14,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "model_to_holder_typed_delta": {
+          "moVisualProperties_c/f20/f90/f00": [
+            2147483647,
+            2147483646
+          ],
+          "moVisualProperties_c/f20/f90/f68": [
+            "C:\\RenderProfiles\\data\\graphics\\materials\\color.p2m",
+            "<SystemTexture>\\graphics\\materials\\color.p2m"
+          ]
+        },
+        "opaque_bytes": 0,
+        "part_self_slots": [
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "provisional_schemas": [],
+        "sha256": "cb03d16c8372b67483a033e5857ac19f66ba3c4e98cb8975b20f0dfaedfe51c1",
+        "terminal_map": 26
+      },
+      "identity": {
+        "configuration": "Assembly configuration",
+        "configuration_reference": "IndependentDisplay",
+        "file_stem": "PublicPlanarPair2",
+        "header_files": [
+          {
+            "configuration": "Assembly configuration",
+            "model": "IndependentDisplay",
+            "path_empty": false
+          },
+          {
+            "configuration": "Assembly configuration",
+            "model": "IndependentDisplay",
+            "path_empty": false
+          }
+        ],
+        "keyword_model": "IndependentDisplay",
+        "native_model": "IndependentDisplay",
+        "view": {
+          "ConfigId": 0,
+          "ConfigName": "Assembly configuration",
+          "ConfigObjectId": 1,
+          "ListObjectId": 8,
+          "MemberValues": [
+            {
+              "FeatureId": 17,
+              "NativeName": "PublicDatumPrism-14",
+              "ObjectId": 4,
+              "Visible": true
+            },
+            {
+              "FeatureId": 18,
+              "NativeName": "PublicDatumPrism-8",
+              "ObjectId": 7,
+              "Visible": true
+            }
+          ],
+          "ModelNativeName": "IndependentDisplay",
+          "ModelObjectId": 2,
+          "StateName": "Display State-1",
+          "StateObjectId": 9
+        },
+        "xml_file_name": "PublicPlanarPair2.SLDASM",
+        "xml_model_captions": [
+          "PublicPlanarPair2",
+          "PublicPlanarPair2"
+        ]
+      },
+      "labels": {
+        "D1": {
+          "intent": {
+            "route_centerline": true,
+            "text_point_m": [
+              0.027,
+              -0.013,
+              0.007
+            ]
+          },
+          "owner": {
+            "display_id": 10,
+            "display_index": 177,
+            "driving_value_m": 0.0647,
+            "group_slot": 0,
+            "handle_index": 179,
+            "parameter_index": 162,
+            "selected_point_indices": [
+              0,
+              1
+            ],
+            "sketch_index": 149,
+            "value_id": 19,
+            "value_index": 160
+          },
+          "witness": {
+            "along_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "along_fraction": 0.9173106646058734,
+            "away_axis": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "away_m": 4.99999999999997e-05,
+            "end_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ],
+            "length_m": 0.0647,
+            "repeated_end_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ],
+            "repeated_start_m": [
+              -0.03235,
+              -0.01295,
+              0.0
+            ],
+            "start_m": [
+              -0.03235,
+              -0.01295,
+              0.0
+            ]
+          }
+        },
+        "D2": {
+          "intent": {
+            "route_centerline": false,
+            "text_point_m": [
+              0.08,
+              0.012,
+              -0.005
+            ]
+          },
+          "owner": {
+            "display_id": 11,
+            "display_index": 182,
+            "driving_value_m": 0.0259,
+            "group_slot": 1,
+            "handle_index": 183,
+            "parameter_index": 167,
+            "selected_point_indices": [
+              1,
+              2
+            ],
+            "sketch_index": 149,
+            "value_id": 20,
+            "value_index": 166
+          },
+          "witness": {
+            "along_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "along_fraction": 0.9633204633204634,
+            "away_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "away_m": 0.047650000000000005,
+            "end_m": [
+              0.03235,
+              0.01295,
+              0.0
+            ],
+            "length_m": 0.0259,
+            "repeated_end_m": [
+              0.03235,
+              0.01295,
+              0.0
+            ],
+            "repeated_start_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ],
+            "start_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ]
+          }
+        }
+      },
+      "mate_ids": [
+        19,
+        21
+      ],
+      "occurrences": [
+        {
+          "fields": {
+            "f3c0": {
+              "f08": "Default",
+              "f10": 0
+            },
+            "f3e8": 1794001931,
+            "f3f0": 102,
+            "f3f4": 101,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 1
+          },
+          "name": "PublicDatumPrism-14"
+        },
+        {
+          "fields": {
+            "f3c0": {
+              "f08": "Default",
+              "f10": 0
+            },
+            "f3e8": 1794001931,
+            "f3f0": 102,
+            "f3f4": 101,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 0
+          },
+          "name": "PublicDatumPrism-8"
+        }
+      ],
+      "ordered_mates": [
+        "CoincidentY",
+        "DistanceZ"
+      ],
+      "parent": {
+        "bytes": 10910,
+        "sha256": "aa117f541511b871521aef45b5bec2a8791b20b62a86043b36921dce885bf024",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2432,
+            "sha256": "6f40403df9bb9d20145ee0ebf5727f42028e9b55fc33f5ebaa2787f5785611f1"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 197,
+            "sha256": "5e11538875d1cf86bb3b86fd0e6ce56fa64cfca02aa77bb7b7eee1b326267abd"
+          },
+          "Contents/Config-0": {
+            "bytes": 22607,
+            "sha256": "47016df16a979bda3b0c5a590e3c9085095dbc8553f2a9415e29e34465c428e3"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 7737,
+            "sha256": "172c4e07448e1de5a088bc8a533b177d8089b07bd1209272870e94eeec158a8e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1175,
+            "sha256": "df77f434a5baff3ba26fb9825e0d1223cb8485868acdcfb57ad24ccfb310568e"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "1f47de7b7dd7218bf484634f0b7272198c8d08b94219dbf37f0f31a8f6351a85"
+          },
+          "Contents/Definition": {
+            "bytes": 543,
+            "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+          },
+          "Header2": {
+            "bytes": 1175,
+            "sha256": "39b228a6cd5f002793f11226a96cd2137c8ba2f9c07df1e4a394aaae7ce346d5"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1389,
+            "sha256": "9325e60cc89cb46aaf006bf97a5111819805e4bd012b6bff1a964710edabcbc3"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2409,
+            "sha256": "26b261403eeaf762503008847ff4ef84c7a19d02bdd4b2441850e46e5ba49696"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1176,
+            "sha256": "3533bed76d2f9d6ee3c012dfc0a961d524c57731b3317c09309e71a5b86657a0"
+          }
+        }
+      },
+      "parent_store": {
+        "byte_identity": true,
+        "bytes": 1389,
+        "compound_objects": {
+          "moCStringHandle_c": 2,
+          "moContextChainComponent_c": 2,
+          "moExtFeatureList_c": 2,
+          "moExtFeature_c": 2,
+          "moExtObject_c": 2,
+          "moReferenceChain_c": 2
+        },
+        "configuration_id": 0,
+        "occurrence_rows_in_wire_order": [
+          [
+            18,
+            "PublicDatumPrism-8",
+            203,
+            [
+              4,
+              6,
+              8,
+              10,
+              14,
+              16
+            ]
+          ],
+          [
+            17,
+            "PublicDatumPrism-14",
+            203,
+            [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ]
+          ]
+        ],
+        "opaque_bytes": 0,
+        "parent_header_locator_codepoints": 48,
+        "parent_header_model": "IndependentDisplay",
+        "plane_keys": [
+          [
+            14,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            13,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            12,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "provisional_schemas": [],
+        "sha256": "9325e60cc89cb46aaf006bf97a5111819805e4bd012b6bff1a964710edabcbc3",
+        "terminal_map": 38
+      },
+      "renderer": {
+        "active_configuration_density": -1.0,
+        "byte_identity": true,
+        "bytes": 1779,
+        "classic_roughness": 0.625,
+        "definition_next_appearance_id": 6442450944,
+        "dspbr_roughness": 0.375,
+        "empty_bom_present": false,
+        "exact_payload": true,
+        "holder_asset": "<SystemTexture>\\graphics\\materials\\color.p2m",
+        "holder_id": 6442450942,
+        "live_asset": "C:\\RenderProfiles\\data\\graphics\\materials\\color.p2m",
+        "model_and_configuration_id": 6442450943,
+        "opaque_bytes": 0,
+        "physical_density_parameter": null,
+        "primary_rgb": [
+          17,
+          203,
+          83
+        ],
+        "provisional_schemas": [],
+        "reflectance": 0.04000000283122063,
+        "refraction_index": 1.5,
+        "sha256": "cb03d16c8372b67483a033e5857ac19f66ba3c4e98cb8975b20f0dfaedfe51c1",
+        "terminal_map": 26
+      },
+      "runtime_input_reads": 0
+    },
+    "index_changed": {
+      "child": {
+        "bytes": 10049,
+        "sha256": "df0ce81033cdea38c4b1b0043688e43313b3da23df65ca1f243cf0011f4e6ef3",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1936,
+            "sha256": "f0efe85d7a1ebdf5b7e84384b6dc7e5792c417c371871aea4d0f8c0a3678dbbb"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "dbd2b5373f1fe8d838cde1113c9f9e5a822419269713b2cc17e8347064990502"
+          },
+          "Contents/Config-0": {
+            "bytes": 22893,
+            "sha256": "5bffc311624b78acb375682f5c2e64ed1f4856c257a569c7f753a9c6aa28ebde"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 647,
+            "sha256": "aa998a1add3397529dfb1f14bd6298b1c814457edab89bbf8f9d6b63f2d999af"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17289,
+            "sha256": "d5fe80c8c093546033dc49159c916b2b660585b7c31a45f2a513cebf81c8b209"
+          },
+          "Contents/Definition": {
+            "bytes": 469,
+            "sha256": "d685baf89f6b3b7fcbaaa27f3372b216f86a0492ad5ee2decab853d2c970b148"
+          },
+          "Header2": {
+            "bytes": 647,
+            "sha256": "1082258c449fd3e030d97fd4cb28c42b76b6b37f4e6ff0625589abbf3d69b87d"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1779,
+            "sha256": "4f2a92dbd7ea55fc7d5c2da2421206b7ea699343a24754dd5c922637cdee93d7"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1542,
+            "sha256": "d128ee06c9fa91d105c2033f4b00abd2c68ff9d195fa5f68b025171f14b0a828"
+          }
+        }
+      },
+      "child_store": {
+        "appearance_roles": {
+          "configuration": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.375,
+            "packed_colour": 5491473,
+            "realview_id": [
+              2147483647,
+              1
+            ],
+            "realview_roughness": 0.625,
+            "resource_locator": "C:\\RenderProfiles\\data\\graphics\\materials\\color.p2m"
+          },
+          "holder": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.375,
+            "packed_colour": 5491473,
+            "realview_id": [
+              2147483646,
+              1
+            ],
+            "realview_roughness": 0.625,
+            "resource_locator": "<SystemTexture>\\graphics\\materials\\color.p2m"
+          },
+          "model": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.375,
+            "packed_colour": 5491473,
+            "realview_id": [
+              2147483647,
+              1
+            ],
+            "realview_roughness": 0.625,
+            "resource_locator": "C:\\RenderProfiles\\data\\graphics\\materials\\color.p2m"
+          }
+        },
+        "byte_identity": true,
+        "bytes": 1779,
+        "linked_features": [
+          [
+            18,
+            "Sketch1",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            17,
+            "Origin",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            16,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            15,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            14,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "model_to_holder_typed_delta": {
+          "moVisualProperties_c/f20/f90/f00": [
+            2147483647,
+            2147483646
+          ],
+          "moVisualProperties_c/f20/f90/f68": [
+            "C:\\RenderProfiles\\data\\graphics\\materials\\color.p2m",
+            "<SystemTexture>\\graphics\\materials\\color.p2m"
+          ]
+        },
+        "opaque_bytes": 0,
+        "part_self_slots": [
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "provisional_schemas": [],
+        "sha256": "4f2a92dbd7ea55fc7d5c2da2421206b7ea699343a24754dd5c922637cdee93d7",
+        "terminal_map": 26
+      },
+      "identity": {
+        "configuration": "Assembly configuration",
+        "configuration_reference": "IndependentDisplay",
+        "file_stem": "PublicPlanarPair2",
+        "header_files": [
+          {
+            "configuration": "Assembly configuration",
+            "model": "IndependentDisplay",
+            "path_empty": false
+          },
+          {
+            "configuration": "Assembly configuration",
+            "model": "IndependentDisplay",
+            "path_empty": false
+          }
+        ],
+        "keyword_model": "IndependentDisplay",
+        "native_model": "IndependentDisplay",
+        "view": {
+          "ConfigId": 0,
+          "ConfigName": "Assembly configuration",
+          "ConfigObjectId": 1,
+          "ListObjectId": 8,
+          "MemberValues": [
+            {
+              "FeatureId": 17,
+              "NativeName": "PublicDatumPrism-14",
+              "ObjectId": 4,
+              "Visible": true
+            },
+            {
+              "FeatureId": 18,
+              "NativeName": "PublicDatumPrism-8",
+              "ObjectId": 7,
+              "Visible": true
+            }
+          ],
+          "ModelNativeName": "IndependentDisplay",
+          "ModelObjectId": 2,
+          "StateName": "Display State-1",
+          "StateObjectId": 9
+        },
+        "xml_file_name": "PublicPlanarPair2.SLDASM",
+        "xml_model_captions": [
+          "PublicPlanarPair2",
+          "PublicPlanarPair2"
+        ]
+      },
+      "labels": {
+        "D1": {
+          "intent": {
+            "route_centerline": true,
+            "text_point_m": [
+              0.027,
+              -0.013,
+              0.007
+            ]
+          },
+          "owner": {
+            "display_id": 10,
+            "display_index": 177,
+            "driving_value_m": 0.0647,
+            "group_slot": 0,
+            "handle_index": 179,
+            "parameter_index": 162,
+            "selected_point_indices": [
+              0,
+              1
+            ],
+            "sketch_index": 149,
+            "value_id": 19,
+            "value_index": 160
+          },
+          "witness": {
+            "along_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "along_fraction": 0.9173106646058734,
+            "away_axis": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "away_m": 4.99999999999997e-05,
+            "end_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ],
+            "length_m": 0.0647,
+            "repeated_end_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ],
+            "repeated_start_m": [
+              -0.03235,
+              -0.01295,
+              0.0
+            ],
+            "start_m": [
+              -0.03235,
+              -0.01295,
+              0.0
+            ]
+          }
+        },
+        "D2": {
+          "intent": {
+            "route_centerline": false,
+            "text_point_m": [
+              0.08,
+              0.012,
+              -0.005
+            ]
+          },
+          "owner": {
+            "display_id": 11,
+            "display_index": 182,
+            "driving_value_m": 0.0259,
+            "group_slot": 1,
+            "handle_index": 183,
+            "parameter_index": 167,
+            "selected_point_indices": [
+              1,
+              2
+            ],
+            "sketch_index": 149,
+            "value_id": 20,
+            "value_index": 166
+          },
+          "witness": {
+            "along_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "along_fraction": 0.9633204633204634,
+            "away_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "away_m": 0.047650000000000005,
+            "end_m": [
+              0.03235,
+              0.01295,
+              0.0
+            ],
+            "length_m": 0.0259,
+            "repeated_end_m": [
+              0.03235,
+              0.01295,
+              0.0
+            ],
+            "repeated_start_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ],
+            "start_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ]
+          }
+        }
+      },
+      "mate_ids": [
+        19,
+        21
+      ],
+      "occurrences": [
+        {
+          "fields": {
+            "f3c0": {
+              "f08": "Default",
+              "f10": 0
+            },
+            "f3e8": 1794001931,
+            "f3f0": 102,
+            "f3f4": 101,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 1
+          },
+          "name": "PublicDatumPrism-14"
+        },
+        {
+          "fields": {
+            "f3c0": {
+              "f08": "Default",
+              "f10": 0
+            },
+            "f3e8": 1794001931,
+            "f3f0": 102,
+            "f3f4": 101,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 0
+          },
+          "name": "PublicDatumPrism-8"
+        }
+      ],
+      "ordered_mates": [
+        "CoincidentY",
+        "DistanceZ"
+      ],
+      "parent": {
+        "bytes": 10910,
+        "sha256": "aa117f541511b871521aef45b5bec2a8791b20b62a86043b36921dce885bf024",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2432,
+            "sha256": "6f40403df9bb9d20145ee0ebf5727f42028e9b55fc33f5ebaa2787f5785611f1"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 197,
+            "sha256": "5e11538875d1cf86bb3b86fd0e6ce56fa64cfca02aa77bb7b7eee1b326267abd"
+          },
+          "Contents/Config-0": {
+            "bytes": 22607,
+            "sha256": "47016df16a979bda3b0c5a590e3c9085095dbc8553f2a9415e29e34465c428e3"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 7737,
+            "sha256": "172c4e07448e1de5a088bc8a533b177d8089b07bd1209272870e94eeec158a8e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1175,
+            "sha256": "df77f434a5baff3ba26fb9825e0d1223cb8485868acdcfb57ad24ccfb310568e"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "1f47de7b7dd7218bf484634f0b7272198c8d08b94219dbf37f0f31a8f6351a85"
+          },
+          "Contents/Definition": {
+            "bytes": 543,
+            "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+          },
+          "Header2": {
+            "bytes": 1175,
+            "sha256": "39b228a6cd5f002793f11226a96cd2137c8ba2f9c07df1e4a394aaae7ce346d5"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1389,
+            "sha256": "9325e60cc89cb46aaf006bf97a5111819805e4bd012b6bff1a964710edabcbc3"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2409,
+            "sha256": "26b261403eeaf762503008847ff4ef84c7a19d02bdd4b2441850e46e5ba49696"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1176,
+            "sha256": "3533bed76d2f9d6ee3c012dfc0a961d524c57731b3317c09309e71a5b86657a0"
+          }
+        }
+      },
+      "parent_store": {
+        "byte_identity": true,
+        "bytes": 1389,
+        "compound_objects": {
+          "moCStringHandle_c": 2,
+          "moContextChainComponent_c": 2,
+          "moExtFeatureList_c": 2,
+          "moExtFeature_c": 2,
+          "moExtObject_c": 2,
+          "moReferenceChain_c": 2
+        },
+        "configuration_id": 0,
+        "occurrence_rows_in_wire_order": [
+          [
+            18,
+            "PublicDatumPrism-8",
+            203,
+            [
+              4,
+              6,
+              8,
+              10,
+              14,
+              16
+            ]
+          ],
+          [
+            17,
+            "PublicDatumPrism-14",
+            203,
+            [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ]
+          ]
+        ],
+        "opaque_bytes": 0,
+        "parent_header_locator_codepoints": 48,
+        "parent_header_model": "IndependentDisplay",
+        "plane_keys": [
+          [
+            14,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            13,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            12,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "provisional_schemas": [],
+        "sha256": "9325e60cc89cb46aaf006bf97a5111819805e4bd012b6bff1a964710edabcbc3",
+        "terminal_map": 38
+      },
+      "renderer": {
+        "active_configuration_density": -1.0,
+        "byte_identity": true,
+        "bytes": 1779,
+        "classic_roughness": 0.625,
+        "definition_next_appearance_id": 6442450944,
+        "dspbr_roughness": 0.375,
+        "empty_bom_present": false,
+        "exact_payload": true,
+        "holder_asset": "<SystemTexture>\\graphics\\materials\\color.p2m",
+        "holder_id": 6442450942,
+        "live_asset": "C:\\RenderProfiles\\data\\graphics\\materials\\color.p2m",
+        "model_and_configuration_id": 6442450943,
+        "opaque_bytes": 0,
+        "physical_density_parameter": null,
+        "primary_rgb": [
+          17,
+          203,
+          83
+        ],
+        "provisional_schemas": [],
+        "reflectance": 0.25,
+        "refraction_index": 3.0,
+        "sha256": "4f2a92dbd7ea55fc7d5c2da2421206b7ea699343a24754dd5c922637cdee93d7",
+        "terminal_map": 26
+      },
+      "runtime_input_reads": 0
+    },
+    "locator_changed": {
+      "child": {
+        "bytes": 10063,
+        "sha256": "4cd48bffb7bd1bc20df48798136c2f736f390d8bc9f9e2818def328d13325132",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1936,
+            "sha256": "3e668f04d8ca6819b9e652a49622612e76ff634fa5cfd3d934cdde12fc616692"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "dbd2b5373f1fe8d838cde1113c9f9e5a822419269713b2cc17e8347064990502"
+          },
+          "Contents/Config-0": {
+            "bytes": 22893,
+            "sha256": "b7414e79e9cd01bc97ddec4abb754f74ba349a5c23dc000fba9fb80ad158b2fa"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 647,
+            "sha256": "aa998a1add3397529dfb1f14bd6298b1c814457edab89bbf8f9d6b63f2d999af"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17289,
+            "sha256": "d5fe80c8c093546033dc49159c916b2b660585b7c31a45f2a513cebf81c8b209"
+          },
+          "Contents/Definition": {
+            "bytes": 469,
+            "sha256": "d685baf89f6b3b7fcbaaa27f3372b216f86a0492ad5ee2decab853d2c970b148"
+          },
+          "Header2": {
+            "bytes": 647,
+            "sha256": "1082258c449fd3e030d97fd4cb28c42b76b6b37f4e6ff0625589abbf3d69b87d"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1779,
+            "sha256": "cb03d16c8372b67483a033e5857ac19f66ba3c4e98cb8975b20f0dfaedfe51c1"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1542,
+            "sha256": "d128ee06c9fa91d105c2033f4b00abd2c68ff9d195fa5f68b025171f14b0a828"
+          }
+        }
+      },
+      "child_store": {
+        "appearance_roles": {
+          "configuration": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.375,
+            "packed_colour": 5491473,
+            "realview_id": [
+              2147483647,
+              1
+            ],
+            "realview_roughness": 0.625,
+            "resource_locator": "D:\\AlternateMount\\data\\graphics\\materials\\color.p2m"
+          },
+          "holder": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.375,
+            "packed_colour": 5491473,
+            "realview_id": [
+              2147483646,
+              1
+            ],
+            "realview_roughness": 0.625,
+            "resource_locator": "<SystemTexture>\\graphics\\materials\\color.p2m"
+          },
+          "model": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.375,
+            "packed_colour": 5491473,
+            "realview_id": [
+              2147483647,
+              1
+            ],
+            "realview_roughness": 0.625,
+            "resource_locator": "D:\\AlternateMount\\data\\graphics\\materials\\color.p2m"
+          }
+        },
+        "byte_identity": true,
+        "bytes": 1779,
+        "linked_features": [
+          [
+            18,
+            "Sketch1",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            17,
+            "Origin",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            16,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            15,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            14,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "model_to_holder_typed_delta": {
+          "moVisualProperties_c/f20/f90/f00": [
+            2147483647,
+            2147483646
+          ],
+          "moVisualProperties_c/f20/f90/f68": [
+            "D:\\AlternateMount\\data\\graphics\\materials\\color.p2m",
+            "<SystemTexture>\\graphics\\materials\\color.p2m"
+          ]
+        },
+        "opaque_bytes": 0,
+        "part_self_slots": [
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "provisional_schemas": [],
+        "sha256": "cb03d16c8372b67483a033e5857ac19f66ba3c4e98cb8975b20f0dfaedfe51c1",
+        "terminal_map": 26
+      },
+      "identity": {
+        "configuration": "Assembly configuration",
+        "configuration_reference": "IndependentDisplay",
+        "file_stem": "PublicPlanarPair2",
+        "header_files": [
+          {
+            "configuration": "Assembly configuration",
+            "model": "IndependentDisplay",
+            "path_empty": false
+          },
+          {
+            "configuration": "Assembly configuration",
+            "model": "IndependentDisplay",
+            "path_empty": false
+          }
+        ],
+        "keyword_model": "IndependentDisplay",
+        "native_model": "IndependentDisplay",
+        "view": {
+          "ConfigId": 0,
+          "ConfigName": "Assembly configuration",
+          "ConfigObjectId": 1,
+          "ListObjectId": 8,
+          "MemberValues": [
+            {
+              "FeatureId": 17,
+              "NativeName": "PublicDatumPrism-14",
+              "ObjectId": 4,
+              "Visible": true
+            },
+            {
+              "FeatureId": 18,
+              "NativeName": "PublicDatumPrism-8",
+              "ObjectId": 7,
+              "Visible": true
+            }
+          ],
+          "ModelNativeName": "IndependentDisplay",
+          "ModelObjectId": 2,
+          "StateName": "Display State-1",
+          "StateObjectId": 9
+        },
+        "xml_file_name": "PublicPlanarPair2.SLDASM",
+        "xml_model_captions": [
+          "PublicPlanarPair2",
+          "PublicPlanarPair2"
+        ]
+      },
+      "labels": {
+        "D1": {
+          "intent": {
+            "route_centerline": true,
+            "text_point_m": [
+              0.027,
+              -0.013,
+              0.007
+            ]
+          },
+          "owner": {
+            "display_id": 10,
+            "display_index": 177,
+            "driving_value_m": 0.0647,
+            "group_slot": 0,
+            "handle_index": 179,
+            "parameter_index": 162,
+            "selected_point_indices": [
+              0,
+              1
+            ],
+            "sketch_index": 149,
+            "value_id": 19,
+            "value_index": 160
+          },
+          "witness": {
+            "along_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "along_fraction": 0.9173106646058734,
+            "away_axis": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "away_m": 4.99999999999997e-05,
+            "end_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ],
+            "length_m": 0.0647,
+            "repeated_end_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ],
+            "repeated_start_m": [
+              -0.03235,
+              -0.01295,
+              0.0
+            ],
+            "start_m": [
+              -0.03235,
+              -0.01295,
+              0.0
+            ]
+          }
+        },
+        "D2": {
+          "intent": {
+            "route_centerline": false,
+            "text_point_m": [
+              0.08,
+              0.012,
+              -0.005
+            ]
+          },
+          "owner": {
+            "display_id": 11,
+            "display_index": 182,
+            "driving_value_m": 0.0259,
+            "group_slot": 1,
+            "handle_index": 183,
+            "parameter_index": 167,
+            "selected_point_indices": [
+              1,
+              2
+            ],
+            "sketch_index": 149,
+            "value_id": 20,
+            "value_index": 166
+          },
+          "witness": {
+            "along_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "along_fraction": 0.9633204633204634,
+            "away_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "away_m": 0.047650000000000005,
+            "end_m": [
+              0.03235,
+              0.01295,
+              0.0
+            ],
+            "length_m": 0.0259,
+            "repeated_end_m": [
+              0.03235,
+              0.01295,
+              0.0
+            ],
+            "repeated_start_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ],
+            "start_m": [
+              0.03235,
+              -0.01295,
+              0.0
+            ]
+          }
+        }
+      },
+      "mate_ids": [
+        19,
+        21
+      ],
+      "occurrences": [
+        {
+          "fields": {
+            "f3c0": {
+              "f08": "Default",
+              "f10": 0
+            },
+            "f3e8": 1794001931,
+            "f3f0": 102,
+            "f3f4": 101,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 1
+          },
+          "name": "PublicDatumPrism-14"
+        },
+        {
+          "fields": {
+            "f3c0": {
+              "f08": "Default",
+              "f10": 0
+            },
+            "f3e8": 1794001931,
+            "f3f0": 102,
+            "f3f4": 101,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 0
+          },
+          "name": "PublicDatumPrism-8"
+        }
+      ],
+      "ordered_mates": [
+        "CoincidentY",
+        "DistanceZ"
+      ],
+      "parent": {
+        "bytes": 10910,
+        "sha256": "aa117f541511b871521aef45b5bec2a8791b20b62a86043b36921dce885bf024",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2432,
+            "sha256": "6f40403df9bb9d20145ee0ebf5727f42028e9b55fc33f5ebaa2787f5785611f1"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 197,
+            "sha256": "5e11538875d1cf86bb3b86fd0e6ce56fa64cfca02aa77bb7b7eee1b326267abd"
+          },
+          "Contents/Config-0": {
+            "bytes": 22607,
+            "sha256": "47016df16a979bda3b0c5a590e3c9085095dbc8553f2a9415e29e34465c428e3"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 7737,
+            "sha256": "172c4e07448e1de5a088bc8a533b177d8089b07bd1209272870e94eeec158a8e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1175,
+            "sha256": "df77f434a5baff3ba26fb9825e0d1223cb8485868acdcfb57ad24ccfb310568e"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "1f47de7b7dd7218bf484634f0b7272198c8d08b94219dbf37f0f31a8f6351a85"
+          },
+          "Contents/Definition": {
+            "bytes": 543,
+            "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+          },
+          "Header2": {
+            "bytes": 1175,
+            "sha256": "39b228a6cd5f002793f11226a96cd2137c8ba2f9c07df1e4a394aaae7ce346d5"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1389,
+            "sha256": "9325e60cc89cb46aaf006bf97a5111819805e4bd012b6bff1a964710edabcbc3"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2409,
+            "sha256": "26b261403eeaf762503008847ff4ef84c7a19d02bdd4b2441850e46e5ba49696"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1176,
+            "sha256": "3533bed76d2f9d6ee3c012dfc0a961d524c57731b3317c09309e71a5b86657a0"
+          }
+        }
+      },
+      "parent_store": {
+        "byte_identity": true,
+        "bytes": 1389,
+        "compound_objects": {
+          "moCStringHandle_c": 2,
+          "moContextChainComponent_c": 2,
+          "moExtFeatureList_c": 2,
+          "moExtFeature_c": 2,
+          "moExtObject_c": 2,
+          "moReferenceChain_c": 2
+        },
+        "configuration_id": 0,
+        "occurrence_rows_in_wire_order": [
+          [
+            18,
+            "PublicDatumPrism-8",
+            203,
+            [
+              4,
+              6,
+              8,
+              10,
+              14,
+              16
+            ]
+          ],
+          [
+            17,
+            "PublicDatumPrism-14",
+            203,
+            [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ]
+          ]
+        ],
+        "opaque_bytes": 0,
+        "parent_header_locator_codepoints": 48,
+        "parent_header_model": "IndependentDisplay",
+        "plane_keys": [
+          [
+            14,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            13,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            12,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "provisional_schemas": [],
+        "sha256": "9325e60cc89cb46aaf006bf97a5111819805e4bd012b6bff1a964710edabcbc3",
+        "terminal_map": 38
+      },
+      "renderer": {
+        "active_configuration_density": -1.0,
+        "byte_identity": true,
+        "bytes": 1779,
+        "classic_roughness": 0.625,
+        "definition_next_appearance_id": 6442450944,
+        "dspbr_roughness": 0.375,
+        "empty_bom_present": false,
+        "exact_payload": true,
+        "holder_asset": "<SystemTexture>\\graphics\\materials\\color.p2m",
+        "holder_id": 6442450942,
+        "live_asset": "D:\\AlternateMount\\data\\graphics\\materials\\color.p2m",
+        "model_and_configuration_id": 6442450943,
+        "opaque_bytes": 0,
+        "physical_density_parameter": null,
+        "primary_rgb": [
+          17,
+          203,
+          83
+        ],
+        "provisional_schemas": [],
+        "reflectance": 0.04000000283122063,
+        "refraction_index": 1.5,
+        "sha256": "cb03d16c8372b67483a033e5857ac19f66ba3c4e98cb8975b20f0dfaedfe51c1",
+        "terminal_map": 26
+      },
+      "runtime_input_reads": 0
+    }
+  },
+  "inputs": {
+    "re/tooling/sw2026/planar_registry/PlanarRendererInput.py": "9906dcdbd013fbe7a222785075fbf1c5f4776d2dbfd1a9dca92c6956a9e85609",
+    "re/tooling/sw2026/planar_registry/ProvePlanarRenderer.py": "6ba08de2ae31896c279e90b34cd08480ed80cc8e0a14f39ee1162bde6e1e0e6e",
+    "re/tooling/sw2026/planar_registry/ProvePlanarVisualComposition.py": "52863389e66ebb15999c0e316581e1c64907d006686117c301343119e2b31308",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/CheckSelfVisual.py": "72ec57cf5393062bb0932d2c351cfd9339172aa3a8e6f5ecf7196736310c45d7",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/MakeHolderLook.py": "1bfabc8600c8e3f1b8775296f4c0b0c2be3abcaeb07d3295c6d0a025d181e5a4",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/MakePartVis.py": "7eb641908f405512d113021c13fa63cac3d5521429888b79fa7e20ee8cd73236",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/PartSelfView.py": "1b1e2793746b3b70ca1906869181f48a6b5eb6c77900fcd2e17a9a11cd570bfd",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/PutSelfLookMut.py": "75cca16c29700c9736e718a089aeedb5be33c0703cb5ee721c0292cf8f436d64",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/BasicPbrInput.py": "4c9f456975bddfdd694a5df0cba69221f971f4c2bb5d03e9680cb6b4205d8164",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/ClassicLook.py": "0f1d72fc1f3e56375bffe45c5ddbebc6aece567a6be1d676165c69fb92074be0",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/FreshDspbr.py": "b20b64d1bf7fe80bbf6b450b1d3f9829d86b403ea9dc98f09a74abb168bb3891",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/LookResource.py": "9ab20becd79ca2f3256fdbebe8300be56f40fbfb0ef567192e0b8489c372ca5d",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/LookScalar.py": "7c86a779e34d50715e59f5ff52cdd7ee583ef91f58200c096e9e845a387bf986",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/MakeBasicPbr.py": "09c9cdf3d9599d8888d93c6c192d035fa9f5acee3e4297198be6c1bc2e274a85",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/MakeRealView.py": "cb6805e3e77d0ec5734514ed2fb6c89be176721be6cd2ffe2c2a7d3de5cb9111",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/MakeRenderLook.py": "c183a4ed3ac4aaa660876dee5440e51272e32cf15b2c6730f75ac2b6c844f1b0",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/PackLookRgb.py": "9d8394b32d6da4b3184e73a096e56539b1408f168266c1b48b9624081a617d9c",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/PartLookInput.py": "a27410312e33f63f56e4a4b3175f070a13db0422887592f3e6bbc9141361d16d",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/PlanLookIds.py": "289bcebeb7615a19f69f1822580bde577cdb871c8ac37910b2f297648dff94aa",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/Rendering/PutRenderMut.py": "fea37570f6550885dc2478c053c526842dcd13a9498bbff28e2a569d9b076067",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/FinishBlindMut.py": "9232bb7d08152c6b21aac9cda90a284caea7b33a6386f32bc84b3612fb8f86c1",
+    "src/convert/adapters/solidworks/Archive/VisualStates/PartVisualFields.py": "4e1e43af77af90c6f29e03f158fc76db017ad130f5dc814188df0148b843c9eb"
+  },
+  "module_evidence": {
+    "rea_resource_id": "ev_6bbb498331554d86758f2e64322d54623e287a1a5108ba1b81b04c8a2261ae5a",
+    "sldmfcu_sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "sldmodu_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_processes": 0,
+  "new_heldout_credit": 0,
+  "passed": true,
+  "physical_control": {
+    "PlanarGenerated": {
+      "config_density": -1.0,
+      "density_owner": null,
+      "source_sha256": "b734fe2b8df59085860ae12f6dacabd363a4475f5399506efdce423d05c4ab7b"
+    },
+    "PlanarSaved": {
+      "config_density": -1.0,
+      "density_owner": [
+        "moMaterial_c",
+        "moDensityParameter_c",
+        1000.0,
+        0
+      ],
+      "source_sha256": "670d8a2fb9c9c03a643dceceb5ac35ce9c1c6095ba7384a08b48b0b710dc1702"
+    }
+  },
+  "previous_receipt": "fffb454a8b9b26331b7bb66e53c27e41422795bd4b314d2a5ff67c4e0039c8a0",
+  "public_write_qualified": false,
+  "runtime_reads": 0,
+  "schema": "kit.sw2026.planar-renderer.v1",
+  "strict_source_reads": 2,
+  "whole_source_admitted": false,
+  "written_cad_files": 0
+}

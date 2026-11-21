@@ -164,6 +164,8 @@ The SDK also attaches ordered coincident, distance and parallel groups to the sa
 
 The internal explicit group constructor selects actual occurrence and plane endpoints from one shared generated child. Six dimensioned-child layouts with two, three and five components pass 1,740 typed stream round trips across 142 workers. Eight invalid graphs reject before output. [Explicit planar groups](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksExplicitPlanarGroups.md)
 
+An internal planar construction option accepts an explicit stock colour resource, classic and basic shader values, and an independent part appearance allocation start for the dimensioned child. The model, selected configuration and detached self holder retain distinct ownership. The guarded host comparison keeps constructor-only output byte for byte and the public writer scope stays at the previously qualified profiles. [Named planar child renderer](../../Changes/Solidworks/Construction/Assembly/SolidworksPlanarRendererComposition.md)
+
 A disclosed three-component group with six ordered mates passes a native driving edit, synchronized save and fresh reopen. The normal SDK reads all twelve datum endpoints and all three child drivers from the generated and saved states. The 26 scoped parent and child streams round-trip exactly. [Native explicit group verification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksExplicitPlanarGroupNative.md)
 
 Both pre-writer locked assemblies also pass the internal SDK comparison for

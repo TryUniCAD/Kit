@@ -17,14 +17,14 @@ from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeBlindMut imp
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import (
     KeywordDim,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Displays.MakeHolderLook import (
-    BindSelfLookMut,
-)
 from convert.adapters.solidworks.Archive.Construction.Part.Displays.MakePartVis import (
     MakePartVis,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Displays.PartSelfView import (
     PartSelfView,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.PutSelfLookMut import (
+    PutSelfLookMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
@@ -126,7 +126,7 @@ def FinishBlindMut(
     if CutValue is not None:
         FeatureValues += (CutValue.ProfileValue.ProfileValue, CutValue.FeatureValue)
     if SelfView is not None:
-        BindSelfLookMut(SystemValue.ConfigValues[0])
+        PutSelfLookMut(SystemValue, DefinitionValue, SelfView)
     StreamsValue, ConfigValue, ResolvedValue = EmitPartStreams(
         SystemValue,
         FeatureValues,

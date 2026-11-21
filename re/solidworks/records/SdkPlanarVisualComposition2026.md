@@ -45,3 +45,5 @@ python3.14 -I -B re/tooling/sw2026/planar_registry/ProvePlanarVisualComposition.
 ```
 
 Only the sanitized numeric receipt enters Kit. The original files and earlier receipts stay in their existing custody. [Tool](../../tooling/sw2026/planar_registry/ProvePlanarVisualComposition.py) · [Owner audit](../../tooling/sw2026/planar_registry/PlanarVisualOwners.py)
+
+The subsequent named renderer composition models the stock resource, independent shader inputs and both fresh appearance allocation events. It replays both disclosed child renderer graphs and preserves these constructor-only controls byte for byte. The new route remains internal while the paired native lifecycle and source creation chronology remain open. [Renderer ownership and guarded comparison](SdkPlanarRendererComposition2026.md)

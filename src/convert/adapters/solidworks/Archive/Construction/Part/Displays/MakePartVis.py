@@ -13,6 +13,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Displays.PartSelfView
 from convert.adapters.solidworks.Archive.Construction.Part.Displays.ReadSelfOwners import (
     ReadSelfOwners,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.Rendering.PartLookInput import (
+    PartLookInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
     KPartPlan,
 )
@@ -42,14 +45,22 @@ def MakePartVis(
     if (
         type(ViewValue) is not PartSelfView
         or ViewValue.StateName != "<Default>_Display State 1"
-        or ViewValue.AppearanceValue != "constructor"
+        or (
+            ViewValue.AppearanceValue != "constructor"
+            and type(ViewValue.AppearanceValue) is not PartLookInput
+        )
     ):
         raise ValueError(
             "part self visibility requires the default constructor appearance intent"
         )
     CheckRectVisual(PlanValue)
     UnitValue, Config = ReadSelfOwners(SystemValue, HeadersValue)
-    Appearance = MakeHolderLook(SystemValue.RootValue, Config)
+    RenderValue = ViewValue.AppearanceValue
+    Appearance = MakeHolderLook(
+        SystemValue.RootValue,
+        Config,
+        RenderValue if type(RenderValue) is PartLookInput else None,
+    )
     Holder = ArchiveNode(RuntimeClass("moCompHolder_c", 1), DetachVisualRef(UnitValue))
     Features = MakeChildRefs(SystemValue, ProfileValue, HeadersValue, UnitValue)
     PropertyClass = RuntimeClass("visStateVisualPropertiesAttribute_c", 1)

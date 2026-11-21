@@ -1,0 +1,5 @@
+# Named renderer composition for planar assembly children
+
+The internal planar assembly constructor can build an untextured stock colour resource on a dimensioned rectangular child. Its typed input includes colour channels, legacy shading, classic RealView properties, basic DSPBR properties, an explicit Windows resource directory and a part-local allocation start. It allocates and emits the live model, selected configuration and detached self appearance through the shared child Definition and VisualStates writer.
+
+The two disclosed renderer projections and a separate authored design pass guarded generation and exact archive replay. Constructor-only controls produce their previous bytes. The ordinary Definition reader retains its narrow rejection of alternate renderer profiles. This change supplies named construction for the measured opacity, resource and shader profile. Native acceptance and additional renderer profiles require their own evidence. [Method and evidence](../../../../../re/solidworks/records/SdkPlanarRendererComposition2026.md) · [Guarded comparison](../../../../../re/solidworks/measurements/2026/SdkPlanarRendererComposition01.json)
