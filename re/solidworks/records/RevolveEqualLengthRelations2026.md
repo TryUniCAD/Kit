@@ -54,3 +54,5 @@ The independent native batch qualifies both cases in ten fresh
 processes. The public registry still needs byte parity at its normal
 output boundary.
 [Independent native receipt](../measurements/2026/SdkSquareRevolveHeldoutNative01.json)
+
+The next isolated comparison reuses those exact lifecycle receipts and reconstructs the measured bytes through the normal SDK publication boundary. The source files stay in custody. [Public parity method](SquareRevolvePublicParity2026.md)

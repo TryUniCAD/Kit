@@ -1,0 +1,5 @@
+# Public output parity for square revolutions
+
+The isolated public writer candidate accepts an explicit ordinary square relation on a partial symmetric-total or two-sided revolution on the canonical Top or Right plane. The ordinary one-sided route retains its four unary contour relations and one live angular driver. The square route requires four actual unary owners and one ordered equality pair on adjacent contour edges.
+
+The parity method checks the two already qualified native candidates at their measured locators, then compares new paths and named streams through the direct writer and public registry with guarded I/O. It checks strict readback and refusal before publication. The new packet runs outside SOLIDWORKS and contributes no new held-out cases. Public qualification requires the recorded parity outcome. [Method and scope](../../../../../re/solidworks/records/SquareRevolvePublicParity2026.md) · [Prior native acceptance](../../../../../re/solidworks/measurements/2026/SdkSquareRevolveHeldoutNative01.json)
