@@ -28,7 +28,10 @@ controller queues, artifact store, leases, application resource, ownership helpe
 healthy controls and pause behavior are reused. Published main was reviewed at
 `bd16f35d5a8e5c9440c62f8c4809265ec60dd130`; incoming reader work was preserved.
 Implementation extends the user's unpublished programme at `ca61c7f7`, in isolated
-branch `codex/automatic-builder-development`. The SDK is unchanged. Nothing is pushed.
+branch `codex/automatic-builder-development`. The SDK is unchanged. Initial delivery
+was local only. On 2026-11-21 the user authorized publishing the source changes to
+[PR #207](https://github.com/TryUniCAD/Kit/pull/207), head
+`codex/catalogue-native-authoring`, retaining existing history and private evidence.
 
 The job binds the recipe, seed, exact application/API fingerprints, source revision,
 explicit options, independent expectations/tolerances, discovery cases and limits.
@@ -187,4 +190,7 @@ transport. Fixture records never establish native qualification. Linux and hoste
 execution were not performed; the generic tests remain eligible for Linux, and the
 Windows platform selection includes their prefix. Black, steering and diff checks pass.
 The [exact local staging and commit commands](AutomaticBuilderCommands.md) record
-delivery. Nothing was pushed.
+the original local delivery. The later source-only publication to PR #207 does not
+change the frozen native acceptance revision or promote runtime artifacts into
+repository source. Native documents, ZIP bundles, DLLs and compiled assemblies
+remain outside the publication.

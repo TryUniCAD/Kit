@@ -53,8 +53,9 @@ remaining native and process acceptance is recorded in
 This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
 requirements.
 
-A08i uses branch `codex/reusable-feature-builders`. Delivery remains local at the
-user's request. The bounded offset-start run at `7a868f5e` passed native creation,
+A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
+publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
+on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,
 edits, restoration and fresh reopen, then automatically completed its decoder job
 with unresolved findings. One of the nine new bindings is native verified; full
 decoder qualification remains incomplete. The focused process checks passed 103 cases.
@@ -79,8 +80,11 @@ injected distance defect, rejected a wrong-support plane, passed three reserved
 cases, registered its source and accepted a separate sample. The dependent decoder
 ran deterministically with 55 unresolved findings per archive; conversion remains
 unqualified. Eighteen new and two unchanged campaign process checks pass. This work
-does not close decoder, conversion or Fusion qualification. Delivery
-is local only; no push, vendor binary or native archive is authorized for publication.
+does not close decoder, conversion or Fusion qualification. On 2026-11-21 the user
+authorized publishing the source changes to [PR #207](https://github.com/TryUniCAD/Kit/pull/207),
+head `codex/catalogue-native-authoring`. The isolated implementation branch and all
+private native evidence are preserved. Vendor binaries and native capture archives
+remain excluded from publication.
 
 The user assigned SOLIDWORKS and CAD-independent implementation to Codex on 2026-11-17.
 Delivery remains on [PR #158](https://github.com/TryUniCAD/Kit/pull/158), from isolated branch `codex/pr158-solidworks-completion`.
