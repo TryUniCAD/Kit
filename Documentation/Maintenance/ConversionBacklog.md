@@ -579,6 +579,13 @@ bounds ownership and complete physical `Config-0` admission have
 separate exits.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigCaches.md)
 
+The complementary emitter on `codex/solidworks-config-cache-writing` uses
+the accepted shared body writer and cache owner rules. Exit requires exact
+saved field replay, independent one- and two-slot emission, preserved
+maps and current revision review and queue evidence. The prepared scope
+covers empty bounds only.
+[Cache emission](../Changes/Solidworks/Archive/Configuration/SolidworksConfigCacheWriting.md)
+
 ### B04-SW2026-CONFIG-ATOMS
 
 The PR #121 takeover team owns this bounded part atom reader on

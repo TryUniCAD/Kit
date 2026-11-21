@@ -356,6 +356,10 @@ carries an empty count in this profile. Populated bounds records require
 additional owner evidence. Cache reads preserve the caller's map state.
 [Part cache scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigCaches.md)
 
+The matching internal field writer emits zero through two modeled mass
+slots and the observed empty bounds count with the same part ownership.
+[Bounded cache emission](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigCacheWriting.md)
+
 The embedded part atom manager keeps concrete kind-zero archive atoms
 with their signed IDs and existing map context. Later feature links
 can reuse those exact objects. The stored unsigned atom state remains
