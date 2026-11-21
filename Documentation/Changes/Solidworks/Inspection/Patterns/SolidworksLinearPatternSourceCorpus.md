@@ -14,3 +14,8 @@ The explicit definition route then reached feature creation with both
 controls healthy and returned an empty feature. The retry binds the two
 documented selection marks and checks the actual selected entities before
 creating the definition. [Completed Packet02 receipt](../../../../../re/solidworks/measurements/2026/LocalLinearPatternCreateDefinition02.json)
+
+The marked-selection packet authored both disclosed patterns and passed
+independent spacing and count edits, saves and fresh reopens. Both controls
+passed on the exact build. The twelve case phases pass 436 numeric checks.
+[Disclosed result](../../../../../re/solidworks/measurements/2026/LocalLinearPatternDisclosedSourceLock01.json)

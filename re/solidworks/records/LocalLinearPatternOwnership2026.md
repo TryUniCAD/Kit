@@ -92,6 +92,19 @@ inputs and post-creation criteria.
 [Packet02 result](../measurements/2026/LocalLinearPatternCreateDefinition02.json) ·
 [2026 SOLIDWORKS pattern creation example](https://help.solidworks.com/2026/english/api/sldworksapi/Create_Bidir_Linear_Pattern_Example_CSharp.htm)
 
+Packet03 authored both patterns and completed both independent spacing
+and count edit branches. All twelve case phases and both controls pass
+on SOLIDWORKS 2026 SP05.2 with 436 numeric case checks. The two actual
+principal directions, marked seed identities, live dimension owners,
+one-body topology and native geometry agree through fresh reopen. The
+author also saved hash-pinned STEP and Parasolid exports.
+The exact packet SHA-256 is
+`913426870bc64edb320e6a1508521c81da677a2ef4feef80b715c7859856c1bc`.
+Its disclosed source lock is
+`8239fc92779aadd6a0116ad2df9e7969568394a301e1ed11aa44fc3875ac0426`.
+The separate guest-only lock must complete before writing work.
+[Exact disclosed source lock](../measurements/2026/LocalLinearPatternDisclosedSourceLock01.json)
+
 After that lock, inspect only the disclosed native sources first. Establish actual class reachability, seed/direction/skip identities, complete whole-stream raw replay and aliases; reconcile every input with the static owners above. The immediate generative gaps are actual direction/reference construction, count/display subclasses and allocation/style owners, inherited fresh pattern state, store-computed parameter geometry, map/frame provenance, runtime load/store repairs, nested subclass closure and independent native output acceptance. None is filled from a saved row. No schema promotion, constructor implementation or public writer admission is part of this tranche.
 
 Mandatory stopping conditions: “The first is success under every criterion on this page.” and “The second is the end of the available context.” Missing fields remain work; a ready source-author packet is not overall completion.
