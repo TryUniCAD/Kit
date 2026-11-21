@@ -8,6 +8,7 @@ from pathlib import Path, PurePosixPath
 from AuthorCurves import digest, require
 from FreezeSealedNestedEvaluation import FIRST_NATIVE, REPEATED_PACKET, SCHEMA, SOURCE_LOCK, SOURCE_PHASE, TOOLS, WRITER_EVIDENCE, WRITER_REVISION, qualify_discovery
 from NestedAssemblySourcePlan import ORACLE, checked, valid_sha
+from SealedNeutralNestedProfile import EVIDENCE_ROLES, PROFILE, WORKER, read_evidence
 from RunSealedNestedSourcePhase import load_author, opaque_identity, read_guest_case, source_inputs
 
 
@@ -18,8 +19,9 @@ def verify(path, sha):
     root = path.parent
     require(path.name == "Evaluation.json" and checked(path, sha, root) == path, "sealed evaluation manifest is not pinned")
     packet = json.loads(path.read_bytes())
-    require(packet["schema"] == SCHEMA and packet["oracle_sha256"] == ORACLE and packet["writer_revision"] == WRITER_REVISION and
-            packet["writer_evidence_sha256"] == WRITER_EVIDENCE and packet["source_lock_sha256"] == SOURCE_LOCK and packet["source_phase_sha256"] == SOURCE_PHASE and
+    profile = packet.get("writer_profile")
+    require(packet["schema"] == SCHEMA and packet["oracle_sha256"] == ORACLE and profile in (None, PROFILE) and
+            packet["source_lock_sha256"] == SOURCE_LOCK and packet["source_phase_sha256"] == SOURCE_PHASE and
             packet["host_heldout_payloads_read"] == 0 and packet["sealed_results"] is True and packet["native_acceptance"] is False,
             "unexpected sealed writer evaluation identity")
     tools = root / "Tools"
@@ -30,21 +32,36 @@ def verify(path, sha):
     require(lock["passed"] is True and len(lock["slots"]) == 2 and all(row["heldout_source_locked"] is True for row in lock["slots"]), "sealed source locks are incomplete")
     source_phase = json.loads(checked(root / "SourcePhase.json", SOURCE_PHASE, root).read_bytes())
     require(source_phase["source_deck_sha256"] == lock["source_deck_sha256"], "sealed source phase custody differs")
-    evidence = json.loads(checked(root / "WriterEvidence.json", WRITER_EVIDENCE, root).read_bytes())
-    require(packet["writer_tool_sha256"] == evidence["writer_tool_sha256"], "sealed writer fingerprints differ from disclosed proof")
-    for file, wanted, native_packet in (("FirstDiscovery.json", FIRST_NATIVE, None), ("RepeatedDiscovery.json", packet["repeated_discovery_sha256"], REPEATED_PACKET)):
-        result = json.loads(checked(root / file, wanted, root).read_bytes())
-        qualify_discovery(result, native_packet or result["packet_sha256"], evidence["writer_tool_sha256"])
     manifest = json.loads(checked(root / "CodeManifest.json", packet["code_manifest_sha256"], root).read_bytes())
-    require(manifest["schema"] == "kit.sw2026.frozen-nested-writer-code.v1" and manifest["writer_revision"] == WRITER_REVISION, "unexpected frozen code schema")
+    revision = packet["writer_revision"]
+    require(manifest["schema"] == "kit.sw2026.frozen-nested-writer-code.v1" and manifest["writer_revision"] == revision
+            and re.fullmatch(r"[0-9a-f]{40}", revision), "unexpected frozen code schema")
     code_root = root / "CodeRoot"
+    if profile == PROFILE:
+        sdk_tree = manifest["sdk_tree"]
+        require(re.fullmatch(r"[0-9a-f]{40}", sdk_tree) and set(packet["disclosed_evidence"]) == set(EVIDENCE_ROLES),
+                "sealed neutral writer snapshot or evidence roles are incomplete")
+        single, repeated = (read_evidence(root / role, packet["disclosed_evidence"][role], revision, sdk_tree, SOURCE_LOCK)
+                            for role in EVIDENCE_ROLES)
+        require(len(set(single["processes"] + repeated["processes"])) == 8
+                and repeated["expanded"] > single["expanded"] >= 2 and repeated["leaves"] > single["leaves"] == 1
+                and single["worker_sha256"] == repeated["worker_sha256"] == manifest["files_sha256"][WORKER],
+                "disclosed native trials do not bind distinct processes and the exact guarded neutral worker")
+    else:
+        require(revision == WRITER_REVISION and packet["writer_evidence_sha256"] == WRITER_EVIDENCE,
+                "unexpected legacy writer proof")
+        evidence = json.loads(checked(root / "WriterEvidence.json", WRITER_EVIDENCE, root).read_bytes())
+        require(packet["writer_tool_sha256"] == evidence["writer_tool_sha256"], "sealed writer fingerprints differ from disclosed proof")
+        for file, wanted, native_packet in (("FirstDiscovery.json", FIRST_NATIVE, None), ("RepeatedDiscovery.json", packet["repeated_discovery_sha256"], REPEATED_PACKET)):
+            result = json.loads(checked(root / file, wanted, root).read_bytes())
+            qualify_discovery(result, native_packet or result["packet_sha256"], evidence["writer_tool_sha256"])
+        for name, wanted in evidence["writer_tool_sha256"].items():
+            checked(code_root / "re/tooling/sw2026" / name, wanted, code_root)
     for name, wanted in manifest["files_sha256"].items():
         relative = PurePosixPath(name)
         require(not relative.is_absolute() and ".." not in relative.parts and relative.suffix == ".py", "frozen code entry escaped its source closure")
         checked(code_root / name, wanted, code_root)
     require(set(manifest["files_sha256"]) == {item.relative_to(code_root).as_posix() for item in code_root.rglob("*.py")}, "frozen code source closure changed")
-    for name, wanted in evidence["writer_tool_sha256"].items():
-        checked(code_root / "re/tooling/sw2026" / name, wanted, code_root)
     return packet, lock, source_phase
 
 
@@ -95,11 +112,11 @@ def prior_phase(public, phase, attempt, sha, slot, trial, identity=False):
     return state
 
 
-def load_build(private, public, sha, slot, trial):
+def load_build(private, public, sha, slot, trial, writer_revision):
     state = prior_phase(public, "build", 1, sha, slot, trial)
     path = checked(private / "BuildLock.json", state["build_lock_sha256"], private)
     lock = json.loads(path.read_bytes())
-    require(lock["packet_sha256"] == sha and lock["writer_revision"] == WRITER_REVISION and lock["runtime_file_read_attempts"] == 0 and
+    require(lock["packet_sha256"] == sha and lock["writer_revision"] == writer_revision and lock["runtime_file_read_attempts"] == 0 and
             lock["two_process_byte_identity"] is True, "sealed generated build does not qualify")
     request = json.loads(checked(private / "Request.json", lock["request_sha256"], private).read_bytes())
     prediction = json.loads(checked(private / "Expected.json", lock["prediction_sha256"], private).read_bytes())

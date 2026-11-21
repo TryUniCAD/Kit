@@ -22,7 +22,7 @@ SOURCE_PHASE = "24278b6cace1ca57aedb1f90db5cbad394001f5e4521d3618fbf9356f3879dec
 FIRST_NATIVE = "539cb901df420671788475640ad5f097d673c48027a2754bea1e01396e908158"
 REPEATED_PACKET = "13c6f53da57a592e12304281f4cd6b025a60b5aab6f1df23ea3748d29c49cde1"
 TOOLS = (*NATIVE_TOOLS, "RunSealedNestedSourcePhase.py", "SealedNestedAssemblyPlan.py", "SealedNestedEvaluationState.py",
-         "InspectSealedNestedAssembly.py", "RunSealedNestedEvaluation.py", SCRIPT.name)
+         "InspectSealedNestedAssembly.py", "RunSealedNestedEvaluation.py", "SealedNeutralNestedProfile.py", SCRIPT.name)
 EXTRA_SOURCE = ("re/tooling/sw2026/NestedAssemblyBundleProcess.py", "re/tooling/sw2026/PredictNestedAssembly.py",
                 "tests/Convert/Solidworks/Research/ConstructionGuard.py", "tests/Convert/Solidworks/Research/FreshPartInput.py",
                 "tests/Convert/Solidworks/Research/Assembly/RootRequest.py")

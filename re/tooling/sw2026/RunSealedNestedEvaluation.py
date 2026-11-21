@@ -12,10 +12,12 @@ from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 
 from AuthorCurves import digest, require, write_json
-from FreezeSealedNestedEvaluation import SCHEMA, WRITER_REVISION
+from FreezeSealedNestedEvaluation import SCHEMA
 from InspectSealedNestedAssembly import measure
 from NestedAssemblySourcePlan import checked
 from RunSealedNestedSourcePhase import opaque_identity, value_hash
+from SealedNeutralNestedProfile import PROFILE, WORKER, guarded_bundle
+from SealedNeutralNestedProfile import source_request as neutral_source_request
 from SealedNestedAssemblyPlan import source_prediction, source_request, source_semantics
 from SealedNestedEvaluationState import load_build, prior_phase, private_trial, source_snapshot, verify
 
@@ -25,17 +27,24 @@ PUBLIC_KEYS = {"stage", "progress_at", "identity", "finished_at", "passed", "pri
                "request_sha256", "prediction_sha256", "generated_artifact_manifest_sha256", "saved_artifact_manifest_sha256", "qualified", "private_console_sha256"}
 
 
-def builder_process(code_root, request, directory):
+def builder_process(code_root, request, directory, neutral):
     directory.mkdir(exist_ok=False)
     environment = os.environ.copy()
     environment.update(PYTHONDONTWRITEBYTECODE="1", PYTHONNOUSERSITE="1")
-    command = [sys.executable, "-B", str(code_root / "re/tooling/sw2026/NestedAssemblyBundleProcess.py"), str(code_root)]
-    result = subprocess.run(command, input=json.dumps(request, allow_nan=False).encode(), capture_output=True, timeout=180,
+    if neutral:
+        command = [sys.executable, "-I", "-B", str(code_root / WORKER), "--worker"]
+        payload = {"request": request, "stage_bundle": True}
+    else:
+        command = [sys.executable, "-B", str(code_root / "re/tooling/sw2026/NestedAssemblyBundleProcess.py"), str(code_root)]
+        payload = request
+    result = subprocess.run(command, input=json.dumps(payload, allow_nan=False).encode(), capture_output=True, timeout=180,
                             cwd=code_root, env=environment)
     (directory / "Stdout.json").write_bytes(result.stdout)
     (directory / "Stderr.log").write_bytes(result.stderr)
     require(result.returncode == 0 and not result.stderr, "the frozen guarded writer failed in its separate private process")
     report = json.loads(result.stdout)
+    if neutral:
+        report = guarded_bundle(report, request)
     require(report["schema"] == "kit.sw2026.generated-nested-assembly-bundle.v1" and report["root"] == request["root"] and
             report["input_runtime_file_access_attempts"] == 0 and report["native_acceptance"] is False and
             set(report["documents"]) == {row["id"] for row in request["definitions"]}, "the guarded writer did not generate the complete sealed request")
@@ -55,15 +64,19 @@ def build(packet_path, packet, source_lock, source_phase, private, slot, sha, pu
     code_lock = private / "CodeLocked.json"
     require(not code_lock.exists(), "a sealed request can only be exposed under a new immutable code lock")
     write_json(code_lock, {"packet_sha256": sha, "code_manifest_sha256": packet["code_manifest_sha256"], "tools_sha256": packet["tools_sha256"],
-                           "writer_revision": WRITER_REVISION, "source_lock_sha256": packet["source_lock_sha256"], "locked_at": time.time()})
+                           "writer_revision": packet["writer_revision"], "source_lock_sha256": packet["source_lock_sha256"], "locked_at": time.time()})
     publish(stage="code_locked", code_lock_sha256=digest(code_lock))
     code_root = packet_path.parent / "CodeRoot"
     sys.path.insert(0, str(code_root))
-    synthetic = source_request(probe_case(), private / "ProbeInput")
-    builder_process(code_root, synthetic, private / "EnvironmentProbe")
+    neutral = packet.get("writer_profile") == PROFILE
+    make_request = neutral_source_request if neutral else source_request
+    if neutral:
+        sys.path[:0] = [str(code_root / "src"), str((code_root / WORKER).parent)]
+    synthetic = make_request(probe_case(), private / "ProbeInput")
+    builder_process(code_root, synthetic, private / "EnvironmentProbe", neutral)
     exposure = time.time()
     case, snapshot = source_snapshot(packet, source_lock, source_phase, slot)
-    bundle = source_request(case, private / "GeneratedInput")
+    bundle = make_request(case, private / "GeneratedInput")
     prediction = source_prediction(case)
     source_semantics(case, snapshot, prediction)
     request_path, expected_path = private / "Request.json", private / "Expected.json"
@@ -76,8 +89,10 @@ def build(packet_path, packet, source_lock, source_phase, private, slot, sha, pu
     publish(stage="request_locked", request_sha256=digest(request_path), prediction_sha256=digest(expected_path))
     started = time.time()
     publish(stage="guarded_build")
-    first = builder_process(code_root, bundle, private / "BuildOne")
-    second = builder_process(code_root, bundle, private / "BuildTwo")
+    first = builder_process(code_root, bundle, private / "BuildOne", neutral)
+    second = builder_process(code_root, bundle, private / "BuildTwo", neutral)
+    if neutral:
+        require(first.pop("worker_pid") != second.pop("worker_pid"), "sealed neutral builds must use distinct worker processes")
     require(first == second, "two private frozen writer processes produced different generated records or bytes")
     frozen = private / "FrozenGenerated"
     frozen.mkdir(exist_ok=False)
@@ -93,7 +108,7 @@ def build(packet_path, packet, source_lock, source_phase, private, slot, sha, pu
     require(code_state["locked_at"] <= exposure <= request_state["locked_at"] <= started and digest(request_path) == request_state["request_sha256"] and
             digest(expected_path) == request_state["prediction_sha256"], "source-before-execution request lock or prediction changed")
     manifest = {row["file"]: {"sha256": row["sha256"], "bytes": row["bytes"]} for row in files.values()}
-    lock = {"packet_sha256": sha, "writer_revision": WRITER_REVISION, "code_lock_sha256": digest(code_lock), "request_lock_sha256": digest(request_lock),
+    lock = {"packet_sha256": sha, "writer_revision": packet["writer_revision"], "code_lock_sha256": digest(code_lock), "request_lock_sha256": digest(request_lock),
             "request_sha256": digest(request_path), "prediction_sha256": digest(expected_path), "runtime_file_read_attempts": 0,
             "two_process_byte_identity": True, "source_before_execution_verified": True, "files": files,
             "generated_artifact_manifest_sha256": value_hash(manifest), "build_started_at": started, "build_finished_at": time.time()}
@@ -122,7 +137,7 @@ def qualify(packet, source_lock, source_phase, private, public, sha, slot, trial
     require(rows[0]["finished_at"] <= build_state["started_at"] <= build_state["finished_at"] <= rows[1]["started_at"], "the sealed build is outside its native brackets")
     for row in [*rows, build_state]:
         checked(private / row["phase"] / str(row["attempt"]) / "Private.json", row["private_record_sha256"], private)
-    lock, _, _ = load_build(private, public, sha, slot, trial)
+    lock, _, _ = load_build(private, public, sha, slot, trial, packet["writer_revision"])
     request = json.loads(checked(private / "RequestLock.json", lock["request_lock_sha256"], private).read_bytes())
     code = json.loads(checked(private / "CodeLocked.json", lock["code_lock_sha256"], private).read_bytes())
     require(lock["source_before_execution_verified"] is True and code["locked_at"] <= request["source_exposed_at"] <= request["locked_at"] <= lock["build_started_at"],
@@ -173,7 +188,7 @@ def run(args, packet_path, packet, source_lock, source_phase):
                 write_json(raw, result)
                 result = {key: result[key] for key in ("qualified", "generated_artifact_manifest_sha256", "saved_artifact_manifest_sha256")}
             else:
-                lock, bundle, prediction = load_build(private, public, args.packet_sha256, args.slot, args.trial)
+                lock, bundle, prediction = load_build(private, public, args.packet_sha256, args.slot, args.trial, packet["writer_revision"])
                 previous = None
                 if args.phase == "reopen":
                     previous = prior_phase(public, "generated", 1, args.packet_sha256, args.slot, args.trial, identity=True)
@@ -214,7 +229,7 @@ def summarize(args, packet_path, packet):
     require(len(native) == len({row["identity"]["process_creation_filetime"] for row in native}) == 8 and
             all(first["finished_at"] <= second["started_at"] for first, second in zip(native, native[1:])), "sealed oracle identities are reused or overlap")
     result = {"schema": "kit.sw2026.sealed-nested-writer-public-result.v1", "packet_sha256": args.packet_sha256,
-              "writer_revision": WRITER_REVISION, "code_manifest_sha256": packet["code_manifest_sha256"], "source_lock_sha256": packet["source_lock_sha256"],
+              "writer_revision": packet["writer_revision"], "code_manifest_sha256": packet["code_manifest_sha256"], "source_lock_sha256": packet["source_lock_sha256"],
               "tools_sha256": packet["tools_sha256"], "heldout_profiles_native_passed": True, "controls_healthy": True,
               "distinct_native_processes": 8, "source_before_execution_verified_by_frozen_guest": True,
               "host_heldout_payloads_read": 0, "heldout_results_remain_sealed": True, "native_acceptance": False,
