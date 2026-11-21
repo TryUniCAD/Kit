@@ -21,7 +21,7 @@ The slot `+0x1d0` participates in normal adjustment. Slot `+0x240` updates angul
 
 The measured datum horizontal basis is model `-Z`. Start and finish are on the signed through-origin hinge with `start.z > 0 > finish.z`. Use `high = -finish.z`, `low = -start.z`, `span = abs(high - low)`, and `pad = 0.05 * span`. The stored order is `(high + pad, low - pad, span + pad, 0.0 - pad)`. At each input height the stored straight-line wrapper also agrees with the true `moPlaneInterAxisData_c` endpoints and signed span. The spacing-only edit leaves the borders unchanged. The distinct measured heights change the result without changing the orientation or reference roles. The exact range hashes, borders, line fields, and linked replays are in the receipt.
 
-This closes the border and selected-plane line calculation given a valid finite hinge and datum frame. The upstream rule that chooses the hinge endpoints and the scheduling of their updates for all placements remain open. Different reference mixes, optional point sizing, other datum frames and native writer acceptance are outside this proof. Protected inputs stayed closed and no CAD process ran.
+This closes the border and selected-plane line calculation given a valid finite hinge and datum frame. The upstream hinge sizing follows the first selected Top-plane display for the measured plate and boss profile. Its update scheduling in other placements remains open. Different reference mixes, optional point sizing, other datum frames and native writer acceptance are outside this proof. Protected inputs stayed closed and no CAD process ran. [Upstream finite hinge derivation](LocalLinearPatternFiniteHinge2026.md)
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/linear_pattern/ProvePatternDatumBorders.py \
