@@ -37,3 +37,19 @@ The supervisor reads the four disclosed, individually pinned source paths and th
 The two frozen originals encode `C:\KitGeneratedLocalPattern\ColdRaisedPatternA.SLDPRT` and `C:\KitGeneratedLocalPattern\ColdRaisedPatternB.SLDPRT`. Independent solid-cell integration predicts one body and 21 or 26 faces, respectively. The smallest native comparison edits only D3, from 18 to 24 mm and 19 to 22 mm respectively. The signed direction and count remain the same, with a distinct centre of mass and exact independent expectations for the unchanged volume, area and extents in each case. The original and edited per-case observations, exact input and stream digests, semantic driver names and physical predictions are in the receipt.
 
 A clean restart, document and rebuild diagnostics, the actual native feature and dependency order, local D1/D3 editability, clean save and fresh reopen with healthy bracketing controls must be observed on the pinned build. Native-generated default tree, annotation refresh and source-only presentation differences require their own observations. The two pre-writer protected sources remain unopened for this work. This construction has zero native lifecycle or held-out credit and does not activate the public reader/writer for this oblique profile.
+
+## First disclosed native comparison
+
+Both exact generated originals opened at their encoded locators with zero
+errors and warnings. Independent cold and rebuilt geometry agrees with one
+solid and 21 or 26 faces. Volume, area and centre of mass match the frozen
+predictions. Both live pattern parameters and the actual seed and direction
+selections match. The two known controls also pass.
+
+The strict observer fails the dependency selection check in both cases.
+The generated feature exposes three native parent features, the plate,
+the raised seed and the direction datum. The independently authored
+native products expose two, the raised seed and the direction datum.
+Record this as a dependency mismatch before testing pitch edits or
+admitting held-outs. [Observer](../../tooling/sw2026/linear_pattern/ObserveGeneratedLinearPattern.py) ·
+[Strict native result](../measurements/2026/GeneratedObliquePatternNative01.json)
