@@ -6,8 +6,10 @@ import json
 import sys
 
 from AuditNestedNeutralComposition import CASES, HERE as WORKER, ROOT, checked, digest, require
+import AuthorNestedRectangle
 from InspectSdkNestedAssembly import ORACLE, SCHEMA, SOURCE_LOCK, TOOLS
 from PrepareSdkNestedTrial import windows_path, write
+import PredictSdkNestedAssembly
 import SdkNestedExpectations
 from SdkNestedExpectations import prediction, verify_prediction
 
@@ -40,7 +42,7 @@ def build(request, target):
             }}
 
 
-def stage(source, folder, edit):
+def stage(source, folder, edit, dimensioned):
     require(source.name in CASES and folder.is_absolute() and source.parent == folder.parent
             and not folder.exists() and not folder.is_relative_to(ROOT), "choose a new sibling of the disclosed trial")
     fixture_pin = CASES[source.name]
@@ -52,12 +54,16 @@ def stage(source, folder, edit):
             "disclosed native fixture lacks its ordinary oracle")
     request = json.loads(checked(source / "NeutralRequest.json", old["request_sha256"]))
     request["part_tree_profile"] = "neutral_standard"
+    if dimensioned:
+        AuthorNestedRectangle.dimension_leaves(request)
     native = set_destination(request, folder)
     expected = prediction(request, "plate", edit)
     require(verify_prediction(request, expected) == native, "independent prediction did not bind the new working directory")
     revision = git("rev-parse", "HEAD").decode().strip()
-    predictor = Path(SdkNestedExpectations.__file__).resolve()
-    paths = tuple(path.relative_to(ROOT).as_posix() for path in (WORKER, Path(__file__).resolve(), predictor))
+    predictors = {Path(module.__file__).name: Path(module.__file__).resolve()
+                  for module in (SdkNestedExpectations, PredictSdkNestedAssembly)}
+    paths = tuple(path.relative_to(ROOT).as_posix() for path in (WORKER, Path(__file__).resolve(), *predictors.values(),
+                  Path(AuthorNestedRectangle.__file__).resolve()))
     witness = {"revision": revision, "sdk_tree": git("rev-parse", f"{revision}:src").decode().strip(),
                "tool_sha256": {name: digest(git("show", f"{revision}:{name}")) for name in paths}}
     require(not git("diff", "--name-only", revision, "--", "src", *paths)
@@ -97,7 +103,7 @@ def stage(source, folder, edit):
     tools.mkdir()
     hashes = {}
     for name, pin in packet["tools_sha256"].items():
-        raw = predictor.read_bytes() if name == predictor.name else checked(source / "Tools" / name, pin)
+        raw = predictors[name].read_bytes() if name in predictors else checked(source / "Tools" / name, pin)
         hashes[name] = digest(raw)
         with (tools / name).open("xb") as destination:
             destination.write(raw)
@@ -119,5 +125,6 @@ if __name__ == "__main__":
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--edit-depth-m", type=float, default=0.011375)
+    parser.add_argument("--dimensioned", action="store_true")
     args = parser.parse_args()
-    print(json.dumps(stage(args.source.resolve(strict=True), args.output, args.edit_depth_m), sort_keys=True))
+    print(json.dumps(stage(args.source.resolve(strict=True), args.output, args.edit_depth_m, args.dimensioned), sort_keys=True))

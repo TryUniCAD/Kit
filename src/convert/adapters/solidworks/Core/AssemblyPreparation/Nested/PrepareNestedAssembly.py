@@ -19,6 +19,12 @@ from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.TargetPla
 from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import (
     MakeBlindPart,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.MakeRectDimPart import (
+    MakeRectDimPart,
+)
+from convert.adapters.solidworks.Core.AssemblyPreparation.Children.ReadRectDisplay import (
+    ReadRectDisplay,
+)
 from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedAssembly import (
     ReadNestedAssembly,
 )
@@ -81,7 +87,12 @@ def PrepareNestedAssembly(
             PartRecipe = ReplaceValue(
                 MakePartRecipe(Leaf.PartValue, WrittenAt), OutputValue=SelfFile
             )
-            Value = MakePartTarget(MakeBlindPart(Leaf.DocumentValue, PartRecipe))
+            if len(Leaf.DocumentValue.parameters) == 3:
+                Dimensions = ReadRectDisplay(Leaf.PartValue, PartRecipe)
+                Part = MakeRectDimPart(Leaf.DocumentValue, PartRecipe, Dimensions)
+            else:
+                Part = MakeBlindPart(Leaf.DocumentValue, PartRecipe)
+            Value = MakePartTarget(Part)
         Targets[Definition.id] = Value
         Results.append((Native, Value))
     return tuple(Results)

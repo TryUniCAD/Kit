@@ -22,9 +22,9 @@ def part_geometry(values, edited_depth=None):
     require(all([transform[name][axis] for axis in ("x", "y", "z")] == expected for name, expected in
                 (("origin", [0.0, 0.0, 0.0]), ("x_axis", [1.0, 0.0, 0.0]), ("y_axis", [0.0, 1.0, 0.0]), ("z_axis", [0.0, 0.0, 1.0]))),
             "the independent predictor requires the actual front origin profile frame")
-    require(not sketch["parameter_ids"]["$tuple"] and feature["definition"]["end_condition"]["value"] == "blind"
+    require(feature["definition"]["end_condition"]["value"] == "blind"
             and not feature["definition"]["reversed"] and not feature["definition"]["symmetric"],
-            "the independent predictor admits one plain forward blind profile")
+            "the independent predictor admits one forward blind profile")
     entities = sketch["entities"]["$tuple"]
     require(len(entities) >= 3 and all(row["kind"]["value"] == "line" for row in entities), "the predictor requires the actual closed line loop")
     vertices = [[row["geometry"]["start"][axis] * 0.001 for axis in ("x", "y")] for row in entities]
@@ -41,8 +41,20 @@ def part_geometry(values, edited_depth=None):
     area = abs(twice_area) * 0.5
     config, = document["configurations"]["$tuple"]
     require(config["active"], "the plain child needs its independent active configuration")
+    parameter_ids = sketch["parameter_ids"]["$tuple"]
+    dims = {"D1@" + sketch["name"]: None, "D2@" + sketch["name"]: None}
+    if parameter_ids:
+        by_id = {row["id"]: row for row in document["parameters"]["$tuple"]}
+        params = [by_id[identity] for identity in parameter_ids]
+        bounds = [max(point[axis] for point in vertices) - min(point[axis] for point in vertices) for axis in (0, 1)]
+        require(len(vertices) == 4 and len(params) == 2 and all(
+            row["owner_id"] == sketch["id"] and row["value"]["unit"] == "mm"
+            and math.isclose(row["value"]["value"] * 0.001, bound, rel_tol=1e-12, abs_tol=1e-14)
+            for row, bound in zip(params, bounds, strict=True)
+        ), "independent sketch dimensions disagree with the neutral rectangle geometry")
+        dims = {row["name"] + "@" + sketch["name"]: row["value"]["value"] * 0.001 for row in params}
     return {"volume": area * depth, "area": 2 * area + perimeter * depth, "com": [*centroid, depth / 2], "body_count": 1,
-            "depth_m": depth, "parameters_m": {"D1@" + feature["name"]: depth, "D1@" + sketch["name"]: None, "D2@" + sketch["name"]: None},
+            "depth_m": depth, "parameters_m": {"D1@" + feature["name"]: depth, **dims},
             "configuration": config["name"], "name": document["metadata"]["name"]}
 
 
