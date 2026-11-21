@@ -1,7 +1,8 @@
 import hashlib
 import json
+import os
 import re
-from pathlib import PureWindowsPath
+from pathlib import Path, PureWindowsPath
 
 from FilletModel import require
 
@@ -12,6 +13,7 @@ CONTROL = "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0"
 SHARED_TOOLS = ("AuthorCurves.py", "AuthorBlindCutSources.py", "OracleIdentity.py", "InspectFresh.py", "Swapp.py")
 OWNED_TOOLS = ("AuthorEdgeFillets.py", "FilletApi.py", "FilletAuthor.py", "FilletModel.py", "FilletPacket.py",
                "FilletSourcePhase.py")
+METHOD_TOOL = "Tool/SealFilletSources.py"
 FILES = frozenset({"Control.SLDPRT", "Spec.json", *(f"Tool/{name}" for name in (*SHARED_TOOLS, *OWNED_TOOLS))})
 
 
@@ -35,21 +37,32 @@ def windows_paths(*args):
     return tuple(str(path) for path in (packet, capture, checkout))
 
 
-def inspect_packet(job_path, expected_hash):
-    require(re.fullmatch("[0-9a-f]{64}", expected_hash) and digest(job_path) == expected_hash, "frozen job hash differs")
-    job = json.loads(job_path.read_bytes())
-    require(job["schema"] == SCHEMA and job["cohort"] == "disclosed" and job["oracle_build"] == BUILD
+def inspect_packet(job_path, expected_hash, *, private=False):
+    require(not private or os.name == "nt", "protected packet verification is Windows-only")
+    raw = job_path.read_bytes()
+    require(re.fullmatch("[0-9a-f]{64}", expected_hash) and hashlib.sha256(raw).hexdigest() == expected_hash,
+            "frozen job hash differs")
+    job = json.loads(raw)
+    cohort = job["cohort"]
+    require(cohort in (("disclosed", "heldout") if private else ("disclosed", "method")),
+            "the expected packet cohort differs")
+    require(job["schema"] == SCHEMA and job["oracle_build"] == BUILD
             and job["oracle_sha256"] == ORACLE and job["control_sha256"] == CONTROL
             and re.fullmatch("[0-9a-f]{40}", job["source_revision"]) and re.fullmatch("[0-9a-f]{40}", job["source_tree"])
             and job["source_writer_implemented"] is False and job["writer_output_count"] == 0,
             "unexpected ordinal or exact source-only job policy")
     windows_paths(job["guest_packet"], job["guest_capture"], job["guest_checkout"])
     parent = job_path.parent.resolve()
-    require(job_path.name == "SourceJob.json" and set(job["files"]) == FILES
+    if cohort == "heldout":
+        for field in ("method_job_sha256", "disclosed_lock_sha256"):
+            require(re.fullmatch("[0-9a-f]{64}", job[field]), "protected source provenance is unbound")
+        require(parent == Path(job["guest_packet"]).resolve(), "protected job is outside its frozen local path")
+    expected_files = FILES | ({METHOD_TOOL} if cohort in ("method", "heldout") else set())
+    require(job_path.name == "SourceJob.json" and set(job["files"]) == expected_files
             and job["files"]["Control.SLDPRT"]["sha256"] == CONTROL,
             "immutable packet file inventory differs")
     require({path.relative_to(parent).as_posix() for path in parent.rglob("*") if path.is_file()}
-            == FILES | {"SourceJob.json"}, "packet contains an unbound file")
+            == expected_files | {"SourceJob.json"}, "packet contains an unbound file")
     for relative, entry in job["files"].items():
         path = parent / relative
         require(path.is_file() and not path.is_symlink() and path.resolve().is_relative_to(parent)

@@ -3,6 +3,7 @@ import re
 from itertools import product
 
 SCHEMA = "kit.sw2026.edge-fillet-disclosed-spec.v1"
+HELDOUT_SCHEMA = "kit.sw2026.edge-fillet-heldout-spec.v1"
 FIELD_NAMES = {"name", "center_mm", "size_mm", "edge_axis", "corner", "radius_mm", "edit_radius_mm"}
 AXES = "xyz"
 
@@ -12,11 +13,12 @@ def require(condition, message):
         raise ValueError(message)
 
 
-def validate_cases(spec):
-    require(spec.keys() == {"schema", "cohort", "cases"} and spec["schema"] == SCHEMA
-            and spec["cohort"] == "disclosed", "the authoring job requires disclosed source intent")
+def validate_cases(spec, cohort="disclosed"):
+    schema = {"disclosed": SCHEMA, "heldout": HELDOUT_SCHEMA}[cohort]
+    require(spec.keys() == {"schema", "cohort", "cases"} and spec["schema"] == schema
+            and spec["cohort"] == cohort, "source intent cohort differs from the authoring job")
     cases = spec["cases"]
-    require(type(cases) is list and len(cases) == 2, "expected exactly two disclosed single-edge cases")
+    require(type(cases) is list and len(cases) == 2, "expected exactly two single-edge cases")
     for case in cases:
         require(case.keys() == FIELD_NAMES and re.fullmatch("[A-Za-z][A-Za-z0-9]{1,47}", case["name"]),
                 "unexpected source case data or unsafe name")
@@ -37,7 +39,7 @@ def validate_cases(spec):
             and first["edge_axis"] != second["edge_axis"]
             and first["size_mm"] != second["size_mm"]
             and len({first["radius_mm"], first["edit_radius_mm"], second["radius_mm"], second["edit_radius_mm"]}) == 4,
-            "the two disclosed cases must vary stock, selected edge and all requested radii")
+            "the two cases must vary stock, selected edge and all requested radii")
     return cases
 
 

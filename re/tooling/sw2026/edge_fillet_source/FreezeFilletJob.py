@@ -5,7 +5,7 @@ import re
 from subprocess import check_output
 
 from FilletModel import predict, require, validate_cases
-from FilletPacket import BUILD, CONTROL, ORACLE, OWNED_TOOLS, SCHEMA, SHARED_TOOLS, digest, inspect_packet, job_bytes, windows_paths
+from FilletPacket import BUILD, CONTROL, METHOD_TOOL, ORACLE, OWNED_TOOLS, SCHEMA, SHARED_TOOLS, digest, inspect_packet, job_bytes, windows_paths
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
@@ -17,7 +17,7 @@ def git(*arguments):
     return check_output(("git", "-C", str(ROOT), *arguments))
 
 
-def prepare(revision, control, output, guest_packet, guest_capture, guest_checkout):
+def prepare(revision, control, output, guest_packet, guest_capture, guest_checkout, *, seal_method=False):
     require(re.fullmatch("[0-9a-f]{40}", revision), "expected the full committed authoring revision")
     require(git("rev-parse", revision + "^{commit}").decode().strip() == revision, "source revision does not pin a commit")
     tree = git("rev-parse", revision + "^{tree}").decode().strip()
@@ -30,6 +30,8 @@ def prepare(revision, control, output, guest_packet, guest_capture, guest_checko
     for parent, names in ((RESEARCH, OWNED_TOOLS), (SHARED, SHARED_TOOLS)):
         for name in names:
             data[f"Tool/{name}"] = git("show", revision + ":" + parent + "/" + name)
+    if seal_method:
+        data[METHOD_TOOL] = git("show", revision + ":" + RESEARCH + "/" + Path(METHOD_TOOL).name)
     cases = validate_cases(json.loads(data["Spec.json"]))
     output.mkdir(parents=True, exist_ok=False)
     (output / "Tool").mkdir()
@@ -37,7 +39,7 @@ def prepare(revision, control, output, guest_packet, guest_capture, guest_checko
         with (output / name).open("xb") as stream:
             stream.write(contents)
     manifest = {name: {"bytes": len(value), "sha256": digest(output / name)} for name, value in data.items()}
-    job = {"schema": SCHEMA, "cohort": "disclosed", "source_revision": revision, "source_tree": tree,
+    job = {"schema": SCHEMA, "cohort": "method" if seal_method else "disclosed", "source_revision": revision, "source_tree": tree,
            "oracle_sha256": ORACLE, "oracle_build": BUILD, "control_sha256": CONTROL, "files": manifest,
            "guest_packet": packet, "guest_capture": capture, "guest_checkout": checkout,
            "source_writer_implemented": False, "writer_output_count": 0}
@@ -62,6 +64,7 @@ def main():
     flags.add_argument("--guest-packet", required=True)
     flags.add_argument("--guest-capture", required=True)
     flags.add_argument("--guest-checkout", required=True)
+    flags.add_argument("--seal-method", action="store_true")
     args = flags.parse_args()
     result = prepare(args.source_revision, args.control, args.output, args.guest_packet,
                      args.guest_capture, args.guest_checkout)

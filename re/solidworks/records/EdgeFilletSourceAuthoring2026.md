@@ -49,4 +49,27 @@ The retry sends the measured mark-1 selection directly to `CreateFeature`. This 
 
 The second packet created the axial fillet and rebuilt without diagnostics. Its rollback definition retained the constant-radius and circular enums, `IsMultipleRadius=false`, and radius `0.00437 m`. `Edges` returned one actual dispatch object, `GetEdgeCount` returned 1, and `IsSame` returned 1 for the two typed `IEdge` objects. The edge was independently found by endpoints on the current stock, with both adjacent planar faces joined to that same body and producing boss. `Features` and `Loops` were null. The phase passed all fourteen completed numeric checks, then rejected `FilletItemsCount == -1` before measuring the finished body or saving. Both controls and native cleanup passed. [Sanitized attempt 02 receipt](../measurements/2026/EdgeFilletSourceAttempt02.json)
 
-The official API remarks specify `-1` for a simple fillet that uses a uniform radius. The third packet requires this sentinel after the existing constant-radius, symmetric, one-edge checks. It records both counts and omits per-item indexing for the uniform case. The original shape, marked-selection proof, typed rollback edge comparison, independent geometry, and live edit checks all remain required. Author-save and edit/reopen are pending this packet's native run. [Official item-count property](https://help.solidworks.com/2025/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISimpleFilletFeatureData2~FilletItemsCount.html) · [Uniform radius gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Fillets/UniformFilletItemCountIsNegative.md)
+The official API remarks specify `-1` for a simple fillet that uses a uniform radius. The third packet requires this sentinel after the existing constant-radius, symmetric, one-edge checks. It records both counts and omits per-item indexing for the uniform case. The original shape, marked-selection proof, typed rollback edge comparison, independent geometry, and live edit checks all remain required. The completed lifecycle for this packet is recorded below. [Official item-count property](https://help.solidworks.com/2025/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISimpleFilletFeatureData2~FilletItemsCount.html) · [Uniform radius gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Fillets/UniformFilletItemCountIsNegative.md)
+
+## Completed disclosed acquisition and protected source lock
+
+The third packet completed the two independent disclosed source lifecycles on SOLIDWORKS 2026 SP05.2 build `34.5.2.0604`. Both brackets passed, all eight processes were distinct, and the application was idle at the end. Each case passed 31 authoring, 40 edit and 19 edited-reopen numeric checks. The terminal source lock SHA-256 is `1f2652129840582cb663063b08f590dadbaf8dd046f0b96f5a1b99cf5ae47797` for source job `e37e868be9a2b394c296b30c08a586f5dd5cced5309c2f23503f2b8ba0532c01`.
+
+The [protected supervisor](../../tooling/sw2026/edge_fillet_source/SealFilletSources.py) reuses that exact successful native authoring, phase, COM registration and inspection code. Freeze a method packet from the committed supervisor revision with `FreezeFilletJob.py --seal-method` and the same unchanged disclosed control. The recorded `--guest-capture` must be a fresh unused local path. This packet has no private data and cannot run as an ordinary source job. `--verify-packet` checks it without starting CAD.
+
+The oracle owner provides two independent guest-local cases ordered as `Slot01` and `Slot02`, with their combined JSON SHA-256 computed in the guest. Use the disclosed specification's exact case fields and shape domains, with outer `"schema": "kit.sw2026.edge-fillet-heldout-spec.v1"` and `"cohort": "heldout"`. The new pair independently varies the stock sizes and all radii from the disclosed cases. Intent, frozen copies, original and edited saves, geometry siblings and terminal raw records remain under a local protected guest root. Start the supervisor from the exact method packet, supplying a new run directory within that root and a fresh digest-only target in a disjoint local directory.
+
+```sh
+prlctl exec --current-user 'Windows 11' py -3.12 -B \
+  'C:\KitEdgeFilletSealedMethod\Packet\Tool\SealFilletSources.py' \
+  --method-job 'C:\KitEdgeFilletSealedMethod\Packet\SourceJob.json' \
+  --method-job-sha256 EXACT_METHOD_JOB_SHA256 \
+  --disclosed-job 'C:\KitEdgeFilletSource03\Packet\SourceJob.json' \
+  --disclosed-lock 'C:\KitEdgeFilletSource03\Capture\SourceLock.json' \
+  --private-root 'C:\KitEdgeFilletSealedPrivate' \
+  --spec 'C:\KitEdgeFilletSealedPrivate\Spec.json' --spec-sha256 GUEST_INTENT_SHA256 \
+  --run-root 'C:\KitEdgeFilletSealedPrivate\Run01' \
+  --publish 'C:\KitEdgeFilletEvidence\PrewriterSourceLock01.json'
+```
+
+The unchanged native phases require the same healthy brackets, clean reopen and edit, original hashes, independently predicted geometry and eight distinct processes. Copy out only the digest-only lock. It binds the four source and edited source SHA-256 digests to the exact method, build, controls and zero writer outputs. No private paths, intent, numeric model values or raw phase receipts are published. This is a pre-writer acquisition method. It has not yet run on the independent pair. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) · [Held-out method](../../Playbook/GenerativeCorpus.md)

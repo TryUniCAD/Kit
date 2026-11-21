@@ -34,7 +34,7 @@ def verify_runtime_paths(job_path, job):
 
 
 def phase_worker(job_path, pin, phase_job):
-    job = inspect_packet(job_path, pin)
+    job = inspect_packet(job_path, pin, private=True)
     packet, capture = verify_runtime_paths(job_path, job)
     options = json.loads(phase_job.read_bytes())
     require(options["source_job_sha256"] == pin and phase_job.name == "PhaseJob.json",
@@ -42,9 +42,9 @@ def phase_worker(job_path, pin, phase_job):
     phase = options["phase"]
     name = options.get("case")
     require(phase in (*PHASES, *BRACKETS), "unexpected native phase role")
-    cases = {case["name"]: case for case in validate_cases(json.loads((packet / "Spec.json").read_bytes()))}
+    cases = {case["name"]: case for case in validate_cases(json.loads((packet / "Spec.json").read_bytes()), job["cohort"])}
     require((phase in BRACKETS and name is None) or (phase in PHASES and name in cases),
-            "phase request does not correspond to a disclosed case")
+            "phase request does not correspond to a source case")
     folder = capture / (phase if name is None else name)
     if name is not None:
         folder = folder / phase
@@ -133,15 +133,15 @@ def run_case(job_path, pin, case, capture, processes):
 
 
 def execute(job_path, pin):
-    job = inspect_packet(job_path, pin)
+    job = inspect_packet(job_path, pin, private=True)
     packet, capture = verify_runtime_paths(job_path, job)
     require(not capture.exists(), "the native capture root already exists")
-    cases = validate_cases(json.loads((packet / "Spec.json").read_bytes()))
+    cases = validate_cases(json.loads((packet / "Spec.json").read_bytes()), job["cohort"])
     import Swapp
     from FilletApi import installed_registration
     require(not Swapp.application_pids(), "an existing SOLIDWORKS session blocks native fillet authoring")
     capture.mkdir(parents=True, exist_ok=False)
-    lock = {"schema": "kit.sw2026.edge-fillet-source-lock.v1", "cohort": "disclosed", "oracle_build": BUILD,
+    lock = {"schema": "kit.sw2026.edge-fillet-source-lock.v1", "cohort": job["cohort"], "oracle_build": BUILD,
             "oracle_sha256": ORACLE, "job_sha256": pin, "source_revision": job["source_revision"],
             "source_tree": job["source_tree"], "spec_sha256": job["files"]["Spec.json"]["sha256"],
             "control_sha256": CONTROL, "registered_api_sha256": None,
@@ -176,7 +176,7 @@ def execute(job_path, pin):
             lock["controls"]["after"] = {"passed": False}
     lock["idle_after"] = not Swapp.application_pids() and not Swapp.owned_process_ids()
     try:
-        lock["inputs_unchanged"] = inspect_packet(job_path, pin) == job
+        lock["inputs_unchanged"] = inspect_packet(job_path, pin, private=True) == job
     except Exception as error:
         write_new(capture / "InputCustodyFailure.json", {"error": repr(error)})
         lock["inputs_unchanged"] = False
