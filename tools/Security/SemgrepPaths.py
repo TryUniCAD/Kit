@@ -58,7 +58,7 @@ def VerifyPaths() -> None:
                     "--disable-version-check",
                     "--no-git-ignore",
                     *(
-                        ["--no-semgrepignore-v2"]
+                        ["--legacy"]
                         if RuleFilter
                         else [
                             "--include=Sources/*_guard.py",

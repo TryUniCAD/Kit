@@ -20,6 +20,6 @@ No scanner finding was suppressed and all existing gates remain enabled.
 The Semgrep queue job first runs `uv run python -m tools.Security.SemgrepPaths`.
 This process smoke check gives the installed scanner four real Python inputs and a local rule.
 It requires the include glob to select the intended directory and filename, the exclude glob to remove a matching control, and exactly the retained file to produce a finding.
-Separate scans exercise the default CLI target filters and the Python rule-level filters that call wcmatch, using `--no-semgrepignore-v2` for the latter.
+Separate scans exercise the default CLI target filters and the Python rule-level filters that call wcmatch, using the supported `--legacy` launcher switch for the latter.
 The ordinary repository scan remains a separate required step in the same allowlisted job.
 The smoke check resolves the installed `semgrep` console command from the uv environment; the package module entry point is deprecated and exits before scanning.

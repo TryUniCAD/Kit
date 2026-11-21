@@ -7,3 +7,8 @@ and [review evidence](https://github.com/TryUniCAD/Kit/pull/204#discussion_r4649
 
 Resolve the `semgrep` console command from the locked uv environment and invoke its absolute path without a shell.
 Retain the findings exit code and exact selected-file checks in process smoke verification.
+
+The Python scan parser still declares `--no-semgrepignore-v2` but explicitly aborts when it is supplied.
+Use the console launcher's supported `--legacy` switch to select Python rule filtering instead.
+See the [launcher dispatch](https://github.com/semgrep/semgrep/blob/v1.185.0/cli/src/semgrep/console_scripts/entrypoint.py)
+and [parser refusal](https://github.com/semgrep/semgrep/blob/v1.185.0/cli/src/semgrep/commands/scan.py).
