@@ -7,23 +7,29 @@
 # to you under it immediately and permanently.
 
 from json import loads as DecodeJson
+from importlib import import_module as ImportModule
+from typing import Callable, cast as CastValue
 from pathlib import Path as FilePath
 from sys import argv as ArgValues, path as SearchPaths
 
 # registry checks must consume receipts from the actual tested checkout
 KRepoRoot = FilePath(__file__).resolve().parents[4]
-SearchPaths.insert(0, str(KRepoRoot / "re/automation"))
 
-from InferenceGrid.BuilderDevelopment.Registry import ValidateRegistration
+# dynamic probes need both the research root and their typed process contracts
+SearchPaths[:0] = [str(KRepoRoot / "re/automation"), str(KRepoRoot)]
 
 
 # fixture proof must be rejected before any licensed worker can be dispatched
 def ProbeRegistry() -> int:
+    ValidateCall = CastValue(
+        Callable[[dict[str, object], dict[str, object], object], dict[str, object]],
+        ImportModule("InferenceGrid.BuilderDevelopment.Registry").ValidateRegistration,
+    )
     RootPath = FilePath(ArgValues[1])
     JobValue = DecodeJson((RootPath / "Run/BuilderJob.json").read_bytes())
     Manifest = DecodeJson((RootPath / "Manifest.json").read_bytes())
     try:
-        ValidateRegistration(Manifest, JobValue, Manifest["candidate"])
+        _ = ValidateCall(Manifest, JobValue, Manifest["candidate"])
     except (OSError, ValueError, KeyError, TypeError) as ErrorInfo:
         print(str(ErrorInfo))
         return 2

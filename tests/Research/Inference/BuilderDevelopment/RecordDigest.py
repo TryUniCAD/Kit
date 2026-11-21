@@ -11,7 +11,7 @@ from json import dumps as EncodeJson
 
 
 # registry corruption scenarios require independent hashes of the persisted public contract
-def RecordDigest(RecordValue: dict | list) -> str:
+def RecordDigest(RecordValue: object) -> str:
     Content = EncodeJson(
         RecordValue, sort_keys=True, separators=(",", ":"), ensure_ascii=False
     )

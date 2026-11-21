@@ -25,6 +25,7 @@ def MainServer() -> None:
     ModeName, LogPath = CliArgs[1], FilePath(CliArgs[2])
     ThreadCount = 0
     ThreadId = ""
+    Reply: dict[str, object]
     for RawLine in InputStream:
         Request = DecodeJson(RawLine)
         with LogPath.open("a", encoding="utf-8") as LogFile:

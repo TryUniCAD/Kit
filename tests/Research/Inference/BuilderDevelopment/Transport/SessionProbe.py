@@ -8,7 +8,7 @@
 
 from os import environ as ProcessEnv
 from pathlib import Path as FilePath
-from sys import argv as CliArgs, executable as PythonExe, path as SearchPaths
+from sys import argv as CliArgs, path as SearchPaths
 from threading import Thread as WorkerThread
 from time import monotonic as MonoTime, sleep as WaitBriefly
 
@@ -18,10 +18,13 @@ KRepoRoot = FilePath(__file__).resolve().parents[5]
 # process fixtures need the same checkout identity as their imported protocol client
 SearchPaths[:0] = [str(KRepoRoot / "re/automation"), str(KRepoRoot)]
 
-from CodexAdvice.AdviceOptions import AdviceOptions
-from InferenceGrid.BuilderDevelopment.Generation.ProgramSchema import ProgramSchema
-from InferenceGrid.BuilderDevelopment.Generation.Transport.CodexSession import (
-    CodexSession,
+from importlib import import_module as ImportModule
+from typing import Callable, cast as CastValue
+from tests.Research.Inference.BuilderDevelopment.Contracts.MakeSession import (
+    MakeSession,
+)
+from tests.Research.Inference.BuilderDevelopment.Contracts.SessionHooks import (
+    BindSession,
 )
 from tests.Research.Inference.BuilderDevelopment.Transport.ProbeReport import (
     WriteReport,
@@ -33,46 +36,42 @@ def MainProbe() -> None:
     ModeName, WorkPath = CliArgs[1], FilePath(CliArgs[2])
     FixturePath = FilePath(__file__).with_name("FixtureServer.py")
     ProcessEnv["PYTHONPATH"] = str(KRepoRoot)
-    Session = CodexSession(
-        AdviceOptions("codex", "login", "gpt-6.1-terra", 2),
-        WorkPath / "Session",
-        Command=[
-            PythonExe,
-            "-B",
-            str(FixturePath),
-            ModeName,
-            str(WorkPath / "Calls.jsonl"),
-        ],
-        AllowPersonalInstructions=ModeName == "personalallowed",
+    Session = MakeSession(WorkPath, FixturePath, ModeName)
+    Hooks = BindSession(Session)
+    SchemaMaker = CastValue(
+        Callable[[], dict[str, object]],
+        ImportModule(
+            "InferenceGrid.BuilderDevelopment.Generation.ProgramSchema"
+        ).ProgramSchema,
     )
-    Results = []
+    Results: list[dict[str, object]] = []
     StartedAt = MonoTime()
     try:
         if ModeName == "cancel":
-            Session.command[-2] = "timeout"
+            Hooks.CommandArgs[-2] = "timeout"
 
             # cancellation must race a real request without changing its provider behavior
             Caller = WorkerThread(
                 target=lambda: Results.append(
-                    Session.Generate("first", ProgramSchema(), 10)
+                    Hooks.GenerateCall("first", SchemaMaker(), 10)
                 )
             )
             Caller.start()
             WaitBriefly(0.3)
-            Session.close()
+            Hooks.CloseCall()
             Caller.join(timeout=10)
             assert not Caller.is_alive()
         else:
             Results.append(
-                Session.Generate(
-                    "first", ProgramSchema(), 1 if ModeName == "timeout" else 10
+                Hooks.GenerateCall(
+                    "first", SchemaMaker(), 1 if ModeName == "timeout" else 10
                 )
             )
             if ModeName in ("success", "descendant", "personalallowed"):
-                Results.append(Session.Generate("second", ProgramSchema(), 10))
+                Results.append(Hooks.GenerateCall("second", SchemaMaker(), 10))
     finally:
-        Session.close()
-        Session.close()
+        Hooks.CloseCall()
+        Hooks.CloseCall()
     WriteReport(WorkPath, Session, Results, StartedAt)
 
 

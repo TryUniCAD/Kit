@@ -7,25 +7,45 @@
 # to you under it immediately and permanently.
 
 from json import dumps as EncodeJson, loads as DecodeJson
+from contextlib import AbstractContextManager
+from importlib import import_module as ImportModule
+from typing import Callable, cast as CastValue
 from pathlib import Path as FilePath
 from sys import argv as ArgValues, path as SearchPaths
 
 # worker probes need the exact checkout shared by their supervisor and controller
 KRepoRoot = FilePath(__file__).resolve().parents[4]
-SearchPaths.insert(0, str(KRepoRoot / "re/automation"))
 
-from InferenceGrid.BuilderDevelopment.JobSpec import ModelPacket
-from InferenceGrid.BuilderDevelopment.Queue import (
-    DevelopmentConfig,
-    DriveStage,
-    SubmitStage,
+# dynamic probes need both the research root and their typed process contracts
+SearchPaths[:0] = [str(KRepoRoot / "re/automation"), str(KRepoRoot)]
+
+from tests.Research.Inference.BuilderDevelopment.Contracts.ConfigWorker import (
+    ConfigWorker,
 )
-from Ledger import Ledger
-from Records import digest as RecordDigest
 
 
 # capability rejection permits real worker transport coverage without models or licensed applications
 def ProbeWorker() -> None:
+    QueueModule = ImportModule("InferenceGrid.BuilderDevelopment.Queue")
+    ModelPacket = CastValue(
+        Callable[[dict[str, object], object], dict[str, object]],
+        ImportModule("InferenceGrid.BuilderDevelopment.JobSpec").ModelPacket,
+    )
+    StageSubmit = CastValue(
+        Callable[
+            [FilePath, dict[str, object], str, dict[str, object], None, str | None], str
+        ],
+        QueueModule.SubmitStage,
+    )
+    DriveStage = CastValue(
+        Callable[[FilePath, FilePath, FilePath, str, int], dict[str, object]],
+        QueueModule.DriveStage,
+    )
+    LedgerMaker = CastValue(
+        Callable[[FilePath, bool], AbstractContextManager[object]],
+        ImportModule("Ledger").Ledger,
+    )
+    RecordDigest = CastValue(Callable[[object], str], ImportModule("Records").digest)
     TmpPath = FilePath(ArgValues[1])
     ModeName = ArgValues[2]
     RunPath = TmpPath / "Run"
@@ -38,16 +58,14 @@ def ProbeWorker() -> None:
     }
     JobValue["limits"]["max_cost_usd"] = 0
     JobValue["id"] = "fixture-worker:" + RecordDigest(JobValue)
-    ConfigPath, ResourceMap = DevelopmentConfig(
-        RunPath, KRepoRoot, TmpPath / "Host.json"
-    )
-    ConfigValue = DecodeJson(ConfigPath.read_bytes())
-    ConfigValue["reserved_cpus"] = 0
-    ConfigValue["reserved_memory_mib"] = 0
-    _ = ConfigPath.write_text(EncodeJson(ConfigValue), encoding="utf-8")
-    with Ledger(RunPath / "Store", create=True) as StoreValue:
+    ConfigPath, ResourceMap = ConfigWorker(RunPath, KRepoRoot, TmpPath / "Host.json")
+    with LedgerMaker(RunPath / "Store", True) as StoreValue:
         if ModeName == "native":
-            StoreValue.resource(ResourceMap["solidworks"], available=True, capacity=1)
+            ResourceCall = CastValue(
+                Callable[[str, bool, int], object], getattr(StoreValue, "resource")
+            )
+            _ = ResourceCall(ResourceMap["solidworks"], True, 1)
+    InputsValue: dict[str, object]
     if ModeName == "generate":
         InputsValue = {
             "job": JobValue,
@@ -68,12 +86,13 @@ def ProbeWorker() -> None:
             },
             "cases": JobValue["discovery_cases"],
         }
-    Identity = SubmitStage(
+    Identity = StageSubmit(
         RunPath,
         JobValue,
         ModeName,
         InputsValue,
-        Resource=ResourceMap["solidworks"] if ModeName == "native" else None,
+        None,
+        ResourceMap["solidworks"] if ModeName == "native" else None,
     )
     ResultInfo = DriveStage(RunPath, KRepoRoot, ConfigPath, Identity, 20)
     print(EncodeJson(ResultInfo))

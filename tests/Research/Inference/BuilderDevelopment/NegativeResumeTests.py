@@ -24,9 +24,9 @@ def CheckNegGate(TmpPath: FilePath) -> None:
         "verification_job": "unlicensed-fixture",
     }
     StateValue["attempt_limit"] = 0
-    StatePath.write_text(EncodeJson(StateValue), encoding="utf-8")
-    (TmpPath / "Run/Supervisor.json").write_text("{}", encoding="utf-8")
-    for IndexValue in range(2):
+    _ = StatePath.write_text(EncodeJson(StateValue), encoding="utf-8")
+    _ = (TmpPath / "Run/Supervisor.json").write_text("{}", encoding="utf-8")
+    for _ in range(2):
         Resumed = RunBuilder(TmpPath, "--builder-resume", IsPrepare=False)
         assert Resumed.returncode == 3, Resumed.stdout + Resumed.stderr
         ResultInfo = DecodeJson(Resumed.stdout)

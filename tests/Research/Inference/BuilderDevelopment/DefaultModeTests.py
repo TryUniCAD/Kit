@@ -14,7 +14,7 @@ from tests.Research.Inference.Authoring.Recipes.WriteRecipes import WriteRecipes
 
 # adding automatic development must preserve the existing opt out command behavior
 def CheckDisabled(TmpPath: FilePath) -> None:
-    WriteRecipes(TmpPath)
+    _ = WriteRecipes(TmpPath)
     Process = RunBuilder(TmpPath, IsAuto=False)
     assert Process.returncode == 0, Process.stdout + Process.stderr
     Campaign = DecodeJson((TmpPath / "Run/Campaign.json").read_bytes())

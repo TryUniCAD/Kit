@@ -7,32 +7,54 @@
 # to you under it immediately and permanently.
 
 from json import dumps as EncodeJson, loads as DecodeJson
+from importlib import import_module as ImportModule
+from typing import Callable, cast as CastValue
 from pathlib import Path as FilePath
 from sys import argv as ArgValues, path as SearchPaths
 
 # the probe exercises orchestration against the same checkout as its controller receipts
 KRepoRoot = FilePath(__file__).resolve().parents[4]
-SearchPaths.insert(0, str(KRepoRoot / "re/automation"))
 
-from InferenceGrid.BuilderDevelopment.StageState import DevelopmentStopped, StageState
+# dynamic probes need both the research root and their typed process contracts
+SearchPaths[:0] = [str(KRepoRoot / "re/automation"), str(KRepoRoot)]
 
 
 # recovery must reuse accepted controller results without inventing another execution
 def ProbeStage() -> int:
+    StateModule = ImportModule("InferenceGrid.BuilderDevelopment.StageState")
+    StateMaker = CastValue(
+        Callable[
+            [FilePath, FilePath, dict[str, object], dict[str, object], FilePath], object
+        ],
+        StateModule.StageState,
+    )
+    StoppedError = CastValue(type[Exception], StateModule.DevelopmentStopped)
     RunPath = FilePath(ArgValues[1])
     JobValue = DecodeJson((RunPath / "BuilderJob.json").read_bytes())
     StateValue = DecodeJson((RunPath / "BuilderState.json").read_bytes())
     StateValue["recovery_epoch"] = int(ArgValues[2])
-    Context = StageState(
+    Context = StateMaker(
         RunPath, KRepoRoot, JobValue, StateValue, RunPath / "Supervisor.json"
     )
-    Context.Save()
+    SaveContext = CastValue(Callable[[], None], getattr(Context, "Save"))
+    SaveContext()
+    StageCall = CastValue(
+        Callable[
+            [str, str, dict[str, object]],
+            tuple[str, dict[str, object], dict[str, object]],
+        ],
+        getattr(Context, "Stage"),
+    )
     try:
-        Identity, Records, ResultInfo = Context.Stage(
+        Identity, Records, ResultInfo = StageCall(
             "fixture.stage", "verify", {"fixture_only": True}
         )
-    except DevelopmentStopped as ErrorInfo:
-        print(EncodeJson({"classification": ErrorInfo.classification}))
+    except StoppedError as ErrorInfo:
+        print(
+            EncodeJson(
+                {"classification": CastValue(str, getattr(ErrorInfo, "classification"))}
+            )
+        )
         return 3
     print(
         EncodeJson(

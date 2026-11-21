@@ -27,7 +27,7 @@ def CheckStageReuse(TmpPath: FilePath) -> None:
     StorePath = TmpPath / "Run/Store"
     Created = RunController(StorePath, "init")
     assert Created.returncode == 0, Created.stderr
-    (TmpPath / "Run/Supervisor.json").write_text(EncodeJson({}), encoding="utf-8")
+    _ = (TmpPath / "Run/Supervisor.json").write_text(EncodeJson({}), encoding="utf-8")
     ProbePath = FilePath(__file__).with_name("StageProbe.py")
     First = RunProcess(
         [PythonExe, "-B", str(ProbePath), str(TmpPath / "Run"), "0"],
@@ -41,7 +41,7 @@ def CheckStageReuse(TmpPath: FilePath) -> None:
     StatePath = TmpPath / "Run/BuilderState.json"
     StateValue = DecodeJson(StatePath.read_bytes())
     BaseJob = next(iter(StateValue["jobs"].values()))
-    FinishJob(TmpPath, BaseJob, "rejected", {"fixture_only": True})
+    _ = FinishJob(TmpPath, BaseJob, "rejected", {"fixture_only": True})
     Second = RunProcess(
         [PythonExe, "-B", str(ProbePath), str(TmpPath / "Run"), "1"],
         cwd=KRepoRoot,

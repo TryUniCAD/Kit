@@ -21,7 +21,7 @@ def CheckLocked(TmpPath: FilePath) -> None:
     assert Prepared.returncode == 0, Prepared.stdout + Prepared.stderr
     RunPath = TmpPath / "Run"
     PausePath = RunPath / "CataloguePause.json"
-    PausePath.write_text('{"paused":true}', encoding="utf-8")
+    _ = PausePath.write_text('{"paused":true}', encoding="utf-8")
     StateBytes = (RunPath / "BuilderState.json").read_bytes()
     PauseBytes = PausePath.read_bytes()
     ScriptPath = KRepoRoot / "tests/Research/Inference/BuilderDevelopment/HoldRun.py"
@@ -33,6 +33,7 @@ def CheckLocked(TmpPath: FilePath) -> None:
         text=True,
     )
     try:
+        assert Owner.stdout is not None
         assert Owner.stdout.readline().strip() == "ready"
         Process = RunBuilder(
             TmpPath, "--builder-resume", "--builder-extra-attempts", "1"
@@ -41,4 +42,4 @@ def CheckLocked(TmpPath: FilePath) -> None:
         assert (RunPath / "BuilderState.json").read_bytes() == StateBytes
         assert PausePath.read_bytes() == PauseBytes
     finally:
-        Owner.communicate("\n", timeout=10)
+        _ = Owner.communicate("\n", timeout=10)

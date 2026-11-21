@@ -6,15 +6,19 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from collections.abc import Mapping
 from json import dumps as EncodeJson
+from tests.Research.Inference.BuilderDevelopment.Contracts.ReadRecord import ReadRecord
 from os import write as WriteBytes
 from time import sleep as WaitBriefly
 from tests.Research.Inference.BuilderDevelopment.Transport.FixtureReply import SendReply
 
 
 # independent failure modes exercise real framing deadlines and capability rejection at the process boundary
-def SendTurn(Request: dict, ModeName: str, ThreadId: str, ThreadCount: int) -> None:
-    assert Request["params"]["effort"] == "low"
+def SendTurn(
+    Request: Mapping[str, object], ModeName: str, ThreadId: str, ThreadCount: int
+) -> None:
+    assert ReadRecord(Request["params"])["effort"] == "low"
     TurnId = f"fixture-turn-{ThreadCount}"
     SendReply({"id": Request["id"], "result": {"turn": {"id": TurnId}}})
     if ModeName == "timeout":
@@ -22,7 +26,7 @@ def SendTurn(Request: dict, ModeName: str, ThreadId: str, ThreadCount: int) -> N
     if ModeName == "delay":
         WaitBriefly(0.4)
     if ModeName == "oversized":
-        for Index in range(80):
+        for _ in range(80):
             _ = WriteBytes(1, b"x" * 65536)
     if ModeName == "tools":
         SendReply(

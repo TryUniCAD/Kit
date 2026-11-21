@@ -19,7 +19,7 @@ def CheckInterrupt(TmpPath: FilePath) -> None:
     Prepared = RunBuilder(TmpPath)
     assert Prepared.returncode == 0, Prepared.stdout + Prepared.stderr
     JobValue = DecodeJson((TmpPath / "Run/BuilderJob.json").read_bytes())
-    StageJob = {
+    StageJob: dict[str, object] = {
         "id": "fixture-generation",
         "kind": "builder.generate",
         "tool_version": JobValue["source_revision"],
@@ -32,12 +32,12 @@ def CheckInterrupt(TmpPath: FilePath) -> None:
     Current = DecodeJson(StatePath.read_bytes())
     Current["attempts"] = [{"number": 1, "status": "new"}]
     Current["jobs"]["attempt.1.generate:fixture"] = StageJob["id"]
-    StatePath.write_text(EncodeJson(Current), encoding="utf-8")
+    _ = StatePath.write_text(EncodeJson(Current), encoding="utf-8")
     BudgetPath = TmpPath / "Run/ModelBudget.json"
     BudgetBytes = (
         b'{"schema_version":1,"calls":[{"status":"started","reserved_seconds":30}]}'
     )
-    BudgetPath.write_bytes(BudgetBytes)
+    _ = BudgetPath.write_bytes(BudgetBytes)
     Resumed = RunBuilder(TmpPath, "--builder-resume")
     assert Resumed.returncode == 0, Resumed.stdout + Resumed.stderr
     AfterState = DecodeJson(StatePath.read_bytes())

@@ -28,7 +28,7 @@ def CheckProvision(TmpPath: FilePath) -> None:
     )
     Current = DecodeJson(StatePath.read_bytes())
     Current["deadline"] = 0
-    StatePath.write_text(EncodeJson(Current), encoding="utf-8")
+    _ = StatePath.write_text(EncodeJson(Current), encoding="utf-8")
     Resumed = RunBuilder(
         TmpPath,
         "--builder-resume",

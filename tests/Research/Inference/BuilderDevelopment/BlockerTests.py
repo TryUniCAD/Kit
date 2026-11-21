@@ -28,7 +28,11 @@ from tests.Research.Inference.BuilderDevelopment.WriteInputs import WriteInputs
     ],
 )
 def CheckBlockers(
-    TmpPath: FilePath, HasAuth: bool, HasMetadata: bool, ExtraArgs: tuple, Expected: str
+    TmpPath: FilePath,
+    HasAuth: bool,
+    HasMetadata: bool,
+    ExtraArgs: tuple[str, ...],
+    Expected: str,
 ) -> None:
     WriteInputs(TmpPath)
     Process = RunBuilder(TmpPath, *ExtraArgs, HasAuth=HasAuth, HasMetadata=HasMetadata)

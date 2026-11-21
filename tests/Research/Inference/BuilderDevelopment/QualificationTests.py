@@ -27,7 +27,7 @@ def CheckRetirement(TmpPath: FilePath) -> None:
     assert Prepared.returncode == 0, Prepared.stdout + Prepared.stderr
     Created = RunController(TmpPath / "Run/Store", "init")
     assert Created.returncode == 0, Created.stderr
-    (TmpPath / "Run/Supervisor.json").write_text("{}", encoding="utf-8")
+    _ = (TmpPath / "Run/Supervisor.json").write_text("{}", encoding="utf-8")
     ProbePath = FilePath(__file__).with_name("QualificationProbe.py")
     CommandArgs = [PythonExe, "-B", str(ProbePath), str(TmpPath / "Run")]
     First = RunProcess(
@@ -52,7 +52,7 @@ def CheckRetirement(TmpPath: FilePath) -> None:
         "1",
     )
     assert Resource.returncode == 0, Resource.stderr
-    FinishJob(
+    _ = FinishJob(
         TmpPath,
         NativeJob,
         "completed",

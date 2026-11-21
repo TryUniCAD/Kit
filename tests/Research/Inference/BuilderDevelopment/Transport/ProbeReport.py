@@ -9,28 +9,33 @@
 from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
 from time import monotonic as MonoTime, sleep as WaitBriefly
-from InferenceGrid.BuilderDevelopment.Generation.Transport.CodexSession import (
-    CodexSession,
-)
-from Processes import process_start as ProcessStart
+from tests.Research.Inference.BuilderDevelopment.Contracts.LiveStart import LiveStart
+from tests.Research.Inference.BuilderDevelopment.Contracts.ReadRecord import ReadRecord
 
 
 # independently observed process identities prove final cleanup before publishing the protocol receipt
 def WriteReport(
-    WorkPath: FilePath, Session: CodexSession, Results: list, StartedAt: float
+    WorkPath: FilePath,
+    Session: object,
+    Results: list[dict[str, object]],
+    StartedAt: float,
 ) -> None:
-    ServerPid = Session.process.owner.process.pid
+    ServerPid: object = getattr(
+        getattr(getattr(Session, "process"), "owner"), "process"
+    ).pid
+    assert isinstance(ServerPid, int)
     Deadline = MonoTime() + 3
-    while ProcessStart(ServerPid, live=True) and MonoTime() < Deadline:
+    while LiveStart(ServerPid) and MonoTime() < Deadline:
         WaitBriefly(0.02)
-    assert ProcessStart(ServerPid, live=True) is None
+    assert LiveStart(ServerPid) is None
     Children = [
-        DecodeJson(LogLine)["descendant"]
+        ReadRecord(DecodeJson(LogLine))["descendant"]
         for LogLine in (WorkPath / "Calls.jsonl").read_text().splitlines()
-        if "descendant" in DecodeJson(LogLine)
+        if "descendant" in ReadRecord(DecodeJson(LogLine))
     ]
     for ChildPid in Children:
-        assert ProcessStart(ChildPid, live=True) is None
+        assert isinstance(ChildPid, int)
+        assert LiveStart(ChildPid) is None
     print(
         EncodeJson(
             {

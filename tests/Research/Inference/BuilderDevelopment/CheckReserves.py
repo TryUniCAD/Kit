@@ -6,19 +6,30 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from collections.abc import Mapping
+from typing import cast as CastValue
+from tests.Research.Inference.BuilderDevelopment.Contracts.ReadRecord import ReadRecord
+from tests.Research.Inference.BuilderDevelopment.Contracts.ReadItems import ReadItems
+
 
 # independent journal comparison prevents retired fixture values from becoming qualification reserves again
-def CheckReserves(Retired: dict, Revised: dict) -> None:
-    assert Revised["reservations"][0] == Retired["reservations"][0]
-    assert Revised["reservations"][-1]["status"] == "frozen"
+def CheckReserves(Retired: Mapping[str, object], Revised: Mapping[str, object]) -> None:
+    OldCases = [ReadRecord(Value) for Value in ReadItems(Retired["reservations"])]
+    NewCases = [ReadRecord(Value) for Value in ReadItems(Revised["reservations"])]
+    assert NewCases[0] == OldCases[0]
+    assert NewCases[-1]["status"] == "frozen"
     UsedValues = {
-        CaseValue[FieldName]
-        for CaseValue in Retired["reservations"][0]["cases"]
+        CastValue(float, CaseValue[FieldName])
+        for CaseValue in [
+            ReadRecord(Value) for Value in ReadItems(OldCases[0]["cases"])
+        ]
         for FieldName in ("offset_mm", "edit_mm")
     }
     FreshValues = {
-        CaseValue[FieldName]
-        for CaseValue in Revised["reservations"][-1]["cases"]
+        CastValue(float, CaseValue[FieldName])
+        for CaseValue in [
+            ReadRecord(Value) for Value in ReadItems(NewCases[-1]["cases"])
+        ]
         for FieldName in ("offset_mm", "edit_mm")
     }
     assert UsedValues.isdisjoint(FreshValues)

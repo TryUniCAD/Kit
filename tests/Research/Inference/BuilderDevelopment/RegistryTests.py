@@ -75,7 +75,7 @@ def CheckRegistry(TmpPath: FilePath, IsStale: bool) -> None:
     }
     if IsStale:
         ScopeValue["application_fingerprint"] = "0" * 64
-    Manifest = {
+    Manifest: dict[str, object] = {
         "schema_version": 1,
         "candidate": Candidate,
         "candidate_sha256": RecordDigest(Candidate),
@@ -91,7 +91,7 @@ def CheckRegistry(TmpPath: FilePath, IsStale: bool) -> None:
         },
     }
     Manifest["id"] = RecordDigest(Manifest)
-    (TmpPath / "Manifest.json").write_text(EncodeJson(Manifest), encoding="utf-8")
+    _ = (TmpPath / "Manifest.json").write_text(EncodeJson(Manifest), encoding="utf-8")
     Process = RunProcess(
         [
             PythonExe,

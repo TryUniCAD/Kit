@@ -7,20 +7,35 @@
 # to you under it immediately and permanently.
 
 from json import dumps as EncodeJson, loads as DecodeJson
+from importlib import import_module as ImportModule
+from typing import Callable, cast as CastValue
 from pathlib import Path as FilePath
 from sys import argv as ArgValues, path as SearchPaths
 
 # qualification orchestration must consume real controller state from the tested checkout
 KRepoRoot = FilePath(__file__).resolve().parents[4]
-SearchPaths.insert(0, str(KRepoRoot / "re/automation"))
 
-from InferenceGrid.BuilderDevelopment.DevelopCandidate import QualifyAttempt
-from InferenceGrid.BuilderDevelopment.StageState import DevelopmentStopped, StageState
-from Records import digest as RecordDigest
+# dynamic probes need both the research root and their typed process contracts
+SearchPaths[:0] = [str(KRepoRoot / "re/automation"), str(KRepoRoot)]
 
 
 # rejected native fixtures expose retirement behavior while never establishing acceptance
 def ProbeReserve() -> int:
+    StateModule = ImportModule("InferenceGrid.BuilderDevelopment.StageState")
+    StateMaker = CastValue(
+        Callable[
+            [FilePath, FilePath, dict[str, object], dict[str, object], FilePath], object
+        ],
+        StateModule.StageState,
+    )
+    StoppedError = CastValue(type[Exception], StateModule.DevelopmentStopped)
+    RecordDigest = CastValue(Callable[[object], str], ImportModule("Records").digest)
+    QualifyCall = CastValue(
+        Callable[[object, dict[str, object]], object],
+        ImportModule(
+            "InferenceGrid.BuilderDevelopment.DevelopCandidate"
+        ).QualifyAttempt,
+    )
     RunPath = FilePath(ArgValues[1])
     JobValue = DecodeJson((RunPath / "BuilderJob.json").read_bytes())
     StateValue = DecodeJson((RunPath / "BuilderState.json").read_bytes())
@@ -45,14 +60,19 @@ def ProbeReserve() -> int:
                 "candidate_sha256": RecordDigest(Candidate),
             }
         )
-    Context = StageState(
+    Context = StateMaker(
         RunPath, KRepoRoot, JobValue, StateValue, RunPath / "Supervisor.json"
     )
-    Context.Save()
+    SaveContext = CastValue(Callable[[], None], getattr(Context, "Save"))
+    SaveContext()
     try:
-        Registration = QualifyAttempt(Context, StateValue["attempts"][-1])
-    except DevelopmentStopped as ErrorInfo:
-        print(EncodeJson({"classification": ErrorInfo.classification}))
+        Registration = QualifyCall(Context, StateValue["attempts"][-1])
+    except StoppedError as ErrorInfo:
+        print(
+            EncodeJson(
+                {"classification": CastValue(str, getattr(ErrorInfo, "classification"))}
+            )
+        )
         return 3
     print(
         EncodeJson(

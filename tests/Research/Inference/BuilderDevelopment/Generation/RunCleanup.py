@@ -8,7 +8,11 @@
 
 from json import dumps as EncodeJson, loads as DecodeJson
 from os import environ as ProcessEnv
+from importlib import import_module as ImportModule
+from typing import Callable, cast as CastValue
 from pathlib import Path as FilePath
+from tests.Research.Inference.BuilderDevelopment.Contracts.LiveStart import LiveStart
+from tests.Research.Inference.BuilderDevelopment.Contracts.ReadRecord import ReadRecord
 from sys import argv as ArgValues, executable as PythonExe, path as ImportPaths
 from tests.Research.SupervisorClient import KRepoRoot
 
@@ -16,26 +20,32 @@ from tests.Research.SupervisorClient import KRepoRoot
 # an independent harness checks real cleanup receipts without calling a model provider
 def MainProbe() -> int:
     ImportPaths.insert(0, str(KRepoRoot / "re/automation"))
-    from InferenceGrid.BuilderDevelopment.Generation.OwnedProviderProcess import (
-        RunProvider,
+    RunProvider = CastValue(
+        Callable[[list[str], FilePath, dict[str, str], int, int], dict[str, object]],
+        ImportModule(
+            "InferenceGrid.BuilderDevelopment.Generation.OwnedProviderProcess"
+        ).RunProvider,
     )
-    from Processes import process_start as ProcessStart
 
     OutputPath = FilePath(ArgValues[1])
     ModeName = ArgValues[2]
-    (OutputPath / "Prompt.txt").write_text("", encoding="utf-8")
+    _ = (OutputPath / "Prompt.txt").write_text("", encoding="utf-8")
     CommandArgs = [
         PythonExe,
         "-B",
         str(FilePath(__file__).with_name("ProviderChild.py")),
         ModeName,
     ]
-    ResultInfo = RunProvider(CommandArgs, OutputPath, dict(ProcessEnv), 1, Limit=256)
+    ResultInfo = RunProvider(CommandArgs, OutputPath, dict(ProcessEnv), 1, 256)
     LogText = (OutputPath / "Provider.jsonl").read_text(encoding="utf-8")
-    ChildInfo = DecodeJson(LogText.splitlines()[0]) if ModeName != "overflow" else {}
+    ChildInfo: dict[str, object] = (
+        ReadRecord(DecodeJson(LogText.splitlines()[0]))
+        if ModeName != "overflow"
+        else {}
+    )
     ChildPid = ChildInfo.get("child_pid")
     ResultInfo["child_still_live"] = (
-        ChildPid is not None and ProcessStart(ChildPid, live=True) is not None
+        isinstance(ChildPid, int) and LiveStart(ChildPid) is not None
     )
     print(EncodeJson(ResultInfo), flush=True)
     return 0

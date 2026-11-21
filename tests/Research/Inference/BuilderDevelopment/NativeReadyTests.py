@@ -23,7 +23,7 @@ def CheckReady(TmpPath: FilePath) -> None:
     StatePath = TmpPath / "Run/BuilderState.json"
     StateValue = DecodeJson(StatePath.read_bytes())
     StateValue["deadline"] = 0
-    StatePath.write_text(EncodeJson(StateValue), encoding="utf-8")
+    _ = StatePath.write_text(EncodeJson(StateValue), encoding="utf-8")
     Configured = RunBuilder(
         TmpPath,
         "--builder-resume",

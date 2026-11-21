@@ -6,25 +6,32 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from collections.abc import Mapping
 from pathlib import Path as FilePath
+from tests.Research.Inference.BuilderDevelopment.Contracts.ReadRecord import ReadRecord
+from tests.Research.Inference.BuilderDevelopment.Contracts.ReadText import ReadText
 
 
 # fixture threads assert capability isolation before any simulated model response is emitted
-def ThreadReply(Params: dict, ModeName: str, ThreadId: str) -> dict:
+def ThreadReply(
+    Params: Mapping[str, object], ModeName: str, ThreadId: str
+) -> dict[str, object]:
+    ConfigValue = ReadRecord(Params["config"])
+    Features = ReadRecord(ConfigValue["features"])
     assert Params["ephemeral"] is True
     assert Params["approvalPolicy"] == "never"
     assert Params["sandbox"] == "read-only"
     assert Params["developerInstructions"] == ""
-    assert Params["config"]["project_doc_max_bytes"] == 0
-    assert Params["config"]["mcp_servers"] == {}
+    assert ConfigValue["project_doc_max_bytes"] == 0
+    assert ConfigValue["mcp_servers"] == {}
     assert all(
         Value is False
-        for FieldName, Value in Params["config"]["features"].items()
+        for FieldName, Value in Features.items()
         if FieldName != "code_mode"
     )
-    assert Params["config"]["features"]["code_mode"]["enabled"] is False
-    assert Params["config"]["skills"]["include_instructions"] is False
-    assert len(Params["baseInstructions"]) < 1000
+    assert ReadRecord(Features["code_mode"])["enabled"] is False
+    assert ReadRecord(ConfigValue["skills"])["include_instructions"] is False
+    assert len(ReadText(Params["baseInstructions"])) < 1000
     return {
         "thread": {"id": ThreadId},
         "model": "wrong-model" if ModeName == "wrongmodel" else Params["model"],

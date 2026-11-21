@@ -27,7 +27,7 @@ def WriteInputs(TmpPath: FilePath) -> None:
             ],
         }
     )
-    CatalogPath.write_text(EncodeJson(Catalogue), encoding="utf-8")
+    _ = CatalogPath.write_text(EncodeJson(Catalogue), encoding="utf-8")
     Metadata = {
         "application_build": "fixture-unlicensed",
         "api_metadata": {"fixture_only": True},
@@ -35,8 +35,8 @@ def WriteInputs(TmpPath: FilePath) -> None:
         "executable_sha256": "0" * 64,
         "interop_sha256": "0" * 64,
     }
-    (TmpPath / "Api.json").write_text(EncodeJson(Metadata), encoding="utf-8")
-    (TmpPath / "Host.json").write_text(
+    _ = (TmpPath / "Api.json").write_text(EncodeJson(Metadata), encoding="utf-8")
+    _ = (TmpPath / "Host.json").write_text(
         EncodeJson(
             {
                 "executable": PythonExe,

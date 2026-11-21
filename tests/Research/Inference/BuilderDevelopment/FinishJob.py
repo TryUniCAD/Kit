@@ -8,14 +8,19 @@
 
 from hashlib import sha256 as HashBytes
 from json import dumps as EncodeJson, loads as DecodeJson
+from collections.abc import Mapping
 from pathlib import Path as FilePath
 from tests.Research.Inference.Authoring.Recipes.Windows.RunController import (
     RunController,
 )
+from tests.Research.Inference.BuilderDevelopment.Contracts.ReadRecord import ReadRecord
+from tests.Research.Inference.BuilderDevelopment.Contracts.ReadItems import ReadItems
 
 
 # rejection fixtures need real leases so resume cannot trust handwritten terminal states
-def FinishJob(TmpPath: FilePath, Identity: str, Outcome: str, Records: dict) -> dict:
+def FinishJob(
+    TmpPath: FilePath, Identity: str, Outcome: str, Records: Mapping[str, object]
+) -> dict[str, object]:
     StorePath = TmpPath / "Run/Store"
     StemValue = HashBytes(Identity.encode()).hexdigest()[:16]
     LeasePath = TmpPath / (StemValue + "Lease.json")
@@ -25,7 +30,7 @@ def FinishJob(TmpPath: FilePath, Identity: str, Outcome: str, Records: dict) -> 
     assert Claimed.returncode == 0, Claimed.stderr
     assert DecodeJson(Claimed.stdout)["job"] == Identity
     ResultPath = TmpPath / (StemValue + "Result.json")
-    ResultPath.write_text(
+    _ = ResultPath.write_text(
         EncodeJson({"result": {"records": Records}}), encoding="utf-8"
     )
     Finished = RunController(
@@ -41,4 +46,5 @@ def FinishJob(TmpPath: FilePath, Identity: str, Outcome: str, Records: dict) -> 
         "unlicensed process fixture",
     )
     assert Finished.returncode == 0, Finished.stderr
-    return DecodeJson(Finished.stdout)["jobs"][0]
+    Envelope = ReadRecord(DecodeJson(Finished.stdout))
+    return ReadRecord(ReadItems(Envelope["jobs"])[0])
