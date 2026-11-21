@@ -22,7 +22,7 @@ def TestAsmDef(TmpPath: FilePath) -> None:
     assert list(TmpPath.iterdir()) == []
     Report = CastValue(dict[str, object], LoadJson(Outcome.stdout))
     Cases = CastValue(list[dict[str, object]], Report["generated"])
-    assert Report["guarded_processes"] == 5
+    assert Report["guarded_processes"] == 7
     assert Report["runtime_external_attempts"] == 0
     assert [ReportValue["root"] for ReportValue in Cases] == [
         ["uiAssemblyDoc_c", 1]
@@ -38,3 +38,13 @@ def TestAsmDef(TmpPath: FilePath) -> None:
         (0.9, -12),
     ]
     assert len(CastValue(dict[str, str], Report["refusals"])) == 14
+    RenderCase = CastValue(dict[str, object], Report["authored_renderer"])
+    RenderDef = CastValue(dict[str, object], RenderCase["definition"])
+    assert RenderDef["bytes"] == 559 and RenderDef["next_map_index"] == 7
+    assert RenderDef["renderer"] == {"f08": 1, "f0c": 0, "list": {"n": 0, "items": []}}
+    assert RenderCase["wrapper_frame"] == "0101000000000000000000"
+    assert (
+        RenderCase["part_word_rejection"]
+        == RenderCase["second_word_rejection"]
+        == ("SOLIDWORKS assembly Definition has an alternate renderer profile")
+    )

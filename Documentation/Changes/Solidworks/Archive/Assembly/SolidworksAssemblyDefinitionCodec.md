@@ -10,7 +10,9 @@ codec remains the default selection.
 Eight hash-pinned disclosed assemblies replay three distinct Definition
 streams exactly. Two fresh, guarded construction cases reproduce the
 independent reference encoding, including both bounds of the native threshold
-clamp. Fourteen invalid input and stream cases refuse. This change supplies
+clamp. The guarded process proof also exercises an authored saved-style
+empty renderer and refuses the alternate renderer words. Sixteen invalid
+input and stream cases refuse. This change supplies
 the internal Definition stream. Public assembly writing and native
 qualification of whole generated documents have separate exits.
 [Evidence and rerun commands](../../../../../re/solidworks/records/OrdinaryAssemblyDefinition2026.md)

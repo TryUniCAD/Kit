@@ -4,14 +4,14 @@ from collections import Counter
 from hashlib import sha256
 import json
 from pathlib import Path
-from struct import pack, pack_into
+from struct import pack, pack_into, unpack_from
 from subprocess import check_output, run
 import sys
 
 
 HERE = Path(__file__).resolve()
 ROOT = HERE.parents[4]
-BASE = "2c3330b3e79cb199655e590eb63458f5bef316f2"
+BASE = "794d0cb03a8dae8ad7af9fb8d397fc9114b9b267"
 EVIDENCE = "ed0a90a0e8e913b4eb28f9c2dc6c92a814e32472"
 INVENTORY = "re/solidworks/measurements/2026/SdkModelDefinitionCorpus01.json"
 SOURCE = "7d9e15658f5e2d19db2d2f6afe5a995c26ebc54a"
@@ -29,6 +29,7 @@ OWNED_MODULES = (
     "ModelDefClsid", "ModelDefContext", "ReadModelDef", "WriteModelDef",
 )
 RENDER_SAVED = {"f08": 1, "f0c": 0, "list": {"n": 0, "items": []}}
+RENDER_FRAME = pack("<BiiH", 1, 1, 0, 0)
 PREF_SAVED = {
     "f08": 0, "f0c": 0, "f10": 0.75, "f18": 0, "f20": 0.000125,
     "f28": 0, "f30": 1, "f34": 1, "f2c": 1, "f38": 1, "f3c": 0,
@@ -170,6 +171,41 @@ def reject_cases(wire):
     }
 
 
+def author_renderer(wire):
+    model = ReadModelDef(wire, 19000, Assembly=True).GraphValue
+    fields = model.DocumentValue.FieldsValue
+    require(fields["has_pwmaterial"] == 0 and "f1110" not in fields, "authored case already has a renderer")
+    fields["has_pwmaterial"] = 1
+    fields["f1110"] = {"f08": 1, "f0c": 0, "list": {"n": 0, "items": []}}
+    typed = WriteModelDef(model, Assembly=True).OutputValue
+    offset = next((index for index, (old, new) in enumerate(zip(wire, typed)) if old != new), -1)
+    require(offset >= 0 and wire[offset] == 0, "expected an absent renderer marker")
+    independent = wire[:offset] + RENDER_FRAME + wire[offset + 1:]
+    require(typed == independent, "empty renderer changed bytes outside its inline frame")
+    return pack("<I", offset) + independent
+
+
+def read_renderer(packet):
+    offset = unpack_from("<I", packet)[0]
+    wire = packet[4:]
+    require(wire[offset:offset + len(RENDER_FRAME)] == RENDER_FRAME, "invalid authored renderer fixture")
+    result = readback(wire)
+    require(result["renderer"] == RENDER_SAVED, "stored empty assembly renderer was not retained")
+    part_word = bytearray(wire)
+    pack_into("<i", part_word, offset + 1, 6)
+    reserved_word = bytearray(wire)
+    pack_into("<i", reserved_word, offset + 5, 7)
+    return {
+        "definition": result, "offset": offset, "wrapper_frame": RENDER_FRAME.hex(),
+        "part_word_rejection": reject(
+            lambda: ReadModelDef(bytes(part_word), 19000, Assembly=True), "alternate renderer profile"
+        ),
+        "second_word_rejection": reject(
+            lambda: ReadModelDef(bytes(reserved_word), 19000, Assembly=True), "alternate renderer profile"
+        ),
+    }
+
+
 def worker(mode):
     sys.path.insert(0, str(ROOT / "src"))
 
@@ -202,6 +238,10 @@ def worker(mode):
         output = emitted(json.loads(raw))
     elif mode == "readback":
         output = readback(raw)
+    elif mode == "author_renderer":
+        output = author_renderer(raw)
+    elif mode == "read_renderer":
+        output = read_renderer(raw)
     elif mode == "native":
         output = native_readback(raw)
     elif mode == "refusals":
@@ -216,7 +256,7 @@ def run_worker(mode, data):
     child = run((sys.executable, "-I", "-B", str(HERE), "--worker", mode), input=data, capture_output=True,
                 check=False, timeout=60)
     require(child.returncode == 0, f"{mode}: {child.stderr.decode()}")
-    return child.stdout if mode == "author" else json.loads(child.stdout)
+    return child.stdout if mode in ("author", "author_renderer") else json.loads(child.stdout)
 
 
 def check_author(case, job, wire, report):
@@ -281,6 +321,7 @@ def check_native():
 def prove(include_native):
     fresh = []
     refusals = {}
+    renderer = None
     for case in range(2):
         job = input_job(case)
         wire = run_worker("author", json.dumps(job, ensure_ascii=False).encode("utf-8"))
@@ -288,7 +329,17 @@ def prove(include_native):
         check_author(case, job, wire, result)
         if case == 0:
             refusals = run_worker("refusals", wire)
+            renderer = run_worker("read_renderer", run_worker("author_renderer", wire))
+            value = renderer["definition"]
+            require(
+                value["bytes"] == result["bytes"] + len(RENDER_FRAME) - 1
+                and value["map"] == result["map"]
+                and value["preferences"] == result["preferences"]
+                and value["journal"] == result["journal"],
+                "renderer authoring changed other typed values or map slots",
+            )
         fresh.append(result)
+    require(renderer is not None, "missing renderer process control")
     recorded = check_native() if include_native else []
     sources = {
         f"{DEFINITION_PACKAGE}/{name}.py": sha256((ROOT / f"{DEFINITION_PACKAGE}/{name}.py").read_bytes()).hexdigest()
@@ -300,10 +351,11 @@ def prove(include_native):
         "historical_corpus_revision": SOURCE, "sources": sources,
         "proof_sha256": sha256(HERE.read_bytes()).hexdigest(),
         "generated": fresh, "saved": recorded, "refusals": refusals,
+        "authored_renderer": renderer,
         "saved_renderer": RENDER_SAVED if recorded else None,
         "saved_preferences": PREF_SAVED if recorded else None,
         "saved_stream_counts": dict(Counter(row["sha256"] for row in recorded)),
-        "guarded_processes": 5 + len(recorded), "runtime_external_attempts": 0,
+        "guarded_processes": 7 + len(recorded), "runtime_external_attempts": 0,
         "native_launches": 0, "heldout_inputs_read": 0, "public_writer_enabled": False,
         "fcstd_conversion_credit": 0,
     }
@@ -311,7 +363,7 @@ def prove(include_native):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument("--worker", choices=("author", "readback", "native", "refusals"))
+    parser.add_argument("--worker", choices=("author", "readback", "native", "refusals", "author_renderer", "read_renderer"))
     parser.add_argument("--generated", action="store_true")
     arguments = parser.parse_args()
     output = worker(arguments.worker) if arguments.worker else prove(not arguments.generated)

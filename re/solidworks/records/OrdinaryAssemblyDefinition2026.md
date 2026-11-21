@@ -35,7 +35,8 @@ values and refuses an unsupported Boolean, fraction or renderer profile.
 | --- | ---: | ---: | --- |
 | Two distinct fresh settings | 549 / 548 | 7 | Exact prior independent encoding and independently packed inline preferences |
 | Eight disclosed assembly saves | 3,900 each | 60 | Three distinct stream hashes, all typed slots retained and every byte replayed |
-| Fourteen refusal controls | varies | none | Wrong document kind or version, truncated or extra bytes, noncanonical tag, invalid typed preferences |
+| Authored empty renderer | 559 | 7 | Only the inline marker and empty wrapper change |
+| Sixteen refusal controls | varies | none | Wrong document kind or version, truncated or extra bytes, noncanonical tag, invalid preferences or renderer words |
 
 Run `python3.14 -I -B re/tooling/sw2026/definition/ProveAssemblyDef.py` from
 the checkout with the historical Git objects available. The supervisor
@@ -44,9 +45,13 @@ on stdin to guarded fresh readers. It independently packs the inline
 preference tail for the two fresh outputs and checks their whole-stream
 digests against the [prior independent serializer receipt](https://github.com/TryUniCAD/Kit/blob/ed0a90a0e8e913b4eb28f9c2dc6c92a814e32472/re/solidworks/measurements/2026/SdkModelDefinition01.json).
 The fresh authors use only the explicit typed model inputs. Each authored
-stream is checked by a separate process. The 13 guarded workers report zero
-runtime external access attempts. The `--generated` mode is the same
-five-process author, reader and refusal route used by the repository queue.
+stream is checked by a separate process. A separate complete authored
+stream adds the inline presence byte, signed words `(1, 0)` and native
+zero count. Its reader checks the exact 11-byte frame, preserves the
+surrounding graph and re-emits the whole stream. The same reader refuses
+an ordinary part renderer word and an alternate second word. All 15 guarded
+workers report zero runtime external access attempts. The `--generated`
+mode is the same seven-process route used by the repository queue.
 It requires only the checkout and an empty working directory.
 [Exact receipt](../measurements/2026/OrdinaryAssemblyDefinition01.json) ·
 [Queue integration](../../../tests/Convert/Solidworks/ArchiveDefinition/AssemblyDefTests.py)
