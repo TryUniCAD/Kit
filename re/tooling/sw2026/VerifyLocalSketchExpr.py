@@ -34,6 +34,7 @@ INPUTS = (
     "src/convert/adapters/freecad/Replay/PrepareBound.py",
     "src/convert/adapters/freecad/Replay/ReadCache.py",
     "src/convert/adapters/freecad/Replay/ReadNativeArc.py",
+    "src/convert/adapters/freecad/Replay/ReadReplayGraph.py",
     "src/convert/adapters/freecad/Replay/ReplayReadScope.py",
 )
 MUTATIONS = {"os.mkdir", "os.rmdir", "os.remove", "os.rename", "os.link", "os.symlink",
@@ -90,6 +91,35 @@ def normalize(doc, replay_field):
     return digest(wire(model)), len(removed)
 
 
+def reuse_prior_read(doc, pin):
+    from convert.adapters.freecad.Native import ReadNativeFcstd
+    from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
+    from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
+
+    pair = NativeDocPair(doc)
+    assert pair is not None and pair[0].data is not None
+    raw = pair[0].data
+    reads = {}
+    _ = ReadNativeFcstd(raw, doc.source.path, LegacyPadExpr=True, ReplayReads=reads)
+    assert len(reads) == 1
+    count = 0
+    expected = ReadNativeFcstd.__code__
+
+    def trace(frame, event, argument):
+        nonlocal count
+        if event == "call" and frame.f_code is expected:
+            count += 1
+
+    previous = sys.getprofile()
+    try:
+        sys.setprofile(trace)
+        restored, replay = PrepareReplay(doc, Migrate=True, ReplayReads=reads)
+    finally:
+        sys.setprofile(previous)
+    assert count == 0 and restored == doc and replay is not None and digest(replay) == pin
+    return {"reused_independently_verified_projection": True, "additional_archive_parses": count}
+
+
 def restore_baseline(carrier, pin):
     from convert import write_document
     from convert.adapters.freecad.Replay.NativeIdentity import KExplicitSketchProfile, KReplaySketchAttr
@@ -108,7 +138,8 @@ def restore_baseline(carrier, pin):
     changed = replace(original, sketches=(replace(original.sketches[0], suppressed=True),))
     assert PrepareReplay(changed, Migrate=False)[1] is None
     return {"old_explicit_suppression_marker": True, "exact_restore_sha256": pin,
-            "edited_model_declined_exact_replay": True}
+            "edited_model_declined_exact_replay": True,
+            "cached_replay": reuse_prior_read(original, pin)}
 
 
 def observe_stale(original):
@@ -307,6 +338,7 @@ def measure(census):
         "pre_binding_archives_restored_exactly_in_memory": 3,
         "edited_carriers_declined_exact_replay": 3,
         "unmarked_carriers_migrated_with_two_parses": 3,
+        "verified_pre_binding_cache_reused_without_archive_parse": 3,
         "native_products": 0,
         "native_processes": 0,
         "production_corpus_credit": 0,

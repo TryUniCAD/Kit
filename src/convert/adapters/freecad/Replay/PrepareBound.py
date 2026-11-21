@@ -9,11 +9,13 @@ from convert.adapters.freecad.Replay.ApplyFlags import ApplyFlags
 from convert.adapters.freecad.Replay.ApplySketchFlag import ApplySketchFlag
 from convert.adapters.freecad.Replay.HasPadReplay import HasPadReplay
 from convert.adapters.freecad.Replay.NativeIdentity import (
+    KExplicitSketchProfile,
     KReplaySemanticAttr,
     KReplaySketchAttr,
 )
 from convert.adapters.freecad.Replay.PrepareLinked import PrepareLinked
 from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
+from convert.adapters.freecad.Replay.ReadReplayGraph import ReadReplayGraph
 from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
 from interchange.Payloads.PayloadRecord import BrepPayload
 from interchange.document.Models.DocumentModel import CadDocument
@@ -35,21 +37,24 @@ def PrepareBound(
     if not IsUnchanged and PrepareBranch is None:
         return DocValue, None
     ReplayBytes = DataValue if IsUnchanged else None
+    SketchProfile = NativeDoc.attributes.get(KReplaySketchAttr)
     IsHistorical = KReplaySketchAttr not in NativeDoc.attributes
     try:
-        Current = ReadNativeFcstd(
+        Current, CurrentDigest = ReadReplayGraph(
             DataValue,
             DocValue.source.path,
-            LegacyPadExpr=IsHistorical,
-            ReplayReads=ReplayReads,
+            Expected,
+            IsHistorical,
+            IsUnchanged and SketchProfile == KExplicitSketchProfile,
+            ReplayReads,
         )
-        if SemanticDigest(Current) == Expected:
+        if CurrentDigest == Expected:
             return PrepareLinked(DocValue, InitialDigest, PrepareBranch, ReplayBytes)
         if IsUnchanged and HasPadReplay(
             DataValue,
             DocValue.source.path,
             Expected,
-            NativeDoc.attributes.get(KReplaySketchAttr),
+            SketchProfile,
             ReplayReads,
         ):
             return PrepareLinked(DocValue, InitialDigest, PrepareBranch, ReplayBytes)
