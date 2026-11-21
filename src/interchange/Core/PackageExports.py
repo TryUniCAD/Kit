@@ -90,6 +90,7 @@ KPackageExports = (
     "ParameterValue",
     "ParabolaGeometry",
     "PayloadRole",
+    "PlaneAxis",
     "PlaneSurface",
     "PointGeometry",
     "Provenance",

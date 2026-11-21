@@ -36,3 +36,17 @@ def CheckBoundPlane(
         )
     ):
         raise ValueError("construction plane controls disagree with its support frame")
+
+
+# document diagnostics must preserve the individual bound plane and its actual validation failure
+def GetBoundErrs(
+    StepValue: FeatureStep,
+    Definition: BoundDatum,
+    Parameters: TypeMap[str, Parameter],
+    Frames: TypeMap[str, SupportPlane],
+) -> tuple[str, ...]:
+    try:
+        CheckBoundPlane(StepValue, Definition, Parameters, Frames)
+    except ValueError as ErrorInfo:
+        return (f"construction plane {StepValue.id} is invalid: {ErrorInfo}",)
+    return ()

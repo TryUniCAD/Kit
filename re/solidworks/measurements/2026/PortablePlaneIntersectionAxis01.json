@@ -1,0 +1,79 @@
+{
+  "disclosed_pattern_cases": {
+    "ColdRaisedPatternA": {
+      "container": {
+        "bytes": 10474,
+        "sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+        "version": 4
+      },
+      "legacy_model": {
+        "historical_invalid_frame_refused": true,
+        "runtime_reads": 0,
+        "wire_sha256": "d2116cf1321efef16fe5707e40c2659bdae237899bcdcb29f0ccb8f5e21c88f0"
+      },
+      "runtime_reads": 0,
+      "typed_streams": 10,
+      "wire_sha256": "5d12bb21c24a3789f8e68d03e76af04adaf49e809595ac270876855ff6cb8a0f"
+    },
+    "ColdRaisedPatternB": {
+      "container": {
+        "bytes": 10461,
+        "sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+        "version": 4
+      },
+      "legacy_model": {
+        "historical_invalid_frame_refused": true,
+        "runtime_reads": 0,
+        "wire_sha256": "2ba3b10d5ac6cefebf7b0ee66e6a6b74c054c783ebccaa25485f5935bfcb10f9"
+      },
+      "runtime_reads": 0,
+      "typed_streams": 10,
+      "wire_sha256": "075a4dcfdf18f5f86ab8bbdf7cbfb583d7829ed3c98c52097093b4d49a1aa3fe"
+    }
+  },
+  "guarded_processes": 25,
+  "historical_processes": 4,
+  "new_native_acceptance": 0,
+  "prior_revision": "cc798c32cfb5fe20fb59f781da097a2553f8da9e",
+  "refusals": {
+    "absent_plane": "selects a missing support plane",
+    "bad_path": "requires a direct support plane selection",
+    "coincident_tips": "distinct endpoints with a finite span",
+    "empty_selection": "two distinct nonempty selection ids",
+    "endpoint_overflow": "finite spatial coordinates",
+    "nonnumeric_tip": "finite spatial coordinates",
+    "parallel_planes": "must define a unique intersection",
+    "repeated_selection": "two distinct nonempty selection ids",
+    "same_plane_twice": "must select two distinct support planes",
+    "span_overflow": "distinct endpoints with a finite span",
+    "subelement_plane": "requires a direct support plane selection",
+    "swapped_feature_roles": "inconsistent ordered selection roles",
+    "translated_off_line": "endpoints are outside their support planes",
+    "wrong_axis_direction": "direction does not follow both support planes",
+    "wrong_kind": "requires a reference feature"
+  },
+  "schema": "kit.portable-plane-intersection-axis.v1",
+  "standalone_axes": {
+    "oblique": {
+      "runtime_reads": 0,
+      "wire_sha256": "bcf5a61a170e1efbeb90e008729c3eb713af7d906abe51fd862ef4d52332e2ae"
+    },
+    "translated": {
+      "runtime_reads": 0,
+      "wire_sha256": "d35376f014adb700e1c28e5a6109e0ad624f2af4c2f00dbe8c711810c63d7c9e"
+    }
+  },
+  "tools": {
+    "re/tooling/sw2026/linear_pattern/neutral/ProvePortableAxis.py": "0185af5768dbb97ec96e25e4aa1c52453062804108c06d007d050ef8238d2ca5",
+    "src/interchange/Core/PackageExports.py": "a749c3d5977b0ee73f2cb1b70a555154f527296e83aaa58a36f4b036cf655e1b",
+    "src/interchange/Features/CheckAxisFit.py": "68626990aa32b9bffaaf32f2e7547f767dd5e8f67b7c1faabe30a7e131a25a51",
+    "src/interchange/Features/FeaturePlaneAxis.py": "e4870b7a06a275cea33f3a3893555507b4ef4a0ce0ea392cc65ee1b602e28dd5",
+    "src/interchange/Features/PlaneAxisLine.py": "3dd1af49304a2602f67cd7956c0a5b381fbad4b34e90ce93eb0a28fee7d00895",
+    "src/interchange/__init__.py": "17d4ef8f8c22931336ad5c51d164d2a38ba280eec4ee1e4f01ff56b9915edf53",
+    "src/interchange/document/Validation/BoundPlaneValidate.py": "f050787074ca5d8d56f43982c6a036b1ec31a42ce478d02de56acca1a730b88e",
+    "src/interchange/document/Validation/DocumentDefValidate.py": "bfa9e0f28d18d7aced7c7bde98ff5224b4eb7aeb961c341ae00809dd3da52b7d",
+    "src/interchange/document/Validation/PlaneAxisValidate.py": "ee71a8f9a9cc17f9093628e80d1a374e7e04105a4e7e148c7f3fb89d8a896151",
+    "src/interchange/history/__init__.py": "c6cbc68dad3ffe37d499ad35b46209f6dca80eccd2dcec5a0941280b1fdcfa02",
+    "src/interchange/serialization/WireTypes.py": "9b65b28bb8a068eec61d8920d65042ee77e24e15902f512bc069b928fd111bbe"
+  }
+}
