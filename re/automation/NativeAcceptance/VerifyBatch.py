@@ -58,6 +58,7 @@ def HealthyControl(result):
 def VerifyBatch(root, application, samples, output):
     from contextlib import closing
     from convert import open_document
+    from interchange.document.Models.DocumentModel import CadDocument
 
     availability = ApiStatus(application)
     revision = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"], capture_output=True, text=True, timeout=15, check=True).stdout.strip()
@@ -98,8 +99,18 @@ def VerifyBatch(root, application, samples, output):
             payload = sample["load"]()
             if hashlib.sha256(payload).hexdigest() != sample["sha256"]:
                 raise ValueError("native batch source differs from its decoded input pin")
-            document = open_document(payload, source_format=source_format, configuration=sample.get("configuration"), strict=True, include_brep=True, include_tessellation=False)
-            entry["neutral_sha256"] = hashlib.sha256(document.to_json(indent=None).encode()).hexdigest()
+            if sample.get("neutral_path") is not None:
+                encoded = ReadBytes(sample["neutral_path"], 64 * 1024 * 1024)
+                if hashlib.sha256(encoded).hexdigest() != sample["neutral_sha256"]:
+                    raise ValueError("published reader artifact changed before its native comparison")
+                document = CadDocument.from_json(encoded.decode("utf-8"))
+                document.assert_valid()
+                if document.source.sha256 != sample["sha256"]:
+                    raise ValueError("published reader document does not bind the pinned native source")
+                entry["neutral_sha256"] = sample["neutral_sha256"]
+            else:
+                document = open_document(payload, source_format=source_format, configuration=sample.get("configuration"), strict=True, include_brep=True, include_tessellation=False)
+                entry["neutral_sha256"] = hashlib.sha256(document.to_json(indent=None).encode()).hexdigest()
             with closing(MeasureFile(application, availability, payload, suffix, "candidate", sample.get("configuration"))) as measurement:
                 work, result = next(measurement)
                 entry["measurement"] = Persist(f"case-{case_index}-measurement", result)
