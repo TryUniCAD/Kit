@@ -21,7 +21,7 @@ def MakePauseEnv(ReadyPath: FilePath, PausePath: FilePath) -> dict[str, str]:
         FilePath(__file__).with_name("PauseOnSettlement.py"),
         Startup / "sitecustomize.py",
     )
-    PythonPaths = [str(Startup)]
+    PythonPaths = [str(Startup), str(KRepoRoot)]
     if Existing := Environment.get("PYTHONPATH"):
         PythonPaths.append(Existing)
     return {

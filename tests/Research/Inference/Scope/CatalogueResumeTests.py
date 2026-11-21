@@ -9,6 +9,7 @@
 from json import loads as DecodeJson
 from pathlib import Path as FilePath
 
+from tests.Research.Inference.Scope.CheckPauseLog import CheckPauseLog
 from tests.Research.Inference.Scope.FeatureCatalogueTests import KCatalogue
 from tests.Research.Inference.Scope.FeatureHandoffTests import RunAutomation
 from tests.Research.Inference.Scope.PauseInitialRun import PauseInitialRun
@@ -28,16 +29,7 @@ def CheckResume(TmpPath: FilePath) -> None:
     assert Before["status"] == "paused"
     SavedJobs = ReadReceipts(Before)
     assert SavedJobs
-    LogLines = [
-        DecodeJson(LineText)
-        for LineText in LogPath.read_text(encoding="utf-8").splitlines()
-    ]
-    Cutoff = next(
-        Index
-        for Index, Event in enumerate(LogLines)
-        if Event.get("event") == "catalogue_paused"
-    )
-    assert all(Event.get("event") != "started" for Event in LogLines[Cutoff + 1 :])
+    CheckPauseLog(LogPath)
     Progress = RunAutomation(
         ToolPath, *SavedArgs, "--resume", "--max-seconds", "35", Expected=2
     )

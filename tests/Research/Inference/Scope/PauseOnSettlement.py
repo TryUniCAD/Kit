@@ -9,31 +9,10 @@
 from os import environ as Environment
 from pathlib import Path as FilePath
 from sys import argv as Arguments, getprofile as GetProfile, setprofile as SetProfile
-from time import monotonic as Clock, sleep as WaitFor
 from types import FrameType
 
-
-# a completed report happens after receipt publication and before the next admission
-def IsSettlement(Frame: FrameType, Event: str, Owner: str) -> bool:
-    if (
-        Event != "return"
-        or Frame.f_code.co_filename != Owner
-        or Frame.f_code.co_qualname != "Supervisor.report"
-        or Frame.f_locals.get("action") != "finished"
-    ):
-        return False
-    Detail = Frame.f_locals["detail"]
-    return bool(Detail.get("outcome") == "completed" and Detail.get("stale") is False)
-
-
-# only the genuine pause command can release the test supervisor to check its marker
-def WaitForPause(ReadyPath: FilePath, PausePath: FilePath) -> None:
-    ReadyPath.touch(exist_ok=False)
-    Deadline = Clock() + 10
-    while not PausePath.is_file():
-        if Clock() >= Deadline:
-            raise TimeoutError("catalogue pause command did not publish its marker")
-        WaitFor(0.01)
+from tests.Research.Inference.Scope.IsSettlement import IsSettlement
+from tests.Research.Inference.Scope.WaitForPause import WaitForPause
 
 
 # the startup hook selects the intended executable and its actual pause marker path
