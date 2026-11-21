@@ -161,17 +161,28 @@ def validate_cases(spec):
     return cases
 
 
-def source_case(case, output, oracle):
+def source_case(case, output, oracle, reuse=None):
     directory = output / case["name"]
     directory.mkdir()
     path = directory / (case["name"] + ".SLDPRT")
     edited_path = directory / (case["name"] + "-edited.SLDPRT")
-    written, written_receipt = run_phase(case, "author", path, oracle, author_type=RevolveEndAuthor)
+    if reuse is None:
+        written, written_receipt = run_phase(case, "author", path, oracle, author_type=RevolveEndAuthor)
+    else:
+        path = Path(reuse["directory"]) / path.name
+        receipt = path.with_suffix(".author.json")
+        written_receipt = digest(receipt)
+        require(written_receipt == reuse["authored_receipt_sha256"], "prior authoring receipt changed")
+        written = json.loads(receipt.read_bytes())
+        require(written["passed"] and written["job"] == {"case": case, "phase": "author"}
+                and written["oracle_identity"]["sha256"] == oracle, "prior authoring receipt has different provenance")
+        require(digest(path) == written["native_sha256"] == reuse["native_sha256"], "prior native source changed")
     phases = [(written, written_receipt)]
     native_hash = written.get("native_sha256")
     if written["passed"]:
         reopened, reopened_receipt = run_phase(case, "reopen", path, oracle, native_hash, inspect_profile=True,
-                                              inspect_before_rebuild=True, save_edited=edited_path, author_type=RevolveEndAuthor)
+                                              inspect_before_rebuild=True, save_edited=edited_path, author_type=RevolveEndAuthor,
+                                              record_path=directory / (case["name"] + ".reopen.json"))
         phases.append((reopened, reopened_receipt))
         if reopened["passed"] and reopened.get("edit", {}).get("passed"):
             edited = dict(case, angle_deg=case["edit_angle_deg"], second_deg=case["edit_second_deg"])
@@ -179,7 +190,8 @@ def source_case(case, output, oracle):
                                     reopened["edited_derivative"]["sha256"], inspect_profile=True,
                                     inspect_before_rebuild=True, author_type=RevolveEndAuthor))
     row = {"name": case["name"], "mode": case["mode"], "native_sha256": native_hash, "native_bytes": written.get("native_bytes"),
-           "phase_record_sha256": [sha for _, sha in phases], "passed": len(phases) == 3 and all(result["passed"] for result, _ in phases)}
+           "phase_record_sha256": [sha for _, sha in phases], "reused_authored_phase": reuse is not None,
+           "passed": len(phases) == 3 and all(result["passed"] for result, _ in phases)}
     return row, [result for result, _ in phases]
 
 
@@ -193,6 +205,10 @@ def main():
     require(digest(spec_path) == job["spec_sha256"] and digest(control) == job["control_sha256"], "private spec or control digest differs")
     spec = json.loads(spec_path.read_bytes())
     cases = validate_cases(spec)
+    reused = job.get("reuse_authored", {})
+    require(not reused or spec["split"] == "discovery" and set(reused) <= {case["name"] for case in cases}
+            and all(not Path(row["directory"]).resolve().is_relative_to(checkout) for row in reused.values()),
+            "only declared discovery sources outside the checkout can reuse an authoring receipt")
     output.mkdir(parents=True)
     RevolveEndAuthor.constants = read_constants()
     tools = {name: Path(__file__).with_name(name) for name in ("AuthorRevolveEnds.py", "AuthorRevolveSources.py", "AuthorCurves.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py")}
@@ -217,7 +233,7 @@ def main():
         measure_control("control-before")
         if evidence["control-before"]["passed"]:
             for case in cases:
-                row, phases = source_case(case, output, oracle)
+                row, phases = source_case(case, output, oracle, reused.get(case["name"]))
                 evidence["sources"].append(row)
                 for phase in phases:
                     if "oracle_identity" in phase:
