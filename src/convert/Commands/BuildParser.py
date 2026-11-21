@@ -49,8 +49,8 @@ def BuildParser(VersionText: str | None = None) -> ArgumentParser:
     AddResearchMut(Research)
     RunParser = Commands.add_parser(
         "run",
-        help="Run a CAD catalogue from a trusted checkout",
+        help="Run CAD file or catalogue research from a trusted checkout",
         allow_abbrev=False,
     )
-    AddResearchMut(RunParser, ("fusion", "solidworks"))
+    AddResearchMut(RunParser, ("fusion", "solidworks", "auto"))
     return Parser

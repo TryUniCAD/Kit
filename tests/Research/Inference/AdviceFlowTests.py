@@ -22,7 +22,7 @@ from tests.Research.SupervisorClient import FixtureJob
 @MarkValue.skipif(PlatformName != "posix", reason="Codex account runner requires POSIX")
 def CheckGapAdvice(TmpPath: FilePath) -> None:
     Harness = PrepareWorker(TmpPath)
-    SetProviderMut(Harness, TmpPath)
+    SetProviderMut(Harness.Environment, TmpPath)
     Harness.BindBytes(
         "gap-plan",
         EncodeJson(
@@ -49,7 +49,7 @@ def CheckGapAdvice(TmpPath: FilePath) -> None:
 @MarkValue.skipif(PlatformName != "posix", reason="Codex account runner requires POSIX")
 def CheckFieldCall(TmpPath: FilePath, Refute: bool) -> None:
     Harness = PrepareWorker(TmpPath)
-    SetProviderMut(Harness, TmpPath)
+    SetProviderMut(Harness.Environment, TmpPath)
     Inputs = WriteFieldPlan(TmpPath, Refute)
     for Descriptor in Inputs.values():
         Harness.BindBytes(

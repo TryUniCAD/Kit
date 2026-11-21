@@ -13,6 +13,7 @@ from pathlib import Path
 import sqlite3
 import subprocess
 import sys
+from tempfile import TemporaryDirectory
 
 sys.path[:0] = [
     str(Path(__file__).resolve().parents[1]),
@@ -39,6 +40,8 @@ def MainRun():
         description="Run every mapped feature in one or both CAD catalogues",
         allow_abbrev=False,
     )
+    Parser.add_argument("--input", type=Path, help="Inspect this CAD file and schedule feature experiments from its decoded structure")
+    Parser.add_argument("--control", type=Path, action="append", default=[], help="Local SOLIDWORKS control part or raw binary comparison stream in auto mode (repeatable)")
     Parser.add_argument("--directory", required=True, type=Path)
     Mode = Parser.add_mutually_exclusive_group()
     Mode.add_argument(
@@ -56,7 +59,7 @@ def MainRun():
         "--catalogue", type=Path, help="Catalogue path for the kit run format"
     )
     Parser.add_argument(
-        "--batch-format", choices=("fusion", "solidworks"), help=SUPPRESS
+        "--batch-format", choices=("fusion", "solidworks", "auto"), help=SUPPRESS
     )
     Parser.add_argument("--fusion-sha256")
     Parser.add_argument(
@@ -149,7 +152,7 @@ def CheckSavedArgs(Args):
             Args.model,
             Args.advice_calls,
         )
-    ) or (Args.pause and (Args.native_ready or Args.max_seconds is not None)):
+    ) or Args.input is not None or Args.control or (Args.pause and (Args.native_ready or Args.max_seconds is not None)):
         raise ValueError(
             "use the saved run directory without new input or worker options"
         )
@@ -165,7 +168,19 @@ def StartNewRun(Args, SourceRoot):
     Advice = read_options(Args)
     if Advice is not None and os.name != "posix":
         raise ValueError("decoder advice requires macOS or Linux")
-    Catalogues = ReadRunInputs(Args)
+    FileAudit = None
+    if Args.batch_format == "auto" and not Args.input:
+        raise ValueError("kit run auto requires --input")
+    if Args.control and (not Args.input or (Args.batch_format != "auto" and (Args.batch_format != "solidworks" or Args.input.suffix.lower() != ".sldprt"))):
+        raise ValueError("--control requires a SOLIDWORKS part --input")
+    if Args.input:
+        from InferenceGrid.FileScope import file_scope
+        if not Args.batch_format or any((Args.catalogue, Args.solidworks_catalogue, Args.fusion_catalogue, Args.fusion_sha256, Args.solidworks_sha256)):
+            raise ValueError("use --input with one kit run format and no catalogue options")
+        with TemporaryDirectory() as Scratch:
+            Catalogues, FileAudit = file_scope(Args.input, Args.batch_format, Path(Scratch), SourceRoot, Args.control)
+    else:
+        Catalogues = ReadRunInputs(Args)
     Native = ReadNativeOptions(Args)
     if Args.native_ready and Native is None:
         raise ValueError("--native-ready requires the native worker configuration")
@@ -181,6 +196,8 @@ def StartNewRun(Args, SourceRoot):
         Reserve=Reserve,
         Workers=KMaxBatchWorkers if Args.workers is None else Args.workers,
         NativeReady=Args.native_ready,
+        FileScope=FileAudit,
+        FileInput=Args.input,
     )
 
 

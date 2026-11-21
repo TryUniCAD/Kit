@@ -1,4 +1,7 @@
 from __future__ import annotations as Annotations
+from convert.adapters.solidworks.Core.Dimensions.RuleContext import RuleContext
+from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
+from convert.adapters.solidworks.Core.Dimensions.BindRuleRefsMut import BindRuleRefsMut
 from collections import defaultdict as Defaultdict
 from contextlib import suppress as Suppress
 from dataclasses import dataclass as DataClass, replace as Replace
@@ -166,16 +169,16 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.LinkLocal
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalImport import (
     ReadLocalImport,
 )
+from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
+from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
-    XmlFeature,
     NativeMarker,
     NativeModel,
     NativeOperation,
     NativePlane,
     NativeProfile,
-    NativeRule,
     NativeSketch,
     DIRECTION_AXIS_ROLE as DirectionAxisRole,
     decode_native_model as DecodeNativeModel,
@@ -184,7 +187,10 @@ from convert.adapters.solidworks.Core.Native import (
 from convert.adapters.solidworks.Core.Cut.CutDocument import ProjectCutDoc
 from convert.adapters.solidworks.Core.Cut.CutEqProjection import ReadCutArchive
 from convert.adapters.solidworks.Core.Partition.ActivePartition import ReadActivePart
-from convert.adapters.solidworks.Core.Partition.PartTopology import ActivePartMass, PartTopology
+from convert.adapters.solidworks.Core.Partition.PartTopology import (
+    ActivePartMass,
+    PartTopology,
+)
 from convert.adapters.solidworks.Core.OrdinaryRead import (
     IsEmptyPart,
     KArchiveSupport,
@@ -353,7 +359,9 @@ def ReadNativePart(
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
-    PlaneValues, SketchValues = PartSketchData(Model, {Param.id for Param in ParamValues})
+    PlaneValues, SketchValues = PartSketchData(
+        Model, {Param.id for Param in ParamValues}
+    )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
@@ -404,7 +412,9 @@ def ReadNativePart(
     )
     if LocalOwner is not None and BrepValue is not None:
         BrepValue, Fallback = LinkLocalBody(BrepValue, KPartBodyId, Fallback)
-    Summary, Measures = ActivePartMass(SavedPart, PartTopology(SavedPart, KPartBodyId, Fallback), KPartBodyId)
+    Summary, Measures = ActivePartMass(
+        SavedPart, PartTopology(SavedPart, KPartBodyId, Fallback), KPartBodyId
+    )
     Bodies = (
         BodyValue(
             id=KPartBodyId,
@@ -422,9 +432,14 @@ def ReadNativePart(
                     ),
                     **(
                         {"parasolid_active_payload_id": ActivePart.PayloadId}
-                        if ActivePart is not None and ActivePart.ModelValue is not None else {}
+                        if ActivePart is not None and ActivePart.ModelValue is not None
+                        else {}
                     ),
-                    **({"solidworks.body_centroid_mm": Measures.Centroid} if Measures is not None else {}),
+                    **(
+                        {"solidworks.body_centroid_mm": Measures.Centroid}
+                        if Measures is not None
+                        else {}
+                    ),
                 }
             ),
         ),
@@ -499,7 +514,9 @@ def ReadNativePart(
 
 
 # planes and sketches must bind to the same native parameter identities
-def PartSketchData(Model: NativeModel, ParamIds: set[str]) -> tuple[tuple[SupportPlane, ...], tuple[SketchData, ...]]:
+def PartSketchData(
+    Model: NativeModel, ParamIds: set[str]
+) -> tuple[tuple[SupportPlane, ...], tuple[SketchData, ...]]:
     return Planes(Model, ParamIds), Sketches(Model, ParamIds)
 
 
@@ -547,9 +564,7 @@ def ProjectScopeDoc(
             ScopedPayloads = tuple(
                 BrepPayloadA(Index, Value)
                 for Index, Value in enumerate(
-                    DecodePartitionStream(
-                        Archive.require(PartitionName), PartitionName
-                    )
+                    DecodePartitionStream(Archive.require(PartitionName), PartitionName)
                 )
             )
         return ReadScopeDoc(
@@ -2279,7 +2294,7 @@ def Parameters(
                 if Dimension.native_value is not None
                 else (
                     Dimension.value_mm / 1000.0
-                    if Dimension.value_mm is not None
+                    if Dimension.value_mm is not None and Dimension.kind != "angle"
                     else None
                 )
             )
@@ -2312,12 +2327,14 @@ def Parameters(
                             "native_value": NativeValue,
                             "native_unit": (
                                 None
-                                if Dimension.value_mm is None
+                                if NativeValue is None or Dimension.value_mm is None
                                 else "rad" if Dimension.kind == "angle" else "m"
                             ),
                             **(
                                 {KUnresolvedInchDimension: True}
                                 if Dimension.value_mm is None
+                                and Dimension.kind
+                                not in {"sketch_pattern_count", "instance_count"}
                                 else {}
                             ),
                             "native_role": Dimension.native_role or "unresolved",
@@ -2347,6 +2364,13 @@ def Parameters(
 
 # this definition exists because focused behavior needs one stable owner
 def DimensionParam(Dimension: NativeDimension) -> ParamValue:
+    if Dimension.kind in {"sketch_pattern_count", "instance_count"}:
+        Count = CountValue(Dimension)
+        return (
+            ParamValue(Count, ValueKind.INTEGER)
+            if Count is not None
+            else ParamValue(Dimension.source_text, ValueKind.STRING)
+        )
     if Dimension.value_mm is None:
         if Dimension.inch_display_value is not None:
             return ParamValue(Dimension.inch_display_value, ValueKind.LENGTH, "in")
@@ -2748,16 +2772,10 @@ def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
         }
     )
     MarkerRefsMut(Sketch, MarkerEntities, RefMap)
-    Constraints = SketchB(Sketch, RefMap, ParamIds)
+    Constraints = SketchB(Sketch, RefMap, ParamIds, MarkerValues)
     ClosedProfiles = ClosedSketch(Sketch)
     Entries = ParamEntries(Sketch.object_id, Sketch.dimensions)
-    SketchParamIds = tuple(
-        (
-            ParamId
-            for _, ParamId in Entries
-            if ParamId in ParamIds
-        )
-    )
+    SketchParamIds = tuple((ParamId for _, ParamId in Entries if ParamId in ParamIds))
     Neutral = SketchData(
         id=SketchId(Sketch.object_id),
         name=Sketch.name,
@@ -2779,8 +2797,11 @@ def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
         ),
     )
     return ProjectRect(
-        Neutral, Sketch.rectangle, Sketch.rectangle_geometry_stream or Sketch.native_stream,
-        Entries, SeedEmpty=Sketch.rectangle_geometry_stream is not None,
+        Neutral,
+        Sketch.rectangle,
+        Sketch.rectangle_geometry_stream or Sketch.native_stream,
+        Entries,
+        SeedEmpty=Sketch.rectangle_geometry_stream is not None,
     )
 
 
@@ -3125,20 +3146,10 @@ def NativeMarkerA(Marker: NativeMarker, EntityType: str | None = None) -> Native
     )
 
 
-# this state exists because sketch rule resolution shares occurrence counters
-@DataClass(slots=True)
-class RuleContext:
-    Candidates: Mapping[float, list[tuple[str, str]]]
-    DimensionsByName: Mapping[str, list[NativeDimension]]
-    ParamIdsByName: Mapping[str, list[str]]
-    DimensionUsage: Defaultdict[float, int]
-    ParamUsage: Defaultdict[str, int]
-    RuleIdUsage: Defaultdict[str, int]
-    ParamIds: set[str]
-
-
 # this definition exists because rule resolution needs indexed dimensions and profiles
-def RuleContextA(Sketch: NativeSketch, ParamIds: set[str]) -> RuleContext:
+def RuleContextA(
+    Sketch: NativeSketch, ParamIds: set[str], MarkerValues: Sequence[SketchEntity] = ()
+) -> RuleContext:
     Candidates: Defaultdict[float, list[tuple[str, str]]] = Defaultdict(list)
     for ProfileIndex, Profile in enumerate(Sketch.profiles):
         if Profile.kind != "rectangle":
@@ -3164,6 +3175,9 @@ def RuleContextA(Sketch: NativeSketch, ParamIds: set[str]) -> RuleContext:
         Defaultdict(int),
         Defaultdict(int),
         ParamIds,
+        tuple(
+            Entity for Entity in MarkerValues if isinstance(Entity.geometry, CircleGeom)
+        ),
     )
 
 
@@ -3179,13 +3193,6 @@ def RulePartsMut(
     str | None,
     str,
 ]:
-    ResolvedRefs = [RefMap.get(RefValue) for RefValue in RuleValue.references]
-    References = (
-        [RuleRef(Resolved) for Resolved in ResolvedRefs if Resolved is not None]
-        if ResolvedRefs and all(ResolvedRefs)
-        else []
-    )
-    KindValue = RuleValue.kind
     NativeName = (
         RuleValue.parameter.rsplit(":", 1)[-1]
         if RuleValue.parameter is not None
@@ -3194,19 +3201,9 @@ def RulePartsMut(
     ItemValue = ContextMut.ParamUsage[NativeName] if NativeName else 0
     Dimensions = ContextMut.DimensionsByName.get(NativeName, [])
     Dimension = Dimensions[min(ItemValue, len(Dimensions) - 1)] if Dimensions else None
-    if (
-        not References
-        and RuleValue.parameter is not None
-        and Dimension is not None
-        and Dimension.value_mm is not None
-    ):
-        KeyValue = round(Dimension.value_mm, 9)
-        Available = ContextMut.Candidates.get(KeyValue, [])
-        if Available:
-            Index = ContextMut.DimensionUsage[KeyValue] % len(Available)
-            EntityId, KindValue = Available[Index]
-            ContextMut.DimensionUsage[KeyValue] += 1
-            References = [RuleRef(EntityId)]
+    References, KindValue = BindRuleRefsMut(
+        RuleValue, RefMap, ContextMut, Dimension, Dimensions
+    )
     ParamId = None
     if RuleValue.parameter is not None:
         AvailableIds = ContextMut.ParamIdsByName.get(NativeName, [])
@@ -3283,9 +3280,12 @@ def ProfileRules(Sketch: NativeSketch) -> tuple[SketchRule, ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def SketchB(
-    Sketch: NativeSketch, RefMap: dict[str, str], ParamIds: set[str]
+    Sketch: NativeSketch,
+    RefMap: dict[str, str],
+    ParamIds: set[str],
+    MarkerValues: Sequence[SketchEntity] = (),
 ) -> tuple[SketchRule, ...]:
-    ContextMut = RuleContextA(Sketch, ParamIds)
+    ContextMut = RuleContextA(Sketch, ParamIds, MarkerValues)
     ExplicitRules = tuple(
         (
             BuildSketchRule(Sketch, RuleValue, RefMap, ContextMut)
@@ -3305,7 +3305,9 @@ def SelectSpans(
         if RecordKind == "cut-target-body" and Offset in Offsets
     )
     return Saved or tuple(
-        ProvenanceSpan(Operation.native_stream, Offset, 38, f"{Operation.selection_kind}-selection")
+        ProvenanceSpan(
+            Operation.native_stream, Offset, 38, f"{Operation.selection_kind}-selection"
+        )
         for Offset in Offsets
     )
 
@@ -3338,11 +3340,13 @@ def Selections(Model: NativeModel) -> tuple[Selection, ...]:
                             "native_local_id": LocalId,
                             **(
                                 {"topology_role": "historical_cut_target"}
-                                if HasTarget else {
+                                if HasTarget
+                                else {
                                     "native_identity": "7dc39425ad49b2547dc39425ad49b254",
                                     "topology_role": (
                                         "extrusion_terminal_profile_boundary"
-                                        if Operation.kind == "fillet" else f"native_{KindValue}"
+                                        if Operation.kind == "fillet"
+                                        else f"native_{KindValue}"
                                     ),
                                 }
                             ),
@@ -4088,7 +4092,9 @@ def FeatureSpan(Sketch: NativeSketch) -> Provenance:
     Reference = Sketch.support_plane
     if Reference is None or Sketch.support_source != KArchiveSupport:
         return Origin
-    SupportSpan = ProvenanceSpan(Sketch.native_stream, Reference.offset, 4, "sketch-support-reference")
+    SupportSpan = ProvenanceSpan(
+        Sketch.native_stream, Reference.offset, 4, "sketch-support-reference"
+    )
     return Replace(Origin, spans=Origin.spans + (SupportSpan,))
 
 

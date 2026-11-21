@@ -726,6 +726,9 @@ jobs:
       - name: Synchronize the locked environment
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
+      - name: Verify Semgrep path filter compatibility
+        run: uv run python -m tools.Security.SemgrepPaths
+
       - name: Run Semgrep SAST
         run: uv run semgrep scan --config=p/default --error --metrics=off --timeout=30 --exclude=.venv --exclude=examples --exclude=Parashell --exclude=modules --exclude=re
 
