@@ -1,5 +1,4 @@
 import math
-from pathlib import Path
 
 from NativeAcceptance.FusionBrep import MeasureBrep
 from NativeAcceptance.FusionSemantics import MeasureSemantics
