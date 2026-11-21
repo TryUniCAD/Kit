@@ -18,7 +18,9 @@ An executable path or a successful launch therefore does not establish native ve
 ## Workaround
 
 Install KitVerify with `kit research --root CHECKOUT api enable fusion`.
-Enable the add-in and **Run on Startup** inside Fusion, then close Fusion.
+Run the add-in once and select **Run on Startup** inside Fusion, then close Fusion.
+Ordinary startup exits before loading the research checkout.
+The verifier's fresh process receives a private session nonce and registers the worker only for that session.
 The verifier binds each request to the newly launched process PID, a nonce, a deadline, and the source hash.
 The main-thread handler returns measurements before requesting shutdown of its own empty application process.
 Missing replies, process redirection, and retained documents leave verification incomplete.

@@ -18,7 +18,6 @@ def CheckFullCompare(TmpPath: FilePath, VariantName: str) -> None:
         for FieldName in ("vertices_mm", "edges", "faces"):
             Evidence["bodies"][0]["geometry"][FieldName].reverse()
         for FaceValue in Evidence["bodies"][0]["geometry"]["faces"]:
-            FaceValue["loops"].reverse()
             for Boundary in FaceValue["loops"]:
                 Boundary.reverse()
         for FieldName in ("entities", "constraints"):
