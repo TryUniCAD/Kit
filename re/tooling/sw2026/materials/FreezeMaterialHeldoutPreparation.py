@@ -38,6 +38,11 @@ EVIDENCE = (
     "re/solidworks/measurements/2026/SdkAnchoredNamedPartNative02.json",
 )
 NEEDED = (WORKER, FREEZER, GUARD, *RELATED)
+CHANGE_PATHS = {
+    WORKER, FREEZER,
+    "Documentation/Changes/Solidworks/Inspection/Materials/SolidworksMaterialNeutralPreparation.md",
+    "re/solidworks/records/AssignedMaterialNeutralPreparation2026.md",
+}
 
 
 def require(condition, message):
@@ -79,7 +84,8 @@ def blob(rev, path):
 
 def commit_check(revision):
     require(re.fullmatch("[a-f0-9]{40}", revision)
-            and git("rev-parse", revision + "^").decode().strip() == BASE
+            and git("merge-base", BASE, revision).decode().strip() == BASE
+            and set(git("diff", "--name-only", BASE, revision).decode().splitlines()) == CHANGE_PATHS
             and git("rev-parse", revision + ":src").decode().strip() == SDK_TREE,
             "freeze requires the committed method on the exact unaffected SDK base")
     require(blob(revision, FREEZER) == HERE.read_bytes(), "running freezer differs from the committed method")
@@ -90,14 +96,13 @@ def commit_check(revision):
 def restore(revision, root):
     requested = ("src", *NEEDED, *TEST_INITS)
     listing = git("ls-tree", "-r", "-z", revision, *requested)
-    expected = {
-        row.split(b"\t", 1)[1].decode()
-        for row in listing.split(b"\x00") if row and row.endswith(b".py")
-    }
+    entries = [row.decode().split("\t", 1) for row in listing.split(b"\x00") if row.endswith(b".py")]
+    require(all(metadata.split()[:2] in (["100644", "blob"], ["100755", "blob"]) for metadata, _ in entries),
+            "only regular tracked Python files belong in this freeze")
+    expected = {name for _, name in entries}
     require(set(NEEDED) <= expected, "a tracked method dependency is missing")
     manifest = {}
-    paths = ("src", *sorted(expected - {name for name in expected if name.startswith("src/")}))
-    with open_tar(fileobj=BytesIO(git("archive", revision, "--", *paths))) as archive:
+    with open_tar(fileobj=BytesIO(git("archive", revision, "--", "src"))) as archive:
         for member in archive:
             name = member.name
             if name not in expected:
@@ -111,6 +116,12 @@ def restore(revision, root):
             path.parent.mkdir(parents=True, exist_ok=True)
             store(path, data)
             manifest[name] = digest(data)
+    for name in sorted(item for item in expected if not item.startswith("src/")):
+        data = blob(revision, name)
+        path = root.joinpath(*PurePosixPath(name).parts)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        store(path, data)
+        manifest[name] = digest(data)
     require(set(manifest) == expected, "frozen source inventory differs from the tracked commit")
     return manifest
 
