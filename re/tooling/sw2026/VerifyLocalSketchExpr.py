@@ -144,6 +144,63 @@ def observe_stale(original):
             "strict_write_refused_without_mutation": True}
 
 
+def seed_unmarked(raw, source):
+    from convert.adapters.freecad.Native import ReadNativeFcstd
+    from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
+    from convert.adapters.freecad.Replay.NativeIdentity import KReplaySemanticAttr
+    from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
+
+    old = ReadNativeFcstd(raw, str(source), LegacyVisibility=True)
+    assert old.sketches[0].suppressed
+    pair = NativeDocPair(old)
+    assert pair is not None
+    archive = pair[0]
+    digest_value = SemanticDigest(old)
+    payloads = tuple(
+        replace(p, attributes={**p.attributes, KReplaySemanticAttr: digest_value})
+        if p is archive else p for p in old.brep_payloads
+    )
+    return replace(old, brep_payloads=payloads).to_json(indent=None)
+
+
+def restore_unmarked(carrier, pin):
+    from convert.adapters.freecad.Native import ReadNativeFcstd
+    from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
+    from convert.adapters.freecad.Replay.NativeIdentity import KExplicitSketchProfile, KReplaySemanticAttr, KReplaySketchAttr
+    from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
+    from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
+    from interchange.document.Models.DocumentModel import CadDocument
+
+    old = CadDocument.from_json(carrier)
+    assert old.sketches[0].suppressed
+    pair = NativeDocPair(old)
+    assert pair is not None and KReplaySketchAttr not in pair[0].attributes
+    reads = 0
+    expected = ReadNativeFcstd.__code__
+
+    def trace(frame, event, argument):
+        nonlocal reads
+        if event == "call" and frame.f_code is expected:
+            reads += 1
+
+    previous = sys.getprofile()
+    try:
+        sys.setprofile(trace)
+        migrated, replay = PrepareReplay(old, Migrate=True)
+    finally:
+        sys.setprofile(previous)
+    assert reads == 2 and replay is not None and digest(replay) == pin
+    assert not migrated.sketches[0].suppressed
+    pair = NativeDocPair(migrated)
+    assert pair is not None and pair[0].attributes[KReplaySketchAttr] == KExplicitSketchProfile
+    assert pair[0].attributes[KReplaySemanticAttr] == SemanticDigest(migrated)
+    length, = (p for p in migrated.parameters if p.id == LENGTH)
+    assert length.expression is not None and not length.expression.parameter_ids
+    return {"independent_archive_parses": reads, "exact_restore_sha256": pin,
+            "migrated_active_explicit_sketch": True,
+            "migrated_digest_matches": True}
+
+
 def worker(request):
     sdk = Path(request["sdk"]).resolve()
     source = Path(request["source"])
@@ -195,10 +252,13 @@ def worker(request):
         result["derived_stale_control"] = observe_stale(source.read_bytes())
     if request.get("capture"):
         result["private_carrier"] = doc.to_json(indent=None)
+        result["private_unmarked_carrier"] = seed_unmarked(source.read_bytes(), source)
     if request.get("legacy_document") is not None:
         result["historical_replay"] = restore_baseline(
             request["legacy_document"], request["pin"]
         )
+    if request.get("legacy_unmarked") is not None:
+        result["unmarked_replay"] = restore_unmarked(request["legacy_unmarked"], request["pin"])
     assert not denied
     return result
 
@@ -227,7 +287,9 @@ def measure(census):
             contrast = label == "C130-P01"
             before = process(root / "src", row, capture=True, stale_control=contrast)
             carrier = before.pop("private_carrier")
-            after = process(REPO / "src", row, legacy_document=carrier, stale_control=contrast)
+            unmarked = before.pop("private_unmarked_carrier")
+            after = process(REPO / "src", row, legacy_document=carrier,
+                            legacy_unmarked=unmarked, stale_control=contrast)
             if contrast:
                 assert before["derived_stale_control"] == after["derived_stale_control"]
             assert before["dependency_ids"] == [] and after["dependency_ids"] == [WIDTH]
@@ -244,6 +306,7 @@ def measure(census):
         "fresh_processes": 6,
         "pre_binding_archives_restored_exactly_in_memory": 3,
         "edited_carriers_declined_exact_replay": 3,
+        "unmarked_carriers_migrated_with_two_parses": 3,
         "native_products": 0,
         "native_processes": 0,
         "production_corpus_credit": 0,

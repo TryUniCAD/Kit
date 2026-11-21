@@ -35,11 +35,14 @@ def PrepareBound(
     if not IsUnchanged and PrepareBranch is None:
         return DocValue, None
     ReplayBytes = DataValue if IsUnchanged else None
+    IsHistorical = KReplaySketchAttr not in NativeDoc.attributes
     try:
         Current = ReadNativeFcstd(
-            DataValue, DocValue.source.path, ReplayReads=ReplayReads
+            DataValue,
+            DocValue.source.path,
+            LegacyPadExpr=IsHistorical,
+            ReplayReads=ReplayReads,
         )
-        IsHistorical = KReplaySketchAttr not in NativeDoc.attributes
         if SemanticDigest(Current) == Expected:
             return PrepareLinked(DocValue, InitialDigest, PrepareBranch, ReplayBytes)
         if IsUnchanged and HasPadReplay(
@@ -60,13 +63,7 @@ def PrepareBound(
             if SemanticDigest(Legacy) == Expected:
                 if PrepareBranch is None:
                     return DocValue, ReplayBytes
-                BeforePadLinks = ReadNativeFcstd(
-                    DataValue,
-                    DocValue.source.path,
-                    LegacyPadExpr=True,
-                    ReplayReads=ReplayReads,
-                )
-                Updated = ApplyFlags(Legacy, BeforePadLinks, DocValue)
+                Updated = ApplyFlags(Legacy, Current, DocValue)
                 return PrepareLinked(
                     Updated, SemanticDigest(Updated), PrepareBranch, ReplayBytes
                 )
