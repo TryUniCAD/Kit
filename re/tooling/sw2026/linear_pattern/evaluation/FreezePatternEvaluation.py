@@ -5,7 +5,6 @@ from io import BytesIO
 from math import pi
 from pathlib import Path, PureWindowsPath
 from subprocess import check_output, run
-from tarfile import open as open_tar
 from tempfile import TemporaryDirectory
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 import json
@@ -143,14 +142,25 @@ def smoke_comparator(folder):
 
 
 def relevant_sources():
-    examples = git("archive", "--format=tar", WRITER, "src", "re/tooling/sw2026",
-                   "tests/Convert/Solidworks/Research/ConstructionGuard.py")
+    listing = git("ls-tree", "-r", "-z", WRITER, "src", "re/tooling/sw2026", GUARD)
+    inventory = {}
+    for line in listing.decode().strip("\0").split("\0"):
+        metadata, name = line.split("\t", maxsplit=1)
+        mode, kind, blob = metadata.split(" ")
+        if name.endswith(".py"):
+            require(kind == "blob" and mode in ("100644", "100755"), "compiler closure contains a source link")
+            inventory[name] = blob
+    listing = "\n".join(inventory.values()) + "\n"
+    result = run(("git", "cat-file", "--batch"), cwd=ROOT, input=listing.encode(),
+                 capture_output=True, check=True)
     source = {}
-    with open_tar(fileobj=BytesIO(examples)) as archive:
-        for member in archive:
-            if member.isfile() and member.name.endswith(".py"):
-                stream = archive.extractfile(member)
-                source[member.name] = stream.read()
+    stream = BytesIO(result.stdout)
+    for name, expected in inventory.items():
+        blob, kind, length = stream.readline().decode().split()
+        require(blob == expected and kind == "blob", "frozen source blob identity differs")
+        source[name] = stream.read(int(length))
+        require(len(source[name]) == int(length) and stream.read(1) == b"\n", "incomplete frozen source blob")
+    require(not stream.read() and not result.stderr, "unexpected frozen source output")
     for directory in ("tests", "tests/Convert", "tests/Convert/Solidworks", "tests/Convert/Solidworks/Research"):
         path = directory + "/__init__.py"
         if git_text("ls-tree", WRITER, path):

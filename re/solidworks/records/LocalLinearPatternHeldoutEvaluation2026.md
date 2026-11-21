@@ -4,7 +4,7 @@ The source intake for two independent oblique patterns is bound to the [intent r
 
 ## Freeze
 
-The [host freezer](../../tooling/sw2026/linear_pattern/evaluation/FreezePatternEvaluation.py) checks Git ancestry, commit times, exact public receipt bytes, the licensed build and the disclosed generated result. It pins the unchanged [native observer](../../tooling/sw2026/linear_pattern/ObserveGeneratedLinearPattern.py) from `925c885153eb4be87fe6383c881f903b1fcf3cfe`. It records SHA-256 and lengths for all Python sources needed by the isolated compiler, the observer tools, registered metadata evidence and the two independent controls.
+The [host freezer](../../tooling/sw2026/linear_pattern/evaluation/FreezePatternEvaluation.py) checks Git ancestry, commit times, exact public receipt bytes, the licensed build and the disclosed generated result. It pins the unchanged [native observer](../../tooling/sw2026/linear_pattern/ObserveGeneratedLinearPattern.py) from `925c885153eb4be87fe6383c881f903b1fcf3cfe`. It extracts individual Python blobs to include [research sources omitted from release archives](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Tooling/ReleaseArchivesOmitResearchTools.md). It records SHA-256 and lengths for the traced isolated compiler source closure, observer tools, registered metadata evidence and both independent controls.
 
 From the committed checkout, with the two earlier disclosed packets and public intake in their managed locators, run:
 
