@@ -119,3 +119,7 @@ Lease 01 reached private Job verification. Its native child then raised `ModuleN
 The child now uses the same pinned executable with `-E -B`, matching the successful disclosed batch. This ignores Python environment variables, keeps bytecode disabled and preserves the installed user-site COM imports. Lease 02 requires a fresh C folder and receipt path. Source, phase and custody checks still use the exact packet 03 rules. [Related observer import gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/Rewrite/IsolatedPythonHidesUserSiteComObservers.md)
 
 Keep private values and source files sealed through writer and comparator freeze. This prospective source lock will supply original controls for the material writer evaluation. Held-out comparison and public writer acceptance require later evidence.
+
+## Locked private source result
+
+The corrected lease completed both independently authored inputs in ten distinct SOLIDWORKS 2026 SP05.2 processes. Both controls and all 904 numerical checks passed. Original, material swap, depth edit and fresh read-only reopen phases all pass for both opaque slots. The redacted receipt binds both original file hashes, phase records, the earlier private source intent commitment and the completed tool closure. It records zero Kit writer outputs and zero held-out comparison credit. The active aggregate at the checkpoint is `e4093f012e61a6a4e2aafb029b376dcb23c50e9b`; no assigned-material writer is present. [Pre-writer source lock](../measurements/2026/AssignedMaterialPrivateSourceLock01.json)
