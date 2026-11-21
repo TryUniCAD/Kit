@@ -17,7 +17,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveOwner import
 )
 
 
-# each ordered operation must own a different actual profile and axis wrapper plus a live driver
+# each operation retains its selected endpoints and the cutter can reverse independently of both full stocks
 def ReadRevCutOps(
     LinkValue: NativeLink, Features: dict[int, ArchiveNode]
 ) -> tuple[RevolveOwner, RevolveOwner, RevolveOwner]:
@@ -36,7 +36,8 @@ def ReadRevCutOps(
     Second = ReadRevCore(LinkValue, SecondNode, SecondProfile, Features, 0)
     CutValue = ReadRevCore(LinkValue, CutNode, CutProfile, Features, 1)
     Owners = (First, Second, CutValue)
-    _ = ReadPrincAxis(First.FrameValue.SupportValue)
+    FrameValue = First.FrameValue
+    _ = ReadPrincAxis(FrameValue.SupportValue)
     NodesToBind = tuple(
         Value
         for Owner in Owners
@@ -55,9 +56,12 @@ def ReadRevCutOps(
     )
     if (
         len(set(NodesToBind)) != len(NodesToBind)
+        or First.IsReverse
+        or Second.IsReverse
         or any(
-            Owner.FrameValue != First.FrameValue
-            or Owner.IsReverse
+            Owner.FrameValue.SupportValue != FrameValue.SupportValue
+            or Owner.FrameValue.StartValue != FrameValue.StartValue
+            or Owner.FrameValue.EndValue != FrameValue.EndValue
             or Owner.AngleValue.NameValue != "D1"
             or Owner.EndValue.ModeValue != "one_sided"
             or Owner.ProfileGraph.EqualValue is not None
