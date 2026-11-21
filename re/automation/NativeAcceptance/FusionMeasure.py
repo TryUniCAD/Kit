@@ -1,6 +1,9 @@
 import math
 from pathlib import Path
 
+from NativeAcceptance.FusionBrep import MeasureBrep
+from NativeAcceptance.FusionSemantics import MeasureSemantics
+
 
 def MeasureDesign(design):
     import adsk.fusion
@@ -8,14 +11,15 @@ def MeasureDesign(design):
     root = design.rootComponent
     if root.allOccurrences.count:
         raise ValueError("assembly verification requires an assembly oracle and is not qualified by part measurements")
+    semantics = MeasureSemantics(design)
     bodies = []
-    for body in root.bRepBodies:
+    for index, body in enumerate(root.bRepBodies):
         props = body.getPhysicalProperties(adsk.fusion.CalculationAccuracy.VeryHighCalculationAccuracy)
-        bodies.append({"name": body.name, "volume_mm3": body.volume * 1000, "center_mm": [value * 10 for value in props.centerOfMass.asArray()], "faces": body.faces.count, "edges": body.edges.count, "vertices": body.vertices.count})
+        bodies.append({"name": body.name, "volume_mm3": body.volume * 1000, "center_mm": [value * 10 for value in props.centerOfMass.asArray()], "faces": body.faces.count, "edges": body.edges.count, "vertices": body.vertices.count, "geometry": MeasureBrep(body, semantics["gaps"], f"body:{index}"), "bounds_mm": [[value * 10 for value in point.asArray()] for point in (body.boundingBox.minPoint, body.boundingBox.maxPoint)]})
     features = [{"name": item.name, "type": item.entity.objectType, "suppressed": item.isSuppressed, "health": int(item.healthState), "message": item.errorOrWarningMessage} for item in design.timeline]
-    parameters = [{"name": item.name, "value": item.value, "unit": item.unit, "expression": item.expression} for item in design.allParameters]
+    parameters = [{"name": item.name, "value": item.value, "unit": "rad" if item.unit in ("rad", "deg") else "cm" if item.unit in ("mm", "cm", "m", "in", "ft") else item.unit, "display_unit": item.unit, "expression": item.expression} for item in design.allParameters]
     sketches = [{"name": item.name, "entities": item.sketchCurves.count, "constraints": item.geometricConstraints.count, "dimensions": item.sketchDimensions.count} for item in root.sketches]
-    return {"bodies": bodies, "features": features, "parameters": parameters, "sketches": sketches}
+    return {"bodies": bodies, "features": features, "parameters": parameters, "sketches": sketches, "semantics": semantics}
 
 
 def FusionMeasure(app, work, request):
