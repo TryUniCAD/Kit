@@ -139,6 +139,10 @@ model-header map slots and packs a signed empty ghost count. It accepts
 the evidenced current archive profile and refuses populated ghost rows.
 [Configuration section emission](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigSectionEmission.md)
 
+The direct header action accepts the version-19000 assembly root.
+It uses the same self and directory order as the linked reader.
+[Assembly header aliases](../../Changes/Solidworks/Archive/Configuration/SolidworksAssemblyHeaderAliases.md)
+
 The bounded version-19000 part cache reader keeps zero through two mass
 slots, each slot's atom rows and attached mass properties, and the
 signed trailer when two slots are stored. The measured bounds field

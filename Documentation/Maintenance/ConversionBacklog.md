@@ -272,6 +272,17 @@ current revision review and queue evidence. Full Config-0 generation
 and native admission have separate exits.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigSectionEmission.md)
 
+### B04-SW2026-ASSEMBLY-HEADER-ALIASES
+
+The PR #121 takeover team owns the shared direct header action on
+`codex/solidworks-assembly-direct`. It depends on section emission from
+[PR #216](https://github.com/TryUniCAD/Kit/pull/216) and the linked reader.
+Exit requires matching alias order and object identity in the guarded
+assembly actions, retained part behavior, and current revision review
+and queue evidence. Complete assembly configuration, mate, and native
+document generation have separate exits.
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksAssemblyHeaderAliases.md)
+
 ### B04-SW2026-CONFIG-HEADER-LINK
 
 The PR #121 takeover team owns the bounded part header handoff on

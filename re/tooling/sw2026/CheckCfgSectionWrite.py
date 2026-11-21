@@ -11,7 +11,7 @@ ROOT = HERE.parents[3]
 sys.path[:0] = [str(ROOT / "src"), str(HERE.parent)]
 
 from CheckCfgSection import (
-    DIRECT, GHOST, KGhostFields, PART, digest, guard_runtime, load_case, missing_sibling, new_object,
+    DIRECT, GHOST, KGhostFields, NAME, PART, digest, guard_runtime, load_case, missing_sibling, new_object,
     require, section_rule, sibling_reader, sized,
 )
 from MakeHeadAliasCase import DIRECTORY, SELF, header
@@ -139,7 +139,7 @@ def author_refusals():
         refusal("wrong_alias_class", siblings, fields, "needs distinct new aliases",
                 aliases=(ArchiveNode(RuntimeClass("moNodeName_c", 1), {}),)),
         refusal("wrong_owner", siblings, fields, "unsupported SOLIDWORKS direct part header owner",
-                aliases=(ref,), owner=ASSEMBLY),
+                aliases=(ref,), owner=NAME),
         refusal("nested_part", (section_rule(NativeField("Node", "descendant")),),
                 {"descendant": ArchiveNode(PART, fields)}, "unsupported SOLIDWORKS direct part header owner",
                 aliases=(ref,), owner=ASSEMBLY, children={PART.NameValue: siblings}),
