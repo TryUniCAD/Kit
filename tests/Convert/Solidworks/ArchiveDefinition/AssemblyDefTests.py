@@ -42,6 +42,7 @@ def TestAsmDef(TmpPath: FilePath) -> None:
     RenderDef = CastValue(dict[str, object], RenderCase["definition"])
     assert RenderDef["bytes"] == 559 and RenderDef["next_map_index"] == 7
     assert RenderDef["renderer"] == {"f08": 1, "f0c": 0, "list": {"n": 0, "items": []}}
+    assert RenderCase["offset"] == 288
     assert RenderCase["wrapper_frame"] == "0101000000000000000000"
     assert (
         RenderCase["part_word_rejection"]

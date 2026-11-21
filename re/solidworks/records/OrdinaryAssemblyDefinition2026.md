@@ -56,6 +56,24 @@ It requires only the checkout and an empty working directory.
 [Exact receipt](../measurements/2026/OrdinaryAssemblyDefinition01.json) ·
 [Queue integration](../../../tests/Convert/Solidworks/ArchiveDefinition/AssemblyDefTests.py)
 
+The independent reference encoder at
+`ed0a90a0e8e913b4eb28f9c2dc6c92a814e32472` produces the first fresh
+Definition as 549 bytes. Its alternate typed graph places the known renderer
+frame at byte 288 and produces a 559-byte Definition with SHA-256
+`1f4252804c2bc9ea883ac3ee164df22aaece74b30a3a9be2c2998fd769bfb417`.
+The field sequence places the marker after the expansion keys and flag word
+and before the document trailer. The guarded reference run checked both
+complete streams without entering the SDK Definition or body field executor.
+Those coordinates and the digest constrain the queue proof independently of
+the current writer and reader.
+
+Run the optional reference comparison against an isolated checkout of that
+historical revision.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/definition/ProveAssemblyDef.py --reference-root /path/to/historical/Kit
+```
+
 The unchanged part procedure also reran against this checkout. Eight guarded
 workers reproduced both fresh and both disclosed saved Definition outputs,
 including the measured empty part renderer and twelve refusal paths.

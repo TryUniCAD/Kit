@@ -11,7 +11,8 @@ Eight hash-pinned disclosed assemblies replay three distinct Definition
 streams exactly. Two fresh, guarded construction cases reproduce the
 independent reference encoding, including both bounds of the native threshold
 clamp. The guarded process proof also exercises an authored saved-style
-empty renderer and refuses the alternate renderer words. Sixteen invalid
+empty renderer at the independently verified physical position and refuses
+the alternate renderer words. Sixteen invalid
 input and stream cases refuse. This change supplies
 the internal Definition stream. Public assembly writing and native
 qualification of whole generated documents have separate exits.

@@ -4,7 +4,7 @@ from collections import Counter
 from hashlib import sha256
 import json
 from pathlib import Path
-from struct import pack, pack_into, unpack_from
+from struct import pack, pack_into
 from subprocess import check_output, run
 import sys
 
@@ -30,6 +30,12 @@ OWNED_MODULES = (
 )
 RENDER_SAVED = {"f08": 1, "f0c": 0, "list": {"n": 0, "items": []}}
 RENDER_FRAME = pack("<BiiH", 1, 1, 0, 0)
+RENDER_OFFSET = 288
+RENDER_DIGEST = "1f4252804c2bc9ea883ac3ee164df22aaece74b30a3a9be2c2998fd769bfb417"
+REFERENCE_FILES = {
+    "re/tooling/sw2026/serial/defs/Definition.py": "04dfa56204c742603a8a832ffd5146678d39cd12b6ffa6518137d2b4756a6702",
+    "re/tooling/sw2026/builders/Definition.py": "b7fd7a3b226493623059a6cde7d5e464ae3e3ee8accd8101c7104be3bdec8a45",
+}
 PREF_SAVED = {
     "f08": 0, "f0c": 0, "f10": 0.75, "f18": 0, "f20": 0.000125,
     "f28": 0, "f30": 1, "f34": 1, "f2c": 1, "f38": 1, "f3c": 0,
@@ -171,24 +177,34 @@ def reject_cases(wire):
     }
 
 
+def renderer_wire(wire):
+    require(
+        sha256(wire).hexdigest() == FRESH_DIGESTS[0] and wire[RENDER_OFFSET] == 0,
+        "fresh base differs from the reference renderer fixture",
+    )
+    result = wire[:RENDER_OFFSET] + RENDER_FRAME + wire[RENDER_OFFSET + 1:]
+    require(sha256(result).hexdigest() == RENDER_DIGEST, "renderer frame differs from the resolved reference")
+    return result
+
+
 def author_renderer(wire):
+    independent = renderer_wire(wire)
     model = ReadModelDef(wire, 19000, Assembly=True).GraphValue
     fields = model.DocumentValue.FieldsValue
     require(fields["has_pwmaterial"] == 0 and "f1110" not in fields, "authored case already has a renderer")
     fields["has_pwmaterial"] = 1
     fields["f1110"] = {"f08": 1, "f0c": 0, "list": {"n": 0, "items": []}}
     typed = WriteModelDef(model, Assembly=True).OutputValue
-    offset = next((index for index, (old, new) in enumerate(zip(wire, typed)) if old != new), -1)
-    require(offset >= 0 and wire[offset] == 0, "expected an absent renderer marker")
-    independent = wire[:offset] + RENDER_FRAME + wire[offset + 1:]
-    require(typed == independent, "empty renderer changed bytes outside its inline frame")
-    return pack("<I", offset) + independent
+    require(typed == independent, "empty renderer differs from independently placed frame")
+    return independent
 
 
-def read_renderer(packet):
-    offset = unpack_from("<I", packet)[0]
-    wire = packet[4:]
-    require(wire[offset:offset + len(RENDER_FRAME)] == RENDER_FRAME, "invalid authored renderer fixture")
+def read_renderer(wire):
+    offset = RENDER_OFFSET
+    require(
+        sha256(wire).hexdigest() == RENDER_DIGEST and wire[offset:offset + len(RENDER_FRAME)] == RENDER_FRAME,
+        "invalid authored renderer fixture",
+    )
     result = readback(wire)
     require(result["renderer"] == RENDER_SAVED, "stored empty assembly renderer was not retained")
     part_word = bytearray(wire)
@@ -206,6 +222,72 @@ def read_renderer(packet):
     }
 
 
+def guard_access():
+    for encoding in ("ascii", "utf-8", "utf-16-le", "latin-1"):
+        codecs.lookup(encoding)
+    attempts = []
+
+    def guard(event, _):
+        if event in {
+            "open", "os.listdir", "os.scandir", "os.system", "os.exec",
+            "os.fork", "os.posix_spawn", "os.startfile",
+        } or event.startswith(("subprocess.", "socket.", "ctypes.", "winreg.")):
+            attempts.append(event)
+            raise PermissionError(f"assembly Definition worker attempted {event}")
+
+    sys.addaudithook(guard)
+    return attempts
+
+
+def renderer_reference():
+    return {
+        "revision": EVIDENCE, "reference_files": REFERENCE_FILES,
+        "absent_sha256": FRESH_DIGESTS[0], "present_sha256": RENDER_DIGEST,
+        "offset": RENDER_OFFSET, "wrapper_frame": RENDER_FRAME.hex(),
+    }
+
+
+def replay_reference(reference):
+    for path, digest in REFERENCE_FILES.items():
+        require(sha256((reference / path).read_bytes()).hexdigest() == digest, f"unexpected reference source: {path}")
+    for path in ("src", "re/tooling/sw2026", "re/tooling/sw2026/serial"):
+        sys.path.insert(0, str(reference / path))
+    from Classes import registry
+    from builders.Definition import assembly_definition, definition_stream
+
+    compiled = registry()
+    job = input_job(0)
+    attempts = guard_access()
+    prior_profile = sys.getprofile()
+
+    def check_calls(frame, event, _):
+        if event != "call":
+            return
+        source = frame.f_code.co_filename.replace('\\', "/")
+        if "/src/convert/" in source and ("/Archive/Definition/" in source or "/Archive/Bodies/" in source):
+            raise ValueError("reference used the SDK Definition field executor")
+
+    sys.setprofile(check_calls)
+    try:
+        document = assembly_definition(
+            drafting_standard=job["standard"], detail_flags=job["bits"],
+            tessellation=tuple(job["tessellation"]), system_preference_7a=job["compression"],
+            journal_name=job["journal"], save_as_part_preferences=job["preferences"],
+        )
+        absent = definition_stream(registry=compiled, document=document)
+        document.f["has_pwmaterial"] = 1
+        document.f["f1110"] = {"f08": 1, "f0c": 0, "list": {"n": 0, "items": []}}
+        present = definition_stream(registry=compiled, document=document)
+    finally:
+        sys.setprofile(prior_profile)
+    require(present == renderer_wire(absent), "historical field order no longer corroborates renderer placement")
+    require(not attempts, "reference author attempted runtime external access")
+    return renderer_reference() | {
+        "absent_bytes": len(absent), "present_bytes": len(present),
+        "sdk_definition_field_calls": 0, "runtime_external_attempts": 0,
+    }
+
+
 def worker(mode):
     sys.path.insert(0, str(ROOT / "src"))
 
@@ -220,19 +302,7 @@ def worker(mode):
     from convert.adapters.solidworks.Container.Archive import ContainerMo
     from convert.adapters.solidworks.Container.Container import SldprtArchive
 
-    for encoding in ("ascii", "utf-8", "utf-16-le", "latin-1"):
-        codecs.lookup(encoding)
-    attempts = []
-
-    def guard(event, _):
-        if event in {
-            "open", "os.listdir", "os.scandir", "os.system", "os.exec",
-            "os.fork", "os.posix_spawn", "os.startfile",
-        } or event.startswith(("subprocess.", "socket.", "ctypes.", "winreg.")):
-            attempts.append(event)
-            raise PermissionError(f"assembly Definition worker attempted {event}")
-
-    sys.addaudithook(guard)
+    attempts = guard_access()
     raw = sys.stdin.buffer.read()
     if mode == "author":
         output = emitted(json.loads(raw))
@@ -351,7 +421,7 @@ def prove(include_native):
         "historical_corpus_revision": SOURCE, "sources": sources,
         "proof_sha256": sha256(HERE.read_bytes()).hexdigest(),
         "generated": fresh, "saved": recorded, "refusals": refusals,
-        "authored_renderer": renderer,
+        "authored_renderer": renderer, "renderer_placement_reference": renderer_reference(),
         "saved_renderer": RENDER_SAVED if recorded else None,
         "saved_preferences": PREF_SAVED if recorded else None,
         "saved_stream_counts": dict(Counter(row["sha256"] for row in recorded)),
@@ -365,8 +435,14 @@ def main():
     parser = ArgumentParser()
     parser.add_argument("--worker", choices=("author", "readback", "native", "refusals", "author_renderer", "read_renderer"))
     parser.add_argument("--generated", action="store_true")
+    parser.add_argument("--reference-root", type=Path)
     arguments = parser.parse_args()
-    output = worker(arguments.worker) if arguments.worker else prove(not arguments.generated)
+    if arguments.reference_root is not None:
+        output = replay_reference(arguments.reference_root.resolve())
+    elif arguments.worker:
+        output = worker(arguments.worker)
+    else:
+        output = prove(not arguments.generated)
     if isinstance(output, bytes):
         sys.stdout.buffer.write(output)
     else:

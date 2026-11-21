@@ -294,7 +294,7 @@
   "historical_corpus_revision": "7d9e15658f5e2d19db2d2f6afe5a995c26ebc54a",
   "historical_inventory_sha256": "29c46bb51ff0ff883c939b9dfd10bf0ebdf83f17bca962557b9260516c7e0c21",
   "native_launches": 0,
-  "proof_sha256": "b0d2863fff7b46c11ebc98d2bb9f7567957d7c546ea7e780e609cba733378dd1",
+  "proof_sha256": "24dea78563071c9dcb1b3b8b39d3a6abd8a5df716b951bfe662cf857b5e684d0",
   "public_writer_enabled": false,
   "refusals": {
     "assembly_mode_read": "SOLIDWORKS assembly Definition requires the ordinary assembly CLSID",
@@ -311,6 +311,17 @@
     "trailing_bytes": "SOLIDWORKS model Definition has an unconsumed tail",
     "truncated_tail": "SOLIDWORKS body uiAssemblyDoc_c field uiAssemblyDoc_c.Serialize.own at 545: SOLIDWORKS body uiAssemblyDoc_c/uiAssemblyDoc_c.Serialize.own field uiAssemblyDoc_c.Serialize.own/f1afc at 545: truncated SOLIDWORKS archive field at 545",
     "version": "SOLIDWORKS model Definition requires archive version 19000"
+  },
+  "renderer_placement_reference": {
+    "absent_sha256": "f18c7717493aad07d75f0d547fdfde5825fa980bd2d8a0673c5602ce6450877e",
+    "offset": 288,
+    "present_sha256": "1f4252804c2bc9ea883ac3ee164df22aaece74b30a3a9be2c2998fd769bfb417",
+    "reference_files": {
+      "re/tooling/sw2026/builders/Definition.py": "b7fd7a3b226493623059a6cde7d5e464ae3e3ee8accd8101c7104be3bdec8a45",
+      "re/tooling/sw2026/serial/defs/Definition.py": "04dfa56204c742603a8a832ffd5146678d39cd12b6ffa6518137d2b4756a6702"
+    },
+    "revision": "ed0a90a0e8e913b4eb28f9c2dc6c92a814e32472",
+    "wrapper_frame": "0101000000000000000000"
   },
   "runtime_external_attempts": 0,
   "saved": [
