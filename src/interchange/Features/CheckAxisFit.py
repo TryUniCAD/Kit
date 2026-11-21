@@ -1,6 +1,6 @@
 from math import hypot as Hypot
 
-from interchange.Features.AxisVector import CrossAxis, KAxisTriple
+from interchange.Features.Axes.AxisVector import CrossAxis, KAxisTriple
 from interchange.Features.PlaneAxisLine import GetAxisLine
 from interchange.Features.PlaneExtAxis import KAxisTolerance
 from interchange.Features.PlaneExtFrame import KStationTolerance

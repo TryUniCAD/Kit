@@ -46,7 +46,7 @@ driving length parameters. Supply their IDs as `StartParameterId` and
 projection of the first support origin onto the intersection. Positive stations
 follow the cross product of the first and second normals. The two stations
 may run in either order and define the finite segment direction.
-[`ResolveAxis`](../../../src/interchange/Features/ResolveAxis.py) evaluates these
+[`ResolveAxis`](../../../src/interchange/Features/Axes/ResolveAxis.py) evaluates these
 endpoints from the selected frames and current parameters, including after
 support and length edits.
 

@@ -1,7 +1,7 @@
 from typing import Mapping as TypeMap
 
 from interchange.Features.FeatureStep import FeatureStep
-from interchange.Features.ResolveAxis import ResolveAxis
+from interchange.Features.Axes.ResolveAxis import ResolveAxis
 from interchange.geometry.Models.Selection import Selection
 from interchange.geometry.Models.SupportPlane import SupportPlane
 from interchange.Records.RecordParameter import Parameter

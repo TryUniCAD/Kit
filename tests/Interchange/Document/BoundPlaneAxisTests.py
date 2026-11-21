@@ -5,7 +5,7 @@ from pytest import raises as Raises
 from interchange import BoundPlaneAxis, CadDocument
 from interchange.document.Models.DocumentError import DocumentError
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
-from interchange.Features.ResolveAxis import ResolveAxis
+from interchange.Features.Axes.ResolveAxis import ResolveAxis
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from interchange.Records.RecordParameter import Parameter, ParameterValue
 from tests.Interchange.Document.PlaneAxisTests import BuildAxisDoc

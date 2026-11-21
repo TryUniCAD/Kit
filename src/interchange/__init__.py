@@ -100,7 +100,7 @@ from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.FeatureBody import DesignBody
 from interchange.Features.FeatureContract import FeatureDef
 from interchange.Features.FeatureBoundPlane import BoundConstructionPlane
-from interchange.Features.BoundPlaneAxis import BoundPlaneAxis
+from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature

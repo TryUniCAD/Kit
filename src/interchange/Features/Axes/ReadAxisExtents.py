@@ -1,7 +1,7 @@
 from typing import Mapping as TypeMap
 
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
-from interchange.Features.BoundPlaneAxis import BoundPlaneAxis
+from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.DistanceParam import GetDistParam
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Records.RecordParameter import Parameter

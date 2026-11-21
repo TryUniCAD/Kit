@@ -3,7 +3,7 @@ from math import fsum as SumExact
 from math import hypot as Hypot
 from math import isfinite as IsFinite
 
-from interchange.Features.AxisVector import CrossAxis, KAxisTriple
+from interchange.Features.Axes.AxisVector import CrossAxis, KAxisTriple
 from interchange.Features.PlaneExtAxis import KAxisTolerance
 from interchange.Features.PlaneExtFrame import GetExtFrame
 from interchange.geometry.Models.Transform import Transform

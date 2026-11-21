@@ -2,13 +2,13 @@ from math import fsum as SumExact
 from typing import Mapping as TypeMap
 
 from interchange.Enums.EnumFeatures import FeatureKind
-from interchange.Features.BoundPlaneAxis import BoundPlaneAxis
+from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.CheckAxisFit import CheckAxisFit
 from interchange.Features.FeaturePlaneAxis import PlaneAxis
 from interchange.Features.FeatureStep import FeatureStep
-from interchange.Features.IntersectPlanes import GetPlaneLine
-from interchange.Features.ReadAxisExtents import ReadAxisExtents
-from interchange.Features.ReadAxisPlanes import ReadAxisPlanes
+from interchange.Features.Axes.IntersectPlanes import GetPlaneLine
+from interchange.Features.Axes.ReadAxisExtents import ReadAxisExtents
+from interchange.Features.Axes.ReadAxisPlanes import ReadAxisPlanes
 from interchange.geometry.Models.Selection import Selection
 from interchange.geometry.Models.SupportPlane import SupportPlane
 from interchange.geometry.Models.VectorSpace import SpaceVector
