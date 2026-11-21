@@ -38,3 +38,22 @@ prlctl exec --current-user 'Windows 11' py -3.11 -B \
 The top-level observer uses the guest Python 3.11 user-site COM bindings. The SDK subprocess uses `-I -B` and asserts the absence of COM imports. `Inspection/Result.json` separates native, strict saved readback and custody checks. This record binds host preparation only. A native result needs its own exact receipt before any broader conclusion.
 
 The disclosed completed packet passed its paired native mechanics and retained a failed overall result. The host supplement traces the saved context and allocator changes against both frozen inputs and preserves that result. [Saved readback evidence](PlanarRendererSavedRead2026.md)
+
+The original-save contrast supplies the observer with the exact same original
+paired models, copied into a fresh owned directory. The frozen native
+observer confirms that each loaded child is the actual working child before
+editing. Six fresh phases bracket the two depth edits and fresh reopens with
+the unchanged A22 control. The original copies must match the previously
+generated results in ordered mechanics and editable geometry. The after-save
+archive check records the three distinct renderer owners, the Definition
+allocator cursor, and physical density from the original and saved child.
+
+The oracle owner stages `ProbeOriginalPlanarSave.py` from its committed
+revision alone, outside the frozen packet. Pass the existing
+`PlanarRendererNative01` packet, an unused sibling output and
+`--tool-pin` with the script SHA-256. Run through the same single VM
+and designated CPython. The probe binds the completed comparison hash and
+the original packet, and its receipt proves that the originals remain
+unchanged. This is a disclosed contrast with separate evidence and no
+held-out or writer-output credit.
+[Original-save probe](../../tooling/sw2026/planar_registry/ProbeOriginalPlanarSave.py)
