@@ -35,7 +35,7 @@ The active typed partition replays byte-for-byte after converting its existing k
 
 ## Scope and reproduction
 
-Each original process refuses a changed mode, crossed keeper, foreign body atom, stale angle display, alternate compressed-model context, simultaneous finish profiles and a foreign stock creation event. The ordinary decoder and emitter continue to refuse the feature in all four source processes. The tool uses two guarded controls and four independent input workers. All six report zero file, process, network and library accesses inside the guarded read/replay. The checked-in result has SHA-256 `e408295c20bf3d5f0529de9217ea3aebb951fc1a91d827044940e83c4e10651c` and binds the implementation files individually. [Guarded proof receipt](../measurements/2026/EdgeChamferTypedArchiveRead01.json)
+Each original process refuses a changed mode, crossed keeper, foreign body atom, stale angle display, alternate compressed-model context, simultaneous finish profiles and a foreign stock creation event. The ordinary decoder and emitter continue to refuse the feature in all four source processes. The tool uses two guarded controls and four independent input workers. All six report zero file, process, network and library accesses inside the guarded read/replay. The checked-in result has SHA-256 `7be3756016025093a917c74bc1b2480da140e2d19d1eab67f7c55c53f23f602e` and binds the implementation files individually. [Guarded proof receipt](../measurements/2026/EdgeChamferTypedArchiveRead01.json)
 
 ```sh
 python3.12 -E -B re/tooling/sw2026/edge_chamfer_source/AuditTypedChamfer.py \

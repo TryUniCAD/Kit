@@ -23,12 +23,13 @@ def ReadChmfPick(
         RequireNative(Picked.FieldsValue.get("fe8"), "moEdgeRef_c"),
         RequireNative(OtherEdge.FieldsValue.get("fe8"), "moEdgeRef_c"),
     )
+    PrimaryKey = References[0].FieldsValue.get("f70")
     if (
         Picked is OtherEdge
         or References[0] is References[1]
         or KeeperRow.get("o") is not References[0]
-        or type(References[0].FieldsValue.get("f70")) is not int
-        or References[0].FieldsValue["f70"] <= 0
+        or type(PrimaryKey) is not int
+        or PrimaryKey <= 0
         or References[1].FieldsValue.get("f70") != 0
         or any(
             NodeValue.FieldsValue.get("f18") != AtomId
