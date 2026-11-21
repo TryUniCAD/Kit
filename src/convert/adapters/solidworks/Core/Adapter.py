@@ -165,6 +165,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockDesigns
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.WithCutSelection import (
     BindCutStock,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.BindColdPart import (
+    BindColdPart,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart import (
+    ColdPatPart,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.WithPatternDoc import (
     WithPatternDoc,
 )
@@ -173,9 +179,6 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.WithRevolveDoc impo
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.WithSelRevDoc import (
     WithSelRevDoc,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.BindColdRevolveDoc import (
-    BindColdRevolveDoc,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.ColdRevolvePart import (
     ColdRevolvePart,
@@ -474,7 +477,9 @@ def ReadNativePart(
     Model, StockValue, ColdValue, DerivedValue = ReadPartShape(
         Archive, NativePartModel(Archive, Settings.configuration), Settings, KPartBodyId
     )
-    if StockValue is None and DerivedValue is None:
+    if StockValue is None and (
+        DerivedValue is None or isinstance(ColdValue, ColdPatPart)
+    ):
         Model = LegacyPartModel(Model, Archive)
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
@@ -597,11 +602,9 @@ def ReadNativePart(
     )
     if StockValue is None and DerivedValue is None:
         DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
-    if isinstance(ColdValue, ColdRevolvePart):
-        DocValue = BindColdRevolveDoc(DocValue, ColdValue.OwnersValue)
     return FinishPartDoc(
         BindStockDoc(
-            DocValue,
+            BindColdPart(DocValue, ColdValue),
             (
                 StockValue.LineageValue
                 if StockValue is not None
@@ -621,7 +624,7 @@ def ReadNativePart(
         BindSavedOwners=Settings.include_brep
         and not Settings.extract_raw_brep
         and not Model.equations
-        and not isinstance(ColdValue, ColdRevolvePart),
+        and not isinstance(ColdValue, (ColdRevolvePart, ColdPatPart)),
     )
 
 
@@ -1083,7 +1086,9 @@ def AsmDoc(
     )
     Instances = WithTypedFixed(Instances, TypedMates)
     FlatMateValues = FlattenedMates(Native, Mates)
-    BrepValues, PayloadDiagnostics = BrepPayloads(Archive, Replace(Settings, strict=False))
+    BrepValues, PayloadDiagnostics = BrepPayloads(
+        Archive, Replace(Settings, strict=False)
+    )
     CompanionPayloads = (
         Companion(Label)
         if Settings.include_brep

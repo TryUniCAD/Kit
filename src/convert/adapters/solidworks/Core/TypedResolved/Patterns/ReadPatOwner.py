@@ -25,7 +25,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Patterns.ReadPatDrivers impo
 
 
 # the narrow public refinement needs exactly the ordinary feature and helper roots
-def ReadPatOwner(LinkValue: NativeLink, HeaderValue: ArchiveNode) -> PatternOwner:
+def ReadPatOwner(
+    LinkValue: NativeLink, HeaderValue: ArchiveNode, *, IsCold: bool = False
+) -> PatternOwner:
     Features = IndexFeatures(LinkValue)
     RootsValue = tuple(Features.values())
     Classes = tuple(Value.ClassValue.NameValue for Value in RootsValue)
@@ -50,14 +52,17 @@ def ReadPatOwner(LinkValue: NativeLink, HeaderValue: ArchiveNode) -> PatternOwne
     if (
         LinkValue.ConfigValue.RootValue.ClassValue.NameValue != "moPart_c"
         or Counter(Classes[:StartIndex]) != SystemCounts
+        or (IsCold and HingeValue is None)
     ):
         raise ValueError(
             "ordinary linear pattern requires its ordered plate seed and pattern roots"
         )
     StockValue = RootsValue[StartIndex : StartIndex + 4]
     SeedValue, PatternValue = StockValue[-1], RootsValue[-1]
-    CheckPatMode(PatternValue)
-    AtomsValue, Output = ReadPatChain(LinkValue, (*StockValue, PatternValue))
+    CheckPatMode(PatternValue, IsCold=IsCold)
+    AtomsValue, Output = ReadPatChain(
+        LinkValue, (*StockValue, PatternValue), IsCold=IsCold
+    )
     return PatternOwner(
         PatternValue,
         SeedValue,

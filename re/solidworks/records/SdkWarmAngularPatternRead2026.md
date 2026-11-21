@@ -6,7 +6,7 @@ The SDK resolves the finite axis to ordered Top and Right supports and uses the 
 
 The three contained cases also project the native seed and datum into the exact pattern parents, the actual D1 count and D3 pitch, the signed direction and the verified linked solid. The independent native reopened records agree with the SDK's body topology, volume and centre of mass. The pitch edit that overhangs the plate has 17 saved faces. That case projects its angular datum and retains the generic pattern history and unchanged B-rep. [Exact evidence](../measurements/2026/SdkWarmAngularPatternRead01.json) · [Source geometry contrast](LocalLinearPatternDatumPlacement2026.md)
 
-The guarded process comparison verifies unchanged complete projection for six principal pattern saves and two prior part controls. Two generated cache-free parts retain their strict refusal and their metadata-only output. The normal warm route also retains both raw and metadata-only views for all four angular saves and rejects six contradicted owner states.
+The guarded process comparison at revision `97f9910c387490d7f1ba05c9d1fbd913f2655409` verifies unchanged complete projection for six principal pattern saves and two prior part controls. Two generated cache-free parts retain their strict refusal and their metadata-only output. The normal warm route also retains both raw and metadata-only views for all four angular saves and rejects six contradicted owner states.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/linear_pattern/ProveWarmAngularRead.py \
@@ -15,4 +15,4 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/ProveWarmAngularRead.py \
   --output /absolute/path/to/SdkWarmAngularPatternRead01.json
 ```
 
-This host verification runs no licensed CAD process and reads no held-out source. The public writer stays closed for these intact native documents and the generated cold strict geometry path remains open research.
+This host verification runs no licensed CAD process and reads no held-out source. The public writer stays closed for these intact native documents and the subsequent [cold geometry increment](SdkColdObliquePatternRead2026.md) adds the contained generated scope.

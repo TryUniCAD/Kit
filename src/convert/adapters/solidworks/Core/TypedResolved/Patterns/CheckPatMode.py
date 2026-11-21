@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # the witnessed single direction mode excludes additional selections and dimension overrides
-def CheckPatMode(PatternValue: ArchiveNode) -> None:
+def CheckPatMode(PatternValue: ArchiveNode, *, IsCold: bool = False) -> None:
     Fields = PatternValue.FieldsValue
     ShapeValue = NativeRecord(Fields.get("ffa0"))
     ExtraLists = tuple(
@@ -19,6 +19,7 @@ def CheckPatMode(PatternValue: ArchiveNode) -> None:
     SeedList = RequireNative(Fields.get("f988"), "suObList")
     if (
         ReadParents(PatternValue)
+        or Fields.get("f1054") != int(not IsCold)
         or len({SeedList, *ExtraLists}) != 4
         or any(
             Value.FieldsValue.get("n") != 0 or Value.FieldsValue.get("items")
@@ -71,7 +72,6 @@ def CheckPatMode(PatternValue: ArchiveNode) -> None:
                 "f9fc",
                 "f9f0",
                 "f1050",
-                "f1054",
                 "f1130",
                 "f12f8",
                 "f12fc",

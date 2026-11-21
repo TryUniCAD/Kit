@@ -19,6 +19,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadNoCache import (
     ReadNoCache,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart import (
+    ColdPatPart,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.TryColdPat import (
+    TryColdPat,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.ColdRevolvePart import (
     ColdRevolvePart,
 )
@@ -33,7 +39,7 @@ def ReadPartShape(
 ) -> tuple[
     NativeModel,
     StockCacheGeom | None,
-    ColdStockPart | ColdRevolvePart | None,
+    ColdStockPart | ColdRevolvePart | ColdPatPart | None,
     PartGeometry | None,
 ]:
     Model, SavedValue = TryStockPart(Archive, Model, Settings)
@@ -45,4 +51,7 @@ def ReadPartShape(
     RevolveValue = TryColdRevolve(Archive, Model, Settings)
     if RevolveValue is not None:
         return Model, None, RevolveValue, RevolveValue.GeometryValue
+    PatternValue = TryColdPat(Archive, Model, Settings, BodyId)
+    if PatternValue is not None:
+        return Model, None, PatternValue, PatternValue.GeometryValue
     return Model, None, None, ReadNoCache(Archive, Model, BodyId)

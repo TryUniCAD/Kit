@@ -28,12 +28,12 @@ from interchange.Features.FeatureExtrude import ExtrudeFeature
 from interchange.Features.FeatureKinds import NativeFeature
 
 
-# the typed pattern and authenticated saved body apply atomically to the original neutral document
+# the typed pattern applies only to its authenticated saved or independently computed body
 def ApplyPatDoc(
     Document: CadDocument,
     LinkValue: NativeLink,
     OwnerValue: PatternOwner,
-    Surface: StockCacheBody,
+    Surface: StockCacheBody | None,
 ) -> CadDocument:
     NativeId = NativeNodeId(OwnerValue.NodeValue)
     FeatureId = f"sldprt:feature:{NativeId}"
@@ -89,18 +89,33 @@ def ApplyPatDoc(
         raise ValueError("pattern final public body identity differs")
     Parameters = {Count.id: Count, Pitch.id: Pitch}
     Evidence = {
-        "status": "projected_saved_single_direction",
+        "status": (
+            "projected_saved_single_direction"
+            if Surface is not None
+            else "projected_cold_single_direction"
+        ),
         "native_atom_lineage": OwnerValue.AtomsValue,
-        "physical_body_node": Surface.KernelValue.IndexValue,
+        "physical_body_node": (
+            Surface.KernelValue.IndexValue if Surface is not None else None
+        ),
         "driver_roles": tuple(
             (Driver.NativeName, Driver.LiveValue, Driver.CacheValue)
             for Driver in OwnerValue.DriversValue
         ),
         "public_writer_qualified": False,
     }
-    BrepValue, BoundBody = BindPatBody(
-        ModelValue, BodyValue, Surface.NameValue, Evidence
-    )
+    if Surface is None:
+        BrepValue = ModelValue
+        BoundBody = ReplaceValue(
+            BodyValue,
+            attributes=FreezeMapping(
+                {**BodyValue.attributes, "solidworks.native_body": Evidence}
+            ),
+        )
+    else:
+        BrepValue, BoundBody = BindPatBody(
+            ModelValue, BodyValue, Surface.NameValue, Evidence
+        )
     return ReplaceValue(
         Document,
         brep=BrepValue,

@@ -15,6 +15,9 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.CheckPatPick import (
     CheckPatPick,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.CheckColdPick import (
+    CheckColdPick,
+)
 from convert.adapters.solidworks.Core.TypedResolved.ReadParents import ReadParents
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 
@@ -23,6 +26,8 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 def ReadPatChain(
     LinkValue: NativeLink,
     Features: tuple[ArchiveNode, ...],
+    *,
+    IsCold: bool = False,
 ) -> tuple[tuple[int, ...], ArchiveNode]:
     PlateProfile, Plate, SeedProfile, SeedValue, Pattern = Features[-5:]
     PlateAtom = ReadStockAtom(Plate, False)
@@ -55,6 +60,9 @@ def ReadPatChain(
         raise ValueError(
             "pattern history does not follow its actual joined seed and plate"
         )
+    if IsCold:
+        CheckColdPick(LinkValue, (Plate, SeedValue, Pattern), AtomIds, AtomsValue)
+        return AtomIds, Output
     SeedRef = CheckPatPick(LinkValue, SeedValue, Plate, AtomIds[:1])
     PatternRef = CheckPatPick(LinkValue, Pattern, Plate, (AtomIds[1], AtomIds[0]))
     if SeedRef is not PatternRef:
