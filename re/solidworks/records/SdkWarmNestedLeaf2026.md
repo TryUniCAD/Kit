@@ -199,6 +199,86 @@ uv run --no-project --python 3.14 --with pefile --with capstone python -I -B \
   --modules /absolute/path/to/licensed/SP05.2/binaries
 ```
 
+## Explicit existing-body scope on the first solid
+
+The first boss creates one solid and has no earlier solid to select.
+The selected-body mode still has a persisted value. The model setter
+`moAtomFeature_c::setFeatureScope` at `0x4b2924f0` copies the
+authored mode into `f544`. The editor separately copies the dialog
+options at `+0x158` and `+0x15c` to `f544` and runtime
+`+0x558`. It clears the `f548` wrapper and only replaces it
+when the dialog supplies a nonempty selection. The first scope option
+can therefore be expressed as selected existing bodies with an empty
+prior-target set. The observed archive establishes the mode and absence
+of stored targets. The runtime auto-select choice does not follow from
+either observation. [Documented scope vocabulary](https://help.solidworks.com/2026/english/SolidWorks/sldworks/r_feature_scope_multibody_parts.htm?id=23.3.10) ·
+[Verified archive and rebuild receipt](../measurements/2026/SdkFirstCreatorScope01.json)
+
+| Boundary in the pinned SP05.2 images | Evidence |
+| --- | --- |
+| Concrete archive constructor | `moExtrusion_c` factory dispatches through the ordinary atom base. It clears `f530`, `f544`, `f548` and runtime `+0x558`. The linked serializer restores the optional wrapper and signed scope word. The atom serializer has no direct runtime auto-select field |
+| Ordinary no-target selection | The ordinary selector receives both Boolean arguments zero at `0x4b70cb1b`. Selected mode and zero runtime auto-select read the wrapper at `0x4b706fd7`. A null wrapper exits this lookup. The concrete ordinary boss returns zero for the remaining special branch at virtual offset `+0x6e8` |
+| Independent output | The ordinary boss's virtual slot `+0x2678` returns zero for the operation argument fed to `mergeMultipleBodies`. With zero prior targets this reaches `0x4b70cf2c` and `0x4b70d03f`. The reached branch appends the valid newly extruded entity at `0x4b70d07c`. A nonzero operation instead takes the no-target status branch |
+| Potential automatic snapshot | The wrapper constructor at `0x4b70d18a` requires an actual existing target. The selected branch with runtime auto-select zero skips it. The zero-target path also skips allocation when automatic selection is active |
+
+These are direct static boundaries for this concrete ordinary rebuild.
+The three exact warm saves independently bind mode one with absent
+`f548`, absent `f530` and a real output atom. The prior authored
+seed code can request automatic scope, but these persisted rows cannot
+recover that transient choice. The separate through-all lifecycle
+demonstrates one native route in which an authored AutoSelect=true
+becomes false after resolving actual stock. That route does not qualify
+a cache-free standalone first creator.
+[Measured automatic-scope contrast](ThroughAllAutoScopeObservation2026.md) ·
+[Scope and save gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Resolved/Scope/FirstCreatorScopeHasNoPriorTargets.md)
+
+The research request uses the declared existing-body mode, an empty
+prior-target list, one actual neutral first creator and both individually
+owned spatial label points. A read-only worker verifies each exact
+original and passes only the neutral geometry, parameters and presentation
+to a fresh composer. The composer uses the existing `ReadNestedLeaf`,
+`MakeRectDimPart`, spatial text operation and linked stream emitters.
+The selected-body case derives code one from the typed policy and emits
+no body wrapper, atom, prior history, or partition. It refuses a join,
+a second body, selecting the new output as an existing body and an
+attempt to supply runtime auto-select as a serialized option.
+
+For each of the three requests the all-bodies control and selected
+variant use the same output locator and epoch. The only changed logical
+stream is `Contents/Config-0-ResolvedFeatures`. At its decoded offset
+10524 the same actual boss owns the signed word that changes from zero
+to one. The other nine streams and all other logical bytes are identical,
+along with the profile, boss, three editable drivers and both modeled XYZ
+label points and routing flags. The comparison uses complete typed
+re-emission from fresh graphs. A generated file is neither overwritten
+nor used as a template.
+
+The present public metadata-only reader retains the same editable
+history and reports `join` in both variants. With geometry enabled,
+the ordinary control reconstructs the measured first `create` and
+its prism. The selected-empty variant reaches the `CheckPrismAtom`
+unqualified-scope refusal and the public reader reports that no readable
+Parasolid payload exists. The typed archive readback still proves the
+first creator, empty manager and absence of selected owners. No current
+public writer or reader mode is extended by this research.
+
+A separate native comparison can reuse this small contrast. Bind the
+same authored rectangle and label points for scope zero and scope one,
+then measure both through fresh open, rebuild, a driving depth edit,
+save and fresh read-only reopen with healthy brackets. The definition
+should report FeatureScope, AutoSelect and the actual selected body
+count. The saved linked audit should separately bind `f544`,
+`f548`, the output atom and any rollback owners. No such new
+native qualification, complete original-source transfer or held-out
+acceptance is claimed by the host proof.
+
+```sh
+uv run --no-project --python 3.14 --with pefile --with capstone python -I -B \
+  re/tooling/sw2026/nested_publication/MeasureFirstCreatorScope.py \
+  --disclosed /absolute/path/to/Oracle121Takeover \
+  --modules /absolute/path/to/licensed/SP05.2/binaries
+```
+
 ## Controls and reproduction
 
 The exact generated SdkNestedPlate cold control retains its original strict
