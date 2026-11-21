@@ -15,3 +15,10 @@ Three readback states per case cover the measured generated file, the new public
 The guarded refusal cases cover missing equality for the square end modes, single-direction equality, opposite or nonlocal equality operands, non-square side lengths, duplicate equality, alternate support, a full multi-end turn, the wrong suffix and an unnamed stream. They preserve prior output bytes and leave output staging empty. The ordinary no-equal one-sided control follows the existing route. Host preparation does not inspect any original, private spec or native phase payload.
 
 Two separately authored host squares, a legacy one-sided publication control and all twelve refusals passed with zero writer input reads. Their same-locator archive hashes are `fe3792641741f4f88b6dc8c75187371614454b09fd8731ebd58224481bd15a7a`, `76c58f32ef11aea87684ad7d4ba2d6acb20ca6798e453031433c85a7016270b4` and `90ca4cfd19d16894c75f34826d47bfe97b64a2d06b21d86e1814cc901ca00e4a`. Both strict modes retain the same producer. The comparison binds the native body label on the default geometry path, since history-only can keep a generic name. [History-only name behavior](../../../Documentation/Gotchas/Conversion/Solidworks/Geometry/HistoryOnlyRevolveKeepsGenericBodyLabel.md)
+
+The actual Windows parity replay passes both already qualified cases,
+twenty fresh guarded workers and twelve refusals. It verifies the ten
+prior native process identities without opening native originals or
+starting SOLIDWORKS. Both the measured locator and fresh locators have
+identical direct and registry output.
+[Windows registry receipt](../measurements/2026/SdkSquareRevolvePublicParity01.json)

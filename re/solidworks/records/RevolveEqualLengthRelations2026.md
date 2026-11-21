@@ -51,8 +51,7 @@ rebuild with zero errors and warnings. The original and candidate
 preserve all five solver relations, the ordered equal-length operands,
 the complete tree and the live D1 and D2 edits where applicable.
 The independent native batch qualifies both cases in ten fresh
-processes. The public registry still needs byte parity at its normal
-output boundary.
+processes.
 [Independent native receipt](../measurements/2026/SdkSquareRevolveHeldoutNative01.json)
 
-The next isolated comparison reuses those exact lifecycle receipts and reconstructs the measured bytes through the normal SDK publication boundary. The source files stay in custody. [Public parity method](SquareRevolvePublicParity2026.md)
+The isolated public comparison reuses those exact lifecycle receipts and reconstructs both measured native candidates through the normal SDK publication boundary. [Public parity method](SquareRevolvePublicParity2026.md) · [Windows receipt](../measurements/2026/SdkSquareRevolvePublicParity01.json)

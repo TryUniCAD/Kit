@@ -17,7 +17,10 @@ def PlanPublicRevolve(DocumentValue: CadDocument) -> RevolvePlan | None:
     ):
         return None
     PlanValue = ProjectRevolve(DocumentValue)
-    if PlanValue.EqualRule is None and PlanValue.SideMode not in ("one_sided", "two_sided"):
+    if PlanValue.EqualRule is None and PlanValue.SideMode not in (
+        "one_sided",
+        "two_sided",
+    ):
         raise ValueError("public native revolve end mode requires native acceptance")
     if PlanValue.EqualRule is not None and PlanValue.SideMode not in (
         "symmetric_full",

@@ -22,8 +22,8 @@ from tests.Convert.Solidworks.Research.Construction.Part.MakePlainDoc import (
 
 
 # independent authored geometry exercises the public end mode without opening any reference file
-def MakeRevCase(PartName: str, TwoSides: bool) -> CadDocument:
-    Document = MakePlainDoc(PartName, 18.0, 26.0, 10.0)
+def MakeRevCase(PartName: str, ModeValue: str, IsSquare: bool = False) -> CadDocument:
+    Document = MakePlainDoc(PartName, 18.0, 18.0 if IsSquare else 26.0, 10.0)
     Sketch = Document.sketches[0]
     Feature = Document.feature_timeline[0]
     AxisLine = SketchEntity(
@@ -48,6 +48,18 @@ def MakeRevCase(PartName: str, TwoSides: bool) -> CadDocument:
         )
         for Index, Entity in enumerate(Sketch.entities)
     )
+    if IsSquare:
+        Rules += (
+            SketchRelation(
+                "relation/equal",
+                "equal",
+                (
+                    ConstraintRef(Sketch.entities[3].id),
+                    ConstraintRef(Sketch.entities[0].id),
+                ),
+            ),
+        )
+    TwoSides = ModeValue == "two_sided"
     Parameters = tuple(
         Parameter(
             f"parameter/{Name}",
@@ -63,7 +75,7 @@ def MakeRevCase(PartName: str, TwoSides: bool) -> CadDocument:
         Parameters[0].id,
         SpaceVector(-16, 0, 24),
         SpaceVector(0, 0, -1),
-        SideMode="two_sided" if TwoSides else "one_sided",
+        SideMode=ModeValue,
         AgainstParameterId=Parameters[1].id if TwoSides else None,
     )
     Plane = Replace(
