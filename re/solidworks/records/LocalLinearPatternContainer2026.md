@@ -50,6 +50,12 @@ The strict observer fails the dependency selection check in both cases.
 The generated feature exposes three native parent features, the plate,
 the raised seed and the direction datum. The independently authored
 native products expose two, the raised seed and the direction datum.
-Record this as a dependency mismatch before testing pitch edits or
-admitting held-outs. [Observer](../../tooling/sw2026/linear_pattern/ObserveGeneratedLinearPattern.py) ·
+The first run stopped on this dependency mismatch before the pitch edits.
+[Observer](../../tooling/sw2026/linear_pattern/ObserveGeneratedLinearPattern.py) ·
 [Strict native result](../measurements/2026/GeneratedObliquePatternNative01.json)
+
+The [single-stock correction](LocalLinearPatternParentScope2026.md)
+preserves both body atoms and generates the native direct-parent flag
+from their verified scope. Both corrected files pass the same strict
+observer across cold open, rebuild, D3 edit, save and fresh reopen.
+[Corrected native result](../measurements/2026/GeneratedObliquePatternNative02.json)

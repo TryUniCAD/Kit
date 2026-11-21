@@ -14,7 +14,7 @@ The exact `moCompSolidBody_c` callback enters `0x4b7f9030` by slot `+0xa8`. With
 
 [MakeLocalPattern.py](../../tooling/sw2026/linear_pattern/MakeLocalPattern.py) sets the scope bit after the shared lineage builder verifies that the pattern consumes the sole current seed result and that the seed's prior plate has already been retired. It publishes the new live result with the actual seed and base identities. This derives already-valid single-stock scope before native dependency enumeration. The cold appearance field `f1054` stays at its separate constructor state. The guard also refuses a cleared bit in this specific serialized scope.
 
-The generated initial and corrected files use identical neutral models, locators, analytic physical predictions, stream lengths and object maps. There is exactly one changed byte in each decompressed ResolvedFeatures stream, at 18382 in case A and 18390 in case B. Each change is from zero to one at the typed pattern field. Every other container payload is exact, including Config-0 and both headers. The original data and result stay immutable. The corrected archive and typed negative contrasts pass host proof. Corrected native verification is pending.
+The generated initial and corrected files use identical neutral models, locators, analytic physical predictions, stream lengths and object maps. There is exactly one changed byte in each decompressed ResolvedFeatures stream, at 18382 in case A and 18390 in case B. Each change is from zero to one at the typed pattern field. Every other container payload is exact, including Config-0 and both headers. The original data and result stay immutable. The corrected archive and typed negative contrasts pass host proof.
 
 The corrected manifest SHA is `b04e279af46524b69a3198c50e2ba06a89702327be1885eb5e2283d82f2d84a3`. Rebuild the corrected files with the [original guarded construction command](LocalLinearPatternContainer2026.md#reproduction-and-boundaries), giving the output receipt the name `LocalLinearPatternContainer02.json`. To bind the old native result and compare the exact typed streams, run the audit on the two frozen directories.
 
@@ -27,4 +27,17 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/AuditLocalPatternParentScope.p
   --output /tmp/<unused-directory>/LocalLinearPatternParentScope01.json
 ```
 
-A controlled repeat must verify exactly the actual seed and direction as direct parents before the D3 edit, after rebuild and in a fresh reopen. The existing native acceptance checks and healthy controls remain required. No protected input contributed to the correction.
+## Corrected native lifecycle
+
+The same observer and same encoded locators pass all four candidate phases
+and both controls in six fresh SOLIDWORKS 2026 SP05.2 processes. Each cold
+and rebuilt result exposes one solid, 21 or 26 faces and the predicted
+volume, area and centre of mass, with zero errors and warnings. The
+complete 30-row native tree and exact seed-and-datum parent list match
+through both edits and fresh reopens.
+
+The live D3 edits are 18 to 24 mm and 19 to 22 mm. The independent model
+predicts each centre shift with the D1 counts unchanged at three and four.
+All 176 numerical checks pass. The first trial's artifacts and logs remain
+intact. Independent locked cases and normal SDK admission remain open.
+[Corrected native receipt](../measurements/2026/GeneratedObliquePatternNative02.json)
