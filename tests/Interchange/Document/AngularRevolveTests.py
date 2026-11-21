@@ -87,6 +87,39 @@ def CheckAngularRev() -> None:
     assert Updated.feature_timeline[0].definition == Definition
 
 
+# the complete wire round trip must keep a centred feature editable through its single real driver
+def CheckTotalAngularRev() -> None:
+    Document = BuildAngularRev()
+    StepValue = Document.feature_timeline[0]
+    Definition = StepValue.definition
+    assert isinstance(Definition, AngularRevolve)
+    Total = ReplaceValue(Definition, SideMode="symmetric_full", AgainstParameterId=None)
+    Driver = Document.parameters[0]
+    Centred = ReplaceValue(
+        Document,
+        parameters=(Driver,),
+        feature_timeline=(
+            ReplaceValue(StepValue, definition=Total, parameter_ids=(Driver.id,)),
+        ),
+    )
+    Centred.AssertValid()
+    Decoded = CadDocument.from_json(Centred.to_json())
+    assert Decoded == Centred
+    Edited = ReplaceValue(
+        Decoded,
+        parameters=(
+            ReplaceValue(
+                Decoded.parameters[0],
+                value=ParameterValue(1.6, ValueKind.KAngle, "rad"),
+            ),
+        ),
+    )
+    Edited.AssertValid()
+    assert Edited.feature_timeline[0].definition == Total
+    assert len(Edited.parameters) == 1
+    assert GetAngleSpan(1.6, Total.AgainstParameterId, Total.SideMode) == (-0.8, 0.8)
+
+
 # broken selection links and foreign or wrong unit parameters cannot drive a revolution
 def CheckRevRefs() -> None:
     Document = BuildAngularRev()
