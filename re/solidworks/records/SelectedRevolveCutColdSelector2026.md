@@ -47,3 +47,17 @@ Native saving retained the direct selection wrapper: `f18=101`, `f100=f104=0`, `
 Both derivatives contain active primary and mirror surface choosers on each of the three operations. The saved Config and Header2 report the ordinary unset creation epoch for each of their IDs. Every chooser representation binds that same epoch and the actual local part and configuration. For both arms, the saved geometry retains untouched atom 102 with four faces and result atom 103 with nine faces. The typed cut consumes stock atom 101. The wrapper has no face representative and neither save-time remap word is active.
 
 The strict SDK reader now binds both variants using the regenerated choosers and the same physical partition validation used for face-backed saves. It restores the complete D1 owner chain, the selected stock dependency and both solid identities. Four linked stream replays, two guarded strict reads and five negative ownership graphs passed at `df7caa0ab47380da35581297ae8f722cf34c7dac`. The independent earlier disclosed suite also retained its four saved projections, eight exact stream replays and eight owner refusals. The multi-body writer remains outside public qualification. [Strict read receipt](../measurements/2026/SdkDirectSelectedRevolveSavedRead01.json) · [Reader change](../../../Documentation/Changes/Solidworks/Reading/Parts/SolidworksDirectRevolveSelectionRead.md)
+
+## Signed principal disclosure
+
+Task `B04-SW2026-REVOLVE-CUT/selected-stock`, owner PR #121 takeover. The second packet builds the selected-stock archive from an explicitly supplied neutral document and keeps the earlier Front selector hashes. Its two disclosed inputs vary principal frame, annular geometry, cut angle and selected stock. Both use the model-defined consumed atom and the documented `f108=-1` initial value. The independent sector calculation checks volumes, areas and centroids before staging. The measured source frame and target stock must also survive native body lookup and D1 edits. The acceptance exit is two complete edit, save and fresh reopen cases between controls. The prior private Top and Right inputs remain sealed.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/revolve/SelectedCut/FreezeScopedRevolveNative.py \
+  --output /absolute/host/share/NewScopedPacket \
+  --guest-packet '\\Mac\Home\Documents\UniCAD\Oracle121Takeover\NewScopedPacket' \
+  --guest-workspace 'C:\KitSdkCandidates\NewScopedPacket' \
+  --control /absolute/host/share/RevolveFull.SLDPRT --epoch 1760612759
+```
+
+From macOS, invoke the staged `Tools/RunScopedRevolveNative.py` using the designated guest Python and `prlctl exec --current-user "Windows 11"`. Supply `verify` and then `run`, the guest path to `Packet.json` and the reported `--pin`. Generation, source custody and oracle measurements stay distinct.

@@ -60,17 +60,21 @@ def digest(raw):
     return sha256(raw).hexdigest()
 
 
-def model(locator):
-    name = PureWindowsPath(locator).stem
-    design = DESIGNS[0] | {"name": name}
+def named_document(design):
     base = fixture(design)
     features = tuple(replace(value, name=label)
                      for value, label in zip(base.feature_timeline, (*STOCK_NAMES, FEATURE_NAMES["cut"]), strict=True))
     sketches = tuple(replace(value, name=label)
                      for value, label in zip(base.sketches, (*STOCK_SKETCHES, PROFILE), strict=True))
     bodies = tuple(replace(value, name=label)
-                   for value, label in zip(base.bodies, (STOCK_NAMES[1], FEATURE_NAMES["cut"]), strict=True))
-    document = replace(base, feature_timeline=features, sketches=sketches, bodies=bodies)
+                   for value, label in zip(base.bodies, (STOCK_NAMES[1 - design["selected"]], FEATURE_NAMES["cut"]),
+                                           strict=True))
+    return replace(base, feature_timeline=features, sketches=sketches, bodies=bodies)
+
+
+def model(locator):
+    name = PureWindowsPath(locator).stem
+    design = DESIGNS[0] | {"name": name}
     case = {"name": name, "family": "cut", "split": "discovery", "plane": design["plane"],
             "axis_x_m": design["axis"] * 0.001, "axis_axial_m": [value * 0.001 for value in design["span"]],
             "axial_m": [value * 0.001 for value in design["axial"][2]],
@@ -78,7 +82,22 @@ def model(locator):
             "stock_radii_m": [[value * 0.001 for value in limits] for limits in design["radial"][:2]],
             "stock_axial_m": [value * 0.001 for value in design["axial"][0]],
             "angle_deg": design["angle"], "edit_angle_deg": 119.25, "reverse": False, "scope": "inner"}
-    return document, case, design["epoch"]
+    return named_document(design), case, design["epoch"]
+
+
+def case_document(case, locator, epoch):
+    require(case["name"] == PureWindowsPath(locator).stem and case["family"] == "cut"
+            and case["plane"] in ("front", "top", "right") and case["reverse"] is False
+            and case["scope"] in ("inner", "outer") and type(epoch) is int and 0 < epoch < 2**31,
+            "scoped revolve requires a forward principal frame and one explicit stock")
+    stock = tuple(value * 1000 for value in case["stock_axial_m"])
+    design = {"name": case["name"], "plane": case["plane"], "axis": case["axis_x_m"] * 1000,
+              "span": tuple(value * 1000 for value in case["axis_axial_m"]),
+              "radial": tuple(tuple(value * 1000 for value in pair)
+                              for pair in (*case["stock_radii_m"], case["radius_m"])),
+              "axial": (stock, stock, tuple(value * 1000 for value in case["axial_m"])),
+              "angle": case["angle_deg"], "selected": ("inner", "outer").index(case["scope"]), "epoch": epoch}
+    return named_document(design)
 
 
 def keywords(system, profiles, features, plan, epoch):
@@ -96,9 +115,8 @@ def keywords(system, profiles, features, plan, epoch):
     return MakeKeywords(plan.operations[0].NameValue, epoch, config, (*public, *formed, *sketches))
 
 
-def build(locator, policy):
+def build_document(document, locator, epoch, policy):
     require(policy in POLICIES, "unknown scoped revolve reference mode")
-    document, case, epoch = model(locator)
     plan = neutral_projection(document)
     first = plan.operations[0]
     inputs = replace(MakePartRecipe(first, epoch), OutputValue=SelfFileInput(locator, epoch))
@@ -126,7 +144,7 @@ def build(locator, policy):
     definition = MakePartDef(inputs.DefinitionValue, inputs.DensityValue)
     streams, config, resolved = EmitRevStreams(system, roots, headers, definition, inputs, plan.operations[2])
     streams[KeywordsStream] = keywords(system, profiles, features, plan, epoch)
-    return BuildSldprt(streams, FormatVersion=4), streams, case, plan, resolved.ContextValue
+    return BuildSldprt(streams, FormatVersion=4), streams, plan, resolved.ContextValue
 
 
 def inspect(raw, streams, context, plan, policy):
@@ -177,11 +195,18 @@ def inspect(raw, streams, context, plan, policy):
 def worker(request):
     warm()
     blocked = guard_runtime()
-    raw, streams, case, plan, context = build(request["locator"], request["policy"])
+    locator, policy = request["locator"], request["policy"]
+    if "case" in request:
+        case, epoch = request["case"], request["epoch"]
+        document = case_document(case, locator, epoch)
+    else:
+        document, case, epoch = model(locator)
+    raw, streams, plan, context = build_document(document, locator, epoch, policy)
     proof = inspect(raw, streams, context, plan, request["policy"])
     untouched, changed = cut_measure(plan)
     predicted = cut_predictions(case)
-    for name, measured in zip((STOCK_NAMES[1], STOCK_NAMES[0]), (untouched, changed), strict=True):
+    names = (STOCK_NAMES[1 - plan.selected_index], STOCK_NAMES[plan.selected_index])
+    for name, measured in zip(names, (untouched, changed), strict=True):
         wanted = predicted[name]
         require(all(isclose(value, target, rel_tol=1e-12, abs_tol=1e-16) for value, target in zip(
             (measured.volume_m3, measured.area_m2, *measured.centre_m),

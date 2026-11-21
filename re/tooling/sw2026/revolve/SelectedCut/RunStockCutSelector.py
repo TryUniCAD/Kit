@@ -91,8 +91,10 @@ def observe_factory(Swapp, constants):
             sequence = [row["name"] for row in state["features"] if row["name"] in expected]
             require(sequence == list(expected), "native stock-cut feature order changed")
             bodies = state["measured"]
-            require(state["body_count"] == 2 and bodies[STOCK_NAMES[0]]["faces"] == 9
-                    and bodies[STOCK_NAMES[1]]["faces"] == 4, "native selected cut changed the other solid or face counts")
+            selected = ("inner", "outer").index(case["scope"])
+            require(state["body_count"] == 2 and bodies[STOCK_NAMES[selected]]["faces"] == 9
+                    and bodies[STOCK_NAMES[1 - selected]]["faces"] == 4,
+                    "native selected cut changed the other solid or face counts")
             toggle = self.display_dimension_preference()
             initial = bool(self.get(self.model, "GetUserPreferenceToggle", toggle))
             stock_drivers = {}
