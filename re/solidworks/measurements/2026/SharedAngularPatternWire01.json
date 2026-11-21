@@ -1,0 +1,320 @@
+{
+  "all_model_and_disclosed_rows_unchanged": true,
+  "build": "34.5.2.0604",
+  "codec_file_sha256": {
+    "AnchorFields": "8cda3051931ec3f84cc404cbb4d428cd73999150bb393570d149dcaf8fec6733",
+    "AnglePlaneFields": "48a216e33193e433b1e9c525978a054c2449d6484ba5f34d2904eb986ab791bc",
+    "AxisFields": "a785f3b17f851dda02e633537afc403862ea767c312d62ddf212b002abc3e778",
+    "ResolvedLayouts": "b41eb959367e9da4b6d0e7c1d1462eafc25e84f49c7255d1cc9dd1ef74e97186",
+    "ResolvedSchemas": "7adf6e2e7d5cc5678a242165c19ed87d66961476262fda325253d12956aa5e71",
+    "ResolvedVirtuals": "0cc880c36f85188947849dd5057bba1089564d1cfa62b8986ed405616add7f49"
+  },
+  "disclosed_native": [
+    {
+      "map_base": 112,
+      "map_counter": 427,
+      "name": "D01X.SLDPRT",
+      "root_count": 22,
+      "sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25840,
+          "sha256": "3d907c69875881895c1cddf1dcb328a9fa931952e12a9d745c962a02917bed2a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 28879,
+          "sha256": "e502cfbc9bcd027a1536d6f9d72b71d6c5aecae1632a8a059fc6101104418ca8"
+        }
+      }
+    },
+    {
+      "map_base": 112,
+      "map_counter": 427,
+      "name": "D01XInstances.SLDPRT",
+      "root_count": 22,
+      "sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25846,
+          "sha256": "a3ba42e64644e62df2888f2e7ff6e2b91f198fea6d383ea5517f26d28018fdae"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 29089,
+          "sha256": "b460f235270e9de94ac62274274434f28ed6046999b8e07a2aeecc8bfb383ba1"
+        }
+      }
+    },
+    {
+      "map_base": 112,
+      "map_counter": 427,
+      "name": "D01XSpacing.SLDPRT",
+      "root_count": 22,
+      "sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25846,
+          "sha256": "86f88d2fc620496eea28accbbc608123f36e3e6c219e9eed51186f2fc1cc1a3b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 29089,
+          "sha256": "ee62cefcc4dd8f0a270417a8f6e4bd3cbb96206669a9b2f2560708f2cdb62b6c"
+        }
+      }
+    },
+    {
+      "map_base": 113,
+      "map_counter": 428,
+      "name": "D02Y.SLDPRT",
+      "root_count": 22,
+      "sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26098,
+          "sha256": "99323ed45509bc433e6c649ca08375a21cd1ffefb5304af2492f7b6e69901abc"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 28879,
+          "sha256": "8d90f9bd93ea45d25c334df76aa5ca6bdfa25edb1dbdf62630f4d923e4bcd7a9"
+        }
+      }
+    },
+    {
+      "map_base": 113,
+      "map_counter": 428,
+      "name": "D02YInstances.SLDPRT",
+      "root_count": 22,
+      "sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26104,
+          "sha256": "fa6710128ab29af93213a8df34933b69affb5a91eb86522dfb58d626b459cc49"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 29089,
+          "sha256": "96500e6a76d9c4018254c3fddb6d2af3f7501937a10403a2d48f765892fc2a70"
+        }
+      }
+    },
+    {
+      "map_base": 113,
+      "map_counter": 428,
+      "name": "D02YSpacing.SLDPRT",
+      "root_count": 22,
+      "sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26104,
+          "sha256": "1ca8efc48a357d9960a9aa8b745ecfe3c12c81a0a5c75b5e99be70371feab221"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 29089,
+          "sha256": "fe291652c8611a12eadc23f275b9157d87c583a8471a1ef3a8f25146e2d609cb"
+        }
+      }
+    },
+    {
+      "driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "map_base": 112,
+      "map_counter": 472,
+      "max_geometric_error": 3.510833468576701e-16,
+      "name": "DirectionEnvelope.SLDPRT",
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 41,
+        "right": 4
+      },
+      "sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25918,
+          "sha256": "5d30c8d33d52227be16c58d77a818f11f9ff911ce035501d2187f5a353e10784"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 33618,
+          "sha256": "efa18907195d12c806cae22703fe0bac06c63c45c7ff78029c2980b0020f9305"
+        }
+      }
+    },
+    {
+      "driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "map_base": 112,
+      "map_counter": 472,
+      "max_geometric_error": 3.510833468576701e-16,
+      "name": "DirectionEnvelopeSpacing.SLDPRT",
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 41,
+        "right": 4
+      },
+      "sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25942,
+          "sha256": "534bc50076ed18e0b83576c7c84a0e7b0be839192f63056db7775208cb7942ff"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 33860,
+          "sha256": "35f0b8b0f64140dcc6bb9809df06942f9fccaeefc1cd7186fee2abbf3f6aead9"
+        }
+      }
+    },
+    {
+      "driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "map_base": 112,
+      "map_counter": 472,
+      "max_geometric_error": 2.220446049250313e-16,
+      "name": "DatumHeightShort.SLDPRT",
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 41,
+        "right": 4
+      },
+      "sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25918,
+          "sha256": "f45d5630bb46aa044651a1878b171946e1b32d63a606ff30404d9fa62cb9397a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 33618,
+          "sha256": "4ff5fe3425e7285ef78b37b70dff4f61865ee08a14ccc20bebec4f5358a72a8f"
+        }
+      }
+    },
+    {
+      "driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "map_base": 112,
+      "map_counter": 472,
+      "max_geometric_error": 1.1102230246251565e-16,
+      "name": "DatumHeightTall.SLDPRT",
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 41,
+        "right": 4
+      },
+      "sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25918,
+          "sha256": "53e09fbb2ed19258d3a0c24d44ef3fd919997c476baf7c0ecffb51574e1ef09f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 33618,
+          "sha256": "4b2ec640073205b6d3cd2aea4813368ea710131596460d3447fbbeb649a35dd9"
+        }
+      }
+    }
+  ],
+  "generated": [
+    {
+      "driver": {
+        "angle_rad": 0.5759586531581288,
+        "annotation_view": "*Back",
+        "annotation_view_id": 200,
+        "id": 25,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "map_base": 94,
+      "map_counter": 316,
+      "max_geometric_error": 8.673617379884035e-19,
+      "name": "ColdRaisedPatternA.SLDPRT",
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 24,
+        "right": 16
+      },
+      "sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 23018,
+          "sha256": "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 28290,
+          "sha256": "51611d4dcf499beda2ec08b9498ecf14a876366b031f131a24d29a76ac2361fa"
+        }
+      }
+    },
+    {
+      "driver": {
+        "angle_rad": 0.9948376736367679,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 25,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "map_base": 94,
+      "map_counter": 316,
+      "max_geometric_error": 0.0,
+      "name": "ColdRaisedPatternB.SLDPRT",
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 24,
+        "right": 16
+      },
+      "sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 23018,
+          "sha256": "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 28298,
+          "sha256": "11c32670d8fc089a24e7ca652d11b1946d67e6dafd528c2e23f31eaa94460f57"
+        }
+      }
+    }
+  ],
+  "guarded_generation_processes": 10,
+  "heldout_inputs_read": 0,
+  "legacy_controls": [
+    {
+      "line_owner": null,
+      "path": "ladder/L1_boss.SLDPRT",
+      "resolved_sha256": "33a190c0632c1cfb61a493671d5811c9ea3e9f81a4233adf801d28a8780af525",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    {
+      "line_owner": "moCompSketchEntHandle_c",
+      "path": "principal-revolve-discovery/PrincipalRevolveTopForward.SLDPRT",
+      "resolved_sha256": "8ae01dea66fda2c0058ad4b5f82d797b90447e81a0d64387a5e68b8e83becd26",
+      "source_sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0"
+    }
+  ],
+  "linked_streams_exact": 28,
+  "model_only_archives_matched": 6,
+  "native_lifecycles_started": 0,
+  "previous_generation_sha256": "b04e279af46524b69a3198c50e2ba06a89702327be1885eb5e2283d82f2d84a3",
+  "schema": "kit.sw2026.shared-angular-pattern-wire.v1",
+  "shared_generation_sha256": "1279a9c445a04917c72e61b108ac8169bca25400c9727abf8e74604bc76524dc"
+}

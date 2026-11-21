@@ -11,12 +11,10 @@ from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeSketc
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import MakePartDef
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, ReadNodeName
 from convert.adapters.solidworks.Container.Container import BuildSldprt
-from convert.adapters.solidworks.Container.Format import KResolvedFeaturesStream
 from convert.adapters.solidworks.Core.Preparation.TwoStock.StockKeywords import StockKeyRow
 
 from CheckPatternAngleOwners import require
 from MakeLocalPattern import make_pattern
-from PatternAngleWire import write_resolved
 
 
 def make_keywords(graph):
@@ -56,12 +54,10 @@ def emit_pattern(seed_intent, axis_name, plane_intent, annotation, pattern_inten
     graph = make_pattern(seed_intent, axis_name, plane_intent, annotation, pattern_intent)
     seed = graph.seed
     definition = MakePartDef(seed.settings.DefinitionValue, seed.settings.DensityValue)
-    streams, config, prefix = EmitPartArchive(seed.system, seed.roots, graph.headers, definition, seed.settings, make_keywords(graph))
-    context = prefix.ContextValue
-    resolved, snapshot = write_resolved(graph.roots, None, config.MapValue, context)
-    require(prefix.MapValue.CounterValue < snapshot.CounterValue and prefix.RootsValue == seed.roots
+    streams, config, resolved = EmitPartArchive(seed.system, graph.roots, graph.headers, definition, seed.settings, make_keywords(graph))
+    require(config.MapValue.CounterValue < resolved.MapValue.CounterValue and resolved.RootsValue == graph.roots
+            and resolved.RootsValue[:len(seed.roots)] == seed.roots
             and all("Partition" not in name and "LocalBodies" not in name for name in streams),
             "local pattern constructor must extend the same ordinary part and omit stored physical body rows")
-    complete = {**streams, KResolvedFeaturesStream: resolved}
-    container = BuildSldprt(complete, FormatVersion=4)
-    return graph, complete, container
+    container = BuildSldprt(streams, FormatVersion=4)
+    return graph, streams, container

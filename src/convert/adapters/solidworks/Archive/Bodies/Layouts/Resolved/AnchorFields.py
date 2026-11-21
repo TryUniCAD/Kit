@@ -72,6 +72,34 @@ KRefWrapperTailFields = (
 )
 
 
+# existing wrappers retain their context specific plane or sketch selection requirements
+KRefWrapperHead = NativeField(
+    "Branch",
+    "pattern_datum",
+    BodyValue=KPatternDatumFields,
+    OtherValue=(
+        NativeField("Node", "f58", "moCompSketchEntHandle_c"),
+        NativeField(
+            "Branch",
+            "",
+            BodyValue=(
+                NativeField(
+                    "Fail",
+                    "anchor wrapper requires its component sketch selection",
+                ),
+            ),
+            ModeValue="Expression",
+            ExpressionValue=(
+                "compare",
+                ("NotEq",),
+                ("class_of", ("lookup", ("scope",), ("literal", "f58"))),
+                ("literal", "moCompSketchEntHandle_c"),
+            ),
+        ),
+    ),
+    ModeValue="Context",
+)
+
 # source proven external point field order shares existing component and geometry codecs without saved payloads
 KAnchorFields = MappingProxyType(
     {
@@ -107,28 +135,9 @@ KAnchorFields = MappingProxyType(
         "moRefWrapper_c": (
             NativeField(
                 "Branch",
-                "pattern_datum",
-                BodyValue=KPatternDatumFields,
-                OtherValue=(
-                    NativeField("Node", "f58", "moCompSketchEntHandle_c"),
-                    NativeField(
-                        "Branch",
-                        "",
-                        BodyValue=(
-                            NativeField(
-                                "Fail",
-                                "anchor wrapper requires its component sketch selection",
-                            ),
-                        ),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "compare",
-                            ("NotEq",),
-                            ("class_of", ("lookup", ("scope",), ("literal", "f58"))),
-                            ("literal", "moCompSketchEntHandle_c"),
-                        ),
-                    ),
-                ),
+                "constraint_hinge",
+                BodyValue=(NativeField("Node", "f58", "moCompRefAxis_c"),),
+                OtherValue=(KRefWrapperHead,),
                 ModeValue="Context",
             ),
             *KRefWrapperTailFields,

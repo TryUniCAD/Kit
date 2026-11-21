@@ -1,8 +1,7 @@
 from functools import partial
 
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AnchorFields import KRefWrapperTailFields
-from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField as Field
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AxisFields import KAxisFields
 from convert.adapters.solidworks.Archive.Bodies.ReadBodyMut import ReadBodyMut
 from convert.adapters.solidworks.Archive.Bodies.WriteBodyMut import WriteBodyMut
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNodeMut import WriteNodeMut
@@ -16,23 +15,6 @@ from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeRes
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
 
-AXIS_CLASSES = {
-    "moRefAxis_c": (
-        Field("Base", "moRefGeom_c"), Field("Node", "f700", "moPlaneInterAxisData_c"),
-    ),
-    "moPlaneInterAxisData_c": (
-        Field("Embed", "f18", "mgPoint_c.restore"), Field("Embed", "f30", "mgPoint_c.restore"),
-        Field("Scalar", "f08", "f64"), Field("Scalar", "f10", "f64"),
-        Field("Embed", "f50", "mgVector_c.restore"), Field("Embed", "f68", "mgPoint_c.restore"),
-        Field("Node", "f80", "moPlaneRef_w"), Field("Node", "f88", "moPlaneRef_w"),
-    ),
-    "moPlaneRef_w": (
-        Field("Node", "f58", "moCompRefPlane_c"), *KRefWrapperTailFields,
-        *(Field("Scalar", key, "f64") for key in ("fb0", "fb8", "fc0", "fc8")),
-        Field("Embed", "fd0", "mgPoint_c.restore"), Field("Embed", "fe8", "mgVector_c.restore"),
-        Field("Embed", "f100", "mgXform_c.restore"), Field("Embed", "f188", "mgPoint_c.restore"),
-    ),
-}
 AXIS_VIRTUALS = {
     ("moRefAxis_c", 1000): "moFeature_c.SerializeXmlData",
     ("moRefAxis_c", 1016): True,
@@ -45,11 +27,10 @@ def context(seed, link, *, disclosed_prefix=False):
     if link != {"model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": int(disclosed_prefix)}:
         raise ValueError("finite hinge study requires an ordinary part without a generated MBSM body map")
     local = MakeResolvedCtx(19000, seed, link, None)
-    if set(AXIS_CLASSES) & local.LayoutsValue.keys() or set(AXIS_VIRTUALS) & local.VirtualValue.keys():
-        raise ValueError("already admitted native axis grammar needs independent review")
-    local.LayoutsValue = {**local.LayoutsValue, **AXIS_CLASSES}
-    local.SchemasValue = {**local.SchemasValue, **dict.fromkeys(AXIS_CLASSES, (1,))}
-    local.VirtualValue = {**local.VirtualValue, **AXIS_VIRTUALS}
+    if (any(local.LayoutsValue.get(name) != layout or local.SchemasValue.get(name) != (1,)
+            for name, layout in KAxisFields.items())
+            or any(local.VirtualValue.get(owner) != target for owner, target in AXIS_VIRTUALS.items())):
+        raise ValueError("shared native axis grammar differs from the measured hinge owners")
     return local
 
 

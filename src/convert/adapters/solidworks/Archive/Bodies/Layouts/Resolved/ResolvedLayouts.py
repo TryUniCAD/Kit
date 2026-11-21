@@ -1,5 +1,8 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AnglePlaneFields import (
+    KAnglePlaneFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AnchorFields import (
     KAnchorFields,
 )
@@ -9,6 +12,9 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ConfigLayouts imp
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AssemblyFields import (
     KAssemblyFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AxisFields import (
+    KAxisFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.BodyFields import (
     KBodyFields,
@@ -60,8 +66,10 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.SketchFields im
 KResolvedLayouts = MappingProxyType(
     {
         **KConfigLayouts,
+        **KAnglePlaneFields,
         **KAnchorFields,
         **KAssemblyFields,
+        **KAxisFields,
         **KBodyFields,
         **KComponentFields,
         **KCoreFields,

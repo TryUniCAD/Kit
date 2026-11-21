@@ -1,7 +1,7 @@
 from functools import partial
 
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
-from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField as Field
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AnglePlaneFields import KAnglePlaneFields
 from convert.adapters.solidworks.Archive.Bodies.ReadBodyMut import ReadBodyMut
 from convert.adapters.solidworks.Archive.Bodies.WriteBodyMut import WriteBodyMut
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNodeMut import WriteNodeMut
@@ -23,35 +23,16 @@ ANGLE_PLANE = "moConstraintCoincLineAtAnglePlaneRefplaneData_c"
 INTERFACE = "moConstraintRefplaneInterfaceData_c"
 ANGLE = "moRefPlaneAngleGeom_c"
 COINCIDENT = "moRefPlaneCoincidentGeom_c"
-COORDINATES = (
-    Field("Scalar", "u", "f64"), Field("Scalar", "v", "f64"),
-    Field("Embed", "f20", "mgPoint_c.restore"),
-)
-ANGLE_CLASSES = {
-    ANGLE_PLANE: (
-        Field("Base", "moRefPlnData_c.serializePlaneData"), Field("Node", "f88", INTERFACE),
-        Field("Scalar", "f148", "i32"), Field("Node", "f150", "moDisplayAngularDim_c"),
-    ),
-    INTERFACE: (Field("Node", "f08", ANGLE), Field("Node", "f10", COINCIDENT), Field("Node", "f18", COINCIDENT)),
-    ANGLE: (Field("Node", "f08", "moPlaneRef_w"), *COORDINATES, Field("Scalar", "f38", "f64"), Field("Scalar", "f40", "u8")),
-    COINCIDENT: (Field("Mask", "constraint_hinge", BodyValue=(Field("Node", "f08", "moLineRef_w"),), MaskValue=1), *COORDINATES),
-    "moCompRefAxis_c": (Field("Base", "moCompFeature_c"), Field("Node", "ff8", "moRefGeom_c")),
-}
 
 
 def context(seed, link, *, source_replay=False):
     local = hinge_context(seed, link, disclosed_prefix=source_replay)
-    if set(ANGLE_CLASSES) & local.LayoutsValue.keys():
-        raise ValueError("shared angle grammar changed since the disclosed write boundary")
-    wrapper_head, *wrapper_tail = local.LayoutsValue["moRefWrapper_c"]
-    if wrapper_head.NameValue != "pattern_datum" or wrapper_head.ModeValue != "Context":
-        raise ValueError("existing reference-wrapper roles changed since the disclosed angle boundary")
-    bounded_wrapper = (
-        Field("Branch", "constraint_hinge", BodyValue=(Field("Node", "f58", "moCompRefAxis_c"),),
-              OtherValue=(wrapper_head,), ModeValue="Context"), *wrapper_tail,
-    )
-    local.LayoutsValue = {**local.LayoutsValue, **ANGLE_CLASSES, "moRefWrapper_c": bounded_wrapper}
-    local.SchemasValue = {**local.SchemasValue, **dict.fromkeys(ANGLE_CLASSES, (1,))}
+    if any(local.LayoutsValue.get(name) != layout or local.SchemasValue.get(name) != (1,)
+           for name, layout in KAnglePlaneFields.items()):
+        raise ValueError("shared angle grammar differs from the measured constrained plane owners")
+    wrapper, *_ = local.LayoutsValue["moRefWrapper_c"]
+    if wrapper.NameValue != "constraint_hinge" or wrapper.ModeValue != "Context":
+        raise ValueError("shared wrapper grammar lacks the measured hinge role")
     return local
 
 
