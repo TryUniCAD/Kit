@@ -2,6 +2,8 @@
 
 The first Windows packet stopped at the registry worker before byte parity. A separate disclosed reproduction exercised both APIs with the same frozen sources and found that CPython 3.12 omits `os.O_ACCMODE`. The staged file audit now derives the mask from the Windows access flags when necessary. The native-tested writer source tree stays pinned. [Preserved first verdict](../measurements/2026/SdkSealedPublicNestedParityWindowsFailure01.json)
 
+The second packet's disclosed preflight compared Windows generation to the macOS frozen files and refused all seven complete file hashes. The actual Windows registry exactly reproduced the original frozen neutral preparer when both ran in the same Windows interpreter. The cross-runtime replays differed only in eight typed default camera values per document under `Config-0/f9f8`. The left, right, top and bottom view matrix rows differ by two representable binary64 steps with absolute delta `7.888609052210118e-31`. The `MakeStdViews` constructor computes those rows from the declared rotation plans, half-angle sines and cosines, quaternion products and row normalization. The comparison retains strict same-runtime full-file equality. [Cross-runtime typed receipt](../measurements/2026/NestedRuntimeStdViewContrast01.json)
+
 The parity evaluator freezes public writer revision
 `96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb`, with source tree
 `4f00d8b078ea956ccfa2883c043093a964ae2237`. It binds the 13-process disclosed

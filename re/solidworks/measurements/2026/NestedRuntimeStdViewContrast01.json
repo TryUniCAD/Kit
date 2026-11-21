@@ -1,0 +1,197 @@
+{
+  "common_field_values": {
+    "absolute_difference": 7.888609052210118e-31,
+    "mac_binary64_hex": "-0x1.0000000000000p-48",
+    "representable_steps": 2,
+    "windows_binary64_hex": "-0x1.ffffffffffffep-49"
+  },
+  "documents": [
+    {
+      "case": "SdkNestedDimensionedNative01",
+      "changed_logical_bytes": 56,
+      "changed_typed_fields": [
+        "Config-0/moAssembly_c/f9f8/3/o/moView_c/f368/f08/m0",
+        "Config-0/moAssembly_c/f9f8/3/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/4/o/moView_c/f368/f08/m0",
+        "Config-0/moAssembly_c/f9f8/4/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/5/o/moView_c/f368/f08/m4",
+        "Config-0/moAssembly_c/f9f8/5/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/6/o/moView_c/f368/f08/m4",
+        "Config-0/moAssembly_c/f9f8/6/o/moView_c/f368/f08/m8"
+      ],
+      "config_bytes": 22035,
+      "file": "SdkFrame.SLDASM",
+      "mac": {
+        "bytes": 9060,
+        "sha256": "430e8760a87cabd8d8ea326082b2dc99a26c2c64974303e56d2a8ee1119916ff"
+      },
+      "stream_count": 12,
+      "windows": {
+        "bytes": 9070,
+        "sha256": "8c63b040ad6f2ce12ed702597be64956b5cb03fc4852fab154929e8e74bdf7b2"
+      }
+    },
+    {
+      "case": "SdkNestedDimensionedNative01",
+      "changed_logical_bytes": 56,
+      "changed_typed_fields": [
+        "Config-0/moAssembly_c/f9f8/3/o/moView_c/f368/f08/m0",
+        "Config-0/moAssembly_c/f9f8/3/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/4/o/moView_c/f368/f08/m0",
+        "Config-0/moAssembly_c/f9f8/4/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/5/o/moView_c/f368/f08/m4",
+        "Config-0/moAssembly_c/f9f8/5/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/6/o/moView_c/f368/f08/m4",
+        "Config-0/moAssembly_c/f9f8/6/o/moView_c/f368/f08/m8"
+      ],
+      "config_bytes": 22077,
+      "file": "SdkModule.SLDASM",
+      "mac": {
+        "bytes": 8846,
+        "sha256": "b993654affe7a45730688d865a08657c741fb799c3a7703e8c1a90dba7d85609"
+      },
+      "stream_count": 12,
+      "windows": {
+        "bytes": 8858,
+        "sha256": "19efebbdec0273199e7cb119d3a067844910c8c07fe2ee6da1c8b84da24067bb"
+      }
+    },
+    {
+      "case": "SdkNestedDimensionedNative01",
+      "changed_logical_bytes": 56,
+      "changed_typed_fields": [
+        "Config-0/moPart_c/f9f8/3/o/moView_c/f368/f08/m0",
+        "Config-0/moPart_c/f9f8/3/o/moView_c/f368/f08/m8",
+        "Config-0/moPart_c/f9f8/4/o/moView_c/f368/f08/m0",
+        "Config-0/moPart_c/f9f8/4/o/moView_c/f368/f08/m8",
+        "Config-0/moPart_c/f9f8/5/o/moView_c/f368/f08/m4",
+        "Config-0/moPart_c/f9f8/5/o/moView_c/f368/f08/m8",
+        "Config-0/moPart_c/f9f8/6/o/moView_c/f368/f08/m4",
+        "Config-0/moPart_c/f9f8/6/o/moView_c/f368/f08/m8"
+      ],
+      "config_bytes": 22262,
+      "file": "SdkNestedPlate.SLDPRT",
+      "mac": {
+        "bytes": 8694,
+        "sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c"
+      },
+      "stream_count": 10,
+      "windows": {
+        "bytes": 8687,
+        "sha256": "a80c6d630dbd22fab653e2a155c7bb931eeaffe4a94f7fce08b209119fea8f6f"
+      }
+    },
+    {
+      "case": "SdkRepeatedDimensionedNative01",
+      "changed_logical_bytes": 56,
+      "changed_typed_fields": [
+        "Config-0/moAssembly_c/f9f8/3/o/moView_c/f368/f08/m0",
+        "Config-0/moAssembly_c/f9f8/3/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/4/o/moView_c/f368/f08/m0",
+        "Config-0/moAssembly_c/f9f8/4/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/5/o/moView_c/f368/f08/m4",
+        "Config-0/moAssembly_c/f9f8/5/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/6/o/moView_c/f368/f08/m4",
+        "Config-0/moAssembly_c/f9f8/6/o/moView_c/f368/f08/m8"
+      ],
+      "config_bytes": 23243,
+      "file": "SdkFrame.SLDASM",
+      "mac": {
+        "bytes": 9869,
+        "sha256": "27e24ffbf5423c5d8159b8e990a6638f06670886e8885fbf2ce353fb41f11155"
+      },
+      "stream_count": 12,
+      "windows": {
+        "bytes": 9879,
+        "sha256": "fe729936d9bd397068c426b013898fef30726debed9de9d3410382ddbdc87387"
+      }
+    },
+    {
+      "case": "SdkRepeatedDimensionedNative01",
+      "changed_logical_bytes": 56,
+      "changed_typed_fields": [
+        "Config-0/moPart_c/f9f8/3/o/moView_c/f368/f08/m0",
+        "Config-0/moPart_c/f9f8/3/o/moView_c/f368/f08/m8",
+        "Config-0/moPart_c/f9f8/4/o/moView_c/f368/f08/m0",
+        "Config-0/moPart_c/f9f8/4/o/moView_c/f368/f08/m8",
+        "Config-0/moPart_c/f9f8/5/o/moView_c/f368/f08/m4",
+        "Config-0/moPart_c/f9f8/5/o/moView_c/f368/f08/m8",
+        "Config-0/moPart_c/f9f8/6/o/moView_c/f368/f08/m4",
+        "Config-0/moPart_c/f9f8/6/o/moView_c/f368/f08/m8"
+      ],
+      "config_bytes": 22260,
+      "file": "SdkGaugePlate.SLDPRT",
+      "mac": {
+        "bytes": 8719,
+        "sha256": "c22be29d9c91a8f38869f533a1385d31310f18e621b251c0f26d91ef90b4a9de"
+      },
+      "stream_count": 10,
+      "windows": {
+        "bytes": 8714,
+        "sha256": "9369fb888eb3288f4346bb93f55af9a4721153f8480203b0c1f45b8312edae2b"
+      }
+    },
+    {
+      "case": "SdkRepeatedDimensionedNative01",
+      "changed_logical_bytes": 56,
+      "changed_typed_fields": [
+        "Config-0/moAssembly_c/f9f8/3/o/moView_c/f368/f08/m0",
+        "Config-0/moAssembly_c/f9f8/3/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/4/o/moView_c/f368/f08/m0",
+        "Config-0/moAssembly_c/f9f8/4/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/5/o/moView_c/f368/f08/m4",
+        "Config-0/moAssembly_c/f9f8/5/o/moView_c/f368/f08/m8",
+        "Config-0/moAssembly_c/f9f8/6/o/moView_c/f368/f08/m4",
+        "Config-0/moAssembly_c/f9f8/6/o/moView_c/f368/f08/m8"
+      ],
+      "config_bytes": 22703,
+      "file": "SdkModule.SLDASM",
+      "mac": {
+        "bytes": 9141,
+        "sha256": "553c5f90bd6a0fbc7fa135ecd37f8df96d54e867a491c902223965abc7e775d6"
+      },
+      "stream_count": 12,
+      "windows": {
+        "bytes": 9145,
+        "sha256": "3a9cc431b427d944031d5c02c4f79abe316d3a52025b3eb7199e43d59a18af3b"
+      }
+    },
+    {
+      "case": "SdkRepeatedDimensionedNative01",
+      "changed_logical_bytes": 56,
+      "changed_typed_fields": [
+        "Config-0/moPart_c/f9f8/3/o/moView_c/f368/f08/m0",
+        "Config-0/moPart_c/f9f8/3/o/moView_c/f368/f08/m8",
+        "Config-0/moPart_c/f9f8/4/o/moView_c/f368/f08/m0",
+        "Config-0/moPart_c/f9f8/4/o/moView_c/f368/f08/m8",
+        "Config-0/moPart_c/f9f8/5/o/moView_c/f368/f08/m4",
+        "Config-0/moPart_c/f9f8/5/o/moView_c/f368/f08/m8",
+        "Config-0/moPart_c/f9f8/6/o/moView_c/f368/f08/m4",
+        "Config-0/moPart_c/f9f8/6/o/moView_c/f368/f08/m8"
+      ],
+      "config_bytes": 22262,
+      "file": "SdkNestedPlate.SLDPRT",
+      "mac": {
+        "bytes": 8706,
+        "sha256": "b53db371a3c4a914c2173552c52524ca677378a0ab086b721f35944fa7b21626"
+      },
+      "stream_count": 10,
+      "windows": {
+        "bytes": 8699,
+        "sha256": "8549c14f9947581645555cf75709ca6ade75720cb6939b1f0696bfa7595d2e28"
+      }
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "packed_differences_per_document": 56,
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.public-nested-runtime-contrast.v1",
+  "source_receipts_sha256": {
+    "Diagnostic.json": "596b0e93c9dc66601af502c9765e2874771d2cd05808036c2fbb31e0cbbeac4d",
+    "StreamDiff.json": "6822fadd52ad75146d97a20419ef7cb6c5b94d4c17a07f1a34b923932e5fe77a",
+    "TypedConfigDiff.json": "506f547eda4e395b65b0ee47f7a9a32f213651030492934445dc90e87e01aea1"
+  },
+  "typed_fields_per_document": 8,
+  "windows_registry_equals_original_frozen_guest_preparer": true
+}

@@ -1,0 +1,43 @@
+{
+  "author_sha256": "c084f1e71eb297b34fce4a358b966dd71b975922ba2cd4ca0818343c42bc4fa0",
+  "baked_sources": 2,
+  "build_sha": "4fd3bf320d9566a27e60069fc8387448aaa3a094",
+  "fcstd_conversion_credit": 0,
+  "healthy_brackets": 4,
+  "inputs": [
+    {
+      "document_xml_sha256": "bdb3c9d5f9a8e720b3e1e11874d74c90a474c39b4a46c19a8253f7716a32f047",
+      "file_sha256": "b7a7bd2097a2a9a7d530508406efa014721e089b47f8db3dc11a23b3fa380378",
+      "object_count": 1,
+      "shape_sha256": "a72134fe88d54ea08e3041b69a62c6f358fe041db326562d7c2ae078e008c128",
+      "solid_count": 1,
+      "standalone_baked": true
+    },
+    {
+      "document_xml_sha256": "98753741da92ec3354acf3c5c774599f574b0b0d7629982b127b7af0d6b29158",
+      "file_sha256": "7dede76e6904637d1cf5e56ce5d3bebc6090c30e2f5cb03e8f35d7bb455d953b",
+      "object_count": 1,
+      "shape_sha256": "84159477e30430cf442a47b5f753eab8098c10ade65d30c1121e40438ac8cac5",
+      "solid_count": 1,
+      "standalone_baked": true
+    },
+    {
+      "document_xml_sha256": "98f7a3bd64eaf063941105abaaeabfa8424cdca9c1be95a3d53c1e6f3e2d67b0",
+      "file_sha256": "69e2271455d48f53b617489327e36c374e2185912a3e0d77d2ceb7527be73083",
+      "object_count": 1,
+      "shape_sha256": "4c6c6855e7ee1c085ef1dcf3750fbe188ae2d9f0352678cd8056f19abe713e7e",
+      "solid_count": 1,
+      "standalone_baked": false
+    }
+  ],
+  "live_parametric_controls": 1,
+  "native_processes": 2,
+  "parametric_controls": 1,
+  "passed": true,
+  "reopen_sha256": "d52ac3720fb864c1f4ebe47ed011373c984d82917949363f2edd2bab94ff4bb2",
+  "runtime_sha256": "b43283f4563d94067351b6c012f271c539d2603110fbf933bffb2a59008500ae",
+  "schema": "kit.freecad.baked-source-lock.v1",
+  "spec_sha256": "28e2af312a67f0d1bf504fc24cba3bb7a772f430643989545f4a4f6856b003fc",
+  "tool_sha256": "5e7ca2508af5c23bc22cec423e05bc91ebb15e1235afae380fd444943cc9d8da",
+  "writer_outputs": 0
+}
