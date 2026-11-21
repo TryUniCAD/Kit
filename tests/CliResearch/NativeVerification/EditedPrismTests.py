@@ -1,5 +1,5 @@
 from hashlib import sha256 as DigestBytes
-from json import loads as DecodeJson
+from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonPath
@@ -30,6 +30,7 @@ from tests.CliResearch.ResearchRoot import ResearchRoot
         "DraftPositive",
         "DraftSmall",
         "DraftSteep",
+        "Reset",
     ),
 )
 def CheckSavedPrism(TmpPath: FilePath, CaseName: str) -> None:
@@ -58,6 +59,9 @@ def CheckSavedPrism(TmpPath: FilePath, CaseName: str) -> None:
         timeout=300,
     )
     assert Result.returncode == 0, Result.stderr or Result.stdout
+    Decoded = DecodeJson(DocumentPath.read_bytes())
+    assert Decoded["kind"] == "kit.decode" and Decoded["partial"] is False
+    _ = DocumentPath.write_text(EncodeJson(Decoded["document"]), encoding="utf-8")
     Compared = RunComparison(TmpPath, DocumentPath, CaseValue["measurement"])
     assert Compared.returncode == 0, Compared.stderr or Compared.stdout
     Report = DecodeJson((TmpPath / "Compared.json").read_bytes())

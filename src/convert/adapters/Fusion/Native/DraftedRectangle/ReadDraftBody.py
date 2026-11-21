@@ -18,6 +18,8 @@ from convert.adapters.Fusion.Native.SignedPrism.ReadSignedBody import (
 )
 from convert.adapters.Fusion.Native.SignedPrism.SignedBody import SignedBody
 from convert.Formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
+from convert.Formats.Fusion.BrepCodec.Journal.ReadJournal import ReadJournal
+from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
 from convert.Formats.Fusion.BrepCodec.Journal.Planar.ReadBodyFaces import ReadBodyFaces
 from convert.Formats.Fusion.BrepCodec.Journal.Planar.LiveTable import LiveTable
 from convert.Formats.Fusion.BrepCodec.Journal.Planar.ReadPlacedBody import (
@@ -27,6 +29,7 @@ from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.GeometryState import (
     GeometryState,
 )
 from convert.Formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
+from convert.Formats.Fusion.DocumentCodec.EmitBodyPart import EmitBodyPart
 from convert.Geometry.Extrude.Polygon.DraftMass import DraftMass
 from interchange.brep.Topology.BrepModel import BrepModel
 
@@ -45,6 +48,8 @@ def ReadDraftBody(
             "Native drafted rectangle requires one body history and one snapshot"
         )
     History = Model.Bodies[0].History
+    if isinstance(History, PrismHistory):
+        History = ReadJournal(EmitBodyPart(Model.Bodies[0]).Payload)
     Snapshot = Model.Snapshots[0].Snapshot
     if not isinstance(History, JournalModel) or not isinstance(Snapshot, GeometryState):
         raise ValueError(

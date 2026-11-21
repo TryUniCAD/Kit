@@ -58,7 +58,12 @@ def ProjectPrism(
     Model: DocumentModel, Source: CadSource, Graph: NativeGraph
 ) -> CadDocument:
     Context = SelectExtrusion(Graph)
-    if NumberValue(Context.Taper.Fields["value"]) != 0:
+    if NumberValue(Context.Taper.Fields["value"]) != 0 or (
+        len(Model.Snapshots) == 1
+        and isinstance(Model.Snapshots[0].Snapshot, GeometryState)
+        and Context.Plane.Fields["transform"] != KYzMatrix
+        and NumberValue(Context.Along.Fields["value"]) > 0
+    ):
         return ProjectDraft(Model, Source, Graph, Context)
     Station = GenericStation(Model, Context)
     Reverse = Station < 0.0

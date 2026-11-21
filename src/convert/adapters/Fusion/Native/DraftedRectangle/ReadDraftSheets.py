@@ -1,20 +1,16 @@
 from convert.adapters.Fusion.Native.DraftedRectangle.CheckOldSheet import CheckOldSheet
+from convert.adapters.Fusion.Native.DraftedRectangle.DraftSheetSlots import (
+    DraftSheetSlots,
+)
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
 from convert.adapters.Fusion.Native.SignedPrism.CheckSignedTags import (
     SelectedCurves,
 )
 from convert.adapters.Fusion.Native.SignedPrism.ReadSignedBody import (
     CheckSectionOwn,
-    SolidSlots,
 )
-from convert.Formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
-    SketchAttrib,
-)
-from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Planar.LiveTable import LiveTable
 from convert.Formats.Fusion.BrepCodec.Journal.Planar.PlanarShell import PlanarShell
-from convert.Formats.Fusion.BrepCodec.Journal.Planar.ReadBodyFaces import ReadBodyFaces
-from convert.Formats.Fusion.BrepCodec.Journal.Planar.StableRef import StableRef
 from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.EmitGeometry import EmitGeometry
 from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.GeometryState import (
     GeometryState,
@@ -38,24 +34,7 @@ from convert.Formats.Fusion.Topology.AsmEdge.AsmTable import ReadAsmTable
 def ReadDraftSheets(
     Snapshot: GeometryState, Table: LiveTable, Solid: PlanarShell, Shape: RectGeometry
 ) -> tuple[tuple[RegionFrame, RegionFrame], frozenset[int]]:
-    Edges = {
-        EdgeUse.EdgeRef
-        for Surface in ReadBodyFaces(Table, Solid.BodyRef)
-        for EdgeUse in Surface.BoundaryUses
-    }
-    if len(Edges) != 12:
-        raise ValueError("Native drafted snapshot must have twelve solid edges")
-    Owned = SolidSlots(Table, Solid, Edges)
-    Occupied = (
-        Owned
-        | set(range(Snapshot.Header.RootCount))
-        | {
-            Index
-            for Index, Value in enumerate(Snapshot.Entities)
-            if isinstance(Value, (SketchAttrib, TagAttrib))
-            and StableRef(Table, Value.Links.OwnerRef) in Owned
-        }
-    )
+    Occupied = DraftSheetSlots(Snapshot, Table, Solid)
     Records = ReadAsmTable(EmitGeometry(Snapshot))
     Corners = tuple(Point for Point in Solid.PointsCm if Point[2] == 0)
     Regions: list[RegionFrame] = []
