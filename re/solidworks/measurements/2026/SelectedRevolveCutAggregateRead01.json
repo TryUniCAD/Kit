@@ -1,0 +1,14 @@
+{
+  "all_measurements_equal": true,
+  "codec_commit": "9943329ac20cfff3e4c7fc9ab0b8e9d69f7d33d9",
+  "codec_src_tree": "cbc851a0c47196011fc797a99a27e6b3465b4a69",
+  "current_full_receipt_sha256": "eec1e5ba12a3e086b95d4256007c09b8ca14aa1300db658418f1b17a2292f584",
+  "guarded_reads": 4,
+  "guarded_refusals": 8,
+  "linked_replays": 8,
+  "mapped_code_files": 38,
+  "previous_mapped_code_files": 32,
+  "previous_receipt_sha256": "ab3e2f085c24870cf8bb6fe205d3da9b1584d93dee68f49649b7337e9ca14e16",
+  "schema": "kit.sw2026.selected-revolve-cut-integration.v1",
+  "unexpected_external_reads": 0
+}
