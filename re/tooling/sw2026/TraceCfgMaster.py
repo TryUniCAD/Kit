@@ -53,7 +53,7 @@ def trace(sdk, name):
         start = frame.ReaderValue.Cursor.GetOffset()
         flags = dict(frame.ContextValue.FlagsValue)
         before = map_state(frame)
-        execute(frame, rule)
+        result = execute(frame, rule)
         end = frame.ReaderValue.Cursor.GetOffset()
         base, after = map_state(frame)
         same = base == before[0] and all(
@@ -80,6 +80,7 @@ def trace(sdk, name):
             "f1014": unpack_from("<i", config, start - 4)[0],
             "n370": unpack_from("<i", config, end - 4)[0],
         })
+        return result
 
     module.KReadActions = {**module.KReadActions, "DirectNode": observe}
     external = guard_runtime()

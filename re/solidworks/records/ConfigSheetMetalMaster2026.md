@@ -8,7 +8,9 @@ Its immutable extraction reference is
 [`a7c48f805262e5147f3aebb9cf792b87b24b5b0e`](https://github.com/TryUniCAD/Kit/tree/a7c48f805262e5147f3aebb9cf792b87b24b5b0e).
 The bounded read and store entry points use the same shared archive
 executor as the other configuration owners. Both take the caller's
-actual inherited part identity and active archive map.
+actual inherited part identity and active archive map. Their call
+sites in this slice are the guarded archive observations. The normal
+SDK part registry and conversion paths retain their prior scope.
 
 ## Native ownership and rules
 
@@ -98,6 +100,34 @@ covers all three current cases. These observations qualify the
 typed wire rule. Native CAD
 execution, held-out qualification, populated sheet-metal serialization
 and whole Config-0 admission retain separate evidence requirements.
+
+## Populated master follow-up
+
+The direct owner's ordinary read and store scope ends at an empty
+`f358` list and null inherited links. The signed `n370` count and the
+typed object-pointer framing of the populated list have static
+evidence. Concrete per-body serialization remains open.
+
+The exact 2026 corpus report includes 88 complete Config stream
+replays. The pinned research grammar knows the outer repeat and
+checks each nonnull child's class. The accompanying registry has no
+concrete `moPerBodySheetMetalData_c` schema. The report gives no
+positive per-body observation or per-master count inventory.
+[Corpus receipt](https://github.com/TryUniCAD/Kit/blob/fe592b8e7a4922dccf8298541453baf41d60b001/re/solidworks/measurements/2026/BinaryArchiveCorpusAfterHistory01.json) ·
+[Pinned research grammar](https://github.com/TryUniCAD/Kit/blob/698fa68a6a9990bc4c125d2fea36c3e443a14445/re/tooling/sw2026/serial/defs/SmmMaster.py)
+
+The recorded populated-master contrast injects an exploded-view
+object into a typed research model to test refusal. The first
+separate prerequisite for genuine sheet-metal history is an
+ordinary exact-build save with one observed nonnull body pointer
+and a second save with varied body membership. Bind the concrete
+per-body descriptor, field order, allocation or alias behavior
+and linked topology owners before admitting the positive list.
+The counted-row and map primitives are already shared. A populated
+direct body that allocates child slots would additionally require
+an exact measured map handoff. Full parametric acceptance then
+requires independent native rebuild and edit evidence.
+[Refusal contrast](https://github.com/TryUniCAD/Kit/blob/fe592b8e7a4922dccf8298541453baf41d60b001/re/tooling/sw2026/throughsource/ProveStockTree.py#L76)
 
 [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) ·
 [Reverse-engineering playbook](../../Playbook/README.md) ·

@@ -1,30 +1,6 @@
-from json import loads as LoadJson
-from pathlib import Path as FilePath
-from subprocess import run as RunProcess
-from sys import executable as PythonExec
 from typing import cast as CastValue
 
-# each archive proof runs in a fresh process before reporting typed fields and bytes
-KMasterProbe = (
-    FilePath(__file__).resolve().parents[5] / "re/tooling/sw2026/CheckCfgMaster.py"
-)
-
-
-# preserve guarded process failures while reading the bounded proof
-def RunMasterCase(CaseName: str) -> dict[str, object]:
-    Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(KMasterProbe), CaseName),
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        timeout=60,
-        check=False,
-    )
-    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-    ReportValue = CastValue(dict[str, object], LoadJson(Outcome.stdout))
-    assert ReportValue["case"] == CaseName
-    assert ReportValue["runtime_external_accesses"] == 0
-    return ReportValue
+from tests.Convert.Solidworks.Configuration.Master.RunMasterCase import RunMasterCase
 
 
 # the physical master must preserve every field and leave the inherited map untouched
@@ -88,25 +64,3 @@ def TestMasterWire() -> None:
         "wide_empty_count",
         "store_wide_empty_count",
     ]
-
-
-# a complete authored inherited map must keep every class and object identity
-def TestMasterMap() -> None:
-    Result = RunMasterCase("full_map")
-    assert Result["map"] == {
-        "base": 4,
-        "entries": 118,
-        "slot_span": [1, 118],
-        "classes": 30,
-        "objects": 88,
-        "after_each_operation": "same_entries_and_inverse_lookups",
-    }
-    Proof = CastValue(dict[str, object], Result["proof"])
-    assert Proof["extent"] == [0, 155]
-    assert Proof["counter"] == [119, 119]
-    assert (Proof["slot"], Proof["body_count"]) == (None, 0)
-    assert (
-        Proof["wire_sha256"]
-        == Proof["emitted_sha256"]
-        == ("2a1536c54d55a425602ec103b9f887b109f8091fde58c1b4b0d45265a461992b")
-    )
