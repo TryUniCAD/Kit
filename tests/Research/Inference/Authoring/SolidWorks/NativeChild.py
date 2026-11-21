@@ -7,6 +7,8 @@
 # to you under it immediately and permanently.
 
 from json import dumps, loads
+from importlib import import_module as ImportModule
+from typing import Callable, cast as CastValue
 from os import environ
 from pathlib import Path
 from sys import argv, executable, path
@@ -16,8 +18,20 @@ KSourceRoot = Path(__file__).resolve().parents[5]
 
 path.insert(0, str(KSourceRoot / "re/automation"))
 
-from CaptureTools.Catalogue.SolidWorks.NativeSolidEnv import NativeSolidEnv
-from WindowsProcess import WindowsProcess
+# native environment preparation retains its narrow runtime string mapping contract
+KNativeSolidEnv = CastValue(
+    Callable[[object], dict[str, str]],
+    getattr(
+        ImportModule("CaptureTools.Catalogue.SolidWorks.NativeSolidEnv"),
+        "NativeSolidEnv",
+    ),
+)
+
+# real windows ownership remains provided by the native research process implementation
+KWindowsProcess = CastValue(
+    Callable[[list[str], Path, dict[str, str], int, int], object],
+    getattr(ImportModule("WindowsProcess"), "WindowsProcess"),
+)
 
 
 # a disposable operating system child proves the effective native environment without launching cad
@@ -37,25 +51,28 @@ def RunNativeChild() -> None:
         return
     Settings = loads(Path(argv[1]).read_bytes())
     OutputPath = Path(argv[2])
-    Environment = NativeSolidEnv(Settings)
+    Environment = KNativeSolidEnv(Settings)
     with (
         (OutputPath / "Child.stdout").open("xb") as Output,
         (OutputPath / "Child.stderr").open("xb") as Errors,
     ):
-        Process = WindowsProcess(
+        Process = KWindowsProcess(
             [executable, "-B", str(Path(__file__).resolve()), "inner"],
             KSourceRoot,
             Environment,
             Output.fileno(),
             Errors.fileno(),
         )
+        WaitProcess = CastValue(Callable[[float], int | None], getattr(Process, "wait"))
+        FinishProcess = CastValue(Callable[[], object], getattr(Process, "finish"))
+        CloseProcess = CastValue(Callable[[], None], getattr(Process, "close"))
         try:
-            ExitCode = Process.wait(timeout=20)
-            Process.finish()
+            ExitCode = WaitProcess(20)
+            _ = FinishProcess()
             if ExitCode:
                 raise RuntimeError("native environment fixture child failed")
         finally:
-            Process.close()
+            CloseProcess()
 
 
 if __name__ == "__main__":

@@ -7,10 +7,11 @@
 # to you under it immediately and permanently.
 
 from pathlib import Path as FilePath
+from tests.Research.Inference.Authoring.Contracts.CompiledCase import CompiledCase
 
 
 # the emitted program roster defines the native archive names that the application will later save
-def PreparedPaths(CaseValue: dict, OutputPath: FilePath) -> list[FilePath]:
+def PreparedPaths(CaseValue: CompiledCase, OutputPath: FilePath) -> list[FilePath]:
     RecipeKey = CaseValue["recipe"]
     Program = CaseValue["options"]["program"]
     Suffixes = ["baseline-a", "baseline-b"]

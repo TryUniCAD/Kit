@@ -6,34 +6,44 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from tests.Research.Inference.Authoring.Recipes.RecipeTargets import KRecipeTargets
+from tests.Research.Inference.Authoring.Recipes.VerifyCaseJob import VerifyCaseJob
+from tests.Research.Inference.Authoring.Contracts.ReadObject import ReadObject
+from tests.Research.Inference.Authoring.Contracts.ReadText import ReadText
+from tests.Research.Inference.Authoring.Contracts.ReadValues import ReadValues
 
 
 # emitted batch jobs must isolate accepted artifact roles while legacy samples retain their original worker kind
-def VerifyBatchJobs(Report: dict, PlanValue: dict) -> None:
-    JobsById = {Entry["id"]: Entry for Entry in Report["definitions"]}
-    Records = {Entry["name"]: Entry["record"] for Entry in Report["bindings"]}
-    SeenSamples, SeenRoles = set(), set()
-    for Submission in Report["submissions"]:
-        assert len(Submission["samples"]) == len(Submission["capture"]) == 1
-        Identity = Submission["samples"][0]
+def VerifyBatchJobs(Report: dict[str, object], PlanValue: dict[str, object]) -> None:
+    JobsById = {
+        ReadText(Entry["id"]): Entry
+        for Value in ReadValues(Report["definitions"])
+        for Entry in [ReadObject(Value)]
+    }
+    Records = {
+        ReadText(Entry["name"]): Entry["record"]
+        for Value in ReadValues(Report["bindings"])
+        for Entry in [ReadObject(Value)]
+    }
+    SeenSamples: set[str] = set()
+    SeenRoles: set[tuple[str, str]] = set()
+    Samples = ReadObject(PlanValue["samples"])
+    for Value in ReadValues(Report["submissions"]):
+        Submission = ReadObject(Value)
+        SampleIds = ReadValues(Submission["samples"])
+        CaptureIds = ReadValues(Submission["capture"])
+        assert len(SampleIds) == len(CaptureIds) == 1
+        Identity = ReadText(SampleIds[0])
         assert Identity not in SeenSamples
         SeenSamples.add(Identity)
-        Selection = PlanValue["samples"][Identity]["case"]
-        Capture = JobsById[Submission["capture"][0]]
-        Decoder = JobsById[Submission["decode"]]
+        Selection = ReadObject(ReadObject(Samples[Identity])["case"])
+        Capture = JobsById[ReadText(CaptureIds[0])]
+        Decoder = JobsById[ReadText(Submission["decode"])]
         assert Decoder["depends_on"] == [Capture["id"]]
-        Selector = Decoder["inputs"]["bundle"]
+        Selector = ReadObject(ReadObject(Decoder["inputs"])["bundle"])
         assert Selector["dependency"] == Capture["id"]
-        assert (Capture["id"], Selector["artifact"]) not in SeenRoles
-        SeenRoles.add((Capture["id"], Selector["artifact"]))
-        if Selection["recipe"] in KRecipeTargets:
-            assert Capture["kind"] == "capture.catalogue.solidworks.batch"
-            Bound = Records[Capture["inputs"]["cases"]]
-            assert Bound["schema_version"] == 1 and 1 <= len(Bound["samples"]) <= 3
-            assert Identity in {Entry["sample"] for Entry in Bound["samples"]}
-            assert Selector["artifact"] in {"bundle.0", "bundle.1", "bundle.2"}
-        else:
-            assert Capture["kind"] == "capture.catalogue.solidworks"
-            assert Selector["artifact"] == "bundle"
-    assert SeenSamples == set(PlanValue["samples"])
+        ArtifactRole = ReadText(Selector["artifact"])
+        CaptureId = ReadText(Capture["id"])
+        assert (CaptureId, ArtifactRole) not in SeenRoles
+        SeenRoles.add((CaptureId, ArtifactRole))
+        VerifyCaseJob(Identity, Selection, Capture, Selector, Records)
+    assert SeenSamples == set(Samples)

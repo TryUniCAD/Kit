@@ -12,6 +12,10 @@ from sys import argv as ArgValues, path as ImportPaths
 
 ImportPaths.insert(0, str(FilePath(__file__).resolve().parents[5]))
 
+from tests.Research.Inference.Authoring.Contracts.ArtifactData import (
+    ArtifactData,
+    MemberData,
+)
 from tests.Research.Inference.Authoring.Recipes.ReadFixture import ReadFixture
 from tests.Research.Inference.Authoring.Recipes.WriteBundle import WriteBundle
 
@@ -21,7 +25,8 @@ def PublishBatch(SessionPath: FilePath) -> None:
     Packet = DecodeJson((SessionPath / "job.json").read_bytes())
     Content = ReadFixture(SessionPath, Packet["inputs"]["source"])
     Fault = Packet["job"]["options"]["fault"]
-    Bundles, Artifacts = {}, {}
+    Bundles: dict[str, dict[str, MemberData]] = {}
+    Artifacts: dict[str, ArtifactData] = {}
     for Label in ("First", "Second"):
         Current = Fault if Label == "Second" else "normal"
         Members, Artifact = WriteBundle(SessionPath, Label, Content, Current)

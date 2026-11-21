@@ -7,6 +7,8 @@
 # to you under it immediately and permanently.
 
 from hashlib import sha256
+from importlib import import_module as ImportModule
+from typing import Callable, cast as CastValue
 from json import loads
 from pathlib import Path
 from sys import argv, path
@@ -16,8 +18,22 @@ KSourceRoot = Path(__file__).resolve().parents[5]
 
 path.insert(0, str(KSourceRoot / "re/automation"))
 
-from CaptureTools.Catalogue.SolidWorks.CheckSolidShape import CheckSolidShape
-from CaptureTools.Catalogue.SolidWorks.ValidateSolid import ValidateSolid
+# retained measurements pass through the real geometry verifier at the research import boundary
+KCheckSolidShape = CastValue(
+    Callable[[object, object], None],
+    getattr(
+        ImportModule("CaptureTools.Catalogue.SolidWorks.CheckSolidShape"),
+        "CheckSolidShape",
+    ),
+)
+
+# saved case normalization stays in the independently implemented research validator
+KValidateSolid = CastValue(
+    Callable[[object], dict[str, object]],
+    getattr(
+        ImportModule("CaptureTools.Catalogue.SolidWorks.ValidateSolid"), "ValidateSolid"
+    ),
+)
 
 
 # retained native controls exercise the real measurement reader without repeating licensed authoring
@@ -36,9 +52,9 @@ def ReadSaved() -> None:
     if Receipt["measurement_receipt_sha256"] != sha256(ReportBytes).hexdigest():
         raise ValueError("retained native measurement bytes differ from their receipt")
     Observed = loads(ReportBytes)["observations"]
-    CaseValue = ValidateSolid({"recipe": RecipeKey})
+    CaseValue = KValidateSolid({"recipe": RecipeKey})
     for StageName in ("baseline", "unchanged_rebuild"):
-        CheckSolidShape(CaseValue, Observed[StageName])
+        KCheckSolidShape(CaseValue, Observed[StageName])
     print(RecipeKey + " retained native geometry matched")
 
 

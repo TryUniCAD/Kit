@@ -17,13 +17,13 @@ from tests.Research.Inference.Authoring.Recipes.RecipeTargets import (
 
 # real planner inputs expose registered legacy and unsupported features in the same taxonomy
 def WriteRecipes(TmpPath: FilePath) -> FilePath:
-    Families = {}
+    Families: dict[str, list[dict[str, object]]] = {}
     for Feature in (*KRecipeTargets.values(), *KExtraFeatures):
         Family = Feature.rsplit(":", 1)[0]
         Families.setdefault(Family, []).append(
             {"id": Feature, "dependencies": [], "options": []}
         )
-    Catalogue = {
+    Catalogue: dict[str, object] = {
         "schema_version": 1,
         "waves": [{"id": "alpha"}],
         "families": [

@@ -10,10 +10,11 @@ from hashlib import sha256 as HashBytes
 from json import loads as DecodeJson
 
 from tests.Research.SupervisorClient import KRepoRoot
+from tests.Research.Inference.Authoring.Contracts.ReadObject import ReadObject
 
 
 # negative semantic checks reuse authenticated native control measurements instead of inventing successful observations
-def ReadPrism() -> dict:
+def ReadPrism() -> dict[str, object]:
     Paths = list(
         (KRepoRoot / "re/automation/PairedCaptures/P03").glob(
             "solidworks-*/measurements.json"
@@ -26,4 +27,6 @@ def ReadPrism() -> dict:
     Receipt = DecodeJson(ReportPath.with_name("receipt.json").read_bytes())
     if Receipt["measurement_receipt_sha256"] != HashBytes(Content).hexdigest():
         raise ValueError("retained prism measurements differ from their native receipt")
-    return DecodeJson(Content)["observations"]["baseline"]
+    return ReadObject(
+        ReadObject(ReadObject(DecodeJson(Content))["observations"])["baseline"]
+    )

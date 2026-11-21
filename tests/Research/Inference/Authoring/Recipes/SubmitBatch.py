@@ -21,7 +21,7 @@ def SubmitBatch(TmpPath: FilePath, StorePath: FilePath, Fault: str) -> None:
         "max_attempts": 1,
         "timeout_seconds": 90,
     }
-    JobRows = [
+    JobRows: list[dict[str, object]] = [
         {
             **Common,
             "id": "fixture-native",

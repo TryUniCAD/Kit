@@ -7,14 +7,18 @@
 # to you under it immediately and permanently.
 
 from json import loads as DecodeJson
+from typing import cast as CastValue
+from tests.Research.Inference.Authoring.Contracts.OutcomeData import OutcomeData
 from pathlib import Path as FilePath
 
 from tests.Research.Inference.Authoring.Recipes.RunProbe import RunProbe
 
 
 # actual completed fixture jobs must retain their separate decoder statuses without creating native proof counts
-def ReadBatchState(TmpPath: FilePath) -> dict:
-    Samples, Features, Submissions = {}, {}, []
+def ReadBatchState(TmpPath: FilePath) -> OutcomeData:
+    Samples: dict[str, object] = {}
+    Features: dict[str, object] = {}
+    Submissions: list[dict[str, object]] = []
     for Label in ("first", "second"):
         Identity = "fusion:" + Label
         Samples[Identity] = {
@@ -40,4 +44,4 @@ def ReadBatchState(TmpPath: FilePath) -> dict:
         {"directory": str(TmpPath), "plan": PlanValue, "submissions": Submissions},
     )
     assert Process.returncode == 0, Process.stderr
-    return DecodeJson(Process.stdout)
+    return CastValue(OutcomeData, DecodeJson(Process.stdout))

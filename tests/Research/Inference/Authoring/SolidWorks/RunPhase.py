@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from importlib import import_module as ImportModule
+from typing import Callable, cast as CastValue
 from pathlib import Path
 from sys import argv, path
 
@@ -14,13 +16,19 @@ KSourceRoot = Path(__file__).resolve().parents[5]
 
 path.insert(0, str(KSourceRoot / "re/automation"))
 
-from CaptureTools.Catalogue.SolidWorks.RunSolidPhase import RunSolidPhase
+# native launch diagnostics retain the real research entry point without expanding static import roots
+KRunSolidPhase = CastValue(
+    Callable[[Path, Path, dict[str, object], str], None],
+    getattr(
+        ImportModule("CaptureTools.Catalogue.SolidWorks.RunSolidPhase"), "RunSolidPhase"
+    ),
+)
 
 
 # an unavailable installation must return native launcher diagnostics through separate process handles
 def RunPhase() -> None:
     OutputPath = Path(argv[1])
-    RunSolidPhase(
+    KRunSolidPhase(
         OutputPath / "ConfiguredCase.json",
         OutputPath,
         {

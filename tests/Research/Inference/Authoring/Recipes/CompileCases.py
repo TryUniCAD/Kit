@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 # distinct overrides exercise every registered primitive without treating defaults as independent acceptance evidence
-KCompileCases = (
+KCompileCases: tuple[tuple[str, dict[str, float]], ...] = (
     ("extrude-two-direction", {"depth1_mm": 13, "depth2_mm": 7}),
     ("extrude-midplane", {"depth_mm": 16}),
     ("extrude-offset-start", {"offset_mm": -7, "depth_mm": 12}),
@@ -20,7 +20,7 @@ KCompileCases = (
 )
 
 # malformed inputs must fail at compilation rather than becoming native application requests
-KInvalidCases = (
+KInvalidCases: tuple[dict[str, object], ...] = (
     {"recipe": "invented"},
     {"recipe": "extrude-surface"},
     {"recipe": "extrude-midplane", "parameters": {"unexpected": 1}},

@@ -18,13 +18,13 @@ from tests.Research.SupervisorClient import KRepoRoot
 # a real process barrier exposes simultaneous publication races without substituting filesystem behavior
 def RunProducers(
     TmpPath: FilePath, StorePath: FilePath, InputPath: FilePath
-) -> list[dict]:
+) -> list[dict[str, object]]:
     ReleasePath = TmpPath / "Release.signal"
     ReadyPaths = [
         TmpPath / (Label + ".signal")
         for Label in ("First", "Second", "Third", "Fourth")
     ]
-    Processes = []
+    Processes: list[ChildProcess[str]] = []
     try:
         for ReadyPath in ReadyPaths:
             Processes.append(
@@ -55,7 +55,7 @@ def RunProducers(
                 )
             SleepBriefly(0.01)
         ReleasePath.touch(exist_ok=False)
-        Results = []
+        Results: list[dict[str, object]] = []
         for Process in Processes:
             Output, Errors = Process.communicate(timeout=30)
             assert Process.returncode == 0, Output + Errors

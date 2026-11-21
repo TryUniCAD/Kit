@@ -10,10 +10,11 @@ from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 
 from tests.Research.SupervisorClient import KRepoRoot
+from tests.Research.Inference.Authoring.Contracts.SourcePin import SourcePin
 
 
 # disposable source copies let guards reject changed dependencies while preserving every shared checkout byte
-def PrepareSource(TmpPath: FilePath, Manifest: list[dict]) -> FilePath:
+def PrepareSource(TmpPath: FilePath, Manifest: list[SourcePin]) -> FilePath:
     SourceRoot = TmpPath / "SourceCopy"
     SourceRoot.mkdir()
     GitPath = RunProcess(

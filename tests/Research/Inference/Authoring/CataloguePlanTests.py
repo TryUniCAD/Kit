@@ -24,7 +24,7 @@ def WriteCatalog(TmpPath: FilePath) -> FilePath:
         "family:extrude": ["boss-base-extrude", "cut-extrude"],
         "family:fillet": ["constant-radius-fillet"],
     }
-    Catalogue = {
+    Catalogue: dict[str, object] = {
         "schema_version": 1,
         "waves": [{"id": "alpha"}],
         "families": [

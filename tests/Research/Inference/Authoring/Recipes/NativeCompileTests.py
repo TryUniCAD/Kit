@@ -18,7 +18,7 @@ from tests.Research.Inference.Authoring.Recipes.RunProbe import RunProbe
 
 # registered native interop must compile and validate every typed program before any application startup
 @CaseMark.parametrize("RecipeKey,Params", KCompileCases)
-def CheckInterop(TmpPath: FilePath, RecipeKey: str, Params: dict) -> None:
+def CheckInterop(TmpPath: FilePath, RecipeKey: str, Params: dict[str, float]) -> None:
     Compiled = RunProbe(TmpPath, "compile", {"recipe": RecipeKey, "parameters": Params})
     assert Compiled.returncode == 0, Compiled.stderr
     CasePath = TmpPath / "Case.json"

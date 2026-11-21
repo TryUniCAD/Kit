@@ -7,32 +7,57 @@
 # to you under it immediately and permanently.
 
 from json import loads as DecodeJson
+from contextlib import AbstractContextManager
+from importlib import import_module as ImportModule
+from sqlite3 import Connection
+from typing import Callable, cast as CastValue
 from pathlib import Path as FilePath
 
-from InferenceGrid.Authoring.SubmitSolid import SubmitSolid
-from Ledger import Ledger
+from tests.Research.Inference.Authoring.Contracts.ReadText import ReadText
+
+# dynamic research imports retain their runtime location without widening static analysis scope
+KSubmitSolid = CastValue(
+    Callable[[FilePath, object, str], list[dict[str, object]]],
+    getattr(ImportModule("InferenceGrid.Authoring.SubmitSolid"), "SubmitSolid"),
+)
+
+# the real controller store remains owned by the context that originally acquired it
+KLedger = CastValue(
+    Callable[[FilePath, bool], AbstractContextManager[object]],
+    getattr(ImportModule("Ledger"), "Ledger"),
+)
 
 
 # real controller submissions must amortize only new recipe captures while retaining one decoder per case
-def SubmitPlan(Payload: dict) -> dict:
-    Directory = FilePath(Payload["directory"])
+def SubmitPlan(Payload: dict[str, object]) -> dict[str, object]:
+    Directory = FilePath(ReadText(Payload["directory"]))
     Directory.mkdir(exist_ok=True)
-    PlanValue = DecodeJson(FilePath(Payload["plan"]).read_bytes())
-    with Ledger(Directory / "Store", create=True) as State:
-        _ = State.resource("native.solidworks", False, 1)
-    Submissions = SubmitSolid(Directory, PlanValue, "native.solidworks")
-    with Ledger(Directory / "Store") as State:
-        Status = State.status()
+    PlanValue = DecodeJson(FilePath(ReadText(Payload["plan"])).read_bytes())
+    with KLedger(Directory / "Store", True) as State:
+        ResourceCall = CastValue(
+            Callable[[str, bool, int], object], getattr(State, "resource")
+        )
+        _ = ResourceCall("native.solidworks", False, 1)
+    Submissions = KSubmitSolid(Directory, PlanValue, "native.solidworks")
+    with KLedger(Directory / "Store", False) as State:
+        StatusCall = CastValue(
+            Callable[[], dict[str, object]], getattr(State, "status")
+        )
+        Status = StatusCall()
+        Database = CastValue(Connection, getattr(State, "db"))
+        ObjectPath = CastValue(
+            Callable[[str], FilePath], getattr(getattr(State, "objects"), "path")
+        )
         Definitions = [
             DecodeJson(Entry[0])
-            for Entry in State.db.execute("SELECT definition FROM jobs ORDER BY id")
+            for Entry in Database.execute("SELECT definition FROM jobs ORDER BY id")
         ]
         Bindings = [
             {
                 **dict(Entry),
-                "record": DecodeJson(State.objects.path(Entry["sha256"]).read_bytes()),
+                "record": DecodeJson(ObjectPath(Entry["sha256"]).read_bytes()),
             }
-            for Entry in State.db.execute("SELECT * FROM bindings ORDER BY name")
+            for Entry in Database.execute("SELECT * FROM bindings ORDER BY name")
         ]
     return {
         "submissions": Submissions,

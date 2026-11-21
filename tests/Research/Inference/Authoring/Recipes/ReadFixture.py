@@ -9,10 +9,11 @@
 from hashlib import sha256 as HashBytes
 from pathlib import Path as FilePath
 from re import fullmatch as MatchText
+from tests.Research.Inference.Authoring.Contracts.ArtifactData import ArtifactData
 
 
 # fixture transport must consume the immutable input selected by the actual controller
-def ReadFixture(SessionPath: FilePath, Descriptor: dict) -> bytes:
+def ReadFixture(SessionPath: FilePath, Descriptor: ArtifactData) -> bytes:
     Digest = Descriptor["sha256"]
     if (
         not MatchText("[0-9a-f]{64}", Digest)

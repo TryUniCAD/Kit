@@ -9,12 +9,16 @@
 from hashlib import sha256 as HashBytes
 from pathlib import Path as FilePath
 from zipfile import ZIP_STORED as KStoredZip, ZipFile as NativeBundle
+from tests.Research.Inference.Authoring.Contracts.ArtifactData import (
+    ArtifactData,
+    MemberData,
+)
 
 
 # independent artifact roles need distinct archive rosters even when their retained control bytes match
 def WriteBundle(
     SessionPath: FilePath, Label: str, Content: bytes, Fault: str
-) -> tuple[dict, dict]:
+) -> tuple[dict[str, MemberData], ArtifactData]:
     FileName = Label + ".f3d"
     BundlePath = SessionPath / "work" / (Label + ".zip")
     with NativeBundle(BundlePath, "x", compression=KStoredZip) as Bundle:
@@ -22,10 +26,10 @@ def WriteBundle(
             FileName, Content + b"tampered" if Fault == "tamper" else Content
         )
     Packed = BundlePath.read_bytes()
-    Members = {
+    Members: dict[str, MemberData] = {
         FileName: {"sha256": HashBytes(Content).hexdigest(), "size_bytes": len(Content)}
     }
-    Artifact = {
+    Artifact: ArtifactData = {
         "path": BundlePath.name,
         "sha256": HashBytes(Packed).hexdigest(),
         "size_bytes": len(Packed),

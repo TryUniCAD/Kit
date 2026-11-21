@@ -20,7 +20,7 @@ from tests.Research.Inference.Authoring.Recipes.RunProbe import RunProbe
 
 # real process compilation must produce canonical complete programs and accept only its own unchanged recomputation
 @CaseMark.parametrize("RecipeKey,Params", KCompileCases)
-def CheckCompile(TmpPath: FilePath, RecipeKey: str, Params: dict) -> None:
+def CheckCompile(TmpPath: FilePath, RecipeKey: str, Params: dict[str, float]) -> None:
     Process = RunProbe(TmpPath, "compile", {"recipe": RecipeKey, "parameters": Params})
     assert Process.returncode == 0, Process.stderr
     Compiled = DecodeJson(Process.stdout)
@@ -42,7 +42,7 @@ def CheckCompile(TmpPath: FilePath, RecipeKey: str, Params: dict) -> None:
 
 # unsupported controls are rejected by a fresh interpreter before native authoring can be scheduled
 @CaseMark.parametrize("CaseValue", KInvalidCases)
-def CheckBadInputs(TmpPath: FilePath, CaseValue: dict) -> None:
+def CheckBadInputs(TmpPath: FilePath, CaseValue: dict[str, object]) -> None:
     Process = RunProbe(TmpPath, "compile", CaseValue)
     assert Process.returncode != 0
     assert "ValueError" in Process.stderr
