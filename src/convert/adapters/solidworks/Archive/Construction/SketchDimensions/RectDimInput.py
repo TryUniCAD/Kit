@@ -11,7 +11,8 @@ class RectDimInput:
     HeightText: tuple[float, float]
     DesignIntent: bool
     SelectedLeader: int
-    RouteCenter: bool
+    RouteCenter: bool | tuple[bool, bool]
+    TextDepths: tuple[float, float] = (0.0, 0.0)
 
     # malformed presentation must fail before either persistent identities or the existing sketch graph can change
     def __post_init__(self) -> None:
@@ -22,9 +23,20 @@ class RectDimInput:
                 )
             for Coordinate in PointValue:
                 _ = RequireScalar(Coordinate)
-        if (
-            type(CastValue(object, self.DesignIntent)) is not bool
-            or type(CastValue(object, self.RouteCenter)) is not bool
+        if type(self.TextDepths) is not tuple or len(self.TextDepths) != 2:
+            raise TypeError(
+                "rectangle dimension text requires one normal offset per driver"
+            )
+        for Coordinate in self.TextDepths:
+            _ = RequireScalar(Coordinate)
+        Routes = CastValue(object, self.RouteCenter)
+        if type(CastValue(object, self.DesignIntent)) is not bool or (
+            type(Routes) is not bool
+            and (
+                type(Routes) is not tuple
+                or len(Routes) != 2
+                or any(type(Value) is not bool for Value in Routes)
+            )
         ):
             raise TypeError("rectangle dimension preferences require explicit booleans")
         if type(CastValue(object, self.SelectedLeader)) is not int or not -(

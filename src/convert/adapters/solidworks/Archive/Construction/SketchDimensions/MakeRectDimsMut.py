@@ -43,6 +43,9 @@ from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RectDimIn
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RequireDimRows import (
     RequireDimRows,
 )
+from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
+    PrincipalFrame,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 
@@ -67,6 +70,10 @@ def MakeRectDimsMut(
             "rectangle sketch requires two distinct driving parameter names"
         )
     Drivers = ReadRectDrivers(GraphValue)
+    if GraphValue.FrameValue != PrincipalFrame("z") and (
+        any(InputValue.TextDepths) or isinstance(InputValue.RouteCenter, tuple)
+    ):
+        raise ValueError("spatial rectangle labels require the canonical Front frame")
     CheckRectAlloc(Allocator)
     _ = RequireDimRows(GraphValue.GeometryValue.SketchValue)
     ModelValue = ArchiveNode.RequireNode(GraphValue.ProfileValue.FieldsValue["owner"])

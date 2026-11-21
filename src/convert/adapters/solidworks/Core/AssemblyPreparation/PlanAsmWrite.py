@@ -15,6 +15,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectRectDi
 from convert.adapters.solidworks.Core.AssemblyPreparation.AsmWritePlan import (
     AsmWritePlan,
 )
+from convert.adapters.solidworks.Core.AssemblyPreparation.Children.BindRectLabels import (
+    BindRectLabels,
+)
 from convert.adapters.solidworks.Core.AssemblyPreparation.Children.MakeChildRecipe import (
     MakeChildRecipe,
 )
@@ -23,6 +26,9 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.Children.ReadAsmPlanes
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.Children.ReadRectDisplay import (
     ReadRectDisplay,
+)
+from convert.adapters.solidworks.Core.AssemblyPreparation.Children.SketchLabelIn import (
+    KSketchLabels,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.Mates.ReadAsmRules import (
     ReadAsmRules,
@@ -45,7 +51,11 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # every portable domain must be admitted before constructor allocation can turn an incomplete intent into native output
 def PlanAsmWrite(
-    Document: CadDocument, NativePath: str, WrittenAt: int
+    Document: CadDocument,
+    NativePath: str,
+    WrittenAt: int,
+    *,
+    SketchLabels: KSketchLabels | None = None,
 ) -> AsmWritePlan:
     ModelValue = ReadAsmModel(Document)
     RootPlanes = ReadAsmPlanes(Document)
@@ -61,6 +71,9 @@ def PlanAsmWrite(
     ChildRecipe = MakeChildRecipe(
         ChildDocument, PlanValue, ChildPlanes, PathsValue.ChildValue
     )
+    Dimensions = ReadRectDisplay(PlanValue, ChildRecipe)
+    if SketchLabels is not None:
+        Dimensions = BindRectLabels(ChildDocument, PlanValue, Dimensions, SketchLabels)
     RootRecipe = MakeAsmRecipe(
         ModelValue, ChildRecipe, RootPlanes, PathsValue.ParentValue
     )
@@ -73,7 +86,7 @@ def PlanAsmWrite(
     return AsmWritePlan(
         ChildDocument,
         ChildRecipe,
-        ReadRectDisplay(PlanValue, ChildRecipe),
+        Dimensions,
         RootRecipe,
         Occurrences,
         MateValues,

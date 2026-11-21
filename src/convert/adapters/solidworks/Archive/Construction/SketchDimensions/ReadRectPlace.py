@@ -3,27 +3,21 @@ from math import isfinite as IsFinite
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakePoint import (
     MakePoint,
 )
-from convert.adapters.solidworks.Archive.Construction.Sketch.PolygonGraph import (
-    PolygonGraph,
-)
-from convert.adapters.solidworks.Archive.Construction.SketchDimensions.ReadPointPair import (
-    ReadPointPair,
-)
 
 
 # explicit text placement must determine witness offsets and endpoint caches from actual rectangle coordinates
 def ReadRectPlace(
-    GraphValue: PolygonGraph,
+    PointsValue: tuple[tuple[float, float], ...],
     IndexValue: int,
     PointIndices: tuple[int, int],
     LengthValue: float,
     TextPoint: tuple[float, float],
 ) -> dict[str, object]:
     FirstIndex, LastIndex = PointIndices
-    StartPoint = ReadPointPair(GraphValue.PointValues[FirstIndex])
-    EndPoint = ReadPointPair(GraphValue.PointValues[LastIndex])
+    StartPoint = PointsValue[FirstIndex]
+    EndPoint = PointsValue[LastIndex]
     AcrossIndex = 1 - IndexValue
-    InteriorPoint = ReadPointPair(GraphValue.PointValues[(FirstIndex + 2) % 4])
+    InteriorPoint = PointsValue[(FirstIndex + 2) % 4]
     AlongDirection = 1.0 if EndPoint[IndexValue] > StartPoint[IndexValue] else -1.0
     AwayDirection = (
         -1.0 if InteriorPoint[AcrossIndex] > StartPoint[AcrossIndex] else 1.0

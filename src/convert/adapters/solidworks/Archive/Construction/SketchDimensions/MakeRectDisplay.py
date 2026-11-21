@@ -18,6 +18,9 @@ from convert.adapters.solidworks.Archive.Construction.Dimensions.MakePoint impor
 from convert.adapters.solidworks.Archive.Construction.Profile.ProfileGraph import (
     ProfileGraph,
 )
+from convert.adapters.solidworks.Archive.Construction.SketchDimensions.ReadPointPair import (
+    ReadPointPair,
+)
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.ReadRectPlace import (
     ReadRectPlace,
 )
@@ -51,7 +54,10 @@ def MakeRectDisplay(
     FieldsValue.update(StyleValue.ProjectionValue)
     FieldsValue.update(
         ReadRectPlace(
-            RequirePolygon(GraphValue.GeometryValue),
+            tuple(
+                ReadPointPair(Value)
+                for Value in RequirePolygon(GraphValue.GeometryValue).PointValues
+            ),
             IndexValue,
             PointIndices,
             LengthValue,
@@ -66,9 +72,15 @@ def MakeRectDisplay(
     FieldsValue["fb64"] = (
         FieldInt(FieldsValue, "fb64") & ~0x103000
     ) | StyleValue.FlagValue
-    FieldsValue["f1014"] = 0x800 if InputValue.RouteCenter else 0
+    Routing = InputValue.RouteCenter
+    RouteCenter = Routing if isinstance(Routing, bool) else Routing[IndexValue]
+    FieldsValue["f1014"] = 0x800 if RouteCenter else 0
     TextValue = dict(RequireRecord(FieldsValue["f6a0"]))
-    TextValue["f38"] = MakePoint(XValue=TextPoint[0], YValue=TextPoint[1])
+    TextValue["f38"] = MakePoint(
+        XValue=TextPoint[0],
+        YValue=TextPoint[1],
+        ZValue=InputValue.TextDepths[IndexValue],
+    )
     FieldsValue["f6a0"] = TextValue
     CacheValue = dict(RequireRecord(FieldsValue["f5b0"]))
     CacheValue["data"] = PackValues("<d", LengthValue)

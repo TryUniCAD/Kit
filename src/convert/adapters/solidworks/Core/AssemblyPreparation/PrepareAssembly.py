@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Archive.Construction.AssemblySets.OrderedAsm im
 from convert.adapters.solidworks.Archive.Construction.Part.MakeRectDimPart import (
     MakeRectDimPart,
 )
+from convert.adapters.solidworks.Core.AssemblyPreparation.Children.SketchLabelIn import (
+    KSketchLabels,
+)
 from convert.adapters.solidworks.Core.AssemblyPreparation.PlanAsmWrite import (
     PlanAsmWrite,
 )
@@ -15,9 +18,13 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # complete assembly output must reuse the original generated child objects and common ordered mate constructors without any replay source
 def PrepareAssembly(
-    Document: CadDocument, NativePath: str, WrittenAt: int
+    Document: CadDocument,
+    NativePath: str,
+    WrittenAt: int,
+    *,
+    SketchLabels: KSketchLabels | None = None,
 ) -> OrderedAsm:
-    PlanValue = PlanAsmWrite(Document, NativePath, WrittenAt)
+    PlanValue = PlanAsmWrite(Document, NativePath, WrittenAt, SketchLabels=SketchLabels)
     ChildValue = MakeRectDimPart(
         PlanValue.ChildDocument, PlanValue.ChildRecipe, PlanValue.ChildDimensions
     )
