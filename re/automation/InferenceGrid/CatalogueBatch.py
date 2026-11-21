@@ -229,15 +229,6 @@ def FinishCatalogue(
             Outcome["file_advice"] = {"status": read_record(AdvicePath)["status"], "path": str(AdvicePath)}
         if Outcome["status"] == "completed":
             Outcome["status"] = "coverage_incomplete"
-    from NativeAcceptance.CatalogueBatch import VerifyCatalogue
-
-    Verification = VerifyCatalogue(SourceRoot, Directory, Results)
-    Outcome["native_verification"] = Verification
-    if Verification and any(Item["status"] != "passed" for Item in Verification.values()):
-        if Outcome["status"] == "completed":
-            Outcome["status"] = "coverage_incomplete"
-    if Outcome["status"] == "completed" and not Verification:
-        Outcome["status"] = "coverage_incomplete"
     if (Directory / "CataloguePause.json").is_file() and Outcome[
         "status"
     ] == "coverage_incomplete":

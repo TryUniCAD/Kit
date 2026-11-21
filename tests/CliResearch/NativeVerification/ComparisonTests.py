@@ -26,8 +26,8 @@ def CheckCompare(TmpPath: FilePath, VariantName: str) -> None:
     if VariantName == "near_boundary":
         Evidence["bodies"][0]["geometry"]["vertices_mm"][0][0] = -1e-8
     Result = RunComparison(TmpPath, DocumentPath, Evidence)
+    assert Result.returncode == 0, Result.stderr or Result.stdout
     Report = DecodeJson((TmpPath / "Compared.json").read_bytes())
-    assert Result.returncode == 0, Report
     assert Report["status"] == "passed" and Report["full_semantics_verified"] is True
     assert Report["semantic_gaps"] == []
     assert Report["scope"] == "offline_measurement_comparison"
