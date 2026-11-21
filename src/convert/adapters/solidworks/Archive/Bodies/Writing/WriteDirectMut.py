@@ -18,6 +18,7 @@ def WriteDirectMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
         Context.VersionValue != KHeaderVersion
         or Owner.ClassValue != RuntimeClass("moPart_c", 1)
         or FrameValue.ScopeValue.ParentValue is not None
+        or Writer.NestingDepth != 1
         or ObjectIndex(MapValue, Owner) is None
     ):
         raise BodyUnsupported("unsupported SOLIDWORKS direct part header owner")

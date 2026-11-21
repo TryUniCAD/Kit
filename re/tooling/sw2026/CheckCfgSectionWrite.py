@@ -61,9 +61,10 @@ def ghost_wire(fresh, flags):
     return pack("<ii", fresh, flags << 28)
 
 
-def typed_writer(rules, aliases=(), *, version=VERSION, conditions=0, owner=PART):
+def typed_writer(rules, aliases=(), *, version=VERSION, conditions=0, owner=PART, children=None):
+    layouts = {owner.NameValue: rules, **(children or {})}
     context = BodyContext(
-        version, {**KGhostFields, owner.NameValue: rules}, {}, {owner.NameValue: (1,)},
+        version, {**KGhostFields, **layouts}, {}, dict.fromkeys(layouts, (1,)),
         FlagsValue={"conditions": conditions}, DirectNodes=aliases,
     )
     return BodyWriter(ArchiveMaps(1), context, WriteBodyMut)
@@ -112,8 +113,8 @@ def authored_ghost(fresh, flags):
     return raw.hex()
 
 
-def refusal(label, rules, fields, message, *, aliases=(), version=VERSION, conditions=0, owner=PART):
-    writer = typed_writer(rules, aliases, version=version, conditions=conditions, owner=owner)
+def refusal(label, rules, fields, message, *, aliases=(), version=VERSION, conditions=0, owner=PART, children=None):
+    writer = typed_writer(rules, aliases, version=version, conditions=conditions, owner=owner, children=children)
     outer = writer.OutputValue
     try:
         WriteNodeMut(writer, ArchiveNode(owner, fields))
@@ -139,6 +140,9 @@ def author_refusals():
                 aliases=(ArchiveNode(RuntimeClass("moNodeName_c", 1), {}),)),
         refusal("wrong_owner", siblings, fields, "unsupported SOLIDWORKS direct part header owner",
                 aliases=(ref,), owner=ASSEMBLY),
+        refusal("nested_part", (section_rule(NativeField("Node", "descendant")),),
+                {"descendant": ArchiveNode(PART, fields)}, "unsupported SOLIDWORKS direct part header owner",
+                aliases=(ref,), owner=ASSEMBLY, children={PART.NameValue: siblings}),
         *[
             refusal(label, GHOST_ONLY, {"fd90": ghost_fields(25, flags, rows)}, reason)
             for label, flags, rows, reason in (

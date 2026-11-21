@@ -11,7 +11,7 @@ alternate section conditions, unsupported owners, misbound header aliases,
 populated ghost rows and flags outside their native domain.
 
 Separate guarded writer and reader processes compare two authored graphs,
-three ghost settings, and eleven write refusals. Two authored ghost records
+three ghost settings, and twelve write refusals. Two authored ghost records
 match the exact eight-byte observations in the pinned L1 and Concave files.
 Complete Config-0 composition and native file admission have separate exits.
 [Format record and reproduction](../../../../../re/solidworks/records/ConfigSectionEmission2026.md)

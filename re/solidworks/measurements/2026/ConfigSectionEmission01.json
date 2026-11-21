@@ -162,6 +162,11 @@
       "outer_bytes": 18
     },
     {
+      "case": "nested_part",
+      "diagnostic": "unsupported SOLIDWORKS direct part header owner",
+      "outer_bytes": 18
+    },
+    {
       "case": "flag_underflow",
       "diagnostic": "SOLIDWORKS body moPart_c field Section at 14: SOLIDWORKS body moPart_c field Section/fd90 at 4: SOLIDWORKS body moPart_c/moGhostBodyIdManager_c.FUN_4bf050e0 field Section/fd90/n at 4: native ghost flags require a signed four bit integer",
       "outer_bytes": 14
@@ -186,12 +191,12 @@
   "source_sha256": {
     "re/solidworks/measurements/2026/ConfigSectionSource01.json": "6dcf0410fb3718cd8f9adea3d73406f797ee84ded54deefab7906ade5e35cb65",
     "re/tooling/sw2026/CheckCfgSection.py": "c68d1488829051b52ba317e6c0539e477d71b09c7b6175a4aa2e0d1e98f4d9e6",
-    "re/tooling/sw2026/CheckCfgSectionWrite.py": "5ceb82270606d356a024167ea11c55384ccb664fba366d14040f5be9f047c8df",
+    "re/tooling/sw2026/CheckCfgSectionWrite.py": "ecf45bdc1b7c4401e141461d67aba23a90c64047d686e3ef3efce0a54e6e8993",
     "re/tooling/sw2026/MakeHeadAliasCase.py": "d3f10efe2f7506b60e16558b88014bbee68e5772e0908d2b705b6c99bfd127fd",
     "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteActions.py": "d074b9ad011b47829803019ca8749778cee8b53c0eff2ef81d1dcbc0d34b6933",
-    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteDirectMut.py": "54047c3b9c7a458e18129a4227c49fed753c9e88070fb5c3c76cc15da0b8e792",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteDirectMut.py": "dcfa5ef5b9dc54a10ea3068b593a1c15a8d7d0a29f7a2ac50816ac0413026eac",
     "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteGhostMut.py": "52c5fe927e6dcd8e3b614672ca3ea8552737347c9f424ea045ac147ed24d4433",
-    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteSectionMut.py": "e3ef51276c92e2dbac24dc887388fcf604864e0d71e103580d9d4baf6b70c876"
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteSectionMut.py": "0889a498a1f678a29c841e6ff01e88a121431cf4a6ea8313ea77c95c724c2e1e"
   },
   "tested_base": "e3b75f8860497fd92583e5397b7d0c4ac40528cf"
 }

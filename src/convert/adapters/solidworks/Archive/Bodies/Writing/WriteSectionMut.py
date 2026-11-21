@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Archive.Header.HeaderFields import KHeaderVersi
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
 
-# section framing derives its length from the emitted body while retaining the shared object map
+# a refused section must leave the surrounding archive bytes untouched
 def WriteSectionMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     Writer = FrameValue.WriterValue
     Context = Writer.ContextValue

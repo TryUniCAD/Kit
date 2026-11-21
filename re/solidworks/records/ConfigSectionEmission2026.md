@@ -26,6 +26,10 @@ owns its error boundary and discards any partially built graph. The
 standalone header and both positive cases have distinct object aliases in
 the normal shared map. A missing, duplicated, already mapped, or wrong-class
 alias is refused before allocation.
+The shared graph writer also refuses a section with a nested part
+requesting the outer header aliases. A parentless field scope can belong
+to an embedded object, so the emitter checks the actual object writing
+depth before reserving any direct slots.
 
 ## Guarded results
 
@@ -50,7 +54,7 @@ The framed empty ghost rejects populated rows and signed flag overflow.
 The author supplies `f80=10000` and flags 1 and 0 for the two independent
 ghost comparisons. Their eight-byte payloads match L1 `[3174,3182)` and
 Concave `[2227,2235)` exactly. An independent `f80=25`, flag -8 case
-round-trips against the signed packing formula. Eleven malformed writer
+round-trips against the signed packing formula. Twelve malformed writer
 inputs refuse and leave the failed section unpublished. The two guarded
 workers report zero runtime external accesses and zero CAD launches.
 

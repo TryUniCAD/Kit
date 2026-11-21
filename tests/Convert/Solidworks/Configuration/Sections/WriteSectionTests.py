@@ -37,4 +37,8 @@ def TestCfgWrite() -> None:
         Signed["signed_flags"],
     ) == (1, 0, -8)
     Refusals = CastValue(list[dict[str, object]], Proof["refusals"])
-    assert len(Refusals) == 11
+    assert len(Refusals) == 12
+    assert any(
+        ItemValue["case"] == "nested_part" and ItemValue["outer_bytes"] == 18
+        for ItemValue in Refusals
+    )
