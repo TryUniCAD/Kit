@@ -21,10 +21,10 @@ def IsRevReverse(
     ActualAxis = (Direction.x, Direction.y, Direction.z)
     ExpectedStart = PlacePoint(FrameValue, (*ShapeValue.AxisStart, 0.0))
     if (
-        (OriginValue.x * 0.001, OriginValue.y * 0.001, OriginValue.z * 0.001)
-        != ExpectedStart
-        or ActualAxis not in (Upward, Downward)
-    ):
+        OriginValue.x * 0.001,
+        OriginValue.y * 0.001,
+        OriginValue.z * 0.001,
+    ) != ExpectedStart or ActualAxis not in (Upward, Downward):
         raise ValueError(
             "normalized revolve definition differs from its actual selected axis"
         )
