@@ -13,5 +13,7 @@ SOLIDWORKS 2026 SP05.2. They match the native feature trees and mass
 properties. The Windows public registry, direct writer and named streams
 reproduce the exact measured bytes with zero runtime input reads.
 The same proof verifies a fresh output locator and eight refused inputs.
+The integration suite exercises normal path and stream writes, strict
+driver readback and the larger resolved stream for the second driver.
 
 [Native and public proof](../../../../../re/solidworks/records/TwoDirectionRevolveParity2026.md)
