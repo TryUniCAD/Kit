@@ -1,0 +1,214 @@
+{
+  "arms": {
+    "producer": {
+      "active_root_count": 23,
+      "bytes": 8808,
+      "config_counter": 90,
+      "resolved_counter": 269,
+      "resolved_key": "Contents/Config-0-ResolvedFeatures",
+      "selector": {
+        "f100": 0,
+        "f104": 0,
+        "f108": 19,
+        "f110": [
+          101
+        ],
+        "f18": 101,
+        "ff0": null,
+        "producer_id": 19
+      },
+      "sha256": "f6354cfbe7dc20ef24eefa686e011ace9b40c90d923bd568211227aa631c9ca6",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "50759795094a6150cf03418dbc1e2ea819cea59d47b9686fae30f6cc3d84a2aa"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "2477529c678136c225102f2265c0c582fad301554c3b53ac632cf275ed5a0670"
+        },
+        "Contents/Config-0": {
+          "bytes": 22458,
+          "sha256": "e3b0a21ef445c3fb11e1a0eb889549960ab22a1093231ec813cf8099a0e7b74f"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 703,
+          "sha256": "3b886a0679a197cbed339c1a69372eaa7e3b6728c13ac254f6dac59333063c93"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19123,
+          "sha256": "45bbb95e78f4cbb69f9efb24032e868281cc4c65844e20c508337c69735b5ffa"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 703,
+          "sha256": "0dacc0aacac3709de4f1c0fdb20173ef1148f82b9584888841a3a99bf7247369"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "ab0bdaea54d4c4d2ae9e1f85afdb732b6c355fac9e1cd9af70430bb6c377744c"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1746,
+          "sha256": "8228518f4f413af7674d09b5cd33b559b6dd5665eaec7cb6eb298683c21e8854"
+        }
+      },
+      "zero_runtime_reads": true
+    },
+    "sentinel": {
+      "active_root_count": 23,
+      "bytes": 8826,
+      "config_counter": 90,
+      "resolved_counter": 269,
+      "resolved_key": "Contents/Config-0-ResolvedFeatures",
+      "selector": {
+        "f100": 0,
+        "f104": 0,
+        "f108": -1,
+        "f110": [
+          101
+        ],
+        "f18": 101,
+        "ff0": null,
+        "producer_id": 19
+      },
+      "sha256": "0fdb414eb0f31fd41fcaa9252fecb95cdaef7f2cd3479ad53375232a5174a395",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "50759795094a6150cf03418dbc1e2ea819cea59d47b9686fae30f6cc3d84a2aa"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "2477529c678136c225102f2265c0c582fad301554c3b53ac632cf275ed5a0670"
+        },
+        "Contents/Config-0": {
+          "bytes": 22458,
+          "sha256": "e3b0a21ef445c3fb11e1a0eb889549960ab22a1093231ec813cf8099a0e7b74f"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 703,
+          "sha256": "3b886a0679a197cbed339c1a69372eaa7e3b6728c13ac254f6dac59333063c93"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19123,
+          "sha256": "d1e52d6a49d35af91538cc1daecbd7275526709396c566dca6ff3a64030f30fc"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 703,
+          "sha256": "0dacc0aacac3709de4f1c0fdb20173ef1148f82b9584888841a3a99bf7247369"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "ab0bdaea54d4c4d2ae9e1f85afdb732b6c355fac9e1cd9af70430bb6c377744c"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1746,
+          "sha256": "8228518f4f413af7674d09b5cd33b559b6dd5665eaec7cb6eb298683c21e8854"
+        }
+      },
+      "zero_runtime_reads": true
+    }
+  },
+  "case": {
+    "angle_deg": 63.5,
+    "axial_m": [
+      -0.021,
+      0.016
+    ],
+    "axis_axial_m": [
+      -0.076,
+      0.091
+    ],
+    "axis_x_m": 0.00625,
+    "edit_angle_deg": 119.25,
+    "family": "cut",
+    "name": "RevolveCutSelector",
+    "plane": "front",
+    "radius_m": [
+      0.017,
+      0.045
+    ],
+    "reverse": false,
+    "scope": "inner",
+    "split": "discovery",
+    "stock_axial_m": [
+      -0.038,
+      0.052000000000000005
+    ],
+    "stock_radii_m": [
+      [
+        0.009000000000000001,
+        0.024
+      ],
+      [
+        0.039,
+        0.056
+      ]
+    ]
+  },
+  "contrast": {
+    "changed_wire_bytes": 4,
+    "equal_other_streams": 9,
+    "only_stream": "Contents/Config-0-ResolvedFeatures",
+    "same_logical_input": true,
+    "typed_field": "cut.f548[0].f108"
+  },
+  "encoded_locator": "C:\\KitSdkCandidates\\RevolveCutSelector01\\Work\\RevolveCutSelector.SLDPRT",
+  "files": {
+    "Candidates/producer.SLDPRT": "f6354cfbe7dc20ef24eefa686e011ace9b40c90d923bd568211227aa631c9ca6",
+    "Candidates/sentinel.SLDPRT": "0fdb414eb0f31fd41fcaa9252fecb95cdaef7f2cd3479ad53375232a5174a395",
+    "Control/RevolveFull.SLDPRT": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+    "SourceLock.json": "67c1aeca25817846925f18e5b6b7b9319bdba216835e685988961e0db8832f68",
+    "Tools/AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "Tools/AuthorRevolveFamilies.py": "f32b7f75275488771399183ade651917f5cc8514052349d239079c6e442cfa9e",
+    "Tools/AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "Tools/InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "Tools/OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Tools/RevolveFamilyModel.py": "feb79fe618ac3205ae15ea6d211e59f75279f76aec2d0dea984a48242d2cfa44",
+    "Tools/RunStockCutSelector.py": "a9f2f67f746f722e6f26db1c848d6fcbae7a9221daaa42f20ffd563d13266916",
+    "Tools/Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "generation_tools": {
+    "re/tooling/sw2026/AuthorRevolveFamilies.py": "f32b7f75275488771399183ade651917f5cc8514052349d239079c6e442cfa9e",
+    "re/tooling/sw2026/RevolveFamilyModel.py": "feb79fe618ac3205ae15ea6d211e59f75279f76aec2d0dea984a48242d2cfa44",
+    "re/tooling/sw2026/revolve/EndModes/AuditRevEndOwners.py": "e0489821997bb0a41868a3435686577a169afc65b09468693c91fb6f64e284e3",
+    "re/tooling/sw2026/revolve/EndModes/ProveTwoDirectionRevolves.py": "a7a6afa4ac6a74ad55ddacd51b30e13aebe3a72e0d6d5175d59d846effca05dc",
+    "re/tooling/sw2026/revolve/Preparation/MakeRevolveRequest01.py": "e9c0b1b4f06b7e2ae01f1a096c7f0c21a3df7077f3a9a2e1662e4d140d0e11f5",
+    "re/tooling/sw2026/revolve/Preparation/ReadRevolveInput01.py": "e561d1a940e14a7ef1ed8ef15a7d52f8ab93f1d7f0e1cfab8abce5d9fef8fae6",
+    "re/tooling/sw2026/revolve/PrincipalWriter/BuildPrincipalRevolves.py": "d1ca3d67bf2b3babbdda0b024935bf3781e732b6332e90c0e5c1ee922a58ad7b",
+    "re/tooling/sw2026/revolve/SelectedCut/BuildStockCutSelector.py": "aab472f8721b21cdaec3936fd7d8042aec9f7e7c9f75a0e77e119411e9db4a97",
+    "re/tooling/sw2026/revolve/SelectedCut/FreezeStockCutSelector.py": "2b764d16259732b9b76aed1fc47a2b48fa314f9154731505c16f40164eb8b798",
+    "re/tooling/sw2026/revolve/SelectedCut/RunStockCutSelector.py": "a9f2f67f746f722e6f26db1c848d6fcbae7a9221daaa42f20ffd563d13266916",
+    "re/tooling/sw2026/revolve/SelectedCut/StockCutFixture.py": "1b156ced7495207fbc16ef1faf9af77caef2476c70f90eefb6c3a67e1fcbd48b",
+    "re/tooling/sw2026/revolve/SelectedCut/StockCutGeometry.py": "b2569a977cca7d5a47d3f46721d31656495f7adb7551cf70ff7b3e356d634083",
+    "re/tooling/sw2026/revolve/SelectedCut/StockCutPlan.py": "5557dbb9b7869a865db9db5a4f3560a582d542d5e8b93325b46363f557a18e51",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckRevKeys.py": "5901d4893a55dca397f0f9c172aebc9f6f53667f50dbf4bc555d15808619a508"
+  },
+  "guarded_generation_workers": 4,
+  "guest_packet": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveCutSelector01",
+  "guest_work": "C:\\KitSdkCandidates\\RevolveCutSelector01\\Work",
+  "heldout_inputs_read": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.revolve-cut-cold-selector-diagnostic.v1",
+  "source_lock_commit": "642b20cc65d14262ecc1e78e478af5ab48ca59b0",
+  "source_lock_sha256": "67c1aeca25817846925f18e5b6b7b9319bdba216835e685988961e0db8832f68",
+  "writer_parent": "a155553908326ac89215735c1a7698f6481ed103",
+  "writer_parent_source_tree": "159d561eb56ae4868975a4b4501bebb867c8587e"
+}

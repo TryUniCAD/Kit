@@ -12,6 +12,7 @@ KRevKeywordDims = MappingProxyType(
             (("D1", "degree"), ("D2", "degree")),
             (("D2", "degree"), ("D1", "degree")),
         ),
+        "Cut-Revolve": ((("D1", "degree"),),),
         "Revolve-Thin": (
             (("D3", None), ("D1", "degree")),
             (("D1", "degree"), ("D4", None), ("D3", None)),
@@ -39,6 +40,8 @@ def CheckRevKeys(InputValue: KeywordFeature) -> None:
         raise ValueError(
             "ordinary revolve keywords require active D1 and optional D2 degree drivers"
         )
+    if KindValue == "Cut-Revolve":
+        raise ValueError("selected revolve cut keywords require the actual D1 degree driver")
     raise ValueError(
         "thin revolve keywords require their active angle and wall drivers"
     )
