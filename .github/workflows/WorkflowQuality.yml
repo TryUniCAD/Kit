@@ -186,7 +186,7 @@ jobs:
           tests/CliResearch/ReaderRejectTests.py
           tests/CliResearch/NativeVerification
           tests/CliResearch/InterruptTests.py
-          tests/CliResearch/LeaseFlowTests.py -q
+          tests/CliResearch/LeaseFlowTests.py -n 2 --dist loadfile --durations=15 -v
 
   zizmor:
     if: >-
