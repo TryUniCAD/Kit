@@ -114,5 +114,8 @@ def CheckAmbiguousPoints(TmpPath: FilePath) -> None:
     Report = DecodeJson((TmpPath / "Compared.json").read_bytes())
     assert Report["status"] == "unverified"
     assert Report["full_semantics_verified"] is False
-    assert any("entity_identity" in FieldName for FieldName in Report["semantic_gaps"])
+    assert set(Report["semantic_gaps"]) == {
+        "decoded:sketch:RectangleSketch:entity_identity",
+        "native:sketch:RectangleSketch:entity_identity",
+    }
     assert Report["native_acceptance"] is False

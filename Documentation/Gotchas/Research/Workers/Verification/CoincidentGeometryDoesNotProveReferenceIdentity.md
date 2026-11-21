@@ -10,5 +10,5 @@ Face support has the same limitation: matching its producer and frame does not i
 Face-attached sketches remain explicitly unverified until that identity is established.
 
 Serialized CLI coverage duplicates points in both the decoded P03 document and its offline observation fixture.
-It requires an unverified result even though both inventories still agree.
+It requires an unverified result and separate decoded and native identity gaps even though both inventories still agree.
 No local test or licensed application run was executed for this repair.
