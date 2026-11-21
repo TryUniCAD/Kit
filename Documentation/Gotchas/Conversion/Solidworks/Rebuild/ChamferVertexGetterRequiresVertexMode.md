@@ -1,0 +1,5 @@
+# Chamfer vertex readback requires vertex mode
+
+The SOLIDWORKS 2026 interface lists a vertex selector alongside edge, face and loop selectors. During rollback of an ordinary angle-distance edge chamfer, reading `IChamferFeatureData2.Vertex` raised COM error `-2147417851` on build `34.5.2.0604`. The surrounding controls passed and the stock and selected-edge transaction had reached the active chamfer definition. [Exact disclosed attempt](../../../../../re/solidworks/records/EdgeChamferSource2026.md)
+
+Read `IChamferFeatureData2.Type` first. For angle-distance chamfers, validate the actual edge, face and loop selections, then query the verified edge for direction. Reserve vertex access for the vertex form. [Chamfer type enum](https://help.solidworks.com/2026/english/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swChamferType_e.html) · [Native interface members](https://help.solidworks.com/2026/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IChamferFeatureData2_members.html)

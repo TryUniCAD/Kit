@@ -63,18 +63,21 @@ class ChamferAuthor(FilletAuthor):
         require(bool(self.get(definition, "AccessSelections", self.model, Swapp.nothing())),
                 "could not roll back the native chamfer selection")
         try:
-            fields = {key: self.get(definition, key) for key in ("Type", "TangentPropagation", "KeepFeatures",
+            mode = self.get(definition, "Type")
+            self.rec.data["last_chamfer_type"] = mode
+            self.rec.flush()
+            require(mode == self.constants["swChamferAngleDistance"], "native chamfer is outside the angle-distance profile")
+            fields = {key: self.get(definition, key) for key in ("TangentPropagation", "KeepFeatures",
                       "PropagateFeatureToParts", "GetEdgeCount", "GetFaceCount", "LoopCount",
                       "EdgeChamferAngle")}
+            fields["Type"] = mode
             fields["distance_by_side_m"] = [float(self.get(definition, "GetEdgeChamferDistance", side)) for side in (0, 1)]
             edges = tuple(self.get(definition, "Edges") or ())
             fields["alternate_inputs"] = {"faces": len(self.get(definition, "Faces") or ()),
-                                          "loops": len(self.get(definition, "Loops") or ()),
-                                          "vertex": self.get(definition, "Vertex") is not None}
+                                          "loops": len(self.get(definition, "Loops") or ())}
             self.rec.data["last_native_definition"] = fields
             self.rec.flush()
-            require(fields["Type"] == self.constants["swChamferAngleDistance"]
-                    and not any(fields[key] for key in ("TangentPropagation", "KeepFeatures", "PropagateFeatureToParts")),
+            require(not any(fields[key] for key in ("TangentPropagation", "KeepFeatures", "PropagateFeatureToParts")),
                     "unexpected ordinary angle-distance modes")
             require(not any(fields["alternate_inputs"].values()) and fields["GetFaceCount"] in (-1, 0)
                     and fields["LoopCount"] in (-1, 0), "chamfer unexpectedly owns alternate inputs")
