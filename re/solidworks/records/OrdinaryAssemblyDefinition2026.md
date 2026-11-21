@@ -21,6 +21,8 @@ its fields. Eight immutable, disclosed assembly sources at
 
 PR #220 merged at `7d1e8be708116840984084611b1d10f2f419cd6a` after 32 successful merge-queue checks. The aggregate integrates its explicit `Assembly=True` profile alongside the existing strict part and broad archive paths. Its guarded replay still agrees exactly with the accepted receipt across both fresh encodings, all eight saved streams, the renderer observation and every refusal. Aggregate receipt SHA-256 is `e0493140fc40160f783b66d899c5f95ae5eba6c95d38556f369a5b1f2c95773c`. [Accepted merge-group jobs](https://github.com/TryUniCAD/Kit/actions/runs/44885209863)
 
+The combined codec retains all 1,328 typed stream replays from the separate 80-part and eight-assembly corpus. Four new guarded builds use the exact frozen plain and dimensioned nested requests and reproduce the 14 native-measured documents byte for byte. [Merged archive and nested byte replay](../measurements/2026/ArchiveAfterAssemblyDefinitionMerge01.json)
+
 The saved empty renderer profile is `(1, 0)` with zero objects on these
 assemblies. The measured ordinary parts use `(6, 0)`. The current reader
 retains the typed existing wrapper. Fresh authoring starts without it.
