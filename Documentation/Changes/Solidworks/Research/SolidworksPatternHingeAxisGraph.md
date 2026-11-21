@@ -1,0 +1,3 @@
+# Linked finite pattern hinge
+
+The SOLIDWORKS research tools now construct a registered finite two-plane hinge from an ordinary neutral plate, its actual Top and Right supports and the model's allocation and clock state. Four guarded builds read no runtime inputs and re-emit two distinct linked graphs exactly. Four separate disclosed saves match the complete typed feature prefix through the hinge. The work covers a research fragment, with native axis load and the remaining angular-plane and pattern owners still pending. [Scope, reproduction and measured boundaries](../../../../re/solidworks/records/LocalLinearPatternHingeAxisGraph2026.md)
