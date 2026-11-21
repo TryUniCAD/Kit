@@ -79,3 +79,8 @@ python3.14 -I -B re/tooling/sw2026/definition/ProveOrdinaryPartDef.py
 Run the historical proof on its pinned base with both historical Git objects available. For the aggregate proof pass its exact checkout revision to `--codec-base`. The named ordinary context matches all 34 layouts and 14 descriptor entries from accepted PR #205. The existing aggregate context retains all 42 layouts and 16 descriptor entries. The integration workers recover the same four stream digests and twelve refusal diagnostics and verify both reference widths and the repeated-class refusal. The proof measures the internal stream codec. Standalone file generation, public writer admission and fresh native or held-out lifecycle evidence have separate exits. [Integration receipt](../measurements/2026/SdkOrdinaryDefinitionIntegration01.json)
 
 The aggregate integration also replays 1,328 typed streams from 88 pinned native files, including every Definition stream and all eight MatesLists. Every stream is fully consumed and re-emitted byte for byte. The measurement binds the exact integrated production tree and preserves the full raw receipt digest. It uses the disclosed corpus and adds zero native writer outputs or held-out cases. [Corpus replay](../measurements/2026/ArchiveAfterDefinitionIntegration01.json)
+
+The later integration replays the same 1,328 streams byte for byte
+after the revolve end and equal-length constructor, thin and selected
+cut archive dispatch, and planar renderer changes.
+[Revolve integration replay](../measurements/2026/ArchiveAfterRevolveIntegration01.json)
