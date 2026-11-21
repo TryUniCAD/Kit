@@ -1,0 +1,133 @@
+{
+  "baseline_revision": "138d0f987568dc4c52be1bd3a1b29becbc1ec939",
+  "cases": {
+    "recipe-0.21.2-F14a": {
+      "refusal": "unsupported FreeCAD origin box source schema or release",
+      "source_sha256": "2f0e5e20da3e8f6d2073a7c8dd654b0c5035ed142c2e0392a14de832cd82eb5d",
+      "strict_open_passed": true
+    },
+    "recipe-1.0.2-F14a": {
+      "body_xml_id": 2272,
+      "contrasts": {
+        "alternate_symbolic_occurrence": "alternate symbolic occurrence paths with an identical placement matrix",
+        "different_child_xml_id": "child range disagrees",
+        "missing_retained_sidecar": "no exact retained map sidecar"
+      },
+      "element_map_sha256": "b500a5ff8a5ab524939e702559cfc8e802aaf9de72f0d5666ecb35cec49108b9",
+      "missing_writer_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ],
+      "owner_sha256": "413c0bc6f012c341b580b3e7d5502a0eb2326f70fe65e9314f5c7e9dcc643bdd",
+      "pre_staging_writer_refusals": [
+        "attached_primitive_projector",
+        "direct_adapter",
+        "full_preparer",
+        "implicit_path",
+        "native_only_path",
+        "native_only_stream",
+        "parametric_planner"
+      ],
+      "primitive_xml_id": 2280,
+      "role_counts": {
+        "edge": 12,
+        "face": 6,
+        "vertex": 8
+      },
+      "runtime_inputs_read": 0,
+      "source_document_uuid": "31824936-8b4e-4f8d-aba7-cd515e96497a",
+      "source_owners": {
+        "body_id": "freecad:body:Body",
+        "body_shape_id": "freecad:brep:Body:Shape",
+        "primitive_feature_id": "freecad:feature:AdditiveBox",
+        "primitive_shape_id": "freecad:brep:AdditiveBox:Shape"
+      },
+      "source_sha256": "2690f8a7f26e9096c917f0e2d4b9d311985a52dc1153546471064525ba8f68df",
+      "staged_files": 0,
+      "stream_unchanged": true,
+      "strict_input_unchanged": true,
+      "typed_owner_rederived_from_existing_json": true
+    },
+    "recipe-1.0.2-F14c": {
+      "refusal": "alternate attachment or placement",
+      "same_body_map_sha256_as_positive": "b500a5ff8a5ab524939e702559cfc8e802aaf9de72f0d5666ecb35cec49108b9",
+      "source_sha256": "40a68d097af87a4ca192fe8d0caa227e236547cc1a5e8b95ddba1037eb8dca70",
+      "strict_open_passed": true
+    },
+    "recipe-1.1.4-F14a": {
+      "body_xml_id": 4912,
+      "contrasts": {
+        "alternate_symbolic_occurrence": "alternate symbolic occurrence paths with an identical placement matrix",
+        "different_child_xml_id": "child range disagrees",
+        "missing_retained_sidecar": "no exact retained map sidecar"
+      },
+      "element_map_sha256": "94bd618a1edcc5492f0dd0322b8acda56e98c7bb271903c8543731171e3be3e2",
+      "missing_writer_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ],
+      "owner_sha256": "658b43485881cc0a9aa73fde43196e82a019929de40b47ead104132bb1fee82c",
+      "pre_staging_writer_refusals": [
+        "attached_primitive_projector",
+        "direct_adapter",
+        "full_preparer",
+        "implicit_path",
+        "native_only_path",
+        "native_only_stream",
+        "parametric_planner"
+      ],
+      "primitive_xml_id": 4921,
+      "role_counts": {
+        "edge": 12,
+        "face": 6,
+        "vertex": 8
+      },
+      "runtime_inputs_read": 0,
+      "source_document_uuid": "bbc9715e-f42e-42b4-81ef-ffea92d4f154",
+      "source_owners": {
+        "body_id": "freecad:body:Body",
+        "body_shape_id": "freecad:brep:Body:Shape",
+        "primitive_feature_id": "freecad:feature:AdditiveBox",
+        "primitive_shape_id": "freecad:brep:AdditiveBox:Shape"
+      },
+      "source_sha256": "c79cd3693db356fdf0d81f367ce56dc57f15b74b3bd5833811f8170bb30377b8",
+      "staged_files": 0,
+      "stream_unchanged": true,
+      "strict_input_unchanged": true,
+      "typed_owner_rederived_from_existing_json": true
+    }
+  },
+  "corpus_conversions_counted": 0,
+  "generated_outputs": 0,
+  "heldout_inputs_read": 0,
+  "independent_sdk_processes": 6,
+  "native_processes_started": 0,
+  "previous_lineage_sha256": "ff4edb3b60ebc6d76714f14c56210acc7be2dd5fc9025042e5c2f6bf80bd6266",
+  "previous_native_persistence_sha256": "85da449d283872dc47e76782268fd0c366ea4f1a190a9c8b6aad123f2619dced",
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.freecad-f14a-typed-source-owner.v1",
+  "source_manifest_sha256": "e2053d84764ed9b65fc4bfe62f98b08c4d33bb57f096f3a4e9265e802e9288fa",
+  "source_reference_transfer_qualified": false,
+  "tool_dependencies_sha256": {
+    "re/tooling/sw2026/VerifyFreecadF14aIntact.py": "9f73969bd176cc19ea10d942de0f334d303b3342b90b7fbbc6d5079d83514f20",
+    "re/tooling/sw2026/f14a_lineage/VerifySdkBoxLineage.py": "3b42c6846dffa60552d92539124d9d53934f6b2ee0c528a3a8c87143675edf79",
+    "src/convert/Geometry/Opencascade.py": "d3dedba1f296debbc097bf8bda8d925fa408bf793c9631f14ef98cca382ee154",
+    "src/convert/adapters/freecad/BodyLineage/BoxLineage.py": "a6f02395e20fb849a7f8a4e31f9a98425cfe64674f72f6ca20cee710ad08af93",
+    "src/convert/adapters/freecad/BodyLineage/BoxNativeOwner.py": "e1575c94fdb7b343957195a91fbb612b89b096465c34c1a5f6afd2e51a764b2c",
+    "src/convert/adapters/freecad/BodyLineage/BoxOccurrences.py": "442625ccd1f49299194d1eb05840538b1ba3756bf8af25f410029088e03532c5",
+    "src/convert/adapters/freecad/BodyLineage/BoxPrismRoles.py": "3816f2e2ae3471a9467700a10d5baa7a62bfc3017422e150e8aa8728a77e42d3",
+    "src/convert/adapters/freecad/BodyLineage/BoxShapeOwner.py": "3fb2b18b54434f05f162a2abadc8bfcc0e65ac70012510584fd4ffe0237a60b2",
+    "src/convert/adapters/freecad/BodyLineage/CheckBoxMap.py": "6b07f4a1dbc679d2e39c10d390d930b6874778ecfa05072bb9768416932154e6",
+    "src/convert/adapters/freecad/BodyLineage/ReadBoxLineage.py": "d00eb8965e521a61dfec75c8cd846922bfe4963f31c4941932d36adb71d69788",
+    "src/convert/adapters/freecad/EditShape/Prism/PrismExpected.py": "1924559a107e1d08823254b5fe647f4c4616f1051895e915cb84302157ed4ada",
+    "src/convert/adapters/freecad/EditShape/Prism/PrismFaces.py": "612b567357a824d15c696c91dce482453ccb66eefd2ea8b58685295237a3ded4",
+    "src/convert/adapters/freecad/EditShape/Prism/PrismProof.py": "753d354f48664c338acfd4ca0c6d2542331cedd9637824c169e6d3c32ccfdc00",
+    "src/convert/adapters/freecad/EditShape/Prism/PrismRaw.py": "3baf13786f737f2037a10d31f1f48fb313585cd1e1d43154c30108a70695f03e",
+    "src/convert/adapters/freecad/EditShape/Prism/PrismTrim.py": "30c34e6f2bd97fd7e871c44bdfd4095120cfc26613d52d8f9447a6e2a48c958e",
+    "src/convert/adapters/freecad/EditShape/PrismShape.py": "07838eeeb7f1d96ba86288ffcd8482105a9da563e736d006f152de918067956d",
+    "src/convert/adapters/freecad/Native.py": "8ff01da2f2d5eb6ad36def8257eb0b4a2bcdf486e51cebc063aee117a6418f0b",
+    "src/interchange/document/Models/DocumentPayload.py": "260e483c49d1cf56b369088db27bb9a3e04f95bdbb82d60aebd96b4353f57dc6"
+  }
+}
