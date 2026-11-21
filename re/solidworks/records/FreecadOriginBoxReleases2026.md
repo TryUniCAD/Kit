@@ -83,3 +83,8 @@ all four KeyWords streams exactly.
 
 Native assigned material, appearance and full original-corpus
 qualification remain open.
+
+The later intact-source audit replays both disclosed F14a constructors
+and binds their live drivers, material and appearance states, source
+provenance and real Body element-map child records before checking the
+normal path and stream refusals. [Intact-source owner audit](FreecadF14aIntactSource2026.md)

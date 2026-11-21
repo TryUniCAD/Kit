@@ -1,0 +1,5 @@
+# A zero name count can still carry child shape lineage
+
+The two disclosed FreeCAD AdditiveBox files carry `NameCount 0` in the edge, face and vertex groups of `Body.Shape.Map.txt`. Each group also has one child range. The range spans 12 edges, six faces or eight vertices, and its tag and postfix identify the actual AdditiveBox XML object. FreeCAD serializes local names and mapped children separately. [FreeCAD 1.0.2 writer](https://github.com/FreeCAD/FreeCAD/blob/1.0.2/src/App/ElementMap.cpp#L100-L135) · [FreeCAD 1.1.4 writer](https://github.com/FreeCAD/FreeCAD/blob/1.1.4/src/App/ElementMap.cpp#L98-L135)
+
+Read both counts, resolve child tags against the real object table, and keep the sidecar bound to its Shape. The six source Shape payloads decode to equivalent box boundaries, while these child ranges still record which feature owns their topology. A writer qualification needs both measurements. [Owner receipt](../../../../re/solidworks/measurements/2026/SdkFreecadF14aIntactSource01.json)
