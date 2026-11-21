@@ -20,6 +20,7 @@
     "RationaleComments.yml": [],
     "WorkflowQuality.yml": [
       "Verify CI policy and pytest compatibility",
+      "Qualify reader and writer patches",
       "Research CLI compatibility",
       "Research CLI Windows compatibility"
     ]
