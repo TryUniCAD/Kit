@@ -42,8 +42,14 @@ def ReadRevProfile(
 ) -> RevolveProfile:
     FieldsValue = RequireNative(SketchValue, "sgSketch").FieldsValue
     CheckLineScope(FieldsValue, True, True)
-    RulesValue = ReadRevDims(SketchValue, LinkValue)
+    RulesValue, EqualValue = ReadRevDims(SketchValue, LinkValue)
     References = Counter(RuleValue.LineValue for RuleValue in RulesValue)
+    if len(References) != 4:
+        raise ValueError("ordinary revolve requires four distinct unary owners")
+    if EqualValue is not None:
+        if not set(EqualValue.Indices).issubset(References):
+            raise ValueError("revolve equal length must bind two actual contour owners")
+        References.update(EqualValue.Indices)
     PointRows = NativeRows(FieldsValue.get("points"))
     LineRows = NativeRows(FieldsValue.get("lines"))
     if (
@@ -64,7 +70,7 @@ def ReadRevProfile(
     PointsValue, AxisPoints, RetiredPoints = ReadRevPoints(
         PointRows, AxisLine, LinesValue
     )
-    CheckRevShape(PointsValue, LinesValue, AxisPoints, AxisLine, RulesValue)
+    CheckRevShape(PointsValue, LinesValue, AxisPoints, AxisLine, RulesValue, EqualValue)
     LoopValue = LineLoop(
         PointsValue,
         LinesValue,
@@ -80,4 +86,6 @@ def ReadRevProfile(
             for PointValue in RetiredPoints
         ),
     )
-    return RevolveProfile(LoopValue, AxisLine, AxisPoints, RulesValue, RetiredPoints)
+    return RevolveProfile(
+        LoopValue, AxisLine, AxisPoints, RulesValue, RetiredPoints, EqualValue
+    )

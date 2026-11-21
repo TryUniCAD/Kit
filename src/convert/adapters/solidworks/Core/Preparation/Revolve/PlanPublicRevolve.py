@@ -19,6 +19,10 @@ def PlanPublicRevolve(DocumentValue: CadDocument) -> RevolvePlan | None:
     PlanValue = ProjectRevolve(DocumentValue)
     if PlanValue.SideMode != "one_sided":
         raise ValueError("public native revolve end mode requires native acceptance")
+    if PlanValue.EqualRule is not None:
+        raise ValueError(
+            "public native revolve equal length requires native acceptance"
+        )
     if PlanValue.AxisValue not in ("x", "y") or PlanValue.AngleValue == FullTurn:
         raise ValueError(
             "public native revolve requires a partial boss on canonical Top or Right"

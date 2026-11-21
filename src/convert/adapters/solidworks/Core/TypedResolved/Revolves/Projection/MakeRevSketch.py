@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineAxisRule 
 )
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineEntity import LineEntity
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.MakeRevEqual import (
+    MakeRevEqual,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.MakeRevPoints import (
     MakeRevPoints,
 )
@@ -18,7 +21,7 @@ from interchange.Core.Common import FreezeMapping
 from interchange.geometry.Models.Sketch import Sketch
 
 
-# exact contour entities and actual unary relations must replace inferred endpoints without anchoring the selected axis
+# exact contour entities and actual solver relations must replace inferred endpoints without anchoring the selected axis
 def MakeRevSketch(SketchValue: Sketch, OwnerValue: RevolveOwner) -> Sketch:
     GraphValue = OwnerValue.ProfileGraph
     LoopValue = GraphValue.LoopValue
@@ -40,15 +43,25 @@ def MakeRevSketch(SketchValue: Sketch, OwnerValue: RevolveOwner) -> Sketch:
     AxisEntity = ReplaceValue(
         LineEntity(ProfileId, AxisLoop, GraphValue.AxisValue), construction=True
     )
+    EntityIds = tuple(Entity.id for Entity in Entities)
+    LineIndices = tuple(LineValue.IndexValue for LineValue in LoopValue.LinesValue)
     RulesValue = tuple(
         LineAxisRule(
             ProfileId,
             RuleValue,
-            tuple(Entity.id for Entity in Entities),
-            tuple(LineValue.IndexValue for LineValue in LoopValue.LinesValue),
+            EntityIds,
+            LineIndices,
         )
         for RuleValue in GraphValue.AxisRules
     )
+    if GraphValue.EqualValue is not None:
+        RulesValue += (
+            MakeRevEqual(
+                ProfileId,
+                GraphValue.EqualValue,
+                dict(zip(LineIndices, EntityIds, strict=True)),
+            ),
+        )
     return ReplaceValue(
         SketchValue,
         entities=(*Entities, AxisEntity),

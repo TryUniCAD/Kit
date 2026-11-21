@@ -20,6 +20,8 @@ class RevolvePlan:
     BodyId: str
     SelectionId: str
     AxisEntityId: str
+    UnaryRules: tuple[tuple[int, int], ...]
+    EqualRule: tuple[int, int] | None
     AxisValue: str = "z"
     SideMode: str = "one_sided"
     AgainstAngle: float | None = None

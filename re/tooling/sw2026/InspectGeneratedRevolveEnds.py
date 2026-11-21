@@ -31,6 +31,8 @@ def compare_state(actual, source):
         require(actual["complete_tree"] == source["complete_tree"], "native recursive tree differs")
         require(actual["body_names"] == source["body_names"], "native body name differs")
         require(actual["profile_relations"] == source["profile_relations"], "native profile relation count differs")
+        if "relation_operands" in source:
+            require(actual["relation_operands"] == source["relation_operands"], "native relation operands differ")
         tree_rows = len(actual["complete_tree"])
     for key in ("volume", "area", "mass"):
         require(format(actual["mass"][key], ".6g") == format(source["mass"][key], ".6g"), "native property differs in " + key)
@@ -50,6 +52,8 @@ def compare_edits(actual, source):
 
 
 class FullRevolveEndObserver(RevolveEndAuthor):
+    relation_count = 4
+
     def snapshot(self, case, label, angle_degrees):
         feature = super().snapshot(case, label, angle_degrees)
         tree = self.feature_tree(required_names=(PROFILE, BOSS, PLANES[case["plane"]]))
@@ -58,7 +62,7 @@ class FullRevolveEndObserver(RevolveEndAuthor):
         require(len(names) == 1 and names[0], "missing live native body name")
         manager = self.get(self.sketch, "RelationManager")
         relations = int(self.get(manager, "GetRelationsCount", 0))
-        require(relations == 4, "rectangular revolve lost its four authored relations")
+        require(relations == self.relation_count, "revolve sketch relation count differs")
         self.rec.data[label].update(complete_tree=tree, body_names=names, profile_relations=relations)
         self.rec.flush()
         return feature

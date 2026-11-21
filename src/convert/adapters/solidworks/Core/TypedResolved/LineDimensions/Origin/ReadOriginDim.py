@@ -1,6 +1,6 @@
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.Origin.CheckOriginRel import (
-    CheckOriginRel,
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.CheckBinaryDim import (
+    CheckBinaryDim,
 )
 from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.Origin.LineOrigin import (
     LineOrigin,
@@ -42,7 +42,7 @@ def ReadOriginDim(SketchValue: ArchiveNode, LinkValue: NativeLink) -> LineOrigin
             "typed origin group requires one actual corner profile and external point"
         )
     RelationValue = NativeRecord(RowsValue[0].get("d"))
-    CheckOriginRel(RelationValue)
+    CheckBinaryDim(RelationValue, 9)
     ExternalIndex = ReadDimHandle(RelationValue.get("h1"), "sgPointHandle")
     LocalIndex = ReadDimHandle(RelationValue.get("h2"), "sgPointHandle")
     if (

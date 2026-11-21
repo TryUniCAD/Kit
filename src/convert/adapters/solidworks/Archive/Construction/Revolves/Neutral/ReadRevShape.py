@@ -17,11 +17,11 @@ def ReadRevShape(SketchValue: Sketch, AxisEntityId: str) -> RevolveShape:
         or SketchValue.attributes
         or SketchValue.parameter_ids
         or len(SketchValue.entities) != 5
-        or len(SketchValue.constraints) != 4
+        or len(SketchValue.constraints) not in (4, 5)
         or len(SketchValue.closed_profile_entity_ids) != 1
     ):
         raise ValueError(
-            "revolve requires five lines and four actual contour relations"
+            "revolve requires five lines and supported actual contour relations"
         )
     EntityValues = {Entity.id: Entity for Entity in SketchValue.entities}
     OrderValue = SketchValue.closed_profile_entity_ids[0]

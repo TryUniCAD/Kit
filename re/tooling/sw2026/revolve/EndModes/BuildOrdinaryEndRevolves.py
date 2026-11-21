@@ -25,6 +25,7 @@ from convert.adapters.solidworks.Core.Native import ParseXml
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import PlanPublicRevolve
 from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import PrepareRevolve
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
+from interchange.geometry.Models.Sketch import ConstraintRef, SketchRelation
 
 
 MODES = {"single": "one_sided", "midplane": "symmetric_full", "two": "two_sided"}
@@ -48,7 +49,15 @@ def source_model(case, destination, epoch):
                            value=replace(params[0].value, value=radians(case["second_deg"]))),)
     definition = replace(feature.definition, SideMode=MODES[case["mode"]], AgainstParameterId=against)
     step = replace(feature, definition=definition, parameter_ids=tuple(param.id for param in params))
-    return replace(document, parameters=params, feature_timeline=(step,))
+    sketches = document.sketches
+    if "equal_edges" in case:
+        sketch, = sketches
+        edges, = sketch.closed_profile_entity_ids
+        first, second = case["equal_edges"]
+        assert all(type(index) is int and 0 <= index < len(edges) for index in (first, second))
+        equality = SketchRelation("relation/equal", "equal", (ConstraintRef(edges[first]), ConstraintRef(edges[second])))
+        sketches = (replace(sketch, constraints=(*sketch.constraints, equality)),)
+    return replace(document, parameters=params, feature_timeline=(step,), sketches=sketches)
 
 
 def inspect_generated(raw, case):

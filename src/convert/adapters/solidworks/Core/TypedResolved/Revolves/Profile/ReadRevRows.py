@@ -36,10 +36,8 @@ def ReadRevRows(
             LinesValue.append(
                 ReadLineSegment(RowValue, IndexValue, References.get(IndexValue, 0))
             )
-    if (
-        len(LinesValue) != 4
-        or set(References) != {LineValue.IndexValue for LineValue in LinesValue}
-        or (set(References.values()) != {1})
-    ):
-        raise ValueError("ordinary revolve contour and actual unary owners differ")
+    if len(LinesValue) != 4 or set(References) != {
+        LineValue.IndexValue for LineValue in LinesValue
+    }:
+        raise ValueError("ordinary revolve contour and actual relation owners differ")
     return tuple(LinesValue), tuple(RetiredRows)

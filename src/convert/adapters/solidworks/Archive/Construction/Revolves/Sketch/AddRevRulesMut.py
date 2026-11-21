@@ -7,11 +7,17 @@ from convert.adapters.solidworks.Archive.Construction.Profile.ProfileGraph impor
 from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePlan import (
     RevolvePlan,
 )
+from convert.adapters.solidworks.Archive.Construction.Sketch.MakeLineHandle import (
+    MakeLineHandle,
+)
 from convert.adapters.solidworks.Archive.Construction.Sketch.RequirePolygon import (
     RequirePolygon,
 )
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeAxisDim import (
     MakeAxisDim,
+)
+from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeBinaryDim import (
+    MakeBinaryDim,
 )
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.PublishRectMut import (
     PublishRectMut,
@@ -26,14 +32,22 @@ def AddRevRulesMut(
 ) -> None:
     Geometry = RequirePolygon(GraphValue.GeometryValue)
     LogicalValues: list[dict[str, object]] = []
-    for IndexValue in range(len(PlanValue.VerticesValue)):
+    for IndexValue, CodeValue in PlanValue.UnaryRules:
         Relation = MakeAxisDim(Geometry, IndexValue)
-        StartValue = PlanValue.VerticesValue[IndexValue]
-        EndValue = PlanValue.VerticesValue[
-            (IndexValue + 1) % len(PlanValue.VerticesValue)
-        ]
-        Relation["f80"] = 4 if StartValue[1] == EndValue[1] else 5
+        Relation["f80"] = CodeValue
         LogicalValues.append(Relation)
+    PairValues: tuple[dict[str, object], ...] = ()
+    if PlanValue.EqualRule is not None:
+        First, Second = PlanValue.EqualRule
+        SketchValue = Geometry.SketchValue
+        PairValues = (
+            MakeBinaryDim(
+                SketchValue,
+                14,
+                MakeLineHandle(SketchValue, Geometry.LineValues[First], First),
+                MakeLineHandle(SketchValue, Geometry.LineValues[Second], Second),
+            ),
+        )
     OwnerValue = ArchiveNode.RequireNode(GraphValue.ProfileValue.FieldsValue["owner"])
     PublishRectMut(
         GraphValue,
@@ -41,4 +55,5 @@ def AddRevRulesMut(
         tuple(LogicalValues),
         Allocator,
         FieldInt(OwnerValue.FieldsValue, "fd44"),
+        PairValues=PairValues,
     )

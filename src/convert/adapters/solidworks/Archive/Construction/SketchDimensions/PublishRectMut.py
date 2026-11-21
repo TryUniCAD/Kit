@@ -22,13 +22,18 @@ def PublishRectMut(
     LogicalValues: tuple[dict[str, object], ...],
     Allocator: PersistentIds,
     AnnotationId: int,
+    *,
+    PairValues: tuple[dict[str, object], ...] = (),
 ) -> None:
     GeometryValue = GraphValue.GeometryValue
     FieldsValue = RequireDimRows(GeometryValue.SketchValue)
     CountsValue: Counter[ArchiveNode] = Counter()
-    for LogicalValue in LogicalValues:
-        HandleValue = ArchiveNode.RequireNode(LogicalValue["h1"])
-        CountsValue[ArchiveNode.RequireNode(HandleValue.FieldsValue["_line"])] += 1
+    for Relations, FieldNames in ((LogicalValues, ("h1",)), (PairValues, ("h1", "h2"))):
+        for LogicalValue in Relations:
+            for FieldName in FieldNames:
+                HandleValue = ArchiveNode.RequireNode(LogicalValue[FieldName])
+                LineValue = ArchiveNode.RequireNode(HandleValue.FieldsValue["_line"])
+                CountsValue[LineValue] += 1
     for ResultValue in ResultValues:
         for FieldName in ("h1", "h2"):
             HandleValue = ArchiveNode.RequireNode(
@@ -41,6 +46,9 @@ def PublishRectMut(
         EntityValue.FieldsValue["f20"] = CountsValue[EntityValue]
     FieldsValue["log_g1"] = tuple({"d": LogicalValue} for LogicalValue in LogicalValues)
     FieldsValue["nlog1"] = len(LogicalValues)
+    if PairValues:
+        FieldsValue["log_g2"] = tuple({"d": PairValue} for PairValue in PairValues)
+        FieldsValue["nlog2"] = len(PairValues)
     FieldsValue["val_g2"] = tuple(
         {"d": ResultValue.DimensionValue} for ResultValue in ResultValues
     )
