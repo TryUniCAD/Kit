@@ -14,5 +14,7 @@ acceptance.
 Two disclosed SOLIDWORKS 2026 SP05.2 controls establish the embedded
 `sgLogG2Dim` format. Two additional native originals were locked before the
 constructor change. Two generated disclosed archives preserve the ordered
-owners and replay twenty typed streams with zero worker file reads.
+owners and replay twenty typed streams with zero worker file reads. Both
+independent cases pass native comparison with zero rebuild errors and
+warnings, live angle edits, and fresh reopen.
 [Record and lock](../../../../../re/solidworks/records/RevolveEqualLengthRelations2026.md)

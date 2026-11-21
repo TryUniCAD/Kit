@@ -44,3 +44,13 @@ their ordered operands, 175 recursive feature rows and 42 measured
 quantities across seven original and edited states. Both controls pass
 across ten distinct processes. Each edit survives save and fresh reopen.
 [Native disclosure](../measurements/2026/SdkSquareRevolveDisclosedNative01.json)
+
+The two pre-writer locked squares pass the same seven comparisons
+using the frozen writer and method. Both generated archives load and
+rebuild with zero errors and warnings. The original and candidate
+preserve all five solver relations, the ordered equal-length operands,
+the complete tree and the live D1 and D2 edits where applicable.
+The independent native batch qualifies both cases in ten fresh
+processes. The public registry still needs byte parity at its normal
+output boundary.
+[Independent native receipt](../measurements/2026/SdkSquareRevolveHeldoutNative01.json)
