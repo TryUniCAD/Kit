@@ -21,12 +21,18 @@ from convert.adapters.solidworks.Core.Preparation.TwoStock.TwoStockPlan import (
     TwoStockPlan,
 )
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Features.ThinRevolve import ThinRevolve
 
 
 # registry selection must identify the actual native part profile before any destination is staged
 def PlanNativePart(
     DocumentValue: CadDocument,
 ) -> KPartPlan | TwoStockPlan | RevolvePlan:
+    if any(
+        isinstance(FeatureValue.definition, ThinRevolve)
+        for FeatureValue in DocumentValue.feature_timeline
+    ):
+        raise ValueError("public native thin revolve requires independent native acceptance")
     if any(Parameter.expression is not None for Parameter in DocumentValue.parameters):
         return PlanEqPart(DocumentValue)[1]
     if IsStockChain(DocumentValue):

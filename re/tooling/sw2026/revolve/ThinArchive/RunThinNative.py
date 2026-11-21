@@ -9,6 +9,7 @@ from CompareThinNative import compare_cycle
 from RevolveFamilyModel import edited_case, need, validate_specs
 
 SCHEMA = "kit.sw2026.generated-thin-disclosure-job.v1"
+PLANE_SCHEMA = "kit.sw2026.generated-thin-principal-disclosure-job.v1"
 VERSION = "34.5.2.0604"
 
 
@@ -94,13 +95,20 @@ def execute(job_path, job_sha):
     need(digest(job_path) == job_sha and Path(__file__).resolve().parent.parent == root and root.drive.casefold() == "c:",
          "native job or executable packet location differs")
     job = json.loads(job_path.read_bytes())
-    need(job["schema"] == SCHEMA and job["oracle_sha256"] == ORACLE and Path(job["logical_root"]) == root,
+    schema = job["schema"]
+    need(schema in (SCHEMA, PLANE_SCHEMA) and job["oracle_sha256"] == ORACLE and Path(job["logical_root"]) == root,
          "wrong frozen native runner job or logical root")
     check_paths(root, job["files"])
     plan = json.loads((root / "ModelSpec.json").read_bytes())
     cases = validate_specs(plan)
-    need(plan["split"] == "discovery" and plan["family"] == "thin" and len(cases) == 4,
-         "native batch is limited to the four disclosed controls")
+    need(plan["split"] == "discovery" and plan["family"] == "thin",
+         "native batch requires disclosed thin controls")
+    if schema == SCHEMA:
+        need(len(cases) == 4, "native batch requires the four disclosed Front controls")
+    else:
+        need(tuple((case["plane"], case["wall_mode"], case["reverse"]) for case in cases)
+             == (("top", "opposite", False), ("right", "midplane", False)),
+             "native batch requires the two exact principal-plane contrast roles")
     output = root / "Oracle"
     need(not output.exists(), "native evidence destination already exists")
 
@@ -112,7 +120,9 @@ def execute(job_path, job_sha):
     author = author_type(RevolveAuthor, PLANES, Swapp, constants)
     output.mkdir()
     processes = []
-    summary = {"schema": "kit.sw2026.thin-generated-disclosure-result.v1", "job_sha256": job_sha,
+    result_schema = ("kit.sw2026.thin-generated-disclosure-result.v1" if schema == SCHEMA
+                     else "kit.sw2026.thin-principal-disclosure-result.v1")
+    summary = {"schema": result_schema, "job_sha256": job_sha,
                "oracle_sha256": ORACLE, "oracle_build": VERSION, "writer_revision": job["writer_revision"],
                "writer_sdk_tree": job["writer_sdk_tree"], "build_receipt_sha256": job["files"]["BuildReceipt.json"],
                "source_lock_sha256": job["source_lock_sha256"], "heldout_writer_acceptance": False,
@@ -155,7 +165,7 @@ def execute(job_path, job_sha):
         summary["inputs_unchanged"] = False
     summary["passed"] = (not summary.get("batch_failure") and summary.get("control-before", {}).get("passed", False)
                          and summary["control-after"]["passed"] and summary["inputs_unchanged"] and summary["idle_after"]
-                         and summary["fresh_processes"] == summary["distinct_processes"] == 18
+                         and summary["fresh_processes"] == summary["distinct_processes"] == 2 + 4 * len(cases)
                          and len(summary["cases"]) == len(cases) and all(item["passed"] for item in summary["cases"]))
     result = output / "NativeResult.json"
     write_json(result, summary)

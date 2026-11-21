@@ -104,7 +104,7 @@ def match_driver(driver, measurement, value_key):
             "typed driver differs from native editable dimension")
 
 
-def check_walls(thin, mode, native, profile, link):
+def check_walls(thin, mode, native, profile, link, *, place=None):
     f = thin.FieldsValue
     first, second = (length_owner(link, f[slot]) for slot in ("f08", "f10"))
     require(all(a[1] != b[1] for a, b in zip(first["chain"], second["chain"], strict=True)),
@@ -116,10 +116,11 @@ def check_walls(thin, mode, native, profile, link):
     x = profile["points_mm"]["body"][0][0] / 1000
     y = sum(row[1] for row in profile["points_mm"]["body"]) / 2000
     start, end = {0: (x, x + w1), 1: (x, x - w1), 2: (x - w1 / 2, x + w1 / 2), 3: (x, x + w1)}[mode]
-    check_wall_points(first, start, end, y)
+    place = place or check_wall_points
+    place(first, start, end, y)
     if mode == 3:
         match_driver(second, native["drivers"]["wall2"], "metres")
-        check_wall_points(second, x, x - w2, y)
+        place(second, x, x - w2, y)
     else:
         require(second["frame_present"] == (0, 0) and "wall2" not in native["drivers"],
                 "inactive second wall has an unexpected editable or geometric owner")

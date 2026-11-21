@@ -22,6 +22,9 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Feature.MakeRevEn
 from convert.adapters.solidworks.Archive.Construction.Revolves.Feature.MakeRevNodeMut import (
     MakeRevNodeMut,
 )
+from convert.adapters.solidworks.Archive.Construction.Revolves.Feature.MakeThinSpecMut import (
+    MakeThinSpecMut,
+)
 from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePlan import (
     RevolvePlan,
 )
@@ -43,6 +46,8 @@ def MakeRevFeatMut(
     *,
     IsThin: bool = False,
 ) -> tuple[ArchiveNode, ArchiveNode, ArchiveNode, DimensionGraph]:
+    WallsValue = PlanValue.ThinWalls
+    IsThin = IsThin or WallsValue is not None
     FeatureValue = MakeRevNodeMut(
         PlanValue.FeatureName,
         SystemValue.RootValue,
@@ -78,4 +83,8 @@ def MakeRevFeatMut(
             "f8e8": 0,
         }
     )
+    if WallsValue is not None:
+        FeatureValue.FieldsValue["f8f0"] = MakeThinSpecMut(
+            FeatureValue, InputValue, Allocator, ProfileValue.FrameValue, PlanValue, WallsValue
+        )
     return FeatureValue, Reference, EndValue, AngleValue

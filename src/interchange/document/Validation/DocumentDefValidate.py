@@ -4,6 +4,7 @@ from interchange.document.Validation.AngleRevValidate import GetAngleRevErrs
 from interchange.document.Validation.BoundPlaneValidate import CheckBoundPlane
 from interchange.document.Validation.DistExtValidate import GetDistExtErrs
 from interchange.document.Validation.PlaneRevValidate import GetPlaneRevErrs
+from interchange.document.Validation.ThinRevValidate import GetThinRevErrs
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.BoundScaleValues import GetScaleValues
 from interchange.Features.FeatureBoundPlane import BoundDatum
@@ -15,6 +16,7 @@ from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Features.PlaneExtValues import GetPlaneExt
 from interchange.Features.ScopedExtrude import ScopedExtrude
+from interchange.Features.ThinRevolve import ThinRevolve
 from interchange.geometry.Models.Selection import Selection
 from interchange.geometry.Models.Sketch import Sketch
 from interchange.geometry.Models.SupportPlane import SupportPlane
@@ -59,6 +61,8 @@ def GetDefErrors(
         )
     if isinstance(Definition, AngularRevolve):
         return GetAngleRevErrs(StepValue, Definition, Selections, Params)
+    if isinstance(Definition, ThinRevolve):
+        return GetThinRevErrs(StepValue, Definition, Selections, Params)
     if isinstance(Definition, DistanceExtrude):
         return GetDistExtErrs(StepValue, Definition, IdentitySets["sketches"], Params)
     if isinstance(Definition, ExtrudeFeature):

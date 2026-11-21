@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CheckPartLink
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis import (
     ReadPrincAxis,
 )
+from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.ProjectThinRev import (
+    ProjectThinRev,
+)
 from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.CheckRevRules import (
     CheckRevRules,
 )
@@ -32,6 +35,7 @@ from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame impo
     PrincipalFrame,
 )
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Features.ThinRevolve import ThinRevolve
 
 
 # the constructor needs one complete neutral ownership plan before any archive object or native identifier exists
@@ -39,6 +43,9 @@ def ProjectRevolve(DocumentValue: CadDocument) -> RevolvePlan:
     RequireRevDoc(DocumentValue)
     PlaneValue = CheckPartLinks(DocumentValue)
     AxisValue = ReadPrincAxis(PlaneValue.transform)
+    ThinValue = DocumentValue.feature_timeline[0].definition
+    if isinstance(ThinValue, ThinRevolve):
+        return ProjectThinRev(DocumentValue, AxisValue, ThinValue)
     Definition, AngleValue, AgainstValue = ReadRevFeature(DocumentValue)
     SketchValue = DocumentValue.sketches[0]
     AxisEntityId = ReadRevSelect(DocumentValue, Definition)
