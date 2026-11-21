@@ -19,13 +19,19 @@ PUBLIC_WRITER = "96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb"
 PUBLIC_TREE = "4f00d8b078ea956ccfa2883c043093a964ae2237"
 PUBLIC_RESULT = "re/solidworks/measurements/2026/SdkPublicNestedWriting01.json"
 PUBLIC_RESULT_SHA = "2cb15c011cad7cd489a3657c65765192cfb9bd7a08d2c46128375d892f1df41a"
+AUDIT_REVISION = "79c9a66e707f0dab0effad3c8f5f07a2e322fe22"
+AUDIT_HELPER = "re/tooling/sw2026/nested_publication/MeasureNestedPublication.py"
+AUDIT_SHA = "2b66872092ca0e7ee22129aac94dd6bda7863b61adc34b83f47bf938c9b706e3"
+FAILED_PACKET = "aeae7304158b9a2743c29e25255d75f6165cea452fc09441a7878b2f77f520d7"
+FAILED_RECEIPT = "777afb26170de1e6dc0f21c3b0a03870ceb0bec4e7c3a012230f90c473bf90ba"
 ORACLE = "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
-SCHEMA = "kit.sw2026.sealed-public-nested-parity.v1"
-CODE_SCHEMA = "kit.sw2026.sealed-public-nested-code.v1"
+SCHEMA = "kit.sw2026.sealed-public-nested-parity.v2"
+CODE_SCHEMA = "kit.sw2026.sealed-public-nested-code.v2"
+PREFLIGHT_SCHEMA = "kit.sw2026.sealed-public-nested-windows-disclosed.v1"
 WORKER = "re/tooling/sw2026/nested_publication/MeasurePublicNestedWriting.py"
 HELPERS = (
     WORKER,
-    "re/tooling/sw2026/nested_publication/MeasureNestedPublication.py",
+    AUDIT_HELPER,
     "re/tooling/sw2026/AuditNestedNeutralComposition.py",
     "re/tooling/sw2026/SdkNativeRoundTrips.py",
 )
@@ -38,11 +44,11 @@ DISCLOSED = {
     "SdkNestedNeutralNative03": "8190fa54206d6a399ae0f5f7eaab79bd1839f13705622b1811801274261dc4ba",
     "SdkRepeatedNeutralNative03": "51bbc71bdf0f675aa63073fbb833b29d4be6f874934a82d5f64f662b2eca1e73",
 }
-PUBLIC_CASES = {
-    **DISCLOSED,
+DIMENSIONED = {
     "SdkNestedDimensionedNative01": "aed64c337b2410605dea9df94fbdffbd8eb068330895c72bdff71f4f461f1a2c",
     "SdkRepeatedDimensionedNative01": "f869bf0111283bdcac82bf6c4171e6132acda8dfd28c30bb1b8ea166895f3ec0",
 }
+PUBLIC_CASES = {**DISCLOSED, **DIMENSIONED}
 NATIVE_TRANSFERS = ["assemblies", "body_structure", "component_documents", "configurations", "editable_sketches",
                     "parameters", "parametric_history", "support_planes"]
 
@@ -193,6 +199,10 @@ def freeze(args):
     require(sdk_tree == PUBLIC_TREE and hash_bytes(public_proof) == PUBLIC_RESULT_SHA,
             "committed public writer closure or disclosed proof differs")
     verify_public_routes(json.loads(public_proof))
+    require(git(checkout, "rev-parse", AUDIT_REVISION + "^").decode().strip() == revision
+            and git(checkout, "rev-parse", AUDIT_REVISION + ":src").decode().strip() == sdk_tree
+            and git(checkout, "diff", "--name-only", revision, AUDIT_REVISION).decode().splitlines() == [AUDIT_HELPER],
+            "the retry may change only the pinned research audit helper")
     tool_data = git(checkout, "show", f"{runner}:{HERE.relative_to(checkout).as_posix()}")
     require(tool_data == HERE.read_bytes(), "the parity evaluator must be committed before freezing")
     output = args.output.absolute()
@@ -200,7 +210,8 @@ def freeze(args):
             and not output.is_relative_to(checkout) and not output.is_relative_to(args.original.resolve()),
             "choose an unused packet destination outside both original data and repository")
     raw = git(checkout, "archive", revision, "--", "src")
-    helpers = {name: git(checkout, "show", f"{revision}:{name}") for name in HELPERS}
+    helpers = {name: git(checkout, "show", f"{AUDIT_REVISION if name == AUDIT_HELPER else revision}:{name}") for name in HELPERS}
+    require(hash_bytes(helpers[AUDIT_HELPER]) == AUDIT_SHA, "portable audit helper differs from its pinned blob")
     output.mkdir()
     write(output / "DisclosedPublicRoutes.json", public_proof)
     code = output / "CodeRoot"
@@ -224,18 +235,22 @@ def freeze(args):
         store(name, data)
     require(set(HELPERS) <= set(manifest) and "src/convert/__init__.py" in manifest, "writer snapshot is incomplete")
     code_pin = write_json(output / "CodeManifest.json", {"schema": CODE_SCHEMA, "writer_revision": revision,
-                                                        "sdk_tree": sdk_tree, "files_sha256": manifest})
+                                                        "sdk_tree": sdk_tree, "audit_revision": AUDIT_REVISION,
+                                                        "files_sha256": manifest})
     tools = output / "Tools"
     tools.mkdir()
     tool_pin = write(tools / HERE.name, tool_data)
     pin = write_json(output / "Parity.json", {"schema": SCHEMA, "original_packet_sha256": ORIGINAL,
                      "original_native_result_sha256": NATIVE, "original_source_lock_sha256": evaluation["source_lock_sha256"],
                      "disclosed_public_routes_sha256": PUBLIC_RESULT_SHA,
+                     "audit_revision": AUDIT_REVISION, "audit_sha256": AUDIT_SHA,
+                     "prior_failed_packet_sha256": FAILED_PACKET, "prior_failed_receipt_sha256": FAILED_RECEIPT,
                      "sdk_revision": revision, "sdk_tree": sdk_tree, "code_manifest_sha256": code_pin,
                      "evaluator_revision": runner, "evaluator_sha256": tool_pin})
     code_snapshot(output / "Parity.json", pin, executed_tool=False)
     return {"passed": True, "parity_packet_sha256": pin, "source_manifest_sha256": code_pin,
-            "sdk_revision": revision, "sdk_tree": sdk_tree, "public_native_slots_verified": 2, "private_requests_read": 0}
+            "sdk_revision": revision, "sdk_tree": sdk_tree, "audit_sha256": AUDIT_SHA,
+            "public_native_slots_verified": 2, "private_requests_read": 0}
 
 
 def code_snapshot(path, pin, executed_tool=True):
@@ -245,10 +260,13 @@ def code_snapshot(path, pin, executed_tool=True):
     packet = read(path, pin, root)
     require(set(packet) == {"schema", "original_packet_sha256", "original_native_result_sha256", "original_source_lock_sha256",
                             "disclosed_public_routes_sha256", "sdk_revision", "sdk_tree", "code_manifest_sha256",
+                            "audit_revision", "audit_sha256", "prior_failed_packet_sha256", "prior_failed_receipt_sha256",
                             "evaluator_revision", "evaluator_sha256"}
             and packet["schema"] == SCHEMA and packet["original_packet_sha256"] == ORIGINAL
             and packet["original_native_result_sha256"] == NATIVE and packet["sdk_revision"] == PUBLIC_WRITER
             and packet["sdk_tree"] == PUBLIC_TREE and packet["disclosed_public_routes_sha256"] == PUBLIC_RESULT_SHA
+            and packet["audit_revision"] == AUDIT_REVISION and packet["audit_sha256"] == AUDIT_SHA
+            and packet["prior_failed_packet_sha256"] == FAILED_PACKET and packet["prior_failed_receipt_sha256"] == FAILED_RECEIPT
             and all(is_pin(packet[key], 40) for key in ("sdk_revision", "sdk_tree", "evaluator_revision")),
             "unexpected current writer snapshot identity")
     verify_public_routes(read(root / "DisclosedPublicRoutes.json", PUBLIC_RESULT_SHA, root))
@@ -258,7 +276,8 @@ def code_snapshot(path, pin, executed_tool=True):
     manifest = read(root / "CodeManifest.json", packet["code_manifest_sha256"], root)
     code = root / "CodeRoot"
     require(manifest["schema"] == CODE_SCHEMA and manifest["writer_revision"] == packet["sdk_revision"]
-            and manifest["sdk_tree"] == packet["sdk_tree"]
+            and manifest["sdk_tree"] == packet["sdk_tree"] and manifest["audit_revision"] == AUDIT_REVISION
+            and manifest["files_sha256"][AUDIT_HELPER] == AUDIT_SHA
             and set(HELPERS) <= set(manifest["files_sha256"]), "code manifest differs from the frozen writer")
     require({item.relative_to(code).as_posix() for item in code.rglob("*") if not item.is_dir()} == set(manifest["files_sha256"]),
             "frozen code closure contains a missing or extra file")
@@ -346,28 +365,63 @@ def compare_worker(code, private, route, request, expected):
                 "vendor_loadable": True, "application_usable": True, "byte_identity": True}
 
 
-def disclosed_preflight(code, workspace):
+def disclosed_preflight(code, workspace, cases=DISCLOSED, scratch=None):
     output = {}
-    for case, pin in DISCLOSED.items():
+    for case, pin in cases.items():
         folder = (workspace / case).resolve(strict=True)
         packet = read(folder / "Packet.json", pin, folder)
         fixture = read(folder / "Fixture.json", packet["fixture_sha256"], folder)
         request = read(folder / "NeutralRequest.json", fixture["request_sha256"], folder)
         expected = {row["file"]: {"sha256": row["sha256"], "bytes": row["bytes"]} for row in fixture["files"].values()}
-        with TemporaryDirectory(prefix="KitPublicNestedPreflight.") as work:
+        with TemporaryDirectory(prefix="KitPublicNestedPreflight.", dir=scratch) as work:
             rows = [compare_worker(code, work, route, request, expected) for route in ROUTES]
         require(rows[0] == rows[1], "disclosed public routes produced different qualification evidence")
         output[case] = rows[0]
     return output
 
 
+def runtime_identity():
+    return {"implementation": sys.implementation.name, "version": list(sys.version_info[:3]),
+            "python_executable_sha256": hash_bytes(Path(sys.executable).resolve(strict=True).read_bytes())}
+
+
+def check_windows_preflight(root, pin, packet_pin, packet):
+    record = read(root / "WindowsPreflight.json", pin, root)
+    require(record["schema"] == PREFLIGHT_SCHEMA and record["passed"] is True
+            and record["parity_packet_sha256"] == packet_pin and record["sdk_revision"] == PUBLIC_WRITER
+            and record["code_manifest_sha256"] == packet["code_manifest_sha256"] and record["audit_sha256"] == AUDIT_SHA
+            and record["runtime"] == runtime_identity()
+            and record["guarded_workers"] == 4 and record["native_processes_started"] == record["private_requests_read"] == 0
+            and set(record["cases"]) == set(DIMENSIONED), "retry needs the same-interpreter Windows disclosed preflight")
+    proof = read(root / "DisclosedPublicRoutes.json", PUBLIC_RESULT_SHA, root)
+    for case, row in record["cases"].items():
+        expected = proof["cases"][case]["files"]
+        require(row == {"files_compared": len(expected), "generated_artifact_manifest_sha256": value_hash(expected),
+                        "native_transfer_count": len(NATIVE_TRANSFERS), "runtime_input_file_reads": 0,
+                        "vendor_loadable": True, "application_usable": True, "byte_identity": True},
+                "Windows disclosed route evidence differs from its measured public manifest")
+
+
 def verify_command(args):
-    _, packet, code = code_snapshot(args.packet, args.packet_sha256)
+    root, packet, code = code_snapshot(args.packet, args.packet_sha256)
     old, _ = original_capsule(args.original)
     require(packet["original_source_lock_sha256"] == old["source_lock_sha256"], "source lock pin differs")
     record = {"passed": True, "parity_packet_sha256": args.packet_sha256, "sdk_revision": packet["sdk_revision"],
               "public_native_slots_verified": 2, "private_requests_read": 0, "native_processes_started": 0}
-    if args.disclosed_workspace:
+    if args.windows_scratch:
+        require(os.name == "nt" and args.disclosed_workspace is not None
+                and not PureWindowsPath(args.windows_scratch).is_relative_to(PureWindowsPath(old["guest_private_base"])),
+                "Windows preflight needs a disclosed workspace and separate fixed scratch base")
+        scratch = fixed_directory(args.windows_scratch)
+        rows = disclosed_preflight(code, args.disclosed_workspace, DIMENSIONED, scratch)
+        preflight = {"schema": PREFLIGHT_SCHEMA, "passed": True, "parity_packet_sha256": args.packet_sha256,
+                     "sdk_revision": PUBLIC_WRITER, "code_manifest_sha256": packet["code_manifest_sha256"],
+                     "audit_sha256": AUDIT_SHA, "runtime": runtime_identity(), "guarded_workers": 4,
+                     "native_processes_started": 0, "private_requests_read": 0, "cases": rows}
+        pin = write_json(root / "WindowsPreflight.json", preflight)
+        check_windows_preflight(root, pin, args.packet_sha256, packet)
+        record["windows_preflight_sha256"] = pin
+    elif args.disclosed_workspace:
         record["disclosed_preflight"] = disclosed_preflight(code, args.disclosed_workspace)
     return record
 
@@ -379,6 +433,8 @@ def run_guest(args, context):
     root, packet, code = code_snapshot(args.packet, args.packet_sha256)
     old, slots = original_capsule(args.original)
     require(packet["original_source_lock_sha256"] == old["source_lock_sha256"], "source lock pin differs")
+    context["stage"] = "verify_windows_disclosed_preflight"
+    check_windows_preflight(root, args.preflight_sha256, args.packet_sha256, packet)
     result = root / "Result.json"
     require(not result.exists() and not result.is_symlink(), "choose a fresh parity packet")
     context["output"] = result
@@ -389,7 +445,8 @@ def run_guest(args, context):
     private.mkdir(parents=True, exist_ok=False)
     code_lock = private / "CodeLocked.json"
     frozen = {"parity_packet_sha256": args.packet_sha256, "sdk_revision": packet["sdk_revision"],
-              "code_manifest_sha256": packet["code_manifest_sha256"], "original_native_result_sha256": NATIVE, "locked_at": time()}
+              "code_manifest_sha256": packet["code_manifest_sha256"], "original_native_result_sha256": NATIVE,
+              "windows_preflight_sha256": args.preflight_sha256, "audit_sha256": AUDIT_SHA, "locked_at": time()}
     code_pin = write_json(code_lock, frozen)
     rows = []
     for slot, phases in slots.items():
@@ -408,6 +465,7 @@ def run_guest(args, context):
                      "build_lock_sha256": phases["build"]["build_lock_sha256"], "routes": routes})
     context.update({"stage": "recheck_frozen_evidence"})
     code_snapshot(args.packet, args.packet_sha256)
+    check_windows_preflight(root, args.preflight_sha256, args.packet_sha256, packet)
     _, final_slots = original_capsule(args.original)
     require(final_slots == slots and read(code_lock, code_pin, private) == frozen, "frozen parity authorities changed during execution")
     for slot, phases in slots.items():
@@ -417,6 +475,7 @@ def run_guest(args, context):
     record = {"schema": SCHEMA, "passed": True, "parity_packet_sha256": args.packet_sha256,
               "original_packet_sha256": ORIGINAL, "original_native_result_sha256": NATIVE,
               "disclosed_public_routes_sha256": PUBLIC_RESULT_SHA,
+              "windows_preflight_sha256": args.preflight_sha256, "audit_sha256": AUDIT_SHA,
               "sdk_revision": packet["sdk_revision"], "sdk_tree": packet["sdk_tree"],
               "code_manifest_sha256": packet["code_manifest_sha256"], "code_lock_sha256": code_pin,
               "public_route_byte_identity": True, "prior_native_acceptance_linked_by_exact_byte_identity": True,
@@ -442,6 +501,9 @@ def main():
         command.add_argument("--original", type=Path, required=True)
         if mode == "verify":
             command.add_argument("--disclosed-workspace", type=Path)
+            command.add_argument("--windows-scratch", type=Path)
+        else:
+            command.add_argument("--preflight-sha256", required=True)
     args = parser.parse_args()
     context = {"stage": args.action}
     try:

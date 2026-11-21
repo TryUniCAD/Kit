@@ -47,7 +47,7 @@ directory adjacent to the existing public capsule.
 python3.14 -I -B re/tooling/sw2026/nested_publication/SealedPublicNestedParity.py freeze \
   --sdk-revision 96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb \
   --original /disclosed/SdkSealedNeutralNestedEvaluation01 \
-  --output /disclosed/SdkSealedPublicNestedParity01
+  --output /disclosed/SdkSealedPublicNestedParity02
 ```
 
 Use the command's parity packet SHA-256 with the copy under the new packet's
@@ -56,7 +56,8 @@ paths. It can also take `--disclosed-workspace` for the two public controls.
 The `run` subcommand must be executed inside the Windows guest.
 
 ```text
-python -I -B <new-packet>/Tools/SealedPublicNestedParity.py run <new-packet>/Parity.json --packet-sha256 <sha256> --original <original-packet>
+python -I -B <new-packet>/Tools/SealedPublicNestedParity.py verify <new-packet>/Parity.json --packet-sha256 <sha256> --original <original-packet> --disclosed-workspace <public-workspace> --windows-scratch <existing-fixed-drive-scratch>
+python -I -B <new-packet>/Tools/SealedPublicNestedParity.py run <new-packet>/Parity.json --packet-sha256 <sha256> --original <original-packet> --preflight-sha256 <windows-preflight-sha256>
 ```
 
 The guest writes the sanitized `Result.json` exclusively. A refusal returns a
@@ -64,7 +65,7 @@ nonzero process code and its exact stage, route when applicable, and safe
 predicate diagnostic. The host preflight alone gives no public held-out
 parity credit.
 
-## Host preflight
+## First frozen packet and Windows refusal
 
 The frozen packet SHA-256 is
 `aeae7304158b9a2743c29e25255d75f6165cea452fc09441a7878b2f77f520d7`.
@@ -74,8 +75,31 @@ Four guarded SDK workers reproduced the complete three-file and four-file
 disclosed bundles on both routes. Each reported eight native transfers,
 both usability flags and zero runtime input reads. The host private-entry
 control refused before any source path lookup, and verification refused an
-altered packet digest. The guest result remains a separate receipt.
+altered packet digest. Slot 1 then refused on its registry worker in Windows.
+The original failure receipt SHA-256 is
+`777afb26170de1e6dc0f21c3b0a03870ceb0bec4e7c3a012230f90c473bf90ba`. The
+failed packet and both original native qualifications remain immutable.
 
 The freeze explicitly retrieves each tracked research helper by blob path.
 Git omits the research tree from release archives.
 [Archive behavior](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Tooling/ReleaseArchivesOmitResearchTools.md)
+
+
+## Portable audit retry
+
+The guest Python 3.12 disclosed reproduction on both public routes reached the
+first exclusive staged open and raised `AttributeError` because its `os`
+module has no `O_ACCMODE`. The exact audit-only commit
+`79c9a66e707f0dab0effad3c8f5f07a2e322fe22` derives a portable access-mode mask
+from the exported read and write flags when the platform omits the mask. The
+guard still requires the same absolute destination scope, exclusive open and
+owned filenames. The production SDK and all other worker helpers stay pinned
+to the original public writer revision.
+
+The numbered retry requires a separate published Windows preflight hash before
+the guest may resolve either private trial. Four fresh workers reproduce both
+public dimensioned bundles on the two routes using an existing fixed drive
+scratch directory. The preflight binds both native-tested disclosed manifests,
+the exact retry packet and audit helper, and the Python executable and version.
+Run the protected replay with that same interpreter. Scratch output, the
+Windows preflight receipt and the separate retry result use fresh destinations.
