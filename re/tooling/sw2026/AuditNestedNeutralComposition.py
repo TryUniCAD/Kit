@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from base64 import b64encode
 from codecs import lookup
 from hashlib import sha256
 from pathlib import Path, PureWindowsPath
@@ -121,6 +122,8 @@ def worker(payload):
         rows[name] = {"sha256": digest(value.BytesValue), "bytes": len(value.BytesValue), "activity": value.ActivityValue,
                       "native_path": str(path), "streams": streams, "references": len(value.ReferenceValues),
                       "map_next": link.ResolvedValue.MapValue.CounterValue}
+        if payload.get("stage_bundle"):
+            rows[name]["blob"] = b64encode(value.BytesValue).decode("ascii")
     require(not blocked and not any(name in ("Swapp", "pythoncom", "pywintypes") or name.startswith("win32com")
                                    for name in sys.modules), "nested assembly used runtime file data or a CAD process")
     file = PureWindowsPath(target["path_name"]).name
