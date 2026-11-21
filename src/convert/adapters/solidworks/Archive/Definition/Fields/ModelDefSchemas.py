@@ -1,10 +1,9 @@
 from types import MappingProxyType
 
-# only concrete classes verified for the ordinary definition shape may publish object tags
-KModelDefSchemas = MappingProxyType(
+# the ordinary profile admits only its measured concrete class descriptors
+KOrdDefSchemas = MappingProxyType(
     {
         "uiPartDoc_c": (1,),
-        "uiAssemblyDoc_c": (1,),
         "moANSI_c": (1,),
         "moISO_c": (1,),
         "moBS_c": (1,),
@@ -17,7 +16,15 @@ KModelDefSchemas = MappingProxyType(
         "uiLineFontMgr_c": (1,),
         "uiUserModelEnv_c": (1,),
         "moBomInfoMgr_c": (1,),
-        "PWMaterialProperties_c": (1,),
         "uoJournal_c": (0,),
+    }
+)
+
+# assembly and appearance classes remain available to established aggregate paths
+KModelDefSchemas = MappingProxyType(
+    {
+        **KOrdDefSchemas,
+        "uiAssemblyDoc_c": (1,),
+        "PWMaterialProperties_c": (1,),
     }
 )

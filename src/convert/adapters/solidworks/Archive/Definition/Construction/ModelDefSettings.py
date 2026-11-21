@@ -29,7 +29,7 @@ class ModelDefInput:
             "moGOST_c",
         ):
             raise ValueError("unsupported SOLIDWORKS drafting standard")
-        if any(
+        if not isinstance(CastValue(object, self.DisplayBits), tuple) or any(
             type(CastValue(object, Value)) is not int or not 0 <= Value < 64
             for Value in self.DisplayBits
         ):

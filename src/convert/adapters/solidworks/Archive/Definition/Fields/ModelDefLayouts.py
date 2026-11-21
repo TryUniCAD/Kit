@@ -30,6 +30,7 @@ from convert.adapters.solidworks.Archive.Definition.Fields.DocStyleFields import
 )
 from convert.adapters.solidworks.Archive.Definition.Fields.DocTailFields import (
     KDocTailFields,
+    KPartDefTail,
 )
 from convert.adapters.solidworks.Archive.Definition.Fields.DocTransformFields import (
     KDocTransformFields,
@@ -47,11 +48,7 @@ KModelDefLayouts = MappingProxyType(
         **KDocStyleFields,
         **KDocTransformFields,
         **KAssemblyDefTail,
-        "uiPartDoc_c": (
-            *KDocHeadFields,
-            *KDocTailFields,
-            NativeField("Scalar", "f1688", "f64"),
-        ),
+        "uiPartDoc_c": (*KDocHeadFields, *KPartDefTail),
         "uiAssemblyDoc_c": (
             *KDocHeadFields,
             *KDocTailFields,
