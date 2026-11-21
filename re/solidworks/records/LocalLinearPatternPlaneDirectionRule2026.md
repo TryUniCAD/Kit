@@ -28,6 +28,8 @@ The half-border formula established the geometry of the earlier reading, and its
 
 This rule consumes the selected datum's real model-owned display borders and frame. A generative path needs those inputs from a proved datum constructor or authored presentation intent. The observed 5% margin matches three disclosed through-origin angle-plane sizes. Its full source-side rule remains under the constrained plane's adornment path `+0x1d0 → 0x4b8eaf20`, separate from line reference resolution. The complete initial pattern graph still needs component allocation, feature/reference bookkeeping and remaining display, dimension and body owners. The stage scheduling also remains independent of the proved point calculation when the datum rectangle changes after construction. No global or native writer admission follows from the exact formula.
 
+The same angle-datum family now has a [separate guest-only source lock protocol](LocalLinearPatternDatumHoldoutProtocol2026.md). Both source archives and their edits must be sealed before new writer implementation.
+
 ```sh
 python3.14 -I -B re/tooling/sw2026/linear_pattern/ProvePatternPlaneDirectionRule.py \
   --binaries /absolute/licensed/module/directory --disclosed-share /absolute/share/Oracle121Takeover \

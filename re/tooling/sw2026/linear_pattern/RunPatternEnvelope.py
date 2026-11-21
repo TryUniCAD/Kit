@@ -27,7 +27,8 @@ def saved_hash(path):
     return {"name": path.name, "bytes": path.stat().st_size, "sha256": digest(path.read_bytes())}
 
 
-def inspect_phase(root, phase, spec, api, pristine, edited, initial, derivative, *, author_type=None):
+def inspect_phase(root, phase, spec, api, pristine, edited, initial, derivative, *,
+                  author_type=None, edit_kind="spacing", cohort="disclosed"):
     import Swapp
     from AuthorCurves import Recorder
     from AuthorPatternEnvelope import PatternEnvelopeAuthor
@@ -35,14 +36,17 @@ def inspect_phase(root, phase, spec, api, pristine, edited, initial, derivative,
 
     record_path = root / phase / "Record.json"
     record_path.parent.mkdir(exist_ok=False)
-    rec = Recorder(record_path, {"phase": phase, "cohort": "disclosed", "specification": "envelope"})
-    path = pristine if phase != "spacing-reopen" else edited
-    target = pristine if phase == "author" else edited if phase == "spacing-edit" else None
-    source = None if phase == "author" else derivative if phase == "spacing-reopen" else initial
+    rec = Recorder(record_path, {"phase": phase, "cohort": cohort, "specification": "envelope"})
+    editing = phase == edit_kind + "-edit"
+    edited_reopen = phase == edit_kind + "-reopen"
+    path = edited if edited_reopen else pristine
+    target = pristine if phase == "author" else edited if editing else None
+    source = None if phase == "author" else derivative if edited_reopen else initial
     immutable, complete, artifact = False, False, None
     session = None
     try:
-        require(phase in PHASES and (target is None or not target.exists()), "stage has an existing or unplanned native output")
+        require((phase in PHASES[:2] or editing or edited_reopen) and edit_kind in ("spacing", "instances")
+                and (target is None or not target.exists()), "stage has an existing or unplanned native output")
         if source is not None:
             checked(path, source["sha256"], source["bytes"])
         rec.data["application_pids_before"] = sorted(Swapp.application_pids())
@@ -64,7 +68,7 @@ def inspect_phase(root, phase, spec, api, pristine, edited, initial, derivative,
                 else:
                     model, errors, warnings = rec.call(
                         "open the immutable native source", session.open, path,
-                        read_only=phase != "spacing-edit",
+                        read_only=not editing,
                     )
                     rec.data["open"] = {"opened": model is not None, "errors": errors, "warnings": warnings}
                     rec.flush()
@@ -72,12 +76,12 @@ def inspect_phase(root, phase, spec, api, pristine, edited, initial, derivative,
                             and Path(str(author.get(model, "GetPathName"))).resolve() == path.resolve(),
                             "actual native source did not open cleanly at its registered path")
                     author.connect(model)
-                    if phase == "spacing-edit":
+                    if editing:
                         author.envelope_state("pre_edit", 0)
-                        author.edit(author.case, "spacing")
+                        author.edit(author.case, edit_kind)
                         author.envelope_state("edited", 1)
                     else:
-                        author.envelope_state("reopened", int(phase == "spacing-reopen"))
+                        author.envelope_state("reopened", int(edited_reopen))
                 if target is not None:
                     result = rec.call("save owned native derivative", session.save_as, author.model, target)
                     require(result == (True, 0, 0) and
