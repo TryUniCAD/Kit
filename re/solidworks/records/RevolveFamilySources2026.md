@@ -153,6 +153,13 @@ wall edits. The active first wall lies on the measured positive radial
 side for the forward controls.
 [Thin disclosure lock](../measurements/2026/RevolveThinDiscoverySourceLock01.json)
 
+Four independent thin models covering the four witnessed wall modes
+completed another 14 fresh native processes. The author independently
+edited both live walls on the unequal case. The exact guest lock was
+published before coding the thin writer. The native originals and
+model parameters stay private until the writer and comparison are frozen.
+[Pre-writer thin lock](../measurements/2026/RevolveThinHeldoutSourceLock01.json)
+
 The first cut batch stopped while identifying the second stock sketch.
 The earlier single-sketch helper classified the existing first stock
 profile as a second candidate. Both native controls passed. The repaired
