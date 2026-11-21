@@ -1,0 +1,194 @@
+{
+  "candidate_packet_sha256": "ecd941c1a9b5a936d26db77efcf68f5ee479457b1e5685c64c004b1b827d6b1a",
+  "cases": {
+    "Slot01": {
+      "candidate_sha256": "1b9d6819c205acf0d9f48149fe80ceb8a54b95875a823d3c0c495105970512e3",
+      "native": {
+        "checks": [
+          {
+            "angular_driver": true,
+            "area_m2": true,
+            "axis_geometry": true,
+            "body_count": true,
+            "body_names": true,
+            "body_topology": true,
+            "com_m": true,
+            "cut_parents": true,
+            "direction_mode": true,
+            "feature_type": true,
+            "ordered_tree": true,
+            "stock_selection": true,
+            "volume_m3": true
+          },
+          {
+            "angular_driver": true,
+            "area_m2": true,
+            "axis_geometry": true,
+            "body_count": true,
+            "body_names": true,
+            "body_topology": true,
+            "com_m": true,
+            "cut_parents": true,
+            "direction_mode": true,
+            "feature_type": true,
+            "ordered_tree": true,
+            "stock_selection": true,
+            "volume_m3": true
+          },
+          {
+            "angular_driver": true,
+            "area_m2": true,
+            "axis_geometry": true,
+            "body_count": true,
+            "body_names": true,
+            "body_topology": true,
+            "com_m": true,
+            "cut_parents": true,
+            "direction_mode": true,
+            "feature_type": true,
+            "ordered_tree": true,
+            "stock_selection": true,
+            "volume_m3": true
+          }
+        ],
+        "native_tree_rows": [
+          [
+            29,
+            29
+          ],
+          [
+            29,
+            29
+          ],
+          [
+            29,
+            29
+          ]
+        ],
+        "passed": true
+      },
+      "source_sha256": "4a190969e77bf7a0507477080cafee37076e74fa5e6b7abcedf91de5c399c195",
+      "strict_reads": {
+        "generated_edit": {
+          "linked_streams": 2,
+          "passed": true,
+          "runtime_reads": 0
+        },
+        "locked_edit": {
+          "linked_streams": 2,
+          "passed": true,
+          "runtime_reads": 0
+        },
+        "locked_original": {
+          "linked_streams": 2,
+          "passed": true,
+          "runtime_reads": 0
+        }
+      }
+    },
+    "Slot02": {
+      "candidate_sha256": "f9806ff099ee85af30acfc98e6fa744bb782218de4206873132d8e9412b37b1b",
+      "native": {
+        "checks": [
+          {
+            "angular_driver": true,
+            "area_m2": true,
+            "axis_geometry": true,
+            "body_count": true,
+            "body_names": true,
+            "body_topology": true,
+            "com_m": true,
+            "cut_parents": true,
+            "direction_mode": true,
+            "feature_type": true,
+            "ordered_tree": true,
+            "stock_selection": true,
+            "volume_m3": true
+          },
+          {
+            "angular_driver": true,
+            "area_m2": true,
+            "axis_geometry": true,
+            "body_count": true,
+            "body_names": true,
+            "body_topology": true,
+            "com_m": true,
+            "cut_parents": true,
+            "direction_mode": true,
+            "feature_type": true,
+            "ordered_tree": true,
+            "stock_selection": true,
+            "volume_m3": true
+          },
+          {
+            "angular_driver": true,
+            "area_m2": true,
+            "axis_geometry": true,
+            "body_count": true,
+            "body_names": true,
+            "body_topology": true,
+            "com_m": true,
+            "cut_parents": true,
+            "direction_mode": true,
+            "feature_type": true,
+            "ordered_tree": true,
+            "stock_selection": true,
+            "volume_m3": true
+          }
+        ],
+        "native_tree_rows": [
+          [
+            29,
+            29
+          ],
+          [
+            29,
+            29
+          ],
+          [
+            29,
+            29
+          ]
+        ],
+        "passed": true
+      },
+      "source_sha256": "174073a262e3b5a7d6c6d83c489dbdec9224181a9d4b23134bdef0d87fd939bc",
+      "strict_reads": {
+        "generated_edit": {
+          "linked_streams": 2,
+          "passed": true,
+          "runtime_reads": 0
+        },
+        "locked_edit": {
+          "linked_streams": 2,
+          "passed": true,
+          "runtime_reads": 0
+        },
+        "locked_original": {
+          "linked_streams": 2,
+          "passed": true,
+          "runtime_reads": 0
+        }
+      }
+    }
+  },
+  "freeze_sha256": "0cc19e4adcfca7bd55c0ebf0ebf97bf457e234ebe11dd045de07f08a5be43f17",
+  "locked_source_sha256": "67c1aeca25817846925f18e5b6b7b9319bdba216835e685988961e0db8832f68",
+  "native_controls_healthy": true,
+  "native_result_sha256": "aee4c2213efdd216e35a9c22de36811b83eab06703b9233ef0f06d36619c8084",
+  "new_native_launches": 0,
+  "observer_sha256": "80b9e6078e8f0d841155a03e1b5d2d6b4bd40be27cbf37260914f6b86c176d78",
+  "original_native_files_read_by_generation": 0,
+  "passed": true,
+  "reader": {
+    "base_writer_revision": "bddc42388bd73d41104e779aa22715a661ab7c06",
+    "disclosed_result_sha256": "d87afd18c8e6663c91c9d2d315391a167d8c7c62485ff7145efa69804303cca3",
+    "effective_source_overrides": {
+      "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/SelectedCut/ReadRevWrapper.py": "52f454e22787cc84a60813b8642da8d61492d37a9e9b13676e4fd04f6e1b5159"
+    },
+    "freeze_sha256": "a5931671f636e3ab170acdcf6ad00903b659ca63f12627c1903d787837f8fbbf",
+    "source_branch_revision": "54c3a2bfeff0ee3da21aa7f15cafb4f7dc118310"
+  },
+  "schema": "kit.sw2026.heldout-selected-revolve-read-recheck.v1",
+  "writer_revision": "bddc42388bd73d41104e779aa22715a661ab7c06"
+}
