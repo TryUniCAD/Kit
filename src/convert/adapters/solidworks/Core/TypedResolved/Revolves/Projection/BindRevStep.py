@@ -24,6 +24,8 @@ def BindRevStep(
     LinkValue: NativeLink,
     SelectValue: Selection,
     ParamIds: tuple[str, ...],
+    Operation: BooleanOp = BooleanOp.KJoin,
+    StockId: str | None = None,
 ) -> FeatureStep:
     NativeId = NativeNodeId(OwnerValue.NodeValue)
     ProfileId = NativeNodeId(OwnerValue.ProfileValue)
@@ -35,11 +37,11 @@ def BindRevStep(
     return ReplaceValue(
         StepValue,
         kind=FeatureKind.KRevolution,
-        input_feature_ids=(f"sldprt:feature:{ProfileId}",),
+        input_feature_ids=(f"sldprt:feature:{ProfileId}",) + ((StockId,) if StockId is not None else ()),
         sketch_id=f"sldprt:sketch:{ProfileId}",
         parameter_ids=ParamIds,
         selection_ids=(SelectValue.id,),
-        operation=BooleanOp.KJoin,
+        operation=Operation,
         definition=AngularRevolve(
             SelectValue.id,
             ParamIds[0],

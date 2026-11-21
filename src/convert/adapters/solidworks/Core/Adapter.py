@@ -159,6 +159,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.WithCutSelection import
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.WithRevolveDoc import (
     WithRevolveDoc,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.WithSelRevDoc import (
+    WithSelRevDoc,
+)
 from convert.adapters.solidworks.Core.EquationLinks import EquationData
 from convert.adapters.solidworks.Core.EquationTarget import (
     KUnresolvedEqTargets,
@@ -587,6 +590,7 @@ def ReadNativePart(
         DataValue,
         Label,
         Model.WidthDepth.ConfigValue if Model.WidthDepth is not None else None,
+        BindSelectedRevolve=Settings.include_brep and not Settings.extract_raw_brep and not Model.equations,
     )
 
 
@@ -599,12 +603,16 @@ def FinishPartDoc(
     DataValue: bytes,
     Label: str,
     GraphValue: ConfigGraph | None = None,
+    *,
+    BindSelectedRevolve: bool = False,
 ) -> CadDoc:
     DocValue = WithColdName(DocValue, DerivedValue)
     DocValue = WithBodyNames(DocValue, Archive, ConfigId)
     DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive, GraphValue), Archive)
     DocValue = BindCutStock(DocValue)
     DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)
+    if BindSelectedRevolve:
+        DocValue = WithSelRevDoc(DocValue, Archive, ConfigId)
     if (
         DerivedValue is not None
         and DerivedValue.EvidenceValue.get("method")

@@ -198,8 +198,13 @@ The part archive dispatcher now binds the distinct schema-one `moRevCut_c`
 to the exact shared 2026 revolve serializer. The two disclosed targeted
 originals each replay their Config and Resolved streams byte for byte,
 including the one selected-body wrapper, the separate output atom
-and the empty body-feature list. A full neutral cut projection and
-independent writer qualification remain open.
+and the empty body-feature list.
+
+The saved selected-stock reader joins both native bodies across the
+original and edited parts. It reconstructs the explicit historical cut
+dependency and all three editable D1 owners. The unrestricted native
+request and cache-free writing remain open.
+[Selected revolve cut evidence](SelectedRevolveCutRead2026.md)
 
 Two new independently authored selected-body cut parts pass their
 source authoring, live angular edit, save and fresh reopen. Each uses a

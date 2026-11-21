@@ -1,6 +1,6 @@
 from convert.Geometry.Parasolid import BrepTopology
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cache.StockCacheGeom import (
-    StockCacheGeom,
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cache.BodyCacheView import (
+    BodyCacheView,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockTopCount import (
     StockTopCount,
@@ -14,7 +14,7 @@ from interchange.Payloads.PayloadRecord import BrepPayload
 
 # physical body provenance follows the verified atom producer and its actual active partition
 def StockDesigns(
-    CacheValue: StockCacheGeom,
+    CacheValue: BodyCacheView,
     StepsValue: tuple[FeatureStep, ...],
     Payloads: tuple[BrepPayload, ...],
 ) -> tuple[DesignBody, ...]:
