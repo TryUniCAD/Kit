@@ -8,6 +8,7 @@
 
 from json import loads as DecodeJson
 from pathlib import Path as FilePath
+from sqlite3 import connect as OpenDatabase
 
 from tests.Research.Inference.Scope.FeatureCatalogueTests import KCatalogue
 from tests.Research.Inference.Scope.FeatureHandoffTests import RunAutomation
@@ -51,3 +52,19 @@ def CheckGrouping(TmpPath: FilePath) -> None:
     assert len(ArchiveJobs) >= 4
     assert all(JobRow["receipt"] and JobRow["attempts"] == 1 for JobRow in ArchiveJobs)
     assert len({JobRow["receipt"] for JobRow in ArchiveJobs}) == len(ArchiveJobs)
+    Verification = Report["native_verification"]["solidworks"]
+    assert Verification["status"] == "api_unavailable" and Verification["action"]
+    PlanValue = DecodeJson((RunPath / "CataloguePlan.json").read_bytes())
+    assert PlanValue["scope_order"].index("p03-blind-boss.solidworks") < PlanValue[
+        "scope_order"
+    ].index("p04-through-all-body-selection")
+    CutScope = Report["scopes"]["p04-through-all-body-selection"]
+    with OpenDatabase(RunPath / "Store/ledger.sqlite3") as Database:
+        Parents = {
+            DbRow[0]
+            for DbRow in Database.execute(
+                "SELECT dependency FROM dependencies WHERE job_id=?",
+                (CutScope["assessment_job"],),
+            )
+        }
+    assert {JobRow["id"] for JobRow in Scope["jobs"]} <= Parents

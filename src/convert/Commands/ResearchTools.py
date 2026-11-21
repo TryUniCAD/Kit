@@ -6,4 +6,5 @@ KResearchScripts = {
     "corpus": "Corpus.py",
     "controller": "Controller.py",
     "supervisor": "Supervisor.py",
+    "api": "NativeAcceptance/ApiCommand.py",
 }
