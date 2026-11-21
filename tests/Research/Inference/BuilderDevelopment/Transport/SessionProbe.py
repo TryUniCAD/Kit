@@ -6,11 +6,13 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.Security.PathBoundary import ResolveTemp
+
 from os import environ as ProcessEnv
 from pathlib import Path as FilePath
 from sys import argv as CliArgs, path as SearchPaths
 from threading import Thread as WorkerThread
-from time import monotonic as MonoTime, sleep as WaitBriefly
+from time import monotonic as MonoTime
 
 # absolute roots let the protocol fixture import its independently executed handlers
 KRepoRoot = FilePath(__file__).resolve().parents[5]
@@ -26,6 +28,10 @@ from tests.Research.Inference.BuilderDevelopment.Contracts.MakeSession import (
 from tests.Research.Inference.BuilderDevelopment.Contracts.SessionHooks import (
     BindSession,
 )
+from tests.Research.Inference.BuilderDevelopment.Transport.WaitRequest import (
+    WaitRequest,
+)
+
 from tests.Research.Inference.BuilderDevelopment.Transport.ProbeReport import (
     WriteReport,
 )
@@ -36,6 +42,7 @@ def MainProbe() -> None:
     ModeName, WorkPath = CliArgs[1], FilePath(CliArgs[2])
     FixturePath = FilePath(__file__).with_name("FixtureServer.py")
     ProcessEnv["PYTHONPATH"] = str(KRepoRoot)
+    ResolveTemp(WorkPath / "Calls.jsonl").touch(exist_ok=False)
     Session = MakeSession(WorkPath, FixturePath, ModeName)
     Hooks = BindSession(Session)
     SchemaMaker = CastValue(
@@ -57,7 +64,7 @@ def MainProbe() -> None:
                 )
             )
             Caller.start()
-            WaitBriefly(0.3)
+            WaitRequest(WorkPath)
             Hooks.CloseCall()
             Caller.join(timeout=10)
             assert not Caller.is_alive()
