@@ -26,9 +26,14 @@ def MakeRevNodeMut(
     Allocator: PersistentIds,
     *,
     IsThin: bool = False,
+    IsCut: bool = False,
 ) -> ArchiveNode:
     RequireRootNode(OwnerValue, "moPart_c")
+    if IsCut and IsThin:
+        raise ValueError("thin and stock-selected revolve construction are distinct")
     ClassName = "moRevolutionThin_c" if IsThin else "moRevolution_c"
+    if IsCut:
+        ClassName = "moRevCut_c"
     NodeValue = ArchiveNode(RuntimeClass(ClassName, 1), {})
     InitFeatureMut(NodeValue, NameValue, OwnerValue, TargetValue, Allocator)
     NodeValue.FieldsValue.update(dict.fromkeys(KAtomWords, 0))

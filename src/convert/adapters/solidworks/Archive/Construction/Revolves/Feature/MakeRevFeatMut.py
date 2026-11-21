@@ -45,6 +45,7 @@ def MakeRevFeatMut(
     Allocator: PersistentIds,
     *,
     IsThin: bool = False,
+    IsCut: bool = False,
 ) -> tuple[ArchiveNode, ArchiveNode, ArchiveNode, DimensionGraph]:
     WallsValue = PlanValue.ThinWalls
     IsThin = IsThin or WallsValue is not None
@@ -54,6 +55,7 @@ def MakeRevFeatMut(
         InputValue.TargetValue,
         Allocator,
         IsThin=IsThin,
+        IsCut=IsCut,
     )
     Reference = MakeRevAxisRef(SystemValue, ProfileValue, AxisValue, PlanValue)
     AngleValue = MakeRevAngleMut(FeatureValue, InputValue, PlanValue, Allocator)

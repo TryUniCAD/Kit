@@ -234,3 +234,9 @@ empty. This evidence remains limited to reading disclosed sources.
 [Both-stock source lock](../measurements/2026/RevolveCutBothDiscoverySource01.json) ·
 [Typed replay receipt](../measurements/2026/RevolveCutBothDiscoveryRead01.json) ·
 [Disclosed model specification](../v2026/corpus/revolve-family-models/RevolveCutBothDiscovery.json)
+
+The scoped neutral constructor now generates the three concrete operation and
+driver graphs, the selected input and result atoms, and independently computed
+historical surface roles. The guarded partial graph has no native file output.
+The cold selector and complete native lifecycle remain open.
+[Owner construction](SelectedRevolveCutColdOwners2026.md)

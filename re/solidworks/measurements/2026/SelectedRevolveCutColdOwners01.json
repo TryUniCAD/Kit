@@ -1,0 +1,721 @@
+{
+  "designs": [
+    {
+      "angle": 63.5,
+      "axial": [
+        [
+          -38.0,
+          52.0
+        ],
+        [
+          -38.0,
+          52.0
+        ],
+        [
+          -21.0,
+          16.0
+        ]
+      ],
+      "axis": 6.25,
+      "epoch": 1760502021,
+      "name": "KitScopeCutFront",
+      "plane": "front",
+      "radial": [
+        [
+          9.0,
+          24.0
+        ],
+        [
+          39.0,
+          56.0
+        ],
+        [
+          17.0,
+          45.0
+        ]
+      ],
+      "selected": 0,
+      "span": [
+        -76.0,
+        91.0
+      ]
+    },
+    {
+      "angle": 144.25,
+      "axial": [
+        [
+          -53.0,
+          31.0
+        ],
+        [
+          -53.0,
+          31.0
+        ],
+        [
+          -16.0,
+          19.0
+        ]
+      ],
+      "axis": -4.7,
+      "epoch": 1760612759,
+      "name": "KitScopeCutRight",
+      "plane": "right",
+      "radial": [
+        [
+          13.0,
+          22.0
+        ],
+        [
+          31.0,
+          49.0
+        ],
+        [
+          19.0,
+          43.0
+        ]
+      ],
+      "selected": 1,
+      "span": [
+        -89.0,
+        64.0
+      ]
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "native_artifacts_written": 0,
+  "native_processes": 0,
+  "prewriter_lock_metadata_sha256": "67c1aeca25817846925f18e5b6b7b9319bdba216835e685988961e0db8832f68",
+  "prewriter_lock_revision": "642b20cc65d14262ecc1e78e478af5ab48ca59b0",
+  "processes": [
+    {
+      "design": 0,
+      "result": {
+        "atoms": {
+          "consumed": 101,
+          "result": 103,
+          "untouched": 102
+        },
+        "bodies": [
+          {
+            "area_m2": 0.0638685786474805,
+            "centre_m": [
+              0.00625,
+              0.007000000000000003,
+              0.0
+            ],
+            "face_count": 4,
+            "volume_m3": 0.00045663049219927653
+          },
+          {
+            "area_m2": 0.02232026904347773,
+            "centre_m": [
+              0.005516407149760143,
+              0.007416951285184129,
+              0.00045396103019509123
+            ],
+            "face_count": 9,
+            "volume_m3": 0.0001340735184211257
+          }
+        ],
+        "config_counter": 91,
+        "cut_wall": "inner",
+        "denied_destination_bytes": 0,
+        "direct_writer_refused": "plain boss candidate does not admit extra mesh payload material or selection semantics",
+        "drivers": [
+          {
+            "angle_rad": 6.283185307179586,
+            "axis_mark": 5,
+            "dimension_id": 20,
+            "feature_id": 19,
+            "mode": "one_sided",
+            "profile_id": 18
+          },
+          {
+            "angle_rad": 6.283185307179586,
+            "axis_mark": 5,
+            "dimension_id": 23,
+            "feature_id": 22,
+            "mode": "one_sided",
+            "profile_id": 21
+          },
+          {
+            "angle_rad": 1.1082840750163994,
+            "axis_mark": 5,
+            "dimension_id": 26,
+            "feature_id": 25,
+            "mode": "one_sided",
+            "profile_id": 24
+          }
+        ],
+        "ordinary_preparation_refused": true,
+        "reached_wall": "outer",
+        "references": {
+          "bounds": [
+            {
+              "f08": 1,
+              "f10": {
+                "x": 0.00625,
+                "y": 0.007000000000000003,
+                "z": 0.0
+              },
+              "f28": 0.11272976536833562
+            },
+            {
+              "f08": 1,
+              "f10": {
+                "x": 0.00625,
+                "y": 0.007000000000000003,
+                "z": 0.0
+              },
+              "f28": 0.18217573932881403
+            },
+            {
+              "f08": 1,
+              "f10": {
+                "x": 0.00625,
+                "y": 0.007000000000000003,
+                "z": 0.0
+              },
+              "f28": 0.11272976536833562
+            }
+          ],
+          "cut_end_surfaces": [
+            [
+              [
+                "moEndFaceSurfIdRep_c",
+                25,
+                1760502021,
+                0
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760502021,
+                  2
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760502021,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760502021,
+                  3
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760502021,
+                  4
+                ]
+              ]
+            ],
+            [
+              [
+                "moEndFaceSurfIdRep_c",
+                25,
+                1760502021,
+                1
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760502021,
+                  2
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760502021,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760502021,
+                  3
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760502021,
+                  4
+                ]
+              ]
+            ]
+          ],
+          "local_file_is_distinct_from_header": true,
+          "stock_surfaces": [
+            [
+              [
+                "moFromSktEntSurfIdRep_c",
+                19,
+                1760502021,
+                4
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760502021,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760502021,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "moFromSktEntSurfIdRep_c",
+                19,
+                1760502021,
+                2
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760502021,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760502021,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "moFromSktEntSurfIdRep_c",
+                22,
+                1760502021,
+                4
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760502021,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760502021,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "moFromSktEntSurfIdRep_c",
+                22,
+                1760502021,
+                2
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760502021,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760502021,
+                  3
+                ]
+              ]
+            ]
+          ],
+          "surface_representatives": 22
+        },
+        "resolved_counter": 267,
+        "runtime_file_reads": 0,
+        "selected": 0,
+        "stream_probe": {
+          "config": {
+            "bytes": 22542,
+            "sha256": "67830b4a99166bb7ad13c57bb59cdbd69e8e35af7b5b652b39b12dcc705b9410"
+          },
+          "config_header": {
+            "bytes": 1029,
+            "sha256": "1c90817b060d0dce9731807ec7a10be1b25e5b3ec60fe9e28afbfb7cc3630b1b"
+          },
+          "header2": {
+            "bytes": 1029,
+            "sha256": "6b9b23c47f5e8635062bb8f24083a49f57ad51791c92e2246f77954e2ab56e55"
+          },
+          "resolved": {
+            "bytes": 18949,
+            "sha256": "7974aa4e0e78cacb17b5a849d053a74847bf0c7a452b2a589bbc1765f0872699"
+          }
+        },
+        "support_axis": "z"
+      }
+    },
+    {
+      "design": 1,
+      "result": {
+        "atoms": {
+          "consumed": 102,
+          "result": 103,
+          "untouched": 101
+        },
+        "bodies": [
+          {
+            "area_m2": 0.020451768174869555,
+            "centre_m": [
+              0.0,
+              -0.011,
+              0.0047
+            ],
+            "face_count": 4,
+            "volume_m3": 8.31265416139859e-05
+          },
+          {
+            "area_m2": 0.055403861885955814,
+            "centre_m": [
+              0.003082433737656844,
+              -0.012434659778185161,
+              0.0056941139023326615
+            ],
+            "face_count": 9,
+            "volume_m3": 0.0003408829614673531
+          }
+        ],
+        "config_counter": 91,
+        "cut_wall": "outer",
+        "denied_destination_bytes": 0,
+        "direct_writer_refused": "plain boss candidate does not admit extra mesh payload material or selection semantics",
+        "drivers": [
+          {
+            "angle_rad": 6.283185307179586,
+            "axis_mark": 5,
+            "dimension_id": 20,
+            "feature_id": 19,
+            "mode": "one_sided",
+            "profile_id": 18
+          },
+          {
+            "angle_rad": 6.283185307179586,
+            "axis_mark": 5,
+            "dimension_id": 23,
+            "feature_id": 22,
+            "mode": "one_sided",
+            "profile_id": 21
+          },
+          {
+            "angle_rad": 2.5176374460018205,
+            "axis_mark": 5,
+            "dimension_id": 26,
+            "feature_id": 25,
+            "mode": "one_sided",
+            "profile_id": 24
+          }
+        ],
+        "ordinary_preparation_refused": true,
+        "reached_wall": "inner",
+        "references": {
+          "bounds": [
+            {
+              "f08": 1,
+              "f10": {
+                "x": 0.0,
+                "y": -0.011,
+                "z": 0.0047
+              },
+              "f28": 0.10453707476297583
+            },
+            {
+              "f08": 1,
+              "f10": {
+                "x": 0.0,
+                "y": -0.011,
+                "z": 0.0047
+              },
+              "f28": 0.16206171663906316
+            },
+            {
+              "f08": 1,
+              "f10": {
+                "x": 0.0,
+                "y": -0.011,
+                "z": 0.0047
+              },
+              "f28": 0.16206171663906316
+            }
+          ],
+          "cut_end_surfaces": [
+            [
+              [
+                "moEndFaceSurfIdRep_c",
+                25,
+                1760612759,
+                0
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760612759,
+                  4
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760612759,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760612759,
+                  2
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760612759,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "moEndFaceSurfIdRep_c",
+                25,
+                1760612759,
+                1
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760612759,
+                  4
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760612759,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760612759,
+                  2
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  25,
+                  1760612759,
+                  3
+                ]
+              ]
+            ]
+          ],
+          "local_file_is_distinct_from_header": true,
+          "stock_surfaces": [
+            [
+              [
+                "moFromSktEntSurfIdRep_c",
+                19,
+                1760612759,
+                4
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760612759,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760612759,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "moFromSktEntSurfIdRep_c",
+                19,
+                1760612759,
+                2
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760612759,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  19,
+                  1760612759,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "moFromSktEntSurfIdRep_c",
+                22,
+                1760612759,
+                4
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760612759,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760612759,
+                  3
+                ]
+              ]
+            ],
+            [
+              [
+                "moFromSktEntSurfIdRep_c",
+                22,
+                1760612759,
+                2
+              ],
+              [
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760612759,
+                  1
+                ],
+                [
+                  "moFromSktEntSurfIdRep_c",
+                  22,
+                  1760612759,
+                  3
+                ]
+              ]
+            ]
+          ],
+          "surface_representatives": 22
+        },
+        "resolved_counter": 267,
+        "runtime_file_reads": 0,
+        "selected": 1,
+        "stream_probe": {
+          "config": {
+            "bytes": 22542,
+            "sha256": "d4870ad6475ff14c960793bd99d73d7d43b5fcb0ec7425854c35cbd428ed960f"
+          },
+          "config_header": {
+            "bytes": 1029,
+            "sha256": "334382a5e6adf63096cd8b74ec89208cd2e50fd73c6e27a9371da960dfc87209"
+          },
+          "header2": {
+            "bytes": 1029,
+            "sha256": "612e1a489e5cbe2db06aff22cec2cbb32ceb7ab3fcca6546e902977626539ad5"
+          },
+          "resolved": {
+            "bytes": 19165,
+            "sha256": "80ae52c5712f0092de0d9d9f7e6055e2c81253bd0fe5bd93dd2974042f3a84cd"
+          }
+        },
+        "support_axis": "x"
+      }
+    },
+    {
+      "design": 0,
+      "fault": "cross-selection",
+      "result": {
+        "ordinary_preparation_refused": true,
+        "refused": "selected stock reference differs from its actual historical producer",
+        "runtime_file_reads": 0
+      }
+    },
+    {
+      "design": 1,
+      "fault": "cross-driver",
+      "result": {
+        "ordinary_preparation_refused": true,
+        "refused": "angular revolution tool/feature/revolve has invalid angles: has an unlinked or unowned angle parameter tool/parameter/angle",
+        "runtime_file_reads": 0
+      }
+    },
+    {
+      "design": 0,
+      "fault": "cross-axis",
+      "result": {
+        "ordinary_preparation_refused": true,
+        "refused": "selected revolve requires coaxial full stocks and a positive one-sided cut",
+        "runtime_file_reads": 0
+      }
+    },
+    {
+      "design": 1,
+      "fault": "reverse-cut",
+      "result": {
+        "ordinary_preparation_refused": true,
+        "refused": "selected revolve requires coaxial full stocks and a positive one-sided cut",
+        "runtime_file_reads": 0
+      }
+    },
+    {
+      "design": 0,
+      "fault": "cross-consumed",
+      "result": {
+        "ordinary_preparation_refused": true,
+        "refused": "two stock consumed and surviving atom states differ",
+        "runtime_file_reads": 0
+      }
+    },
+    {
+      "design": 1,
+      "fault": "drop-primary",
+      "result": {
+        "ordinary_preparation_refused": true,
+        "refused": "two stock result identity differs from its actual atom",
+        "runtime_file_reads": 0
+      }
+    }
+  ],
+  "schema": "kit.sw2026.selected-revolve-cold-owners.v1",
+  "source_parent": "4fc94b24a818303f45549f2b725bc92e98a867f3",
+  "source_parent_tree": "09f6adbe16f4aa66a054b25f358e9e462de79d07",
+  "tool_and_candidate_digests": {
+    "re/tooling/sw2026/revolve/SelectedCut/ProveStockCutOwners.py": "69fc30411389ffaa268ffd2190a16751c454288a9c2efefb285957bdeb8821c8",
+    "re/tooling/sw2026/revolve/SelectedCut/StockCutFixture.py": "1b156ced7495207fbc16ef1faf9af77caef2476c70f90eefb6c3a67e1fcbd48b",
+    "re/tooling/sw2026/revolve/SelectedCut/StockCutGeometry.py": "b2569a977cca7d5a47d3f46721d31656495f7adb7551cf70ff7b3e356d634083",
+    "re/tooling/sw2026/revolve/SelectedCut/StockCutOwners.py": "5ad33fb43a1c2dbbd26a196f583873ea416c31ecadfdd35e8fd4cb1ab46dc520",
+    "re/tooling/sw2026/revolve/SelectedCut/StockCutPlan.py": "5557dbb9b7869a865db9db5a4f3560a582d542d5e8b93325b46363f557a18e51",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/RequireDisplay.py": "a2871181b02a3ee892e3f3dbf5c036b85ab42ea353df19749a3f9c58ccfc9cd6",
+    "src/convert/adapters/solidworks/Archive/Construction/Revolves/Feature/MakeRevFeatMut.py": "4d3f5554b976ef65aea8a5c5491037bf07327040f6b10c6bcb772cf6cd70b066",
+    "src/convert/adapters/solidworks/Archive/Construction/Revolves/Feature/MakeRevNodeMut.py": "6b131a0f9a2fdf3915066c08bd2a2ac1cfe57d97e6442f67410e56771199b428"
+  },
+  "wire_gate": [
+    "moCompSolidBody_c.{f100,f104,f108,ff0}",
+    "moFaceRef_c.{f70,fe8,ordered chooser arrays}",
+    "cold revolved-cut boundary and active cache policy"
+  ]
+}

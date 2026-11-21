@@ -41,6 +41,7 @@ def RequireDisplay(
             RuntimeClass("moExtrusion_c", 1),
             RuntimeClass("moICE_c", 1),
             RuntimeClass("moRevolution_c", 1),
+            RuntimeClass("moRevCut_c", 1),
             RuntimeClass("moRevolutionThin_c", 1),
         )
         or FieldInt(OwnerValue.FieldsValue, "f2b0") != 19000
@@ -67,8 +68,8 @@ def RequireDisplay(
         or TextKind != ExpectedKind
         or IsAngular
         and OwnerValue.ClassValue.NameValue
-        not in ("moExtrusion_c", "moRevolution_c", "moRevolutionThin_c")
-        or OwnerValue.ClassValue.NameValue == "moRevolution_c"
+        not in ("moExtrusion_c", "moRevolution_c", "moRevCut_c", "moRevolutionThin_c")
+        or OwnerValue.ClassValue.NameValue in ("moRevolution_c", "moRevCut_c")
         and not IsAngular
     ):
         raise ValueError(
