@@ -1,0 +1,5 @@
+# Read SOLIDWORKS configuration annotation defaults and frames
+
+The internal bounded reader preserves the inline annotation defaults, their ten base records and the geometric tolerance helper in ordinary SOLIDWORKS 2026 part configurations. It retains the signed layer selector, counted string arrays and nullable tolerance references. Populated layer, tolerance, datum and indicator owners require additional layouts. [Archive scope and procedure](../../../../re/solidworks/records/ConfigAnnotationFrames2026.md)
+
+Three guarded processes verified exact typed re-emission on two tracked parts, four additional positive wire cases, and thirteen malformed or foreign-owner refusals. The evidence covers the bounded archive records. Complete Config-0 admission and native conversion remain separate work. [Process evidence](../../../../re/solidworks/measurements/2026/ConfigAnnotationArchive01.json) · [Queue process coverage](../../../../tests/Convert/Solidworks/Configuration/Annotations/CfgAnnTests.py)
