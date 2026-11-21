@@ -1,0 +1,11 @@
+{
+  "error_type": "ParityFailure",
+  "native_processes_started": 0,
+  "parity_packet_sha256": "aeae7304158b9a2743c29e25255d75f6165cea452fc09441a7878b2f77f520d7",
+  "passed": false,
+  "predicate": "frozen public writer worker failed",
+  "route": "registry",
+  "schema": "kit.sw2026.sealed-public-nested-parity.v1",
+  "slot": 1,
+  "stage": "compare_public_route"
+}

@@ -1,5 +1,7 @@
 # Public-route parity for the sealed nested assembly cohort
 
+The first Windows packet stopped at the registry worker before byte parity. A separate disclosed reproduction exercised both APIs with the same frozen sources and found that CPython 3.12 omits `os.O_ACCMODE`. The staged file audit now derives the mask from the Windows access flags when necessary. The native-tested writer source tree stays pinned. [Preserved first verdict](../measurements/2026/SdkSealedPublicNestedParityWindowsFailure01.json)
+
 The parity evaluator freezes public writer revision
 `96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb`, with source tree
 `4f00d8b078ea956ccfa2883c043093a964ae2237`. It binds the 13-process disclosed
