@@ -42,10 +42,12 @@ edit that moves the line requires a new endpoint snapshot.
 `BoundPlaneAxis` derives its endpoints from two ordered, independently owned
 driving length parameters. Supply their IDs as `StartParameterId` and
 `EndParameterId`, and put both IDs in the same order in the step's
-`parameter_ids`. These parameters are signed literal distances from the
+`parameter_ids`. These parameters supply signed distances from the
 projection of the first support origin onto the intersection. Positive stations
 follow the cross product of the first and second normals. The two stations
 may run in either order and define the finite segment direction.
+An expression-backed parameter supplies its stored evaluated length. The axis
+retains the expression and its links without evaluating the expression text.
 [`ResolveAxis`](../../../src/interchange/Features/Axes/ResolveAxis.py) evaluates these
 endpoints from the selected frames and current parameters. Pass the document's
 `configurations` to apply its active variant, as document validation does.
@@ -53,7 +55,9 @@ An override replaces the value of the linked length parameter while retaining
 its ownership. The closest override in the active configuration's parent chain
 controls each station. With no active configuration, the base values apply.
 Base suppression, or suppression by either record in the active chain, keeps
-the bound definition and resolves to no segment.
+the bound definition and its validated support frames and resolves to no segment.
+An explicit JSON configuration selection validates the requested variant before
+returning the model.
 
 The signed stations establish the direction of a bound segment. Both generated
 endpoints must remain finite, distinct, and within the line tolerance at model

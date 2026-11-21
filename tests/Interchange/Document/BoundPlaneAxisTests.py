@@ -85,5 +85,5 @@ def CheckBoundOwner() -> None:
         _ = CadDocument.from_json(Broken.to_json())
     Driven = ReplaceValue(EndValue, role=ParameterRole.KDriven)
     Broken = ReplaceValue(Document, parameters=(StartValue, Driven))
-    with Raises(DocumentError, match="requires editable literal length parameters"):
+    with Raises(DocumentError, match="requires editable driving length parameters"):
         _ = CadDocument.from_json(Broken.to_json())

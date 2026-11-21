@@ -1,14 +1,18 @@
 from fractions import Fraction
 from math import hypot as Hypot
+from typing import TypeAlias
 
 from interchange.Features.Axes.AxisVector import AxisRational, CrossAxis, KAxisTriple
 from interchange.Features.PlaneExtAxis import KAxisTolerance
 from interchange.Features.PlaneExtFrame import GetExtFrame
 from interchange.geometry.Models.Transform import Transform
 
+# each validated support retains its origin and oriented unit normal
+KAxisFrame: TypeAlias = tuple[KAxisTriple, KAxisTriple]
+
 
 # axis diagnostics should identify the validity of the selected geometry
-def GetAxisFrame(FrameValue: Transform) -> tuple[KAxisTriple, KAxisTriple]:
+def GetAxisFrame(FrameValue: Transform) -> KAxisFrame:
     try:
         return GetExtFrame(FrameValue)
     except ValueError as ErrorInfo:
@@ -19,10 +23,10 @@ def GetAxisFrame(FrameValue: Transform) -> tuple[KAxisTriple, KAxisTriple]:
 
 # stable intersection coordinates support both stored and independently editable axis extents
 def GetPlaneLine(
-    FirstFrame: Transform, SecondFrame: Transform
+    FirstFrame: KAxisFrame, SecondFrame: KAxisFrame
 ) -> tuple[KAxisTriple, KAxisTriple]:
-    FirstOrigin, FirstNormal = GetAxisFrame(FirstFrame)
-    SecondOrigin, SecondNormal = GetAxisFrame(SecondFrame)
+    FirstOrigin, FirstNormal = FirstFrame
+    SecondOrigin, SecondNormal = SecondFrame
     FirstExact, SecondExact = AxisRational(FirstNormal), AxisRational(SecondNormal)
     CrossValue = CrossAxis(FirstExact, SecondExact)
     CrossLength = Hypot(*CrossValue)

@@ -9,7 +9,7 @@ from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordParameter import Parameter
 
 
-# literal stations must be editable bindings on the exact feature that owns the finite line
+# stations retain evaluated values and driving ownership on the exact finite axis feature
 def ReadAxisExtents(
     StepValue: FeatureStep,
     Definition: BoundPlaneAxis,
@@ -26,10 +26,9 @@ def ReadAxisExtents(
             Param is None
             or Param.id != Identity
             or Param.role != ParameterRole.KDriving
-            or Param.expression is not None
         ):
             raise ValueError(
-                "requires editable literal length parameters for its extents"
+                "requires editable driving length parameters for its extents"
             )
         Effective = ConfigAxisParam(Param, Chain)
         try:

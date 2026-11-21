@@ -4,7 +4,7 @@ from interchange.Enums.EnumFeatures import FeatureKind
 from interchange.Features.Axes.AxisConfigChain import GetAxisConfigs
 from interchange.Features.Axes.AxisExtentConfig import IsSuppressed
 from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
-from interchange.Features.Axes.IntersectPlanes import GetPlaneLine
+from interchange.Features.Axes.IntersectPlanes import GetAxisFrame, GetPlaneLine
 from interchange.Features.Axes.MakeBoundAxis import MakeBoundAxis
 from interchange.Features.Axes.ReadAxisExtents import ReadAxisExtents
 from interchange.Features.Axes.ReadAxisPlanes import ReadAxisPlanes
@@ -36,15 +36,19 @@ def ResolveAxis(
         raise ValueError("requires a reference feature with plane selections")
     PickIds = (Definition.FirstPlaneSelectionId, Definition.SecondPlaneSelectionId)
     FirstPlane, SecondPlane = ReadAxisPlanes(StepValue, PickIds, Selections, Frames)
+    FirstFrame, SecondFrame = (
+        GetAxisFrame(FirstPlane.transform),
+        GetAxisFrame(SecondPlane.transform),
+    )
     if isinstance(Definition, BoundPlaneAxis):
         Chain = GetAxisConfigs(Configurations)
         Stations = ReadAxisExtents(StepValue, Definition, Parameters, Chain)
         if IsSuppressed(StepValue, Chain):
             return None
-        Origin, Direction = GetPlaneLine(FirstPlane.transform, SecondPlane.transform)
+        Origin, Direction = GetPlaneLine(FirstFrame, SecondFrame)
         return MakeBoundAxis(Origin, Direction, Stations)
     if StepValue.parameter_ids:
         raise ValueError("snapshot extent requires only its two plane selections")
-    Origin, Direction = GetPlaneLine(FirstPlane.transform, SecondPlane.transform)
+    Origin, Direction = GetPlaneLine(FirstFrame, SecondFrame)
     CheckAxisFit(Definition.StartMm, Definition.EndMm, Origin, Direction)
     return Definition.StartMm, Definition.EndMm
