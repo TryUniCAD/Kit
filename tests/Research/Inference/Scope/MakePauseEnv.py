@@ -17,11 +17,11 @@ from tests.Research.SupervisorClient import KRepoRoot
 def MakePauseEnv(ReadyPath: FilePath, PausePath: FilePath) -> dict[str, str]:
     Startup = ReadyPath.parent / "PauseStartup"
     Startup.mkdir()
-    _ = CopyFile(
+    SitePath = CopyFile(
         FilePath(__file__).with_name("PauseOnSettlement.py"),
         Startup / "sitecustomize.py",
     )
-    PythonPaths = [str(Startup), str(KRepoRoot)]
+    PythonPaths = [str(SitePath.parent), str(KRepoRoot)]
     if Existing := Environment.get("PYTHONPATH"):
         PythonPaths.append(Existing)
     return {
