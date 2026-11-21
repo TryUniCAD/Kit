@@ -53,7 +53,7 @@ def QuitCurrent():
         terminate(app, objc.sel_registerName(b"terminate:"), None)
         return
     if sys.platform == "win32":
-        from ctypes import wintypes
+        import ctypes.wintypes as wintypes
 
         user = ctypes.WinDLL("user32", use_last_error=True)
         callback_type = ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)

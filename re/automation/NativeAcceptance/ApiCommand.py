@@ -1,5 +1,4 @@
 import argparse
-import hashlib
 import json
 import os
 from pathlib import Path
@@ -67,7 +66,8 @@ def MainApi():
             return 0 if result["status"] == "passed" else 5
         return 0 if result["status"] == "available" else 4
     except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError, RecursionError, OverflowError, subprocess.SubprocessError) as error:
-        parser.exit(1, f"native API setup failed: {error}\n")
+        print(f"native API command failed: {error}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":

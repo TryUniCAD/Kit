@@ -1,10 +1,9 @@
 from functools import partial
 import hashlib
-import json
 
 from Corpus import git, read_tree
 from NativeAcceptance.VerifyBatch import VerifyBatch
-from NativeAcceptance.Records import ReadBytes, ReadJson, WriteJson
+from NativeAcceptance.Records import ReadBytes, ReadJson
 
 
 def LoadPinned(root, blob, expected):

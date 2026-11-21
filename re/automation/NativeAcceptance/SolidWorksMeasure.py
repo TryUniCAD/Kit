@@ -1,5 +1,4 @@
 import math
-import os
 from pathlib import Path
 import sys
 
@@ -142,7 +141,7 @@ def MainMeasure():
             if app is not None:
                 if not ComValue(app, "GetDocumentCount"):
                     app.ExitApp()
-                    app = None
+                    del app
                     if win32event.WaitForSingleObject(handle, 30000) != win32event.WAIT_OBJECT_0:
                         result.update(status="failed", error="owned SOLIDWORKS process did not exit")
                 else:
