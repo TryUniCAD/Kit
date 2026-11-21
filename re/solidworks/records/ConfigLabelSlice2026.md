@@ -42,6 +42,11 @@ second and third character formats. The spelling preserves this caller
 separately from the dimension line-font width `Serialize.2.0`.
 These current-format spans can carry identical width fields. Raw field
 values remain separate from the loader's runtime repairs.
+Compose `KLabelAnnotationFields` in the owning reader's same layout map
+with `utCharFormat_c` from `KFormatAnnotationFields` and
+`utLineWidth_c.Serialize0` from `KMaterialFields`. Both embedded dependencies
+use the label group's archive cursor and object map. The bounded probe
+composes these three shared registries before decoding either part.
 [Width and character evidence](ConfigFontSlice2026.md)
 
 ## Physical source comparison
