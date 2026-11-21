@@ -228,6 +228,18 @@ Directly owned bodies and whole configuration admission follow
 separately.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
 
+### B04-SW2026-CONFIG-SHEET-METAL
+
+The PR #121 takeover team owns this bounded direct body codec on
+`codex/solidworks-config-sheet-metal` for separate main delivery.
+It depends on the shared feature fields, configuration field modes
+and linked ModelHeader prefix. The physical and authored guarded
+checks are recorded. Exit requires current revision review and queue
+acceptance. Populated sheet-metal owners and complete Config-0
+admission in [PR #183](https://github.com/TryUniCAD/Kit/pull/183)
+retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigSheetMetalMaster.md)
+
 ### B04-SW2026-CONFIG-VIEWS
 
 The PR #121 takeover team owns this bounded `moView_c` reader on
