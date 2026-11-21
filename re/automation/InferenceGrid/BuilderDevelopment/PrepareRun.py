@@ -12,6 +12,7 @@ from time import time
 from CodexAdvice.AdviceOptions import read_options
 from InferenceGrid.BuilderDevelopment.JobSpec import BuildJob
 from InferenceGrid.BuilderDevelopment.Queue import DevelopmentConfig
+from InferenceGrid.BuilderDevelopment.Queue import ReadStage
 from InferenceGrid.BuilderDevelopment.Verification.QualificationCases import (
     ReserveQualification,
 )
@@ -87,9 +88,23 @@ def PrepareRun(Args, SourceRoot):
             "decoder_execution_incomplete",
         }:
             State["recovery_epoch"] = State.get("recovery_epoch", 0) + 1
-        if State.get("classification") == "execution_incomplete" and State["attempts"]:
+        if State["attempts"] and (Directory / "Store").exists():
             Active = State["attempts"][-1]
-            if "program" not in Active:
+            Prefix = "attempt." + str(Active["number"]) + ".generate:"
+            Generations = [
+                Identity
+                for Key, Identity in State["jobs"].items()
+                if Key.startswith(Prefix)
+            ]
+            Interrupted = any(
+                ReadStage(Directory, Identity)["status"] in {"failed", "rejected"}
+                for Identity in Generations
+            )
+            if (
+                "program" not in Active
+                and Active["status"] != "generation_failed"
+                and Interrupted
+            ):
                 Active["status"] = "generation_failed"
                 Active["interruption"] = (
                     "unpublished provider work retained; reservation remains consumed"
