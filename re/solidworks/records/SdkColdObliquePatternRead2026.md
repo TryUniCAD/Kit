@@ -16,3 +16,9 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/ProveColdPatternRead.py \
 The integration suite runs the same process model with cross-platform geometry checks. The host run does not access held-out inputs or launch a licensed application. The separate frozen native result establishes the measured family's vendor lifecycle. Normal public pattern publication remains open.
 
 The same research command now additionally records the [portable datum round trips](SdkPortableAngularDatums2026.md).
+
+## Canonical annotation catalog
+
+The ordinary preparation defaults use `*Top` then `*Back`. Strict reading of the two unchanged disclosed canonical archives reconstructs the same joined geometry and actual driver owners. The additional catalog requires the native origin transforms, neutral pan, consecutive view IDs, actual map aliases and the original reserved active and shown membership. The earlier `*Front`/`*Back` catalog keeps its measured behavior. The prior six states still pass twelve strict entry points and their portable JSON checks, with portable runner result SHA-256 `8db954689b533a3c1b901579d5102769b5f521d8fcea37c69f95e1b05633568f`.
+
+The canonical process proof regenerates both entire archives from disclosed neutral inputs. A separate model contrast changes each of view order, recognized name, Top orientation, Back origin, Top identity and catalog frontier. All contrasts fail strict geometry. [Canonical read receipt](../measurements/2026/SdkCanonicalColdPatternRead01.json)
