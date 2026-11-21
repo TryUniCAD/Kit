@@ -82,7 +82,13 @@ def BuildPrompt(Packet):
         "Choose the operation, support, scale and reverse required by the written recipe. "
         "Repair only the candidate when discovery diagnostics show a defect. "
         "Native verification and independently reserved qualification are performed elsewhere.\n"
-        + dumps(Data, ensure_ascii=False, sort_keys=True, allow_nan=False)
+        + dumps(
+            Data,
+            ensure_ascii=False,
+            sort_keys=True,
+            allow_nan=False,
+            separators=(",", ":"),
+        )
     )
 
 

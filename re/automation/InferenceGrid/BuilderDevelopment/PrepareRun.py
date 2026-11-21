@@ -154,6 +154,13 @@ def PrepareRun(Args, SourceRoot):
     Job, Blocker = BuildJob(Args, SourceRoot, Advice)
     if Blocker:
         return None, None, None, BlockedResult(Directory, Blocker)
+    Job["generation_root"] = str(
+        (Args.builder_registry or Directory.parent / "BuilderRegistry") / "Generation"
+    )
+    Job["generation_policy"] = {
+        "personal_instructions": Args.builder_personal_instructions,
+        "reasoning_effort": "low",
+    }
     Reservation = NewReservation(Job, [])
     Job["initial_case_commitment"] = Reservation["cases_sha256"]
     Job["id"] = "builder-development:" + digest(

@@ -11,6 +11,11 @@ from pathlib import Path
 from subprocess import TimeoutExpired
 from time import monotonic
 
+from InferenceGrid.BuilderDevelopment.Generation.Cache.RequestCache import RequestCache
+from InferenceGrid.BuilderDevelopment.Generation.Cache.ReuseCandidate import (
+    PublishReuse,
+)
+from InferenceGrid.BuilderDevelopment.Generation.Broker.CallBroker import CallBroker
 from InferenceGrid.BuilderDevelopment.Generation.GenerationBudget import (
     CheckLimits,
     FinishCall,
@@ -41,12 +46,23 @@ def FailureClass(Error):
     Message = str(Error)
     for Prefix in (
         "provider_unavailable",
+        "provider_timeout",
+        "provider_protocol_failed",
+        "provider_policy_failed",
+        "provider_tools_forbidden",
+        "provider_context_limit",
+        "provider_context_changed",
+        "provider_closed",
+        "provider_input_limit",
         "provider_budget_capability_missing",
         "model_budget_exhausted",
         "model_token_budget_exhausted",
         "model_usage_unknown",
         "provider_cleanup_failed",
         "provider_output_limit",
+        "provider_instruction_scope_missing",
+        "generation_cache_invalid",
+        "generation_cache_unavailable",
     ):
         if Message.startswith(Prefix):
             return Prefix
@@ -58,7 +74,7 @@ def FailureClass(Error):
 
 
 # every started provider attempt retains source inputs actual outputs and independent typed validation
-def GenerateCandidate(Packet, Options, Directory, Budget):
+def GenerateUncached(Packet, Options, Directory, Budget):
     Started = monotonic()
     Reservation, Artifacts = None, {}
     Usage = {
@@ -113,9 +129,24 @@ def GenerateCandidate(Packet, Options, Directory, Budget):
                 "reserved_qualification_disclosed": False,
             },
         )
-        Response = (CallOllama if Options.provider == "ollama" else CallCli)(
-            Options, Prompt, Schema, Target, Reservation
-        )
+        if (
+            Options.provider == "codex"
+            and Options.auth == "login"
+            and Budget.get("broker_path")
+        ):
+            Response = CallBroker(
+                Options,
+                Prompt,
+                Schema,
+                Target,
+                Reservation,
+                Budget["broker_path"],
+                Budget.get("personal_instructions", False),
+            )
+        else:
+            Response = (CallOllama if Options.provider == "ollama" else CallCli)(
+                Options, Prompt, Schema, Target, Reservation
+            )
         Usage = Response["usage"]
         Result = {
             "status": "failed",
@@ -174,3 +205,70 @@ def GenerateCandidate(Packet, Options, Directory, Budget):
                 reason=str(Error)[:2048],
             )
     return Result
+
+
+# coalescing happens before reservation so identical concurrent requests spend one model call
+def GenerateCandidate(Packet, Options, Directory, Budget):
+    Started = monotonic()
+    try:
+        CheckLimits(Budget, Options)
+        CleanPacket, PacketPin = GenerationPacket(Packet)
+        Schema = ProgramSchema()
+        with RequestCache(Budget, PacketPin, Options, Schema) as Cache:
+            Hit = Cache.Hit()
+            if Hit is not None:
+                return PublishReuse(
+                    Hit,
+                    CleanPacket,
+                    PacketPin,
+                    Options,
+                    Directory,
+                    Budget,
+                    Schema,
+                    Started,
+                )
+            Result = GenerateUncached(CleanPacket, Options, Directory, Budget)
+            if Cache.enabled and Result.get("status") == "candidate":
+                Publication = {
+                    "hit": False,
+                    "key": Cache.key,
+                    "wait_seconds": Cache.wait_seconds,
+                }
+                try:
+                    Cache.Store(
+                        Result, PacketPin, Result["artifact_paths"]["prompt"]["sha256"]
+                    )
+                    Publication["published"] = Cache.Read() is not None
+                except (OSError, ValueError, TypeError, KeyError) as Error:
+                    Publication.update(published=False, error=str(Error)[:2048])
+                Result["cache"] = Publication
+                Result["artifact_paths"]["cache"] = WriteArtifact(
+                    OwnedPath(Directory, Budget["run_root"]) / "CachePublication.json",
+                    Publication,
+                )
+            return Result
+    except (
+        OSError,
+        ValueError,
+        TypeError,
+        KeyError,
+        TimeoutError,
+        TimeoutExpired,
+    ) as Error:
+        Classification = FailureClass(Error)
+        if Classification == "invalid_generation":
+            Classification = "generation_cache_unavailable"
+        return {
+            "status": "blocked",
+            "classification": Classification,
+            "reason": str(Error)[:2048],
+            "elapsed_seconds": monotonic() - Started,
+            "usage": {
+                "input_tokens": None,
+                "output_tokens": None,
+                "total_tokens": None,
+                "cost_usd": None,
+                "accounting": "unavailable",
+            },
+            "artifact_paths": {},
+        }

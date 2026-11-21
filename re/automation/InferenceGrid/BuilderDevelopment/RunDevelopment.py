@@ -8,6 +8,10 @@
 
 from time import time
 from hashlib import sha256
+from CodexAdvice.AdviceOptions import AdviceOptions
+from InferenceGrid.BuilderDevelopment.Generation.Broker.GenerationBroker import (
+    GenerationBroker,
+)
 from InferenceGrid.BuilderDevelopment.NativePlane.PlaneInputs import PlaneSource
 
 from InferenceGrid.BuilderDevelopment.DevelopCandidate import DevelopCandidate
@@ -191,20 +195,27 @@ def RunLockedDevelopment(Args, SourceRoot):
         }
     Context = StageState(Args.directory, SourceRoot, Job, State, Config)
     try:
-        Context.Check()
-        State["status"] = "running"
-        State.pop("classification", None)
-        State.pop("detail", None)
-        Context.Save()
-        NegativeProbe(Context)
-        if State["registration"] is None:
-            State["registration"] = FindBuilder(State["registry_root"], Job)
+        with GenerationBroker(
+            AdviceOptions(**Job["model"]),
+            Args.directory,
+            AllowPersonalInstructions=Job.get("generation_policy", {}).get(
+                "personal_instructions", False
+            ),
+        ):
+            Context.Check()
+            State["status"] = "running"
+            State.pop("classification", None)
+            State.pop("detail", None)
             Context.Save()
-        while True:
+            NegativeProbe(Context)
             if State["registration"] is None:
-                DevelopCandidate(Context)
-            if CaptureAndDecode(Context):
-                break
+                State["registration"] = FindBuilder(State["registry_root"], Job)
+                Context.Save()
+            while True:
+                if State["registration"] is None:
+                    DevelopCandidate(Context)
+                if CaptureAndDecode(Context):
+                    break
     except DevelopmentStopped as Error:
         State.update(
             status="paused" if Error.classification == "paused" else "blocked",

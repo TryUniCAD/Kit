@@ -25,6 +25,12 @@ the saved job for generation and repair calls. An explicit `--model` overrides
 the default; resuming a saved job preserves its original model. See
 [Terra builder generation](TerraBuilderGeneration.md).
 
+Codex login jobs reuse a controller-owned provider connection and coalesce
+identical generation requests through the shared registry. Global personal
+instruction context requires the explicit `--builder-personal-instructions`
+authorization. See [builder generation optimizations](BuilderGenerationOptimizations.md)
+for ownership, cache identity, accounting and verification boundaries.
+
 ## Integration and trust boundaries
 
 PR #207 was inspected while open and unmerged at

@@ -101,6 +101,14 @@ def GenerateStage(Session, Directory, Inputs):
         "state_path": str(Directory / "ModelBudget.json"),
     }
     Budget["run_root"] = str(Directory)
+    Budget["shared_root"] = Job.get(
+        "generation_root", str(Directory / "GenerationCache")
+    )
+    Budget["personal_instructions"] = Job.get("generation_policy", {}).get(
+        "personal_instructions", False
+    )
+    if Job["model"]["provider"] == "codex" and Job["model"]["auth"] == "login":
+        Budget["broker_path"] = str(Directory / "ProviderBroker.json")
     if Job["limits"]["max_cost_usd"] is not None:
         Budget["max_cost_usd"] = Job["limits"]["max_cost_usd"]
     Budget["max_calls"] = Inputs.get("model_call_limit", Budget["max_calls"])
