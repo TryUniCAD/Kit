@@ -1,11 +1,13 @@
 from argparse import ArgumentParser
+from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path, PureWindowsPath
 import json
 import os
 import sys
 
 from ReferenceApi import References, registered, safe_error
-from ReferencePacket import DRIVERS, PRIOR_WINDOWS, SCHEMA, digest, require, verify, verify_oracle
+from ReferenceControl import control_phase
+from ReferencePacket import DRIVERS, PREVIOUS_CAPTURE, PRIOR_WINDOWS, SCHEMA, digest, require, verify, verify_oracle
 from ReferenceTopology import COUNTS, Topology
 
 
@@ -181,19 +183,24 @@ def run(packet, wanted, prior, output, verified):
     import Swapp
     from AuthorCurves import write_json
     from AuthorDocumentMassUnits import metadata
-    from InspectSdkCornerOwners import control_match, control_phase
+    from InspectSdkCornerOwners import control_match
 
     output.mkdir(exist_ok=False)
     result = {"schema": SCHEMA, "packet_sha256": wanted, "prior_packet_sha256": job["prior_sha256"],
+              "previous_capture_result_sha256": PREVIOUS_CAPTURE,
               "heldout_inputs_read": 0, "writer_outputs_generated": 0, "source_reference_transfer_qualified": False,
               "public_writer_qualified": False, "complete_original_corpus_conversions": 0, "cases": {}, "passed": False}
     try:
+        try:
+            result["pywin32_distribution_version"] = version("pywin32")
+        except PackageNotFoundError:
+            result["pywin32_distribution_version"] = None
         require(metadata() == units, "the established registered native document API differs")
         result["registered_api"] = registered(Swapp, previous_api)
         enums = result["registered_api"]["enums"]
         try:
-            result["control_before"] = control_phase(output, "ControlBefore", seed)
-            if result["control_before"]["passed"]:
+            result["control_before"] = control_phase(output, "ControlBefore", seed, enums)
+            if result["control_before"]["geometry_passed"]:
                 for row in bound:
                     name = row["case"]["id"]
                     work = output / name
@@ -207,11 +214,13 @@ def run(packet, wanted, prior, output, verified):
                         derivative = work / "EditSave" / "Edited.SLDPRT", edited["saved_sha256"]
                         observed["fresh_reopen"] = phase(work, row, enums, originals, derivative)
         finally:
-            result["control_after"] = control_phase(output, "ControlAfter", seed)
+            result["control_after"] = control_phase(output, "ControlAfter", seed, enums)
         phases = [result["control_before"], *(case[key] for case in result["cases"].values()
                                               for key in ("edit_save", "fresh_reopen") if key in case), result["control_after"]]
         result["distinct_native_processes"] = len({verify_oracle(row["oracle_identity"]) for row in phases if row.get("oracle_identity")})
-        result["controls_healthy"] = (phases[0]["passed"] and phases[-1]["passed"] and control_match(phases[0], phases[-1]))
+        brackets = (phases[0], phases[-1])
+        result["controls_healthy"] = all(row["geometry_passed"] for row in brackets) and control_match(*brackets)
+        result["reference_transport_controls_passed"] = all(row["reference_transport"]["passed"] for row in brackets)
         Swapp.sweep()
         result["oracle_idle_confirmed"] = True
         result["passed"] = (result["distinct_native_processes"] == len(phases) == 6 and result["controls_healthy"] and

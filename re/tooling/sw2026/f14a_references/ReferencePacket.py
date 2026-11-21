@@ -4,7 +4,7 @@ from pathlib import Path, PureWindowsPath
 import json
 
 
-SCHEMA = "kit.sw2026.f14a-live-references.v1"
+SCHEMA = "kit.sw2026.f14a-live-references.v2"
 ORACLE = "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
 PRIOR = "bfad084b837281083c6550f20a2fc8c2139bef428c79c59aa7b8082a4a1c94ca"
 PRIOR_WINDOWS = PureWindowsPath(r"\\Mac\Home\Documents\UniCAD\Oracle121Takeover\FreecadNewerReleaseNative01")
@@ -12,12 +12,15 @@ CASES = ("Freecad102", "Freecad114")
 DRIVERS = ("Length@AdditiveBox Profile", "Width@AdditiveBox Profile", "Height@AdditiveBox")
 BASELINE_M = (0.02, 0.03, 0.01)
 EDIT_HEIGHT_M = (0.01587, 0.01619)
+CAPTURE_AUDIT = "F14aLiveReferenceCapture01.json"
+PREVIOUS_CAPTURE = "6bc759f108d1d4da3c771ec1841f2c70e868c8c1a68cb9934fd71a7de5d4d7f3"
 RECEIPTS = {
     "SdkFreecadBoxReleaseNative01.json": "e87ae3d9520edcffd262b1dc2457b2bd4e5a70fe4ff34c1a1271079d5628b856",
     "SdkFreecadF14aTopologyLineage01.json": "ff4edb3b60ebc6d76714f14c56210acc7be2dd5fc9025042e5c2f6bf80bd6266",
     "DrawingEdgeApiMetadata01.json": "4ec29582a96d7e6d76464814d46e817ccb55bbf870be4e39dd21be05e3cee0af",
+    CAPTURE_AUDIT: "a0b4956500809b340769fea5b1cb882212fc72c6f9c83f217a5b70aad102cd59",
 }
-TOOLS = ("ReferencePacket.py", "RunLiveReferences.py", "ReferenceApi.py", "ReferenceTopology.py", "BoxTopology.py")
+TOOLS = ("ReferencePacket.py", "RunLiveReferences.py", "ReferenceApi.py", "ReferenceTopology.py", "ReferenceControl.py", "BoxTopology.py")
 
 
 class EvidenceFailure(ValueError):
@@ -118,7 +121,13 @@ def bind_prior(prior, native, lineage):
 
 
 def load_receipts(root):
-    return tuple(read(root, name, expected) for name, expected in RECEIPTS.items())
+    audit = read(root, CAPTURE_AUDIT, RECEIPTS[CAPTURE_AUDIT])
+    previous = audit["failed_f14a_capture"]
+    require(previous["result_sha256"] == PREVIOUS_CAPTURE and not previous["passed"] and
+            previous["capture_guard_refusals"] == 216 and previous["resolved_reference_calls"] == 0 and
+            audit["independent_native_byte_transport"]["observed_return_types"] == {"memoryview": 56},
+            "previous failed capture or independent transport evidence changed")
+    return tuple(read(root, name, expected) for name, expected in RECEIPTS.items() if name != CAPTURE_AUDIT)
 
 
 def verify(packet, expected, prior):

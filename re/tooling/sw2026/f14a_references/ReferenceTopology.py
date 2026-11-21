@@ -18,31 +18,26 @@ def point_role(point, dimensions):
     return "".join(bounds[0] for bounds in matches)
 
 
-class Topology:
-    def __init__(self, author, case, dimensions, enums):
+class NativeSelection:
+    def __init__(self, author, enums):
         self.author = author
         self.model = author.model
         self.call = author.sw.invoke
         self.get = author.sw.cv
         self.same = enums["swObjectEquality"]["swObjectSame"]
-        self.dimensions = tuple(dimensions[key] for key in DRIVERS)
         self.selection = self.cast(self.get(self.model, "SelectionManager"), "SelectionMgr")
         self.select_data = self.cast(self.get(self.selection, "CreateSelectData"), "SelectData")
         self.select_data.Mark = 0
         self.selection_enum = enums["swSelectType_e"]
+        self.body_kinds = enums["swBodyType_e"]
+
+    def one_body(self):
         part = self.cast(self.model, "PartDoc")
-        body_kinds = enums["swBodyType_e"]
+        body_kinds = self.body_kinds
         bodies = self.call(part, "GetBodies2", body_kinds["swSolidBody"], False) or ()
         require(len(bodies) == 1 and not self.call(part, "GetBodies2", body_kinds["swSheetBody"], False),
                 "expected one native body and no additional sheet bodies")
-        self.body = self.cast(bodies[0], "Body2")
-        self.producer = self.cast(self.call(self.model, "FeatureByName", case["feature"]), "Feature")
-        self.producer_name = str(self.get(self.producer, "Name"))
-        self.producer_type = str(self.get(self.producer, "GetTypeName2"))
-        require(self.producer_name == case["feature"], "native producer name changed")
-        self.roles = {}
-        self.objects = {}
-        self.collect()
+        return self.cast(bodies[0], "Body2")
 
     def same_object(self, first, second):
         return int(self.call(self.author.app, "IsSame", first, second))
@@ -55,6 +50,35 @@ class Topology:
 
     def compare(self, actual, expected, kind):
         return self.same_object(self.cast(actual, INTERFACES[kind]), expected)
+
+    def select(self, expected, kind, row):
+        self.clear()
+        entity = self.cast(expected, "Entity")
+        require(bool(self.call(entity, "Select4", False, self.select_data)), "native topology selection refused")
+        require(int(self.call(self.selection, "GetSelectedObjectCount2", -1)) == 1, "native selection is ambiguous")
+        row["selected_type"] = int(self.call(self.selection, "GetSelectedObjectType3", 1, -1))
+        require(row["selected_type"] == self.selection_enum[SELECTION_TYPES[kind]], "native selection returned another entity kind")
+        selected = self.cast(self.call(self.selection, "GetSelectedObject6", 1, -1), INTERFACES[kind])
+        row["selected_object_equality"] = self.same_object(selected, expected)
+        require(row["selected_object_equality"] == self.same, "native selection returned a different body entity")
+        return selected
+
+    def clear(self):
+        self.call(self.model, "ClearSelection2", True)
+
+
+class Topology(NativeSelection):
+    def __init__(self, author, case, dimensions, enums):
+        super().__init__(author, enums)
+        self.dimensions = tuple(dimensions[key] for key in DRIVERS)
+        self.body = self.one_body()
+        self.producer = self.cast(self.call(self.model, "FeatureByName", case["feature"]), "Feature")
+        self.producer_name = str(self.get(self.producer, "Name"))
+        self.producer_type = str(self.get(self.producer, "GetTypeName2"))
+        require(self.producer_name == case["feature"], "native producer name changed")
+        self.roles = {}
+        self.objects = {}
+        self.collect()
 
     def vertex(self, vertex):
         typed = self.cast(vertex, "Vertex")
@@ -123,18 +147,3 @@ class Topology:
             incident = [self.resolved_role(face, "face") for face in self.get(typed, method) or ()]
             require(sorted(incident) == sorted(enclosing_faces(role)), "actual native entity has different adjacent face owners")
         return role
-
-    def select(self, expected, kind, row):
-        self.clear()
-        entity = self.cast(expected, "Entity")
-        require(bool(self.call(entity, "Select4", False, self.select_data)), "native topology selection refused")
-        require(int(self.call(self.selection, "GetSelectedObjectCount2", -1)) == 1, "native selection is ambiguous")
-        row["selected_type"] = int(self.call(self.selection, "GetSelectedObjectType3", 1, -1))
-        require(row["selected_type"] == self.selection_enum[SELECTION_TYPES[kind]], "native selection returned another entity kind")
-        selected = self.cast(self.call(self.selection, "GetSelectedObject6", 1, -1), INTERFACES[kind])
-        row["selected_object_equality"] = self.same_object(selected, expected)
-        require(row["selected_object_equality"] == self.same, "native selection returned a different body entity")
-        return selected
-
-    def clear(self):
-        self.call(self.model, "ClearSelection2", True)

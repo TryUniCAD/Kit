@@ -8,7 +8,7 @@ LIBRARIES = {"sldworks": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
              "swconst": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}"}
 MEMBERS = {
     "IModelDocExtension": ("GetPersistReference3", "GetObjectByPersistReference3", "IsSamePersistentID", "SaveAs3"),
-    "ISldWorks": ("IsSame",), "IEntity": ("Select4",), "ISelectData": ("Mark",),
+    "ISldWorks": ("IsSame", "ActiveDoc"), "IEntity": ("Select4",), "ISelectData": ("Mark",),
     "ISelectionMgr": ("CreateSelectData", "GetSelectedObject6", "GetSelectedObjectCount2", "GetSelectedObjectType3"),
     "IPartDoc": ("GetBodies2",), "IBody2": ("GetFaces", "GetEdges", "GetVertices"),
     "IFeature": ("GetFaces", "GetTypeName2"), "IFace2": ("GetBody", "GetFeature", "GetSurface", "GetEdges"),
@@ -26,6 +26,7 @@ ENUMS = {
     "swSetValueReturnStatus_e": ("swSetValue_Successful",),
 }
 MEMBER_KEYS = ("member_id", "invoke_kind", "arguments", "return_type")
+MAX_REFERENCE_BYTES = 4096
 
 
 def normalized(value):
@@ -102,6 +103,24 @@ def safe_error(error):
     return result
 
 
+def bounded_reference(raw, row):
+    shape = row["reference_transport"] = {"python_type": type(raw).__name__}
+    require(raw is not None, "GetPersistReference3 returned null")
+    if isinstance(raw, (tuple, list)):
+        shape["elements"] = len(raw)
+        require(0 < len(raw) <= MAX_REFERENCE_BYTES, "native reference octet count is empty or exceeds the probe bound")
+        require(all(type(value) is int and 0 <= value <= 255 for value in raw), "native reference sequence contains non-octets")
+        return bytes(raw)
+    require(isinstance(raw, (bytes, bytearray, memoryview)), "native reference lacks a supported byte-array transport")
+    with memoryview(raw) as view:
+        shape.update(bytes=view.nbytes, dimensions=view.ndim, item_size=view.itemsize, format=view.format,
+                     c_contiguous=view.c_contiguous)
+        require(view.ndim == view.itemsize == 1 and view.c_contiguous and view.format == "B",
+                "native reference transport is not a contiguous unsigned-octet vector")
+        require(0 < view.nbytes <= MAX_REFERENCE_BYTES, "native reference byte count is empty or exceeds the probe bound")
+        return view.tobytes()
+
+
 class References:
     def __init__(self, author, extension, enums):
         self.sw = author.sw
@@ -115,20 +134,24 @@ class References:
     def capture(self, selected, row):
         row["stage"] = "capture_reference"
         raw = self.sw.invoke(self.extension, "GetPersistReference3", selected)
-        require(isinstance(raw, (bytes, bytearray, tuple, list)) and 0 < len(raw) <= 4096,
-                "selected object returned no bounded persistent reference")
-        token = bytes(raw)
+        row["stage"] = "decode_reference_transport"
+        token = bounded_reference(raw, row)
         row["reference"] = {"bytes": len(token), "sha256": sha256(token).hexdigest()}
         return token
 
-    def resolve(self, original, current, expected, topology, role, row):
+    def native_object(self, original, row):
         row["stage"] = "resolve_baseline_reference"
         row["baseline_reference_sha256"] = sha256(original).hexdigest()
         status = self.sw.byref_long()
         status.value = -(2**31)
         actual = self.sw.invoke(self.extension, "GetObjectByPersistReference3", self.encoded(original), status)
         row["resolver_status"] = int(status.value)
+        row["resolver_returned_object"] = actual is not None
         require(row["resolver_status"] == self.ok and actual is not None, "the baseline reference did not resolve cleanly")
+        return actual
+
+    def resolve(self, original, current, expected, topology, role, row):
+        actual = self.native_object(original, row)
         row["stage"] = "bind_resolved_owner"
         row["resolved_role"] = topology.resolved_role(actual, role[0])
         row["resolved_object_equality"] = topology.compare(actual, expected, role[0])

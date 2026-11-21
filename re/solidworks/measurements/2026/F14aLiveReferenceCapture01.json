@@ -1,0 +1,405 @@
+{
+  "failed_f14a_capture": {
+    "capture_guard_failed_before_any_native_resolution": true,
+    "capture_guard_refusals": 216,
+    "captured_return_metadata": false,
+    "cases": {
+      "Freecad102": {
+        "edit_save": {
+          "input_sha256": "13608463d0c389e53f4a78ccd7d8768e34080f497d81ac34a1fc35bc1b97b95f",
+          "record_sha256": "bdf6203be76533535f39be407ec6743cdff81d06e0b74ee549ef2c30f0084959",
+          "states": {
+            "Baseline": {
+              "edge": {
+                "capture_guard_refusals": 12,
+                "resolver_calls": 0,
+                "selected_and_owned": 12
+              },
+              "face": {
+                "capture_guard_refusals": 6,
+                "resolver_calls": 0,
+                "selected_and_owned": 6
+              },
+              "producer": {
+                "capture_guard_refusals": 1,
+                "name": "AdditiveBox",
+                "resolver_calls": 0
+              },
+              "vertex": {
+                "capture_guard_refusals": 8,
+                "resolver_calls": 0,
+                "selected_and_owned": 8
+              }
+            },
+            "Edited": {
+              "edge": {
+                "capture_guard_refusals": 12,
+                "resolver_calls": 0,
+                "selected_and_owned": 12
+              },
+              "face": {
+                "capture_guard_refusals": 6,
+                "resolver_calls": 0,
+                "selected_and_owned": 6
+              },
+              "producer": {
+                "capture_guard_refusals": 1,
+                "name": "AdditiveBox",
+                "resolver_calls": 0
+              },
+              "vertex": {
+                "capture_guard_refusals": 8,
+                "resolver_calls": 0,
+                "selected_and_owned": 8
+              }
+            },
+            "Saved": {
+              "edge": {
+                "capture_guard_refusals": 12,
+                "resolver_calls": 0,
+                "selected_and_owned": 12
+              },
+              "face": {
+                "capture_guard_refusals": 6,
+                "resolver_calls": 0,
+                "selected_and_owned": 6
+              },
+              "producer": {
+                "capture_guard_refusals": 1,
+                "name": "AdditiveBox",
+                "resolver_calls": 0
+              },
+              "vertex": {
+                "capture_guard_refusals": 8,
+                "resolver_calls": 0,
+                "selected_and_owned": 8
+              }
+            }
+          }
+        },
+        "fresh_reopen": {
+          "input_sha256": "3aa8c866ae20b70325602e4c83fb830f65a6089d05c40f4e1045f6b52ab5e6f1",
+          "record_sha256": "26bd187ffcf4d7e1b7a07422a1f30606dbf9cdab2e20b4df2a6173e0eba85b84",
+          "states": {
+            "FreshOpen": {
+              "edge": {
+                "capture_guard_refusals": 12,
+                "resolver_calls": 0,
+                "selected_and_owned": 12
+              },
+              "face": {
+                "capture_guard_refusals": 6,
+                "resolver_calls": 0,
+                "selected_and_owned": 6
+              },
+              "producer": {
+                "capture_guard_refusals": 1,
+                "name": "AdditiveBox",
+                "resolver_calls": 0
+              },
+              "vertex": {
+                "capture_guard_refusals": 8,
+                "resolver_calls": 0,
+                "selected_and_owned": 8
+              }
+            }
+          }
+        }
+      },
+      "Freecad114": {
+        "edit_save": {
+          "input_sha256": "51f6e11f730f85035c840bc03925a7b7b452db15b5fa00bddfb3683163c36b1d",
+          "record_sha256": "64ac9bcea204355040bd2f59a7ba796d05205df6f8b1b651f2019ad3332e4dc6",
+          "states": {
+            "Baseline": {
+              "edge": {
+                "capture_guard_refusals": 12,
+                "resolver_calls": 0,
+                "selected_and_owned": 12
+              },
+              "face": {
+                "capture_guard_refusals": 6,
+                "resolver_calls": 0,
+                "selected_and_owned": 6
+              },
+              "producer": {
+                "capture_guard_refusals": 1,
+                "name": "AdditiveBox",
+                "resolver_calls": 0
+              },
+              "vertex": {
+                "capture_guard_refusals": 8,
+                "resolver_calls": 0,
+                "selected_and_owned": 8
+              }
+            },
+            "Edited": {
+              "edge": {
+                "capture_guard_refusals": 12,
+                "resolver_calls": 0,
+                "selected_and_owned": 12
+              },
+              "face": {
+                "capture_guard_refusals": 6,
+                "resolver_calls": 0,
+                "selected_and_owned": 6
+              },
+              "producer": {
+                "capture_guard_refusals": 1,
+                "name": "AdditiveBox",
+                "resolver_calls": 0
+              },
+              "vertex": {
+                "capture_guard_refusals": 8,
+                "resolver_calls": 0,
+                "selected_and_owned": 8
+              }
+            },
+            "Saved": {
+              "edge": {
+                "capture_guard_refusals": 12,
+                "resolver_calls": 0,
+                "selected_and_owned": 12
+              },
+              "face": {
+                "capture_guard_refusals": 6,
+                "resolver_calls": 0,
+                "selected_and_owned": 6
+              },
+              "producer": {
+                "capture_guard_refusals": 1,
+                "name": "AdditiveBox",
+                "resolver_calls": 0
+              },
+              "vertex": {
+                "capture_guard_refusals": 8,
+                "resolver_calls": 0,
+                "selected_and_owned": 8
+              }
+            }
+          }
+        },
+        "fresh_reopen": {
+          "input_sha256": "b49fb96ce31493db4aefe68c99707bee9d4040b2d393c768c952445bdbaffaa9",
+          "record_sha256": "d2f1f58966f70858516cef8c7e0f853be9e3a70e5d18e7757f7610be51c5dc4f",
+          "states": {
+            "FreshOpen": {
+              "edge": {
+                "capture_guard_refusals": 12,
+                "resolver_calls": 0,
+                "selected_and_owned": 12
+              },
+              "face": {
+                "capture_guard_refusals": 6,
+                "resolver_calls": 0,
+                "selected_and_owned": 6
+              },
+              "producer": {
+                "capture_guard_refusals": 1,
+                "name": "AdditiveBox",
+                "resolver_calls": 0
+              },
+              "vertex": {
+                "capture_guard_refusals": 8,
+                "resolver_calls": 0,
+                "selected_and_owned": 8
+              }
+            }
+          }
+        }
+      }
+    },
+    "control_records_sha256": {
+      "control_after": "38a6c77b39e4311f1eb262d901eab2517a2654a4025813eb5f1d1ff62f8ede9a",
+      "control_before": "36106b1bf6425f1507f84b555130b63fffecca75761a256a7fab031c8de95eca"
+    },
+    "controls_healthy": true,
+    "immutable_inputs": true,
+    "native_processes": 6,
+    "passed": false,
+    "probe_sha256": "8345fc169780226487529c3d020a9da10ea4e95f36344e6949614895adf394a5",
+    "registered_members": {
+      "GetObjectByPersistReference3": [
+        {
+          "arguments": [
+            [
+              12,
+              1,
+              null
+            ],
+            [
+              [
+                26,
+                3
+              ],
+              2,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 101,
+          "return_type": [
+            9,
+            0,
+            null
+          ]
+        }
+      ],
+      "GetPersistReference3": [
+        {
+          "arguments": [
+            [
+              9,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 98,
+          "return_type": [
+            12,
+            0,
+            null
+          ]
+        }
+      ],
+      "IsSamePersistentID": [
+        {
+          "arguments": [
+            [
+              12,
+              1,
+              null
+            ],
+            [
+              12,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 196,
+          "return_type": [
+            3,
+            0,
+            null
+          ]
+        }
+      ],
+      "SaveAs3": [
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ],
+            [
+              3,
+              1,
+              null
+            ],
+            [
+              3,
+              1,
+              null
+            ],
+            [
+              9,
+              1,
+              null
+            ],
+            [
+              9,
+              1,
+              null
+            ],
+            [
+              [
+                26,
+                3
+              ],
+              3,
+              null
+            ],
+            [
+              [
+                26,
+                3
+              ],
+              3,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 315,
+          "return_type": [
+            11,
+            0,
+            null
+          ]
+        }
+      ]
+    },
+    "registered_wrapper_sha256": "d8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959",
+    "resolved_reference_calls": 0,
+    "result_sha256": "6bc759f108d1d4da3c771ec1841f2c70e868c8c1a68cb9934fd71a7de5d4d7f3"
+  },
+  "independent_native_byte_transport": {
+    "cases": {
+      "EdgeFilletAxial": {
+        "author": {
+          "observed_return_types": {
+            "memoryview": 10
+          },
+          "record_sha256": "9bb4317910eddd55583b123960c71ee2f459628e1e31d691d889d43d96056bc4"
+        },
+        "edited-reopen": {
+          "observed_return_types": {
+            "memoryview": 6
+          },
+          "record_sha256": "ad45755371ebe27e2fdf27845eb16e1a86b982d489534779f5f4ecc594371a43"
+        },
+        "reopen-edit-save": {
+          "observed_return_types": {
+            "memoryview": 12
+          },
+          "record_sha256": "721a5c15e0df77b8467c7a86d4d46439aa50f9a93618292faa37e9da1aa972f5"
+        }
+      },
+      "EdgeFilletTransverse": {
+        "author": {
+          "observed_return_types": {
+            "memoryview": 10
+          },
+          "record_sha256": "2b7efb5ac815f535cd89b3ddbd3a5cb2b0595b3a22b833b7ae7c00c6318ca4ee"
+        },
+        "edited-reopen": {
+          "observed_return_types": {
+            "memoryview": 6
+          },
+          "record_sha256": "352a4fd6fb734803fd119fa5691c500affac35e2182dbbd8f4c245ad0d738fb7"
+        },
+        "reopen-edit-save": {
+          "observed_return_types": {
+            "memoryview": 12
+          },
+          "record_sha256": "86ef2da4ed3d2509a81d3a724c9314976cf6c840930a490ce50f430564f641c5"
+        }
+      }
+    },
+    "native_source_lock_sha256": "1f2652129840582cb663063b08f590dadbaf8dd046f0b96f5a1b99cf5ae47797",
+    "observed_return_types": {
+      "memoryview": 56
+    },
+    "receipt_sha256": "e7573a71c5fb709a26ae512a332f3fe6eecca5fef949b8f98380ac7cbd1337f3"
+  },
+  "native_processes_started_by_audit": 0,
+  "native_reference_persistence_qualified": false,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "protected_inputs_read": 0,
+  "schema": "kit.sw2026.f14a-live-reference-capture-audit.v1",
+  "source_reference_transfer_qualified": false,
+  "vendor_reference_bytes_emitted": 0
+}
