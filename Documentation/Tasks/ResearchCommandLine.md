@@ -64,6 +64,22 @@ Use `kit research --root /path/to/KitPr94 fusion --help` for the authoritative r
 Expected result: the existing reader publishes its normal artifacts or reports its existing failure.
 Successful receipts do not establish portable completeness or native conversion acceptance.
 
+The installed CLI automatically requests native API verification after decoding.
+Read `NativeVerification.json` for the application observations and case comparisons.
+An unavailable API returns status `4` with instructions for the local machine.
+Failed or invalid native verification returns status `5`.
+Fusion decoding failures retain status `3`.
+The original decoding artifacts remain available after a verification failure.
+Older trusted checkouts also retain their decoding artifacts when they lack native verification support.
+The launcher reports that verification was not performed and returns status `4` after successful legacy decoding.
+
+For SOLIDWORKS, use Windows with its licensed registered COM API and `pywin32` in Kit's Python environment.
+For Fusion, run `kit research --root /path/to/KitPr94 api enable fusion`.
+Run KitVerify once and select **Run on Startup** in Fusion **Scripts and Add-Ins**, then close Fusion.
+Kit starts fresh verification sessions automatically.
+Close existing vendor sessions before verification.
+See [automatic native reader verification](../Changes/Research/Automation/AutomaticNativeReaderVerification.md) for checks, scope, and current limitations.
+
 ## Manage durable research jobs
 
 The corpus and controller retain their existing commands:
@@ -143,11 +159,13 @@ Use `--reserved-memory-mib 1024` to reserve 1 GiB, or `--reserved-memory-mib 0` 
 An explicit value applies to every supervisor stage started by this batch.
 Kit still requires enough available memory for each worker's estimated demand.
 
-Kit automatically runs independent offline jobs in parallel when memory and CPU are available.
+Kit runs mapped scopes sequentially in prerequisite order.
+Each scope's assessment depends on all jobs from the preceding scope.
+Kit automatically runs independent offline jobs within a scope in parallel when memory and CPU are available.
 Small compatible rescans can share one worker process in groups of up to four files.
 Each file retains its own result and receipt.
 Use `--workers N` to cap the number of offline workers.
-Set `--workers 1` for a serial offline run. Native CAD workers follow their own supervisor configuration.
+Set `--workers 1` for a serial offline run. Native capture workers follow their own supervisor configuration.
 
 With a configured native worker, a reviewed capture can start while independent offline jobs run.
 The capture still needs its prerequisite assessment and a licensed application session.
@@ -157,6 +175,9 @@ See the [catalogue native handoff](../Changes/Research/Controller/DeterministicI
 Kit shows active workers, queued jobs, and waits in the terminal while it runs.
 Progress uses standard error. The final JSON remains on standard output.
 Read `CatalogueResult.json` for completed and blocked entries. Exit status 2 means coverage remains incomplete.
+The catalogue also batches completed rescan inputs through the locally available vendor API.
+Read its `native_verification` field and the separate application reports.
+Missing API access prevents the whole catalogue from reporting completion.
 Read `State/decoder-advice/<receipt>/Advice.json` for suggestions produced during the offline batch stage.
 A suggestion requires an independently checked experiment before it can become a decoder rule.
 Use `kit run --root . fusion --help` for all options.
@@ -331,6 +352,11 @@ The generated reader and graph receipt retain the same input identity in `source
 
 [Executable text-gap experiments](../Changes/Research/Inference/AdvisorTextExperiment.md) explain how an advisor choice advances a stalled raw stream.
 
+Catalogue finalization verifies completed scope inputs after the supervisor settles, even when later scopes still await evidence.
+Paused runs do not start a native batch.
+Later scopes remain dependent on every predecessor job; a memory reserve can therefore leave the first scope queued and later scopes waiting for evidence.
+See [native verification queue repairs](../Changes/Research/Automation/NativeVerificationQueueRepairs.md) for file-boundary behavior and verification evidence.
+
 ## Related information
 
 - [Queue Fusion diagnostic repairs](../Changes/Research/Inference/Validation/QueueFusionDiagnosticRepairs.md)
@@ -340,3 +366,37 @@ The generated reader and graph receipt retain the same input identity in `source
 - [Step register](../Reference/Research/AutomationSteps.md)
 - [SOLIDWORKS reader](../Reference/Research/SolidworksResearchReader.md)
 - [Fusion reader](../Reference/Research/FusionResearchReader.md)
+
+## Export a qualified codec change
+
+Supply a reviewed format rule, a completed scope and at least two tracked files with independently measured semantic values. Pin the checkout to the request's full Git revision. Use a trusted local Docker image with Python 3.14 and any dependencies the selected adapter requires. Pass its immutable image ID (from `docker image inspect --format '{{.Id}}' IMAGE`).
+
+```sh
+kit run --root . fusion --catalogue Catalog.sqlite --directory Run \
+  --codec-request request.json --codec-image "$IMAGE_ID" --codec-output reader.patch
+```
+
+To use a settled run, take the assessment job ID and receipt digest from the scope's jobs in `Run/CatalogueResult.json`.
+
+```sh
+kit research --root . codec-patch --store Run/Store --job "$JOB" --receipt "$RECEIPT" \
+  --request request.json --image "$IMAGE_ID" --output reader.patch
+git apply --check --index reader.patch
+git apply --index reader.patch
+```
+
+A request contains these fields.
+
+| Field | Required value |
+| --- | --- |
+| `name`, `base`, `scope` | PascalCase patch name of 4–19 letters, full Git commit and exact scheduled scope |
+| `reference`, `rule` | Tracked research Markdown path under `re/` and a written interpretation of the corroborated finding |
+| `modules` | Explicit Python source paths under `src/convert/adapters/` or `src/convert/Formats/` |
+| `contract.mode`, `contract.target_suffix` | `reader` with an empty suffix, or `writer` with the output extension |
+| `contract.cases` | Two to sixteen objects with tracked `file`, its `sha256`, and an `expect` mapping from decoded document JSON pointers to independently measured scalar values |
+
+For example, an expected value for the first circle sketch entity can be expressed as `{"/document/sketches/$tuple/0/entities/$tuple/0/geometry/$type":"CircleGeometry"}`. Each case must also check a feature-history value and a parameter value. For a writer, measure the same field on at least two controls with different expected values so a constant output cannot pass both. Select measurements specific to the proposed change. The exporter runs the repository recorded-payload scanner before qualifying a candidate.
+
+When the baseline fails a measurement, Codex receives the selected modules, the reviewed rule and the finding. The default is GPT-6.2-Sol at medium reasoning effort. Keep proprietary contents out of the written rule. Supply `--candidate replacements.json` (or `--codec-candidate` during a catalogue run) to qualify a mapping from each selected path to its complete proposed source without a model call.
+
+Qualification runs each case through the public CLI in a network-isolated container. Writer cases reopen the generated file with the reader from the pinned base. The resulting Git patch includes codec changes, a replayable regression, the pinned cases and a change entry. Review the patch for generalization and donor data. Native application reopen, editing and losslessness still require the format's acceptance controls.

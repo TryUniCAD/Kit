@@ -56,9 +56,9 @@ def BossSchedule(Revision, Application="solidworks"):
 
 
 # all source objects and jobs are published in one store transaction
-def ProvisionBoss(Store, Revision, Application="solidworks"):
+def ProvisionBoss(Store, Revision, Application="solidworks", Dependencies=()):
     return ProvisionAssessment(
-        Store, Revision, REVISION, partial(BossSchedule, Application=Application)
+        Store, Revision, REVISION, partial(BossSchedule, Application=Application), Dependencies
     )
 
 
