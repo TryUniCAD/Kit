@@ -24,6 +24,7 @@ from InferenceGrid.CatalogueWorkerConfig import BuildWorkerCfg
 from InferenceGrid.FeatureRoutes import FeatureRecipes
 from InferenceGrid.Provision import CheckRevision
 from Ledger import Ledger
+from NativeAcceptance.CatalogueBatch import VerifyCatalogue
 from Pilot.PilotConfig import PilotConfig
 from Pilot.PilotFiles import WriteRecord
 from Records import bounded, read_record
@@ -232,6 +233,17 @@ def FinishCatalogue(
         "status"
     ] == "coverage_incomplete":
         Outcome["status"] = "paused"
+    if not (Directory / "CataloguePause.json").exists() and not any(
+        Job["state"] == "running"
+        for Result in Results.values()
+        for Job in Result.get("jobs", [])
+    ):
+        Reports = VerifyCatalogue(SourceRoot, Directory, Results)
+        Outcome["native_verification"] = Reports
+        if Outcome["status"] == "completed" and (
+            not Reports or any(not Report["live_batch_verified"] for Report in Reports.values())
+        ):
+            Outcome["status"] = "coverage_incomplete"
     write_private(Directory / "CatalogueResult.json", Outcome)
     return Outcome
 
@@ -239,13 +251,20 @@ def FinishCatalogue(
 # per scope submission receipts remain inspectable even before the batch finishes
 def SubmitCatalogue(Directory, Plan, Store, Revision):
     Submissions, Results = {}, {}
-    for Index, (Scope, Identity) in enumerate(Plan["scopes"].items(), 1):
+    Dependencies = []
+    Blocked = None
+    for Index, Scope in enumerate(Plan["scope_order"], 1):
+        Identity = Plan["scopes"][Scope]
         try:
-            Receipt = FeatureRecipes[Identity].Submit(Store, Revision)
+            if Blocked is not None:
+                raise ValueError(f"preceding scope could not be submitted: {Blocked}")
+            Receipt = FeatureRecipes[Identity].Submit(Store, Revision, Dependencies=Dependencies)
             if Receipt["scope"] != Scope:
                 raise ValueError("submitted scope differs from the selected recipe")
             Submissions[Scope] = Receipt
+            Dependencies = [Job["id"] for Job in Receipt["jobs"]]
         except ScopeErrors as Error:
+            Blocked = Scope
             Results[Scope] = {
                 "status": "failed",
                 "stage": "submission",

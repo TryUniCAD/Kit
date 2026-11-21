@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# current native field order supplies both directions without saved document values
+# annotation defaults share their ordered base fields across configuration scopes
 KBaseAnnotationFields = MappingProxyType(
     {
         "moAnnotationDefs_c": (
@@ -67,13 +67,26 @@ KBaseAnnotationFields = MappingProxyType(
                     NativeField(
                         "Branch",
                         "f44",
-                        BodyValue=(NativeField("Node", "f48"),),
+                        BodyValue=(
+                            NativeField(
+                                "Branch",
+                                "bounded_config_annotations",
+                                BodyValue=(
+                                    NativeField(
+                                        "Fail",
+                                        "moBaseAnnotationDefs_c.f48 layer object",
+                                    ),
+                                ),
+                                OtherValue=(NativeField("Node", "f48"),),
+                                ModeValue="Context",
+                            ),
+                        ),
                         ModeValue="NotEquals",
                         MaskValue=-1,
                     ),
                 ),
                 ModeValue="Condition",
-                MaskValue=1073741824,
+                MaskValue=0x40000000,
             ),
             NativeField("Embed", "f2c", "utLineWidth_c.Serialize0"),
             NativeField("Embed", "f38", "utLineWidth_c.Serialize0"),

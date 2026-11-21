@@ -101,8 +101,8 @@ def BuildRectangleBatch(Revision, Sources, Corroboration, Receipts):
 
 
 # the standard controller publishes the assessment and archive dependencies
-def SubmitRectangle(Store, Revision):
-    return ProvisionAssessment(Store, Revision, REVISION, RectangleSchedule)
+def SubmitRectangle(Store, Revision, Dependencies=()):
+    return ProvisionAssessment(Store, Revision, REVISION, RectangleSchedule, Dependencies)
 
 
 # equivalent catalogue routes read the same paired receipt records
