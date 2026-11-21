@@ -55,7 +55,9 @@ def MakeRevKeys(
         for NodeValue in FeatureValues[:-2]
     )
     ProfileValue, FeatureValue = FeatureValues[-2:]
-    AnglesValue = (KeywordDim("D1", Degrees(PlanValue.AngleValue), "degree"),)
+    AnglesValue: tuple[KeywordDim, ...] = (
+        KeywordDim("D1", Degrees(PlanValue.AngleValue), "degree"),
+    )
     if PlanValue.AgainstAngle is not None:
         Secondary = KeywordDim("D2", Degrees(PlanValue.AgainstAngle), "degree")
         AnglesValue = (
