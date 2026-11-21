@@ -199,22 +199,29 @@ def freeze(args):
     require(output.parent.resolve(strict=True) == output.parent and not output.exists() and not output.is_symlink()
             and not output.is_relative_to(checkout) and not output.is_relative_to(args.original.resolve()),
             "choose an unused packet destination outside both original data and repository")
-    raw = git(checkout, "archive", revision, "--", "src", *HELPERS)
+    raw = git(checkout, "archive", revision, "--", "src")
+    helpers = {name: git(checkout, "show", f"{revision}:{name}") for name in HELPERS}
     output.mkdir()
     write(output / "DisclosedPublicRoutes.json", public_proof)
     code = output / "CodeRoot"
     code.mkdir()
     manifest = {}
+
+    def store(name, data):
+        relative = code_entry(name)
+        destination = code / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        manifest[name] = write(destination, data)
+
     with open_tar(fileobj=BytesIO(raw)) as files:
         for entry in files:
             if not entry.name.endswith(".py"):
                 continue
-            relative = code_entry(entry.name)
             require(entry.isfile(), "snapshot contains nonregular Python source")
-            destination = code / relative
-            destination.parent.mkdir(parents=True, exist_ok=True)
             with files.extractfile(entry) as source:
-                manifest[relative.as_posix()] = write(destination, source.read())
+                store(entry.name, source.read())
+    for name, data in helpers.items():
+        store(name, data)
     require(set(HELPERS) <= set(manifest) and "src/convert/__init__.py" in manifest, "writer snapshot is incomplete")
     code_pin = write_json(output / "CodeManifest.json", {"schema": CODE_SCHEMA, "writer_revision": revision,
                                                         "sdk_tree": sdk_tree, "files_sha256": manifest})
