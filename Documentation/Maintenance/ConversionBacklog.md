@@ -251,6 +251,16 @@ and queue evidence. Complete section bodies, broader context and public
 configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigSections.md)
 
+### B04-SW2026-ASSEMBLY-DEFINITION
+
+The PR #121 takeover team owns the ordinary version-19000 assembly
+Definition stream on `codex/solidworks-assembly-definition`. It depends on
+[PR #205](https://github.com/TryUniCAD/Kit/pull/205) for the shared Definition
+framing and field codecs. Delivery requires exact scoped stream replay and
+fresh-process control results, configured review and native queue acceptance.
+Assembly composition and public writing have separate exits.
+[Change entry](../Changes/Solidworks/Archive/Assembly/SolidworksAssemblyDefinitionCodec.md)
+
 ### B04-SW2026-CONFIG-SECTION-EMISSION
 
 The PR #121 takeover team owns the bounded writer actions on

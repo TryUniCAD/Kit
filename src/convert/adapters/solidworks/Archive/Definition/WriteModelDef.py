@@ -13,25 +13,32 @@ from convert.adapters.solidworks.Archive.Definition.CheckDefScope import CheckDe
 from convert.adapters.solidworks.Archive.Definition.Fields.DefPrefixFields import (
     KDefPrefixFields,
 )
-from convert.adapters.solidworks.Archive.Definition.ModelDefClsid import KPartDefClass
+from convert.adapters.solidworks.Archive.Definition.ModelDefClsid import (
+    KAsmDefClass,
+    KPartDefClass,
+)
 from convert.adapters.solidworks.Archive.Definition.ModelDefContext import (
     ModelDefContext,
 )
 from convert.adapters.solidworks.Archive.Definition.ModelDefGraph import ModelDefGraph
 from convert.adapters.solidworks.Archive.Definition.DefinitionWire import DefinitionWire
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
-from convert.adapters.solidworks.Container.Definition import KPartClsid
+from convert.adapters.solidworks.Container.Definition import KAsmClsid, KPartClsid
 
 
 # each native definition derives the root identity and every wire byte from modeled fields
-def WriteModelDef(GraphValue: ModelDefGraph) -> DefinitionWire:
+def WriteModelDef(
+    GraphValue: ModelDefGraph, *, Assembly: bool = False
+) -> DefinitionWire:
     DocumentValue = GraphValue.DocumentValue
-    if DocumentValue.ClassValue != KPartDefClass:
+    ClassValue = KAsmDefClass if Assembly else KPartDefClass
+    if DocumentValue.ClassValue != ClassValue:
+        KindValue = "assembly" if Assembly else "part"
         raise BodyUnsupported(
-            "SOLIDWORKS part Definition requires uiPartDoc_c schema 1"
+            f"SOLIDWORKS {KindValue} Definition requires {ClassValue.NameValue} schema 1"
         )
-    ContextValue = ModelDefContext(GraphValue.VersionValue)
-    CheckDefScope(DocumentValue.FieldsValue)
+    ContextValue = ModelDefContext(GraphValue.VersionValue, Assembly=Assembly)
+    CheckDefScope(DocumentValue.FieldsValue, Assembly=Assembly)
     WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteBodyMut)
     FrameValue = WriteFrame(
         WriterValue,
@@ -41,7 +48,7 @@ def WriteModelDef(GraphValue: ModelDefGraph) -> DefinitionWire:
         WriteFieldsMut,
     )
     WriteFieldsMut(FrameValue, KDefPrefixFields)
-    WriterValue.OutputValue.extend(KPartClsid)
+    WriterValue.OutputValue.extend(KAsmClsid if Assembly else KPartClsid)
     WriteBodyMut(WriterValue, DocumentValue)
     ContextValue.UsageValue.IsComplete = True
     return DefinitionWire(
