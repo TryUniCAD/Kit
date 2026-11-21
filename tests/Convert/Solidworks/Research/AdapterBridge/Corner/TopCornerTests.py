@@ -27,7 +27,7 @@ from tests.Convert.Solidworks.Research.Construction.Part.MakePlainDoc import (
 )
 
 
-# a reversed Top boss must retain its real fixed corner and refuse the same coordinates with the anchor absent
+# a reversed boss must retain its fixed corner and refuse the same coordinates with the anchor absent
 def TestTopOrigin(TmpPath: FilePath) -> None:
     Seed = MakePlainDoc("SignedBox", 21.0, 28.0, 13.0)
     Seed = Replace(
