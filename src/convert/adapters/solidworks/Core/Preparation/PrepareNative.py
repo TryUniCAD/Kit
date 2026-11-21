@@ -16,6 +16,9 @@ from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
 from convert.adapters.solidworks.Core.Preparation.Equations.PrepareEqPart import (
     PrepareEqPart,
 )
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.PlanTopCorner import (
+    PlanTopCorner,
+)
 from convert.adapters.solidworks.Core.Preparation.Imports.PrepareImport import (
     PrepareImport,
 )
@@ -56,6 +59,17 @@ def PrepareNative(
     SettingsValue = CheckPartOpts(OptionsValue)
     if PlanPublicRevolve(DocumentValue) is not None:
         return PrepareRevolve(DocumentValue, TargetValue, WrittenAt, SettingsValue)
+    TopValue = PlanTopCorner(DocumentValue)
+    if TopValue is not None:
+        Projected, TopPlan = TopValue
+        return RunPartPrep(
+            Projected,
+            TargetValue,
+            TopPlan,
+            MakePartRecipe(TopPlan, WrittenAt),
+            SettingsValue,
+            TopCorner=True,
+        )
     try:
         PlanValue = PlanPartWrite(DocumentValue)
     except (TypeError, ValueError):

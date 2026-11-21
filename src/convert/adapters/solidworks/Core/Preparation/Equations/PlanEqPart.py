@@ -7,8 +7,8 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan imp
     BlindPlan,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPlainScope import CheckPlainScope
-from convert.adapters.solidworks.Core.Preparation.Equations.ReadEqCorner import (
-    ReadEqCorner,
+from convert.adapters.solidworks.Core.Preparation.ReadCornerAnchor import (
+    ReadCornerAnchor,
 )
 from convert.adapters.solidworks.Core.Preparation.PartCaps import KPartWriteCaps
 from interchange.Enums.EnumDocument import Capability
@@ -26,6 +26,6 @@ def PlanEqPart(DocumentValue: CadDocument) -> tuple[CadDocument, BlindPlan]:
     }:
         raise ValueError("local equation preparation requires a supported part model")
     AssertValid(DocumentValue)
-    SketchValue = ReadEqCorner(DocumentValue.sketches[0])
+    SketchValue = ReadCornerAnchor(DocumentValue.sketches[0])
     Projected = ReplaceValue(DocumentValue, sketches=(SketchValue,))
     return Projected, PlanWidthDepth(Projected)

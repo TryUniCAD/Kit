@@ -14,6 +14,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 )
 from convert.adapters.solidworks.Core.Preparation.BindPartIntent import BindPartIntent
 from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPartPath
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.MakeOriginBoxPart import (
+    MakeOriginBoxFromPlan,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -24,6 +27,8 @@ def RunPartPrep(
     PlanValue: BlindPlan,
     RecipeValue: PartBuildInput,
     SettingsValue: WriteOptions,
+    *,
+    TopCorner: bool = False,
 ) -> PartCandidate:
     ConfigValue = DocumentValue.configurations[0]
     if SettingsValue.configuration not in (
@@ -36,4 +41,8 @@ def RunPartPrep(
         TargetValue, SettingsValue, RecipeValue.OutputValue, PlanValue.NameValue
     )
     InputValue = BindPartIntent(DocumentValue, PlanValue, RecipeValue, OutputValue)
+    if TopCorner:
+        return MakeOriginBoxFromPlan(
+            DocumentValue, PlanValue, InputValue, TopAttached=True
+        )
     return MakeBlindPartFromPlan(DocumentValue, InputValue, PlanValue)

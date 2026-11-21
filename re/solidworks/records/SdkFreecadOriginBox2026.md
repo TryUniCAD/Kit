@@ -257,3 +257,29 @@ An arbitrary neutral request can give a free corner the same coordinates.
 Public registration needs that source anchor dependency before it can
 publish the native-origin relation.
 [Neutral anchor gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/CornerCoordinatesDoNotOwnOrigin.md)
+
+The explicit neutral route verifies the fixed construction datum and
+the active corner coincidence before lowering to the same scoped
+constructor. The separate public parity supervisor calls the original
+hash-pinned projector in the guest and supplies its already validated
+origin dependency explicitly in the neutral document. The fresh writer
+process receives the neutral document, expected result digests and a
+destination policy. It has no access to the vendor originals, native
+candidate files or cached geometry from the source. It compares direct
+and registry streams at the measured locator and each publication path
+at a fresh locator. Four separate refusals exercise changed anchor intent.
+
+Freeze the exact committed codec on the host before reading the recorded
+native controls. The original case files and values remain in the guest.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/attached_top_box_source/ProveTopCornerPublic.py freeze \
+  /absolute/path/to/Oracle121Takeover/TopCornerPublic01
+```
+
+In the guest, use the designated CPython with the staged script's
+`compare PACKET PRIOR SCRATCH RECEIPT --pin HASH` command. `PRIOR` is
+the existing `AttachedTopBoxHeldoutsEvaluate01` packet and its exact
+completed result. Use a new guest-local scratch directory and a new
+sanitized receipt path. The native comparison remains separately linked
+above. [Public parity tool](../../tooling/sw2026/attached_top_box_source/ProveTopCornerPublic.py)

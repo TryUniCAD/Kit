@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePl
 )
 from convert.adapters.solidworks.Core.Preparation.Circle.PlanCircle import PlanCircle
 from convert.adapters.solidworks.Core.Preparation.Equations.PlanEqPart import PlanEqPart
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.PlanTopCorner import (
+    PlanTopCorner,
+)
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import (
@@ -31,6 +34,9 @@ def PlanNativePart(
     RevolveValue = PlanPublicRevolve(DocumentValue)
     if RevolveValue is not None:
         return RevolveValue
+    TopValue = PlanTopCorner(DocumentValue)
+    if TopValue is not None:
+        return TopValue[1]
     try:
         return PlanPartWrite(DocumentValue)
     except (TypeError, ValueError):

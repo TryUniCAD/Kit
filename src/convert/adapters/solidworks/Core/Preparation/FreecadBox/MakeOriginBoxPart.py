@@ -12,11 +12,17 @@ from convert.adapters.solidworks.Archive.Construction.BodyNames.PlainBodyView im
 from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTextInput import (
     PartTextInput,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
+    BlindPlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectRectDims import (
     ProjectRectDims,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
+    PartBuildInput,
 )
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RectDimInput import (
     RectDimInput,
@@ -48,6 +54,19 @@ def MakeOriginBox(
         BindPartIntent(PlainValue, PlanValue, RecipeValue, OutputValue),
         PropertiesValue=TextValue,
     )
+    return MakeOriginBoxFromPlan(
+        DocumentValue, PlanValue, InputValue, TopAttached=TopAttached
+    )
+
+
+# primitive lowering and explicit neutral intent must generate the same origin geometry and editable driver presentations
+def MakeOriginBoxFromPlan(
+    DocumentValue: CadDocument,
+    PlanValue: BlindPlan,
+    InputValue: PartBuildInput,
+    *,
+    TopAttached: bool,
+) -> PartCandidate:
     Margin = min(PlanValue.WidthValue, PlanValue.HeightValue) / 4
     WidthText = (PlanValue.WidthValue / 2, Margin if TopAttached else -Margin)
     HeightText = (

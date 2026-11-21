@@ -7,14 +7,14 @@ from interchange.geometry.Models.VectorPlane import PlaneVector
 
 
 # a contour starting at zero does not carry the design intent of an actively anchored corner
-def ReadEqCorner(SketchValue: Sketch) -> Sketch:
+def ReadCornerAnchor(SketchValue: Sketch) -> Sketch:
     if (
         len(SketchValue.closed_profile_entity_ids) != 1
         or len(SketchValue.closed_profile_entity_ids[0]) != 4
         or len(SketchValue.entities) != 5
         or len({Entity.id for Entity in SketchValue.entities}) != 5
     ):
-        raise ValueError("local equation requires four contour lines and one datum")
+        raise ValueError("anchored rectangle requires four contour lines and one datum")
     (ContourIds,) = SketchValue.closed_profile_entity_ids
     (OriginValue,) = (
         Entity for Entity in SketchValue.entities if Entity.id not in ContourIds
@@ -27,7 +27,7 @@ def ReadEqCorner(SketchValue: Sketch) -> Sketch:
         or not OriginValue.fixed
         or OriginValue.attributes
     ):
-        raise ValueError("local equation requires an explicit fixed origin datum")
+        raise ValueError("anchored rectangle requires an explicit fixed origin datum")
     DatumRef = ConstraintRef(OriginValue.id)
     Anchors = tuple(
         Relation
@@ -35,7 +35,7 @@ def ReadEqCorner(SketchValue: Sketch) -> Sketch:
         if any(RefValue.entity_id == OriginValue.id for RefValue in Relation.references)
     )
     if len(Anchors) != 1:
-        raise ValueError("local equation requires one active origin coincidence")
+        raise ValueError("anchored rectangle requires one active origin coincidence")
     (AnchorValue,) = Anchors
     StartRef = ConstraintRef(ContourIds[0], "start")
     EndRef = ConstraintRef(ContourIds[-1], "end")
@@ -54,7 +54,7 @@ def ReadEqCorner(SketchValue: Sketch) -> Sketch:
         )
         or any(Relation.provenance is not None for Relation in SketchValue.constraints)
     ):
-        raise ValueError("local equation anchor must select the actual starting corner")
+        raise ValueError("rectangle anchor must select the actual starting corner")
     return ReplaceValue(
         SketchValue,
         entities=tuple(
