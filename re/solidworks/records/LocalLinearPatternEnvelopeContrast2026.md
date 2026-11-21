@@ -19,3 +19,29 @@ The spec generator outputs authored values and independent expectations only. It
 ```sh
 python3.14 -I -B re/tooling/sw2026/linear_pattern/PatternEnvelopeSpec.py
 ```
+
+## Frozen disclosed packet
+
+[The staging tool](../../tooling/sw2026/linear_pattern/PatternEnvelopePacket.py) accepts the exact `LinearPatternSourcePacket03/Packet` as its control and registered API evidence. That original packet's SHA-256 is `913426870bc64edb320e6a1508521c81da677a2ef4feef80b715c7859856c1bc`. The reused pristine control SHA-256 is `c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57`. The new manifest binds each selected source and metadata file, the committed new and reused observer modules, the analytic specification and the exact guest location. Stage to an unused directory on the managed host share. The sealed cohort is outside the packet and the new entry point has a single disclosed run path.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/linear_pattern/PatternEnvelopePacket.py \
+  --prior-packet /absolute/share/LinearPatternSourcePacket03/Packet \
+  --output /absolute/share/LinearPatternEnvelope01 \
+  --guest-root '\\Mac\Home\Documents\UniCAD\Oracle121Takeover\LinearPatternEnvelope01' \
+  --guest-python 'C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
+```
+
+`Recipe.json` contains the exact `prlctl exec 'Windows 11' --current-user` argument arrays. The root-owned oracle runs `verify` first. The metadata phase only reads the registered version-34 type libraries and checks the installed hashes and the actual angle and axis APIs. Running `run` repeats the preflight and requires an idle oracle. The native sequence is control before, author, pristine reopen, spacing edit, spacing reopen and control after. Both saves are bound immediately at the return from native SaveAs3, again after the process exits and again during audit. Each fresh native process records the executable hash and creation FILETIME. Open, rebuild, per-feature and save warnings must be zero. The observer also rechecks the actual input selection objects and registered constraints of the oblique datum. A failed candidate stops dependent phases and retains the trailing control once the oracle is idle. [Native runner](../../tooling/sw2026/linear_pattern/RunPatternEnvelope.py) · [Observer](../../tooling/sw2026/linear_pattern/AuthorPatternEnvelope.py)
+
+A host-only audit accepts the final lifecycle receipt by digest and independently rehashes the control receipts, both native save checkpoints and both fresh-reopen measurements. It links the actual Config-0 map to the ResolvedFeatures stream. The research overlay covers the current angle-plane and two-plane axis records in the existing documented grammar. It checks exact Resolved re-emission in memory, the seed and datum links, both creation logs and the measured signed direction. The current line wrapper ends with its model point, direction and flag. The recorded 24-byte point span is computed from that typed object's end and checked against the linked grammar and IEEE-754 values. The capture reports the actual three doubles and their original little-endian hex. No position scan or file output from the archive codec is involved. A new unsupported schema produces an explicit decoder refusal for that saved artifact. [Typed point audit](../../tooling/sw2026/linear_pattern/AuditPatternEnvelope.py) · [Scoped native layout overlay](../../tooling/sw2026/linear_pattern/PatternEnvelopeWire.py)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/linear_pattern/AuditPatternEnvelope.py \
+  --trial /absolute/share/LinearPatternEnvelope01 --packet-sha256 TRIAL_SHA256 \
+  --result-sha256 NATIVE_RESULT_SHA256 --output "$(mktemp -d)/EnvelopePoint.json"
+```
+
+The comparison uses a fixed 5 nm positional tolerance. It first requires the short-spacing point to agree with the coincident pre- and post-pattern prediction. If the edited point follows the new projected final envelope, the result supports post-pattern geometry for this case. If it remains at the initial point, the result cannot distinguish recomputation from the pre-pattern envelope and retention of the previous point. A third value or an archive refusal leaves the rule open. The individual double values remain present in every typed observation. The newly scoped oblique wire rules remain provisional. A successful capture does not qualify a constructor, a general oblique reader or the writer.
+
+The host has verified syntax, independent predictions and the typed capture boundary on both prior disclosed principal saves. Their original `fc8` span is `25616–25640` in each Resolved stream. Both replays are exact and report the prior eight compatible display cells. The actual oblique lifecycle and point measurements await the root-owned oracle.
