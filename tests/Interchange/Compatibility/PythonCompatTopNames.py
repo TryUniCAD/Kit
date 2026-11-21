@@ -90,6 +90,7 @@ KPythonCompatTopNames = (
     "SpaceVector",
     "AdapterCapabilities",
     "Body",
+    "BoundPlaneAxis",
     "BrepPayload",
     "ChamferFeature",
     "CircularPatternFeature",
