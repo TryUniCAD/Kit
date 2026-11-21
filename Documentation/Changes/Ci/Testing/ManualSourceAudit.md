@@ -18,13 +18,15 @@ It neither downloads accepted test results nor publishes a reusable test-result 
 The final gate requires every acceptance and security job to pass.
 PR and native merge-group gates retain their original conditions, pins, permissions, and timeouts.
 Manual audit concurrency uses a separate namespace from native queue candidates.
+It includes both source and harness SHAs, so audits from different harness revisions cannot replace one another's pending runs.
 Its TruffleHog history walk starts at the selected source SHA; existing trigger scopes remain unchanged.
 
 This is remote audit evidence, separate from native queue acceptance and vendor-application acceptance.
 No local tests ran.
 The [initial remote planner](https://github.com/TryUniCAD/Kit/actions/runs/44908607006/job/136859391345)
 verified main `b46259ae0f847339d8a043799e8b8539a2b909d6` and scheduled all 7,052 tests across six shards with zero reused results.
-Full execution remains pending until its complete report is available.
+The [complete initial audit](https://github.com/TryUniCAD/Kit/actions/runs/44908607006)
+passed every job, including both platform suites and the final acceptance gate.
 
 The [invalid-input control](https://github.com/TryUniCAD/Kit/actions/runs/44909628956)
 supplied `audit_sha=main` to harness `8a48e5031317de45a22e306e2e1de763e1d059ad`.

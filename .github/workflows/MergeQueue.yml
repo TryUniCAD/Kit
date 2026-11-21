@@ -20,7 +20,7 @@ env:
   AuditSha: ${{ inputs.audit_sha || github.sha }}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && format('audit-{0}', inputs.audit_sha) || github.event.merge_group.head_sha || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && format('audit-{0}-{1}', inputs.audit_sha, github.sha) || github.event.merge_group.head_sha || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
 
 jobs:
