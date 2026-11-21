@@ -48,3 +48,32 @@ python3.14 -I -B re/tooling/sw2026/planar_registry/ProvePlanarRendererSaved.py \
 ```
 
 [Guarded saved comparison](../../tooling/sw2026/planar_registry/ProvePlanarRendererSaved.py) · [Typed parent and child delta checker](../../tooling/sw2026/planar_registry/PlanarSaveDelta.py) · [Sanitized saved-read receipt](../measurements/2026/PlanarRendererSavedRead01.json) · [Save lifecycle gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Assembly/PlanarRendererSaveChangesVisualOwners.md)
+
+## Matched save behavior on both original pairs
+
+The original-only resave gives both parent contexts the same
+`f30` change from 203 to 101 and the same nested `f58` change from
+0 to 8 as the generated saves. The live occurrence word remains 102.
+The relocated original parents also split a shared name handle so
+the stored assembly title can coexist with the earlier `Assem1`
+name. Each split adds one map slot and accounts for the only other
+typed parent difference. The generated parents already own their
+final names.
+
+The two original live child appearance IDs and their Definition
+cursors advance by three. The detached holder and complete child
+VisualStates stream stay fixed. The original child already owns
+the default physical density, which remains unchanged. This
+matches the independently decoded generated save behavior for those
+rendering owners. The previous strict result remains recorded
+alongside this disclosed comparison.
+[Original native resave](../measurements/2026/PlanarOriginalNativeResave01.json) ·
+[Offline typed original comparison](../measurements/2026/PlanarOriginalAllocationParity01.json) ·
+[Relocated name owner](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Assembly/ResavingRelocatedParentSplitsNameHandle.md)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/planar_registry/AuditPlanarOriginalSave.py \
+  /absolute/path/to/Oracle121Takeover \
+  /absolute/path/to/Oracle121Takeover/PlanarRendererOriginalResave02 \
+  --output /new/path/PlanarOriginalAllocationParity01.json
+```

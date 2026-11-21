@@ -74,3 +74,14 @@ child hash before starting the live edit. The paired comparison then
 runs eight processes, including the two rebind phases and both controls.
 [Native reference replacement](https://help.solidworks.com/2018/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISldWorks~ReplaceReferencedDocument.html) ·
 [Stored dependency query](https://help.solidworks.com/2023/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.ISldWorks~GetDocumentDependencies2.html)
+
+The closed-copy rebind and original edit comparison passed in eight
+distinct SP05.2 processes. Both controls stayed healthy and all original
+native files retained their exact hashes. The 642 numerical checks
+compare the original part depth edits, parent and child mechanics, and
+fresh reopens to the recorded generated pairs. The observed original
+model and configuration appearances advance by three IDs, as does the
+Definition cursor. The detached holder and child visibility stream
+remain fixed. The terminal receipt is
+`d4bd76cdb3a4471f3a0dcabe21a90304032e3e40e25f77cc7d898426e790de98`.
+[Exact native resave](../measurements/2026/PlanarOriginalNativeResave01.json)
