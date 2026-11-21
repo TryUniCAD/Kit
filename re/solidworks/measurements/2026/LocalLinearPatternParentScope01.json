@@ -1,0 +1,286 @@
+{
+  "audit_tool_sha256": "e954bb88776a47a909918c49f92111a7c54fc78330ecf79c0a7dbd1bf5d2a72c",
+  "baseline_manifest_sha256": "103912a8dd5d983866d5d66c848f08d954372d0ebef9d9c53a5781fa9fffc9c5",
+  "build": "34.5.2.0604",
+  "constructor_tool_sha256": "c99248dd9a77528380d7783a0620905be0190485314f1fb2c752fd5f92e45f9c",
+  "corrected_manifest_sha256": "b04e279af46524b69a3198c50e2ba06a89702327be1885eb5e2283d82f2d84a3",
+  "corrected_native_acceptance": null,
+  "first_native_failure": {
+    "cases": {
+      "ColdRaisedPatternA": {
+        "cold_geometry": {
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "face_count": 21,
+          "feature_diagnostics": [],
+          "mass": {
+            "area": 0.036638000000000004,
+            "com": [
+              0.07334482888439008,
+              0.05459284090549129,
+              0.003416585433783595
+            ],
+            "mass": 0.00010771499999999997,
+            "volume": 0.00010771499999999997
+          },
+          "rebuild_diagnostics": 0
+        },
+        "expected_direct_parents": [
+          "Model raised seed",
+          "ColdRaisedPatternA direction"
+        ],
+        "native_open": {
+          "error": 0,
+          "opened": true,
+          "warning": 0
+        },
+        "numeric_checks": 33,
+        "old_reported_parents": [
+          "Model plate",
+          "Model raised seed",
+          "ColdRaisedPatternA direction"
+        ],
+        "record_sha256": "46a549c03ec55ed0b59fba00b91d67cfa2c3e733c7b30ad04736065cced937a9"
+      },
+      "ColdRaisedPatternB": {
+        "cold_geometry": {
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "face_count": 26,
+          "feature_diagnostics": [],
+          "mass": {
+            "area": 0.036275,
+            "com": [
+              0.06238429108342493,
+              0.06110394572810076,
+              0.0033112028245622397
+            ],
+            "mass": 8.3836e-05,
+            "volume": 8.3836e-05
+          },
+          "rebuild_diagnostics": 0
+        },
+        "expected_direct_parents": [
+          "Raised extrusion",
+          "ColdRaisedPatternB direction"
+        ],
+        "native_open": {
+          "error": 0,
+          "opened": true,
+          "warning": 0
+        },
+        "numeric_checks": 33,
+        "old_reported_parents": [
+          "Base extrusion",
+          "Raised extrusion",
+          "ColdRaisedPatternB direction"
+        ],
+        "record_sha256": "dd93d142b958402c4c585363e4bc0eee4409e4eb1842002b1f286119ee5c3062"
+      }
+    },
+    "controls": {
+      "after": {
+        "passed": true,
+        "record_sha256": "f20508026d405159c58e81084366212b23525093c8c3618fbf9cd57ad75ba8b2"
+      },
+      "before": {
+        "passed": true,
+        "record_sha256": "b87d4873d66220777eb21873d1851bc967349645efbf84e4fa874a7e080ede0a"
+      }
+    },
+    "packet_sha256": "2228f783fe1847fc390284b7fa72bb96968e948f7e5895e553242dff66b39bcb",
+    "result_sha256": "b20cc4286fb26d034b17bf241ea4289e4327031dbadf7fc7cfc1a8c8a3010a41"
+  },
+  "heldout_cases": 0,
+  "schema": "kit.sw2026.local-linear-pattern-parent-scope.v1",
+  "static_authority": {
+    "api_parent_import": {
+      "module": "SLDMODU.dll",
+      "slot": "0x4302a3d8",
+      "symbol": "?getParents@moFeature_c@@QEBAXAEAVsuObList@@@Z"
+    },
+    "modules": [
+      {
+        "bytes": 19441752,
+        "image_base": "0x423f0000",
+        "machine": "0x8664",
+        "name": "sldapiu.dll",
+        "sha256": "97bc3d859637c8b420108a1a3ebd4262580fa45d05c761874df7658fad49b6c2"
+      },
+      {
+        "bytes": 46536280,
+        "image_base": "0x4b140000",
+        "machine": "0x8664",
+        "name": "sldmodu.dll",
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      }
+    ],
+    "routines": {
+      "api_parent_dispatch": {
+        "range": [
+          "0x4bb45e90",
+          "0x4bb45ec9"
+        ],
+        "sha256": "2bdde71c8c8873e4f169781e7ab5e3e90d7b4eba8312f32b728ec6d0044a855c"
+      },
+      "direct_seed_enumeration": {
+        "range": [
+          "0x4c053355",
+          "0x4c053415"
+        ],
+        "sha256": "d4af04129e223ac9a739b6f466950942c44710f2240e9019dd8b9be7f2094dca"
+      },
+      "direction_wrapper_local_features": {
+        "range": [
+          "0x4c317c40",
+          "0x4c317f46"
+        ],
+        "sha256": "5a624dad79fb1f85bbe8d7755db04e25501d967c1b4513f9e2a8379109edb0ba"
+      },
+      "f9f0_parent_scope_gate": {
+        "range": [
+          "0x4c05320c",
+          "0x4c0532b5"
+        ],
+        "sha256": "6488930d163676e4ef1555f4a862f6b57cdfd51c107fb345b0faa800a896c7c9"
+      },
+      "inherited_parent_enumeration": {
+        "range": [
+          "0x4c053080",
+          "0x4c0534dd"
+        ],
+        "sha256": "8867d675831d0359e78c17f24baf3f367e369481795c3259fa9ed56686234fb3"
+      },
+      "linear_parent_override": {
+        "range": [
+          "0x4bfd42c0",
+          "0x4bfd4413"
+        ],
+        "sha256": "7e60b99998cf07ccec3a85c0f66b9e341829308eb50de944ef87bd68289ea0d4"
+      },
+      "scope_wrapper_local_features": {
+        "range": [
+          "0x4b7f9030",
+          "0x4b7f928e"
+        ],
+        "sha256": "8bdcf43531a7c0f29ee0801bbb7e44a96b1042b3cd2eb5fc2c2efbfb4729bdd3"
+      },
+      "second_seed_enumeration": {
+        "range": [
+          "0x4c0571a0",
+          "0x4c0573dd"
+        ],
+        "sha256": "ea9ed89ff34cce7b6bad80fe7d3be305b474f6ec4e3bceb8ffe09df45357a8f9"
+      }
+    },
+    "virtual_dispatch": {
+      "direction_wrapper_local_features": {
+        "slot": "0x250",
+        "target": "0x4c317c40",
+        "vtable": "0x4ce5cd20"
+      },
+      "inherited_parent_enumeration": {
+        "slot": "0x13b0",
+        "target": "0x4c053080",
+        "vtable": "0x4d0cbaa0"
+      },
+      "linear_parent_override": {
+        "slot": "0x13b0",
+        "target": "0x4bfd42c0",
+        "vtable": "0x4d0bc0a0"
+      },
+      "scope_wrapper_local_features": {
+        "slot": "0xa8",
+        "target": "0x4b7f9030",
+        "vtable": "0x4ce93810"
+      },
+      "second_seed_enumeration": {
+        "slot": "0x13b8",
+        "target": "0x4c0571a0",
+        "vtable": "0x4d0bc0a0"
+      }
+    }
+  },
+  "typed_contrasts": {
+    "ColdRaisedPatternA": {
+      "corrected_value": 1,
+      "derived_field": "moLPattern_c.f9f0",
+      "new_candidate": {
+        "bytes": 10474,
+        "sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+        "version": 4
+      },
+      "old_candidate": {
+        "bytes": 10473,
+        "sha256": "da626618d90dc521357742ab52554a18474ccbad778cb54b173efc0622fb8ddf",
+        "version": 4
+      },
+      "old_value": 0,
+      "preserved_owners": {
+        "base_feature_f108": 19,
+        "body_lineage_f110": [
+          102,
+          101
+        ],
+        "f9f0": 1,
+        "resolved_map_frontier": 316,
+        "resolved_object_span": [
+          17871,
+          28290
+        ],
+        "scope_f544": 1,
+        "selected_atom_f18": 102
+      },
+      "stream": "Contents/Config-0-ResolvedFeatures",
+      "stream_changed_bytes": 1,
+      "stream_offset": 18382
+    },
+    "ColdRaisedPatternB": {
+      "corrected_value": 1,
+      "derived_field": "moLPattern_c.f9f0",
+      "new_candidate": {
+        "bytes": 10461,
+        "sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+        "version": 4
+      },
+      "old_candidate": {
+        "bytes": 10460,
+        "sha256": "be64f638eb8051c6f44c8439a488ea41e7272c43fa6a5b28e27171e873cfa6d5",
+        "version": 4
+      },
+      "old_value": 0,
+      "preserved_owners": {
+        "base_feature_f108": 19,
+        "body_lineage_f110": [
+          102,
+          101
+        ],
+        "f9f0": 1,
+        "resolved_map_frontier": 316,
+        "resolved_object_span": [
+          17879,
+          28298
+        ],
+        "scope_f544": 1,
+        "selected_atom_f18": 102
+      },
+      "stream": "Contents/Config-0-ResolvedFeatures",
+      "stream_changed_bytes": 1,
+      "stream_offset": 18390
+    }
+  }
+}

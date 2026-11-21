@@ -156,7 +156,7 @@ def observe_stocks(link, intent):
             and all(atom.FieldsValue["f180"] == atom.FieldsValue["f188"] == atom.FieldsValue["f1b0"] == 0 for atom in candidate_atoms)
             and fields["f108"] == plate.FieldsValue["f08"] and fields["f18"] == fields["f1c"] == identities[1]
             and fields["n110"] == 2 and tuple(row["v"] for row in fields["f110"]) == (identities[1], identities[0])
-            and pattern.FieldsValue["f544"] == 1 and pattern.FieldsValue["f9f0"] == 0
+            and pattern.FieldsValue["f544"] == 1 and pattern.FieldsValue["f9f0"] == 1
             and fields["ff0"] is None and fields["f100"] == fields["f104"] == 0
             and components[0] is not components[1] and all(node.FieldsValue["owner"] is model for node in components),
             "cold pattern must consume the sole current seed result and retain original producer lineage")
@@ -249,7 +249,7 @@ def observations_with_refusals(link, headers, request):
         ("active_dormant_driver_alias", fields, "f1268", fields["f1258"]),
         ("dropped_count_annotation", fields["f1258"].FieldsValue, "f2b0", []),
         ("borrowed_warm_appearance_state", fields, "f1054", 1),
-        ("borrowed_warm_scope_state", fields, "f9f0", 1),
+        ("cleared_single_stock_dependency_bit", fields, "f9f0", 0),
     )
     refusals = {}
     for name, owner, key, value in probes:

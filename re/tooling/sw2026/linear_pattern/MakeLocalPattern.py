@@ -136,5 +136,6 @@ def make_pattern(seed_intent, axis_name, plane_intent, annotation, pattern_inten
     plate_operation, seed_operation = seed.plate, seed.seed
     bind_plate_lineage_mut(system.RootValue, seed_operation.FeatureValue, seed_operation.AtomValue, pattern, result,
                            prior=((plate_operation.FeatureValue, plate_operation.AtomValue),))
+    pattern.FieldsValue["f9f0"] = 1
     SetCfgStampMut(system.ConfigValues[0], seed.allocator)
     return PatternGraph(seed, axis, plane, plane_driver, pattern, drivers, seed.headers(axis, plane, pattern), model_measure)
