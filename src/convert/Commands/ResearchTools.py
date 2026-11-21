@@ -2,6 +2,7 @@
 KResearchScripts = {
     "solidworks": "SolidworksReader.py",
     "fusion": "FusionReader.py",
+    "codec-patch": "CodecPatch.py",
     "corpus": "Corpus.py",
     "controller": "Controller.py",
     "supervisor": "Supervisor.py",
