@@ -30,4 +30,6 @@ Two Mid Plane and two unequal Two Directions sources were authored separately fr
 
 The lock was taken against production source tree `73c9b51c21a96d6978abbcc6a3d8a285281acc11` before the new end modes had writer code. The future comparison must bind the actual saved parameter owners and default cache-free geometry and exercise independent native edits, save and fresh reopen.
 
+The original Windows lock bytes are preserved with SHA-256 `977cfab507c7c77910b752bb8c46e4968a0ddfdf7efc9a8d582d99a2c7b364b9`. [Exact lock byte handling](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/LockedJsonNeedsExactLineEndings.md)
+
 These are vendor-authored research sources. They add zero generated outputs and zero FCStd qualification credit.
