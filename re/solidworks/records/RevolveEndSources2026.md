@@ -24,4 +24,10 @@ The controlled recovery pins the same Mid Plane source and original authoring re
 
 The disclosed stream replay binds all four modes to the actual modern `moRevEndSpec_c` words, including the single retained Mid Plane display and two Two Directions displays. Eight guarded SDK workers reproduce the paired linked streams exactly. The existing semantic reader still refuses the two new modes. [Saved end owners](OrdinaryRevolveEndModes2026.md)
 
+## Pre-writer source lock
+
+Two Mid Plane and two unequal Two Directions sources were authored separately from the discovery geometry. Fourteen distinct native processes include both healthy controls and the three lifecycle phases for each source. The two-angle cases complete independent D1 and D2 edits, and the Mid Plane cases complete the single total-angle edit. Each derivative opens cleanly after save. The original hashes, frozen specification, control and tool digests remain unchanged. The four sources and their detailed outcomes stay private under oracle custody. [Source lock](../measurements/2026/RevolveEndHeldoutSourceLock01.json)
+
+The lock was taken against production source tree `73c9b51c21a96d6978abbcc6a3d8a285281acc11` before the new end modes had writer code. The future comparison must bind the actual saved parameter owners and default cache-free geometry and exercise independent native edits, save and fresh reopen.
+
 These are vendor-authored research sources. They add zero generated outputs and zero FCStd qualification credit.

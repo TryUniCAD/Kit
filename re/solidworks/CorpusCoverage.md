@@ -40,7 +40,8 @@ writer rule. The FCStd conversion count remains unchanged.
 
 The [ordinary end-mode source trials](records/RevolveEndSources2026.md)
 measure actual Mid Plane and Two Directions owners on the pinned native
-2026 build. They provide no new generated writer or FCStd cases.
+2026 build and lock four independent authored inputs before writing those
+modes. They provide no new generated writer or FCStd cases.
 
 The [planar assembly root projection](records/SdkPlanarRootSourceProjection2026.md)
 composes both disclosed source root/mate graphs in guarded research builds.

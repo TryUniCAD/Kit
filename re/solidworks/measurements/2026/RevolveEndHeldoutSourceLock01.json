@@ -1,0 +1,112 @@
+{
+  "schema": "kit.sw2026.revolve-end-source-lock.v1",
+  "split": "heldout",
+  "source_revision": "9e38d60efffb9c34945d0a3db186fc934e5e34f5",
+  "job_sha256": "613703f0faee38516a27045578b5e232160afc806ced5c45a0cb974c81baabbe",
+  "spec_sha256": "a2fa6c4e14118b3e0eab899e13e502d263e5ec410d24f52679683a0b294ce8c8",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "registered_swconst": {
+    "swEndConditions_e": {
+      "swEndCondBlind": 0,
+      "swEndCondThroughAll": 1,
+      "swEndCondThroughNext": 2,
+      "swEndCondUpToVertex": 3,
+      "swEndCondUpToSurface": 4,
+      "swEndCondOffsetFromSurface": 5,
+      "swEndCondMidPlane": 6,
+      "swEndCondUpToBody": 7,
+      "swEndCondThroughAllBoth": 9,
+      "swEndCondUpToSelection": 10,
+      "swEndCondUpToNext": 11
+    },
+    "swRevolveType_e": {
+      "swRevolveTypeOneDirection": 0,
+      "swRevolveTypeMidPlane": 1,
+      "swRevolveTypeTwoDirection": 2,
+      "swRevolveTypeOneDirection360Degrees": 3,
+      "swRevolveTypeMidPlane360Degrees": 4,
+      "swRevolveTypeTwoDirection360Degrees": 5
+    }
+  },
+  "tool_sha256": {
+    "AuthorRevolveEnds.py": "a9900663bb06288db8b2dfd60f1324e428b33bdb4319f3a0580dce51639281ac",
+    "AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "started_at": 1795223121.7786617,
+  "sources": [
+    {
+      "name": "H-Mid-01",
+      "mode": "midplane",
+      "native_sha256": "d01d2538cd0440ca66e6ad1d3fd7a03342943997e388271be5aba89e569d80cf",
+      "native_bytes": 52150,
+      "phase_record_sha256": [
+        "1e516abd52676e458de462ffa608857aa42c41dd81f2f34bfa6e3b743848cf6e",
+        "81e463aefd5f7971a7abdb4cdce64afb2fabffe814c752f2e80404cd63b5c76d",
+        "c19b06577829b4ec88424f47ebe7d5d9944bb8788da9725712db98af5e9153f4"
+      ],
+      "reused_authored_phase": false,
+      "passed": true
+    },
+    {
+      "name": "H-Mid-02",
+      "mode": "midplane",
+      "native_sha256": "b8c8644994a1cb6282fec1b06104f773b719351fb0281396fca44629dbc72e17",
+      "native_bytes": 66344,
+      "phase_record_sha256": [
+        "5af376bc3b3e03209728a29ff6472e1cd227e5cb6f4309b5b8bea3d0321eb28d",
+        "6f6761621a9936cdfa44419ce65d8fe3639938ff61e160cff6c043b6d0876788",
+        "bd9299f28ec743fa6faa3f5c8f816a5a156ff06d7a5b01524808a35faed3b52c"
+      ],
+      "reused_authored_phase": false,
+      "passed": true
+    },
+    {
+      "name": "H-Two-01",
+      "mode": "two",
+      "native_sha256": "77d75213410dba31864aac7c589bab56d7232aa634be8f061258e216cffcc4a9",
+      "native_bytes": 57629,
+      "phase_record_sha256": [
+        "a1b8a82bae1471ae6d2be28b92c823b319a183eb06052737f08f90574773d673",
+        "f2cdeacc61e7c322e30cb6e9c724dc84c7819ace7580bffe667df030690a106d",
+        "1cff4757aeaa11c124bb773aca56fd1543c6c3eec05fe18e91b5b802f42f22e9"
+      ],
+      "reused_authored_phase": false,
+      "passed": true
+    },
+    {
+      "name": "H-Two-02",
+      "mode": "two",
+      "native_sha256": "279a16aff0df0ba13beec8aecde15950e595a1c13e535b9b8c2a1fa4bed9194f",
+      "native_bytes": 73823,
+      "phase_record_sha256": [
+        "9138838aec07f33d494b381030a1e5719d96af8a703681ee511b57e1b8075bd5",
+        "58a8e666ab1131fff3c53e7efbefb8b84e31afe24b5724895da2114b58987a3f",
+        "6e8d70bd41578e507be69145eea598bfe12dc218638e944c30858ba755d4e828"
+      ],
+      "reused_authored_phase": false,
+      "passed": true
+    }
+  ],
+  "writer_output_count": 0,
+  "heldout_writer_acceptance": false,
+  "control-before": {
+    "sha256": "ab160d12ecf7df1c2cd84af6363ee79b6f2f6dfca7475f422e75bc261e085365",
+    "passed": true
+  },
+  "control-after": {
+    "sha256": "d440c10efc80e3ee49a206f65bba149a868d044e1e44cd29f23ab104f90a33bb",
+    "passed": true
+  },
+  "finished_at": 1795223513.9119456,
+  "distinct_processes": 14,
+  "direction_consistent": true,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "tools_unchanged": true,
+  "passed": true
+}
