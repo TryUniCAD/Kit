@@ -1,0 +1,46 @@
+from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+
+# each inline original dimension owner keeps its native words and ordered references
+KPatternOrigFields = (
+    NativeField("Scalar", "f00", "u8"),
+    NativeField("Node", "f08", "moDimHandle_c"),
+    NativeField("Scalar", "has_f10", "u8"),
+    NativeField(
+        "Branch",
+        "has_f10",
+        BodyValue=(NativeField("Text", "f10"),),
+        ModeValue="Nonzero",
+    ),
+    NativeField("Scalar", "f18", "u8"),
+    NativeField("Scalar", "f20", "f64"),
+    NativeField("Scalar", "fb4", "u8"),
+    NativeField("Scalar", "fb8", "f64"),
+    NativeField("Scalar", "fc0", "f64"),
+    NativeField("Scalar", "f260", "i32"),
+    NativeField("Scalar", "fc8", "i32"),
+    NativeField("Scalar", "fcc", "i32"),
+    NativeField("Scalar", "fd0", "i32"),
+    NativeField("Scalar", "fd4", "i32"),
+    NativeField("Scalar", "f1d8", "i32"),
+    NativeField("Scalar", "f1d0", "i32"),
+    NativeField("Scalar", "f1d4", "i32"),
+    NativeField("Scalar", "f218", "i32"),
+    NativeField("Scalar", "has_f228", "u8"),
+    NativeField(
+        "Branch",
+        "has_f228",
+        BodyValue=(NativeField("Fail", "linear pattern inline dimension increment"),),
+        ModeValue="Nonzero",
+    ),
+    NativeField(
+        "Array",
+        "f1e0",
+        "i32",
+        BodyValue=(NativeField("Node", "feat", "moCompFeature_c"),),
+        CountValue="n1e0",
+        ModeValue="Positive",
+    ),
+    NativeField("Scalar", "f1c0", "i32"),
+    NativeField("Embed", "f1b0", "rf.suObArray"),
+    NativeField("Scalar", "f25c", "i32"),
+)

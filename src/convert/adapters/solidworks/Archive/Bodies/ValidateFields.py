@@ -3,6 +3,7 @@ from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.CheckBaseCtx import CheckBaseCtx
 from convert.adapters.solidworks.Archive.Bodies.CheckExtShape import CheckExtShape
 from convert.adapters.solidworks.Archive.Bodies.CheckConfigMut import CheckConfigMut
+from convert.adapters.solidworks.Archive.Bodies.CheckPatDatum import CheckPatDatum
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
@@ -20,6 +21,9 @@ def ValidateFields(
         return
     if ProfileName == "OrdinaryConfigExternal":
         CheckConfigMut(ContextValue, ScopeValue, NodeValue)
+        return
+    if ProfileName == "OrdinaryPatternDatum":
+        CheckPatDatum(ScopeValue)
         return
     if ProfileName != "OrdinaryExternalFeature":
         raise BodyUnsupported(f"unsupported native field profile {ProfileName}")

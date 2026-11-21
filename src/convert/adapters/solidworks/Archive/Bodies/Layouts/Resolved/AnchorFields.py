@@ -1,5 +1,8 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.PatternDatumFields import (
+    KPatternDatumFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # external point owners must remain limited to the independently proved ordinary part archive context
@@ -102,22 +105,31 @@ KAnchorFields = MappingProxyType(
             NativeField("Embed", "f08", "mgPoint_c.restore"),
         ),
         "moRefWrapper_c": (
-            NativeField("Node", "f58", "moCompSketchEntHandle_c"),
             NativeField(
                 "Branch",
-                "",
-                BodyValue=(
+                "pattern_datum",
+                BodyValue=KPatternDatumFields,
+                OtherValue=(
+                    NativeField("Node", "f58", "moCompSketchEntHandle_c"),
                     NativeField(
-                        "Fail", "anchor wrapper requires its component sketch selection"
+                        "Branch",
+                        "",
+                        BodyValue=(
+                            NativeField(
+                                "Fail",
+                                "anchor wrapper requires its component sketch selection",
+                            ),
+                        ),
+                        ModeValue="Expression",
+                        ExpressionValue=(
+                            "compare",
+                            ("NotEq",),
+                            ("class_of", ("lookup", ("scope",), ("literal", "f58"))),
+                            ("literal", "moCompSketchEntHandle_c"),
+                        ),
                     ),
                 ),
-                ModeValue="Expression",
-                ExpressionValue=(
-                    "compare",
-                    ("NotEq",),
-                    ("class_of", ("lookup", ("scope",), ("literal", "f58"))),
-                    ("literal", "moCompSketchEntHandle_c"),
-                ),
+                ModeValue="Context",
             ),
             *KRefWrapperTailFields,
         ),

@@ -37,6 +37,12 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ImportFields im
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.MaterialFields import (
     KMaterialFields,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.PatternDimFields import (
+    KPatternDimFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.PatternLayouts import (
+    KPatternFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ProfileFields import (
     KProfileFields,
 )
@@ -65,6 +71,8 @@ KResolvedLayouts = MappingProxyType(
         **KGeometryFields,
         **KImportFields,
         **KMaterialFields,
+        **KPatternDimFields,
+        **KPatternFields,
         **KProfileFields,
         **KReferenceFields,
         **KRevolveFields,

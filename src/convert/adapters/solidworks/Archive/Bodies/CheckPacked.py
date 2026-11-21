@@ -26,6 +26,7 @@ def CheckPacked(
         or NodeValue.ClassValue.NameValue
         not in (
             "moDisplayAngularDim_c",
+            "moDisplayDim_c",
             "moDisplayDistanceDim_c",
             "moDisplayRadialDim_c",
         )

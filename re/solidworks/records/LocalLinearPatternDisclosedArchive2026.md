@@ -33,3 +33,5 @@ PATTERN_AUDIT="$(mktemp -d)/Receipt.json"
 python3.14 -I -B re/tooling/sw2026/linear_pattern/AuditLinearPatternArchive.py \
   --packet /absolute/path/to/LinearPatternSourcePacket03 --output "$PATTERN_AUDIT"
 ```
+
+The current internal SDK codec has since passed the six complete linked Config/Resolved comparisons with typed display cells. The revision-bound successor keeps this original source-intake result and records the remaining public projection and construction limits. [Typed archive progression](LocalLinearPatternTypedArchive2026.md)

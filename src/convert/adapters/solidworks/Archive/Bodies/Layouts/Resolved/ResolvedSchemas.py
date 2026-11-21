@@ -79,11 +79,15 @@ KResolvedSchemas = MappingProxyType(
     }
 )
 
-# part saves independently establish cut thin and inactive radius body schemas
+# part saves independently establish cut thin pattern and ordinary dimension schemas
 KPartResolvedSchemas = MappingProxyType(
     {
         **KResolvedSchemas,
         "ThreeDRadiusDim_c": (1,),
+        "moDisplayDim_c": (1,),
+        "moIntegerParameter_c": (1,),
+        "moLPattern_c": (1,),
+        "moNumberDim_c": (1,),
         "moRevCut_c": (1,),
         "moRevolutionThin_c": (1,),
         "moThinClosingSurfIdRep_c": (1,),
