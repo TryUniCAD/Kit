@@ -25,12 +25,8 @@ from convert.adapters.solidworks.Core.DrawingWriting.CanWriteBlankDrawing import
 from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import (
     EmitBlankMut,
 )
-from convert.adapters.solidworks.Core.Preparation.Imports.PlanImportPart import (
-    PlanImportPart,
-)
-from convert.adapters.solidworks.Core.Preparation.PlanNativePart import PlanNativePart
+from convert.adapters.solidworks.Core.Writing.CanWritePart import CanWritePart
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
-from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from convert.adapters.solidworks.Core.Writing.StockEndWriter import StockEndWriter
 from interchange.document.Models.DocumentModel import CadDocument
@@ -53,14 +49,7 @@ class SldprtWriter(StockEndWriter, PairProtocol):
             return CanWriteBlank(DocValue, Target)
         if DocValue.assembly is not None:
             return CanWriteNested(DocValue, Target) or CanWriteAsm(DocValue, Target)
-        try:
-            if DocValue.brep is not None:
-                _ = PlanImportPart(DocValue, Target)
-                return True
-            PlanValue = PlanNativePart(DocValue)
-        except (TypeError, ValueError):
-            return False
-        return IsPartTarget(PlanValue.NameValue, Target)
+        return CanWritePart(DocValue, Target)
 
     # the public structural writer protocol uses these keyword names across plugins and conversion
     def write(

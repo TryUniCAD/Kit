@@ -27,6 +27,13 @@ from convert.adapters.solidworks.Core.Preparation.Imports.PrepareImport import (
 )
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
+from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
+from convert.adapters.solidworks.Core.Preparation.Patterns.PatCandidate import (
+    PatCandidate,
+)
+from convert.adapters.solidworks.Core.Preparation.Patterns.PrepPatPart import (
+    PrepPatPart,
+)
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import (
     PlanPublicRevolve,
@@ -59,7 +66,9 @@ def PrepareNative(
     TargetValue: KTargetType,
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
-) -> PartCandidate | ImportCandidate | StockCandidate | RevolvePart:
+) -> PartCandidate | ImportCandidate | StockCandidate | RevolvePart | PatCandidate:
+    if IsPatPart(DocumentValue):
+        return PrepPatPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if PlanThinPart(DocumentValue) is not None:
         return PrepareRevolve(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if DocumentValue.brep is not None:

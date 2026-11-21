@@ -1,0 +1,7 @@
+# Write a bounded SOLIDWORKS oblique pattern
+
+The SOLIDWORKS part writer can prepare a portable millimetre document with two Front-plane rectangular blind bosses, a finite two-plane hinge, an attached angled datum and one signed linear pattern in the ordinary part transaction. The two to eight raised footprints must be interior to the plate, strictly separated and joined into one body. The model also supplies the active configuration and all feature, sketch and dimension owners. The shared compiler generates the ordinary 2026 file and the canonical annotation presentation.
+
+Use `write_document(document, path)` or `SldprtAdapter.write(document, path)` with the exact neutral basename followed by `.SLDPRT`. A binary destination supplies the ordinary `final_destination` value with the exact supported native locator. The optional `configuration` accepts the active configuration name or ID. The route refuses additional geometry, source payloads, unsupported presentation state, overlapping footprints and overhangs before publishing output.
+
+Two disclosed neutral controls matched the complete generated archives through both SDK entry points and both destination types. The guarded workers checked typed stock, angle and pattern owners and refused malformed or unsupported requests with the existing destination and stream intact. The [writer evidence](../../../../../re/solidworks/records/SdkPublicPatternWriting2026.md) records this scope, the strict reader boundary and the separate native qualification evidence.
