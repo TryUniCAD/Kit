@@ -43,6 +43,7 @@ def RequireDisplay(
             RuntimeClass("moRevolution_c", 1),
             RuntimeClass("moRevCut_c", 1),
             RuntimeClass("moRevolutionThin_c", 1),
+            RuntimeClass("moRefPlane_c", 1),
         )
         or FieldInt(OwnerValue.FieldsValue, "f2b0") != 19000
     ):
@@ -68,12 +69,24 @@ def RequireDisplay(
         or TextKind != ExpectedKind
         or IsAngular
         and OwnerValue.ClassValue.NameValue
-        not in ("moExtrusion_c", "moRevolution_c", "moRevCut_c", "moRevolutionThin_c")
-        or OwnerValue.ClassValue.NameValue in ("moRevolution_c", "moRevCut_c")
+        not in (
+            "moExtrusion_c",
+            "moRevolution_c",
+            "moRevCut_c",
+            "moRevolutionThin_c",
+            "moRefPlane_c",
+        )
+        or OwnerValue.ClassValue.NameValue
+        in ("moRevolution_c", "moRevCut_c", "moRefPlane_c")
         and not IsAngular
     ):
         raise ValueError(
             "display text kind disagrees with its verified native factory and dimension owner"
+        )
+    if OwnerValue.ClassValue.NameValue == "moRefPlane_c":
+        _ = RequireNode(
+            OwnerValue.FieldsValue.get("f6f8"),
+            "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
         )
     CheckViewArgs(DesignIntent, SelectedLeader)
     return OwnerValue

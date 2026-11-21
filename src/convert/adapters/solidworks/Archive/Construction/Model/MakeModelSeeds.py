@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Construction.Model.EmptyRootRows import (
     EmptyRootRows,
 )
+from convert.adapters.solidworks.Archive.Construction.Views.Annotations.AnnoViewInput import (
+    KNoAnno,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
@@ -29,8 +32,8 @@ def MakeModelSeeds() -> dict[str, object]:
         "fce8": 0x32,
         "fcec": 0x6C,
         "fd44": 10,
-        "feb0": 199,
-        "feb4": 199,
+        "feb0": KNoAnno,
+        "feb4": KNoAnno,
         "feb8": 0,
         "f760": "",
         "f768": "",

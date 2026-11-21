@@ -73,13 +73,15 @@ The neutral selected-stock writer accepts two independent coaxial annular stocks
 
 The default strict geometry read restores the exact count, spacing, seed feature and principal datum of the measured joined linear boss pattern. It joins the final body to the actual pattern and retains the saved boundary. [Saved linear pattern](../../Changes/Solidworks/Reading/Patterns/SolidworksLinearPatternRead.md)
 
-The internal linked part archive codec also retains the finite hinge, constrained angular plane and its driving display for the measured oblique linear pattern. It reproduces the generated and native-saved streams with their owner maps. The strict public geometry profile remains limited to the measured principal-datum saves. [Angular pattern archive](../../Changes/Solidworks/Archive/Patterns/SolidworksAngularPatternArchive.md)
+The internal linked part archive codec also retains the finite hinge, constrained angular plane and its driving display for the measured oblique linear pattern. It reproduces the generated and native-saved streams with their owner maps. [Angular pattern archive](../../Changes/Solidworks/Archive/Patterns/SolidworksAngularPatternArchive.md)
 
 The strict public reader also recovers the finite hinge supports and the actual angular driving parameter for the measured saved oblique pattern. The contained joined-boss cases retain the count, pitch, direction, dependencies and saved solid. [Saved angular pattern](../../Changes/Solidworks/Reading/Patterns/SolidworksAngularPatternRead.md)
 
 The strict reader reconstructs the same contained oblique pattern when its native body cache is physically absent. The computed closed shell retains the actual pitch, count and datum ownership. [Cache-free pattern reading](../../Changes/Solidworks/Reading/Patterns/SolidworksColdAngularPatternRead.md)
 
 The measured oblique pattern also exposes its finite hinge and supported angular plane as portable model definitions. Both principal supports, both finite endpoints, the actual live D1 and the derived coincidence offset survive neutral JSON round trips. [Portable pattern datums](../../Changes/Solidworks/Reading/Patterns/SolidworksPortableAngularPatternDatums.md)
+
+The internal part constructor generates the measured constrained angular plane and its model-owned annotation catalog from the registered hinge, angle and authored view definitions. Public pattern-writing admission remains open. [Shared angular construction](../../Changes/Solidworks/Construction/Patterns/SolidworksAngularPlaneComposer.md)
 
 The internal pocket composer builds a Front-plane rectangular blind boss followed by a reversed circular blind cut from neutral history. It preserves a free circle or the actual fixed-centre radius or diameter. Three disclosed designs pass 30 exact generated stream comparisons and 275 native open, edit, save and reopen checks. Held-out comparison and public admission remain open. [SDK blind pocket](../../Changes/Solidworks/Construction/SolidworksSdkBlindPocket.md)
 

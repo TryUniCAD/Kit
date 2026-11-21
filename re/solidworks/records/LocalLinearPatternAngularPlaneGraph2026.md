@@ -39,3 +39,13 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/ProvePatternAngularPlane.py \
   --disclosed-share /absolute/share/Oracle121Takeover \
   --output "$(mktemp -d)/AngularPlaneGraph.json"
 ```
+
+## Shared construction
+
+The shared archive constructor now owns the constrained plane, its live angle parameter, its view membership and its independently authored model annotation catalog. The ordered finite endpoints and real Right support determine the plane and display witnesses. The frame, transformed points and arc use the measured operation order. The angle, design-intent flag, shifted point and leader index are explicit inputs. The standalone part allocator computes the two actual persistent IDs in native registration order. Both headers and the active configuration retain the resulting identities and creation events.
+
+The annotation catalog starts at the ordinary reserved identity. Authored order and right-handed cardinal bases determine the view rows and transforms. The active and shown assignments are explicit. The angle resolves the actual Back view independently of model cameras. The shared builder accepts the measured unreversed arc and catalog scope.
+
+The annotation proof reproduces both authored outputs and six disclosed comparisons. The angular proof reproduces eight graphs and four disclosed prefix comparisons. The complete cache-free pattern proof reproduces the original, pitch-only and count-only files of both signed cases, including their six exact file hashes and twelve ordinary SDK reads. The earlier independent Windows acceptance applies to its frozen compiler closure. This change proves output parity on the disclosed files. Shared seed and pattern construction, public writer admission and broader geometries remain open. [Revision-bound receipt](../measurements/2026/SdkSharedAngularConstruction01.json)
+
+Run the angular proof above, the [annotation catalog proof](LocalLinearPatternAnnotationCatalog2026.md), and the [cache-free pattern proof](SdkColdObliquePatternRead2026.md) from this checkout. Compare the standalone records after excluding only the tool provenance section and compare the full cache-free pattern result against the cold section of the portable angular datum receipt.
