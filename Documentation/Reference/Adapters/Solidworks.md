@@ -55,6 +55,12 @@ The internal ordinary part Definition codec uses an independent object map.
 It reads saved presentation fields and constructs the stream from explicit part settings.
 [Part Definition scope and evidence](../../Changes/Solidworks/Archive/SolidworksOrdinaryPartDefinition.md)
 
+The saved part view reader projects the version-19000 document orientation
+and pan/zoom transforms from the complete Definition. It retains native
+coefficients and scalar values. Per-user window selection is a separate
+presentation owner.
+[Saved part view inspection](../../Changes/Solidworks/Inspection/Presentation/SolidworksSavedPartView.md)
+
 The standalone header codec uses independent maps for `Header2` and
 `Contents/Config-0-ModelHeader` in the ordinary version-19000 profile.
 Its typed records retain file references, revision logs and bounds for
