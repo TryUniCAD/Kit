@@ -86,7 +86,30 @@ python -I -B re/tooling/sw2026/materials/FreezeMaterialSource03.py freeze /path/
 
 The freezer checks all 13 old members by digest and copies only the declared input inventory into a newly created sibling `NativeSourcePacket03`. It replaces the author and facts tools from committed Git objects, writes the corrected observer declaration and updated tool hashes to Job, and invokes the new packet's non-native `verify` action. Neither the prior packet nor its result is opened for writing. The returned Job SHA-256 is the value for the root guest command's `--packet-sha256` when substituting `NativeSourcePacket03` in the historical arguments above. The final sibling manifest carries all input digests.
 
-The ten-process source lifecycle requires both designs, healthy controls, material/appearance discrimination, depth edit, persistence and immutable originals. The one-design diagnostic does not establish those results. There is no held-out lock or material writer qualification.
 ## Disclosed lifecycle result
 
-Both packet 03 cases complete all four source phases and both controls. The selected-body observer measures `2700` and `7858.000032` kg/m³ in the expected initial and swapped states. The density persists through native depth edits and both clean fresh reopens. The result records 904 numeric candidate checks across ten distinct processes. Its two disclosed originals are retained separately from the pre-first-writer private cohort. [Native result](../measurements/2026/AssignedMaterialSourceNative01.json) · [Binary density and material tree comparison](AssignedMaterialArchiveOwners2026.md)
+Packet 03 completed all four source phases for both designs and both controls. The selected-body observer measures `2700` and `7858.000032` kg/m³ in the expected initial and swapped states. Both depth edits, saves and fresh read-only reopens passed. Ten distinct SOLIDWORKS 2026 SP05.2 processes executed 904 numeric candidate checks. The terminal result SHA-256 is `cb044d2a615d819e8ac642f3eea4bf5f313b8b61c5bd70570e7e3c90895a26f1`. Its two disclosed originals are bound by SourceLock SHA-256 `c3df77f9b43fb272d16c92da59dc22486e6dd6c8c503c322dcd23fe20960ecba`. [Native result](../measurements/2026/AssignedMaterialSourceNative01.json) · [Binary density and material tree comparison](AssignedMaterialArchiveOwners2026.md)
+
+## Root-owned pre-writer material source lock
+
+The [sealed source launcher](../../tooling/sw2026/materials/SealAssignedMaterialSources.py) checks the exact packet 03 manifest and all 13 member hashes before trusting its terminal result and source lock. Check that the pinned launcher revision retains the pre-writer source tree `2d2f36df71ef1a9261369ee8fbbc07143a2bb138` and freeze the source lock before introducing material writer code. Wait for the disclosed trailing control and teardown before starting the private batch.
+
+The guest reserves a new folder directly on its fixed C drive. It copies the seven disclosed source tools, the control, and the two metadata files byte for byte. It samples both new designs inside the guest with system cryptographic randomness. Their neutral width, height, original depth and edited depth use bounded positive micrometre values distinct from the disclosed dimensions. The corner grows and the centered part shrinks, preserving the original fully constrained rectangle profiles and the opposing A/B assignments. The material catalog references and SI predictors remain exact. A private commitment binds the authored intent hashes, the unchanged tools and the new Job before launch.
+
+The same source author verifies and runs the local Job under `sealed_original`. The ten ordered phases require the pinned executable, distinct process identities, healthy controls, zero save/open diagnostics and the same 147, 118, 114 and 73 numeric checks per design. The launcher rehashes each phase record, source and derivative and verifies the original intent/file/record join. The raw result, private intent files, detailed observations, native CAD and logs remain in the local private folder. The exported receipt contains opaque slots, masked intent commitment, file and phase digests, check counts and aggregate verdicts.
+
+Run the non-native host preflight with the exact disclosed manifest.
+
+```sh
+python -I -B re/tooling/sw2026/materials/SealAssignedMaterialSources.py preflight /path/to/NativeSourcePacket03.json
+```
+
+It verified the 13 members and all 10 disclosed phases, exercised the receipt filter with synthetic opaque aliases, and refused one missing numeric check. Native process and private input counts were zero.
+
+Root runs the frozen launcher with the verified guest Python after the host preflight. The receipt destination is a new file outside the private C folder.
+
+```powershell
+py.exe -3.12 -I -B <launcher> seal <NativeSourcePacket03.json> --revision <committed-launcher-revision> --tool-sha256 <launcher-sha256> --private-root 'C:\KitSealedMaterialSource01' --receipt <new-public-receipt>
+```
+
+Keep private values and source files sealed through writer and comparator freeze. This prospective source lock will supply original controls for the material writer evaluation. Held-out comparison and public writer acceptance require later evidence.
