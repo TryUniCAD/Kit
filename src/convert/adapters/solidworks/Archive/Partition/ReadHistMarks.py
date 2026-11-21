@@ -16,7 +16,9 @@ def ReadHistMarks(
     DataValue: bytes, NodesValue: Mapping[int, XmtNode]
 ) -> tuple[int, int]:
     ReadDelta = PartialValue(ReadRollbackMut, NodesValue=NodesValue)
-    RootValue, MarksValue, DeletedSets = ReadHistFrames(DataValue, NodesValue, ReadDelta)
+    RootValue, MarksValue, DeletedSets = ReadHistFrames(
+        DataValue, NodesValue, ReadDelta
+    )
     CheckXmtMarks(NodesValue, RootValue, MarksValue, DeletedSets)
     Current = MarksValue[RootValue.Integer("current_pmark")]
     PriorMark = MarksValue.get(Current.Integer("preceding"))
