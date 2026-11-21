@@ -78,7 +78,19 @@ The named skip getter returns `moPattern_c.f820`; `moPatternParam_c.f248` is unr
 
 The separately frozen source packet uses two disclosed X/Y cases and two guest-private independent cases, each with spacing-only and count-only derivative branches and fresh reopen. Both brackets, all scalar/geometry checks, actual references, source hashes, native identities and 14 unique native processes are required per cohort. The hidden source lock must precede any writer recipe. Installed metadata fixes `ILinearPatternFeatureData`, `swFmLPattern=6` and the Automation property types.
 
-The [first setup observation](../measurements/2026/LocalLinearPatternSourceSetup01.json) failed at the optional null `D2Axis` setter before pattern creation or a native source save. Both controls passed; the three native processes exited cleanly; no hidden authoring ran. That is an author/Automation failure, not a format crash. Packet02 removes only the unnecessary null-direction and empty-skip setters, records and requires the actual fresh unused state, and preserves every post-creation direction/edit/reference/geometry gate. Its execution is pending; the first attempt supplies no source-family or writer acceptance.
+The [first setup observation](../measurements/2026/LocalLinearPatternSourceSetup01.json) failed at the optional null `D2Axis` setter before pattern creation or a native source save. Both controls passed and all three native processes exited cleanly. Packet02 removes the unnecessary null-direction and empty-skip setters, records and requires the actual fresh unused state, and preserves every post-creation direction, edit, reference and geometry check.
+
+Packet02 passes installed 34.0 type-library verification. It sets and
+reads every active scalar and records a clean inactive second direction,
+then the explicit `D1Axis` and `PatternFeatureArray` route reaches
+`CreateFeature` and returns null. Both controls pass across three native
+processes with no source save. Packet03 uses the documented alternate
+creation path. It marks the actual seed feature as 4 and the actual
+direction plane as 1 before creating the definition. It verifies both
+selected persistent references and retains the same model, scalar
+inputs and post-creation criteria.
+[Packet02 result](../measurements/2026/LocalLinearPatternCreateDefinition02.json) ·
+[2026 SOLIDWORKS pattern creation example](https://help.solidworks.com/2026/english/api/sldworksapi/Create_Bidir_Linear_Pattern_Example_CSharp.htm)
 
 After that lock, inspect only the disclosed native sources first. Establish actual class reachability, seed/direction/skip identities, complete whole-stream raw replay and aliases; reconcile every input with the static owners above. The immediate generative gaps are actual direction/reference construction, count/display subclasses and allocation/style owners, inherited fresh pattern state, store-computed parameter geometry, map/frame provenance, runtime load/store repairs, nested subclass closure and independent native output acceptance. None is filled from a saved row. No schema promotion, constructor implementation or public writer admission is part of this tranche.
 

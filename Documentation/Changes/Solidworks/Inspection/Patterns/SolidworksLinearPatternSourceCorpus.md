@@ -8,4 +8,9 @@ The root oracle owner runs `PrepareSourceJobs.py` with the published source revi
 
 Static original-PE analysis binds the actual current serializers, vtables, field order, live count/spacing owners, ordinary/DB distinction and current-version varying-instance gate. The record retains unknown constructor, direction/map, field-domain and runtime-fixup rules instead of adding captured defaults.
 
-Verification is bounded. Installed metadata acquisition launched no CAD application. The worker performed AST/source/hash checks and static PE/LLVM inspection, with no local product/schema/codec or test execution. The first root-owned disclosed attempt failed before feature creation at the optional null `D2Axis` setter, with both controls healthy and no hidden source started. The [setup receipt](../../../../../re/solidworks/measurements/2026/LocalLinearPatternSourceSetup01.json) preserves that result. The next packet reads and validates unused optional state instead of assigning it. Its native execution and complete source acquisition remain pending. No native or held-out writer acceptance is claimed.
+Verification is bounded. Installed metadata acquisition launched no CAD application. The worker performed AST, source, hash and static PE checks. The first disclosed attempt failed before feature creation at the optional null `D2Axis` setter, with both controls healthy. The [setup receipt](../../../../../re/solidworks/measurements/2026/LocalLinearPatternSourceSetup01.json) preserves that result. The next packet reads and validates unused optional state instead of assigning it.
+
+The explicit definition route then reached feature creation with both
+controls healthy and returned an empty feature. The retry binds the two
+documented selection marks and checks the actual selected entities before
+creating the definition. [Completed Packet02 receipt](../../../../../re/solidworks/measurements/2026/LocalLinearPatternCreateDefinition02.json)

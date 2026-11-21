@@ -17,9 +17,6 @@ class LinearPatternAuthor(BlindCutAuthor):
     def array(self, values, kind):
         return Swapp.VARIANT(Swapp.pythoncom.VT_ARRAY | kind, tuple(values))
 
-    def assign(self, obj, name, value, description):
-        self.rec.call("set " + name, setattr, obj, name, value, parameters=description)
-
     def persistent(self, obj, role):
         extension = self.get(self.model, "Extension")
         value = self.get(extension, "GetPersistReference3", obj)
@@ -47,17 +44,35 @@ class LinearPatternAuthor(BlindCutAuthor):
         plane = self.typed(self.get(feature, "GetSpecificFeature2"), "RefPlane")
         return feature, plane
 
+    def select_pattern_inputs(self, case, seed):
+        self.get(self.model, "ClearSelection2", True)
+        plane_feature, plane = self.direction_plane(case)
+        extension = self.get(self.model, "Extension")
+        require(self.get(seed, "Select2", False, 4), "native seed could not be marked for the pattern")
+        require(self.get(extension, "SelectByID2", case["axis_plane"], "PLANE", 0.0, 0.0, 0.0,
+                         True, 1, Swapp.nothing(), 0), "native direction plane could not be marked")
+        selection = self.get(self.model, "SelectionManager")
+        counts = {str(mark): int(self.get(selection, "GetSelectedObjectCount2", mark)) for mark in (-1, 1, 4)}
+        require(counts == {"-1": 2, "1": 1, "4": 1}, "native pattern needs exactly one marked seed and direction")
+        seed_reference = self.persistent(self.get(selection, "GetSelectedObject6", 1, 4), "marked seed feature")
+        direction_reference = self.persistent(self.get(selection, "GetSelectedObject6", 1, 1), "marked direction plane")
+        require(seed_reference["hex"] == self.persistent(seed, "actual seed feature")["hex"],
+                "pattern preselection chooses another seed")
+        require(direction_reference["hex"] in (self.persistent(plane, "actual direction plane")["hex"],
+                                               self.persistent(plane_feature, "direction feature")["hex"]),
+                "pattern preselection chooses another direction")
+        self.rec.data["marked_pattern_inputs"] = {"counts": counts, "seed": seed_reference,
+                                                 "direction": direction_reference}
+        self.rec.flush()
+
     def build(self, case, session):
         validate(case)
         self.model = self.rec.call("new part", session.new_part)
         self.make_boss(case, False)
         seed = self.make_boss(case, True)
-        self.get(self.model, "ClearSelection2", True)
-        _, plane = self.direction_plane(case)
+        self.select_pattern_inputs(case, seed)
         manager = self.get(self.model, "FeatureManager")
         definition = self.typed(self.get(manager, "CreateDefinition", 6), "LinearPatternFeatureData")
-        self.assign(definition, "D1Axis", plane, {"actual_principal_plane": case["axis_plane"], "binding": "IRefPlane from this document"})
-        self.assign(definition, "PatternFeatureArray", self.array((seed,), Swapp.pythoncom.VT_DISPATCH), {"actual_seed_feature": SEED, "array_element_type": "VT_DISPATCH"})
         self.set(definition, "BodyPattern", False)
         self.set(definition, "GeometryPattern", False)
         self.set(definition, "VarySketch", False)
