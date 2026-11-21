@@ -116,6 +116,13 @@ thresholds are removed. The stable acceptance gate depends explicitly on every h
 requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. CI policy and pytest compatibility process checks run on the candidate.
 Queue-only type, steering, and research CLI jobs also gate the aggregate.
+The Windows research CLI compatibility job partitions its existing collected roster
+across four Windows runners. Its stable report requires every shard and verifies
+that each collected case has exactly one outcome. Shard artifacts include the
+run attempt, roster, selected node IDs, report log, and slowest case durations.
+The macOS platform roster also runs across four runners from the same shared plan.
+Its stable report checks complete combined outcomes and an actual native macOS pass.
+See [platform sharding and queue timings](Documentation/Changes/Ci/Testing/WindowsResearchCliShards.md).
 PR-only checks have explicit deferred contexts on the candidate.
 
 The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedTestSuite.md).

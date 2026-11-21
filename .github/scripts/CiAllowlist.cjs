@@ -9,6 +9,10 @@ const QueueJobs = [
   "Test suite / Report",
   "Test suite / Platform (windows-2025)",
   "Test suite / Platform (macos-26)",
+  "Test suite / Platform (macos-26) / shard-1",
+  "Test suite / Platform (macos-26) / shard-2",
+  "Test suite / Platform (macos-26) / shard-3",
+  "Test suite / Platform (macos-26) / shard-4",
   "Linux kernel OOM witness",
   "Analyze actions",
   "Analyze python",
@@ -61,6 +65,10 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
       const OtherPhaseOnly = Deferred[File].filter(
         (Job) => !Required[File].includes(Job),
       );
+      if (IsPull && File === "WorkflowQuality.yml")
+        OtherPhaseOnly.push(
+          "Research CLI Windows compatibility / ${{ matrix.group }}",
+        );
       return [
         WorkflowRoot + File,
         {
@@ -89,6 +97,7 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
     "CAD feature decoding session",
     "Analyze ${{ matrix.language }}",
     "Test suite / Shard (${{ matrix.shard }})",
+    "Test suite / Platform (macos-26) / ${{ matrix.group }}",
   ];
   Workflows.set(QueuePath, {
     event: Event,
