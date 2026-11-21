@@ -8,6 +8,13 @@ Each pair uses fresh processes and the original source path. The guard permits r
 
 The shared `NativeObject` record lives in the archive nodes module. The previous `Native.NativeObject` name resolves to the same class. The Pad extractors import that record directly, removing the type-only back edge to the native decoder identified by the first queue analysis. [Exact queue diagnostic](https://github.com/TryUniCAD/Kit/actions/runs/44868681148/job/136738067441) · [Type-only decoder imports](../../../Documentation/Gotchas/Tooling/TypeOnlyDecoderCycles.md)
 
+Stored interchange snapshots retain their recorded parameter graph. Native
+replay verifies that graph against its historical digest. The normal SDK
+writer restores all three marked and all three unmarked carriers to their
+original FCStd bytes. A strict native read of each emitted archive binds
+the source width ID, with its original formula and millimetre quantities.
+Updating a stored interchange snapshot requires a separate migration.
+
 The bounded rule requires a whole same-sketch profile, a unique active named driving length dimension and corroborated saved quantities. The reader indexes named dimensions once per referenced sketch, including when multiple Pads refer to its constraints. The separately authored queue process cases vary the internal name and divisor, compare a display label, and cover stale length, duplicate aliases, inactive and reference-only dimensions, and subelement links. The C130 in-memory stale-formula contrast gives the same strict-read diagnostic, formula text and saved value on both revisions. The normal strict SOLIDWORKS write leaves the destination untouched.
 
 Run the method from a checkout containing the baseline Git object and this reader. Supply the custody-preserving existing disclosed census root and a new output path.

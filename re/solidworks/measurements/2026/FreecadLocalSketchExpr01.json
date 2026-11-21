@@ -27,7 +27,12 @@
           },
           "edited_model_declined_exact_replay": true,
           "exact_restore_sha256": "215d76c07e95dd13f791b404eeacd6f625a0bbefa603e3653b007a73a853184c",
-          "old_explicit_suppression_marker": true
+          "old_explicit_suppression_marker": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
         },
         "normalized_whole_document_sha256": "ec56d3326392e8c1ecf823c03a00991131877b536e15a3a4e7563f3a1d792e9f",
         "provided_source_reads": 1,
@@ -40,7 +45,12 @@
           "exact_restore_sha256": "215d76c07e95dd13f791b404eeacd6f625a0bbefa603e3653b007a73a853184c",
           "independent_archive_parses": 2,
           "migrated_active_explicit_sketch": true,
-          "migrated_digest_matches": true
+          "migrated_digest_matches": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
         },
         "unsupported_reference_diagnostics": 0
       }
@@ -71,7 +81,12 @@
           },
           "edited_model_declined_exact_replay": true,
           "exact_restore_sha256": "c965847aa2a1ba6c1bacc43ae0c911db1610e57497ab5ca19fea5e6aed33ada4",
-          "old_explicit_suppression_marker": true
+          "old_explicit_suppression_marker": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
         },
         "normalized_whole_document_sha256": "e8d695e39031d7e57bfd7f567229bb29d24fc71cb810081169c4dc9655320855",
         "provided_source_reads": 1,
@@ -84,7 +99,12 @@
           "exact_restore_sha256": "c965847aa2a1ba6c1bacc43ae0c911db1610e57497ab5ca19fea5e6aed33ada4",
           "independent_archive_parses": 2,
           "migrated_active_explicit_sketch": true,
-          "migrated_digest_matches": true
+          "migrated_digest_matches": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
         },
         "unsupported_reference_diagnostics": 0
       }
@@ -129,7 +149,12 @@
           },
           "edited_model_declined_exact_replay": true,
           "exact_restore_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
-          "old_explicit_suppression_marker": true
+          "old_explicit_suppression_marker": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
         },
         "normalized_whole_document_sha256": "7c92b0703e8b95193ebe054d77c6bcb848a4670ee2f322c8b7150b9c8dfa7690",
         "provided_source_reads": 1,
@@ -142,16 +167,22 @@
           "exact_restore_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
           "independent_archive_parses": 2,
           "migrated_active_explicit_sketch": true,
-          "migrated_digest_matches": true
+          "migrated_digest_matches": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
         },
         "unsupported_reference_diagnostics": 0
       }
     }
   },
   "edited_carriers_declined_exact_replay": 3,
+  "faithful_native_restorations_strictly_reopened_with_bound_width": 6,
   "fresh_processes": 6,
   "inventory_sha256": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f",
-  "method_sha256": "385edf8ae1c650d3c75ab31aa03d6080d62cb1b350b7a7ee4b6e3fbe17bfee0b",
+  "method_sha256": "d49110f191bbc38df3eb915f680b552fee7db5414c6361e3c7a9896cd3d18989",
   "native_processes": 0,
   "native_products": 0,
   "pre_binding_archives_restored_exactly_in_memory": 3,

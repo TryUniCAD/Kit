@@ -121,6 +121,20 @@ def reuse_prior_read(doc, pin):
     return {"reused_independently_verified_projection": True, "additional_archive_parses": count}
 
 
+def reopen_restored(native_bytes, pin):
+    from convert import open_document
+
+    assert digest(native_bytes) == pin
+    reopened = open_document(native_bytes, source_format="freecad.fcstd", strict=True)
+    length, = (p for p in reopened.parameters if p.id == LENGTH)
+    width, = (p for p in reopened.parameters if p.id == WIDTH)
+    assert length.expression is not None and length.expression.source == EXPR
+    assert length.expression.parameter_ids == (width.id,)
+    assert length.value.value == 20.0 and width.value.value == 40.0
+    assert length.value.unit == width.value.unit == "mm"
+    return {"width_parameter": width.id, "expression": EXPR, "saved_depth_mm": length.value.value}
+
+
 def restore_baseline(carrier, pin):
     from convert import write_document
     from convert.adapters.freecad.Replay.NativeIdentity import KExplicitSketchProfile, KReplaySketchAttr
@@ -140,6 +154,7 @@ def restore_baseline(carrier, pin):
     assert PrepareReplay(changed, Migrate=False)[1] is None
     return {"old_explicit_suppression_marker": True, "exact_restore_sha256": pin,
             "edited_model_declined_exact_replay": True,
+            "strict_public_reopen": reopen_restored(target.getvalue(), pin),
             "cached_replay": reuse_prior_read(original, pin)}
 
 
@@ -196,6 +211,7 @@ def seed_unmarked(raw, source):
 
 
 def restore_unmarked(carrier, pin):
+    from convert import write_document
     from convert.adapters.freecad.Native import ReadNativeFcstd
     from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
     from convert.adapters.freecad.Replay.NativeIdentity import KExplicitSketchProfile, KReplaySemanticAttr, KReplaySketchAttr
@@ -228,8 +244,12 @@ def restore_unmarked(carrier, pin):
     assert pair[0].attributes[KReplaySemanticAttr] == SemanticDigest(migrated)
     length, = (p for p in migrated.parameters if p.id == LENGTH)
     assert length.expression is not None and not length.expression.parameter_ids
+    target = BytesIO()
+    outcome = write_document(old, target, destination_format="freecad.fcstd")
+    assert outcome.metadata["mode"] == "exact_native_roundtrip" and target.getvalue() == replay
     return {"independent_archive_parses": reads, "exact_restore_sha256": pin,
             "migrated_active_explicit_sketch": True,
+            "strict_public_reopen": reopen_restored(target.getvalue(), pin),
             "migrated_digest_matches": True}
 
 
@@ -339,6 +359,7 @@ def measure(census):
         "pre_binding_archives_restored_exactly_in_memory": 3,
         "edited_carriers_declined_exact_replay": 3,
         "unmarked_carriers_migrated_with_two_parses": 3,
+        "faithful_native_restorations_strictly_reopened_with_bound_width": 6,
         "verified_pre_binding_cache_reused_without_archive_parse": 3,
         "native_products": 0,
         "native_processes": 0,
