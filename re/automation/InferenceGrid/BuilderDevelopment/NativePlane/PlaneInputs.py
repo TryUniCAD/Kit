@@ -70,16 +70,33 @@ def PlaneSourcePins(SourceRoot):
     Directory = Path(__file__).resolve().parent
     from hashlib import sha256
 
-    Sources = list(Directory.iterdir()) + [
-        SourceRoot / Relative
-        for Relative in (
-            "re/automation/WindowsProcess.py",
-            "re/automation/WindowsApi.py",
-            "re/automation/WindowsJobMembers.py",
-            "re/automation/ApplicationWorkers/WindowsIdentity.py",
+    Tracked = (
+        git(
+            SourceRoot,
+            "ls-tree",
+            "-r",
+            "--name-only",
+            Revision,
+            "--",
+            Directory.relative_to(SourceRoot).as_posix(),
         )
-    ]
-    for Source in sorted(Sources):
+        .decode("utf-8")
+        .splitlines()
+    )
+    Sources = (
+        list(Directory.iterdir())
+        + [SourceRoot / Relative for Relative in Tracked]
+        + [
+            SourceRoot / Relative
+            for Relative in (
+                "re/automation/WindowsProcess.py",
+                "re/automation/WindowsApi.py",
+                "re/automation/WindowsJobMembers.py",
+                "re/automation/ApplicationWorkers/WindowsIdentity.py",
+            )
+        ]
+    )
+    for Source in sorted(set(Sources)):
         if Source.suffix not in {".py", ".cs", ".ps1"}:
             continue
         Relative = Source.relative_to(SourceRoot).as_posix()
