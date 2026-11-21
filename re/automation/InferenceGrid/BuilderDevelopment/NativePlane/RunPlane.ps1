@@ -13,7 +13,7 @@ param(
     [Parameter(Mandatory)] [string]$InteropAssembly,
     [Parameter(Mandatory)] [string]$ExecutablePath,
     [Parameter(Mandatory)] [ValidatePattern('^[0-9a-f]{64}$')] [string]$CandidateSha256,
-    [Parameter(Mandatory)] [ValidateSet('first', 'second')] [string]$Phase,
+    [Parameter(Mandatory)] [ValidateSet('first', 'second', 'third')] [string]$Phase,
     [switch]$CompileOnly
 )
 

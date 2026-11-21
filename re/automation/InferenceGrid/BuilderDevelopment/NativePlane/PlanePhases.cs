@@ -63,7 +63,7 @@ public sealed partial class SolidWorksCapture
         try {
             var Observations=Row("baseline",MeasurePlane(Document,"as built"));
             var Saved=Save(Document,Path.Combine(DirectoryName,"A.SLDPRT"),false);
-            Saved["role"]="baseline-a"; Saved["offset_mm"]=Case["offset_mm"];
+            Saved["role"]="baseline-a"; Saved["offset_mm"]=Case["offset_mm"]; Saved["writer_process_id"]=app.GetProcessID();
             Write(Path.Combine(DirectoryName,"first.json"),Row("observations",Observations,"first_save",Saved,"authoring_process_id",app.GetProcessID()));
         } finally { Close(Document); }
     }
@@ -91,29 +91,44 @@ public sealed partial class SolidWorksCapture
                 Check(EditStatus==0,"Native dimension edit failed"); Rebuild(Document);
                 Observed["edited"]=MeasurePlane(Document,"edited");
                 var Edited=Save(Document,Path.Combine(DirectoryName,"E.SLDPRT"),true);
-                Edited["role"]="edited"; Edited["offset_mm"]=Case["edit_mm"]; Saves.Add(Edited);
+                Edited["role"]="edited"; Edited["offset_mm"]=Case["edit_mm"]; Edited["writer_process_id"]=app.GetProcessID(); Saves.Add(Edited);
                 Check(Dimension.SetSystemValue3(Initial,1,null)==0,"Native dimension restore failed"); Rebuild(Document);
                 Observed["restored"]=MeasurePlane(Document,"restored");
                 var Restored=Save(Document,Path.Combine(DirectoryName,"B.SLDPRT"),true);
-                Restored["role"]="baseline-b"; Restored["offset_mm"]=Case["offset_mm"]; Saves.Add(Restored);
+                Restored["role"]="baseline-b"; Restored["offset_mm"]=Case["offset_mm"]; Restored["writer_process_id"]=app.GetProcessID(); Saves.Add(Restored);
             } else Observed["edit_error"]="Candidate has no unique native driving offset dimension";
         } finally { Close(Document); }
+        Write(Path.Combine(DirectoryName,"measurements.json"),Row("id",Case["id"],"requested",Row("offset_mm",Case["offset_mm"],"edit_mm",Case["edit_mm"]),
+            "observations",Observed,"saves",Saves,"authoring_process_id",First["authoring_process_id"],"reopen_process_id",app.GetProcessID(),
+            "application_build",app.RevisionNumber(),"executable_file_version",System.Diagnostics.Process.GetProcessById(app.GetProcessID()).MainModule.FileVersionInfo.FileVersion));
+    }
+
+    void PlaneThird(Dictionary<string,object> Case)
+    {
+        string DirectoryName=Path.Combine(output,"C"+TextValue(Case,"id"));
+        string Measurements=Path.Combine(DirectoryName,"measurements.json");
+        var Report=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(Measurements));
+        Check(Convert.ToInt32(Report["authoring_process_id"])!=app.GetProcessID()
+            && Convert.ToInt32(Report["reopen_process_id"])!=app.GetProcessID(),"Archive reopen requires a third fresh process");
         var Reopened=new Dictionary<string,object>();
-        foreach(var Saved in Saves) {
+        foreach(var Saved in Array(Report["saves"]).Cast<Dictionary<string,object>>()) {
+            Check(Convert.ToInt32(Saved["writer_process_id"])!=app.GetProcessID(),"Saved archive writer cannot verify its own reopen");
             string FileName=TextValue(Saved,"file"), SavedPath=Path.Combine(DirectoryName,FileName);
-            Document=Open(SavedPath,out Status);
+            Check(Hash(SavedPath)==TextValue(Saved,"sha256"),"Saved archive changed before independent reopen");
+            object Status;
+            var Document=Open(SavedPath,out Status);
             try {
                 Rebuild(Document);
                 var Reading=MeasurePlane(Document,"reopened and rebuilt");
                 Reading["open_status"]=Status; Reading["role"]=Saved["role"]; Reading["requested_offset_mm"]=Saved["offset_mm"];
+                Reading["process_id"]=app.GetProcessID(); Reading["writer_process_id"]=Saved["writer_process_id"];
                 Reopened[FileName]=Reading;
             } finally { Close(Document); }
             Check(Hash(SavedPath)==TextValue(Saved,"sha256"),"Candidate saved bytes changed after reopen");
         }
-        Observed["reopened_files"]=Reopened;
-        Write(Path.Combine(DirectoryName,"measurements.json"),Row("id",Case["id"],"requested",Row("offset_mm",Case["offset_mm"],"edit_mm",Case["edit_mm"]),
-            "observations",Observed,"saves",Saves,"authoring_process_id",First["authoring_process_id"],"reopen_process_id",app.GetProcessID(),
-            "application_build",app.RevisionNumber(),"executable_file_version",System.Diagnostics.Process.GetProcessById(app.GetProcessID()).MainModule.FileVersionInfo.FileVersion));
+        MapValue(Report["observations"])["reopened_files"]=Reopened;
+        Report["archive_reopen_process_id"]=app.GetProcessID();
+        Write(Measurements,Report);
     }
 
     public static void RunPlane(object Application,string Repository,string Output,string Manifest,string Phase)
@@ -125,7 +140,8 @@ public sealed partial class SolidWorksCapture
         var Before=Capture.Control("before");
         foreach(var Case in Array(Root["cases"]).Cast<Dictionary<string,object>>()) {
             if(Phase=="first") Capture.PlaneFirst(MapValue(Root["program"]),Case);
-            else { Check(Phase=="second","Invalid candidate phase"); Capture.PlaneSecond(Case); }
+            else if(Phase=="second") Capture.PlaneSecond(Case);
+            else { Check(Phase=="third","Invalid candidate phase"); Capture.PlaneThird(Case); }
             Check(Capture.app.GetDocumentCount()==0 && Hash(Manifest)==Pin,"Candidate phase changed ownership or input");
             GC.Collect(); GC.WaitForPendingFinalizers(); GC.Collect(); GC.WaitForPendingFinalizers();
         }

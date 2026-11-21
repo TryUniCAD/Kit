@@ -118,7 +118,7 @@ def RunPlaneCases(Program, Cases, Output, Host):
     Source = Output / "CandidateProgram.cs"
     Source.write_text(PlaneSource(Program), encoding="utf-8")
     CandidateSourcePin = sha256(Source.read_bytes()).hexdigest()
-    for Phase in ("first", "second"):
+    for Phase in ("first", "second", "third"):
         RunPlanePhase(Manifest, Output, Host, Phase, CandidateSourcePin)
         if sha256(Manifest.read_bytes()).hexdigest() != ManifestPin:
             raise ValueError("native candidate manifest changed during execution")
@@ -152,7 +152,7 @@ def RunPlaneCases(Program, Cases, Output, Host):
             )
     Controls = {
         Phase: loads((Output / (Phase + "-controls.json")).read_text(encoding="utf-8"))
-        for Phase in ("first", "second")
+        for Phase in ("first", "second", "third")
     }
     Phases = {
         Phase: {
@@ -161,7 +161,7 @@ def RunPlaneCases(Program, Cases, Output, Host):
             )
             for Name in ("owner", "native")
         }
-        for Phase in ("first", "second")
+        for Phase in ("first", "second", "third")
     }
     return {
         "schema_version": 1,
