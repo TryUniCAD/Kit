@@ -412,6 +412,8 @@ jobs:
           path: ${{ runner.temp }}/ShardPlan
 
       - name: Select required platform cases from the shared collected roster
+        env:
+          AuditEvent: ${{ github.event_name }}
         run: |
           set -euo pipefail
           mkdir -p "${RUNNER_TEMP}/PlatformReport"
@@ -421,7 +423,21 @@ jobs:
           : > "$Selected"
           while IFS= read -r Pattern; do
             test -n "$Pattern"
-            grep -E "$Pattern" "$Roster" >> "$Selected"
+            if grep -E "$Pattern" "$Roster" >> "$Selected"; then
+              continue
+            else
+              test "$?" -eq 1
+            fi
+            case "$Pattern" in
+              '^tests/Research/Inference/Authoring/Recipes/') AuditSuite=tests/Research/Inference/Authoring/Recipes ;;
+              '^tests/Research/Inference/BuilderDevelopment/') AuditSuite=tests/Research/Inference/BuilderDevelopment ;;
+              *) exit 1 ;;
+            esac
+            test "$AuditEvent" = workflow_dispatch
+            if git cat-file -e "${AuditSha}:${AuditSuite}" 2>/dev/null; then
+              echo "::error::Required suite $AuditSuite has no collected cases" >&2
+              exit 1
+            fi
           done <<< "$SelectionPatterns"
           sort -u "$Selected" > "${Selected}.sorted"
           mv "${Selected}.sorted" "$Selected"
