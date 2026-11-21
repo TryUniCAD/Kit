@@ -1,0 +1,282 @@
+{
+  "cases": {
+    "Slot01": {
+      "exact_streams": 10,
+      "fresh_locator_public_routes": 4,
+      "fresh_locator_sha256": "9cd4d623e8681e32d2ecf5c6f2032e821a0c6381f408dc5a492145ab9d8a2597",
+      "native_capabilities": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "original_locator_sha256": "993ae93811ce899fdf0e8d9840b4de067d39f4cbdbc19acf72bcb00bf2f41948",
+      "original_locator_stream_routes": 2,
+      "runtime_input_file_reads": 0,
+      "strict_readback": {
+        "fresh": {
+          "checks": {
+            "analytic_brep": {
+              "actual_body_creator": true,
+              "analytic_body": true,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            },
+            "model_only": {
+              "actual_body_creator": true,
+              "analytic_body": false,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            }
+          },
+          "package_layout_reads": 1,
+          "unexpected_runtime_reads": 0
+        },
+        "original": {
+          "checks": {
+            "analytic_brep": {
+              "actual_body_creator": true,
+              "analytic_body": true,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            },
+            "model_only": {
+              "actual_body_creator": true,
+              "analytic_body": false,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            }
+          },
+          "package_layout_reads": 1,
+          "unexpected_runtime_reads": 0
+        }
+      }
+    },
+    "Slot02": {
+      "exact_streams": 10,
+      "fresh_locator_public_routes": 4,
+      "fresh_locator_sha256": "51ca2519704dd7415a9601db2b8340b080c39301437aa9339150a7ec0d3a1c71",
+      "native_capabilities": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "original_locator_sha256": "faec0cb26795f11a030c8525ba69cc702f79b00b44cafa8ecce673135b2f0fee",
+      "original_locator_stream_routes": 2,
+      "runtime_input_file_reads": 0,
+      "strict_readback": {
+        "fresh": {
+          "checks": {
+            "analytic_brep": {
+              "actual_body_creator": true,
+              "analytic_body": true,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            },
+            "model_only": {
+              "actual_body_creator": true,
+              "analytic_body": false,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            }
+          },
+          "package_layout_reads": 1,
+          "unexpected_runtime_reads": 0
+        },
+        "original": {
+          "checks": {
+            "analytic_brep": {
+              "actual_body_creator": true,
+              "analytic_body": true,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            },
+            "model_only": {
+              "actual_body_creator": true,
+              "analytic_body": false,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            }
+          },
+          "package_layout_reads": 1,
+          "unexpected_runtime_reads": 0
+        }
+      }
+    },
+    "Slot03": {
+      "exact_streams": 10,
+      "fresh_locator_public_routes": 4,
+      "fresh_locator_sha256": "f27b592a9eb20cfb067bb6b5ab848ac3f5781de596f7d8eed40e4687acb1403a",
+      "native_capabilities": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "original_locator_sha256": "7f8600c422771cfc07ea545b0418edbe910d7e1ac202db86ccf1ea29417e4ae4",
+      "original_locator_stream_routes": 2,
+      "runtime_input_file_reads": 0,
+      "strict_readback": {
+        "fresh": {
+          "checks": {
+            "analytic_brep": {
+              "actual_body_creator": true,
+              "analytic_body": true,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            },
+            "model_only": {
+              "actual_body_creator": true,
+              "analytic_body": false,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            }
+          },
+          "package_layout_reads": 1,
+          "unexpected_runtime_reads": 0
+        },
+        "original": {
+          "checks": {
+            "analytic_brep": {
+              "actual_body_creator": true,
+              "analytic_body": true,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            },
+            "model_only": {
+              "actual_body_creator": true,
+              "analytic_body": false,
+              "driver_count": 2,
+              "strict_typed_thin": true
+            }
+          },
+          "package_layout_reads": 1,
+          "unexpected_runtime_reads": 0
+        }
+      }
+    },
+    "Slot04": {
+      "exact_streams": 10,
+      "fresh_locator_public_routes": 4,
+      "fresh_locator_sha256": "9ad61f26adec09a5bff53422e3cb986e4662283e17793f242467ce62061266ae",
+      "native_capabilities": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "original_locator_sha256": "2fb65abb9b831a819a9d5cc557b0c5559c8254229678ce607f22249f63b9f04f",
+      "original_locator_stream_routes": 2,
+      "runtime_input_file_reads": 0,
+      "strict_readback": {
+        "fresh": {
+          "checks": {
+            "analytic_brep": {
+              "actual_body_creator": true,
+              "analytic_body": true,
+              "driver_count": 3,
+              "strict_typed_thin": true
+            },
+            "model_only": {
+              "actual_body_creator": true,
+              "analytic_body": false,
+              "driver_count": 3,
+              "strict_typed_thin": true
+            }
+          },
+          "package_layout_reads": 1,
+          "unexpected_runtime_reads": 0
+        },
+        "original": {
+          "checks": {
+            "analytic_brep": {
+              "actual_body_creator": true,
+              "analytic_body": true,
+              "driver_count": 3,
+              "strict_typed_thin": true
+            },
+            "model_only": {
+              "actual_body_creator": true,
+              "analytic_body": false,
+              "driver_count": 3,
+              "strict_typed_thin": true
+            }
+          },
+          "package_layout_reads": 1,
+          "unexpected_runtime_reads": 0
+        }
+      }
+    }
+  },
+  "generation_sha256": "4203f14d32088ad7f8d6a27fe3ea12012688590dff9e68003bd7cdc1f8e2f351",
+  "manifest_sha256": "3d3e7504e6101c964dcbacecdc0e4ccf9f7b65719d827cdca3213215346ede0a",
+  "native_sha256": "ec5eec4fc88ed11cbbd63f90a30cd3e47065393b8c647254dff7a44bde430f13",
+  "new_native_processes": 0,
+  "passed": true,
+  "public_revision": "55895444a4e0e9979ec48612c6815768de65f885",
+  "refusals": {
+    "crosses-axis": {
+      "mirrored_refusal": true,
+      "negative": "crosses-axis",
+      "runtime_input_file_reads": 0
+    },
+    "double-angular": {
+      "mirrored_refusal": true,
+      "negative": "double-angular",
+      "runtime_input_file_reads": 0
+    },
+    "equal-walls": {
+      "mirrored_refusal": true,
+      "negative": "equal-walls",
+      "runtime_input_file_reads": 0
+    },
+    "foreign-suffix": {
+      "mirrored_refusal": true,
+      "negative": "foreign-suffix",
+      "runtime_input_file_reads": 0
+    },
+    "reverse": {
+      "mirrored_refusal": true,
+      "negative": "reverse",
+      "runtime_input_file_reads": 0
+    },
+    "rotated-support": {
+      "mirrored_refusal": true,
+      "negative": "rotated-support",
+      "runtime_input_file_reads": 0
+    },
+    "suppressed": {
+      "mirrored_refusal": true,
+      "negative": "suppressed",
+      "runtime_input_file_reads": 0
+    },
+    "translated-support": {
+      "mirrored_refusal": true,
+      "negative": "translated-support",
+      "runtime_input_file_reads": 0
+    },
+    "unnamed-stream": {
+      "mirrored_refusal": true,
+      "negative": "unnamed-stream",
+      "runtime_input_file_reads": 0
+    }
+  },
+  "schema": "kit.sw2026.thin-revolve-public-sdk-parity.v1",
+  "source_files_read_by_public_qualification": 0,
+  "source_lock_sha256": "e81db7caf2db600543f6f85b61b3a47a27cfd4b670f8e6a55f45dc79e6637653",
+  "source_tree": "20617989a6414589ec245af65be65ff73fbe4c07",
+  "whole_source_conversion": false
+}

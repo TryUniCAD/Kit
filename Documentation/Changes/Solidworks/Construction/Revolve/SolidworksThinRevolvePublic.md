@@ -10,5 +10,9 @@ unrepresented feature history remain outside this profile.
 Four independently locked native sources passed the complete edit, save and
 reopen lifecycle in 18 SOLIDWORKS 2026 SP05.2 processes. The separately frozen
 SDK packet compares normal registry, direct, file and stream output and strict
-generated readback against those exact native-tested model-only inputs.
-[Scope and verification](../../../../../re/solidworks/records/ThinRevolvePublic2026.md)
+generated readback against those exact native-tested model-only inputs. It
+reproduces all four files, verifies 24 public output paths and 16 strict
+readbacks and preserves zero runtime input reads. Nine unqualified requests
+refuse before publication.
+[Scope and verification](../../../../../re/solidworks/records/ThinRevolvePublic2026.md) ·
+[Public receipt](../../../../../re/solidworks/measurements/2026/SdkThinRevolvePublicParity01.json)

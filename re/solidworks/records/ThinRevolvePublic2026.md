@@ -23,4 +23,13 @@ python3.14 -B re/tooling/sw2026/revolve/ThinArchive/ProveThinPublic.py freeze \
 
 The oracle owner calls `py -3.12 -B ProveThinPublic.py verify PACKET --pin MANIFEST_SHA256` on the designated Windows guest. This qualification uses the SDK and does not launch SOLIDWORKS.
 
+The exact Windows SDK at `55895444a4e0e9979ec48612c6815768de65f885`
+reproduces all four native-tested candidates. It completes 24 public
+output comparisons and 16 strict semantic or analytic readback states.
+Nine negative requests fail before publication. The four model-only
+writer workers record zero runtime input reads, and the supervisor
+reads no native original. The receipt SHA-256 is
+`8c607b2788c1c8b46ec98fa09b4ad7157166efdc1289f47a6d2799abea882397`.
+[Public parity receipt](../measurements/2026/SdkThinRevolvePublicParity01.json)
+
 [Parity freeze and guest supervisor](../../tooling/sw2026/revolve/ThinArchive/ProveThinPublic.py) · [Public routes](../../tooling/sw2026/revolve/ThinArchive/ThinPublicWrite.py) · [Strict generated readback](../../tooling/sw2026/revolve/ThinArchive/ThinPublicRead.py)

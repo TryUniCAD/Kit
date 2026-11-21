@@ -499,6 +499,7 @@ profiles:
 - A rectangular partial boss revolve on the canonical Top or Right plane with a selected construction line and one live D1
 - A rectangular two-direction partial boss revolve on the canonical Top or Right plane with a selected construction line and independent D1 and D2 angular drivers. [Two-direction writing](../../Changes/Solidworks/Construction/Revolve/SolidworksTwoDirectionRevolveWriting.md)
 - A partial square Mid Plane or Two Directions boss revolve on either of those planes, with four unary contour relations and one ordered equal-length relation. The Mid Plane case uses one total D1. [Square profile writing](../../Changes/Solidworks/Construction/Revolve/SolidworksSquareRevolvePublicParity.md)
+- A forward partial thin boss revolve on a canonical principal plane, with one ordered open axial line and a separate selected centreline. The writer retains the angle and each active wall driver. The strict cold reader derives the analytic solid from those owners. [Thin revolve writing](../../Changes/Solidworks/Construction/Revolve/SolidworksThinRevolvePublic.md)
 
 Circle centres can be translated within their support plane. The writer
 preserves the neutral sketch, boss and configuration names and the
