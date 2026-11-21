@@ -64,6 +64,12 @@ Use `kit research --root /path/to/KitPr94 fusion --help` for the authoritative r
 Expected result: the existing reader publishes its normal artifacts or reports its existing failure.
 Successful receipts do not establish portable completeness or native conversion acceptance.
 
+The [blind-boss audit](../Changes/Research/Solidworks/BlindBossDecodeAudit.md) records an executed offline scope and its limits.
+Offline readers decode existing native files without launching CAD applications.
+Archived application measurements support replay checks, not fresh vendor acceptance.
+The run saves decoded documents and receipts without committing files or promoting production support.
+Use the [codec patch procedure](#export-a-qualified-codec-change) to propose a corroborated reader change.
+
 The installed CLI automatically requests native API verification after decoding.
 Read `NativeVerification.json` for the application observations and case comparisons.
 An unavailable API returns status `4` with instructions for the local machine.
@@ -387,13 +393,13 @@ git apply --index reader.patch
 
 A request contains these fields.
 
-| Field | Required value |
-| --- | --- |
-| `name`, `base`, `scope` | PascalCase patch name of 4–19 letters, full Git commit and exact scheduled scope |
-| `reference`, `rule` | Tracked research Markdown path under `re/` and a written interpretation of the corroborated finding |
-| `modules` | Explicit Python source paths under `src/convert/adapters/` or `src/convert/Formats/` |
-| `contract.mode`, `contract.target_suffix` | `reader` with an empty suffix, or `writer` with the output extension |
-| `contract.cases` | Two to sixteen objects with tracked `file`, its `sha256`, and an `expect` mapping from decoded document JSON pointers to independently measured scalar values |
+| Field                                     | Required value                                                                                                                                                |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`, `base`, `scope`                   | PascalCase patch name of 4–19 letters, full Git commit and exact scheduled scope                                                                              |
+| `reference`, `rule`                       | Tracked research Markdown path under `re/` and a written interpretation of the corroborated finding                                                           |
+| `modules`                                 | Explicit Python source paths under `src/convert/adapters/` or `src/convert/Formats/`                                                                          |
+| `contract.mode`, `contract.target_suffix` | `reader` with an empty suffix, or `writer` with the output extension                                                                                          |
+| `contract.cases`                          | Two to sixteen objects with tracked `file`, its `sha256`, and an `expect` mapping from decoded document JSON pointers to independently measured scalar values |
 
 For example, an expected value for the first circle sketch entity can be expressed as `{"/document/sketches/$tuple/0/entities/$tuple/0/geometry/$type":"CircleGeometry"}`. Each case must also check a feature-history value and a parameter value. For a writer, measure the same field on at least two controls with different expected values so a constant output cannot pass both. Select measurements specific to the proposed change. The exporter runs the repository recorded-payload scanner before qualifying a candidate.
 
