@@ -3,6 +3,8 @@ import ctypes
 from ctypes import wintypes
 from collections import Counter
 from hashlib import sha256
+from importlib.machinery import ExtensionFileLoader
+from importlib.util import find_spec
 from io import BytesIO
 from itertools import combinations, product
 import json
@@ -16,7 +18,10 @@ from zipfile import ZipFile
 
 
 BUILD = "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+PYTHON_EXE = "b4ca526908e5c93250b851427fa3265936472f1148eb7781c685afa2a13fb996"
 APP_MODULE = "e6d9c7609613c4f8247b8157386ea27adffa102b3e1f8c5b9b0b0e912e0bfde0"
+APP_LIBRARY = "efe57703f688cfefe7a6d806e3ea8592ffce516b06874c58597ab7c460780921"
+PART_MODULE = "3f99965d8bac7f0302041ad3760ba5a1c027ac60676dd1db642834d8fd22fb53"
 PROGRAM_VERSION = "1.1R20260928 (Git shallow)"
 SPEC_SCHEMA = "kit.freecad.baked-source-spec.v1"
 LOCK_SCHEMA = "kit.freecad.baked-source-lock.v1"
@@ -113,6 +118,27 @@ def source_cases(spec):
             ("ParametricControl", BOX, case_input(spec["negative"], BOX)))
 
 
+def verify_package(executable):
+    bin_path = executable.parent
+    require(executable.name.casefold() == "python.exe" and bin_path.name.casefold() == "bin",
+            "the interpreter must be the bundled FreeCAD executable")
+    app_path = bin_path / "FreeCAD.pyd"
+    part_path = bin_path.parent / "lib" / "Part.pyd"
+    for path, expected in ((executable, PYTHON_EXE), (app_path, APP_MODULE),
+                           (bin_path / "FreeCADApp.dll", APP_LIBRARY), (part_path, PART_MODULE)):
+        require(path.is_file() and path.resolve(strict=True) == path and digest_file(path) == expected,
+                f"the pinned portable FreeCAD package differs at {path.name}")
+    return app_path, part_path
+
+
+def verify_loader(name, path):
+    require(name not in sys.modules, "native module was loaded before origin verification")
+    spec = find_spec(name)
+    require(spec is not None and isinstance(spec.loader, ExtensionFileLoader)
+            and spec.origin is not None and Path(spec.origin).resolve(strict=True) == path,
+            f"the Python loader chose an alternate {name} extension")
+
+
 def windows_identity(bin_path):
     kernel = ctypes.WinDLL("kernel32", use_last_error=True)
     kernel.GetCurrentProcess.restype = wintypes.HANDLE
@@ -133,25 +159,27 @@ def windows_identity(bin_path):
     buffer = ctypes.create_unicode_buffer(32768)
     length = locate(module, buffer, len(buffer))
     library = Path(buffer.value).resolve()
-    require(0 < length < len(buffer) and library.parent == bin_path,
+    require(0 < length < len(buffer) and library == bin_path / "FreeCADApp.dll",
             "the loaded application library escaped the bundled installation")
+    library_sha256 = digest_file(library)
+    require(library_sha256 == APP_LIBRARY, "the loaded FreeCAD application library differs from its pin")
     started = (times[0].dwHighDateTime << 32) + times[0].dwLowDateTime
-    return started, digest_file(library)
+    return started, library_sha256
 
 
-def runtime_identity(app, part, bin_path, profile):
+def runtime_identity(app, part, app_path, part_path, profile):
     version = tuple(app.Version())
     require(version[:3] == ("1", "1", "4") and version[-1] == BUILD, "FreeCAD build is outside the measured pin")
     for key in ("UserAppData", "UserParameter", "SystemParameter"):
         setting = app.ConfigGet(key)
         require(setting and Path(setting).resolve().is_relative_to(profile), "FreeCAD preferences escaped the phase profile")
-    app_path, part_path = (Path(module.__file__).resolve(strict=True) for module in (app, part))
-    require(app_path.parent == part_path.parent == bin_path and part_path.suffix.casefold() == ".pyd"
-            and digest_file(app_path) == APP_MODULE,
+    actual = tuple(Path(module.__file__).resolve(strict=True) for module in (app, part))
+    require(actual == (app_path, part_path) and digest_file(app_path) == APP_MODULE
+            and digest_file(part_path) == PART_MODULE,
             "FreeCAD Python modules differ from the pinned Windows distribution")
-    started, library = windows_identity(bin_path)
+    started, library = windows_identity(app_path.parent)
     return started, {"version": list(version), "python_sha256": digest_file(Path(sys.executable)),
-                     "freecad_module_sha256": APP_MODULE, "part_module_sha256": digest_file(part_path),
+                     "freecad_module_sha256": APP_MODULE, "part_module_sha256": PART_MODULE,
                      "application_library_sha256": library}
 
 
@@ -377,13 +405,17 @@ def publish_lock(packet, author_sha, reopen_sha, current, author, cases):
     return write_receipt(packet / "PrewriterSourceLock01.json", lock)
 
 
-def run_phase(args, packet, cases, profile, bin_path):
-    with os.add_dll_directory(str(bin_path)):
-        sys.path.insert(0, str(bin_path))
+def run_phase(args, packet, cases, profile, app_path, part_path):
+    bin_path = app_path.parent
+    lib_path = part_path.parent
+    with os.add_dll_directory(str(bin_path)), os.add_dll_directory(str(lib_path)):
+        sys.path[:0] = (str(bin_path), str(lib_path))
+        verify_loader("FreeCAD", app_path)
+        verify_loader("Part", part_path)
         import FreeCAD as app
         import Part as part
 
-        started, runtime = runtime_identity(app, part, bin_path, profile)
+        started, runtime = runtime_identity(app, part, app_path, part_path, profile)
         report = {"runtime": runtime, "tool_sha256": args.tool_sha256, "spec_sha256": args.spec_sha256,
                   "phase": args.phase, "process_birth": started, "pid": os.getpid(), "passed": True}
         require(not app.listDocuments(), "native instance already owns documents")
@@ -431,8 +463,8 @@ def main():
     require(not spec.is_relative_to(packet), "the frozen spec must be outside the packet")
     cases = source_cases(pinned_json(spec, args.spec_sha256))
     executable = external_path(args.runtime_python)
-    require(executable == Path(sys.executable).resolve(strict=True) and executable.name.casefold() == "python.exe"
-            and (executable.parent / "FreeCADApp.dll").is_file(), "the executable must be the bundled FreeCAD Python")
+    require(executable == Path(sys.executable).resolve(strict=True), "the executable must match the bundled runtime argument")
+    app_path, part_path = verify_package(executable)
     if args.phase == "author":
         packet.mkdir()
     else:
@@ -442,7 +474,7 @@ def main():
     profile = packet / (args.phase + "-profile")
     profile.mkdir()
     configure_profile(profile)
-    print(json.dumps(run_phase(args, packet, cases, profile, executable.parent), sort_keys=True))
+    print(json.dumps(run_phase(args, packet, cases, profile, app_path, part_path), sort_keys=True))
 
 
 def configure_profile(profile):
