@@ -28,7 +28,9 @@ KSolidWorksPart = (
 
 
 # the scoreboard is exercised through its own command and real pinned blobs
-def RunScoreboard(Output: Path, *Assets: str, Expected: int = 0):
+def RunScoreboard(
+    Output: Path, *Assets: str, Expected: int = 0
+) -> subprocess.CompletedProcess[str]:
     Command = [
         sys.executable,
         "-B",
@@ -46,9 +48,9 @@ def RunScoreboard(Output: Path, *Assets: str, Expected: int = 0):
 
 
 # totals read modes feature attribution and the markdown page agree for a mixed subset
-def CheckMixedSet(TmpPath: Path):
+def CheckMixedSet(TmpPath: Path) -> None:
     Output = TmpPath / "Board"
-    RunScoreboard(
+    _ = RunScoreboard(
         Output,
         KStrictFusion,
         KPartialFusion,
@@ -82,7 +84,7 @@ def CheckMixedSet(TmpPath: Path):
 
 
 # reused output directories and unpinned paths are refused before any decoding
-def CheckRefusals(TmpPath: Path):
+def CheckRefusals(TmpPath: Path) -> None:
     Output = TmpPath / "Board"
     Output.mkdir()
     Refused = RunScoreboard(Output, KStrictFusion, Expected=1)
