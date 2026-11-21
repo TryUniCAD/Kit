@@ -20,4 +20,6 @@ The logs did not identify an assertion failure or establish which remaining case
 
 Source inspection established per-case temporary directory isolation for the selected commands.
 No local tests or collection ran.
-The repaired schedule requires execution on the next native queue candidate before merge acceptance can be claimed.
+The next [Windows queue run](https://github.com/TryUniCAD/Kit/actions/runs/44962146215/job/137023195551) completed in its job limit with 45 passing cases and three command timeouts.
+It exposed a separate [buffered-read allocation defect](../Research/Verification/BoundedSnapshotReads.md); scheduling alone did not fix the underlying slow commands.
+The corrected allocation still requires current-candidate Windows acceptance.

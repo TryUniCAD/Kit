@@ -7,7 +7,9 @@ After setup, the test step reported 42 passes in 1,100.37 seconds, then GitHub c
 The full acceptance workflow passed, but this separate cancellation failed the CI aggregate and removed the PR from the queue.
 Cancellation is a failed gate even when the visible test summary contains no failed assertions.
 
-Run the unchanged case list with two workers and file-level scheduling.
+Two workers with file-level scheduling exposed three per-command timeouts in the next run.
+The measured cause was [maximum-size buffered reads during source hashing](../../Research/WindowsSnapshotReadAllocation.md), not the new saved-prism cases.
+Repair that allocation while retaining the unchanged case list and bounded scheduling.
 Keep temporary command outputs, controller stores, worktrees, and native API directories unique to each case.
 Retain verbose progress and duration output so another timeout identifies the active cases.
 Verify the complete job on the candidate; a passing Linux suite does not establish Windows compatibility.
