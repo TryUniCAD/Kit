@@ -36,3 +36,17 @@ py -3.12 -I -B "$packet\Tools\ObserveFirstCreatorNative.py" run "$packet\Packet.
 ```
 
 The guest creates `Native/Result.json`, per-phase logs and each passing edit/reopen derivative. A nonzero status can mean incomplete scope observation alongside a successful lifecycle. The exact host qualifier command is `PrepareFirstCreatorNative.py qualify <packet> --packet-sha256 <sha> --native-result-sha256 <sha> --output <unused-path>` in the same host environment. Its typed result remains independently reported when an applicable COM getter is unavailable.
+
+## Frozen host authority
+
+Packet `FirstCreatorScopeNative01/Packet.json` has SHA-256 `c8addf29032d630b2513ceae9f5d00a7bd5e0f56f578c619079d16bfe30a690f`. The constructor is committed as `96a00dc717e2f30387903cde729879e2d6bb96fe` with product tree `c56041deca7810851b85dca00e27a266eabf5cf2`. Standalone packet verification passed for all fifteen files and refused an incorrect packet digest. Four independent guarded construction processes reported zero runtime input reads. A separate guarded negative refused an unrelated prior body ID. The saved-reader preflight on the exact unmodified disclosed warm SinglePlate independently joined scope 1, no selected wrapper, atom 101, marks 25/3, the live 8.37 mm depth and both stored spatial points.
+
+| Member | SHA-256 |
+| --- | --- |
+| SinglePlate all-scope | `7ec852a2142a4db16b818d6feef0b2b2308c2af04de1b28cb030d20045562c28` |
+| SinglePlate selected-empty | `a6bf929cccf7bf33642e41e8078faaed378dcba9d9b49e23667e092d5a47ad35` |
+| Translated all-scope | `30732c244752332a52a6767c8c49658c3571257489f15fb3bd8dc5fc6e0ee3c3` |
+| Translated selected-empty | `78279f089f6c0f77aac714f2908f262c7dc8f2bd6aaaa98527d53fb9716a36dc` |
+| Windows observer | `07825de373805d78bd8f3f12ebd711eb316806d3baeb91696fef1fab234239ec` |
+
+The four staged candidates have zero native acceptance credit from this preparation.
