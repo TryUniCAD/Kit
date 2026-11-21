@@ -13,6 +13,7 @@ RELATIONS = {
     PATH: (("swConstraintType_FIXED", ("start",)), ("swConstraintType_VERTPOINTS", ("start", "center")),
            ("swConstraintType_HORIZPOINTS", ("center", "end"))),
 }
+CURVE_DIMENSIONS = {SECTION: "swConstraintType_DIAMETER", PATH: "swConstraintType_RADIUS"}
 POINT_GETTERS = {"center": "GetCenterPoint2", "start": "GetStartPoint2", "end": "GetEndPoint2"}
 
 
@@ -88,21 +89,33 @@ class SweepSketches(CurveAuthor):
             require(value is not None and self.read_relation(value) == self.relation_key(kind, entries),
                     f"native {name} did not create the requested {relation} relation")
 
-    def read_relation(self, relation):
+    def read_relation(self, relation, curve_kind=None):
         kind = int(self.get(relation, "GetRelationType"))
         supported = {self.constants[key] for values in RELATIONS.values() for key, _ in values}
-        require(kind in supported, f"unsupported sketch relation type {kind}")
+        require(kind in supported or kind == curve_kind, f"unsupported sketch relation type {kind}")
         entities = self.get(relation, "GetEntities") or ()
         require(len(entities) == int(self.get(relation, "GetEntitiesCount"))
                 and not self.get(relation, "Suppressed"), "native sketch relation is incomplete or suppressed")
+        if kind == curve_kind:
+            types = tuple(self.get(relation, "GetEntitiesType") or ())
+            require(len(entities) == 1 and types == (self.constants["swSketchRelationEntityType_Arc"],),
+                    "native diameter or radius relation must target one actual sketch arc")
+            self.typed(entities[0], "SketchArc")
+            return kind, (tuple(self.get(entities[0], "GetID")),)
         return self.relation_key(kind, entities)
 
-    def inspect_relations(self, sketch, name, points):
+    def inspect_relations(self, sketch, name, points, segment):
         manager = self.get(sketch, "RelationManager")
-        expected = sorted(self.relation_key(self.constants[key], [points[role] for role in roles])
-                          for key, roles in RELATIONS[name])
-        actual = sorted(self.read_relation(item) for item in self.get(manager, "GetRelations", self.constants["swAll"]) or ())
-        require(actual == expected, f"{name} has unexpected or missing actual point relation owners")
+        curve_kind = self.constants[CURVE_DIMENSIONS[name]]
+        expected = [self.relation_key(self.constants[key], [points[role] for role in roles])
+                    for key, roles in RELATIONS[name]]
+        expected.append((curve_kind, (tuple(segment["id"]),)))
+        expected.sort()
+        actual = sorted(self.read_relation(item, curve_kind)
+                        for item in self.get(manager, "GetRelations", self.constants["swAll"]) or ())
+        self.rec.data["last_relations"] = {"sketch": name, "actual": actual, "expected": expected}
+        self.rec.flush()
+        require(actual == expected, f"{name} has unexpected or missing actual point or curve relation owners")
         for key in ("swDangling", "swOverDefining", "swBroken"):
             require(int(self.get(manager, "GetRelationsCount", self.constants[key])) == 0, f"{name} has {key} relations")
         return actual
@@ -174,8 +187,9 @@ class SweepSketches(CurveAuthor):
         if not circle:
             require(int(self.get(arc, "GetRotationDir")) == 1, "actual Front path is not counterclockwise")
             self.rec.close_number("explicit quarter-arc length", self.get(segments[0], "GetLength"), plan["arc_length_m"])
-        return {"frame": frame, "segment": self.entity_binding(segments[0], "segment"), "points_m": point_positions,
-                "relations": self.inspect_relations(sketch, name, points), "fully_constrained": status, "circle": circle}
+        segment = self.entity_binding(segments[0], "segment")
+        return {"frame": frame, "segment": segment, "points_m": point_positions,
+                "relations": self.inspect_relations(sketch, name, points, segment), "fully_constrained": status, "circle": circle}
 
     def driving_dimension(self, feature, name, plan):
         inventory = []

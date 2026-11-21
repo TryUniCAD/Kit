@@ -14,15 +14,25 @@ The model is a quadrant of a torus with circular caps. For section radius `r`, p
 
 ## Disclosed capture
 
+### First packet and observer correction
+
+Disclosed packet 01, job SHA-256 `c3bed7f0cf845dc1cbf47a94c276ce15c66bc0d5192f1bc8641398c339fcaf08` at `8d26a615c2ccf4b747a147f2793e1133374412c0`, stopped in the first author phase before creating the path or saving a part. Both controls passed in a three-process bracket. The exact failing source lock is `9728047365f0dbb76542137944e2064c288ab68724eb5278af6ff6187afb719a` and its author receipt is `47a89a09cdf343aea2f54feed4dd0d54201c65eca06d0d28a25e694f2c22da6a`. The section passed all 18 checks reached, including the 0.008642 m writable diameter on the authored circle, its fixed centre `[0,2]`, actual arc `[0,1]` and fully constrained status 3. The relation iterator then returned type 15 before the observer could query that row's participants. The final preference toggle in the recorder stage restored the original preference during unwinding. The original failure had zero writer outputs and the oracle finished idle.
+
+The installed 34.0 type library identifies type 15 as `swConstraintType_DIAMETER`. The exact guest enum extract SHA-256 is `a14c28124046f357e94c6b8e65c6a7ba71da604c34da85ab5925258373bb7c13`. An earlier disclosed circle returns that type with its one actual arc ID. Disclosed radial sources likewise return type 3 and the selected arc, including the non-closed arc in the capsule case. Their receipt hashes are `fca61648e957887da52b882a350dded4ad2591df71c40b9daa13dcee28a70235` and `75e2f55123a1421e17e94e4565ef8117d454e4d8de18b153b7ef55b1059f6735`. [Circle and open-arc relation receipts](../measurements/2026/CurveSourceBindingPreflight09.json) · [Radial training receipt](../measurements/2026/RadialTrainingAuthor04.json)
+
+Packet 02 reads both named relation types from the installed type library and queries the actual entities. It requires exactly one unsuppressed dimensional relation per sketch of the expected kind and one registered arc participant whose local ID equals that sketch's sole actual segment. The separate live display parameter, exact point relation inventory and complete geometry and lifecycle gates also apply. [Dimension rows in the sketch relation list](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Circles/DrivingDimensionsAppearInSketchRelations.md)
+
+### Reproduce the corrected disclosed capture
+
 Freeze an exact committed revision on the host. Use an unused output path outside the checkout, two disjoint native guest paths, and the already witnessed disclosed native control SHA-256 `28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0`. The freeze stores the exact 19-file Python closure, control, input spec and independent predictions. Host `--verify-packet` checks that closure without a CAD runtime. The preflight records registered interfaces, enums and dispatch signatures before starting any source process. [Host freezer](../../tooling/sw2026/sweep_source/SweepPacket.py) · [Existing immutable control and custody](EdgeChamferSource2026.md#reproduce-the-disclosed-run)
 
 ```sh
 python3.14 -B re/tooling/sw2026/sweep_source/SweepPacket.py \
   --revision EXACT_COMMITTED_METHOD \
   --control /Users/odin/Documents/UniCAD/Oracle121Takeover/EdgeFilletSource03/Packet/Control.SLDPRT \
-  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource01/Packet \
-  --guest-packet 'C:\KitSweepBossSource01\Packet' \
-  --guest-capture 'C:\KitSweepBossSource01\Capture' \
+  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource02/Packet \
+  --guest-packet 'C:\KitSweepBossSource02\Packet' \
+  --guest-capture 'C:\KitSweepBossSource02\Capture' \
   --guest-checkout '\\Mac\Home\Documents\UniCAD\Kit'
 ```
 
@@ -30,8 +40,8 @@ The oracle owner transfers the verified packet and runs it from the new guest di
 
 ```sh
 sweep_python='C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
-sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource01\Packet'
-sweep_guest='C:\KitSweepBossSource01\Packet'
+sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource02\Packet'
+sweep_guest='C:\KitSweepBossSource02\Packet'
 sweep_pin=EXACT_SOURCE_JOB_SHA256
 prlctl exec 'Windows 11' --current-user "$sweep_python" -E -B \
   "$sweep_share\Tool\RunSweepSources.py" --job "$sweep_share\SourceJob.json" --pin "$sweep_pin" --stage-guest

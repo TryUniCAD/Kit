@@ -19,7 +19,9 @@ SWEEP_OPTIONS = {
 }
 ENUMS = {
     "swFeatureNameID_e": ("swFmSweep",),
-    "swConstraintType_e": ("swConstraintType_FIXED", "swConstraintType_HORIZPOINTS", "swConstraintType_VERTPOINTS"),
+    "swConstraintType_e": ("swConstraintType_FIXED", "swConstraintType_HORIZPOINTS", "swConstraintType_VERTPOINTS",
+                           "swConstraintType_DIAMETER", "swConstraintType_RADIUS"),
+    "swSketchRelationEntityTypes_e": ("swSketchRelationEntityType_Arc",),
     "swSketchRelationFilterType_e": ("swAll", "swDangling", "swOverDefining", "swBroken"),
     "swSelectType_e": ("swSelSKETCHES",),
     "swSketchSegments_e": ("swSketchARC",),
@@ -42,6 +44,7 @@ MEMBERS = {
     "ISketchManager": ("InsertSketch", "ActiveSketch", "AddToDB", "CreateCircleByRadius", "CreateArc"),
     "ISketch": ("GetConstrainedStatus", "GetSketchSegments", "ModelToSketchTransform", "RelationManager"),
     "ISketchArc": ("IsCircle", "GetRadius", "GetCenterPoint2", "GetStartPoint2", "GetEndPoint2", "GetRotationDir"),
+    "ISketchRelation": ("GetRelationType", "GetEntities", "GetEntitiesType", "GetEntitiesCount", "Suppressed"),
     "ISketchRelationManager": ("AddRelation", "GetRelations", "GetRelationsCount"),
     "IModelDoc2": ("AddRadialDimension2", "AddDiameterDimension2", "ForceRebuild3"),
     "IModelDocExtension": ("SelectByID2", "SetUserPreferenceDouble", "GetUserPreferenceDouble", "CreateMassProperty"),
