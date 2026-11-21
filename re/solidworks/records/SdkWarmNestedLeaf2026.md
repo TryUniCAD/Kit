@@ -95,18 +95,115 @@ all six live relations, the three drivers and the oriented solid.
 The default nested recipe derives D2 X as `0.030 m` and uses centreline
 routing off. The originals use X `0.025 m`, Z `0.0001 m` and centreline
 routing on. Actual label values therefore need a separate owned input in a
-future source route. `moEndSpec_c.f150/f154` remain unclassified saved words
-with known wire encoding. The research receipt inventories the retained
-source, configuration and presentation domains. Complete original-source
-transfer and new native lifecycle qualification remain separate work.
-[Saved end-field evidence](ThroughAllD01TypedRead2026.md) ·
-[Existing spatial source-label method](SdkPlanarSourceLabelBridge2026.md)
+future source route. The saved end-word follow-up below binds the two
+surface controls and their ordinary-solid applicability. The research
+receipt inventories the retained source, configuration and presentation
+domains. [Existing spatial source-label method](SdkPlanarSourceLabelBridge2026.md)
+
+## Saved end words and the first-boss transfer boundary
+
+The exact SP05.2 model exports identify `moEndSpec_c.f150` as
+`DelInitFace` and `f154` as `KnitRes`. The version-19000 schema-one
+serializer writes both as signed 32-bit values. The load branch at
+`0x4bb10f85` reads them for versions at or above 4460 and clears them
+on older loads. The archive factory and the model-attached constructor
+independently clear both fields. The component copy constructor retains
+the first and clears the second. [Prior encoding evidence](ThroughAllD01TypedRead2026.md) ·
+[Source and static receipt](../measurements/2026/SdkWarmSavedEndWords01.json)
+
+| Field | Exact model binding | Geometry owner and applicable input |
+| --- | --- | --- |
+| `f150` | Getter `0x4b2a30b0`, setter `0x4b30fa30`. `genGcEndSpec` transfers the word at `0x4badef0f` to `gcEndSpec_c+0x11c` | Delete the original face in the surface-extrude operation. The measured geometry branch tests zero or nonzero |
+| `f154` | Getter `0x4b30c840`, setter `0x4b30fc50`. The same translator transfers the word at `0x4badef1c` to `gcEndSpec_c+0x120` | Knit the resulting bodies in the surface operation. The measured geometry branch tests zero or nonzero |
+| `f158` | Separate `CreateSolidFrmCappedMidPlaneSurfExt` accessors at `0x4b2c61e0` and `0x4b2c67b0`. The older archive load defaults it to one before version 15105 | Separate surface control. Both frozen ordinary generated states and the three original leaves store zero |
+
+The vendor API defines the first pair as Boolean controls for extruded
+surfaces. The exact model and geometry images are pinned independently in
+the receipt. The ordinary `moExtrusion_c` dispatcher takes the actual
+`f818` end specification and supplies zero for the geometry selectors
+at `+0x118` and `+0x130`. A direct control-flow walk of the reached
+`ram_MakeExtrudedBody` routine reaches all four comparisons of the
+option words when unconstrained. The same walk with those two selectors
+at zero reaches none and has no unresolved direct branch targets. This
+binds the inactive option domain of the checked ordinary dispatch. The
+probe does not model other feature classes or transitive native behavior
+outside that dispatch. [Surface extrusion API](https://help.solidworks.com/2024/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISurfExtrudeFeatureData_members.html?id=2.2.1.410.0)
+
+All three originals have one closed ordinary sketch-based solid, no
+selected or consumed body input, ordinary start code zero and present
+empty surface arrays. The matching raw values `365582768/174734640`
+already appear in the tracked L1 control. Its manifest binds the
+unredacted hash to the exact common seed copied by the two source author
+jobs. The author code changes the driving depth and rebuilds and saves
+each leaf. The repeated words are inherited saved state for those three
+jobs. The present evidence does not identify how the seed acquired its
+noncanonical values. [L1 provenance](../v2026/corpus/ladder/Manifest.json) ·
+[Disclosed leaf author](../../tooling/sw2026/AuthorNestedAssemblySources.py)
+
+| Authority | `f150/f154` | Independently bound contrast |
+| --- | --- | --- |
+| SinglePlate, RotorPlate and TailPlate | 365582768/174734640 | Three different driving depths, marks 25/3, 25/3 and 19/3, one inherited first-boss scope |
+| Exact L1 seed lineage | 365582768/174734640 | Marks 7/3, different saved atom flags |
+| Disclosed prepared D01Forward, D04Reverse, D07MidPlane and D10TwoDirections | Four distinct noncanonical pairs | Same 2.317 mm primary depth and prior native measurements of four different termination states |
+| Frozen generated SdkNestedPlate and its exact native derivative | 0/0 in both | 7.45 mm cold state to 11.375 mm edited and freshly reopened state. The latter gains present empty arrays, the warm feature flag and native marks 16/2 |
+| Disclosed selected two-stock native save | 291619072/152023456, 0/1754715840 and 0/0 | Two actual stock producers and one through-all cut. Only the cut owns the selected wrapper |
+
+The pair represents authored options when the owning surface operation
+uses them. For these ordinary solids the published geometric input is
+the actual sketch and live depth and direction. The constructor-neutral
+word values stay valid across the exact existing open, rebuild, edit,
+save and reopen contrast. Raw magnitude, body-scope mode, creation depth
+and rollback identities remain distinct. The observed values have no
+model-derived numeric rule in this profile and no role in generating
+the ordinary solid. A replay that preserves the original archive
+continues to retain the observed words.
+
+The first-boss `moAtomFeature_c.f544=1` is a separate, persisted
+selected-body scope mode with no `f548` wrapper and no consumed atom.
+The exact selection routine bypasses candidate matching when its
+selection owner is null. The generated native derivative retains mode
+zero while its feature and configuration history records acquire
+rollback IDs. Existing rectangle preparation takes a fresh rectangle
+and sets the first-boss scope to zero. A separately qualified selected
+cut composer can assign scope one to its stock producer, but requires a
+real selected cut downstream. This leaves an unmapped source scope for
+a standalone first boss. The warm `f3d0/fe38` identities belong to the
+actual native partition history and are retained as source evidence.
+[Scope and wrapper construction evidence](ThroughAllSelectedBodyConstruction2026.md)
+
+The actual rectangle dimensions, constraints, body creation and normal
+cold `MakeRectDimPart` input retain their prior source-only proof.
+The existing spatial display overlay independently preserves the actual
+D2 text XYZ and centreline routing, with only ResolvedFeatures changed
+from the direct rectangle. The default nested composer still derives
+its own display. There is no qualified ordinary production input for
+this combined saved scope and authored text lane at this revision.
+Unrepresented source provenance and presentation still block complete
+original-source transfer. [Earlier guarded composition](../measurements/2026/SdkWarmNestedLeaf01.json)
+
+The follow-up uses eleven fresh guarded readers against the three original
+leaves and eight named controls. It proves the typed end owner reaches its
+actual physical five-word interval for each feature. The three original
+files, the frozen generated file and the exact native derivative are
+read without modifying them. The native paths were established by
+earlier measurements. This follow-up starts no native processes and
+produces no native files. The REA target identity matched the licensed
+model image. Its Hopper analysis had a foreign active lease, so the
+bounded analysis used the pinned PE exception-directory spans and
+Capstone. No vendor listing accompanies the receipt.
+
+```sh
+uv run --no-project --python 3.14 --with pefile --with capstone python -I -B \
+  re/tooling/sw2026/nested_publication/MeasureSavedEndWords.py \
+  --disclosed /absolute/path/to/Oracle121Takeover \
+  --modules /absolute/path/to/licensed/SP05.2/binaries
+```
 
 ## Controls and reproduction
 
 The exact generated SdkNestedPlate cold control retains its original strict
-creator and derived geometry and has no active partition. The distinct L1
-save has three drivers and scope 1 but uses `f28=0x40000140`. It refuses
+creator and derived geometry and has no active partition. The L1
+seed-lineage control has three drivers and scope 1 but uses `f28=0x40000140`. It refuses
 the measured warm profile. The selected multistock control has real input,
 untouched and output atoms 101, 102 and 103, so it refuses the complete
 single-creator inventory. Every original also exercises the preexisting

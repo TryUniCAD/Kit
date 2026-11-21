@@ -1,0 +1,1125 @@
+{
+  "cases": {
+    "D01Forward": {
+      "actual_stock_input_untouched_output_ids": null,
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "D01Forward.SLDPRT",
+      "file_reads": [
+        "D01Forward.SLDPRT"
+      ],
+      "mode": "alternate_end",
+      "native_source_sha256": "5b69acfdf3acd2b2f33d0de470b05c713dc5039e6abdf3f9a1c01a2f05672a60",
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 10887,
+            "field_span": false,
+            "object_index": 244,
+            "offset": 8859,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            10867,
+            10887
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 32,
+          "logical_stream_sha256": "cb5ed0132383faa75ae92c3c426968a42ff5aaf7afa6e962f718c057aac7add3",
+          "neutral_end_semantics": [
+            "blind",
+            0.002317,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 26,
+          "rollback_owner_ids": [
+            7,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 378984432,
+            "f154": 181190816,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 1073742144,
+            "f544": 1,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": [
+        7,
+        3
+      ],
+      "partition_present": true,
+      "sha256": "6b95aeecb7057f247aa868d3ddf8b77a10fad309af7a7378da56321bd33dd191"
+    },
+    "D04Reverse": {
+      "actual_stock_input_untouched_output_ids": null,
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "D04Reverse.SLDPRT",
+      "file_reads": [
+        "D04Reverse.SLDPRT"
+      ],
+      "mode": "alternate_end",
+      "native_source_sha256": "46967e35bf0624ea8bd81b6d014f5c2cd7f7d22a4e268dfadc3ddd573728ac49",
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 10887,
+            "field_span": false,
+            "object_index": 244,
+            "offset": 8859,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            10867,
+            10887
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 32,
+          "logical_stream_sha256": "6a8656b8e6b3307ed92a9fc5885d89bd3a900149b0fee79e680e28e478447555",
+          "neutral_end_semantics": [
+            "blind",
+            0.002317,
+            true,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 26,
+          "rollback_owner_ids": [
+            7,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 379572320,
+            "f154": 178054000,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 1073742144,
+            "f544": 1,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": [
+        7,
+        3
+      ],
+      "partition_present": true,
+      "sha256": "4f7ba1547e577010bb87f59c4eebe20a3dbb61a59c372bc34a8178082a674d42"
+    },
+    "D07MidPlane": {
+      "actual_stock_input_untouched_output_ids": null,
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "D07MidPlane.SLDPRT",
+      "file_reads": [
+        "D07MidPlane.SLDPRT"
+      ],
+      "mode": "alternate_end",
+      "native_source_sha256": "64cdacc57cda31c080e81e5ba5c8adabfc40cbf62aa4e0bd55c50bbf8013a603",
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 10887,
+            "field_span": false,
+            "object_index": 244,
+            "offset": 8859,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            10867,
+            10887
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 32,
+          "logical_stream_sha256": "7deacd4381347568d716ed54bc5c5e0f54860edd08d24d9a216c2a175a5cc16a",
+          "neutral_end_semantics": [
+            "mid_plane",
+            0.002317,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 26,
+          "rollback_owner_ids": [
+            7,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 378937376,
+            "f154": 182509856,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 1073742144,
+            "f544": 1,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": [
+        7,
+        3
+      ],
+      "partition_present": true,
+      "sha256": "5d4d295282dc2ae43db28f7c7b3b9fb2dcf9a719c15d2b602b780459281176ee"
+    },
+    "D10TwoDirections": {
+      "actual_stock_input_untouched_output_ids": null,
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "D10TwoDirections.SLDPRT",
+      "file_reads": [
+        "D10TwoDirections.SLDPRT"
+      ],
+      "mode": "alternate_end",
+      "native_source_sha256": "9d5a69bc05ae25b708d892eb3b76b18ac1d0478ad8b5179f558ed4f69041f7fd",
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 12626,
+            "field_span": false,
+            "object_index": 244,
+            "offset": 8859,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            12606,
+            12626
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 32,
+          "logical_stream_sha256": "3991e59737cb52de32a4ff13d6f55ff131faa524ad7c5604f631277ea39cc06d",
+          "neutral_end_semantics": [
+            "two_lengths",
+            0.002317,
+            false,
+            0.0036190000000000003
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 26,
+          "rollback_owner_ids": [
+            7,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 374229552,
+            "f154": 176036560,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 1073742144,
+            "f544": 1,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": [
+        7,
+        3
+      ],
+      "partition_present": true,
+      "sha256": "c2ab625827632e606efaad0e8ec2e3c75ef10355152a7df012f2cd92ec669083"
+    },
+    "RotorPlate": {
+      "actual_stock_input_untouched_output_ids": null,
+      "author_record_sha256": "66306b78ae69ef6160d54f5f4fc76b0a41bfa9b976145cdad1b4727215de0b1f",
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "RotorPlate.SLDPRT",
+      "file_reads": [
+        "RotorPlate.SLDPRT"
+      ],
+      "mode": "source",
+      "native_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8",
+      "owned_height_display": {
+        "centerline_route": true,
+        "driver": "D2",
+        "text_m": [
+          0.025,
+          3.0616169978683835e-19,
+          0.0001
+        ]
+      },
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 14637,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 12680,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            14617,
+            14637
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 34,
+          "logical_stream_sha256": "472327a89357f79629e4a655ecd75803ab691ab42c31103721e13a16052e60af",
+          "neutral_end_semantics": [
+            "blind",
+            0.01173,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 26,
+          "rollback_owner_ids": [
+            25,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 365582768,
+            "f154": 174734640,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 3221225792,
+            "f544": 1,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": [
+        25,
+        3
+      ],
+      "partition_present": true,
+      "sha256": "a45911685ed326a97138f5e53d07de922af0d2ac228df253028d7730e42e6206"
+    },
+    "SinglePlate": {
+      "actual_stock_input_untouched_output_ids": null,
+      "author_record_sha256": "9b4b1f3da116761ff27781fedaabc64e89c88bd385868085f4f5204c9686d330",
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "SinglePlate.SLDPRT",
+      "file_reads": [
+        "SinglePlate.SLDPRT"
+      ],
+      "mode": "source",
+      "native_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8",
+      "owned_height_display": {
+        "centerline_route": true,
+        "driver": "D2",
+        "text_m": [
+          0.025,
+          3.0616169978683835e-19,
+          0.0001
+        ]
+      },
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 14639,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 12682,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            14619,
+            14639
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 34,
+          "logical_stream_sha256": "b8c732282cc35c017a067bd2b4c35b36fb275c626f2801a982ba7fb239f14188",
+          "neutral_end_semantics": [
+            "blind",
+            0.00837,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 26,
+          "rollback_owner_ids": [
+            25,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 365582768,
+            "f154": 174734640,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 3221225792,
+            "f544": 1,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": [
+        25,
+        3
+      ],
+      "partition_present": true,
+      "sha256": "afa4a7440b791ee90560e6fb0482994286c8de3a0bb66558a3259f00ee8ffa5e"
+    },
+    "TailPlate": {
+      "actual_stock_input_untouched_output_ids": null,
+      "author_record_sha256": "66306b78ae69ef6160d54f5f4fc76b0a41bfa9b976145cdad1b4727215de0b1f",
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "TailPlate.SLDPRT",
+      "file_reads": [
+        "TailPlate.SLDPRT"
+      ],
+      "mode": "source",
+      "native_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8",
+      "owned_height_display": {
+        "centerline_route": true,
+        "driver": "D2",
+        "text_m": [
+          0.025,
+          3.0616169978683835e-19,
+          0.0001
+        ]
+      },
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 14633,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 12676,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            14613,
+            14633
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 34,
+          "logical_stream_sha256": "e0daf0cf32503f93b328de46dfc9849df9ee03123391132d7afd72c84f479d05",
+          "neutral_end_semantics": [
+            "blind",
+            0.00589,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 26,
+          "rollback_owner_ids": [
+            19,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 365582768,
+            "f154": 174734640,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 3221225792,
+            "f544": 1,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": [
+        19,
+        3
+      ],
+      "partition_present": true,
+      "sha256": "332d072b69598bbdd9de29631046d5e700f1c17b417a598062f3cb48bb4501c9"
+    },
+    "cold": {
+      "actual_stock_input_untouched_output_ids": null,
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "SdkNestedPlate.SLDPRT",
+      "file_reads": [
+        "SdkNestedPlate.SLDPRT"
+      ],
+      "mode": "cold",
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 13855,
+            "field_span": false,
+            "object_index": 167,
+            "offset": 7111,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            13835,
+            13855
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 19,
+          "logical_stream_sha256": "88409bf56d2f46e9e03247cf767202abde4009cfb572c10475d9a711798d5d8b",
+          "neutral_end_semantics": [
+            "blind",
+            0.00745,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 18,
+          "rollback_owner_ids": [
+            null,
+            null
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 0,
+            "f154": 0,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 1073742144,
+            "f544": 0,
+            "has_f3d0": 0,
+            "has_f528": 0,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            0,
+            0
+          ]
+        }
+      ],
+      "partition_marks": null,
+      "partition_present": false,
+      "sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39"
+    },
+    "generated_native_save": {
+      "actual_stock_input_untouched_output_ids": null,
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "SdkNestedPlate.SLDPRT",
+      "file_reads": [
+        "SdkNestedPlate.SLDPRT"
+      ],
+      "mode": "generated_native_save",
+      "native_result_sha256": "bcc4e421981553c488cf4638e50342ae74c65544f60cee265493fd464eb016e8",
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 15709,
+            "field_span": false,
+            "object_index": 248,
+            "offset": 8807,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            15689,
+            15709
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 19,
+          "logical_stream_sha256": "d4b44f6ed003bcd51dfd5255da2ca91c7d78e88f2b4f82932898a0605374e247",
+          "neutral_end_semantics": [
+            "blind",
+            0.011375,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 18,
+          "rollback_owner_ids": [
+            16,
+            2
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 0,
+            "f154": 0,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 3221225792,
+            "f544": 0,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": [
+        16,
+        2
+      ],
+      "partition_present": true,
+      "sha256": "cdf3a25eae116603b9681c7c3e1ec3d976272412bdd79d4d1c273f60e66bf96d"
+    },
+    "ladder": {
+      "actual_stock_input_untouched_output_ids": null,
+      "body_count": 1,
+      "denied_operations": [],
+      "file": "L1_boss.SLDPRT",
+      "file_reads": [
+        "L1_boss.SLDPRT"
+      ],
+      "mode": "ladder",
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 14391,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 12434,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            14371,
+            14391
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 34,
+          "logical_stream_sha256": "33a190c0632c1cfb61a493671d5811c9ea3e9f81a4233adf801d28a8780af525",
+          "neutral_end_semantics": [
+            "blind",
+            0.01,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 26,
+          "rollback_owner_ids": [
+            7,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 365582768,
+            "f154": 174734640,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 1073742144,
+            "f544": 1,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": [
+        7,
+        3
+      ],
+      "partition_present": true,
+      "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    "selected": {
+      "actual_stock_input_untouched_output_ids": [
+        101,
+        102,
+        103
+      ],
+      "body_count": 2,
+      "denied_operations": [],
+      "file": "ThroughMultiStock.SLDPRT",
+      "file_reads": [
+        "ThroughMultiStock.SLDPRT"
+      ],
+      "mode": "selected",
+      "owners": [
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 12325,
+            "field_span": false,
+            "object_index": 269,
+            "offset": 10297,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            12305,
+            12325
+          ],
+          "feature_class": "moExtrusion_c",
+          "feature_id": 32,
+          "logical_stream_sha256": "9e3a00f6d773dc6902a6ebdf334690d3bd42278051d3eca1c0ef0b4a8af53e92",
+          "neutral_end_semantics": [
+            "blind",
+            0.012,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 26,
+          "rollback_owner_ids": [
+            16,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 291619072,
+            "f154": 152023456,
+            "f158": 0
+          },
+          "scope_and_archival_owners": {
+            "f28": 1073742144,
+            "f544": 0,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 0,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        },
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 18046,
+            "field_span": false,
+            "object_index": 343,
+            "offset": 16177,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            18026,
+            18046
+          ],
+          "feature_class": "moICE_c",
+          "feature_id": 40,
+          "logical_stream_sha256": "9e3a00f6d773dc6902a6ebdf334690d3bd42278051d3eca1c0ef0b4a8af53e92",
+          "neutral_end_semantics": [
+            "blind",
+            0.01,
+            false,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 33,
+          "rollback_owner_ids": [
+            18,
+            3
+          ],
+          "saved_words": {
+            "f148": 1227160000,
+            "f14c": -2130303869,
+            "f150": 0,
+            "f154": 1754715840,
+            "f158": 1
+          },
+          "scope_and_archival_owners": {
+            "f28": 1073742144,
+            "f544": 0,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 0,
+            "has_f548": 0
+          },
+          "solid_merge": 0,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        },
+        {
+          "end_node": {
+            "class": "moEndSpec_c",
+            "end": 20609,
+            "field_span": false,
+            "object_index": 406,
+            "offset": 20479,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "end_tail_interval": [
+            20589,
+            20609
+          ],
+          "feature_class": "moICE_c",
+          "feature_id": 47,
+          "logical_stream_sha256": "9e3a00f6d773dc6902a6ebdf334690d3bd42278051d3eca1c0ef0b4a8af53e92",
+          "neutral_end_semantics": [
+            "through_all",
+            null,
+            true,
+            null
+          ],
+          "plain_sketch_start": true,
+          "profile_id": 41,
+          "rollback_owner_ids": [
+            21,
+            3
+          ],
+          "saved_words": {
+            "f148": 0,
+            "f14c": 0,
+            "f150": 0,
+            "f154": 0,
+            "f158": 1754710080
+          },
+          "scope_and_archival_owners": {
+            "f28": 1073873354,
+            "f544": 1,
+            "has_f3d0": 1,
+            "has_f528": 1,
+            "has_f530": 1,
+            "has_f548": 1
+          },
+          "solid_merge": 1,
+          "surface_array_presence": [
+            1,
+            1
+          ]
+        }
+      ],
+      "partition_marks": null,
+      "partition_present": true,
+      "sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3"
+    }
+  },
+  "common_original_seed_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "complete_original_source_transfer": false,
+  "files_unchanged": true,
+  "generated_outputs": 0,
+  "guarded_fresh_source_readers": 11,
+  "heldout_inputs_opened": 0,
+  "native_processes_started": 0,
+  "native_static": {
+    "build": "SOLIDWORKS 2026 SP05.2 (34.5.2.0604)",
+    "copy_constructor": {
+      "f150": "source value",
+      "f154": 0
+    },
+    "direct_geometry_control_flow": {
+      "escaped_or_indirect_branch_count": 0,
+      "named_option_reads": [
+        "0x43cb9a0a",
+        "0x43cb9a46",
+        "0x43cb9a78",
+        "0x43cb9acd"
+      ],
+      "ordinary_instruction_count": 1106,
+      "ordinary_named_option_reads_reached": 0,
+      "unrestricted_instruction_count": 1233
+    },
+    "factory_constructor_neutral": {
+      "f150": 0,
+      "f154": 0
+    },
+    "geometry": {
+      "bytes": 10893912,
+      "file": "sldgcu.dll",
+      "image_base": "0x43740000",
+      "ranges": {
+        "gcEndSpec_c.getDelInitFace": {
+          "end_exclusive": "0x4376aaf7",
+          "sha256": "51d5a02a37d7350fe179fed72e5afeca6c12e016b0a8559d822f395d07ab17c1",
+          "start": "0x4376aaf0",
+          "unwind_range": false
+        },
+        "gcEndSpec_c.getKnitRes": {
+          "end_exclusive": "0x4375bd67",
+          "sha256": "c4ead592093c82fcaec09324e11beabd00c48b6e26ef7f17fbd1695949037ade",
+          "start": "0x4375bd60",
+          "unwind_range": false
+        },
+        "gcEndSpec_c.setDelInitFace": {
+          "end_exclusive": "0x4376c3e7",
+          "sha256": "67ad68965bbcdf9af61609a3147492fe838ca68c30a98f22b5b4fbe1bd52cd9f",
+          "start": "0x4376c3e0",
+          "unwind_range": false
+        },
+        "gcEndSpec_c.setKnitRes": {
+          "end_exclusive": "0x4376c457",
+          "sha256": "00872768c666abe96a8938ddc23e4f844db16c36f3883419a1aba5653105ac11",
+          "start": "0x4376c450",
+          "unwind_range": false
+        },
+        "gcEndSpec_c.setVerFlag": {
+          "end_exclusive": "0x43cc9c7f",
+          "sha256": "f9d3b4fc727ba9faa9126dbbe3522b67018df0f6bd568bf27941afe351759dc5",
+          "start": "0x43cc9c70",
+          "unwind_range": false
+        },
+        "geometry_extrusion": {
+          "end_exclusive": "0x43cba8a9",
+          "sha256": "5ebf8e21f75f666285d5a88fe2f2da754802c69ea180914453860db2591277de",
+          "start": "0x43cb9570",
+          "unwind_range": true
+        }
+      },
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    },
+    "model": {
+      "bytes": 46536280,
+      "file": "sldmodu.dll",
+      "image_base": "0x4b140000",
+      "ranges": {
+        "atom_feature_serializer": {
+          "end_exclusive": "0x4bb0cd82",
+          "sha256": "73fc5118ed366b226491bdfd3b064c5c1a8bff8f74456bdcce47449cc24b41c3",
+          "start": "0x4bb0b0c0",
+          "unwind_range": true
+        },
+        "copy_in_component": {
+          "end_exclusive": "0x4bad35b8",
+          "sha256": "0233fa3bdfa90c852a4ab1c77c63ed58da1bb56e6c54ce68b753a8ffb1a22b7d",
+          "start": "0x4bad2f20",
+          "unwind_range": true
+        },
+        "descriptor_factory": {
+          "end_exclusive": "0x4bb0224e",
+          "sha256": "4ac5a703b9a66859764f9c5c011173c30a7b839e7b40363a14f8927c34003f2c",
+          "start": "0x4bb02220",
+          "unwind_range": true
+        },
+        "end_spec_translation": {
+          "end_exclusive": "0x4badf01a",
+          "sha256": "7ce104388df456cb7d5bc7bc5a4490cc952a22334c91ae4b79a21d2ca89fb2f7",
+          "start": "0x4bade750",
+          "unwind_range": true
+        },
+        "factory_default": {
+          "end_exclusive": "0x4bad2f1c",
+          "sha256": "16d0a820136806160608075c94020697e463c82f372fe0a11a68873e365f15c5",
+          "start": "0x4bad2dc0",
+          "unwind_range": true
+        },
+        "moAtomFeature_c.getFeatureScope": {
+          "end_exclusive": "0x4b2867d7",
+          "sha256": "4409687402030af584e55010eef6d6b280cf6fc000f811f4f9459c7cc233451f",
+          "start": "0x4b2867d0",
+          "unwind_range": false
+        },
+        "moAtomFeature_c.setFeatureScope": {
+          "end_exclusive": "0x4b2924f7",
+          "sha256": "5ccfffec9c703dee68e43f6a86de826a1f7585eab6d8d907eddba5966fa6ba7a",
+          "start": "0x4b2924f0",
+          "unwind_range": false
+        },
+        "moEndSpec_c.getCreateSolidFrmCappedMidPlaneSurfExt": {
+          "end_exclusive": "0x4b2c61e7",
+          "sha256": "98240bc15d2c96e70c5b6abc527c07023c3f6d187246b63b38634a83c4dc1d44",
+          "start": "0x4b2c61e0",
+          "unwind_range": false
+        },
+        "moEndSpec_c.getDelInitFace": {
+          "end_exclusive": "0x4b2a30b7",
+          "sha256": "91ab21df330803d758c910e0be2419d3dbfd7041dd0fc14b4c31055e999cdceb",
+          "start": "0x4b2a30b0",
+          "unwind_range": false
+        },
+        "moEndSpec_c.getKnitRes": {
+          "end_exclusive": "0x4b30c847",
+          "sha256": "82dc7fc979614a02fcb9ffba1a1ccecb33488204e431892700f5d4e0fadb7d2d",
+          "start": "0x4b30c840",
+          "unwind_range": false
+        },
+        "moEndSpec_c.getMerge": {
+          "end_exclusive": "0x4b284c37",
+          "sha256": "e7b938e2aa1744fef75520ce7a615aec821cf0347a5dc2b2ddf73755ee7903ae",
+          "start": "0x4b284c30",
+          "unwind_range": false
+        },
+        "moEndSpec_c.setCreateSolidFrmCappedMidPlaneSurfExt": {
+          "end_exclusive": "0x4b2c67b7",
+          "sha256": "49a551234bdb284e1ba769f4830320b54894a182703514222ab7b8ff5192d2e7",
+          "start": "0x4b2c67b0",
+          "unwind_range": false
+        },
+        "moEndSpec_c.setDelInitFace": {
+          "end_exclusive": "0x4b30fa37",
+          "sha256": "fe2f342148215b4242a0135d365f0755ff977d38c7fb35da99313b65f2c538bd",
+          "start": "0x4b30fa30",
+          "unwind_range": false
+        },
+        "moEndSpec_c.setKnitRes": {
+          "end_exclusive": "0x4b30fc57",
+          "sha256": "2a5aa4f19367e67ad9a7a6b19fdbaf8620266791743efd4b1d7fcea2712d9aa4",
+          "start": "0x4b30fc50",
+          "unwind_range": false
+        },
+        "moEndSpec_c.setMerge": {
+          "end_exclusive": "0x4b2918c7",
+          "sha256": "800bdbd147aa9b82cd9563b633135a0362ffdaf6d5e6a6469120e0786be77ffe",
+          "start": "0x4b2918c0",
+          "unwind_range": false
+        },
+        "model_attached_default": {
+          "end_exclusive": "0x4bad37ab",
+          "sha256": "2381b4bc954966eb050b1df99deeb2fe46ef3f0db943aa498db4c22819a0e82b",
+          "start": "0x4bad35c0",
+          "unwind_range": true
+        },
+        "ordinary_extrusion_dispatch": {
+          "end_exclusive": "0x4baee3de",
+          "sha256": "cce4911e28b6468b5ec70b8d1de613c7206622cc899d70a510cb4bd95311b2ee",
+          "start": "0x4baedbc0",
+          "unwind_range": true
+        },
+        "ordinary_extrusion_thunk": {
+          "end_exclusive": "0x4baedb05",
+          "sha256": "d1bfbd69bdc6037791543016f1e7962bfa2d43190af15ee49ce3ca56841ad5b9",
+          "start": "0x4baedb00",
+          "unwind_range": false
+        },
+        "ordinary_geometry_flag_setup": {
+          "end_exclusive": "0x4baf90cc",
+          "sha256": "91ed42f3a411ec939e4f06018b0e3377b7db6ec833dc249bcf715f5c820d3e13",
+          "start": "0x4baf8ef0",
+          "unwind_range": true
+        },
+        "schema_one_serializer": {
+          "end_exclusive": "0x4bb11067",
+          "sha256": "2882e070d6591524c117ebd39879e49b07167a8cc4b250e9e0e33086b0f3d9aa",
+          "start": "0x4bb10250",
+          "unwind_range": true
+        },
+        "selected_scope_dispatch": {
+          "end_exclusive": "0x4b707317",
+          "sha256": "2781cb199fe88a53351db50ca3219048c4d47a3ffa74888e58314181be67f4a4",
+          "start": "0x4b706f00",
+          "unwind_range": true
+        }
+      },
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "model_attached_constructor_neutral": {
+      "f150": 0,
+      "f154": 0
+    },
+    "model_to_geometry": {
+      "f150": "DeleteOriginalFace at +0x11c",
+      "f154": "KnitResult at +0x120"
+    },
+    "native_processes_started": 0,
+    "ordinary_dispatch_supplies_zero_selectors": [
+      "+0x118",
+      "+0x130"
+    ],
+    "vendor_instruction_listings_retained": false
+  },
+  "prior_receipts_sha256": {
+    "DisclosedNestedAssemblyArchiveAudit01.json": "4f116aeb6b8d7234bf980390c2ee74086fbfbc0c76efc38f2cfd84183f12631b",
+    "EndConditionPreparation02.json": "0e7b04caf1ee567c33e852bc0ccea0a2560998305d26fd1bc28f729f0277de32",
+    "EndSourceProcessesA651.json": "cee8f7ddad586f8b8d632f7eb2956cf81691fd399df09979f3eb9d25f045783b",
+    "NestedAssemblyDisclosedReplayNative01.json": "4253a4ec506d58a421c631f8d9d8cb7a6ce7cba624d54f8e82ebc9814a6f2ae5",
+    "SdkNestedNeutralNative01.json": "aa786c6aa4bc7bdae15662c4b4908205b7a0fda7fdb5bb1bb503594a6b0fb967",
+    "SdkWarmNestedLeaf01.json": "350155bb14aa5db60ae2910837b5affbdda51186a86e932b0d96bdbb477a1ae4",
+    "ThroughAllMultiStockCache01.json": "c62c3bd6604a3916729ed474eade455906d790955ed86135e092a2b9a78f82f0",
+    "re/solidworks/v2026/corpus/ladder/Manifest.json": "7c84fd4ef75ecf5f8b0cf00fbc12e932aa7e7955ecb5bb414c22d309f9362e79"
+  },
+  "prior_tool_sha256": {
+    "re/tooling/sw2026/AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "re/tooling/sw2026/NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "re/tooling/sw2026/nested_publication/MeasureWarmNestedLeaf.py": "234bf42ea19712bc4f2ac978d98442aed4f52356f394cffd4ee1661a3aa94bfd",
+    "re/tooling/sw2026/nested_publication/WarmLeafBoundary.py": "415a0bbddf0029d235f21b5fe0e5a4cc7f2a053d0b9d5db53a442a3344654df2"
+  },
+  "reader_revision": "22f7e7d7649f2e4ea028e9b1dfdf51448868df24",
+  "schema": "kit.sw2026.warm-saved-end-words.v1",
+  "source_tree": "c56041deca7810851b85dca00e27a266eabf5cf2",
+  "tool_runtime": {
+    "capstone": "5.0.9",
+    "pefile": "2024.8.26",
+    "python": "3.14.7"
+  },
+  "tool_sha256": {
+    "MeasureSavedEndWords.py": "5fcca5ac4f1974bcd91601a14c9e52863c38ec011a931697f6f6a4a7a6656a8c",
+    "TraceSavedEndWords.py": "f3509bd3e62783445c29d65b9cc017f67b8d878ac7ae3546ef46bb943bb4d277"
+  }
+}
