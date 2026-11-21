@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from math import dist as Distance
+from math import dist as Distance, pi as CirclePi
 
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Graph.GraphChecks import (
@@ -45,6 +45,7 @@ def ReadRectDims(
     Anchor: NativeNode,
     Reverse: bool = False,
     YzDatum: bool = False,
+    AllowTaper: bool = False,
 ) -> tuple[tuple[NativeNode, ...], tuple[NativeNode, ...], tuple[SketchRelation, ...]]:
     SketchBindings = LinkedNodes(Graph, Context.SketchFeature, "dcParameters")
     if len(SketchBindings) != 2:
@@ -61,7 +62,14 @@ def ReadRectDims(
         )
     Params = tuple(
         CheckRectBind(
-            Graph, Binding, Owner, Table, DcNodes, SlotValue, Reverse and SlotValue == 3
+            Graph,
+            Binding,
+            Owner,
+            Table,
+            DcNodes,
+            SlotValue,
+            Reverse and SlotValue == 3,
+            AllowTaper,
         )
         for SlotValue, (Binding, Owner) in enumerate(
             zip(Bindings, Owners, strict=True), start=1
@@ -99,6 +107,7 @@ def CheckRectBind(
     DcNodes: NativeNode,
     SlotValue: int,
     Reverse: bool = False,
+    AllowTaper: bool = False,
 ) -> NativeNode:
     Param = ResolveField(Graph, Binding, "parameter", "Parameter")
     Update = ResolveField(Graph, Binding, "rDynamicUpdateData", "DynamicUpdateData")
@@ -141,11 +150,13 @@ def CheckRectBind(
     EmptyFields(Update, ("bodies", "predecessors"))
     Amount = NumberValue(Param.Fields["value"])
     if Amount != NumberValue(Binding.Fields["value"]) or (
-        Amount != 0.0
+        (not -CirclePi / 2 < Amount < CirclePi / 2 if AllowTaper else Amount != 0.0)
         if SlotValue == 4
         else (Amount >= 0.0 if Reverse else Amount <= 0.0)
     ):
-        raise ValueError("Native rectangle saved driver values or zero taper disagree")
+        raise ValueError(
+            "Native rectangle saved driver values or taper bounds disagree"
+        )
     return Param
 
 
@@ -265,9 +276,7 @@ def CheckDimCache(
         or SeriesItems(Fields["RefPositions"]) != (0.0, 1.0)
         or Extension[1 - AxisValue] != 0.0
         or Extension[2] != 0.0
-        or (
-            Extension != Start if YzDatum else not 0.0 <= Extension[AxisValue] <= Amount
-        )
+        or (YzDatum and Extension != Start)
     ):
         raise ValueError(
             "Native rectangle dimension has inconsistent literal or annotation placement"

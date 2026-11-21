@@ -70,7 +70,7 @@ def Entity(app, math_utility, item, owners):
             raise ValueError("native partial arc requires sweep and orientation measurement")
         raise ValueError(f"native sketch segment type {kind} requires a geometry collector")
     fixed = origin or any(int(relation.GetRelationType()) == 17 and not relation.Suppressed for relation in Bounded(item.GetRelations(), "point relations", 1024))
-    if origin and (int(item.Type) != 8 or any(abs(value) > 1e-12 for value in local)):
+    if origin and (int(item.Type) not in (1, 8) or any(abs(value) > 1e-12 for value in local)):
         raise ValueError("document origin reference is not the native zero origin point")
     return {"kind": "point", "owner": name, "geometry": {"point_mm": [value * 1000 for value in local] if origin else World(math_utility, inverse, local)}, "construction": origin, "fixed": origin or fixed}
 
@@ -179,7 +179,8 @@ def Extrude(document, feature, owners, sketch_rows):
         ref2 = VARIANT(pythoncom.VT_BYREF | pythoncom.VT_DISPATCH, None)
         type1 = VARIANT(pythoncom.VT_BYREF | pythoncom.VT_I4, 0)
         type2 = VARIANT(pythoncom.VT_BYREF | pythoncom.VT_I4, 0)
-        if int(definition.GetDirectionReference(ref1, type1, ref2, type2)):
+        reference_count = int(definition.GetDirectionReference(ref1, type1, ref2, type2))
+        if reference_count not in (-1, 0) or ref1.value is not None or ref2.value is not None or type1.value not in (-1, 0) or type2.value not in (-1, 0):
             raise ValueError("native extrusion has an authored direction reference")
         end = {0: "blind", 1: "through_all"}.get(int(definition.GetEndCondition(True)))
         if end is None:

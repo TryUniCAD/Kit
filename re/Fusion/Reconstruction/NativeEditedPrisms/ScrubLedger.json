@@ -1,0 +1,22 @@
+{
+  "reason": "Fusion copies uninitialized heap bytes with account identifiers, home paths and cloud ids into saved archives, so these fixtures were rewritten with same-length placeholders before publication. Protein AssetData property stores are a 16-byte header followed by 136-byte blocks, and each block's 8-byte header records how many of its 128 capacity bytes are used; the truncated-key rule reads only the unused capacity after those bytes, and the bare-value rule accepts a value only when its quote, colon and quote begin exactly where that unused capacity begins. In AssetData members that are not block stores, the truncated-key rule reads the whole member and the bare-value rule is off. The placeholders list holds every placeholder already written, and values inside those placeholders are left unchanged, so a second run makes no replacement.",
+  "files": [
+    {
+      "path": "re/Fusion/Reconstruction/NativeEditedPrisms/AnglePositive.f3d",
+      "fusionSavedSha256": "78cfd4d5aa11cdab183741e99ceeb14f894eeb0b01e78f33e5c52fb0962fe050",
+      "committedSha256": "fd11724ddd00dc152cb2961f554e21aecbf04a22f7a70ce2dec047da052510d5",
+      "counts": {
+        "account": 1,
+        "partial": 0,
+        "bare": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    }
+  ],
+  "placeholders": [
+    "sllu204931"
+  ]
+}

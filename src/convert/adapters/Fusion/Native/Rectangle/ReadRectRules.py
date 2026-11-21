@@ -31,6 +31,7 @@ def ReadRectRules(
     Context: ExtrudeContext,
     Reverse: bool = False,
     YzDatum: bool = False,
+    AllowTaper: bool = False,
 ) -> RectSketchProof | None:
     Geometric = Graph.ByClass("SketchGeomConstraint")
     Linear = Graph.ByClass("FusionSketchLinearDim")
@@ -57,7 +58,7 @@ def ReadRectRules(
     AnchorRule, Anchor, Origin = ReadRectAnchor(Graph, Context, Rules, Lines)
     AxisRules = ReadRectAxes(Graph, Context, Rules, AnchorRule, Lines)
     Bindings, Params, SizeRules = ReadRectDims(
-        Graph, Context, Dimensions, Lines, Anchor, Reverse, YzDatum
+        Graph, Context, Dimensions, Lines, Anchor, Reverse, YzDatum, AllowTaper
     )
     AnchorRelation = SketchRelation(
         AnchorRule.Identity,

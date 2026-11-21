@@ -1,3 +1,5 @@
+from math import hypot as Hypot
+
 from convert.Geometry.Revolve.SweepVector import CrossVector
 from interchange.brep.Curves.BrepCurves import LineCurve
 from interchange.brep.Surfaces.BrepSurfaces import PlaneSurface
@@ -42,10 +44,14 @@ def BuildPrismFaces(
     ]
     for Index, Curve in enumerate(Curves[:Count]):
         Following = (Index + 1) % Count
+        Normal = CrossVector(Curve.direction, Curves[2 * Count + Index].direction)
+        Length = Hypot(Normal.x, Normal.y, Normal.z)
+        if Length == 0:
+            raise ValueError("Extrude prism wall has a degenerate normal")
         Specs.append(
             (
                 Curve.origin,
-                CrossVector(Curve.direction, AxisZ),
+                SpaceVector(Normal.x / Length, Normal.y / Length, Normal.z / Length),
                 Curve.direction,
                 (
                     (Index, False),

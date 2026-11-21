@@ -12,7 +12,10 @@ from convert.Formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.Validation.Che
 
 # invalid snapshot input must fail here so supporting records retain their owning document relationships
 def CheckSnapshot(Value: PrismSnapshot) -> None:
-    if Value.Header != BrepHeader(23200, 4, 2, 10.0, 1e-6, 1e-10):
+    if Value.Header not in (
+        BrepHeader(23200, 4, 2, 10.0, 1e-6, 1e-10, 4),
+        BrepHeader(23200, 4, 2, 10.0, 1e-6, 1e-10, 8),
+    ):
         raise ValueError("Unsupported cuboid snapshot header")
     CheckPrismFrame(Value.Model, Value.Frame)
     TagValues = Value.TagSet

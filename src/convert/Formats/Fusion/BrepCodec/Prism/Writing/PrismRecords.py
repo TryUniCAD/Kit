@@ -3,6 +3,8 @@ from dataclasses import replace as ReplaceValue
 from convert.Formats.Fusion.BrepCodec.Models.BodyIdentity import BodyIdentity
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismFrame import PrismFrame
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismTags import PrismTags
+from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismIds import PrismIds
+from convert.Formats.Fusion.BrepCodec.Prism.Writing.ApplyPrismIds import ApplyPrismIds
 from convert.Formats.Fusion.BrepCodec.Prism.PrismLayout import (
     KFirstAttribute,
     KFirstFaceTag,
@@ -31,7 +33,10 @@ from convert.Formats.Fusion.GeometryCodec.Prism.PrismPoints import BuildPoints
 
 # the prism records contract needs a shared interpretation so profile topology remains connected to its extrusion history
 def PrismRecords(
-    Identity: BodyIdentity, TagSet: PrismTags, Frame: PrismFrame
+    Identity: BodyIdentity,
+    TagSet: PrismTags,
+    Frame: PrismFrame,
+    Tracking: PrismIds | None = None,
 ) -> tuple[GeometryRecord, ...]:
     Records = list(
         (
@@ -46,6 +51,7 @@ def PrismRecords(
             *BuildPoints(Frame.CornersCm),
         )
     )
+    Records = list(ApplyPrismIds(tuple(Records), Tracking or PrismIds()))
     BodyValue, Shell = Records[1], Records[3]
     Records[1] = ReplaceValue(
         BodyValue, Fields=(BodyValue.Fields[0], Identity.BodyKey, *BodyValue.Fields[2:])
