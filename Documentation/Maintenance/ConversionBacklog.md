@@ -241,6 +241,17 @@ and queue evidence. Complete section bodies, broader context and public
 configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigSections.md)
 
+### B04-SW2026-CONFIG-SECTION-EMISSION
+
+The PR #121 takeover team owns the bounded writer actions on
+`codex/solidworks-config-section-emission` for separate main delivery.
+They depend on the accepted section reader, standalone header selection
+and shared typed body writer. Exit requires the two authored sibling
+frames, exact pinned ghost payload comparisons, guarded refusals and
+current revision review and queue evidence. Full Config-0 generation
+and native admission have separate exits.
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigSectionEmission.md)
+
 ### B04-SW2026-CONFIG-HEADER-LINK
 
 The PR #121 takeover team owns the bounded part header handoff on
