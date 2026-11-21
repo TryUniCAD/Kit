@@ -25,6 +25,10 @@ from InferenceGrid.BuilderDevelopment.Generation.ProgramSchema import (
     ProgramSchema,
     ValidateProgram,
 )
+from InferenceGrid.BuilderDevelopment.Generation.GenerationPaths import (
+    ArtifactHash,
+    OwnedPath,
+)
 from InferenceGrid.BuilderDevelopment.Generation.ProviderTransport import (
     CallCli,
     CallOllama,
@@ -41,6 +45,8 @@ def FailureClass(Error):
         "model_budget_exhausted",
         "model_token_budget_exhausted",
         "model_usage_unknown",
+        "provider_cleanup_failed",
+        "provider_output_limit",
     ):
         if Message.startswith(Prefix):
             return Prefix
@@ -72,10 +78,9 @@ def GenerateCandidate(Packet, Options, Directory, Budget):
         ProviderExecutable(Options)
         CleanPacket, PacketPin = GenerationPacket(Packet)
         Prompt = BuildPrompt(CleanPacket)
-        Target = Path(Directory).resolve()
-        if Target.is_symlink():
-            raise ValueError("generation attempt directory must not be a symlink")
-        Target.mkdir(parents=True, exist_ok=True)
+        Target = OwnedPath(Directory, Budget["run_root"])
+        Target.mkdir(mode=0o700, parents=True, exist_ok=True)
+        Target = OwnedPath(Directory, Budget["run_root"])
         if any(Target.iterdir()):
             raise ValueError("generation requires a fresh private attempt directory")
         Schema = ProgramSchema()
@@ -155,15 +160,17 @@ def GenerateCandidate(Packet, Options, Directory, Budget):
     Result["elapsed_seconds"] = monotonic() - Started
     Result["artifact_paths"] = Artifacts
     if Reservation is not None:
-        Target = Path(Directory).resolve()
-        for Name in ("Provider.jsonl", "Response.json"):
-            FilePath = Target / Name
-            if FilePath.is_file() and not FilePath.is_symlink():
-                Raw = FilePath.read_bytes()
-                Artifacts[Name] = {
-                    "path": str(FilePath),
-                    "sha256": sha256(Raw).hexdigest(),
-                    "size_bytes": len(Raw),
-                }
-        WriteArtifact(Target / "Generation.json", Result)
+        try:
+            Target = OwnedPath(Directory, Budget["run_root"])
+            for Name in ("Provider.jsonl", "Response.json", "ProviderCapture.json"):
+                FilePath = OwnedPath(Target / Name, Budget["run_root"])
+                if FilePath.is_file():
+                    Artifacts[Name] = ArtifactHash(FilePath, Budget["run_root"])
+            WriteArtifact(Target / "Generation.json", Result)
+        except (OSError, ValueError) as Error:
+            Result.update(
+                status="blocked",
+                classification="generation_artifact_invalid",
+                reason=str(Error)[:2048],
+            )
     return Result

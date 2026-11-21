@@ -10,11 +10,13 @@ from json import dumps, loads
 from math import isfinite
 from pathlib import Path
 from shutil import which
-from subprocess import DEVNULL, run
 from time import monotonic
 
 from CodexAdvice.OllamaCall import post_local
 from CodexAdvice.ProviderEnv import provider_env
+from InferenceGrid.BuilderDevelopment.Generation.GenerationPacket import WriteArtifact
+from InferenceGrid.BuilderDevelopment.Generation.OwnedProviderProcess import RunProvider
+from InferenceGrid.BuilderDevelopment.Generation.GenerationPaths import OwnedPath
 
 
 # unavailable executables are a provider blocker rather than a generated builder defect
@@ -95,22 +97,13 @@ def CallCli(Options, Prompt, Schema, Directory, Reservation):
         else ClaudeCommand(Executable, Options, Schema)
     )
     RawPath = Directory / "Provider.jsonl"
-    with RawPath.open("xb") as Output:
-        Result = run(
-            Command,
-            input=Prompt,
-            encoding="utf-8",
-            cwd=Directory,
-            stdout=Output,
-            stderr=DEVNULL,
-            env=provider_env(Options),
-            timeout=Reservation["seconds"],
-            check=False,
-        )
-    if RawPath.stat().st_size > 4 * 1024 * 1024:
-        raise ValueError("provider_response_too_large")
+    Result = RunProvider(
+        Command, Directory, provider_env(Options), Reservation["seconds"]
+    )
+    WriteArtifact(Directory / "ProviderCapture.json", Result)
+    OwnedPath(RawPath, Reservation["run_root"])
     Events = []
-    for Line in RawPath.read_text(encoding="utf-8").splitlines():
+    for Line in RawPath.read_text(encoding="utf-8", errors="replace").splitlines():
         try:
             Event = loads(Line)
         except ValueError:
@@ -118,10 +111,17 @@ def CallCli(Options, Prompt, Schema, Directory, Reservation):
         if isinstance(Event, dict):
             Events.append(Event)
     Usage = ReadUsage(Options.provider, Events)
-    if Result.returncode:
+    if Result["stop_reason"] is not None:
+        return {
+            "status": Result["stop_reason"],
+            "exit_code": Result["returncode"],
+            "usage": Usage,
+            "command": Command,
+        }
+    if Result["returncode"]:
         return {
             "status": "provider_failed",
-            "exit_code": Result.returncode,
+            "exit_code": Result["returncode"],
             "usage": Usage,
             "command": Command,
         }
@@ -137,11 +137,11 @@ def CallCli(Options, Prompt, Schema, Directory, Reservation):
                 "command": Command,
             }
         Candidate = Response["structured_output"]
-        (Directory / "Response.json").write_text(
-            dumps(Candidate, indent=2) + "\n", encoding="utf-8"
-        )
+        ResponsePath = OwnedPath(Directory / "Response.json", Reservation["run_root"])
+        with ResponsePath.open("x", encoding="utf-8") as Output:
+            Output.write(dumps(Candidate, indent=2) + "\n")
     else:
-        ResponsePath = Directory / "Response.json"
+        ResponsePath = OwnedPath(Directory / "Response.json", Reservation["run_root"])
         if (
             ResponsePath.is_symlink()
             or not ResponsePath.is_file()
@@ -257,14 +257,17 @@ def CallOllama(Options, Prompt, Schema, Directory, Reservation):
         },
         Remaining,
     )
-    with (Directory / "Provider.jsonl").open("x", encoding="utf-8") as OutputFile:
+    with OwnedPath(Directory / "Provider.jsonl", Reservation["run_root"]).open(
+        "x", encoding="utf-8"
+    ) as OutputFile:
         OutputFile.write(dumps(Response, sort_keys=True) + "\n")
     if not isinstance(Response, dict) or Response.get("done") is not True:
         raise ValueError("provider did not complete local generation")
     Candidate = loads(Response["response"])
-    (Directory / "Response.json").write_text(
-        dumps(Candidate, indent=2) + "\n", encoding="utf-8"
-    )
+    with OwnedPath(Directory / "Response.json", Reservation["run_root"]).open(
+        "x", encoding="utf-8"
+    ) as OutputFile:
+        OutputFile.write(dumps(Candidate, indent=2) + "\n")
     Input, Output = Response.get("prompt_eval_count"), Response.get("eval_count")
     if any(type(Value) is not int or Value < 0 for Value in (Input, Output)):
         raise ValueError("local provider omitted token accounting")

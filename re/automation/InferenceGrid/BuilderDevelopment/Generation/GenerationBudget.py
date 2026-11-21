@@ -9,27 +9,38 @@
 from contextlib import contextmanager
 from json import dumps, loads
 from math import isfinite
-from os import O_CREAT, O_EXCL, O_WRONLY, close, open as OpenFile, replace
+from os import O_CREAT, O_RDWR, close, open as OpenFile, replace
 from pathlib import Path
+from sys import platform
 from time import time
 from uuid import uuid4
+
+from InferenceGrid.BuilderDevelopment.Generation.GenerationPaths import (
+    CheckComponents,
+    OwnedPath,
+)
 
 
 # a shared durable reservation prevents parallel or resumed jobs from spending the same call budget
 @contextmanager
 def BudgetLock(StatePath):
     LockPath = StatePath.with_name(StatePath.name + ".lock")
+    CheckComponents(LockPath)
+    Descriptor = OpenFile(LockPath, O_CREAT | O_RDWR, 0o600)
     try:
-        Descriptor = OpenFile(LockPath, O_CREAT | O_EXCL | O_WRONLY, 0o600)
-    except FileExistsError:
-        raise ValueError(
-            "model budget is locked by another or interrupted reservation"
-        ) from None
-    close(Descriptor)
-    try:
+        if platform == "win32":
+            import msvcrt
+
+            msvcrt.locking(Descriptor, msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+
+            fcntl.flock(Descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
         yield
+    except OSError as Error:
+        raise ValueError("model budget lock or state is unavailable") from Error
     finally:
-        LockPath.unlink()
+        close(Descriptor)
 
 
 # budget writes replace only the owned state snapshot rather than overwriting unknown temporary files
@@ -47,6 +58,8 @@ def SaveBudget(StatePath, State):
 def CheckLimits(Budget, Options):
     if not isinstance(Budget, dict) or Budget.get("authorized") is not True:
         raise ValueError("automatic builder generation is not authorized")
+    if not Budget.get("run_root"):
+        raise ValueError("model budget requires an explicit owned run_root")
     for Name in ("max_calls", "call_seconds", "max_seconds"):
         if type(Budget.get(Name)) is not int or not 1 <= Budget[Name] <= 86400:
             raise ValueError("model budget requires positive bounded " + Name)
@@ -79,12 +92,12 @@ def CheckLimits(Budget, Options):
 # started calls consume their reservation even if interruption hides final provider usage
 def ReserveCall(Budget, Options, Directory):
     CheckLimits(Budget, Options)
-    StatePath = Path(
-        Budget.get("state_path", Path(Directory).parent / "ModelBudget.json")
-    ).resolve()
-    StatePath.parent.mkdir(parents=True, exist_ok=True)
-    if StatePath.is_symlink():
-        raise ValueError("model budget state must not be a symlink")
+    StatePath = OwnedPath(
+        Budget.get("state_path", Path(Directory).parent / "ModelBudget.json"),
+        Budget["run_root"],
+    )
+    StatePath.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+    CheckComponents(StatePath)
     with BudgetLock(StatePath):
         State = (
             loads(StatePath.read_text())
@@ -135,6 +148,7 @@ def ReserveCall(Budget, Options, Directory):
     return {
         "id": CallId,
         "state_path": str(StatePath),
+        "run_root": str(OwnedPath(Budget["run_root"], Budget["run_root"])),
         "seconds": Seconds,
         "output_tokens": (
             None
@@ -154,7 +168,7 @@ def ReserveCall(Budget, Options, Directory):
 
 # final accounting preserves actual provider usage and records unknown costs without inventing a charge
 def FinishCall(Reservation, Status, Usage, Elapsed):
-    StatePath = Path(Reservation["state_path"])
+    StatePath = OwnedPath(Reservation["state_path"], Reservation["run_root"])
     with BudgetLock(StatePath):
         State = loads(StatePath.read_text())
         Matching = [Call for Call in State["calls"] if Call["id"] == Reservation["id"]]
