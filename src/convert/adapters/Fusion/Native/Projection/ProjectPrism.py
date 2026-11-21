@@ -61,6 +61,7 @@ def ProjectPrism(
     if NumberValue(Context.Taper.Fields["value"]) != 0 or (
         len(Model.Snapshots) == 1
         and isinstance(Model.Snapshots[0].Snapshot, GeometryState)
+        and Model.Snapshots[0].Snapshot.Header.RootCount == 5
         and Context.Plane.Fields["transform"] != KYzMatrix
         and NumberValue(Context.Along.Fields["value"]) > 0
     ):

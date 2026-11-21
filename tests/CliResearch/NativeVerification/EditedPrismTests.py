@@ -10,6 +10,10 @@ from convert.Formats.Fusion.DocumentCodec.EmitBodyPart import EmitBodyPart
 from convert.Formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.Formats.Fusion.DocumentCodec.ReadBodyPart import ReadBodyPart
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
+from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
+from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.GeometryState import (
+    GeometryState,
+)
 from tests.CliResearch.NativeVerification.RunComparison import RunComparison
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
@@ -70,6 +74,10 @@ def CheckSavedPrism(TmpPath: FilePath, CaseName: str) -> None:
     assert Report["scope"] == "offline_measurement_comparison"
     NativeModel = ReadDocument(SourceBytes)
     BodyValue = NativeModel.Bodies[0]
+    if CaseName == "Reset":
+        assert isinstance(BodyValue.History, PrismHistory)
+        assert isinstance(NativeModel.Snapshots[0].Snapshot, GeometryState)
+        assert NativeModel.Snapshots[0].Snapshot.Header.RootCount == 5
     Emitted = EmitBodyPart(BodyValue)
     assert Emitted.Payload.startswith(b"ASM BinaryFile4")
     assert ReadBodyPart(Emitted) == BodyValue

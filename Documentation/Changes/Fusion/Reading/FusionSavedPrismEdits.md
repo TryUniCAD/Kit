@@ -15,7 +15,7 @@ kit decode re/Fusion/Reconstruction/NativeEditedPrisms/DraftNegative.f3d --outpu
 
 `PrismHistory.Tracking` stores typed topology entity identities. `EmitPrismHist` accepts this optional tracking model. Document history and snapshot serialization preserve a stored four-byte header.
 
-Older neutral JSON without the new tracking field remains writable with empty topology tracking. Explicit saved identities remain intact. The document snapshot dispatcher validates supported prism headers through the prism serializer, including four-byte snapshots.
+Older neutral JSON without the new tracking field remains writable with empty topology tracking. A declarative compatibility registry supplies historical field defaults before strict schema validation; explicit saved identities retain precedence. The document snapshot dispatcher validates supported prism headers through the prism serializer, including four-byte snapshots. See [the legacy-state gotcha](../../../Gotchas/Conversion/Fusion/State/LegacyPrismTracking.md).
 
 ## Verification
 
