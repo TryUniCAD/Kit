@@ -9,6 +9,8 @@ from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
 from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
 from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
 from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
+from convert.adapters.freecad.Replay.ReplayReadScope import ReplayReadScope
+from interchange.document.Models.DocumentModel import CadDocument
 from tests.Research.Archives.FreeCadAliases.MakePadFixture import MakePadFixture
 from tests.Research.Archives.FreeCadAliases.MakePadParent import MakePadParent
 from tests.Research.Archives.FreeCadAliases.PreLinkCarrier import PreLinkCarrier
@@ -26,6 +28,7 @@ def CheckCachedPad(TmpPath: FilePath) -> None:
     Carried = AnnotateNative(PrepareChildren(Opened, PreLinkCarrier))
     Cache: KReplayReadCache = {}
     Calls: list[tuple[str, int]] = []
+    CacheHits: list[tuple[str, bool]] = []
 
     # native archive entry and depth distinguish parent decoding from a standalone retry
     def RecordRead(Frame: FrameType, Event: str, ArgValue: object) -> None:
@@ -33,6 +36,13 @@ def CheckCachedPad(TmpPath: FilePath) -> None:
             PathValue = CastValue(str, Frame.f_locals["SourcePath"])
             Depth = CastValue(int, Frame.f_locals["OuterDepth"])
             Calls.append((PathValue, Depth))
+        if (
+            Event == "return"
+            and Frame.f_code is ReplayReadScope.FindRead.__code__
+            and isinstance(ArgValue, CadDocument)
+        ):
+            ScopeValue = CastValue(ReplayReadScope, Frame.f_locals["self"])
+            CacheHits.append((ArgValue.source.path, ScopeValue.LegacyPadExpr))
 
     Previous = GetProfile()
     try:
@@ -41,4 +51,5 @@ def CheckCachedPad(TmpPath: FilePath) -> None:
     finally:
         SetProfile(Previous)
     assert Calls == [(str(Parent), 0), (str(Child), 1)] * 2
+    assert CacheHits == [(str(Child), True)]
     assert Prepared == Carried and Output == ParentBytes
