@@ -39,6 +39,8 @@ def TestAnnWire() -> None:
         "layer_reference",
         "part_reference",
         "header_reference",
+        "extended_first_null",
+        "extended_second_null",
         "new_class",
         "datum_owners",
         "indicator_owners",

@@ -1,24 +1,10 @@
 from types import MappingProxyType
 
-from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
-
-# common annotation formatting needs its original text and scalar owners
-KAnnHelpFields = (
-    NativeField("Scalar", "f68", "i32"),
-    NativeField("Scalar", "f6c", "i32"),
-    NativeField("Scalar", "f70", "i32"),
-    NativeField("Scalar", "f74", "i32"),
-    NativeField("Scalar", "f78", "u8"),
-    NativeField("Embed", "f08", "utCharFormat_c"),
-    NativeField("Scalar", "f7c", "u8"),
-    NativeField("Scalar", "f80", "i32"),
-    NativeField("Scalar", "f88", "f64"),
-    NativeField("Scalar", "f90", "i32"),
-    NativeField("Scalar", "f94", "u8"),
-    NativeField("Scalar", "f98", "i32"),
-    NativeField("Scalar", "fa0", "f64"),
-    NativeField("Scalar", "fa8", "i32"),
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.AnnHelperFields import (
+    KAnnHelperFields,
+    KAnnHelperType,
 )
+from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # tolerance helper framing owns the native frame rows and preceding formats
 KTolHeadFields = (
@@ -55,7 +41,7 @@ KTolTailFields = (
     NativeField("Scalar", "f110", "u8"),
     NativeField("Scalar", "f114", "u8"),
     NativeField("Embed", "fb0", "utCharFormat_c"),
-    NativeField("Embed", "f118", "moAnnotationDataHelper_c"),
+    NativeField("Embed", "f118", KAnnHelperType),
     NativeField("Scalar", "fa0", "u8"),
     NativeField("Scalar", "f44", "u8"),
     NativeField("Scalar", "f48", "u8"),
@@ -67,7 +53,7 @@ KTolTailFields = (
 # tolerance frames and character format helpers must keep their distinct embedded owners
 KTolHelperFields = MappingProxyType(
     {
-        "moAnnotationDataHelper_c": KAnnHelpFields,
+        **KAnnHelperFields,
         "moGTolDataHelper_c": (*KTolHeadFields, *KTolTailFields),
     }
 )

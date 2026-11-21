@@ -55,7 +55,10 @@ def ReadCfgAnn(
     )
     Cursor = BinaryReader(BufferValue)
     ReaderValue = GraphReader(
-        Cursor, MapsValue, PartialValue(ReadBodyMut, ContextValue)
+        Cursor,
+        MapsValue,
+        PartialValue(ReadBodyMut, ContextValue),
+        RequireCanonicalTags=True,
     )
     FieldsValue: dict[str, object] = {}
     FrameValue = ReadFrame(

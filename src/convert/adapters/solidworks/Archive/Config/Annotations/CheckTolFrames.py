@@ -1,12 +1,16 @@
 from collections.abc import Mapping
+from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 
 
 # inherited map references cannot acquire tolerance ownership through a null only profile
 def CheckTolFrames(FieldsValue: Mapping[str, object]) -> None:
-    RowsValue = FieldsValue.get("f08")
-    if not isinstance(RowsValue, list) or FieldsValue.get("n08") != len(RowsValue):
+    FrameRows = FieldsValue.get("f08")
+    if not isinstance(FrameRows, list):
+        raise BodyUnsupported("SOLIDWORKS tolerance helper requires frame rows")
+    RowsValue = CastValue(list[dict[str, dict[str, object]]], FrameRows)
+    if FieldsValue.get("n08") != len(RowsValue):
         raise BodyUnsupported(
             "SOLIDWORKS tolerance helper requires a nonnegative frame count"
         )
