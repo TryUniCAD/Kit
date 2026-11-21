@@ -126,6 +126,7 @@ from convert.adapters.freecad.Protocol import (
     SUPPORT_PLANE_TYPE_IDS as SupportPlaneTypeIds,
     XML_TRUE_VALUES as XmlTrueValues,
 )
+from convert.adapters.freecad.NativeParameters.BindPadExprMut import BindPadExprMut
 from convert.adapters.freecad.Replay.OuterState import OuterState as OuterState
 from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from convert.adapters.freecad.Replay.ReadNativeArc import ReadNativeArc
@@ -3886,6 +3887,8 @@ def DecodeNativeDoc(
         Parameters,
         Consumed,
     )
+    if not LegacyVisibility:
+        BindPadExprMut(FeatureObjects, Features, Sketches, Parameters)
     Bodies = BuildBodies(Native, FeatureIds, BodyIds, OwnerPayloads, Features)
     DecodedBrep = DecodedDocBrep(BrepPayloads, tuple(Bodies))
     AsmValue = ParseAsm(
