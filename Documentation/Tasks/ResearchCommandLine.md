@@ -73,7 +73,7 @@ The launcher reports that verification was not performed and returns status `4` 
 
 For SOLIDWORKS, use Windows with its licensed registered COM API and `pywin32` in Kit's Python environment.
 For Fusion, run `kit research --root /path/to/KitPr94 api enable fusion`.
-Enable KitVerify and **Run on Startup** in Fusion **Scripts and Add-Ins**, then close Fusion.
+Run KitVerify once and select **Run on Startup** in Fusion **Scripts and Add-Ins**, then close Fusion.
 Kit starts fresh verification sessions automatically.
 Close existing vendor sessions before verification.
 See [automatic native reader verification](../Changes/Research/Automation/AutomaticNativeReaderVerification.md) for checks, scope, and current limitations.

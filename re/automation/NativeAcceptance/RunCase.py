@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 import secrets
 import subprocess
 import sys
@@ -23,7 +24,7 @@ def RunCase(application, work, source, role, availability, configuration=None):
             ready = ReadJson(endpoint / "ready.json")
             if IsAlive(ready["pid"]):
                 return {"status": "unavailable", "error": "close Fusion before verification so Kit can launch a fresh owned API session"}
-            process = subprocess.Popen([availability["executable"]], stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=str(Path(availability["executable"]).parent))
+            process = subprocess.Popen([availability["executable"]], stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=str(Path(availability["executable"]).parent), env={**os.environ, "KIT_NATIVE_VERIFY_SESSION": nonce})
             request["pid"] = process.pid
             WriteJson(work / "request.json", request)
             while not (work / "response.json").is_file():

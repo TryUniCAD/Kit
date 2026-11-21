@@ -18,9 +18,12 @@ The verifier uses a new session and the existing exclusive oracle mutex.
 
 For Fusion, run `kit research --root CHECKOUT api enable fusion`.
 This installs the KitVerify add-in and records hashes for the selected checkout's verifier sources.
-In Fusion, enable KitVerify and **Run on Startup** under **Scripts and Add-Ins**.
+In Fusion, run KitVerify once and select **Run on Startup** under **Scripts and Add-Ins**.
 Close Fusion before you repeat the decoding command.
 Kit then launches a fresh local process for each measurement.
+Ordinary Fusion startup returns before loading the research checkout or starting a verification event or polling thread.
+Manual initialization records API readiness without starting the worker.
+Only a process launched by the verifier receives the session nonce needed to load and serve its matching request.
 An existing application session remains open and blocks verification.
 Enable the add-in again after changing verifier sources.
 
@@ -131,6 +134,7 @@ Catalogue process coverage inspects the persisted predecessor dependencies and n
 Serialized CLI coverage decodes the pinned P03 Fusion control and compares it with an independently authored observation fixture.
 It checks a complete comparison and rejects missing semantics, unsupported fields, wrong feature directions, wrong parameter bindings, wrong constraint operands, wrong topology counts, and wrong face planes.
 It also checks reordered observations and a coordinate perturbation across a spatial bucket boundary within the numeric tolerance.
+The P03 fixture has one boundary loop per face; the reorder case covers edge order within those loops and does not establish inner-loop reorder acceptance.
 The fixture is explicitly offline evidence and cannot establish licensed API acceptance.
 No local tests or licensed application acceptance were executed during implementation.
 Remote CI and live licensed SOLIDWORKS and Fusion measurements remain required.

@@ -22,7 +22,7 @@ def ApiStatus(application):
         return {"status": "available"}
     if application != "fusion":
         raise ValueError("unsupported native verification application")
-    action = "Run kit research --root CHECKOUT api enable fusion, enable KitVerify and Run on Startup in Fusion Scripts and Add-Ins, then close Fusion"
+    action = "Run kit research --root CHECKOUT api enable fusion, run KitVerify once and select Run on Startup in Fusion Scripts and Add-Ins, then close Fusion"
     try:
         directory(Endpoint())
         config = ReadJson(Endpoint() / "config.json")

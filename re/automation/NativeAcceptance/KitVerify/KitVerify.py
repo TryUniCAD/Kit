@@ -37,9 +37,10 @@ def Setup():
 
 
 class VerifyEvent(adsk.core.CustomEventHandler):
-    def __init__(self, endpoint):
+    def __init__(self, endpoint, nonce):
         super().__init__()
         self.endpoint = endpoint
+        self.nonce = nonce
         self.running = False
 
     def notify(self, args):
@@ -55,7 +56,7 @@ class VerifyEvent(adsk.core.CustomEventHandler):
             for path in sorted((self.endpoint / "jobs").glob("*/request.json")):
                 work = path.parent
                 request = ReadJson(path)
-                if request["pid"] != os.getpid() or time.time() >= request["deadline"] or (work / "response.json").exists() or (work / "cancel.json").exists():
+                if request["nonce"] != self.nonce or request["pid"] != os.getpid() or time.time() >= request["deadline"] or (work / "response.json").exists() or (work / "cancel.json").exists():
                     continue
                 if any(document.isModified or document.dataFile is not None for document in app.documents):
                     WriteJson(work / "response.json", {"status": "unavailable", "error": "fresh verification session contains user documents", "nonce": request["nonce"], "pid": os.getpid()})
@@ -72,11 +73,18 @@ class VerifyEvent(adsk.core.CustomEventHandler):
 
 
 def run(context):
+    nonce = os.environ.get("KIT_NATIVE_VERIFY_SESSION")
+    if nonce is not None and (len(nonce) != 48 or any(value not in "0123456789abcdef" for value in nonce)):
+        raise ValueError("invalid native verification session nonce")
+    if context.get("IsApplicationStartup", True) and nonce is None:
+        return
     endpoint = Setup()
+    if nonce is None:
+        return
     (endpoint / "jobs").mkdir(mode=0o700, exist_ok=True)
     app = adsk.core.Application.get()
     event = app.registerCustomEvent(_event)
-    handler = VerifyEvent(endpoint)
+    handler = VerifyEvent(endpoint, nonce)
     event.add(handler)
     _handlers.append(handler)
     _stop.clear()
@@ -89,6 +97,8 @@ def run(context):
 
 
 def stop(context):
+    if not _handlers:
+        return
     _stop.set()
     adsk.core.Application.get().unregisterCustomEvent(_event)
     _handlers.clear()

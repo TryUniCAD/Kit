@@ -38,7 +38,7 @@ def EnableFusion(root):
     }
     revision = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"], check=True, capture_output=True, text=True, timeout=15).stdout.strip()
     WriteJson(endpoint / "config.json", {"version": 1, "source_root": str(root), "source_revision": revision, "sources": sources})
-    return {"status": "enable_required", "addin": str(target), "action": "In Fusion Scripts and Add-Ins enable KitVerify and Run on Startup, then close Fusion and rerun the decoding command"}
+    return {"status": "enable_required", "addin": str(target), "action": "In Fusion Scripts and Add-Ins run KitVerify once, select Run on Startup, then close Fusion and rerun the decoding command"}
 
 
 def MainApi():
