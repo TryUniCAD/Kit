@@ -56,6 +56,7 @@ def binding_snapshot(data, label):
         "tree": snap["tree"], "plate": snap["plate_profile"], "seed": snap["seed_profile"],
         "plate_boss": snap["plate_boss"], "seed_boss": snap["seed_boss"],
         "direction": snap["datum"]["signed_normal"], "plane_origin": snap["datum"]["origin_m"],
+        "hinge_direction": snap["datum"]["hinge"]["unit"],
         "plane_feature": views["plane_feature_reference"]["hex"],
         "seed_feature": views["seeds"][0]["reference"]["hex"],
         "pattern_parents": views["parents"],

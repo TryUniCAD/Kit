@@ -14,12 +14,19 @@ TOOLING = "re/tooling/sw2026"
 LANE = TOOLING + "/linear_pattern"
 PRIOR_PACKET = "913426870bc64edb320e6a1508521c81da677a2ef4feef80b715c7859856c1bc"
 CONTROL = "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
-SPEC = "a55fd0df1898f3132f1c1eba173f7ff5b8a8e1d12159e5ae9d9e91af43586287"
+SPEC = "c1c36fba4a7029b7f2018c663e9f5c7fc6b037ad68c03ff19c01550a749b13ba"
 ORACLE = "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
 BUILD = "34.5.2.0604"
 PHASES = ("author", "pristine-reopen", "spacing-edit", "spacing-reopen")
 REVISION_FORMAT = r"[0-9a-f]{40}"
-PACKET_SCHEMA = "kit.sw2026.linear-pattern-envelope-packet.v1"
+PACKET_SCHEMA = "kit.sw2026.linear-pattern-envelope-packet.v2"
+PREVIOUS_SETUP = {
+    "trial": "LinearPatternEnvelope01",
+    "revision": "c3bf4919cf0f5e55defa83651724a8baf3a912f0",
+    "packet_sha256": "f38a850c96bf8c9b4c890453b4b8e5e26beb7ca19290d0f756d4c5390ee77d8b",
+    "result_sha256": "1332fa7d2293740ea844e2fd934085c3099849136a54e682444355576d5756b5",
+    "author_sha256": "cde5e3665938f1c30ece0a75f8d8370d7e1764ec0484f12f2cc6fa5f3e6f27f6",
+}
 OLD_TOOLS = (
     "AuthorBlindCutSources.py", "AuthorCurves.py", "AuthorLinearPatternSources.py",
     "InspectFresh.py", "LinearPatternAuthor.py", "LinearPatternSpecs.py", "OracleIdentity.py", "Swapp.py",
@@ -68,6 +75,24 @@ def executable_path(value):
     return path
 
 
+def verify_previous(root):
+    receipt = root / "DisclosedTrial"
+    result = json.loads(checked(receipt / "Result.json", PREVIOUS_SETUP["result_sha256"]))
+    author = json.loads(checked(receipt / "author" / "Record.json", PREVIOUS_SETUP["author_sha256"]))
+    require(result["cohort"] == "disclosed" and result["native_build"] == BUILD
+            and result["research_revision"] == PREVIOUS_SETUP["revision"]
+            and result["packet_sha256"] == PREVIOUS_SETUP["packet_sha256"]
+            and result["artifacts"] == [] and result["distinct_processes"] == 3
+            and not result["native_lifecycle_passed"] and result["controls"]["before"]["passed"]
+            and result["controls"]["after"]["passed"]
+            and result["phases"] == [{"phase": "author", "passed": False,
+                                      "sha256": PREVIOUS_SETUP["author_sha256"]}]
+            and author["first_failure"]["stage"] == "ArrayData"
+            and author["first_failure"]["error"] ==
+            "EvidenceFailure('authored oblique datum normal is outside its prospectively frozen two signs')",
+            "earlier disclosed setup receipt is not the exact no-save orientation failure")
+
+
 def expected_files():
     return {
         "Control.SLDPRT", "Spec.json",
@@ -83,6 +108,7 @@ def verify(packet, expected):
             and manifest["native_build"] == BUILD and manifest["oracle_sha256"] == ORACLE
             and manifest["source_control_sha256"] == CONTROL and manifest["spec_sha256"] == SPEC
             and manifest["prior_packet_sha256"] == PRIOR_PACKET
+            and manifest["previous_failed_setup"] == PREVIOUS_SETUP
             and re.fullmatch(REVISION_FORMAT, manifest["research_revision"])
             and manifest["phases"] == list(PHASES), "envelope packet protocol differs")
     rows = manifest["files"]
@@ -105,6 +131,7 @@ def prepare(prior, output, guest_root, guest_python):
     require(not output.is_relative_to(ROOT) and not output.is_relative_to(prior)
             and prior.name == "Packet" and prior.parent.name == "LinearPatternSourcePacket03",
             "require the actual disclosed packet and a disjoint fresh destination")
+    verify_previous(prior.parent.with_name(PREVIOUS_SETUP["trial"]))
     prior_rows = json.loads(checked(prior / "Packet.json", PRIOR_PACKET))["files"]
     prior_manifest = {row["path"]: row for row in prior_rows}
     files = {}
@@ -128,6 +155,7 @@ def prepare(prior, output, guest_root, guest_python):
     manifest = {"schema": PACKET_SCHEMA, "cohort": "disclosed", "native_build": BUILD,
                 "oracle_sha256": ORACLE, "research_revision": revision, "prior_packet_sha256": PRIOR_PACKET,
                 "source_control_sha256": CONTROL, "spec_sha256": SPEC, "phases": list(PHASES),
+                "previous_failed_setup": PREVIOUS_SETUP,
                 "guest_trial_root": str(guest_root), "files": [
                     {"path": name, "sha256": digest(data), "bytes": len(data)} for name, data in sorted(files.items())
                 ]}

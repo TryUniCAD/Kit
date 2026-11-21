@@ -30,11 +30,23 @@ class PatternEnvelopeAuthor(LinearPatternAuthor):
     def connect(self, model):
         self.model = self.datum_author.model = model
 
+    def observe_hinge(self, axis):
+        hinge = self.spec["hinge"]
+        result = self.datum_author.axis_geometry(axis)
+        self.datum_author.check_line("through origin hinge", result, hinge["axis_model"])
+        require(dist(result["unit"], hinge["axis_model"]) <= 1e-10,
+                "actual hinge direction differs from the frozen source recipe")
+        parents = self.datum_author.parents(axis)
+        require(len(parents) == len(hinge["selection"])
+                and {row["name"] for row in parents} == {row["name"] for row in hinge["selection"]},
+                "actual hinge no longer joins both selected datum planes")
+        return {**result, "parents": parents}
+
     def create_datum(self):
         hinge = self.spec["hinge"]
         direction = self.spec["direction_datum"]
         axis = self.datum_author.create_axis(hinge["name"], [row["name"] for row in hinge["selection"]])
-        self.datum_author.check_line("through origin hinge", self.datum_author.axis_geometry(axis), hinge["axis_model"])
+        self.observe_hinge(axis)
         self.datum_author.create_plane(
             direction["name"], [(row["name"], row["mark"]) for row in direction["selection"]],
             direction["arguments"],
@@ -46,6 +58,9 @@ class PatternEnvelopeAuthor(LinearPatternAuthor):
         direction = self.spec["direction_datum"]
         wanted = direction["required_signed_normal"]
         result = self.datum_author.plane_geometry(feature)
+        hinge = self.observe_hinge(self.datum_author.feature(self.spec["hinge"]["name"]))
+        self.rec.data["latest_datum_frame"] = {"plane": result, "hinge": hinge}
+        self.rec.flush()
         origin, normal = result["origin_m"], result["normal"]
         opposite = [-value for value in wanted]
         require(len(origin) == len(normal) == 3 and all(isfinite(value) for value in (*origin, *normal))
@@ -82,7 +97,7 @@ class PatternEnvelopeAuthor(LinearPatternAuthor):
         finally:
             self.get(definition, "ReleaseSelectionAccess")
         self.case["reverse"] = reverse
-        return {**result, "signed_normal": [-value for value in normal] if reverse else normal,
+        return {**result, "hinge": hinge, "signed_normal": [-value for value in normal] if reverse else normal,
                 "reverse": reverse, "constraints": constraints, "feature_reference": self.persistent(feature, "direction owner"),
                 "geometry_reference": self.persistent(plane, "direction geometry")}
 

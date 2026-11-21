@@ -6,7 +6,7 @@ import json
 PLATE = ((0.0, 0.0, 0.0), (0.120, 0.090, 0.00575))
 SEED = ((0.087, 0.034, 0.0), (0.098, 0.043, 0.01225))
 COMPONENT = 1 / sqrt(2)
-NORMAL = (COMPONENT, COMPONENT, 0.0)
+NORMAL = (COMPONENT, -COMPONENT, 0.0)
 SPACING_VALUES = (0.020, 0.036)
 PLANE_NAME = "EnvelopeDirection"
 AXIS_NAME = "EnvelopeHinge"
@@ -66,15 +66,15 @@ def specification():
     if not arms[0]["post_vs_pre_projected_distance_m"] == 0 or not arms[1]["post_vs_pre_projected_distance_m"] > 0.001:
         raise ValueError("envelope hypotheses are not separated")
     return {
-        "schema": "kit.sw2026.linear-pattern-envelope-disclosed-spec.v1",
+        "schema": "kit.sw2026.linear-pattern-envelope-disclosed-spec.v2",
         "scope": "disclosed source authoring and geometry prediction only",
         "build": "34.5.2.0604",
         "plate_box_m": PLATE, "seed_box_m": SEED,
         "hinge": {"name": AXIS_NAME, "selection": [{"name": "Right Plane", "mark": 0}, {"name": "Top Plane", "mark": 0}],
-                  "call": "IModelDoc2.InsertAxis2", "arguments": [True], "axis_model": [0, 0, 1]},
+                  "call": "IModelDoc2.InsertAxis2", "arguments": [True], "axis_model": [0, 0, -1]},
         "direction_datum": {"name": PLANE_NAME, "selection": [{"name": "Right Plane", "mark": 0}, {"name": AXIS_NAME, "mark": 1}],
                             "call": "IFeatureManager.InsertRefPlane", "arguments": [16, pi / 4, 4, 0.0, 0, 0.0],
-                            "documented_flip_mask_if_needed": 256, "origin_m": [0.0, 0.0, 0.0],
+                            "origin_m": [0.0, 0.0, 0.0],
                             "required_signed_normal": NORMAL},
         "pattern": {"definition_type": 6, "selection_marks": {"direction": 1, "seed": 4},
                     "direction_plane": PLANE_NAME, "single_direction": True, "feature_seed_name": "SeedBoss",
